@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    >
+
+<channel>
+    <title>Webmonkey</title>
+    <atom:link href="http://www.webmonkey.com/feed/" rel="self" type="application/rss+xml" />
+    <link>http://www.webmonkey.com</link>
+    <description>The Web Developer&#039;s Resource</description>
+    <lastBuildDate>Mon, 06 May 2013 17:29:19 +0000</lastBuildDate>
+    <language>en-US</language>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <generator>http://wordpress.org/?v=3.4.2</generator>    
+    <item>
+        <title>Internet Explorer 10 Doubles Its Desktop Market Share</title>
+        <link>http://www.webmonkey.com/2013/05/internet-explorer-10-doubles-market-share/</link>
+        <comments>http://www.webmonkey.com/2013/05/internet-explorer-10-doubles-market-share/#comments</comments>
+        <pubDate>Wed, 01 May 2013 16:05:39 +0000</pubDate>
+
+                <dc:creator>Scott Gilbertson</dc:creator>
+
+        <guid isPermaLink="false">http://www.webmonkey.com/?p=61774</guid>
+        		<category><![CDATA[Browsers]]></category>
+		<category><![CDATA[IE10]]></category>
+		<category><![CDATA[External]]></category>
+            <enclosure url="http://www.webmonkey.com/wp-content/uploads/2013/05/netmarketshare-200x100.jpg" type="image/jpeg" length="48000" />
+                    <description><![CDATA[<div class="rss_thumbnail"><img src="http://www.webmonkey.com/wp-content/uploads/2013/05/netmarketshare.jpg" alt="Internet Explorer 10 Doubles Its Desktop Market Share" /></div>That's great news for web developers, but sadly, according to NetMarketShare's browser stats, IE 10 use still trails behind the 12-year-old IE 6.]]></description>
+
+            <content:encoded><![CDATA[<p><!-- wpautop enabled --><div id="attachment_61775" class="wp-caption aligncenter" style="width: 590px"><a href="http://www.webmonkey.com/wp-content/uploads/2013/05/netmarketshare.jpg"><img src="http://www.webmonkey.com/wp-content/uploads/2013/05/netmarketshare.jpg" alt="" title="netmarketshare" width="580" height="199" class="size-full wp-image-61775" /></a><p class="wp-caption-text">NetMarketShare&#8217;s browser stats for April 2013. <em>Image: Screenshot/Webmonkey</em></p></div></p>
+<p>Microsoft&#8217;s Internet Explorer 10 saw a meteoric rise in market share last month, jumping from 2.93 percent in March to 6.22 percent in April, <a href="http://www.netmarketshare.com/browser-market-share.aspx?qprid=2&amp;qpcustomd=0">according to NetMarketShare</a>. </p>
+<p>Some of IE 10&#8242;s growth might be attributable to more Windows 8 machines coming online, but it also comes close on the heels of the <a href="http://www.webmonkey.com/2013/02/internet-explorer-10-arrives-on-windows-7/">release of Internet Explorer 10 for Windows 7</a>. </p>
+<p>As we noted in our review, <a href="http://www.webmonkey.com/2012/10/review-internet-explorer-10-bests-the-competition-on-windows-8-tablets/">IE 10 is a huge step forward</a> for Microsoft’s oft-maligned browser, bringing much better web standards support and considerable speed improvements over IE 9. And there&#8217;s plenty to like even on Windows 7 where Microsoft claims users should see a 20 percent increase in performance over IE 9, as well as better battery life on Windows 7 laptops.</p>
+<p>While web developers should be happy to see IE 10 gaining some ground given its vastly superior web standards support and speed compared to previous releases, looking at the bigger browser share picture is still disheartening. While IE 10 use may have doubled last month, it still trails IE 6 use worldwide. </p>
+<p>The most widely used version of IE on the web remains IE 8, which, while much better than IE 6, still has next to no support for modern web development tools like HTML5 and CSS 3. </p>
+<p>As always, <a href="http://www.webmonkey.com/2012/03/video-progressive-enhancement-2-0/">progressive enhancement</a> and feature-detection tools like <a href="http://modernizr.com/">Modernizr</a> are your friends when it comes to older versions of IE.</p>
+<div id='linker_widget' class='contextly-widget'></div>]]></content:encoded>
+            <wfw:commentRss>http://www.webmonkey.com/2013/05/internet-explorer-10-doubles-market-share/feed/</wfw:commentRss>
+        <slash:comments>2</slash:comments>
+
+        
+    </item>        
+    <item>
+        <title>The Very First Website Returns to the Web</title>
+        <link>http://www.webmonkey.com/2013/04/the-very-first-website-returns-to-the-web/</link>
+        <comments>http://www.webmonkey.com/2013/04/the-very-first-website-returns-to-the-web/#comments</comments>
+        <pubDate>Tue, 30 Apr 2013 13:09:54 +0000</pubDate>
+
+                <dc:creator>Scott Gilbertson</dc:creator>
+
+        <guid isPermaLink="false">http://www.webmonkey.com/?p=61742</guid>
+        		<category><![CDATA[HTML]]></category>
+		<category><![CDATA[Web Basics]]></category>
+		<category><![CDATA[history]]></category>
+		<category><![CDATA[External]]></category>
+            <enclosure url="http://www.webmonkey.com/wp-content/uploads/2013/04/WWW_logo_by_Robert_Cailliau_200_0-200x100.jpg" type="image/jpeg" length="48000" />
+                    <description><![CDATA[<div class="rss_thumbnail"><img src="http://www.webmonkey.com/wp-content/uploads/2013/04/WWW_logo_by_Robert_Cailliau_200_0.jpg" alt="The Very First Website Returns to the Web" /></div>CERN has resurrected the very first webpage that Tim Berners-Lee and the WWW team ever put online, offering a hands-on look at the proto-web.]]></description>
+
+            <content:encoded><![CDATA[<p><!-- wpautop enabled --><div id="attachment_61746" class="wp-caption alignleft" style="width: 230px"><a href="http://www.webmonkey.com/wp-content/uploads/2013/04/WWW_logo_by_Robert_Cailliau_200_0.jpg"><img src="http://www.webmonkey.com/wp-content/uploads/2013/04/WWW_logo_by_Robert_Cailliau_200_0.jpg" alt="" title="WWW_logo_by_Robert_Cailliau_200_0" width="220" height="167" class="size-full wp-image-61746" /></a><p class="wp-caption-text">Robert Cailliau&#8217;s original WWW logo. <em>Image: <a href="http://first-website.web.cern.ch/">CERN</a></em>.</p></div>
+<p>Twenty years ago today CERN <a href="https://cds.cern.ch/record/1164399">published a statement</a> that made the World Wide Web freely available to everyone. To celebrate that moment in history, CERN is bringing the very first website back to life at its original URL.</p>
+<p>If you&#8217;d like to see the very first webpage Tim Berners-Lee and the WWW team ever put online, point your browser to <a href="http://info.cern.ch/hypertext/WWW/TheProject.html">http://info.cern.ch/hypertext/WWW/TheProject.html</a>. </p>
+<p>For years now that URL has simply redirected to the root info.cern.ch site. But, because we all know <a href="http://www.w3.org/Provider/Style/URI.html">cool URIs don&#8217;t change</a>, CERN has brought it back to life. Well, sort of anyway. The site has been reconstructed from an archive hosted on the W3C site, so what you&#8217;re seeing is a 1992 copy of the first website. Sadly this is, thus far, the earliest copy anyone can find, though the team at CERN is hoping to turn up an older copy.</p>
+<p>Be sure to view the source of the first webpage. You&#8217;ll find quite a few things about early HTML that have long since changed &#8212; like the use of <code>&lt;HEADER&gt;</code> instead of <code>&lt;HEAD&gt;</code> or the complete absence of a root <code>&lt;HTML&gt;</code> tag. There&#8217;s also a trace of Berners-Lee&#8217;s <a href="http://www.w3.org/People/Berners-Lee/WorldWideWeb.html">famous NeXT machine</a> in the <code>&lt;NEXTID N="55"&gt;</code> tag.</p>
+<p>CERN has big plans for the original website, starting with bringing the rest of the pages back online. &#8220;Then we will look at the first web servers at CERN and see what assets from them we can preserve and share,&#8221; writes CERN&#8217;s Dan Noyes. &#8220;We will also sift through documentation and try to restore machine names and IP addresses to their original state.&#8221;</p>
+<p>In the mean time, have a look at the web&#8217;s <a href="http://info.cern.ch/hypertext/WWW/Bugs.html">original todo list</a> and read more about <a href="http://markboulton.co.uk/journal/firstwebsite">the project to restore the first website</a> over on Mark Boulton&#8217;s blog.</p>
+<div id='linker_widget' class='contextly-widget'></div>]]></content:encoded>
+            <wfw:commentRss>http://www.webmonkey.com/2013/04/the-very-first-website-returns-to-the-web/feed/</wfw:commentRss>
+        <slash:comments>0</slash:comments>
+
+        
+    </item>
+    <item>
+        <title>Chrome Extension Opens MS Office Docs in the Browser</title>
+        <link>http://www.webmonkey.com/2013/04/chrome-extension-opens-ms-office-docs-in-the-browser/</link>
+        <comments>http://www.webmonkey.com/2013/04/chrome-extension-opens-ms-office-docs-in-the-browser/#comments</comments>
+        <pubDate>Fri, 26 Apr 2013 17:01:49 +0000</pubDate>
+
+                <dc:creator>Scott Gilbertson</dc:creator>
+
+        <guid isPermaLink="false">http://www.webmonkey.com/?p=61729</guid>
+        		<category><![CDATA[Browsers]]></category>
+		<category><![CDATA[chrome]]></category>
+		<category><![CDATA[External]]></category>
+		<category><![CDATA[Promoted]]></category>
+            <enclosure url="http://www.webmonkey.com/wp-content/uploads/2013/04/chromeoffice-200x100.jpg" type="image/jpeg" length="48000" />
+                    <description><![CDATA[<div class="rss_thumbnail"><img src="http://www.webmonkey.com/wp-content/uploads/2013/04/chromeoffice.jpg" alt="Chrome Extension Opens MS Office Docs in the Browser" /></div>Google is porting its Microsoft Office Viewer from Chrome OS to Chrome on Mac and Windows, offering users an easy and more secure way to view office files -- right in the web browser. Unfortunately the Office Viewer for Google Chrome is still a bit rough around the edges.]]></description>
+
+            <content:encoded><![CDATA[<p><!-- wpautop enabled --><div id="attachment_61730" class="wp-caption aligncenter" style="width: 590px"><a href="http://www.webmonkey.com/wp-content/uploads/2013/04/chromeoffice.jpg"><img src="http://www.webmonkey.com/wp-content/uploads/2013/04/chromeoffice.jpg" alt="" title="chromeoffice" width="580" height="355" class="size-full wp-image-61730" /></a><p class="wp-caption-text">Viewing MS Office docs in Chrome. <em>Image: Screenshot/Webmonkey</em></p></div></p>
+<p>Google Chrome OS users have long enjoyed the ability to open Microsoft Office documents right in the web browser. Now Google is expanding its MS Office support to <a href="http://chrome.blogspot.co.uk/2013/04/a-speedy-more-secure-way-to-view.html">include Chrome on Windows and Mac</a> as well.</p>
+<p>The new <a href="https://chrome.google.com/webstore/detail/chrome-office-viewer-beta/gbkeegbaiigmenfmjfclcdgdpimamgkj?hl=en">Office Viewer beta</a> is an extension for Google Chrome. You&#8217;ll need to be using Chrome 27 or better (currently in the beta channel), but provided you&#8217;re willing to use the prerelease version, you can <a href="https://chrome.google.com/webstore/detail/chrome-office-viewer-beta/gbkeegbaiigmenfmjfclcdgdpimamgkj?hl=en">install the new Office Viewer</a> (also a beta release) from the Chrome Store.</p>
+<p>The new extension can open most Microsoft Office files including .doc, .docx, .xls, .xlsx, .ppt, .pptx. The interface is very similar to the existing PDF view in Chrome and comes from <a href="http://www.quickoffice.com/">QuickOffice</a>, which Google acquired last year.</p>
+<p>The main downside to the new plugin is that it&#8217;s definitely still a beta &#8212; very buggy and rough around the edges. In my testing two very simple spreadsheets simply didn&#8217;t open and selecting text in .docx Word documents was hit or miss; sometimes it worked, other times it was as if the document had been converted to an image. </p>
+<p>On the plus side your MS Office files open in a specialized sandbox which protects you from any malware and viruses lurking in the files.</p>
+<p>Still, there are enough rough edges that Chrome&#8217;s Office plugin isn&#8217;t ready for prime time. While it&#8217;s a necessity on Chrome OS, which has no Microsoft Office suite, everywhere else you&#8217;re probably better off using Google Drive to view files when you&#8217;re online (assuming you want to use Google services, Zoho Docs works well if you don&#8217;t), and Microsoft Office or Open/Libre Office when you&#8217;re not. </p>
+<div id='linker_widget' class='contextly-widget'></div>]]></content:encoded>
+            <wfw:commentRss>http://www.webmonkey.com/2013/04/chrome-extension-opens-ms-office-docs-in-the-browser/feed/</wfw:commentRss>
+        <slash:comments>0</slash:comments>
+    </item>
+    <item>
+        <title>Experimental CSS Shaders Bring Photoshop Filters to the Web</title>
+        <link>http://www.webmonkey.com/2013/04/experimental-css-shaders-bring-photoshop-filters-to-the-web/</link>
+        <comments>http://www.webmonkey.com/2013/04/experimental-css-shaders-bring-photoshop-filters-to-the-web/#comments</comments>
+        <pubDate>Thu, 25 Apr 2013 12:45:50 +0000</pubDate>
+
+                <dc:creator>Scott Gilbertson</dc:creator>
+
+        <guid isPermaLink="false">http://www.webmonkey.com/?p=61704</guid>
+        		<category><![CDATA[CSS]]></category>
+		<category><![CDATA[Web Standards]]></category>
+		<category><![CDATA[External]]></category>
+            <enclosure url="http://www.webmonkey.com/wp-content/uploads/2013/04/blendmodes-200x100.jpg" type="image/jpeg" length="48000" />
+                    <description><![CDATA[<div class="rss_thumbnail"><img src="http://www.webmonkey.com/wp-content/uploads/2013/04/blendmodes.jpg" alt="Experimental CSS Shaders Bring Photoshop Filters to the Web" /></div>Adobe wants the next Instagram to be a web app. The company is hard at work porting filters and effects from Photoshop to the web. The latest experimental builds of both Chrome and Safari add support for the company's proposed CSS fragment shaders -- think Photoshop blending modes like multiply or overlay right in your browser.]]></description>
+
+            <content:encoded><![CDATA[<p><!-- wpautop enabled -->
+<p><div id="attachment_61706" class="wp-caption aligncenter" style="width: 590px"><a href="http://www.webmonkey.com/wp-content/uploads/2013/04/blendmodes.jpg"><img src="http://www.webmonkey.com/wp-content/uploads/2013/04/blendmodes.jpg" alt="" title="blendmodes" width="580" height="400" class="size-full wp-image-61706" /></a><p class="wp-caption-text">Blend mode example in Chrome Canary. <em>Image: Screenshot/Webmonkey</em>.</p></div>Chrome&#8217;s experimental Canary channel and Safari&#8217;s WebKit nightly builds both <a href="http://blogs.adobe.com/webplatform/2013/04/23/all-blend-modes-for-css-fragment-shaders-have-landed/">now support all of the Photoshop-inspired blend modes</a> for CSS Shaders, part of Adobe&#8217;s effort to <a href="http://www.webmonkey.com/2012/09/adobes-css-shaders-now-an-official-web-standard/">bring Photoshop-style filter tools to the web</a>.</p>
+<p>To see the new blend modes in action, grab a copy of the <a href="https://www.google.com/intl/en/chrome/browser/canary.html">latest Chrome Canary</a> or <a href="http://nightly.webkit.org/">WebKit nightly builds</a>, enable the CSS Shaders option in <code>about:flags</code> and point your browser to Adobe&#8217;s <a href="http://codepen.io/adobe/pen/nygsD">sample code over on Codepen</a>. Previously, CSS Shaders <strike>required a special build of WebKit</strike> [<b>Update</b>: As Adobe's Alan Greenblatt points out in the comments, CSS shader support has been in Chrome stable since v25 (you still need to enable the flag). But if you want to play around with these new blend modes then you'll need Canary (or a WebKit nightly).]</p>
+<p>The new blend mode support is part of Adobe&#8217;s CSS Shaders proposal, which <a href="http://www.webmonkey.com/2012/09/adobes-css-shaders-now-an-official-web-standard/">recently became part of the W3C&#8217;s CSS Filter Effects specification</a>. There are two types of shaders in the spec, CSS fragment shaders, which provide features similar to what Photoshop&#8217;s blending modes offer, and CSS vertex shaders, which handle the 3D animation filters we&#8217;ve <a href="http://www.webmonkey.com/2011/10/adobe-proposes-new-standard-for-3d-effects-on-the-web/">showcased in the past</a>.</p>
+<p>The blending modes currently available include all the familiar options you&#8217;ll find in Adobe Photoshop, such as multiply, screen, overlay, luminosity and other photographer favorites.</p>
+<p>For more details and links to the corresponding specs, be sure to check out <a href="http://maxvujovic.blogspot.com/2013/04/all-blend-modes-for-css-custom-filters.html">this post</a> from Max Vujovic, who is working on the CSS Filters implementation in WebKit and Blink.</p>
+<p>As the CSS Filter Effects specification progresses through the standardization process (and stabilizes), hopefully other browsers will add support as well. </p>
+<div id='linker_widget' class='contextly-widget'></div>]]></content:encoded>
+            <wfw:commentRss>http://www.webmonkey.com/2013/04/experimental-css-shaders-bring-photoshop-filters-to-the-web/feed/</wfw:commentRss>
+        <slash:comments>0</slash:comments>
+
+        
+    </item>    
+    <item>
+        <title>Web&#8217;s Most Popular JavaScript Library Drops Support for Older Versions of IE</title>
+        <link>http://www.webmonkey.com/2013/04/webs-most-popular-javascript-library-drops-support-for-older-versions-of-ie/</link>
+        <comments>http://www.webmonkey.com/2013/04/webs-most-popular-javascript-library-drops-support-for-older-versions-of-ie/#comments</comments>
+        <pubDate>Mon, 22 Apr 2013 17:29:24 +0000</pubDate>
+
+                <dc:creator>Scott Gilbertson</dc:creator>
+
+        <guid isPermaLink="false">http://www.webmonkey.com/?p=61677</guid>
+        		<category><![CDATA[JavaScript]]></category>
+		<category><![CDATA[jQuery]]></category>
+		<category><![CDATA[Internal]]></category>
+		<category><![CDATA[External]]></category>
+            <enclosure url="http://www.webmonkey.com/wp-content/uploads/2013/04/ievoodoodoll-200x100.jpg" type="image/jpeg" length="48000" />
+                    <description><![CDATA[<div class="rss_thumbnail"><img src="http://www.webmonkey.com/wp-content/uploads/2013/04/ievoodoodoll.jpg" alt="Web&#8217;s Most Popular JavaScript Library Drops Support for Older Versions of IE" /></div>The jQuery framework has hit a huge milestone, version 2.0. This release may be most notable for what's not in it -- namely support for Internet Explorer 6, 7 and 8. If you're a jQuery fan, but you need to continue supporting old versions of IE, fear not, jQuery 1.9 will continue to be supported for some time to come.]]></description>
+
+            <content:encoded><![CDATA[<p><!-- wpautop enabled -->
+<p><div id="attachment_61682" class="wp-caption alignleft" style="width: 310px"><a href="http://www.webmonkey.com/wp-content/uploads/2013/04/ievoodoodoll.jpg"><img src="http://www.webmonkey.com/wp-content/uploads/2013/04/ievoodoodoll.jpg" alt="" title="ievoodoodoll" width="300" height="290" class="size-full wp-image-61682" /></a><p class="wp-caption-text">IE voodoo doll by <em><a href="https://secure.flickr.com/photos/volantra/3406410663/">Cheryl Brind</a>/Flickr</em>.</p></div>The popular jQuery JavaScript library has hit a major milestone with the <a href="http://blog.jquery.com/2013/04/18/jquery-2-0-released/">release of jQuery 2.0</a>. The 2.0 release is some 12 percent smaller than its predecessor, but the big news is that jQuery 2.0 drops support for Internet Explorer 6, 7 and 8.</p>
+<p>Created to simplify the process of writing JavaScript and manipulating HTML, jQuery began life a mere seven years ago, but quickly found favor with developers sick of dealing with cross-browser JavaScript hassles. According to one <a href="http://www.webmonkey.com/2012/08/survey-finds-jquery-library-running-on-half-of-all-websites/">survey published last year</a>, jQuery turns up on roughly half of all sites on the web.</p>
+<p>Will dropping support for older versions of IE change that? Probably not. If your site needs to maintain support for IE 8 and below (or even IE 9 and 10 running in compatibility mode) you&#8217;ll just need to stick with jQuery 1.9 or below. </p>
+<p>&#8220;jQuery 2.0 is intended for the modern web,&#8221; <a href="http://blog.jquery.com/2013/04/18/jquery-2-0-released/">writes</a> jQuery&#8217;s Dave Methvin on the Query Foundation website. &#8220;We&#8217;ve got jQuery 1.x to handle older browsers and fully expect to support it for several more years.&#8221;</p>
+<p>If you want the best of both worlds you can <a href="http://blog.jquery.com/2013/04/18/jquery-2-0-released/">use a conditional comment</a> to serve 2.0 to newer browsers and 1.9 to older ones, but the far easier way to go is sticking with jQuery 1.x. For now at least the primary use case for the 2.0 line is situations where IE support isn&#8217;t a consideration &#8212; think Chrome or Firefox add-ons, PhoneGap apps or node.js. </p>
+<div id='linker_widget' class='contextly-widget'></div>]]></content:encoded>
+            <wfw:commentRss>http://www.webmonkey.com/2013/04/webs-most-popular-javascript-library-drops-support-for-older-versions-of-ie/feed/</wfw:commentRss>
+        <slash:comments>0</slash:comments>
+    </item>
+    </channel>
+</rss>

@@ -28,6 +28,36 @@ function slac_igp_config_default_box() {
   $box = new stdClass();
   $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
   $box->api_version = 1;
+  $box->delta = 'feedback';
+  $box->plugin_key = 'simple';
+  $box->title = '';
+  $box->description = 'feedback';
+  $box->options = array(
+    'body' => array(
+      'value' => '<a href="/feedback">Submit Site Feedback</a> ',
+      'format' => 'full_html',
+    ),
+  );
+  $export['feedback'] = $box;
+
+  $box = new stdClass();
+  $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
+  $box->api_version = 1;
+  $box->delta = 'footer';
+  $box->plugin_key = 'simple';
+  $box->title = '';
+  $box->description = 'Footer';
+  $box->options = array(
+    'body' => array(
+      'value' => '<a href="http://slac.stanford.edu">SLAC NATIONAL ACCELERATOR LABORATORY</a> 2575 Sand Hill Road, Menlo Park, CA 94025 Operated by <a href="http://www.stanford.edu">Stanford University</a> for the <a href="http://science.energy.gov/">U.S. Department of Energy Office of Science</a>',
+      'format' => 'full_html',
+    ),
+  );
+  $export['footer'] = $box;
+
+  $box = new stdClass();
+  $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
+  $box->api_version = 1;
   $box->delta = 'it_help_desk';
   $box->plugin_key = 'simple';
   $box->title = 'IT Help Desk';

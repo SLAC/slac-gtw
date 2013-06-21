@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    >
+
+<channel>
+    <title>Webmonkey</title>
+    <atom:link href="http://www.webmonkey.com/feed/" rel="self" type="application/rss+xml" />
+    <link>http://www.webmonkey.com</link>
+    <description>The Web Developer&#039;s Resource</description>
+    <lastBuildDate>Mon, 06 May 2013 17:29:19 +0000</lastBuildDate>
+    <language>en-US</language>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <generator>http://wordpress.org/?v=3.4.2</generator>
+    
+    <item>
+        <title>The Two Flavors of a &#8216;One Web&#8217; Approach: Responsive vs. Adaptive</title>
+        <link>http://www.webmonkey.com/2013/05/the-two-flavors-of-a-one-web-approach-responsive-vs-adaptive/</link>
+        <comments>http://www.webmonkey.com/2013/05/the-two-flavors-of-a-one-web-approach-responsive-vs-adaptive/#comments</comments>
+        <pubDate>Mon, 06 May 2013 13:28:00 +0000</pubDate>
+
+                <dc:creator>Igor Faletski</dc:creator>
+
+        <guid isPermaLink="false">http://www.webmonkey.com/?p=61793</guid>
+        		<category><![CDATA[Responsive Design]]></category>
+		<category><![CDATA[Visual Design]]></category>
+		<category><![CDATA[Visual Design]]></category>
+		<category><![CDATA[Visual Design]]></category>
+		<category><![CDATA[Internal]]></category>
+		<category><![CDATA[External]]></category>
+		<category><![CDATA[Promoted]]></category>
+        <description><![CDATA[﻿[Editor's note: The following is a guest post from Igor Faletski, CEO of Mobify, which provides tools for adapting web sites for smartphones and tablets.] You&#8217;ve probably heard people say we&#8217;re living in a &#8220;post-PC world.&#8221; What does that mean for web developers? It means that 30% to 50% of your website’s traffic now comes [...]]]></description>
+
+            <content:encoded><![CDATA[<p><!-- wpautop enabled -->
+<p><div id="attachment_53661" class="wp-caption alignleft" style="width: 590px"><a href="http://www.webmonkey.com/wp-content/uploads/2012/01/tablets.jpg"><img src="http://www.webmonkey.com/wp-content/uploads/2012/01/tablets.jpg" alt="" title="tablets" width="580" height="434" class="size-full wp-image-53661" /></a><p class="wp-caption-text">A handful of the many screens your website must handle. <em>Photo: Ariel Zambelich/Wired.com</em></p></div>﻿[<strong><em>Editor's note: The following is a guest post from Igor Faletski, CEO of <a href="http://www.mobify.com/">Mobify</a>, which provides tools for adapting web sites for smartphones and tablets.</em></strong>]</p>
+<p>You&#8217;ve probably heard people say we&#8217;re living in a &#8220;post-PC world.&#8221; What does that mean for web developers? It means that 30% to 50% of your website’s traffic now comes from mobile devices. It means that soon, desktop and laptop users will be in a minority on the web. </p>
+<p>How do we deal with this tectonic shift in user behavior? We’ve moved beyond the era of m-dot or t-dot hacks, into one where responsive and adaptive design techniques rule the day &#8212; what the W3C calls a <a href="http://www.w3.org/TR/mobile-bp/#OneWeb">One Web approach</a>. The key part of the W3C&#8217;s recommendation is that &#8220;One Web means making, as far as is reasonable, the same information and services available to users irrespective of the device they are using.&#8221;</p>
+<p>For developers that means that taking a One Web approach ensures that not only does your site work on the smartphones and tablets of today, but it can be future-proofed for the unimagined screens of tomorrow.</p>
+<p>There are currently three popular approaches to developing a One Web site: using a <a href="http://www.webmonkey.com/2013/01/take-responsive-design-beyond-media-queries/">responsive design</a>; client-side adaptive designs; and server-side adaptive designs. </p>
+<p>One is not better or worse than the other; each has its own strengths and weaknesses and the wise web developer will consider the benefits and drawbacks of each before picking the one that works for their next project.</p>
+<h3>Responsive Web Design</h3>
+<p>Responsive web design is the most common One Web approach. The approach uses <a href="http://www.webmonkey.com/2012/01/building-a-responsive-future-friendly-web-for-everyone/">CSS media queries</a> to modify the presentation of a website based on the size of the device display. The number of responsive sites is rapidly increasing, from the <a href="http://www.webmonkey.com/2011/09/the-boston-globe-embraces-responsive-design/">Boston Globe</a> to Disney to Indochino. </p>
+<p>A key advantage of this approach is that designers can use a single template for all devices, and just use CSS to determine how content is rendered on different screen sizes. Plus, those designers can still work in HTML and CSS, technologies they’re already familiar with. Additionally, there’s a growing number of responsive-friendly, open-source toolkits like <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> or <a href="http://foundation.zurb.com/">Foundation</a> which help simplify the process of building responsive sites. </p>
+<p>On the other hand, there are few shortcuts to a sound responsive design. To go responsive, organizations often have to undertake a complete site rebuild. </p>
+<p>The design and testing phase can be quite fussy, as it can be difficult to customize the user experience for every possible device or context. We&#8217;ve all seen responsive site layouts that look like a bunch of puzzle pieces that don&#8217;t quite fit together. Responsive web design works best in combination with a mobile-first approach, where the mobile use case is prioritized during development. <a href="http://www.webmonkey.com/2012/03/video-progressive-enhancement-2-0/">Progressive enhancement</a> is then used to address tablet and desktop use cases.</p>
+<p>Performance can also be a bugbear for responsive sites. At Mobify, we recently completed an analysis of 15 popular responsive e-commerce sites. Among these sites, the home pages loaded an average of 87 resources and 1.9 MB of data. Some responsive pages were as <a href="https://www.evernote.com/shard/s25/sh/c9f91915-af74-42b2-8771-ecfd37768225/3cd545176d8acff830daf5b1a3d1d3d6/res/3329c9b6-a9da-468c-8ffe-80c5bd1138ab/skitch.png">big as 15MB</a>.</p>
+<p>The numbers are that high because a responsive approach covers all devices. Your user is only using one device, but they have to wait for all of the page elements and resources to load before they can use it. Put simply, performance affects your bottom line. On smartphones, the conversion rate <a href="http://www.webperformancetoday.com/2011/11/23/case-study-slow-page-load-mobile-business-metrics/">drops by an extra 3.5 percent</a> when users have to wait just one second. By the three second mark, <a href="http://www.strangeloopnetworks.com/resources/infographics/web-performance-and-user-expectations/website-abandonment-happens-after-3-seconds/">57 percent of users will have left your site completely</a>.</p>
+<p>While responsive design is fast becoming the de facto standard, it also creates new challenges for online businesses, including how to handle images, how to optimize mobile performance and often means sites need to be rebuilt from the ground up with a mobile first approach.</p>
+<h3>Client-Side Adaptive</h3>
+<p>Adaptive design builds on the principles of responsive design to deliver user experiences that are targeted at specific devices and contexts. It uses JavaScript to enrich websites with advanced functionality and customization. For example, adaptive websites deliver Retina-quality images only to Retina displays (such as the new iPad) while standard-definition displays receive lower-quality images. </p>
+<p>There are two approaches to adaptive design &#8212; one where the adaptations occur on the client side, in the user’s browser, and another where the web server does the heavy lifting of detecting various devices and loading the correct template. Examples of client-side adaptive sites include Threadless and ideeli. One of the strengths of the adaptive templating approach is the ability to reuse one set of HTML and JavaScript across devices, simplifying change management and testing.</p>
+<p>A client-side adaptive approach means you don&#8217;t have to rebuild your site from the ground up. Instead you can build on existing content while still delivering a mobile-responsive layout. For expert developers, this approach also enables you to specifically target particular devices or screen resolutions. For example, for many of Mobify’s online fashion retail clients, 95% of their mobile traffic comes from iPhones. Client-side adaptive means they can optimize specifically for Apple smartphones. </p>
+<p>Unlike responsive design, adaptive templates ensure that only the required resources are loaded by the client’s device. Because device and feature detection is shifted to the mobile device itself, CDN networks like Akamai and Edgecast can use most of their caching functionality without disrupting the user experience.</p>
+<p>The client-side adaptive approach has a higher barrier to entry than responsive design. Developers need to have a solid grasp of JavaScript to use this technique. It also depends on a site’s existing templates as the foundation. Finally, because the client-side adaptations are a kind of layer on top of your existing code base, you need to maintain them as your site as a whole evolves. </p>
+<h3>Server-Side Adaptive</h3>
+<p>We can achieve the server-side adaptive approach in a variety of ways, through server-side plugins and custom user agent detection. Sites that use server-side adaptive include Etsy, One Kings Lane and OnlineShoes.com.</p>
+<p>Why choose server-side adaptive? It typically offers distinct templates for each devices, enabling more customization, and it keeps device-detection logic on the server, enabling smaller mobile pages that load faster. Additionally, there are numerous server-side plugins available for common CMSs and eCommerce systems such as Magneto.</p>
+<p>This approach isn&#8217;t for the faint of heart&#8211;it typically requires significant changes to your back-end systems, which can result in a lengthy (and costly) implementation. The requirement to manage multiple templates raises ongoing maintenance costs. Finally, this approach can encounter performance issues when servers are under heavy load. When mobile user agent detection is performed on the server, a lot of common caching mechanisms deployed by CDNs like Akamai need to be turned off. This can result in a slower user experience for mobile and desktop visitors.</p>
+<p>Of course, many companies are still wrestling with the basics of responsive, and they’re not ready to confront the more sophisticated flavors of adaptive. Increasingly competition and mobile traffic, however, will drive more and more organizations to kick the tires on all three approaches, and pick the one that works best for their users.</p>
+<div id='linker_widget' class='contextly-widget'></div>]]></content:encoded>
+            <wfw:commentRss>http://www.webmonkey.com/2013/05/the-two-flavors-of-a-one-web-approach-responsive-vs-adaptive/feed/</wfw:commentRss>
+        <slash:comments>11</slash:comments>
+
+        
+    </item>
+    </channel>
+</rss>
