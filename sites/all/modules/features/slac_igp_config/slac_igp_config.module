@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SLAC IGP Config feature.
+ */
+
+include_once 'slac_igp_config.features.inc';

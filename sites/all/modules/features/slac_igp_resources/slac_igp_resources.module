@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SLAC IGP Resources feature.
+ */
+
+include_once 'slac_igp_resources.features.inc';

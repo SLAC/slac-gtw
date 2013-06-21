@@ -1,0 +1,87 @@
+diff --git a/libraries/common_syndication_parser.inc b/libraries/common_syndication_parser.inc
+index 9589950..a2352ca 100644
+--- a/libraries/common_syndication_parser.inc
++++ b/libraries/common_syndication_parser.inc
+@@ -190,6 +190,14 @@ function _parser_common_syndication_atom10_parse($feed_XML) {
+       $original_author = "{$feed_XML->author->name}";
+     }
+ 
++    $enclosure = array();
++    foreach ($news->link as $item) {
++      $enc_attributes = $item->attributes();
++      if ($enc_attributes['rel'] == 'enclosure' && !empty($enc_attributes['href'])) {
++        $enclosure[] = "{$enc_attributes['href']}";
++      }
++    }
++
+     $original_url = _parser_common_syndication_link($news->link);
+ 
+     $item = array();
+@@ -232,6 +240,7 @@ function _parser_common_syndication_atom10_parse($feed_XML) {
+     }
+     $item['tags'] = isset($additional_taxonomies['ATOM Categories']) ? $additional_taxonomies['ATOM Categories'] : array();
+     $item['domains'] = isset($additional_taxonomies['ATOM Domains']) ? $additional_taxonomies['ATOM Domains'] : array();
++    $item['enclosure'] = $enclosure;
+     $parsed_source['items'][] = $item;
+   }
+   return $parsed_source;
+@@ -453,6 +462,21 @@ function _parser_common_syndication_RSS20_parse($feed_XML) {
+       }
+     }
+ 
++    // Load media from <enclosure>.
++    $enclosure = array();
++    if (!empty($news['enclosure'])) {
++      if (!is_array($news['enclosure'])) {
++        $enc_elem = $news['enclosure'];
++        $news['enclosure'] = array();
++        $news['enclosure'][] = $enc_elem;
++      }
++
++      foreach ($news['enclosure'] as $item) {
++        $enc_attributes = $item->attributes();
++        $enclosure[] = "{$enc_attributes['url']}";
++      }
++    }
++
+     $item = array();
+     $item['title'] = _parser_common_syndication_title($title, $body);
+     $item['description'] = $body;
+@@ -482,6 +506,7 @@ function _parser_common_syndication_RSS20_parse($feed_XML) {
+ 
+     $item['domains'] = $additional_taxonomies['RSS Domains'];
+     $item['tags'] = $additional_taxonomies['RSS Categories'];
++    $item['enclosure'] = $enclosure;
+     $parsed_source['items'][] = $item;
+   }
+   return $parsed_source;
+@@ -571,12 +596,12 @@ function _parser_common_syndication_link($links) {
+   if (count($links) > 0) {
+     foreach ($links as $link) {
+       $link = $link->attributes();
+-      $to_link = isset($link["href"]) ? "{$link["href"]}" : "";
+       if (isset($link["rel"])) {
+-        if ("{$link["rel"]}" == 'alternate') {
++        if ("{$link["rel"]}" == 'alternate' || "{$link["rel"]}" == 'enclosure') {
+           break;
+         }
+       }
++      $to_link = isset($link["href"]) ? "{$link["href"]}" : "";
+     }
+   }
+   return $to_link;
+diff --git a/plugins/FeedsSyndicationParser.inc b/plugins/FeedsSyndicationParser.inc
+index 09b0cb3..8186446 100644
+--- a/plugins/FeedsSyndicationParser.inc
++++ b/plugins/FeedsSyndicationParser.inc
+@@ -76,6 +76,10 @@ class FeedsSyndicationParser extends FeedsParser {
+         'name' => t('Geo Locations'),
+         'description' => t('An array of geographic locations with a name and a position.'),
+       ),
++      'enclosure' => array(
++        'name' => t('Enclosure'),
++        'description' => t('Array of links to media content.'),
++      ),
+     ) + parent::getMappingSources();
+   }
+ }
