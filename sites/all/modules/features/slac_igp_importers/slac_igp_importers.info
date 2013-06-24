@@ -24,6 +24,7 @@ features[feeds_importer][] = slac_research_resource
 features[feeds_importer][] = staff_resource_term
 features[feeds_tamper][] = slac_news-blank_source_1-set_default_value
 features[feeds_tamper][] = slac_news-blank_source_2-set_default_value
+features[feeds_tamper][] = staff_resource_term-category-explode
 features[node][] = calendar_feed
 features[node][] = news_feed
 features[variable][] = menu_options_calendar_feed

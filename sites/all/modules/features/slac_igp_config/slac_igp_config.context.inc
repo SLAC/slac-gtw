@@ -26,6 +26,12 @@ function slac_igp_config_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'weather_block-weather_block' => array(
+          'module' => 'weather_block',
+          'delta' => 'weather_block',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
+        ),
         'boxes-search_people' => array(
           'module' => 'boxes',
           'delta' => 'search_people',

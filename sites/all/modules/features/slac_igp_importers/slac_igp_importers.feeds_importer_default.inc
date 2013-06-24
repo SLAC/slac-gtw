@@ -232,12 +232,14 @@ function slac_igp_importers_feeds_importer_default() {
     'name' => 'SLAC News ',
     'description' => 'Import news articles from various sites',
     'fetcher' => array(
-      'plugin_key' => 'FeedsHTTPFetcher',
+      'plugin_key' => 'FeedsFileFetcher',
       'config' => array(
-        'auto_detect_feeds' => FALSE,
-        'use_pubsubhubbub' => FALSE,
-        'designated_hub' => '',
-        'request_timeout' => NULL,
+        'allowed_extensions' => 'txt csv tsv xml opml',
+        'direct' => FALSE,
+        'directory' => 'public://feeds',
+        'allowed_schemes' => array(
+          0 => 'public',
+        ),
       ),
     ),
     'parser' => array(
@@ -452,6 +454,12 @@ function slac_igp_importers_feeds_importer_default() {
             'source' => 'organization',
             'target' => 'field_resource_org',
             'unique' => FALSE,
+          ),
+          6 => array(
+            'source' => 'category',
+            'target' => 'field_resource_category',
+            'term_search' => '0',
+            'autocreate' => 1,
           ),
         ),
         'update_existing' => '1',

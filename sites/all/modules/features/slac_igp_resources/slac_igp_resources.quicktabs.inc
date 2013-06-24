@@ -20,8 +20,8 @@ function slac_igp_resources_quicktabs_default_quicktabs() {
   $quicktabs->title = 'Staff Resources';
   $quicktabs->tabs = array(
     0 => array(
-      'vid' => 'staff_resources',
-      'display' => 'default',
+      'vid' => 'staff_resources_classic',
+      'display' => 'block_4',
       'args' => '',
       'title' => 'Top Links',
       'weight' => '-100',

@@ -188,6 +188,28 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['header']['view']['table'] = 'views';
   $handler->display->display_options['header']['view']['field'] = 'view';
   $handler->display->display_options['header']['view']['view_to_insert'] = 'staff_resources_classic:block_1';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'staff_resource' => 'staff_resource',
+  );
+  /* Filter criterion: Taxonomy term: Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['operator'] = '!=';
+  $handler->display->display_options['filters']['name']['value'] = 'Modern';
+  /* Filter criterion: Taxonomy term: Name */
+  $handler->display->display_options['filters']['name_1']['id'] = 'name_1';
+  $handler->display->display_options['filters']['name_1']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name_1']['field'] = 'name';
+  $handler->display->display_options['filters']['name_1']['relationship'] = 'parent';
+  $handler->display->display_options['filters']['name_1']['operator'] = '!=';
+  $handler->display->display_options['filters']['name_1']['value'] = 'Modern';
   $handler->display->display_options['path'] = 'staff-resources-classic';
 
   /* Display: Staff Resource Top */
@@ -226,6 +248,12 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
   $handler->display->display_options['filters']['tid_raw']['relationship'] = 'parent';
   $handler->display->display_options['filters']['tid_raw']['operator'] = 'empty';
+  /* Filter criterion: Taxonomy term: Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['operator'] = '!=';
+  $handler->display->display_options['filters']['name']['value'] = 'Modern';
 
   /* Display: Staff Resource by Parent */
   $handler = $view->new_display('block', 'Staff Resource by Parent', 'block_2');
@@ -241,6 +269,18 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Parent */
+  $handler->display->display_options['relationships']['parent']['id'] = 'parent';
+  $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
+  $handler->display->display_options['relationships']['parent']['field'] = 'parent';
+  $handler->display->display_options['relationships']['parent']['ui_name'] = 'Parent';
+  /* Relationship: Resource Category */
+  $handler->display->display_options['relationships']['field_resource_category_tid']['id'] = 'field_resource_category_tid';
+  $handler->display->display_options['relationships']['field_resource_category_tid']['table'] = 'field_data_field_resource_category';
+  $handler->display->display_options['relationships']['field_resource_category_tid']['field'] = 'field_resource_category_tid';
+  $handler->display->display_options['relationships']['field_resource_category_tid']['ui_name'] = 'Resource Category';
+  $handler->display->display_options['relationships']['field_resource_category_tid']['label'] = 'Resource Category';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
@@ -269,8 +309,8 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['arguments']['name']['id'] = 'name';
   $handler->display->display_options['arguments']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['arguments']['name']['field'] = 'name';
-  $handler->display->display_options['arguments']['name']['relationship'] = 'parent';
-  $handler->display->display_options['arguments']['name']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['name']['relationship'] = 'field_resource_category_tid';
+  $handler->display->display_options['arguments']['name']['default_action'] = 'summary';
   $handler->display->display_options['arguments']['name']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['name']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['name']['summary']['format'] = 'default_summary';
@@ -355,6 +395,13 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['filters']['field_resource_org_value']['value'] = array(
     'Yes' => 'Yes',
   );
+  /* Filter criterion: Taxonomy term: Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'parent';
+  $handler->display->display_options['filters']['name']['operator'] = '!=';
+  $handler->display->display_options['filters']['name']['value'] = 'Directorates';
 
   /* Display: Top links */
   $handler = $view->new_display('block', 'Top links', 'block_4');
@@ -414,13 +461,16 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['filters']['field_link_url']['table'] = 'field_data_field_link';
   $handler->display->display_options['filters']['field_link_url']['field'] = 'field_link_url';
   $handler->display->display_options['filters']['field_link_url']['operator'] = 'not empty';
-  /* Filter criterion: Taxonomy term: Promoted (field_resource_promoted) */
-  $handler->display->display_options['filters']['field_resource_promoted_value']['id'] = 'field_resource_promoted_value';
-  $handler->display->display_options['filters']['field_resource_promoted_value']['table'] = 'field_data_field_resource_promoted';
-  $handler->display->display_options['filters']['field_resource_promoted_value']['field'] = 'field_resource_promoted_value';
-  $handler->display->display_options['filters']['field_resource_promoted_value']['value'] = array(
-    1 => '1',
+  /* Filter criterion: Taxonomy term: Resource Category (field_resource_category) */
+  $handler->display->display_options['filters']['field_resource_category_tid']['id'] = 'field_resource_category_tid';
+  $handler->display->display_options['filters']['field_resource_category_tid']['table'] = 'field_data_field_resource_category';
+  $handler->display->display_options['filters']['field_resource_category_tid']['field'] = 'field_resource_category_tid';
+  $handler->display->display_options['filters']['field_resource_category_tid']['value'] = array(
+    2193 => '2193',
   );
+  $handler->display->display_options['filters']['field_resource_category_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_resource_category_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_resource_category_tid']['vocabulary'] = 'resource_category_staff';
   $export['staff_resources_classic'] = $view;
 
   return $export;

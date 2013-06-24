@@ -18,6 +18,7 @@ dependencies[] = options
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
+dependencies[] = weather_block
 features[box][] = connect
 features[box][] = footer
 features[box][] = it_help_desk

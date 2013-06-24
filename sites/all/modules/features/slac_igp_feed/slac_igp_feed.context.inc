@@ -26,24 +26,6 @@ function slac_igp_feed_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-news-block' => array(
-          'module' => 'views',
-          'delta' => 'news-block',
-          'region' => 'content',
-          'weight' => '-10',
-        ),
-        'views-news-block_1' => array(
-          'module' => 'views',
-          'delta' => 'news-block_1',
-          'region' => 'content',
-          'weight' => '-9',
-        ),
-        'views-news-block_3' => array(
-          'module' => 'views',
-          'delta' => 'news-block_3',
-          'region' => 'content',
-          'weight' => '-8',
-        ),
         'system-main-menu' => array(
           'module' => 'system',
           'delta' => 'main-menu',
@@ -74,41 +56,65 @@ function slac_igp_feed_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '-10',
         ),
+        'views-staff_resources_classic-block_4' => array(
+          'module' => 'views',
+          'delta' => 'staff_resources_classic-block_4',
+          'region' => 'sidebar_second',
+          'weight' => '-9',
+        ),
         'boxes-it_help_desk' => array(
           'module' => 'boxes',
           'delta' => 'it_help_desk',
           'region' => 'sidebar_second',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
         'boxes-site_security' => array(
           'module' => 'boxes',
           'delta' => 'site_security',
           'region' => 'sidebar_second',
-          'weight' => '-8',
+          'weight' => '-7',
         ),
         'views-flea_market-block' => array(
           'module' => 'views',
           'delta' => 'flea_market-block',
           'region' => 'sidebar_second',
-          'weight' => '-7',
+          'weight' => '-6',
         ),
         'boxes-stanford_compliance' => array(
           'module' => 'boxes',
           'delta' => 'stanford_compliance',
           'region' => 'sidebar_second',
-          'weight' => '-6',
+          'weight' => '-5',
         ),
         'boxes-connect' => array(
           'module' => 'boxes',
           'delta' => 'connect',
           'region' => 'sidebar_second',
-          'weight' => '-5',
+          'weight' => '-4',
         ),
         'boxes-feedback' => array(
           'module' => 'boxes',
           'delta' => 'feedback',
           'region' => 'sidebar_second',
-          'weight' => '-4',
+          'weight' => '-3',
+        ),
+        'views-news-block' => array(
+          'module' => 'views',
+          'delta' => 'news-block',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+        'views-news-block_1' => array(
+          'module' => 'views',
+          'delta' => 'news-block_1',
+          'region' => 'content',
+          'weight' => '-9',
+        ),
+        'views-news-block_3' => array(
+          'module' => 'views',
+          'delta' => 'news-block_3',
+          'region' => 'content',
+          'weight' => '-8',
         ),
       ),
     ),
