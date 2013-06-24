@@ -466,7 +466,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['filters']['field_resource_category_tid']['table'] = 'field_data_field_resource_category';
   $handler->display->display_options['filters']['field_resource_category_tid']['field'] = 'field_resource_category_tid';
   $handler->display->display_options['filters']['field_resource_category_tid']['value'] = array(
-    2193 => '2193',
+    1517 => '1517',
   );
   $handler->display->display_options['filters']['field_resource_category_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_resource_category_tid']['type'] = 'select';
