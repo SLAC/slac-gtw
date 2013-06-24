@@ -11,6 +11,7 @@ dependencies[] = slac_igp_config
 dependencies[] = views
 dependencies[] = views_tree
 features[context][] = research_resources
+features[context][] = staff_resources
 features[ctools][] = context:context:3
 features[ctools][] = quicktabs:quicktabs:1
 features[ctools][] = views:views_default:3.0
