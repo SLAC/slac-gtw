@@ -28,21 +28,6 @@ function slac_igp_config_default_box() {
   $box = new stdClass();
   $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
   $box->api_version = 1;
-  $box->delta = 'feedback';
-  $box->plugin_key = 'simple';
-  $box->title = '';
-  $box->description = 'feedback';
-  $box->options = array(
-    'body' => array(
-      'value' => '<a href="/feedback">Submit Site Feedback</a> ',
-      'format' => 'full_html',
-    ),
-  );
-  $export['feedback'] = $box;
-
-  $box = new stdClass();
-  $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
-  $box->api_version = 1;
   $box->delta = 'footer';
   $box->plugin_key = 'simple';
   $box->title = '';
@@ -69,6 +54,26 @@ function slac_igp_config_default_box() {
     ),
   );
   $export['it_help_desk'] = $box;
+
+  $box = new stdClass();
+  $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
+  $box->api_version = 1;
+  $box->delta = 'search_people';
+  $box->plugin_key = 'simple';
+  $box->title = '';
+  $box->description = 'Search (People)';
+  $box->options = array(
+    'body' => array(
+      'value' => '<form name="people_search" method="get" action="http://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search">
+<input type="text" id="searchbox" maxlength="2047" class="searchbox" name="name" size="18" value="Search" onfocus="value=\'\'">
+<input type="hidden" name="gone" value="active" />
+<input id="search-button" width="27" type="image" height="22" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" alt="go">
+<a href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a>
+</form>',
+      'format' => 'full_html',
+    ),
+  );
+  $export['search_people'] = $box;
 
   $box = new stdClass();
   $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
@@ -130,6 +135,24 @@ function slac_igp_config_default_box() {
     'additional_classes' => '',
   );
   $export['weather_traffic'] = $box;
+
+  $box = new stdClass();
+  $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
+  $box->api_version = 1;
+  $box->delta = 'web_search';
+  $box->plugin_key = 'simple';
+  $box->title = '';
+  $box->description = 'Search (Web)';
+  $box->options = array(
+    'body' => array(
+      'value' => '<form name="search" method="get" action="http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite" id="form1">
+  <input type="text" id="searchbox" maxlength="2047" class="searchbox" name="qt" size="18" value="Search" onfocus="value=\'\'">
+  <input id="search-button" width="27" type="image" height="22" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" alt="go">
+</form>',
+      'format' => 'full_html',
+    ),
+  );
+  $export['web_search'] = $box;
 
   return $export;
 }
