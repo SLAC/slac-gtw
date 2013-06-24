@@ -1,0 +1,109 @@
+<?php
+/**
+ * @file
+ * Code for the SLAC IGP Custom module.
+ */
+
+
+function slac_igp_custom_theme() {
+  return array(
+    'slac_igp_weather' => array(
+      'variables' => array(
+        'weather' => NULL,
+        'location' => NULL,
+      ),
+      'template' => 'slac_igp_weather',
+    ),
+  );  
+}
+ 
+/**
+ * Implements hook_block_view_alter
+ */
+function slac_igp_custom_block_view_alter(&$data, $block) {
+  if ($block->delta === 'weather_block') {
+      $path = base_path() . drupal_get_path('module', 'weather_block');
+      $location = weather_set_location();
+      $service = variable_get('weather_service');
+      $services = variable_get('weather_services');
+      if ($service === 'yahoo_weather') {
+        $data['subject'] = '';
+        if (isset($_SESSION['weather_location']['id'])) {
+          $weather = new Weather($_SESSION['weather_location']['id'], $service);
+        }
+        else {
+          $weather =  new Weather($location->field_yahoo_weather['und'][0]['value'], $service);
+        }
+        $data['content'] = theme('slac_igp_weather', array('weather' => $weather, 'location' => $location->name));
+        
+      }/*
+ else {
+        // use default weather block implementation
+        $data = weather_block_block_view($block->delta);        
+      }
+*/
+  }
+}
+
+/**
+ * Preprocess function for the weather block
+ */
+function slac_igp_custom_preprocess_slac_igp_weather(&$vars) {
+  $weather = $vars['weather'];
+  
+  $current = array(
+    'condition' => (string) $weather->condition->condition->attributes()->text,
+    'code' => (string) $weather->condition->condition->attributes()->code,
+    'temp' => (string) $weather->condition->condition->attributes()->temp,
+    'date' => (string) $weather->condition->condition->attributes()->date,
+  );
+  
+  $i = 0;
+  foreach($weather->condition->forecast as $item) {
+  
+    if ($i < 3) {
+        switch($i) {
+          case 0:
+            $day = 'Today';
+          break;
+          case 1:
+            $day = 'Tomorrow';
+          break;
+          default:
+            $day = (string) $item->attributes()->day;
+          break;
+        }
+      $forecast[] = array(
+        'day' => $day,
+        'date' => (string) $item->attributes()->date,
+        'low' => (string) $item->attributes()->low,
+        'high' => (string) $item->attributes()->high,
+        'condition' => (string) $item->attributes()->text,
+        'code' => (string) $item->attributes()->code,
+      );
+      $i++;      
+    }
+  }
+  
+  if (variable_get('weather_use_provider_weather_icons') == 1) {
+    $vars['icon_path'] = "http://l.yimg.com/a/i/us/we/52/";
+  }
+  elseif (variable_get('weather_icons_path') != NULL) {
+     if (drupal_substr(variable_get('weather_icons_path'), drupal_strlen(variable_get('weather_icons_path')) - 1) == "/") {
+      $vars['icon_path'] = variable_get('weather_icons_path');
+     }
+     else {
+       $vars['icon_path'] =variable_get('weather_icons_path') . "/";
+     }
+  }
+  
+  $vars['forecast'] = $forecast;
+  $vars['current'] = $current;
+}
+
+function theme_slac_igp_weather($vars) {
+  
+  $output = $vars['location'];
+  
+  return $output;
+}

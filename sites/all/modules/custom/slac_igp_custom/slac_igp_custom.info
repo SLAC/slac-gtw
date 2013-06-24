@@ -1,0 +1,6 @@
+name = SLAC IGP Custom
+description = Custom code to support SLAC IGP
+core = 7.x
+package = SLAC
+version = 7.x-1.0
+dependencies[] = weather_block
