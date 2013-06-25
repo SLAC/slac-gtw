@@ -5,6 +5,84 @@
  */
 
 
+
+/**
+ * Implements hook_mailchimp_dc_content
+ */
+function slac_igp_custom_mailchimp_dc_content() {
+  $content = array(
+    'html' => array(
+    'value' => 'This is some test markup stuff',
+    'format' => 'mailchimp_campaign',
+    ),
+  );
+  
+  $data['SLAC_DD'] = array(
+    'module' => 'slac_igp_custom',
+    'title' => t('SLAC daily digest'),
+    'content' => _slac_igp_custom_mailchimp_dc_content(),  
+  );
+    
+  return $data;
+}
+
+/**
+ * Generate html markup for the daily digest
+ */
+function _slac_igp_custom_mailchimp_dc_content() {
+  if (!module_exists('slac_igp_feed')) {
+    return;
+  }
+  
+  module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
+  
+  $sub_queue_featured_lab = slac_igp_feed_get_subqueue('Featured Lab News');
+  $featured_lab_node = nodequeue_load_front($sub_queue_featured_lab->sqid);
+  if (!empty($featured_lab_node)) {
+    $featured_lab = '[mailchimp_campaign|entity_type=node|entity_id=' . $featured_lab_node->nid . '|view_mode=teaser]';
+  }
+  $lab_news = array();
+  $sub_queue_lab = slac_igp_feed_get_subqueue('Lab News');
+  $lab_nodes = nodequeue_load_nodes($sub_queue_lab->sqid, FALSE, 0, 3, TRUE);
+  if (!empty($lab_nodes)) {
+    foreach($lab_nodes as $node) {
+      $lab_news[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=link]';
+    }
+  }
+  $sub_queue_science = slac_igp_feed_get_subqueue('SLAC Science');
+  $featured_science_node = nodequeue_load_front($sub_queue_science->sqid);
+  if (!empty($featured_science_node)) {
+    $featured_science = '[mailchimp_campaign|entity_type=node|entity_id=' . $featured_science_node->nid . '|view_mode=teaser]';
+  }
+  $science_news = array();
+  $science_nodes = nodequeue_load_nodes($sub_queue_science->sqid, FALSE, 1, 3, TRUE);
+  if (!empty($science_nodes)) {
+    foreach($science_nodes as $node) {
+      $science_news[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=link]';
+    }
+  }
+  
+  $output = array(
+    $featured_lab,
+    implode('<br />', $lab_news),
+    $featured_science,
+    implode('<br />', $science_news),
+  );
+  
+  return implode('<br />', $output);
+  // nodequeue_load_nodes($sqid, $backward = FALSE, $from = 0, $count = 5, $published_only = TRUE)
+
+  // 1. Get the top item from featured lab news subqueue
+  // 2. Get the top 4 items 
+  // 3. Get top 1 SLAC science news item
+  // 4. Get the top 4 items skipping first one
+  // 5. We should be able to format them into a template
+  
+}
+
+/**
+ * Implements hook_theme
+ */
 function slac_igp_custom_theme() {
   return array(
     'slac_igp_weather' => array(
@@ -99,11 +177,4 @@ function slac_igp_custom_preprocess_slac_igp_weather(&$vars) {
   
   $vars['forecast'] = $forecast;
   $vars['current'] = $current;
-}
-
-function theme_slac_igp_weather($vars) {
-  
-  $output = $vars['location'];
-  
-  return $output;
 }

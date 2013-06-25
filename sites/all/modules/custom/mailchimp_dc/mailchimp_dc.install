@@ -1,0 +1,43 @@
+<?php
+/**
+ * @file
+ * Code for the mailchimp_dc.install file
+ */
+ 
+/** 
+ * Implements hook_schema
+ */
+function mailchimp_dc_schema() {
+  $schema['mailchimp_dc'] = array(
+    'description' => 'Stores daily digest creation information',
+    'fields' => array(
+      'date' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'description' => "Date in the format of yyyy-mm-dd format",
+      ),
+      'mc_campaign_id' => array(
+        'description' => 'MailChimp campaign ID.',
+        'type' => 'varchar',
+        'length' => 16,
+        'not null' => TRUE,
+      ),
+      'created' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'default' => 0,
+        'not null' => TRUE,
+        'description' => "If the campaign for that day has been created or not",
+      ),
+      'timestamp' => array(
+        'type' => 'int',
+        'not null' => FALSE,
+        'size' => 'big',
+        'description' => 'Time when the campaign was created',
+      ),
+    ),
+    'primary key' => array('date'),
+  );
+  return $schema;  
+}

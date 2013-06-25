@@ -1,0 +1,204 @@
+<?php
+/**
+ * @file
+ * Code for the mailchimp dc module
+ */
+
+/** 
+ * Implements hook_menu
+ */
+function mailchimp_dc_menu() {
+
+  $items['admin/config/services/mailchimp/mcdc'] = array(
+    'title' => 'Daily Campaign',
+    'description' => 'Manage Daily campaigns',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mailchimp_dc_configuration_form'),
+    'access arguments' => array('administer mailchimp campaigns'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 11,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_cron
+ */
+function mailchimp_cron() {
+  // check today's date, if no daily campaign exist, we will create one
+  $dc = mailchimp_dc_load_dc(date('Y-m-d'));
+  if (empty($dc)) {
+    mailchimp_dc_campaign_create();    
+  }  
+}
+
+/**
+ * Implements hook_entity_delete
+ */
+function mailchimp_dc_entity_delete($entity, $type) {
+  if ($type === 'mailchimp_campaign') {
+    $campaign_id = $entity->mc_campaign_id;
+    mailchimp_dc_delete_dc($campaign_id);    
+  }
+}
+
+/**
+ * Create a campaign based on Daily Campign settings
+ */
+function mailchimp_dc_campaign_create() {
+  // if the campaign has not been created yet for the day, let's create the campaign
+  $options = array(
+    'title' => t('Daily Digest !today', array('!today' => date('Y-m-d'))),
+    'subject' => t('Subject'),
+    'list_id' => variable_get('mcdc_list', array('')),
+    'from_email' => variable_get('mcdc_from_email', variable_get('site_mail', '')),
+    'from_name' => variable_get('mcdcfrom_name', variable_get('site_name', '')),
+    'template_id' => variable_get('mcdc_template', array('')),
+  );
+  
+  // @todo: auto generate contents to be send
+  // use a hook to determine what content should be added
+  $content = array();
+  
+  $contents = array_merge(module_invoke_all('mailchimp_dc_content'), $content);
+  if (!empty($contents)) {
+    $config = variable_get('mcdc_content', array());
+    if (array_key_exists($config, $contents)) {
+      $content = array(
+        'html' => array(
+          'value' => $contents[$config]['content'],
+          'format' => 'mailchimp_campaign',
+        ),
+      );
+    }
+  }
+  else {
+    $content = array(
+      'html' => array(
+        'value' => '',
+        'format' => 'mailchimp_campaign',
+      ),
+    );    
+  }
+    
+  $campaign_id = mailchimp_campaign_save_campaign($content, $options);
+  if (isset($campaign_id)) {
+    // save the dc meta information
+    mailchimp_dc_save_dc($campaign_id);
+    cache_clear_all('mailchimp_campaign_campaigns', 'cache');
+  }
+}
+
+/**
+ * Save daily campaign record
+ */
+function mailchimp_dc_save_dc($campaign_id) {
+  $existing = mailchimp_dc_load_dc(date('Y-m-d'));
+  if (!empty($existing)) {
+    return;
+  }
+  
+  $record = array(
+    'date' => date('Y-m-d'),
+    'timestamp' => REQUEST_TIME,
+    'created' => 1,
+  );
+  
+  $record['mc_campaign_id'] = $campaign_id;
+  
+  drupal_write_record('mailchimp_dc', $record);
+}
+
+/**
+ * Load daily campaign record
+ */
+function mailchimp_dc_load_dc($date = NULL) {
+  $data = array();
+  $query = db_select('mailchimp_dc', 'm')
+  ->fields('m')
+  ->condition('date', $date);
+  
+  $results = $query->execute();
+  foreach ($results as $result) {
+    $data[] = (array) $result;
+  }
+  return (!empty($data)) ? $data[0] : array(); 
+}
+
+
+/**
+ * Delete a daily campaign record
+ */
+function mailchimp_dc_delete_dc($campaign_id) {
+  $query = db_delete('mailchimp_dc')
+  ->condition('mc_campaign_id', $campaign_id);
+  $query->execute();
+}
+
+/** 
+ * Configuration form callback
+ */
+function mailchimp_dc_configuration_form() {
+  
+  module_load_include('inc', 'mailchimp_campaign', 'mailchimp_campaign.admin');
+  
+  $form['mcdc_list'] = array(
+    '#type' => 'select',
+    '#title' => t('List to use for this daily digest'),
+    '#options' => _mailchimp_campaign_build_option_list(mailchimp_get_lists()),
+    '#default_value' => variable_get('mcdc_list', array('')),
+    '#required' => TRUE,
+  );
+  
+  $form['mcdc_template'] = array(
+    '#type' => 'select',
+    '#title' => t('List to use for this daily digest'),
+    '#options' => _mailchimp_campaign_build_option_list(mailchimp_campaign_get_templates()),
+    '#default_value' => variable_get('mcdc_template', array('')),
+  );
+  
+  $form['mcdc_content'] = array(
+    '#type' => 'select',
+    '#title' => t('Content template'),
+    '#description' => t('Content templates are dynamic contents declared through @hook', array('@hook' => 'hook_mailchimp_dc_content')),
+    '#options' => _mailchimp_dc_content_options(),
+    '#default_value' => variable_get('mcdc_content', array('')),
+    '#required' => TRUE,
+  );
+
+  $form['mcdc_from_email'] = array(
+    '#type' => 'textfield',
+    '#title' => t('From email'),
+    '#default_value' => variable_get('mcdc_from_email', variable_get('site_mail', '')),
+  );
+  
+  $form['mcdc_from_name'] = array(
+    '#type' => 'textfield',
+    '#title' => t('From name'),
+    '#default_value' => variable_get('mcdcfrom_name', variable_get('site_name', '')),
+  );
+  
+  return system_settings_form($form);
+}
+
+/**
+ * Return contents from hook
+ */
+function _mailchimp_dc_content_options() {
+  $options = array();
+  $modules = module_implements('mailchimp_dc_content');
+  if (!empty($modules)) {
+    foreach ($modules as $module) {
+      $function = $module . '_mailchimp_dc_content';
+      $data = $function();
+      if (!empty($data)) {
+        foreach($data as $key => $items) {
+          $options[$key] = $items['title'];
+        }
+      } 
+    }
+  }
+  
+  return $options;
+}
