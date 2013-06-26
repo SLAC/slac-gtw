@@ -54,40 +54,50 @@ function mailchimp_dc_campaign_create() {
     'list_id' => variable_get('mcdc_list', array('')),
     'from_email' => variable_get('mcdc_from_email', variable_get('site_mail', '')),
     'from_name' => variable_get('mcdcfrom_name', variable_get('site_name', '')),
-    'template_id' => variable_get('mcdc_template', array('')),
+    'template_id' => variable_get('mcdc_template', array()),
   );
+    
+  // getting the template information
+  $template_id = variable_get('mcdc_template', array());
+  if (!empty($template_id)) {
+    $mc_template = mailchimp_campaign_get_templates($template_id);
+  }
   
-  // @todo: auto generate contents to be send
-  // use a hook to determine what content should be added
-  $content = array();
+  $template_sections = array();
+  // if we have a template set, let's pass in the region information
+  if ($mc_template) {
+    foreach ($mc_template['info']['default_content'] as $section => $item) {
+      $template_sections['html_' . $section] = array(
+        'value' => $item,
+        'format' => 'mailchimp_campaign',
+      );
+    }    
+  } 
+  else {
+    $template_sections['html'] = array(
+      'value' => '',
+      'format' => 'mailchimp_campaign',
+    );  
+  }
   
-  $contents = array_merge(module_invoke_all('mailchimp_dc_content'), $content);
+  // default contents in case no one implements the hook
+  $content = $template_sections;
+  $contents = array_merge(module_invoke_all('mailchimp_dc_content', $template_sections), array());
   if (!empty($contents)) {
     $config = variable_get('mcdc_content', array());
     if (array_key_exists($config, $contents)) {
-      $content = array(
-        'html' => array(
-          'value' => $contents[$config]['content'],
-          'format' => 'mailchimp_campaign',
-        ),
-      );
+      $content = $contents[$config]['content'];
     }
   }
-  else {
-    $content = array(
-      'html' => array(
-        'value' => '',
-        'format' => 'mailchimp_campaign',
-      ),
-    );    
-  }
     
+/*
   $campaign_id = mailchimp_campaign_save_campaign($content, $options);
   if (isset($campaign_id)) {
     // save the dc meta information
     mailchimp_dc_save_dc($campaign_id);
     cache_clear_all('mailchimp_campaign_campaigns', 'cache');
   }
+*/
 }
 
 /**
@@ -153,7 +163,7 @@ function mailchimp_dc_configuration_form() {
   
   $form['mcdc_template'] = array(
     '#type' => 'select',
-    '#title' => t('List to use for this daily digest'),
+    '#title' => t('Template to use for this daily digest'),
     '#options' => _mailchimp_campaign_build_option_list(mailchimp_campaign_get_templates()),
     '#default_value' => variable_get('mcdc_template', array('')),
   );
