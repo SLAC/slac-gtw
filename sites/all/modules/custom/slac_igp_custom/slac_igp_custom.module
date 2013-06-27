@@ -155,9 +155,10 @@ function slac_igp_custom_preprocess_slac_igp_weather(&$vars) {
       $i++;      
     }
   }
-  
+
   if (variable_get('weather_use_provider_weather_icons') == 1) {
     $vars['icon_path'] = "http://l.yimg.com/a/i/us/we/52/";
+    $vars['default_icon'] = TRUE;
   }
   elseif (variable_get('weather_icons_path') != NULL) {
      if (drupal_substr(variable_get('weather_icons_path'), drupal_strlen(variable_get('weather_icons_path')) - 1) == "/") {
@@ -166,6 +167,12 @@ function slac_igp_custom_preprocess_slac_igp_weather(&$vars) {
      else {
        $vars['icon_path'] =variable_get('weather_icons_path') . "/";
      }
+     
+     $path_args = explode('/', $vars['icon_path']);
+     if ($path_args[0] != base_path()) {
+       $vars['icon_path'] = base_path() . $vars['icon_path'];
+     }
+     $vars['default_icon'] = FALSE;
   }
   
   $vars['forecast'] = $forecast;

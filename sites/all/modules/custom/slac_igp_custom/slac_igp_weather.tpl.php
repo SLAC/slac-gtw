@@ -26,14 +26,14 @@
     <span class="condition"><?php print $current['condition']; ?></span>
   </div>
   <div class="icon">
-    <img title ="<?php print $current['condition']; ?>" src="<?php print $icon_path . $current['code']; ?>.gif" />
+    <img title ="<?php print $current['condition']; ?>" src="<?php print $icon_path . $current['code']; ?>.<?php print ($default_icon) ? 'gif' : 'png' ?>" />
   </div>
 </div>
 <div class="forecast">
   <ul>
   <?php foreach ($forecast as $day): ?>
     <li>
-      <img title ="<?php print $day['condition']; ?>" src="<?php print $icon_path . $day['code']; ?>.gif" />
+      <img title ="<?php print $day['condition']; ?>" src="<?php print $icon_path . $day['code']; ?>.<?php print ($default_icon) ? 'gif' : 'png' ?>" />
       <label><span class="day"><?php print $day['day']; ?></span><span class="hight"><?php print $day['high'] ?></span> <span class="low"><?php print $day['low'] ?></span></label>
     </li>
   <?php endforeach; ?>
