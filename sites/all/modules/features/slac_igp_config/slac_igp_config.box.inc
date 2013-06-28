@@ -28,6 +28,35 @@ function slac_igp_config_default_box() {
   $box = new stdClass();
   $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
   $box->api_version = 1;
+  $box->delta = 'contact_information';
+  $box->plugin_key = 'simple';
+  $box->title = 'Contact Information';
+  $box->description = 'Contact Information';
+  $box->options = array(
+    'body' => array(
+      'value' => '<p>
+<strong>Communications Office</strong>
+<br />
+Building 267 <br />
+650-926-8703 <br />
+<a link="mailto:communications@slac.stanford.edu">communications@slac.stanford.edu</a>
+</p>
+<p>
+<strong>Web Solutions, OCIO</strong>
+<br />
+Building 50 <br />
+650-926-5511 <br />
+<a link="mailto:websiteservices@slac.stanford.edu">websiteservices@slac.stanford.edu</a>
+</p>',
+      'format' => 'full_html',
+    ),
+    'additional_classes' => '',
+  );
+  $export['contact_information'] = $box;
+
+  $box = new stdClass();
+  $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
+  $box->api_version = 1;
   $box->delta = 'footer';
   $box->plugin_key = 'simple';
   $box->title = '';

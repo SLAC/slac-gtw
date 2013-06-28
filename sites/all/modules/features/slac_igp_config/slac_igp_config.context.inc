@@ -13,6 +13,38 @@ function slac_igp_config_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'about_slac';
+  $context->description = '';
+  $context->tag = 'About SLAC';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'about' => 'about',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'boxes-contact_information' => array(
+          'module' => 'boxes',
+          'delta' => 'contact_information',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('About SLAC');
+  $export['about_slac'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'sitewide';
   $context->description = '';
   $context->tag = 'Sitewide';
@@ -26,12 +58,6 @@ function slac_igp_config_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'boxes-search_people' => array(
-          'module' => 'boxes',
-          'delta' => 'search_people',
-          'region' => 'sidebar_second',
-          'weight' => '-10',
-        ),
         'boxes-web_search' => array(
           'module' => 'boxes',
           'delta' => 'web_search',
@@ -43,6 +69,12 @@ function slac_igp_config_context_default_contexts() {
           'delta' => 'footer',
           'region' => 'footer',
           'weight' => '-10',
+        ),
+        'menu-menu-footer' => array(
+          'module' => 'menu',
+          'delta' => 'menu-footer',
+          'region' => 'footer',
+          'weight' => '-9',
         ),
       ),
     ),
