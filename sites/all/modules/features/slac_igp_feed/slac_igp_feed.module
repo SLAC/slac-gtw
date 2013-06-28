@@ -27,6 +27,10 @@ function slac_igp_feed_preprocess_views_view(&$vars) {
       return;
     }
     
+    if ($vars['rows'] == '') {
+      return;
+    }
+    
     $html = str_get_html($vars['rows']);
     $ret = $html->find('div[class=views-row-grouped]');
     if (count($ret) > 3) {
