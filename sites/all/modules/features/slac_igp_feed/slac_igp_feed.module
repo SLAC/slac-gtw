@@ -76,10 +76,18 @@ function slac_igp_feed_node_insert($node) {
     module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
     $lang = $node->language;
     $promoted = (bool) $node->promote;
-    // if news is only internal
+    
+    // if news article is promoted, regardless we will add them into the featured queue
+    if ($promoted) {
+      
+    }
+    
+    
+    
+    // if news is internal
     if (count($node->field_news_type[$lang]) === 1) {
       if ($node->field_news_type[$lang][0]['value'] === 'internal') {
-        $subqueue = ($promoted) ? 'Featured Lab News' : 'Lab News';
+        $subqueue = ($promoted) ? 'Featured News' : 'Lab News';
           slac_igp_feed_node_add($node->nid, $subqueue, FALSE);      
       }
       // external news
@@ -108,10 +116,10 @@ function slac_igp_feed_node_update($node) {
         if ($promoted) {
           slac_igp_feed_node_remove($node->nid, 'Lab News');
           slac_igp_feed_node_remove($node->nid, 'SLAC Science');
-          slac_igp_feed_node_add($node->nid, 'Featured Lab News', TRUE);
+          slac_igp_feed_node_add($node->nid, 'Featured News', TRUE);
         }
         else {
-          slac_igp_feed_node_remove($node->nid, 'Featured Lab News');
+          slac_igp_feed_node_remove($node->nid, 'Featured News');
           slac_igp_feed_node_remove($node->nid, 'SLAC Science');
           slac_igp_feed_node_add($node->nid, 'Lab News', TRUE);
         } 

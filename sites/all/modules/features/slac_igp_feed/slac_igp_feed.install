@@ -33,7 +33,7 @@ function slac_igp_feed_install() {
   $saved_queue = nodequeue_load_queue_by_name('news_articles');
   
   // add our subqueues
-  nodequeue_add_subqueue($saved_queue, 'Featured Lab News');
+  nodequeue_add_subqueue($saved_queue, 'Featured News');
   nodequeue_add_subqueue($saved_queue, 'Lab News');
   nodequeue_add_subqueue($saved_queue, 'SLAC Science');
 }

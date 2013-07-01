@@ -405,7 +405,7 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['filters']['title']['table'] = 'nodequeue_subqueue';
   $handler->display->display_options['filters']['title']['field'] = 'title';
   $handler->display->display_options['filters']['title']['relationship'] = 'nodequeue_rel';
-  $handler->display->display_options['filters']['title']['value'] = 'Featured Lab News';
+  $handler->display->display_options['filters']['title']['value'] = 'Featured News';
 
   /* Display: Lab News Slideshow */
   $handler = $view->new_display('block', 'Lab News Slideshow', 'block');
