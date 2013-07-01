@@ -29,7 +29,11 @@ function slac_igp_config_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__access_information';
   $strongarm->value = array(
-    'view_modes' => array(),
+    'view_modes' => array(
+      'link' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
@@ -46,7 +50,11 @@ function slac_igp_config_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__event';
   $strongarm->value = array(
-    'view_modes' => array(),
+    'view_modes' => array(
+      'link' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
@@ -63,7 +71,11 @@ function slac_igp_config_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__flea_market_post';
   $strongarm->value = array(
-    'view_modes' => array(),
+    'view_modes' => array(
+      'link' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
@@ -80,7 +92,11 @@ function slac_igp_config_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__news_article';
   $strongarm->value = array(
-    'view_modes' => array(),
+    'view_modes' => array(
+      'link' => array(
+        'custom_settings' => TRUE,
+      ),
+    ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
@@ -97,7 +113,11 @@ function slac_igp_config_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__research_resource';
   $strongarm->value = array(
-    'view_modes' => array(),
+    'view_modes' => array(
+      'link' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(

@@ -466,6 +466,12 @@ function slac_igp_config_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'link' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -509,6 +515,12 @@ function slac_igp_config_field_default_field_instances() {
         'settings' => array(),
         'type' => 'link_default',
         'weight' => 2,
+      ),
+      'link' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -564,6 +576,12 @@ function slac_igp_config_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 1,
       ),
+      'link' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -605,6 +623,12 @@ function slac_igp_config_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 4,
+      ),
+      'link' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -654,6 +678,12 @@ function slac_igp_config_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 3,
       ),
+      'link' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -690,6 +720,12 @@ function slac_igp_config_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 5,
+      ),
+      'link' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
