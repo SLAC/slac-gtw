@@ -6,6 +6,10 @@
 
 include_once 'slac_igp_feed.features.inc';
 
+DEFINE('FEATURED_NEWS', 'Featured News');
+DEFINE('LAB_NEWS', 'Lab News');
+DEFINE('SLAC_SCIENCE', 'SLAC Science');
+
 /**
  * Implements hook_views_api_alter
  */
@@ -79,26 +83,27 @@ function slac_igp_feed_node_insert($node) {
     
     // if news article is promoted, regardless we will add them into the featured queue
     if ($promoted) {
-      
+      slac_igp_feed_node_add($node->nid, FEATURED_NEWS, FALSE);
+      if (!empty($node->field_news_type[$lang])) {
+        if ($node->field_news_type[$lang][0]['value'] === 'external') {
+          // place it on top of the slac science queue
+          slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, TRUE);
+        }
+      } 
     }
-    
-    
-    
-    // if news is internal
-    if (count($node->field_news_type[$lang]) === 1) {
-      if ($node->field_news_type[$lang][0]['value'] === 'internal') {
-        $subqueue = ($promoted) ? 'Featured News' : 'Lab News';
-          slac_igp_feed_node_add($node->nid, $subqueue, FALSE);      
+    // not promoted
+    else {
+      if (empty($node->field_news_type[$lang])) {
+        return;
       }
-      // external news
-      else {
-        slac_igp_feed_node_add($node->nid, 'SLAC Science', $promoted);
+      switch($node->field_news_type[$lang][0]['value']) {
+        case 'internal':
+          slac_igp_feed_node_add($node->nid, LAB_NEWS, FALSE);
+        break;
+        case 'external':
+          slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, FALSE);
+        break;
       }
-    }
-    // if the news has "external", (regardless if it is both internal/external), it will be added to SLAC Science
-    if (count($node->field_news_type[$lang]) === 2) {
-      // (If external + promoted, add to the front, otherwise it will be at end of the queue
-      slac_igp_feed_node_add($node->nid, 'SLAC Science', $promoted);
     }
   }
 }
@@ -111,32 +116,32 @@ function slac_igp_feed_node_update($node) {
     module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
     $lang = $node->language;
     $promoted = (bool) $node->promote;
-    if (count($node->field_news_type[$lang]) === 1) {
-      if ($node->field_news_type[$lang][0]['value'] === 'internal') {
-        if ($promoted) {
-          slac_igp_feed_node_remove($node->nid, 'Lab News');
-          slac_igp_feed_node_remove($node->nid, 'SLAC Science');
-          slac_igp_feed_node_add($node->nid, 'Featured News', TRUE);
+    $subqueues = array(FEATURED_NEWS, LAB_NEWS, SLAC_SCIENCE);
+    // if the news article is promoted, take it out of other queue and place it into the featured news queu
+    if ($promoted) {
+      slac_igp_feed_node_remove($node->nid, $subqueues);
+      slac_igp_feed_node_add($node->nid, FEATURED_NEWS, TRUE);
+      if (!empty($node->field_news_type[$lang])) {
+        if ($node->field_news_type[$lang][0]['value'] === 'external') {
+          // also add it to top of the SLAC SCIENCE queue
+          slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, TRUE);
         }
-        else {
-          slac_igp_feed_node_remove($node->nid, 'Featured News');
-          slac_igp_feed_node_remove($node->nid, 'SLAC Science');
-          slac_igp_feed_node_add($node->nid, 'Lab News', TRUE);
-        } 
       }
-      // external
-      else {
-        $subqueue = slac_igp_feed_get_subqueue('SLAC Science');
-        if ($promoted) {
-          slac_igp_feed_node_move($node->nid, $subqueue, TRUE);
-        }
-        else {
-          $position = nodequeue_get_subqueue_position($subqueue->sqid, $node->nid);
-          if ($position == 1) {
-            nodequeue_queue_down($subqueue, 1);
-          }
-        }
-      }           
+    }
+    else {
+      if (empty($node->field_news_type[$lang])) {
+        return;
+      }
+      switch($node->field_news_type[$lang][0]['value']) {
+        case 'internal':
+          slac_igp_feed_node_remove($node->nid, $subqueues);
+          slac_igp_feed_node_add($node->nid, LAB_NEWS, FALSE);
+        break;
+        case 'external':
+          slac_igp_feed_node_remove($node->nid, $subqueues);
+          slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, FALSE);
+        break;
+      }
     }
   }
 }

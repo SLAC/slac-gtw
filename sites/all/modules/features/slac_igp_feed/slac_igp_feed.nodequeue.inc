@@ -47,16 +47,26 @@ function slac_igp_feed_node_add($nid, $subqueue_title, $front) {
  * 
  * @params
  * (int) $nid                   Node nid
- * (string) $subqueue_title     Title of the subqueue
+ * (string) $subqueue_title     Title of the subqueue, or an array of titles
  *
  * @return
  *
  */
 function slac_igp_feed_node_remove($nid, $subqueue_title) {
-  $subqueue = slac_igp_feed_get_subqueue($subqueue_title);
-  if (!empty($subqueue)) {
-    nodequeue_subqueue_remove_node($subqueue->sqid, $nid);    
-  }  
+
+  if (!is_array($subqueue_title)) {
+    $titles = array($subqueue_title);
+  }
+  else {
+    $titles = $subqueue_title;
+  }
+  
+  foreach ($titles as $title) {
+    $subqueue = slac_igp_feed_get_subqueue($title);
+    if (!empty($subqueue)) {
+      nodequeue_subqueue_remove_node($subqueue->sqid, $nid);    
+    }     
+  } 
 }
 
 /**
