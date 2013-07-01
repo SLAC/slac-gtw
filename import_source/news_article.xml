@@ -316,7 +316,6 @@
         <guid isPermaLink="false">http://www.webmonkey.com/?p=61677</guid>
         		<category><![CDATA[JavaScript]]></category>
 		<category><![CDATA[jQuery]]></category>
-		<category><![CDATA[Internal]]></category>
 		<category><![CDATA[External]]></category>
             <enclosure url="http://www.webmonkey.com/wp-content/uploads/2013/04/ievoodoodoll-200x100.jpg" type="image/jpeg" length="48000" />
                     <description><![CDATA[<div class="rss_thumbnail"><img src="http://www.webmonkey.com/wp-content/uploads/2013/04/ievoodoodoll.jpg" alt="Web&#8217;s Most Popular JavaScript Library Drops Support for Older Versions of IE" /></div>The jQuery framework has hit a huge milestone, version 2.0. This release may be most notable for what's not in it -- namely support for Internet Explorer 6, 7 and 8. If you're a jQuery fan, but you need to continue supporting old versions of IE, fear not, jQuery 1.9 will continue to be supported for some time to come.]]></description>
