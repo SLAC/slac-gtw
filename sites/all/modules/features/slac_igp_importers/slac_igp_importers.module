@@ -155,11 +155,11 @@ function _slac_igp_importers_feeds_news($result) {
       // Setting news types
       $result->items[$key]['Blank source 2'] = array();
       if (array_key_exists(SLAC_NEWS_INTERNAL, $tags)) {
-        $result->items[$key]['Blank source 2'][] = 'internal';
+        $result->items[$key]['Blank source 2'] = 'internal';
         unset($result->items[$key]['tags'][$tags[SLAC_NEWS_INTERNAL]]);
       }
       if (array_key_exists(SLAC_NEWS_EXTERNAL, $tags)) {
-        $result->items[$key]['Blank source 2'][] = 'external';
+        $result->items[$key]['Blank source 2'] = 'external';
         unset($result->items[$key]['tags'][$tags[SLAC_NEWS_EXTERNAL]]);
       }
       // Setting promoted
