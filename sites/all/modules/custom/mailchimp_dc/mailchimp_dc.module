@@ -92,7 +92,7 @@ function mailchimp_dc_campaign_create() {
       }
     }
   }
-      
+  
   $campaign_id = mailchimp_campaign_save_campaign($content, $options);
   if (isset($campaign_id)) {
     // save the dc meta information

@@ -29,6 +29,9 @@ function slac_igp_email_theme() {
       ),
       'template' => 'slac_igp_email',
     ),
+    'slac_igp_email_title' => array(
+      'variables' => array(),
+    ),
   ); 
 }
 
@@ -54,6 +57,13 @@ function slac_igp_email_mailchimp_dc_content($template_sections = array()) {
 }
 
 /**
+ * Theme function 
+ */
+function theme_slac_igp_email_title() {
+  return '<h2>' . date('F j, Y') . '<br />Daily Email</h2>';
+}
+
+/**
  * Return contents to the mailchimp templates
  */
 function _slac_igp_email_mailchimp_dc_content($template_sections) {
@@ -66,6 +76,10 @@ function _slac_igp_email_mailchimp_dc_content($template_sections) {
     ),
     'html_news' => array(
       'value' => theme('slac_igp_email'),
+      'format' => 'mailchimp_campaign',
+    ),
+    'html_std_header_title' => array(
+      'value' => theme('slac_igp_email_title'),
       'format' => 'mailchimp_campaign',
     ),
   );
