@@ -79,25 +79,26 @@ function mailchimp_dc_campaign_create() {
       'format' => 'mailchimp_campaign',
     );  
   }
-  
+    
   // default contents in case no one implements the hook
   $content = $template_sections;
   $contents = array_merge(module_invoke_all('mailchimp_dc_content', $template_sections), array());
   if (!empty($contents)) {
     $config = variable_get('mcdc_content', array());
     if (array_key_exists($config, $contents)) {
-      $content = $contents[$config]['content'];
+      // let's only replace ones declared
+      foreach ($contents[$config]['content'] as $section => $item) {
+        $content[$section] = $item;
+      }
     }
   }
-    
-/*
+      
   $campaign_id = mailchimp_campaign_save_campaign($content, $options);
   if (isset($campaign_id)) {
     // save the dc meta information
     mailchimp_dc_save_dc($campaign_id);
     cache_clear_all('mailchimp_campaign_campaigns', 'cache');
   }
-*/
 }
 
 /**

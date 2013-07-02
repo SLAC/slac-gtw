@@ -1,0 +1,120 @@
+<?php
+/**
+ * @file
+ * Code for the SLAC IGP Email feature.
+ */
+
+include_once 'slac_igp_email.features.inc';
+define('VIEW_MODE_TEASER', 'teaser');
+define('VIEW_MODE_LINK', 'link');
+
+
+/**
+ * Implements hook_theme
+ */
+function slac_igp_email_theme() {
+  return array(
+    'slac_igp_email_sidebar' => array(
+      'variables' => array(
+        'events' => NULL,
+        'access' => NULL,
+        'flea_market' => NULL,
+      ),
+      'template' => 'slac_igp_email_sidebar',
+    ),
+    'slac_igp_email' => array(
+      'variables' => array(
+        'featured_news' => NULL,
+        'news' => NULL,
+      ),
+      'template' => 'slac_igp_email',
+    ),
+  ); 
+}
+
+/**
+ * Implements hook_mailchimp_dc_content
+ */
+function slac_igp_email_mailchimp_dc_content($template_sections = array()) {
+    
+  $content = array(
+    'html' => array(
+    'value' => 'This is some test markup stuff',
+    'format' => 'mailchimp_campaign',
+    ),
+  );
+  
+  $data['SLAC_DD'] = array(
+    'module' => 'slac_igp_custom',
+    'title' => t('SLAC daily digest'),
+    'content' => _slac_igp_email_mailchimp_dc_content($template_sections),
+  );
+    
+  return $data;
+}
+
+/**
+ * Return contents to the mailchimp templates
+ */
+function _slac_igp_email_mailchimp_dc_content($template_sections) {
+
+  //@todo: iterate through the template_sections
+  return array(
+    'html_sidebar' => array(
+      'value' => theme('slac_igp_email_sidebar'),
+      'format' => 'mailchimp_campaign',
+    ),
+    'html_news' => array(
+      'value' => theme('slac_igp_email'),
+      'format' => 'mailchimp_campaign',
+    ),
+  );
+}
+
+/**
+ * Preprocess function
+ */
+function slac_igp_email_preprocess_slac_igp_email_sidebar(&$vars) {
+  // provide dynamic sidebar items
+  $vars['events'] = views_embed_view('email_events', 'block');
+  $vars['access'] = views_embed_view('email_access_information', 'block');
+  $vars['flea_market'] = views_embed_view('email_flea_market', 'block');
+}
+
+/**
+ * Preprocess function, providing main contents for the email
+ */
+function slac_igp_email_preprocess_slac_igp_email(&$vars) {
+  if (!module_exists('slac_igp_feed')) {
+    return;
+  }
+  
+  module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
+  
+  // load everything in the featured news
+  $output_array = array();
+  $subqueues = array(FEATURED_NEWS, LAB_NEWS, SLAC_SCIENCE);
+  foreach ($subqueues as $subqueue_name) {
+    $subqueue = slac_igp_feed_get_subqueue($subqueue_name);
+    switch ($subqueue_name) {
+      case FEATURED_NEWS:
+        $count = 5;
+        $mode = VIEW_MODE_TEASER;
+        $name = 'featured_news';
+      break;
+      case LAB_NEWS:
+      case SLAC_SCIENCE:
+        $count = 10;
+        $mode = VIEW_MODE_LINK;
+        $name = 'news';
+      break;
+    }
+    // load nodes
+    $nodes = nodequeue_load_nodes($subqueue->sqid, FALSE, 0, $count, TRUE);
+    if (!empty($nodes)) {
+      foreach ($nodes as $node) {
+        $vars[$name][] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=' . $mode . ']';
+      }
+    }
+  }
+}
