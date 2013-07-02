@@ -1,0 +1,17 @@
+/* General styles */
+
+body{
+  background: #e9e9e9;
+}
+
+.header-wrapper{
+  width: 100%;
+  max-width: 1430px;
+  margin: auto;
+}
+
+/* Header */
+
+header{
+  background: url('../images/header-bg.jpg') repeat-x; 
+}
