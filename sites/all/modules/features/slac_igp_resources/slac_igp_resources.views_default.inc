@@ -471,6 +471,73 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['filters']['field_resource_category_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_resource_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_resource_category_tid']['vocabulary'] = 'resource_category_staff';
+
+  /* Display: Directorate Links */
+  $handler = $view->new_display('block', 'Directorate Links', 'block_5');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Directorate Links';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Field: Link */
+  $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
+  $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['label'] = '';
+  $handler->display->display_options['fields']['field_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['path'] = '[field_link]';
+  $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
+  /* Field: tid */
+  $handler->display->display_options['fields']['tid']['id'] = 'tid';
+  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['ui_name'] = 'tid';
+  $handler->display->display_options['fields']['tid']['label'] = '';
+  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'staff_resource' => 'staff_resource',
+  );
+  /* Filter criterion: Taxonomy term: Organization (field_resource_org) */
+  $handler->display->display_options['filters']['field_resource_org_value']['id'] = 'field_resource_org_value';
+  $handler->display->display_options['filters']['field_resource_org_value']['table'] = 'field_data_field_resource_org';
+  $handler->display->display_options['filters']['field_resource_org_value']['field'] = 'field_resource_org_value';
+  $handler->display->display_options['filters']['field_resource_org_value']['value'] = array(
+    'Yes' => 'Yes',
+  );
+  /* Filter criterion: Taxonomy term: Organization (field_resource_org) */
+  $handler->display->display_options['filters']['field_resource_org_value_1']['id'] = 'field_resource_org_value_1';
+  $handler->display->display_options['filters']['field_resource_org_value_1']['table'] = 'field_data_field_resource_org';
+  $handler->display->display_options['filters']['field_resource_org_value_1']['field'] = 'field_resource_org_value';
+  $handler->display->display_options['filters']['field_resource_org_value_1']['relationship'] = 'parent';
+  $handler->display->display_options['filters']['field_resource_org_value_1']['value'] = array(
+    'No' => 'No',
+  );
   $export['staff_resources_classic'] = $view;
 
   return $export;
