@@ -460,7 +460,7 @@ ul,
   margin: 0;
 }
 
-.item-list ul li { /* Drupal override */
+.item-list li { /* Drupal override */
   margin: 0;
 }
 

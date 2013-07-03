@@ -75,8 +75,10 @@
   <header id="header" role="banner">
     <div class="header-wrapper">
       
-      <?php if ($logo): ?>
-      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+    <?php if ($logo): ?>
+      <div class="logo">
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+      </div>
     <?php endif; ?>
 
     <?php if ($site_name || $site_slogan): ?>
@@ -135,7 +137,7 @@
       <?php print $feed_icons; ?>
     </div><!-- /#content -->
 
-    <div id="navigation">
+  <!--   <div id="navigation">
 
       <?php if ($main_menu): ?>
         <nav id="main-menu" role="navigation">
@@ -160,7 +162,7 @@
 
       <?php print render($page['navigation']); ?>
 
-    </div><!-- /#navigation -->
+    </div>
 
     <?php
       // Render the sidebars to see if there's anything in them.

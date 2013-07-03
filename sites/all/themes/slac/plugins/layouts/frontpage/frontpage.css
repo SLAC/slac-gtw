@@ -3,33 +3,36 @@
 /*  overflow: hidden;  */
 }
 
-.panel-3col .panel-col-first { 
-  float: left; 
-  width: 25%; 
+
+.frontpage-left{
+  float: left;
+  width: 66%;
+  margin-right:  3%;
 }
 
-.panel-3col .panel-col-first .inside { 
-  margin: 0 .5em 1em 0;
+.frontpage-right-col{
+  float: right;
+  width: 31%;
 }
 
-.panel-3col .panel-col { 
-  float: left; 
-  width: 50%; 
+.frontpage-middle-col{
+  float: right;
+  width:  61%;
 }
 
-.panel-3col .panel-col .inside { 
-  margin: 0 .5em 1em .5em;
+.frontpage-left-col{
+  float: left;
+  width: 35%;
+  margin-right: 4%;
 }
 
-.panel-3col .panel-col-last { 
-  float: left; 
-  width: 25%; 
+.frontpage-help-market{
+  float:left;
+  width: 47%;
+  margin-right: 6%;
 }
 
-.panel-3col .panel-col-last .inside { 
-  margin: 0 0 1em .5em;
-}
-
-.panel-3col .panel-separator {
-  margin: 0 0 1em 0;
+.frontpage-security-contacts{
+  float:right;
+  width: 47%;
 }

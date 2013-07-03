@@ -15,7 +15,7 @@
  */
 ?>
 <div class="panel-display panel-frontpage clearfix" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
-  <div class="left">
+  <div class="frontpage-left">
     
     <div class="frontpage-middle-col">
 

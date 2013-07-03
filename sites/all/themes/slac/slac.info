@@ -72,5 +72,5 @@ settings[zen_rebuild_registry]     = 1
 settings[zen_wireframes]           = 0
 
 
-settings[shortcut_module_link]    = 1
+;settings[shortcut_module_link]    = 1
 
