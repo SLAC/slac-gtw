@@ -154,11 +154,30 @@ Building 50 <br />
   $box->api_version = 1;
   $box->delta = 'weather_traffic';
   $box->plugin_key = 'simple';
-  $box->title = 'Weather & Traffic';
-  $box->description = 'Weather & Traffic';
+  $box->title = '';
+  $box->description = 'Traffic Map';
   $box->options = array(
     'body' => array(
-      'value' => '<iframe width="306" height="165" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Stanford+Linear+Accelerator,+2575+Sand+Hill+Road,+Menlo+Park,+CA&amp;aq=0&amp;oq=SLAC&amp;sll=38.003385,-79.420925&amp;sspn=4.639537,9.876709&amp;ie=UTF8&amp;hq=&amp;hnear=SLAC+National+Accelerator+Laboratory,+2575+Sand+Hill+Rd,+Menlo+Park,+California+94025-7015&amp;t=m&amp;ll=37.418436,-122.205391&amp;spn=0.044991,0.104713&amp;z=12&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Stanford+Linear+Accelerator,+2575+Sand+Hill+Road,+Menlo+Park,+CA&amp;aq=0&amp;oq=SLAC&amp;sll=38.003385,-79.420925&amp;sspn=4.639537,9.876709&amp;ie=UTF8&amp;hq=&amp;hnear=SLAC+National+Accelerator+Laboratory,+2575+Sand+Hill+Rd,+Menlo+Park,+California+94025-7015&amp;t=m&amp;ll=37.418436,-122.205391&amp;spn=0.044991,0.104713&amp;z=12" style="color:#0000FF;text-align:left">View Detailed Traffic Information</a></small>',
+      'value' => '    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+		var map;
+		function initialize() {
+		  var mapOptions = {
+			zoom: 11,
+			center: new google.maps.LatLng(37.426569,-122.171059),
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			disableDefaultUI: true,
+			zoomControl: true
+		  };
+		  map = new google.maps.Map(document.getElementById(\'map-canvas\'),
+			  mapOptions);
+			var trafficLayer = new google.maps.TrafficLayer();
+		  trafficLayer.setMap(map);
+		}	
+		google.maps.event.addDomListener(window, \'load\', initialize);
+    </script>
+    <div id="map-canvas" style="width:305px;height:165px"></div>
+<small><a href="https://www.google.com/maps?q=Stanford+Linear+Accelerator,+2575+Sand+Hill+Road,+Menlo+Park,+CA&sll=38.003384999999994,-79.420925&sspn=6.67462170755311,11.315034649672635&t=m&dg=opt&hq=Stanford+Linear+Accelerator,&hnear=2575+Sand+Hill+Rd,+Menlo+Park,+California+94025&z=11&layer=t" target="_blank">View Detailed Traffic Information</a></small>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',

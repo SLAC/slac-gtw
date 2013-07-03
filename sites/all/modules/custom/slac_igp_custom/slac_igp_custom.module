@@ -21,6 +21,7 @@ function slac_igp_custom_theme() {
  
 /**
  * Implements hook_block_view_alter
+ * Altering weather and traffic block
  */
 function slac_igp_custom_block_view_alter(&$data, $block) {
   if ($block->delta === 'weather_block') {
@@ -29,21 +30,22 @@ function slac_igp_custom_block_view_alter(&$data, $block) {
       $service = variable_get('weather_service');
       $services = variable_get('weather_services');
       if ($service === 'yahoo_weather') {
-        $data['subject'] = '';
+        $data['subject'] = t('Weather & Traffic');
         if (isset($_SESSION['weather_location']['id'])) {
           $weather = new Weather($_SESSION['weather_location']['id'], $service);
         }
         else {
           $weather =  new Weather($location->field_yahoo_weather['und'][0]['value'], $service);
         }
-        $data['content'] = theme('slac_igp_weather', array('weather' => $weather, 'location' => $location->name));
         
-      }/*
- else {
-        // use default weather block implementation
-        $data = weather_block_block_view($block->delta);        
+        $content = theme('slac_igp_weather', array('weather' => $weather, 'location' => $location->name));
+        $box = boxes_box_load('weather_traffic');
+        if (!empty($box)) {
+          $block = $box->render();
+          $content .=theme('boxes_box', array('block' => $block));
+        }
+        $data['content'] = $content;        
       }
-*/
   }
 }
 
