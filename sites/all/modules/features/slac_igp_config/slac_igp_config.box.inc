@@ -96,11 +96,12 @@ Building 50 <br />
       'value' => '<form name="people_search" method="get" action="http://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search">
 <input type="text" id="searchbox" maxlength="2047" class="searchbox" name="name" size="18" value="Search" onfocus="value=\'\'">
 <input type="hidden" name="gone" value="active" />
-<input id="search-button" width="27" type="image" height="22" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" alt="go">
+<input id="search-button" class="searchbutton" width="27" type="button" value="go" height="22" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" alt="go">
 <a href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a>
 </form>',
       'format' => 'full_html',
     ),
+    'additional_classes' => '',
   );
   $export['search_people'] = $box;
 
