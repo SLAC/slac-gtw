@@ -224,3 +224,12 @@ function STARTERKIT_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
+
+
+
+function slac_preprocess_block(&$variables) {
+  // In the header region visually hide block titles.
+  if ($variables['block']->region == 'header') {
+    $variables['title_attributes_array']['class'][] = 'element-invisible';
+  }
+}
