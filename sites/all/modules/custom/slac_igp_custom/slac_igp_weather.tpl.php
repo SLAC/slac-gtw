@@ -22,7 +22,7 @@
 <div class="current">
   <h2><?php print $location; ?></h2>
   <div class="temp">
-    <?php print $current['temp']; ?>
+    <span class="temp-nr"><?php print $current['temp']; ?></span>
     <span class="condition"><?php print $current['condition']; ?></span>
   </div>
   <div class="icon">
