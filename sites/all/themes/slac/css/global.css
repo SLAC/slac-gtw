@@ -206,7 +206,7 @@ header{
   list-style-image: none;
   background: #f1f1f1;
   float: left;
-  width: 44%;
+  width: 45%;
   font-size: 10px;
   margin: 0 0 13px;
   border: 1px dashed #90a7b2;
@@ -523,7 +523,8 @@ a.submit-feedback{
   position: relative;
 } 
 
-.frontpage-news-slider img{
+.views-slideshow-cycle-main-frame,
+.views-slideshow-cycle-main-frame div{
  max-width: 100%;
 }
 
@@ -591,6 +592,36 @@ a.submit-feedback{
 	.pane-boxes-stanford-compliance{
 	  display:none;
 	}
+
+  .brown-bodered-white h2{
+    font-size: 11px;
+    margin-top: -12px;
+  }
+
+  .blue-striped-list > .pane-content{
+    padding: 10px;
+  }
+
+  .blue-striped-list .view-content .views-row{
+    background: #e9f2f9;
+    border: none;
+    font-size: 15px;
+    width: 46%;
+    margin-top: 7px;
+    margin-bottom: 7px;  
+  }
+
+  .blue-striped-list .view-content .views-row a{
+    background:none;
+    padding: 0;
+    line-height: normal;
+    padding: 6px 7%;
+  }
+
+  .frontpage-top-links .view-content .views-row{
+    width: 100%;
+  }
+
 }
 
 @media ( max-width: 600px) {
@@ -615,6 +646,64 @@ a.submit-feedback{
 	  display: block;
 	}
 
+  /* People search*/
+  .no-bg{
+    background: transparent;
+    border: none;
+  }
+
+  .no-bg.brown-bodered-white > .pane-content{
+    padding: 0;
+  }
+
+  .frontpage-people-finder .advanced-search{
+    display: none;
+  }
+
+  .frontpage-people-finder form{
+    height: 26px;
+    border: 3px solid #b8d6ee;
+    padding: 0 33px 0 5px;
+    position: relative;
+    background: #fff;
+  }
+
+  .frontpage-people-finder .searchbox{
+    height: 26px;
+    border: none;
+    background: #fff;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    width: 100%;
+    padding: 0;
+    border:none;
+    margin: 0;
+  }
+
+  .frontpage-people-finder .searchbutton{
+    background: #b8d6ee url('../images/small-search-icon.jpg') no-repeat center right;
+    border:none;
+    height: 26px;
+    width: 28px;
+    float: right;
+    overflow:hidden;
+    text-indent: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  /* Middle blocks */
+
+  .blue-bodered-white .pane-title{
+    background: #a8bcc7 url('../images/blue-arrow.jpg') no-repeat right center;
+    font-size: 12px;
+    height: 32px;
+    line-height: 32px;
+  }
+
+  /* Socials */
   .socials li {
     min-width: 24px;
     height: 24px;
