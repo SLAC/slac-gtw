@@ -19,9 +19,16 @@ function slac_igp_config_default_box() {
   $box->description = 'Connect (Social media)';
   $box->options = array(
     'body' => array(
-      'value' => '<ul><li>Facebook</li><li>Flickr</li><li>RSS</li><li>Twitter</li><li>Youtube</li></ul>',
+      'value' => '<ul class="socials">
+<li class="fb"><a href="#">Facebook</a></li>
+<li class="flickr"><a href="#">Flickr</a></li>
+<li class="rss"><a href="#">RSS</a></li>
+<li class="twitter"><a href="#">Twitter</a></li>
+<li class="youtube"><a href="#">Youtube</a></li>
+</ul>',
       'format' => 'full_html',
     ),
+    'additional_classes' => '',
   );
   $export['connect'] = $box;
 
@@ -66,6 +73,7 @@ Building 50 <br />
       'value' => '<a href="http://slac.stanford.edu">SLAC NATIONAL ACCELERATOR LABORATORY</a> 2575 Sand Hill Road, Menlo Park, CA 94025 Operated by <a href="http://www.stanford.edu">Stanford University</a> for the <a href="http://science.energy.gov/">U.S. Department of Energy Office of Science</a>',
       'format' => 'full_html',
     ),
+    'additional_classes' => 'footer-info',
   );
   $export['footer'] = $box;
 
@@ -78,9 +86,14 @@ Building 50 <br />
   $box->description = 'IT Help Desk';
   $box->options = array(
     'body' => array(
-      'value' => '<p>7am - 6pm, Monday - Friday</p><p><a href="#">Building 50, First Floor Lobby</a></p><p>xHELP (650-926-4357)</p><p><a href="mailto:ithelp@slac.stanford.edu">ithelp@slac.stanford.edu</a></p><p><a href="#">Submit Request</a></p>',
+      'value' => '<p>7am - 6pm, Monday - Friday</p><p><a href="#">Building 50, First Floor Lobby</a></p><p>xHELP (650-926-4357)</p><p><a href="mailto:ithelp@slac.stanford.edu">ithelp@slac.stanford.edu</a></p>
+<div class="view-footer">
+<a href="#">Submit Request</a>
+</div>
+',
       'format' => 'full_html',
     ),
+    'additional_classes' => '',
   );
   $export['it_help_desk'] = $box;
 
@@ -97,7 +110,7 @@ Building 50 <br />
 <input type="text" id="searchbox" maxlength="2047" class="searchbox" name="name" size="18" value="Search" onfocus="value=\'\'">
 <input type="hidden" name="gone" value="active" />
 <input id="search-button" class="searchbutton" width="27" type="button" value="go" height="22" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" alt="go">
-<a href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a>
+<a href="http://www-public.slac.stanford.edu/phonebook/search.aspx" class="advanced-search">Advanced People Search</a>
 </form>',
       'format' => 'full_html',
     ),
@@ -194,12 +207,13 @@ Building 50 <br />
   $box->description = 'Search (Web)';
   $box->options = array(
     'body' => array(
-      'value' => '<form name="search" method="get" action="http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite" id="form1">
+      'value' => '<form class="header-search" name="search" method="get" action="http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite" id="form1">
   <input type="text" id="searchbox" maxlength="2047" class="searchbox" name="qt" size="18" value="Search" onfocus="value=\'\'">
-  <input id="search-button" width="27" type="image" height="22" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" alt="go">
+  <input id="search-button" class="search-button" width="27" type="image" height="22" name="submit" src="/sites/all/themes/slac/images/search-icon.jpg" alt="go">
 </form>',
       'format' => 'full_html',
     ),
+    'additional_classes' => '',
   );
   $export['web_search'] = $box;
 

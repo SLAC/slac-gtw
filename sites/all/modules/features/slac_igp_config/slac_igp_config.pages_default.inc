@@ -206,7 +206,10 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'brown-bodered-white blue-striped-list blue-dashed-list',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
@@ -288,7 +291,7 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->pid = 'new-10';
     $pane->panel = 'colthreerowsix';
     $pane->type = 'block';
-    $pane->subtype = 'boxes-feedback';
+    $pane->subtype = 'boxes-connect';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -312,7 +315,7 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->pid = 'new-11';
     $pane->panel = 'colthreerowsix';
     $pane->type = 'block';
-    $pane->subtype = 'boxes-connect';
+    $pane->subtype = 'boxes-feedback';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -325,7 +328,7 @@ function slac_igp_config_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'brown-bodered-white',
+      'css_class' => '',
     );
     $pane->extras = array();
     $pane->position = 3;
@@ -373,7 +376,7 @@ function slac_igp_config_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'brown-bodered-white blue-striped-list',
+      'css_class' => 'brown-bodered-white blue-striped-list ',
     );
     $pane->extras = array();
     $pane->position = 0;
@@ -421,7 +424,7 @@ function slac_igp_config_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'brown-bodered-white',
+      'css_class' => 'brown-bodered-white blue-dashed-list',
     );
     $pane->extras = array();
     $pane->position = 0;
