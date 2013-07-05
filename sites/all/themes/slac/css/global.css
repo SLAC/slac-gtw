@@ -60,7 +60,7 @@ header{
 
 /* Header Main Menu, Search*/
 
-#block-system-main-menu .menu li{
+#block-system-main-menu .menu li {
   height: 25px;
   line-height: 25px;
   text-transform: uppercase;
@@ -68,7 +68,14 @@ header{
   list-style-type: none;
   list-style-image: none;
   float: left;
-}  
+  padding: 0 13px;
+  background: url('../images/delimitator.jpg') no-repeat 0 center;
+}
+
+#block-system-main-menu .menu li.first{
+  background: transparent;
+  padding-left: 0;
+}
 
 #block-system-main-menu .menu li a{
   color: #f4f4f4;
@@ -89,6 +96,7 @@ header{
   width: 256px;
   margin-top: 12px;
 }
+
 .header-search input{
   float: left;
   border: none;
@@ -345,15 +353,23 @@ header{
 
 .frontpage-weather .current .temp{
   float: left;
-  font-size: 24px;
-  color: #21263c;
 }
 
-.frontpage-weather .current .condition{
+.frontpage-weather .temp-nr{
+  background: url('../images/far.jpg') no-repeat right 3px;
+  font-size: 24px;
+  color: #472725;
+  padding-right: 15px;
+  float:left;
+}
+
+.frontpage-weather .current .condition {
   font-size: 12px;
   color: #706a65;
   font-weight: bold;
-  text-transform:capitalize;
+  text-transform: capitalize;
+  float:left;
+  margin: 2px 0 0 5px;
 }
 
 .frontpage-weather .current .icon{
@@ -384,14 +400,16 @@ header{
   display: block;
 }
 
-.frontpage-weather .forecast .hight,
-.frontpage-weather .forecast .low{
-  padding: 0 5px;
+.frontpage-weather .forecast .hight, 
+.frontpage-weather .forecast .low {
+  padding: 0 6px 0  4px;
   font-size: 11px;
+  background: url('../images/grade-dark.jpg') no-repeat right 3px;
 }
 
-.frontpage-weather .forecast .low{
+.frontpage-weather .forecast .low {
   color: #b6afa6;
+  background: url('../images/grade-light.jpg') no-repeat right 3px;
 }
 
 .frontpage-weather #map-canvas{
@@ -528,7 +546,7 @@ a.submit-feedback{
  max-width: 100%;
 }
 
-/* Front middle gengeral */
+/* Front middle general */
 
 .frontpage-slac-science .pane-content > .view-news > .view-content .views-row,
 .frontpage-news-list .views-row{
@@ -552,13 +570,34 @@ a.submit-feedback{
 }
 
 .frontpage-slac-science .view-header{
-  margin: -12px -18px 0;
+  margin: -12px -18px 10px;
+  position: relative;
 }
 
 .frontpage-slac-science .view-header img{
   max-width: 100%;
+  display: block;
 }
 
+.frontpage-news-slider .views-field-nothing,
+.frontpage-slac-science .view-header .views-field-nothing{
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  background: url('../images/transparent-blue-bg.png') repeat;
+  padding: 10px 17px;
+  color: #fff;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.frontpage-news-slider .title a,
+.frontpage-slac-science .view-header .title a{
+  color: #fff;
+  text-decoration:none;
+  font-size: 20px;
+  line-height: normal;
+}
 
 
 
@@ -652,6 +691,10 @@ a.submit-feedback{
     border: none;
   }
 
+  .no-bg.brown-bodered-white{
+    margin-top: 0;
+  }
+  
   .no-bg.brown-bodered-white > .pane-content{
     padding: 0;
   }
