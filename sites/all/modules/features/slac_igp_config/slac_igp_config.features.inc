@@ -27,6 +27,13 @@ function slac_igp_config_ctools_plugin_api() {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function slac_igp_config_views_api() {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function slac_igp_config_node_info() {

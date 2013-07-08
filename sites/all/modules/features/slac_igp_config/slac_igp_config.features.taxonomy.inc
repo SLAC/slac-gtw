@@ -9,6 +9,14 @@
  */
 function slac_igp_config_taxonomy_default_vocabularies() {
   return array(
+    'related_links' => array(
+      'name' => 'Related Links',
+      'machine_name' => 'related_links',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
     'research_resource_subtype' => array(
       'name' => 'Research Resource Subtype',
       'machine_name' => 'research_resource_subtype',
