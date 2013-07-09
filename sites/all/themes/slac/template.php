@@ -233,3 +233,11 @@ function slac_preprocess_block(&$variables) {
     $variables['title_attributes_array']['class'][] = 'element-invisible';
   }
 }
+
+function slac_preprocess_node(&$variables) {
+  
+  // adding a template suggestion for different node view mode
+  $view_mode = $variables['view_mode'];
+  $node = $variables['node'];
+  $variables['theme_hook_suggestions'][] = 'node__' . $node->type . '__' . $view_mode;
+}
