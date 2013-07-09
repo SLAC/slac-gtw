@@ -13,9 +13,13 @@ $plugin = array(
   'css' => 'staff_resources.css',
   'regions' => array(
     'staffresourcesone' => t('Left Column'),
-    'staffresourcesone' => t('Right Column'),
-    'rowone' => t('First row'),
-    'rowtwo' => t('Seccond row')
+    'staffresourcestwo' => t('Right Column'),
+    'rowonecolone' => t('First row first col'),
+    'rowonecoltwo' => t('First row seccond col'),
+    'rowonecolthree' => t('First row third col'),
+    'rowtwocolone' => t('Seccond row first col'),
+    'rowtwocoltwo' => t('Seccond row seccond col'),
+    'rowtwocoltree' => t('Seccond row third col')
   ),
 );
 
