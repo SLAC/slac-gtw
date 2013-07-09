@@ -33,6 +33,13 @@ header,
   padding: 0 1%;
 }
 
+.not-front #content{
+  background: #fbf9f9;
+  width: 98%;
+  padding: 0 1% 32px;
+}
+
+
 /* Header */
 
 header{
@@ -64,6 +71,12 @@ header{
 .region-header .block{
   float: left;
 }
+
+.frontpage-left,
+.frontpage-right-col{
+  margin-bottom: 32px;
+}
+
 
 /* Header Main Menu, Search*/
 
@@ -126,7 +139,7 @@ header{
 
 .footer-wrapper {
   background: #DADADA;
-  margin: 32px 0 22px;
+  margin: 0 0 22px;
 }
 
 .region-footer {
@@ -611,10 +624,11 @@ a.submit-feedback{
   bottom: 0;
   left: 0;
   background: url('../images/transparent-blue-bg.png') repeat;
-  padding: 10px 17px;
+  padding: 10px 3%;
   color: #fff;
   font-size: 13px;
   line-height: 18px;
+  width: 94%;
 }
 
 .frontpage-news-slider .title a,
@@ -624,9 +638,17 @@ a.submit-feedback{
   font-size: 20px;
   line-height: normal;
 }
-
+/*
 .frontpage-news-slider img{
   float: left;
+}*/
+
+.frontpage-news-slider{
+  border: 1px solid #b0aeac;
+}
+
+.frontpage-news-slider .views-field-nothing{
+  margin: -1px;
 }
 
 .frontpage-news-slider .views-slideshow-controls-text span{
@@ -691,6 +713,31 @@ a.submit-feedback{
   background-image: url('../images/slider-pager-active.png'); 
 }
 
+/* General pages */
+
+.general-left .item-list ul{
+  padding-bottom: 10px;
+}  
+
+.general-left .item-list ul li{
+  margin: 0 0 0 20px;
+  padding: 2px 0 2px 11px;
+  font-size: 12px;
+  clear: both;
+  display: block;
+  background: url('../images/list-dot.png') no-repeat 0 9px;
+}
+
+.general-left .item-list a{
+  color: #000;
+}
+
+.general-left .item-list h3{
+  font-size: 12px;
+  margin: 15px 0;
+  color: #000;
+}
+
 
 
 
@@ -704,7 +751,9 @@ a.submit-feedback{
 	.frontpage-left-col,
 	.frontpage-middle-col,
 	.frontpage-help-market,
-	.frontpage-security-contacts{
+	.frontpage-security-contacts,
+  .general-left,
+  .general-right{
 		width: 100%;
 		clear: both;
 	}
@@ -772,6 +821,9 @@ a.submit-feedback{
     background: url('../images/list-white-dot.jpeg') no-repeat left;
   }
 
+  .frontpage-slac-science{
+    margin-bottom: 16px;
+  }
 }
 
 @media ( max-width: 600px) {
@@ -785,6 +837,11 @@ a.submit-feedback{
 		width: 88px;
 		margin-bottom: -49px;
 	}
+
+  .content-wrapeper, .footer-wrapper {
+    width: 96%;
+    padding: 0 2%;
+  }
 
 	.frontpage-left,
 	.frontpage-right-col{
@@ -855,6 +912,31 @@ a.submit-feedback{
     font-size: 12px;
     height: 32px;
     line-height: 32px;
+    margin-bottom: 20px;
+  }
+
+  .blue-bodered-white > .pane-content{
+    padding: 0;
+  }  
+
+  .frontpage-slac-science .view-header{
+    margin: 0 0 20px 0;
+  }  
+
+  .blue-bodered-white .view-footer{
+    display: none;
+  }
+
+  .blue-bodered-white .pane-content > .view-news > .view-content .views-row{
+    padding: 8px 52px 8px 11px;
+    margin: 0 0 18px 0;
+    min-height: 44px;
+    font-size: 13px;
+    background: #fff url('/sites/all/themes/slac/images/list-arrow.jpg') no-repeat right center;
+  }
+
+  .blue-bodered-white .views-field-created{
+    font-size: 12px;
   }
 
   /* Socials */
@@ -891,4 +973,21 @@ a.submit-feedback{
     width: 100%;
     border-bottom: 1px solid #fff;
   }
+
+  /* */
+
+  .frontpage-news-slider .views-field-nothing,
+  .frontpage-slac-science .view-header .views-field-nothing{
+    position: static;
+    background: #fff;
+    color: #1a6199;
+  }
+
+  .frontpage-news-slider .title a, 
+  .frontpage-slac-science .view-header .title a{
+    color: #1a6199;
+    display:block;
+    margin-bottom: 5px;
+  }
+
 }

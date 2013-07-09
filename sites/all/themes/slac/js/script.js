@@ -12,8 +12,10 @@
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 (function ($, Drupal, window, document, undefined) {
 
-
-// Place your code here.
-
+  // Drupal.behaviors.bottomFixIOS = {
+  //   attach: function (context, settings) {
+  //     $('.region-header .block').prepend('<div class="icon"></div>');
+  //   }
+  // }
 
 })(jQuery, Drupal, this, this.document);

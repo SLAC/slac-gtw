@@ -1,35 +1,27 @@
 
-.panel-3col { 
+.general-two-col { 
 /*  overflow: hidden;  */
 }
 
-.panel-3col .panel-col-first { 
+.general-two-col .general-left { 
   float: left; 
+  width: 71%; 
+  margin-right: 4%;
+}
+
+.general-two-col .general-left .inside { 
+  margin: 0;
+}
+
+.general-two-col .general-right { 
+  float: right; 
   width: 25%; 
 }
 
-.panel-3col .panel-col-first .inside { 
-  margin: 0 .5em 1em 0;
+.general-two-col .general-right .inside { 
+  margin: 0;
 }
 
-.panel-3col .panel-col { 
-  float: left; 
-  width: 50%; 
-}
-
-.panel-3col .panel-col .inside { 
-  margin: 0 .5em 1em .5em;
-}
-
-.panel-3col .panel-col-last { 
-  float: left; 
-  width: 25%; 
-}
-
-.panel-3col .panel-col-last .inside { 
-  margin: 0 0 1em .5em;
-}
-
-.panel-3col .panel-separator {
-  margin: 0 0 1em 0;
+.general-two-col .panel-separator {
+  margin: 0;
 }
