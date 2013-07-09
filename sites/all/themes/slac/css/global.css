@@ -723,7 +723,6 @@ a.submit-feedback{
 }  
 
 .general-left .item-list ul li{
-  margin: 0 0 0 20px;
   padding: 2px 0 2px 11px;
   font-size: 12px;
   clear: both;
@@ -731,14 +730,38 @@ a.submit-feedback{
   background: url('../images/list-dot.png') no-repeat 0 9px;
 }
 
-.general-left .item-list a{
-  color: #000;
+/* Resources page */
+
+.section-research-resources .view-content .view-grouping-header{
+  margin: 40px auto auto;
+  max-width: 855px;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+  
+.section-research-resources .view-content .view-grouping-content{
+  background: #f6f6f6;   
+  border: 1px solid #c3c5c5;
+  border-top-width: 3px;
+  max-width: 775px;
+  width: 100%;
+  padding: 12px 40px 0 40px; 
+  margin: auto;
 }
 
-.general-left .item-list h3{
+.section-research-resources .view-content > .view-grouping:first-child{
+  margin-top: 0;
+}
+
+.section-research-resources .view-grouping-content h3{
   font-size: 12px;
   margin: 15px 0;
   color: #000;
+}
+
+.section-research-resources .view-grouping-content .item-list li a{
+  font-size: 13px
 }
 
 /* General right block */
@@ -783,7 +806,8 @@ a.submit-feedback{
 
 /* Feedback page */
 
-.section-feedback .field-name-body{
+.section-feedback .field-name-body,
+.page-node-done #content .webform-confirmation p{
   font-size: 14px;
   padding-bottom: 27px;
   margin-bottom:  40px;
@@ -824,6 +848,7 @@ a.submit-feedback{
 .section-feedback .content-wrapper form textarea{
   border: 2px solid #d0d0d0;
   height: 180px;
+  outline: none;
 }
 
 .section-feedback article .form-actions{
@@ -861,9 +886,18 @@ a.submit-feedback{
   margin-top: 1.5em;
 }
 
+.page-node-done #content {
+  background: #fff;
+  width: 96%;
+  padding: 100px 2% 300px;
 
+}
 
-
+.page-node-done #content{
+  background: #fff;
+  width: 96%;
+  padding: 100px 2% 300px;
+}
 
 
 
