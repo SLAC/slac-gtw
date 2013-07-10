@@ -83,21 +83,14 @@
  * @see template_process()
  */
 ?>
-  <?php // $link = $node_url; ?>
-  <?php // if (array_key_exists('field_link', $content)): ?>
-    <?php // $link = strip_tags(render($content['field_link'])); ?>
-  <?php // endif; ?>
-  <?php unset($content['links']); ?>
-  <?php if (array_key_exists('field_news_image', $content)): ?>
-    <?php print render($content['field_news_image']); ?>
+  <?php $link = $node_url; ?>
+  <?php if (array_key_exists('field_link', $content)): ?>
+    <?php $link = strip_tags(render($content['field_link'])); ?>
   <?php endif; ?>
-  <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
+  <?php if ($title_prefix || $title_suffix || $display_submitted || !$page && $title): ?>
       <?php print render($title_prefix); ?>
       <?php if (!$page && $title): ?>
-        <h3 <?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>
+        <h4<?php print $title_attributes; ?>><a href="<?php print $link; ?>" target="_blank"><?php print $title; ?></a></h4>
       <?php endif; ?>
       <?php print render($title_suffix); ?>
   <?php endif; ?>
-  <?php
-    print render($content['body']);
-  ?>

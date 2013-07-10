@@ -16,7 +16,41 @@ function slac_igp_custom_theme() {
       ),
       'template' => 'slac_igp_weather',
     ),
+    'slac_igp_node_teaser' => array(
+      'render element' => 'elements',
+      'preprocess functions' => array(
+        'template_preprocess',
+        'template_preprocess_node',
+      ),
+      'template' => 'slac_igp_node_teaser',
+    ),
+    'slac_igp_node_link' => array(
+      'render element' => 'elements',
+      'preprocess functions' => array(
+        'template_preprocess',
+        'template_preprocess_node',
+      ),
+      'template' => 'slac_igp_node_link',
+    ),
   );  
+}
+
+/**
+ * Implements hook_node_view_alter
+ */
+function slac_igp_custom_node_view_alter(&$build) {
+  if ($build['#bundle'] === 'news_article') {
+    if ($build['#view_mode'] == 'teaser') {
+      $build['#theme'] = 'slac_igp_node_teaser';
+      unset($build['links']);
+      unset($build['#contextual_links']);
+    } 
+    
+    if ($build['#view_mode'] == 'link')
+      $build['#theme'] = 'slac_igp_node_link';
+      unset($build['links']);
+      unset($build['#contextual_links']);    
+  }
 }
  
 /**

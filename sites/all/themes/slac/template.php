@@ -224,20 +224,9 @@ function STARTERKIT_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
-
-
-
 function slac_preprocess_block(&$variables) {
   // In the header region visually hide block titles.
   if ($variables['block']->region == 'header') {
     $variables['title_attributes_array']['class'][] = 'element-invisible';
   }
-}
-
-function slac_preprocess_node(&$variables) {
-  
-  // adding a template suggestion for different node view mode
-  $view_mode = $variables['view_mode'];
-  $node = $variables['node'];
-  $variables['theme_hook_suggestions'][] = 'node__' . $node->type . '__' . $view_mode;
 }
