@@ -718,12 +718,18 @@ a.submit-feedback{
 
 /* General pages */
 
+.general-left ul li a{
+  font-size: 13px;
+}
+
 .general-left .item-list ul{
   padding-bottom: 10px;
 }  
 
-.general-left .item-list ul li{
+.general-left .item-list ul li,
+.general-left .views-row{
   padding: 2px 0 2px 11px;
+  margin: 0;
   font-size: 12px;
   clear: both;
   display: block;
@@ -739,14 +745,14 @@ a.submit-feedback{
   text-transform: uppercase;
   font-size: 13px;
 }
-  
-.section-research-resources .view-content .view-grouping-content{
-  background: #f6f6f6;   
+
+.section-research-resources .view-content .view-grouping-content {
+  background: #f6f6f6;
   border: 1px solid #c3c5c5;
   border-top-width: 3px;
   max-width: 775px;
-  width: 100%;
-  padding: 12px 40px 0 40px; 
+  width: 92%;
+  padding: 12px 4% 0;
   margin: auto;
 }
 
@@ -762,6 +768,31 @@ a.submit-feedback{
 
 .section-research-resources .view-grouping-content .item-list li a{
   font-size: 13px
+}
+
+.section-research-resources .pane-node-body{
+  font-size: 14px;
+}
+
+.section-research-resources .pane-node-body strong{
+  clear: both;
+  display:block;
+  padding: 20px 0 15px;
+}
+
+.section-research-resources .view-header{
+  padding-bottom: 27px;
+  background: url('../images/dotted-heavy.png') repeat-x bottom;
+}
+
+.section-research-resources .view-header .view-content{
+  max-width: 857px;
+  width: 100%;
+  margin:auto;
+}
+
+.section-research-resources .view-header  .views-row a{
+  font-size: 14px; 
 }
 
 /* General right block */
@@ -916,12 +947,12 @@ a.submit-feedback{
 	.frontpage-left-col,
 	.frontpage-middle-col,
 	.frontpage-help-market,
-	.frontpage-security-contacts,
-  .general-two-col .general-left,
-  .general-two-col .general-right{
+	.frontpage-security-contacts{
 		width: 100%;
 		clear: both;
 	}
+
+
 
 	.frontpage-links,
 	.frontpage-calendar,
@@ -997,7 +1028,13 @@ a.submit-feedback{
 	  background: #2482c8;
 	  height: 30px;
 	}
-	
+
+  .general-two-col .general-left,
+  .general-two-col .general-right{
+    width: 100%;
+    clear: both;
+  }
+
 	.logo a{
 		width: 88px;
 		margin-bottom: -49px;
@@ -1165,6 +1202,11 @@ a.submit-feedback{
   .section-feedback article .form-actions input{
     width: 100%;
     margin-bottom: 5px;
+  }
+
+
+  .section-research-resources .general-right{
+    display: none;
   }
 
 }
