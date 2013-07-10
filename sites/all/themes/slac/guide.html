@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<style>@import url("css/global.css");</style>
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td width="40%">Example Code</td>
+    <td>Example</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><h3>TYPOGRAFY</h3></td>
+  </tr>
+  <tr>
+    <td>&lt;h1&gt;This is a page title&lt;/h1&gt;</td>
+    <td><h1>This is a page title</h1></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><h3>PAGE ELEMENTS</h3></td>
+  </tr>
+  <tr>
+    <td><p>&lt;div class=&quot;brown-bodered-white&quot;&gt;<br />      
+    &lt;h2&gt;This is a block heading&lt;/h2&gt;<br />
+    &lt;/div&gt;
+    </p></td>
+    <td><div class="brown-bodered-white">
+<h2>This is a block heading</h2>
+</div> </td>
+  </tr>
+  <tr>
+    <td>&lt;div class=&quot;blue-bodered-white&quot;&gt;&lt;h2 class=&quot;pane-title&quot;&gt;Panel Pane Title&lt;/h2&gt;&lt;/div&gt;</td>
+    <td><div class="blue-bodered-white"><h2 class="pane-title">Panel Pane Title</h2></div></td>
+  </tr>
+  <tr>
+    <td><p>&lt;div class=&quot;view-header&quot;&gt;&lt;div class=&quot;title&quot;&gt;&lt;a href=&quot;#&quot;&gt;This is a views header title link&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</p></td>
+    <td><!-- @todo: this should just be (.view-header .title a) to be more reusable --><div class="frontpage-slac-science"><div class="view-header"><div class="title"><a href="#">This is a views header title link</a></div></div></div></td>
+  </tr>
+  <tr>
+    <td>&lt;div class=&quot;blue-dashed-list&quot;&gt;&lt;div class=&quot;views-row&quot;&gt;&lt;a href=&quot;#&quot;&gt;This is a block link&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</td>
+    <td><!-- @todo: this needs to be simplified to just .blue-dashed-list a --><div class="blue-dashed-list"><div class="views-row"><a href="#">This is a block link</a></div></div></td>
+  </tr>
+  <tr>
+    <td>&lt;div class=&quot;brown-bodered-white&quot;&gt;&lt;div class=&quot;view-footer&quot;&gt;&lt;a href=&quot;#&quot;&gt;Link with arrow&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</td>
+    <td><!--@todo: why is there a border? should be just (.link-arrow a or something similar) --><div class="brown-bodered-white"><div class="view-footer"><a href="#">Link with arrow</a></div></div></td>
+  </tr>
+  <tr>
+    <td>&lt;a class=&quot;submit-feedback&quot; href=&quot;#&quot;&gt;A feedback button&lt;/a&gt;</td>
+    <td><a class="submit-feedback" href="#">A feedback button</a></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><h3>FORM ELEMENTS</h3></td>
+  </tr>
+  <tr>
+    <td>&lt;input type=&quot;text&quot; class=&quot;form-text&quot; /&gt;</td>
+    <td><!-- @todo: this needs to be universial form input (input.form-text) --><div class="section-feedback"><div class="content-wrapper"><input type="text" class="form-text" /></div></div></td>
+  </tr>
+  <tr>
+    <td><p>&lt;select name=&quot;submitted[topic]&quot; class=&quot;form-select&quot;&gt;&lt;option value=&quot;&quot; selected=&quot;selected&quot;&gt;- None -&lt;/option&gt;&lt;option value=&quot;1&quot;&gt;Option1&lt;/option&gt;&lt;option value=&quot;2&quot;&gt;Some feedback Option2&lt;/option&gt;&lt;/select&gt;</p></td>
+    <td><select name="submitted[topic]" class="form-select"><option value="" selected="selected">- None -</option><option value="1">Option1</option><option value="2">Some feedback Option2</option></select></td>
+  </tr>
+  <tr>
+    <td>&lt;div class=&quot;section-feedback&quot;&gt;&lt;div class=&quot;content-wrapper&quot;&gt;&lt;form&gt;Form with a container background&lt;/form&gt;&lt;/div&gt;&lt;/div&gt;</td>
+    <td><!-- @todo Can we simplifiy?? --><div class="section-feedback"><div class="content-wrapper"><form>Form with a container background</form></div></div></td>
+  </tr>
+  <tr>
+    <td>&lt;div class=&quot;form-actions&quot;&gt;&lt;input type=&quot;button&quot; value=&quot;Submit button&quot; /&gt;&lt;/div&gt;</td>
+    <td><!-- @todo We need to change the class to the example code just to (.form-actions input) or something similar --><div class="section-feedback"><article><div class="form-actions"><input type="button" value="Submit button" /></div></article></div></td>
+  </tr>
+</table>
+</body>
+</html>
