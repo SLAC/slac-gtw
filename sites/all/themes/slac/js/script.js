@@ -12,10 +12,41 @@
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 (function ($, Drupal, window, document, undefined) {
 
-  // Drupal.behaviors.bottomFixIOS = {
+  // Drupal.behaviors.header = {
   //   attach: function (context, settings) {
   //     $('.region-header .block').prepend('<div class="icon"></div>');
   //   }
   // }
+
+
+	Drupal.behaviors.researchLists = {
+	  attach: function (context, settings) {
+		
+
+			if (Modernizr.mq('(max-width: 800px)')) {		
+
+
+	    	$('.section-research-resources .view-content .view-grouping-content').append('<span class="collapse">Collapse</span>');
+	    	$('.section-research-resources .view-content .view-grouping-header').click(function(){
+				  var $this = $(this);
+	        if (!$this.index() && !$this.hasClass('processed')) {
+	          $this.addClass('processed').toggleClass('expanded').siblings('.view-grouping-content').toggle(1, function() {
+	            $this.removeClass('processed');
+	          });
+	          $this.parent().siblings('.view-grouping').find('.view-grouping-content').hide()
+	          	   .stop().siblings().removeClass('expanded');
+	        }
+				});
+	    	$('.section-research-resources .view-content .collapse').click(function(){
+	    	$(this).closest('.view-grouping-content').hide().siblings().removeClass('expanded');
+	    	});
+ 			
+ 			}
+
+	  }
+	}
+
+
+
 
 })(jQuery, Drupal, this, this.document);

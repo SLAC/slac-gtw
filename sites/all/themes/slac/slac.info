@@ -15,7 +15,7 @@ stylesheets[all][] = css/forms.css
 
 
 scripts[] = js/script.js
-
+scripts[] = js/modernizr.js
 
 plugins[panels][styles] = plugins/styles
 plugins[panels][layouts] = plugins/layouts
