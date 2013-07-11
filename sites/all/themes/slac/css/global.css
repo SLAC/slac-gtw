@@ -1289,11 +1289,13 @@ a.submit-feedback{
   .section-research-resources .view-content .view-grouping-header{
     height: 16px;
     background: #fff url('../images/small-list-arrow-down.jpg') no-repeat right center;
-    width: 100%;width: 100%;
+    width: 100%;
     max-width: 705px;
     margin: 5px auto auto;
     color: #20669a;
     font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
   .section-research-resources .view-content .view-grouping-header.expanded{
@@ -1331,11 +1333,14 @@ a.submit-feedback{
     line-height: 26px;
     display: block;
     text-align: right;
-    width: 87%;
-    padding-right: 13%;
+    width: 100%;
     font-weight: bold;
-    background: #ecf5fa url('../images/collapse.png') no-repeat right center;
+    background: #ecf5fa;
     color: #20659A;
+  }
+
+  .section-research-resources .collapse img{
+    margin-left:  20px;
   }
 
 }

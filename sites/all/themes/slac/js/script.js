@@ -22,7 +22,7 @@
 	Drupal.behaviors.researchLists = {
 	  attach: function (context, settings) {
 
-    	$('.section-research-resources .view-content .view-grouping-content').append('<span class="collapse">Collapse</span>');	
+    	$('.section-research-resources .view-content .view-grouping-content').append('<span class="collapse">Collapse<img src="/sites/all/themes/slac/images/collapse.png" alt="" /></span>');	
 			$(window).resize(function() {
 				if (Modernizr.mq('(max-width: 600px)')) {		
 		    	$('.section-research-resources .view-content .view-grouping-header').click(function(){
@@ -47,7 +47,6 @@
 			});
 	  }
 	}
-
 
 
 
