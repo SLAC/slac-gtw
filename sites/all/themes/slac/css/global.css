@@ -1293,8 +1293,8 @@ a.submit-feedback{
     margin: 5px auto auto;
     color: #20669a;
     font-weight: bold;
-    width: 85%;
-    padding: 9px 10% 9px 5%;
+    width: 100%;
+    padding: 9px 0 9px 0;
   }
 
   .section-research-resources .view-content .view-grouping-header.expanded{
