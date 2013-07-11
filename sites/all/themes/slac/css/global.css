@@ -990,6 +990,40 @@ a.submit-feedback{
   height: auto;
 }
 
+/* Staff resources main view */
+
+.staff-resources,
+.section-staff-resources #page-title{
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.section-staff-resources #content{
+  background: #fff;
+}
+
+.staff-main,
+.rowtwocolone{
+  clear: both;
+}
+
+.pane-quicktabs-staff-resources{
+  overflow: hidden;
+}
+
+.pane-quicktabs-staff-resources .quicktabs_main{
+    width: 74%;
+    margin-right: 2%;
+    float: left;
+}
+
+.pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list{
+    float: right;
+    width: 24%;
+}
+
+
 
 
 
