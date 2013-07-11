@@ -1289,8 +1289,7 @@ a.submit-feedback{
   .section-research-resources .view-content .view-grouping-header{
     height: 16px;
     background: #fff url('../images/small-list-arrow-down.jpg') no-repeat right center;
-    padding: 9px 10% 9px 5%;
-    width: 85%;
+    width: 100%;width: 100%;
     max-width: 705px;
     margin: 5px auto auto;
     color: #20669a;
@@ -1311,14 +1310,12 @@ a.submit-feedback{
   }
 
   .section-research-resources .view-content .view-grouping-content .item-list{
-    padding: 0 9% 0 5%;
-    width: 85%;
+    width: 100%;
     max-width: 705px;
   }
 
   .section-research-resources .item-list ul{
-    padding-left: 3%;
-    width: 97%;
+    width: 100%;
   } 
 
   .section-research-resources .item-list ul li{
