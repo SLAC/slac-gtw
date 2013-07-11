@@ -3,6 +3,51 @@
 /*  overflow: hidden;  */
 }
 
+
+  .staff-resources,
+  .staff-top,
+  .staff-top-on,
+  .staff-top-two,
+  .staff-main,
+  .rowonecolone,
+  .rowonecoltwo,
+  .rowonecolthree,
+  .rowtwocolone,
+  .rowtwocoltwo,
+  .rowtwocoltree{}
+
+
+
+  .staff-top-one{
+    width: 74%;
+    margin-right: 2%;
+    float: left;
+  }
+
+  .staff-top-two{
+    float: right;
+    width: 24%;
+  }
+
+  .rowonecolone,
+  .rowonecoltwo,
+  .rowonecolthree,
+  .rowtwocolone,
+  .rowtwocoltwo,
+  .rowtwocoltree{
+    width:  30%;
+    float: left;
+    margin-right: 5%;
+  }
+
+  .rowonecolthree,
+  .rowtwocoltree{
+    margin-right: 0;
+  }
+
+
+
+/*
 .panel-3col .panel-col-first { 
   float: left; 
   width: 25%; 

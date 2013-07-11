@@ -15,7 +15,7 @@
  */
 ?>
 <div class="panel-display staff-resources clearfix" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
-  
+
   <div class="panel-panel staff-top">
 	  <div class="panel-panel staff-top-one">
       <?php if ($content['staffresourcesone']): ?>
@@ -30,23 +30,23 @@
   </div>
 
   <div class="panel-panel staff-main">
-      <?php if ($content['rowonecolone']): ?>
-        <div class="inside"><?php print $content['rowonecolone']; ?></div>
+      <?php if ($content['']): ?>
+        <div class="inside rowonecolone"><?php print $content['rowonecolone']; ?></div>
       <?php endif ?>
       <?php if ($content['rowonecoltwo']): ?>
-        <div class="inside"><?php print $content['rowonecoltwo']; ?></div>
+        <div class="inside rowonecoltwo"><?php print $content['rowonecoltwo']; ?></div>
       <?php endif ?>
       <?php if ($content['rowonecolthree']): ?>
-        <div class="inside"><?php print $content['rowonecolthree']; ?></div>
+        <div class="inside rowonecolthree"><?php print $content['rowonecolthree']; ?></div>
       <?php endif ?>
       <?php if ($content['rowtwocolone']): ?>
-        <div class="inside"><?php print $content['rowtwocolone']; ?></div>
+        <div class="inside rowtwocolone"><?php print $content['rowtwocolone']; ?></div>
       <?php endif ?>
       <?php if ($content['rowtwocoltwo']): ?>
-        <div class="inside"><?php print $content['rowtwocoltwo']; ?></div>
+        <div class="inside rowtwocoltwo"><?php print $content['rowtwocoltwo']; ?></div>
       <?php endif ?>
       <?php if ($content['rowtwocoltree']): ?>
-        <div class="inside"><?php print $content['rowtwocoltree']; ?></div>
+        <div class="inside rowtwocoltree"><?php print $content['rowtwocoltree']; ?></div>
       <?php endif ?>
   </div>
 
