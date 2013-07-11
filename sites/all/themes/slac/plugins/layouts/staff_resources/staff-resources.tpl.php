@@ -30,7 +30,7 @@
   </div>
 
   <div class="panel-panel staff-main">
-      <?php if ($content['']): ?>
+      <?php if ($content['rowonecolone']): ?>
         <div class="inside rowonecolone"><?php print $content['rowonecolone']; ?></div>
       <?php endif ?>
       <?php if ($content['rowonecoltwo']): ?>
