@@ -17,20 +17,13 @@
 <div class="panel-display staff-resources clearfix" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
 
   <div class="panel-panel staff-top">
-	  <div class="panel-panel staff-top-one">
-      <?php if ($content['staffresourcesone']): ?>
-        <div class="inside"><?php print $content['staffresourcesone']; ?></div>
+      <?php if ($content['staffresourcestop']): ?>
+        <div class="inside"><?php print $content['staffresourcestop']; ?></div>
       <?php endif ?>
-	  </div>
-	  <div class="panel-panel staff-top-two">
-      <?php if ($content['staffresourcestwo']): ?>
-        <div class="inside"><?php print $content['staffresourcestwo']; ?></div>
-      <?php endif ?>
-	  </div>
   </div>
 
   <div class="panel-panel staff-main">
-      <?php if ($content['']): ?>
+      <?php if ($content['rowonecolone']): ?>
         <div class="inside rowonecolone"><?php print $content['rowonecolone']; ?></div>
       <?php endif ?>
       <?php if ($content['rowonecoltwo']): ?>
