@@ -67,19 +67,36 @@ function _slac_igp_importers_feeds_access($source, $result) {
   }
   
   foreach ($result->items as $key => $item) {
+  
     $html = str_get_html($item['description']);
+
     $start_date = $html->find('span[class=date-display-start]', 0)->plaintext;
     $end_date = $html->find('span[class=date-display-end]', 0)->plaintext;
     
-    // format date string, get rid of the "(All Day)
-    // @todo: check if this works for non-all day event, right now not in RSS
     $pattern = '/\((.*?)\)/';
     $start_date = preg_replace($pattern, '', $start_date);
     $end_date = preg_replace($pattern, '', $end_date);
     
-    $start_date = (!empty($start_date)) ? gmdate('Y-m-d H:i:s', strtotime($start_date)) : '';
-    $end_date = (!empty($end_date)) ? gmdate('Y-m-d H:i:s', strtotime($end_date)) : '';
+    // convert date string to time first
+    $start_date_time = strtotime($start_date);
+    $end_date_time = strtotime($end_date);
     
+    if (!$start_date_time) {
+      // try to parse more complex date string such as (Wednesday, July 10, 2013 - 7:00a.m.)
+      $start_date = substr($start_date, strpos($start_date, ',')+1); 
+      $start_date = str_replace('-', ' ', $start_date);
+      $start_date_time = strtotime($start_date);
+    }
+    if (!$end_date_time) {
+      // try to parse more complex date string such as (Wednesday, July 10, 2013 - 7:00a.m.)
+      $end_date = substr($end_date, strpos($end_date, ',')+1); 
+      $end_date = str_replace('-', ' ', $end_date);
+      $end_date_time = strtotime($end_date);
+    }
+
+    $start_date = (!empty($start_date)) ? gmdate('Y-m-d H:i:s', $start_date_time) : '';
+    $end_date = (!empty($end_date)) ? gmdate('Y-m-d H:i:s', $end_date_time) : '';
+
     $result->items[$key]['Blank source 1'] = $start_date;
     $result->items[$key]['Blank source 2'] = $end_date;
   }
