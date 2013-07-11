@@ -80,7 +80,6 @@ header{
   margin-bottom: 32px;
 }
 
-
 /* Header Main Menu, Search*/
 
 #block-system-main-menu .menu li {
@@ -913,7 +912,8 @@ a.submit-feedback{
   outline: none;
 }
 
-.section-feedback article .form-actions{
+.section-feedback article .form-actions,
+.general-right .pane-boxes-feedback{
   padding: 5px 0 5px 7px;
   width: auto;
   float: left;
@@ -961,7 +961,34 @@ a.submit-feedback{
   padding: 100px 2% 300px;
 }
 
+.general-right .right-block p{
+  margin: 30px 0 10px;
+}
 
+.general-right .right-block p:first-child{
+  margin: 0 0 10px;
+}
+
+.general-right .pane-boxes-feedback{
+  width: 98%;
+  padding: 0;
+  float:none;
+  margin: 30px auto auto;
+}
+
+.general-right .pane-boxes-feedback a.submit-feedback{
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none; 
+  width: auto;
+  font-size: 11px;
+  font-weight:bold;
+  text-transform: uppercase;
+  margin: 5px  7px;
+  padding: 5px 0;
+  height: auto;
+}
 
 
 
@@ -1285,9 +1312,10 @@ a.submit-feedback{
   }
 
   .section-research-resources .view-content .view-grouping-content .item-list{
-    padding: 0 10% 0 5%;
-    width: 85%;
-    max-width: 705px;
+    
+  padding: 0 10% 0 5%;
+  width: 85%;
+  max-width: 705px;
   }
 
   .section-research-resources .item-list ul{
@@ -1308,11 +1336,43 @@ a.submit-feedback{
     line-height: 26px;
     display: block;
     text-align: right;
-    width: 87%;
-    padding-right: 13%;
+    padding: 0 10% 0 5%;
+    width: 85%;
+    max-width: 705px;
     font-weight: bold;
     background: #ecf5fa url('../images/collapse.png') no-repeat right center;
     color: #20659A;
   }
 
 }
+
+
+
+
+
+
+
+/* */
+/*
+.item-list{
+  float: right;
+}
+
+.quicktabs_main{
+  float:left;
+}
+
+.item-list ul li{
+  font-size: 10px;
+  margin: 0 0 13px;
+  border: 1px dashed #90a7b2;
+  clear: both;
+  display:block;
+  padding: 5px 0;
+  width: 98%;
+}
+
+.item-list ul li a{
+  display: block;
+  padding: 0 15px;
+}*/

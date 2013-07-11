@@ -21,28 +21,30 @@
 
 	Drupal.behaviors.researchLists = {
 	  attach: function (context, settings) {
-		
 
-			if (Modernizr.mq('(max-width: 800px)')) {		
+    	$('.section-research-resources .view-content .view-grouping-content').append('<span class="collapse">Collapse</span>');	
+			$(window).resize(function() {
+				if (Modernizr.mq('(max-width: 600px)')) {		
+		    	$('.section-research-resources .view-content .view-grouping-header').click(function(){
+					  var $this = $(this);
+		        if (!$this.index() && !$this.hasClass('processed')) {
+		          $this.addClass('processed').toggleClass('expanded').siblings('.view-grouping-content').toggle(1, function() {
+		            $this.removeClass('processed');
+		          });
+		          $this.parent().siblings('.view-grouping').find('.view-grouping-content').hide()
+		          	   .stop().siblings().removeClass('expanded');
+		        }
+					});
+		    	$('.section-research-resources .view-content .collapse').click(function(){
+		    	$(this).closest('.view-grouping-content').hide().siblings().removeClass('expanded');
+		    	});
+	 			}
 
+				if (Modernizr.mq('(min-width: 600px)')) {		
+					$('.section-research-resources .view-content .view-grouping-header').unbind('click');
+				}
 
-	    	$('.section-research-resources .view-content .view-grouping-content').append('<span class="collapse">Collapse</span>');
-	    	$('.section-research-resources .view-content .view-grouping-header').click(function(){
-				  var $this = $(this);
-	        if (!$this.index() && !$this.hasClass('processed')) {
-	          $this.addClass('processed').toggleClass('expanded').siblings('.view-grouping-content').toggle(1, function() {
-	            $this.removeClass('processed');
-	          });
-	          $this.parent().siblings('.view-grouping').find('.view-grouping-content').hide()
-	          	   .stop().siblings().removeClass('expanded');
-	        }
-				});
-	    	$('.section-research-resources .view-content .collapse').click(function(){
-	    	$(this).closest('.view-grouping-content').hide().siblings().removeClass('expanded');
-	    	});
- 			
- 			}
-
+			});
 	  }
 	}
 
