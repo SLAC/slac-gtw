@@ -6,8 +6,7 @@
 
   .staff-resources,
   .staff-top,
-  .staff-top-on,
-  .staff-top-two,
+  .staffresourcestop,
   .staff-main,
   .rowonecolone,
   .rowonecoltwo,
@@ -18,15 +17,9 @@
 
 
 
-  .staff-top-one{
-    width: 74%;
-    margin-right: 2%;
-    float: left;
-  }
 
-  .staff-top-two{
-    float: right;
-    width: 24%;
+  .staffresourcestop{
+    width: 100%;
   }
 
   .rowonecolone,
