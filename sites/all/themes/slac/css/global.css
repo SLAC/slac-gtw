@@ -1311,7 +1311,7 @@ a.submit-feedback{
   }
 
   .section-research-resources .view-content .view-grouping-content .item-list{
-    padding: 0 10% 0 5%;
+    padding: 0 9% 0 5%;
     width: 85%;
     max-width: 705px;
   }
@@ -1334,7 +1334,8 @@ a.submit-feedback{
     line-height: 26px;
     display: block;
     text-align: right;
-    width: 100%;
+    width: 87%;
+    padding-right: 13%;
     font-weight: bold;
     background: #ecf5fa url('../images/collapse.png') no-repeat right center;
     color: #20659A;
