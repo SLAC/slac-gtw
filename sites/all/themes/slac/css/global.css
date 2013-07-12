@@ -242,7 +242,8 @@ footer .block-menu li{
 
 .brown-bodered-white .view-footer a, 
 .blue-bodered-white .view-footer a,
-#boxes-box-weather_traffic small a{
+#boxes-box-weather_traffic small a,
+.switch-link a{
   background: url(../images/arrow-dot-line.png) no-repeat left center;
   padding-left: 15px;
 }
@@ -851,8 +852,10 @@ a.submit-feedback{
   font-size: 11px;
 }
   
-.right-block .views-row{
+.right-block .views-row,
+.pane-quicktabs-staff-resources .quicktabs_main ul li a{
   padding: 4px 0 4px 13px; 
+  display: block;
   background: url('../images/right-list-arrow.jpg') no-repeat 0 9px;
 }
   
@@ -1012,10 +1015,11 @@ a.submit-feedback{
 
 .pane-quicktabs-staff-resources{
   overflow: hidden;
+  width: 100%;
 }
 
 .pane-quicktabs-staff-resources .quicktabs_main{
-    width: 74%;
+    width: 73%;
     margin-right: 2%;
     float: left;
 }
@@ -1031,9 +1035,63 @@ a.submit-feedback{
   background: transparent;
 }
 
+.staff-main .right-block .views-row{
+  margin-left: 0;
+}
+
+.staff-main .right-block .views-row a{
+  background: none; 
+  padding-right:  0; 
+}
+
 .rowonecolone .right-block:first-child{
   margin-bottom: 25px;
 }
+
+.section-staff-resources #page-title{
+  display:none;
+}
+
+.switch-link a{
+  float: right;
+  display: block;
+  position: relative;
+  z-index: 99;
+  margin-top: 20px;
+}
+
+.pane-quicktabs-staff-resources{
+  position: relative;
+  top: -32px;
+  margin-bottom: -30px;
+}
+
+.pane-quicktabs-staff-resources h2.pane-title{
+  font-size: 24px;
+  margin: 0;
+  padding: 0 0 2px 0;
+}
+
+.pane-quicktabs-staff-resources .quicktabs-tabpage{
+  min-height: 252px;
+}
+
+.pane-quicktabs-staff-resources .quicktabs_main ul{
+  margin-left: 145px;
+  padding: 16px 0;
+  overflow: hidden;
+}
+
+.pane-quicktabs-staff-resources .quicktabs_main ul li{
+  width: 50%;
+  float: left;
+  margin: 0;
+}
+
+.pane-quicktabs-staff-resources .quicktabs_main ul li a{
+  margin-left: 10px;
+}  
+
 
 /* Staff top right */
 
@@ -1054,8 +1112,9 @@ a.submit-feedback{
   text-transform: uppercase;
 }
 
-.pane-quicktabs-staff-resources .quicktabs_main{
-  background: #f5f5f5;
+.pane-quicktabs-staff-resources .quicktabs_main {
+  background: #f5f5f5 url('../images/staff-top-img.jpg') no-repeat 0 0;
+  border: 1px dashed #90a7b2;
 }
 
 
@@ -1143,6 +1202,31 @@ a.submit-feedback{
 
   .frontpage-slac-science{
     margin-bottom: 16px;
+  }
+
+  /* Staff view */
+
+  .staff-main{
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .staff-main .inside{
+    width: 45%;
+  }
+
+  .rowonecoltwo, 
+  .rowtwocolone, 
+  .rowtwocolthree{
+    margin: 0;
+    clear:none;
+  }
+
+  .rowonecolone,
+  .rowonecolthree,
+  .rowtwocoltwo{
+    clear:both;
+    margin-right: 10%;
   }
 }
 
@@ -1408,6 +1492,13 @@ a.submit-feedback{
   .section-research-resources .collapse img{
     margin-left:  20px;
   }
+
+  .staff-main .inside{
+    width: 100%;
+    clear: both;
+    margin: 0 0 25px 0;
+  }
+
 
 }
 
