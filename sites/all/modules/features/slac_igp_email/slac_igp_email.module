@@ -36,6 +36,16 @@ function slac_igp_email_theme() {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter
+ */
+function slac_igp_email_form_mailchimp_lists_user_subscribe_form_daily_email_alter(&$form, &$form_state, $form_id) {
+  $form['submit']['#value'] = t('Subscribe');
+  hide($form['mailchimp_lists']['mailchimp_daily_email']['title']);
+  hide($form['mailchimp_lists']['mailchimp_daily_email']['mergevars']['FNAME']);
+  hide($form['mailchimp_lists']['mailchimp_daily_email']['mergevars']['LNAME']);
+}
+
+/**
  * Implements hook_mailchimp_dc_content
  */
 function slac_igp_email_mailchimp_dc_content($template_sections = array()) {
