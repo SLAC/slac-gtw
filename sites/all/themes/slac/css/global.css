@@ -75,8 +75,8 @@ header{
   float: left;
 }
 
-.frontpage-left,
-.frontpage-right-col{
+.frontpage-right,
+.frontpage-left-col{
   margin-bottom: 32px;
 }
 
@@ -833,7 +833,8 @@ a.submit-feedback{
   overflow:hidden;
 }
 
-.right-block h2{
+.right-block h2,
+.right-block h3{
   font-size: 12px;
   text-transform: uppercase;
   margin: 0;
@@ -841,7 +842,8 @@ a.submit-feedback{
   padding: 0 0 2px 0;
 }
   
-.right-block .pane-content{
+.right-block .pane-content,
+.staff-main .right-block .pane-content .view-content ul{
   border: 1px dashed #b4c2cb;
   border-top: 2px solid #988055;
   background: #f5f5f5;
@@ -1023,6 +1025,40 @@ a.submit-feedback{
     width: 24%;
 }
 
+.staff-main .right-block .pane-content{
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.rowonecolone .right-block:first-child{
+  margin-bottom: 25px;
+}
+
+/* Staff top right */
+
+.pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list li{
+  font-size: 10px;
+  margin: 0 0 13px;
+  border: 1px dashed #90a7b2;
+  clear: both;
+  display:block;
+  padding: 5px 0;
+  width: 98%;
+}
+
+.pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list li a{
+  display: block;
+  padding: 0 15px;
+  color: #765826;
+  text-transform: uppercase;
+}
+
+.pane-quicktabs-staff-resources .quicktabs_main{
+  background: #f5f5f5;
+}
+
+
 
 
 
@@ -1036,7 +1072,7 @@ a.submit-feedback{
 		margin-left: 5%;
 	}
 
-	.frontpage-left-col,
+	.frontpage-right-col,
 	.frontpage-middle-col,
 	.frontpage-help-market,
 	.frontpage-security-contacts{
@@ -1044,11 +1080,7 @@ a.submit-feedback{
 		clear: both;
 	}
 
-
-
 	.frontpage-links,
-	.frontpage-calendar,
-	.frontpage-weather,
 	.frontpage-projects,
 	.frontpage-help-market,
 	.pane-boxes-stanford-compliance{
@@ -1137,8 +1169,8 @@ a.submit-feedback{
     padding: 0 2%;
   }
 
-	.frontpage-left,
-	.frontpage-right-col{
+	.frontpage-right,
+	.frontpage-left-col{
 		width: 100%;
 		clear: both;
 	}

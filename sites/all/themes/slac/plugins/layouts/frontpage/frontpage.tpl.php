@@ -15,21 +15,8 @@
  */
 ?>
 <div class="panel-display panel-frontpage clearfix" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
-  <div class="frontpage-left">
-    
-    <div class="frontpage-middle-col">
-
-      <?php if ($content['colonerowone']): ?>
-        <div class="inside frontpage-news-slider"><?php print $content['colonerowone']; ?></div>
-      <?php endif ?>
-      <?php if ($content['colonerowtwo']): ?>
-        <div class="inside frontpage-news-list"><?php print $content['colonerowtwo']; ?></div>
-      <?php endif ?>
-      <?php if ($content['colonerowthree']): ?>
-        <div class="inside frontpage-slac-science"><?php print $content['colonerowthree']; ?></div>
-      <?php endif ?>
-      
-    </div>
+  
+ 
 
     <div class="frontpage-left-col">
 
@@ -47,9 +34,24 @@
       <?php endif ?>
 
     </div>
-  </div>
-     
-  <div class="frontpage-right-col">
+
+  <div class="frontpage-right">
+   
+    <div class="frontpage-middle-col">
+
+      <?php if ($content['colonerowone']): ?>
+        <div class="inside frontpage-news-slider"><?php print $content['colonerowone']; ?></div>
+      <?php endif ?>
+      <?php if ($content['colonerowtwo']): ?>
+        <div class="inside frontpage-news-list"><?php print $content['colonerowtwo']; ?></div>
+      <?php endif ?>
+      <?php if ($content['colonerowthree']): ?>
+        <div class="inside frontpage-slac-science"><?php print $content['colonerowthree']; ?></div>
+      <?php endif ?>
+      
+    </div>
+
+    <div class="frontpage-right-col">
 
       <?php if ($content['colthreerowone']): ?>
         <div class="inside frontpage-people-finder"><?php print $content['colthreerowone']; ?></div>
@@ -69,8 +71,9 @@
       <?php if ($content['colthreerowsix']): ?>
         <div class="inside frontpage-security-contacts"><?php print $content['colthreerowsix']; ?></div>
       <?php endif ?>
-
+    </div>
   </div>
+  
 </div>
 
 

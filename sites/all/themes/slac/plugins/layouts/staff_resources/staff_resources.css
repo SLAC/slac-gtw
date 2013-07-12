@@ -38,6 +38,11 @@
     margin-right: 0;
   }
 
+  .rowonecolone,
+  .rowonecoltwo,
+  .rowonecolthree{
+    margin-bottom: 40px;
+  }
 
 
 /*

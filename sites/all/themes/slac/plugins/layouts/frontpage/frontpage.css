@@ -4,26 +4,26 @@
 }
 
 
-.frontpage-left{
+.frontpage-left-col{
   float: left;
-  width: 66%;
+  width: 23%;
+  margin-right:  3%;
+}
+
+.frontpage-right{
+  float: left;
+  width: 74%;
+}
+
+.frontpage-middle-col{
+  float: left;
+  width:  54%;
   margin-right:  3%;
 }
 
 .frontpage-right-col{
   float: right;
-  width: 31%;
-}
-
-.frontpage-middle-col{
-  float: right;
-  width:  61%;
-}
-
-.frontpage-left-col{
-  float: left;
-  width: 35%;
-  margin-right: 4%;
+  width: 43%;
 }
 
 .frontpage-help-market{
