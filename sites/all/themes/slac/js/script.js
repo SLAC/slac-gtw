@@ -50,4 +50,20 @@
 
 
 
+
+	// Drupal.behaviors.staffMenu = {
+	//   attach: function (context, settings) {
+
+	//   	$(window).resize(function() {
+	// 			if (Modernizr.mq('(max-width: 900px)')) {		
+	// 				$('.pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list li a').click(function(){
+	// 				  var $destination = $(this).closest('li');
+	// 				  $('.pane-quicktabs-staff-resources .quicktabs_main').insertAfter($destination).show(1);
+	// 				});
+	// 			}
+	// 		});
+	//   }
+	// }
+
+
 })(jQuery, Drupal, this, this.document);

@@ -1228,6 +1228,48 @@ a.submit-feedback{
     clear:both;
     margin-right: 10%;
   }
+
+  .pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list li{
+    border: none;
+    padding: 0;
+    width: 100%;
+  }  
+
+  .pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list li a{
+    height: 16px;
+    background: #fff url('../images/small-list-arrow-down.jpg') no-repeat right center;
+    max-width: 705px;
+    margin: 5px auto auto;
+    color: #20669a;
+    font-weight: bold;
+    width: 95%;
+    padding: 9px 0 9px 5%;
+    display: block;
+    max-width: 100%;
+  }
+
+  .pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list{
+    width: 100%;
+  }
+
+  .section-staff-resources #content {
+    background: transparent;
+  }
+
+  .pane-quicktabs-staff-resources .quicktabs_main{
+    background: #fff;
+    border: none;
+    width: 100%;
+    margin: 0;
+  }  
+
+  .pane-quicktabs-staff-resources .quicktabs-tabpage{
+    min-height: 0;
+  }
+
+  .pane-quicktabs-staff-resources .quicktabs_main ul{
+    margin: 0;
+  }
 }
 
 @media ( max-width: 600px) {
