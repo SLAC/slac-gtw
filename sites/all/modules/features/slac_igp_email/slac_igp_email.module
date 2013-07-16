@@ -112,7 +112,6 @@ function slac_igp_email_preprocess_slac_igp_email(&$vars) {
   if (!module_exists('slac_igp_feed')) {
     return;
   }
-  
   module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
   
   // load everything in the featured news
@@ -137,7 +136,12 @@ function slac_igp_email_preprocess_slac_igp_email(&$vars) {
     $nodes = nodequeue_load_nodes($subqueue->sqid, FALSE, 0, $count, TRUE);
     if (!empty($nodes)) {
       foreach ($nodes as $node) {
-        $vars[$name][] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=' . $mode . ']';
+        // filter nodes by published date, for daily email we only want contents imported today
+        $created_date = date('Y-m-d', $node->created);
+        $now = date('Y-m-d', REQUEST_TIME);
+        if ($created_date == $now) {
+          $vars[$name][] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=' . $mode . ']';
+        }  
       }
     }
   }
