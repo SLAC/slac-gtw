@@ -96,7 +96,7 @@
   position: relative;
   top: -32px;
   margin-bottom: -30px;
-  display: block;
+  display: block
   h2.pane-title {
     font-size: 24px;
     margin: 0;
@@ -117,11 +117,6 @@
         margin-left: 10px;
       }
     }
-  } 
-}
-
-  .pane-quicktabs-staff-resources-mobile{
-    display: none;
   }
 
   .quicktabs-wrapper > .item-list li {
@@ -143,6 +138,10 @@
     background: whitesmoke url('../images/staff-top-img.jpg') no-repeat 0 0;
     border: 1px dashed #90a7b2;
   }
+}
+
+.pane-quicktabs-staff-resources-mobile{
+    display: none;
 }
 
 
