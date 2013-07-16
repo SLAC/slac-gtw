@@ -2,6 +2,7 @@ name = SLAC IGP Workflow
 description = Simple workflow that allows admins to publish news contents imported accordingly
 core = 7.x
 package = SLAC
+php = 5.2.4
 version = 7.x-1.0
 project = slac_igp_workflow
 dependencies[] = views

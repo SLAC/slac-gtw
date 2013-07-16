@@ -248,13 +248,6 @@ This content queue shows latest news articles imported into the site, please sel
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = '0';
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -282,13 +275,13 @@ This content queue shows latest news articles imported into the site, please sel
   $handler->display->display_options['filters']['promote']['id'] = 'promote';
   $handler->display->display_options['filters']['promote']['table'] = 'node';
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
+  $handler->display->display_options['filters']['promote']['value'] = 'All';
   $handler->display->display_options['filters']['promote']['group'] = 1;
   $handler->display->display_options['filters']['promote']['exposed'] = TRUE;
   $handler->display->display_options['filters']['promote']['expose']['operator_id'] = '';
   $handler->display->display_options['filters']['promote']['expose']['label'] = 'Promoted';
   $handler->display->display_options['filters']['promote']['expose']['operator'] = 'promote_op';
   $handler->display->display_options['filters']['promote']['expose']['identifier'] = 'promote';
-  $handler->display->display_options['filters']['promote']['expose']['required'] = TRUE;
   $handler->display->display_options['filters']['promote']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
@@ -315,6 +308,12 @@ This content queue shows latest news articles imported into the site, please sel
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
     'node.created' => 'node.created',
   );
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '0';
+  $handler->display->display_options['filters']['status']['group'] = 1;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
