@@ -50,7 +50,7 @@ function mailchimp_dc_campaign_create() {
   // if the campaign has not been created yet for the day, let's create the campaign
   $options = array(
     'title' => t('Daily Digest !today', array('!today' => date('Y-m-d'))),
-    'subject' => t('Subject'),
+    'subject' => t('!name Daily Digest !today', array('!name' => variable_get('mcdcfrom_name', variable_get('site_name', '')), '!today' => date('Y-m-d'))),
     'list_id' => variable_get('mcdc_list', array('')),
     'from_email' => variable_get('mcdc_from_email', variable_get('site_mail', '')),
     'from_name' => variable_get('mcdcfrom_name', variable_get('site_name', '')),
