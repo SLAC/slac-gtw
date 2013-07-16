@@ -1,11 +1,9 @@
+@import "mixins";
 
 .brown-bodered-white {
   background: #fff;
   border: 1px solid #d1c9b9;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  border-radius: 2px;
+  @include rounded_corners(2px);
   margin-top: 12px;
   margin-bottom: 28px;
   color: #5d5d5d;
@@ -26,10 +24,7 @@
 .blue-bodered-white {
   background: #fff;
   border: 1px solid #aebdc5;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  border-radius: 2px;
+  @include rounded_corners(2px);
   margin-top: 20px;
   color: #393939;
   .pane-title {
@@ -98,11 +93,7 @@
     background: #e2e2e2;
     border: 1px solid #cecdce;
     margin-right: 7px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -o-border-radius: 2px;
-    -ms-border-radius: 2px;
-    border-radius: 2px;
+    @include rounded_corners(2px);
     padding: 0 5px;
     width: 64%;
   }
@@ -322,10 +313,7 @@ a.submit-feedback {
   color: #fff;
   font-size: 9px;
   text-decoration: none;
-  -webkit-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
-  -mox-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
-  -ms-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  @include box-shadow(2px, 2px, 5px, 1px, rgba(0, 0, 0, 0.2));
 }
 
 /* Socials */
@@ -452,10 +440,7 @@ a.submit-feedback {
     overflow: hidden;
     background: url('../images/slider-arrow-bg.png') repeat;
     text-indent: 100px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    border-radius: 10px;
+    @include rounded_corners(10px);
   }
   .views-slideshow-controls-text-previous {
     left: 20px;
@@ -576,9 +561,7 @@ a.submit-feedback {
       height: 26px;
       border: none;
       background: #fff;
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      -ms-border-radius: 0;
+      @include rounded_corners(0px);
       width: 100%;
       padding: 0;
       border: none;

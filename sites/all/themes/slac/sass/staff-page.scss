@@ -1,3 +1,5 @@
+@import "mixins";
+
 /* Staff classic */
 
 .section-staff-resources-classic {
@@ -145,8 +147,6 @@
 }
 
 
-
-
 @media (max-width: 900px) {
   .staff-main {
     width: 100%;
@@ -176,21 +176,16 @@
     display: block;
   }
 
-  
-
   .ui-accordion {
     .ui-icon {
       display: none;
     }
     .ui-accordion-header, .ui-accordion-content {
       border: none;
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      -ms-border-radius: 0;
-      border-radius: 0;
+      @include rounded_corners(0px);
       background: #fff;
       outline: none;
-      margin: 0 !important;
+      margin: 0;
       padding: 0;
     }
     .ui-accordion-header a {
