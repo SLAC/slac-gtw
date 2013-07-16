@@ -145,6 +145,8 @@
 }
 
 
+
+
 @media (max-width: 900px) {
   .staff-main {
     width: 100%;
@@ -174,40 +176,62 @@
     display: block;
   }
 
-  //  .pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list {
-  //   li {
-  //     border: none;
-  //     padding: 0;
-  //     width: 100%;
-  //     a {
-  //       height: 16px;
-  //       background: white url('../images/small-list-arrow-down.jpg') no-repeat right center;
-  //       max-width: 705px;
-  //       margin: 5px auto auto;
-  //       color: #20669a;
-  //       font-weight: bold;
-  //       width: 95%;
-  //       padding: 9px 0 9px 5%;
-  //       display: block;
-  //       max-width: 100%;
-  //     }
-  //   }
-  //   width: 100%;
-  // }
-  // .pane-quicktabs-staff-resources {
-  //   .quicktabs_main {
-  //     background: #fff;
-  //     border: none;
-  //     width: 100%;
-  //     margin: 0;
-  //   }
-  //   .quicktabs-tabpage {
-  //     min-height: 0;
-  //   }
-  //   .quicktabs_main ul {
-  //     margin: 0;
-  //   }
-  // }
+  
+
+  .ui-accordion {
+    .ui-icon {
+      display: none;
+    }
+    .ui-accordion-header, .ui-accordion-content {
+      border: none;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      border-radius: 0;
+      background: #fff;
+      outline: none;
+      margin: 0 !important;
+      padding: 0;
+    }
+    .ui-accordion-header a {
+      height: 16px;
+      background: #fff url('../images/small-list-arrow-down.jpg') no-repeat right center;
+      max-width: 705px;
+      margin: 5px auto auto;
+      color: #20669a;
+      font-weight: bold;
+      width: 95%;
+      padding: 9px 0 9px 5%;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-family: "Arial", sans-serif;
+    }
+    .ui-state-active a {
+      background-image: url('../images/small-list-arrow-up.jpg');
+    }
+    .ui-accordion-content {
+      margin-top: -1px !important;
+      padding: 9px 0 19px;
+      ul {
+        max-width: 705px;
+        width: 85%;
+        padding: 0 5% 0 10%;
+        li {
+          background: url("../images/blue-right-list-arrow.jpg") no-repeat left 7px;
+          padding: 2px 0 2px 11px;
+          margin: 0;
+          font-size: 12px;
+          clear: both;
+          display: block;
+          a {
+            color: #20659A;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
 }
   
 @media (max-width: 600px) {
