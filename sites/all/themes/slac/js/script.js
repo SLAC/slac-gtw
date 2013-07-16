@@ -17,7 +17,24 @@
   //     $('.region-header .block').prepend('<div class="icon"></div>');
   //   }
   // }
-
+  
+  // combo searchbox
+  Drupal.behaviors.search = {
+     attach: function (context, settings) {
+       $('#searchForm').submit(function(e) {
+          e.preventDefault();
+         var search_type = $('#searchForm input[name="searchType"]:checked').val();
+         var keyword = $('#searchForm #keyword').val();
+         // people search
+         if (search_type == 'people') {
+           var url = "http://www-public.slac.stanford.edu/phonebook/dirsearch.aspx?lf=1&url=&gone=active&NAME=" + keyword;
+         } else {
+           var url = "http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite&qt=" + keyword;
+         }
+         document.location = url;
+       })
+     }
+   }
 
 	Drupal.behaviors.researchLists = {
 	  attach: function (context, settings) {

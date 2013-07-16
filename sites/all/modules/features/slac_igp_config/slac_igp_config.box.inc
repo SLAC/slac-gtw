@@ -106,7 +106,7 @@ Building 50 <br />
   $box->description = 'Search (Combined)';
   $box->options = array(
     'body' => array(
-      'value' => '<form name="searchForm" id="searchForm" method="get" action="">
+      'value' => '<form name="searchForm" id="searchForm">
                 <input type="hidden" name="style" value="rebrand">
                 <input type="hidden" name="qt" id="qt">
                 <input class="searchBox" type="text" id="keyword" name="keyword" placeholder="Search" style="color: rgb(204, 204, 204);">      
