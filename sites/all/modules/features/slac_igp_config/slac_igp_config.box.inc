@@ -100,6 +100,29 @@ Building 50 <br />
   $box = new stdClass();
   $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
   $box->api_version = 1;
+  $box->delta = 'search_combined';
+  $box->plugin_key = 'simple';
+  $box->title = '';
+  $box->description = 'Search (Combined)';
+  $box->options = array(
+    'body' => array(
+      'value' => '<form name="searchForm" id="searchForm" method="get" action="">
+                <input type="hidden" name="style" value="rebrand">
+                <input type="hidden" name="qt" id="qt">
+                <input class="searchBox" type="text" id="keyword" name="keyword" placeholder="Search" style="color: rgb(204, 204, 204);">      
+                <input id="search-button" class="search-button" width="27" type="image" height="22" name="submit" src="/sites/all/themes/slac/images/search-icon.jpg" alt="go">          
+                    <div class="search_type"><input type="radio" name="searchType" id="people" value="people" class="peopleSearch"><span class="searchLabelIE"><a href="http://www-public.slac.stanford.edu/phonebook/search.aspx">People</a></span>
+                    <input type="radio" name="searchType" id="web" value="web" class="webSearch"><span class="searchLabelIE"><a href="http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite">Web</a></span></div>
+                </form>',
+      'format' => 'full_html',
+    ),
+    'additional_classes' => '',
+  );
+  $export['search_combined'] = $box;
+
+  $box = new stdClass();
+  $box->disabled = FALSE; /* Edit this to true to make a default box disabled initially */
+  $box->api_version = 1;
   $box->delta = 'search_people';
   $box->plugin_key = 'simple';
   $box->title = '';

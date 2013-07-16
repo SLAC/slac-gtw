@@ -16,6 +16,7 @@ features[ctools][] = quicktabs:quicktabs:1
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[quicktabs][] = staff_resources
+features[quicktabs][] = staff_resources_mobile_
 features[views_view][] = research_resource_category
 features[views_view][] = research_resources
 features[views_view][] = staff_resources_classic
