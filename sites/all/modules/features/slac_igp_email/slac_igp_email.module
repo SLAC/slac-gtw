@@ -114,6 +114,10 @@ function slac_igp_email_preprocess_slac_igp_email(&$vars) {
   }
   module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
   
+  // initiate empty arrays
+  $vars['featured_news'] = array();
+  $vars['news'] = array();
+  
   // load everything in the featured news
   $output_array = array();
   $subqueues = array(FEATURED_NEWS, LAB_NEWS, SLAC_SCIENCE);
