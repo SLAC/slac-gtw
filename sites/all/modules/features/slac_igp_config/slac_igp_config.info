@@ -26,6 +26,7 @@ features[box][] = connect
 features[box][] = contact_information
 features[box][] = footer
 features[box][] = it_help_desk
+features[box][] = search_combined
 features[box][] = search_people
 features[box][] = site_security
 features[box][] = slac_projects
