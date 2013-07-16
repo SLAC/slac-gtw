@@ -38,8 +38,8 @@
       <?php if ($content['rowtwocoltwo']): ?>
         <div class="inside rowtwocoltwo"><?php print $content['rowtwocoltwo']; ?></div>
       <?php endif ?>
-      <?php if ($content['rowtwocoltree']): ?>
-        <div class="inside rowtwocoltree"><?php print $content['rowtwocoltree']; ?></div>
+      <?php if ($content['rowtwocolthree']): ?>
+        <div class="inside rowtwocolthree"><?php print $content['rowtwocolthree']; ?></div>
       <?php endif ?>
   </div>
 

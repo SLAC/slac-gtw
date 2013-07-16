@@ -18,7 +18,7 @@ $plugin = array(
     'rowonecolthree' => t('First row third col'),
     'rowtwocolone' => t('Seccond row first col'),
     'rowtwocoltwo' => t('Seccond row seccond col'),
-    'rowtwocoltree' => t('Seccond row third col')
+    'rowtwocolthree' => t('Seccond row third col')
   ),
 );
 

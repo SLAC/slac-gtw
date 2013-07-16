@@ -12,6 +12,13 @@ stylesheets[all][] = css/global.css
 stylesheets[all][] = css/normalize.css
 stylesheets[all][] = css/tabs.css
 stylesheets[all][] = css/forms.css
+stylesheets[all][] = css/blocks.css
+stylesheets[all][] = css/pages.css
+stylesheets[all][] = css/research-page.css
+stylesheets[all][] = css/staff-page.css
+stylesheets[all][] = css/feedback-page.css
+stylesheets[all][] = css/media-600.css
+stylesheets[all][] = css/media-900.css
 
 
 scripts[] = js/script.js

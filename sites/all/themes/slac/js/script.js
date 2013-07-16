@@ -40,9 +40,6 @@
 		    	});
 	 			}
 
-				if (Modernizr.mq('(min-width: 600px)')) {		
-					$('.section-research-resources .view-content .view-grouping-header').unbind('click');
-				}
 
 			});
 	  }

@@ -3,21 +3,6 @@
 /*  overflow: hidden;  */
 }
 
-
-  .staff-resources,
-  .staff-top,
-  .staffresourcestop,
-  .staff-main,
-  .rowonecolone,
-  .rowonecoltwo,
-  .rowonecolthree,
-  .rowtwocolone,
-  .rowtwocoltwo,
-  .rowtwocoltree{}
-
-
-
-
   .staffresourcestop{
     width: 100%;
   }
@@ -27,14 +12,14 @@
   .rowonecolthree,
   .rowtwocolone,
   .rowtwocoltwo,
-  .rowtwocoltree{
+  .rowtwocolthree{
     width:  30%;
     float: left;
     margin-right: 5%;
   }
 
   .rowonecolthree,
-  .rowtwocoltree{
+  .rowtwocolthree{
     margin-right: 0;
   }
 

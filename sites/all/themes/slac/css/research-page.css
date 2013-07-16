@@ -1,0 +1,145 @@
+/* line 2, ../sass/research-page.scss */
+.section-research-resources .view-grouping-header {
+  margin: 40px auto auto;
+  max-width: 855px;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+/* line 9, ../sass/research-page.scss */
+.section-research-resources .view-grouping-content {
+  background: #f6f6f6;
+  border: 1px solid #c3c5c5;
+  border-top-width: 3px;
+  max-width: 775px;
+  width: 92%;
+  padding: 12px 4% 0;
+  margin: auto;
+}
+/* line 18, ../sass/research-page.scss */
+.section-research-resources .view-content > .view-grouping:first-child {
+  margin-top: 0;
+}
+/* line 22, ../sass/research-page.scss */
+.section-research-resources .view-grouping-content h3 {
+  font-size: 12px;
+  margin: 15px 0;
+  color: #000;
+}
+/* line 27, ../sass/research-page.scss */
+.section-research-resources .view-grouping-content .item-list li a {
+  font-size: 13px;
+}
+/* line 31, ../sass/research-page.scss */
+.section-research-resources .pane-node-body {
+  font-size: 14px;
+}
+/* line 33, ../sass/research-page.scss */
+.section-research-resources .pane-node-body strong {
+  clear: both;
+  display: block;
+  padding: 20px 0 15px;
+}
+/* line 39, ../sass/research-page.scss */
+.section-research-resources .view-header {
+  padding-bottom: 27px;
+  background: url("../images/dotted-heavy.png") repeat-x bottom;
+}
+
+/* line 45, ../sass/research-page.scss */
+.section-staff-resources-classic .view-header {
+  padding-bottom: 27px;
+  background: url("../images/dotted-heavy.png") repeat-x bottom;
+}
+
+/* line 52, ../sass/research-page.scss */
+.section-research-resources .view-header .view-content {
+  max-width: 857px;
+  width: 100%;
+  margin: auto;
+}
+/* line 57, ../sass/research-page.scss */
+.section-research-resources .view-header .views-row a {
+  font-size: 14px;
+}
+/* line 61, ../sass/research-page.scss */
+.section-research-resources .collapse {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  /* Resources Page */
+  /* line 71, ../sass/research-page.scss */
+  .section-research-resources #content {
+    background: transparent;
+  }
+  /* line 74, ../sass/research-page.scss */
+  .section-research-resources .view-header {
+    background-image: url("../images/dotted-heavy-gray-bg.png");
+  }
+  /* line 77, ../sass/research-page.scss */
+  .section-research-resources .pane-node-body strong, .section-research-resources .view-header .view-content {
+    display: none;
+  }
+  /* line 81, ../sass/research-page.scss */
+  .section-research-resources .view-content > .view-grouping:first-child {
+    margin-top: 19px;
+  }
+  /* line 84, ../sass/research-page.scss */
+  .section-research-resources .view-content .view-grouping-header {
+    height: 16px;
+    background: white url("../images/small-list-arrow-down.jpg") no-repeat right center;
+    max-width: 705px;
+    margin: 5px auto auto;
+    color: #20669a;
+    font-weight: bold;
+    width: 95%;
+    padding: 9px 0 9px 5%;
+  }
+  /* line 93, ../sass/research-page.scss */
+  .section-research-resources .view-content .view-grouping-header.expanded {
+    background-image: url("../images/small-list-arrow-up.jpg");
+  }
+  /* line 98, ../sass/research-page.scss */
+  .section-research-resources .view-grouping-content {
+    background: #fff;
+    border: none;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    display: none;
+  }
+  /* line 105, ../sass/research-page.scss */
+  .section-research-resources .view-grouping-content .item-list {
+    max-width: 705px;
+    width: 85%;
+    padding: 9px 5% 9px 10%;
+  }
+  /* line 111, ../sass/research-page.scss */
+  .section-research-resources .item-list ul {
+    width: 100%;
+  }
+  /* line 113, ../sass/research-page.scss */
+  .section-research-resources .item-list ul li {
+    background: url("../images/blue-right-list-arrow.jpg") no-repeat left 7px;
+  }
+  /* line 117, ../sass/research-page.scss */
+  .section-research-resources .view-grouping-content h3 {
+    margin: 5px 0 0;
+  }
+  /* line 120, ../sass/research-page.scss */
+  .section-research-resources .collapse {
+    height: 26px;
+    line-height: 26px;
+    display: block;
+    text-align: right;
+    width: 100%;
+    font-weight: bold;
+    background: #ecf5fa;
+    color: #20659A;
+  }
+  /* line 129, ../sass/research-page.scss */
+  .section-research-resources .collapse img {
+    margin-left: 20px;
+  }
+}

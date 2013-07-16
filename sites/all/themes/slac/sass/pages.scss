@@ -7,9 +7,6 @@
  * ul.links, .pager, .more-link, etc.
  */
 
-@import "base";
-
-
 /*
  * Body
  */
@@ -17,27 +14,47 @@
 body {
   margin: 0;
   padding: 0;
+  background: #e9e9e9;
 }
 
-#page {
-}
 
 /*
  * The skip-link link will be completely hidden until a user tabs to the link.
  * See the element-focusable rule in system.base.css.
  */
 
+.header-wrapper, #content, .region-footer {
+  width: 100%;
+  max-width: 1432px;
+  margin: auto;
+}
+
+header, .content-wrapper, .footer-wrapper {
+  width: 98%;
+  padding: 0 1%;
+}
+
+.not-front #content {
+  background: #fbf9f9;
+  width: 96%;
+  padding: 100px 2% 32px;
+}
+
+.grippie {
+  display: none;
+}
+
 #skip-link {
   margin: 0;
+}
 
-  a,
-  a:visited {
-    display: block;
-    width: 100%;
-    padding: 2px 0 3px 0;
-    text-align: center;
-    background-color: #666;
-    color: #fff;
+a {
+  color: #20659A;
+  text-decoration: none;
+  &:hover,
+  &:active{
+    text-decoration: underline;
+    outline: 0;
   }
 }
 
@@ -45,195 +62,362 @@ body {
  * Header
  */
 
-#header {
+header {
+  background: url('../images/header-bg.jpg') repeat-x;
+  height: 74px;
 }
 
-#logo { /* Wrapping link for logo */
-  float: left; /* LTR */
-  margin: 0;
-  padding: 0;
-
-  img {
-    vertical-align: bottom;
+.logo {
+  width: 23%;
+  float: left;
+  a {
+    display: block;
+    max-width: 148px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: -55px;
   }
 }
 
-#name-and-slogan { /* Wrapper for website name and slogan */
-  float: left;
+#name-and-slogan {
+  display: none;
 }
 
-#site-name { /* The name of the website */
-  margin: 0;
-  font-size: 2em;
-  line-height: 1.5em;
+.region-header {
+  float: right;
+  .block {
+    float: left;
+  }
+}
 
-  a:link,
-  a:visited {
-    color: #000;
+.frontpage-right, .frontpage-left-col {
+  margin-bottom: 32px;
+}
+
+/* Header Main Menu, Search*/
+
+#block-system-main-menu .menu li {
+  height: 25px;
+  line-height: 25px;
+  text-transform: uppercase;
+  font-size: 10px;
+  list-style-type: none;
+  list-style-image: none;
+  float: left;
+  padding: 0 13px;
+  background: url('../images/delimitator.jpg') no-repeat 0 center;
+  &.first {
+    background: transparent;
+    padding-left: 0;
+  }
+  a {
+    color: #f4f4f4;
     text-decoration: none;
   }
+}
 
-  a:hover,
-  a:focus {
-    text-decoration: underline;
+#block-boxes-web-search {
+  clear: both;
+  float: right;
+}
+
+.header-search {
+  position: relative;
+  background: #ebebeb;
+  overflow: hidden;
+  padding: 0 0 0 7px;
+  height: 24px;
+  width: 256px;
+  margin-top: 12px;
+  input {
+    float: left;
+    border: none;
+    background: none;
+    outline: none;
+    height: 24px;
+    line-height: 24px;
+    width: 228px;
+    font-size: 12px;
+    color: #535353;
   }
-}
-
-#site-slogan { /* The slogan (or tagline) of a website */
-  margin: 0;
-  font-size: 1em;
-}
-
-.region-header { /* Wrapper for any blocks placed in the header region */
-  clear: both; /* Clear the logo */
-}
-
-/*
- * Main (container for everything else)
- */
-
-#main {
+  .search-button {
+    width: 26px;
+    height: 22px;
+    margin: 1px;
+  }
 }
 
 /*
  * Content
  */
 
-#content {
-}
-
-.region-highlighted {
-}
-
-.breadcrumb { /* The path to the current page in the form of a list of links */
-  ol {
+.general-left {
+  ul li a {
+    font-size: 13px;
+  }
+  .item-list {
+    ul {
+      padding-bottom: 10px;
+      li {
+        padding: 2px 0 2px 11px;
+        margin: 0;
+        font-size: 12px;
+        clear: both;
+        display: block;
+        background: url('../images/list-dot.png') no-repeat 0 9px;
+      }
+    }
+    ol li {
+      padding: 2px 0 2px 11px;
+      margin: 0;
+      font-size: 12px;
+      clear: both;
+      display: block;
+      background: url('../images/list-dot.png') no-repeat 0 9px;
+    }
+  }
+  .views-row {
+    padding: 2px 0 2px 11px;
     margin: 0;
-    padding: 0;
+    font-size: 12px;
+    clear: both;
+    display: block;
+    background: url('../images/list-dot.png') no-repeat 0 9px;
   }
-  li {
-    display: inline;
-    list-style-type: none;
+}
+
+.right-block {
+  h2, h3 {
+    font-size: 12px;
+    text-transform: uppercase;
     margin: 0;
+    line-height: normal;
+    padding: 0 0 2px 0;
+  }
+  .pane-content {
+    border: 1px dashed #b4c2cb;
+    border-top: 2px solid #988055;
+    background: #f5f5f5;
+    padding: 13px 8% 20px;
+    font-size: 11px;
+  }
+}
+
+.staff-main .right-block .pane-content .view-content ul {
+  border: 1px dashed #b4c2cb;
+  border-top: 2px solid #988055;
+  background: #f5f5f5;
+  padding: 13px 8% 20px;
+  font-size: 11px;
+}
+
+.right-block .views-row, .pane-quicktabs-staff-resources .quicktabs_main ul li a {
+  padding: 4px 0 4px 13px;
+  display: block;
+  background: url('../images/right-list-arrow.jpg') no-repeat 0 9px;
+}
+
+.right-block .views-row a {
+  font-weight: bold;
+  padding-right: 15px;
+  background: url('../images/right-list-icon.png') no-repeat right 2px;
+}
+
+.not-front #page-title {
+  font-size: 20px;
+  margin: 0 0 7px 0;
+}
+
+.general-right {
+  .inside {
+    border-left: 4px solid #d1d0d0;
+    padding: 0 0 0 13%;
+    overflow: hidden;
+  }
+  .right-block p {
+    margin: 30px 0 10px;
+    &:first-child {
+      margin: 0 0 10px;
+    }
+  }
+  .pane-boxes-feedback {
+    width: 98%;
     padding: 0;
+    float: none;
+    margin: 30px auto auto;
+    border: 1px dotted #b1c2ca;
+    a.submit-feedback {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      -ms-box-shadow: none;
+      box-shadow: none;
+      width: auto;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 5px  7px;
+      padding: 5px 0;
+      height: auto;
+    }
   }
 }
+  
+.rowonecoltwo ul{
+  min-height: 296px;
+} 
 
-h1.title, /* The title of the page */
-h2.node-title, /* Title of a piece of content when it is given in a list of content */
-h2.block-title, /* Block title */
-h2.title, /* Comment section heading */
-h2.comment-form, /* Comment form heading */
-h3.title { /* Comment title */
-  margin: 0;
+.rowonecolthree ul{
+  min-height: 310px;
 }
 
-tr.even { /* Some tables have rows marked even or odd. */
-  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+.rowtwocolone ul,
+.rowtwocoltwo ul,
+.rowtwocolthree ul{
+  min-height: 165px;
 }
 
-tr.odd {
-  /* background-color: #eee; */ /* Drupal core uses a #eee background */
-}
-
-div.messages { /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
-  margin: 1.5em 0; /* Drupal core uses "6px 0" margin */
-
-  ul {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-}
-
-div.status { /* Normal priority messages */
-}
-
-div.warning,
-tr.warning { /* Medium priority messages */
-  /* border: 1px solid #f0c020; */ /* Drupal core uses: 1px solid #f0c020 */
-}
-
-div.error,
-tr.error { /* High priority messages. See also the .error declaration below. */
-}
-
-.error { /* Errors that are separate from div.messages status messages. */
-  /* color: #e55; */ /* Drupal core uses a #e55 background */
-}
-
-.warning { /* Warnings that are separate from div.messages status messages. */
-  /* color: #e09010; */ /* Drupal core uses a #e09010 background */
-}
-
-.tabs { /* See also the tabs.css file. */
-}
-
-.region-help { /* Help text on a page */
-}
-
-.more-help-link { /* Link to more help */
-}
-
-.region-content { /* Wrapper for the actual page content */
-}
-
-ul.inline { /* List of links generated by theme_links() */
-  display: inline;
-  padding: 0;
-
-  li {
-    display: inline;
-    list-style-type: none;
-    padding: 0 1em 0 0; /* LTR */
-  }
-}
-span.field-label { /* The inline field label used by the Fences module */
-  padding: 0 1em 0 0; /* LTR */
-}
-
-.item-list .pager { /* A list of page numbers when more than 1 page of content is available */
-  padding: 0;
-
-  li { /* Each page number in the pager list */
-    padding: 0 0.5em;
-  }
-}
-
-.feed-icon { /* The link to the RSS or Atom feed for the current list of content */
-}
-
-.more-link { /* Aggregator, blog, and forum more link */
-}
-
-/*
- * First sidebar (on left in LTR languages, on right in RTL)
- *
- * Remember to NOT add padding or margin to your .region-sidebar-first
- * (see the layout.css file.)
- */
-
-.region-sidebar-first {
-}
-
-/*
- * Second sidebar (on right in LTR languages, on left in RTL)
- *
- * Remember to NOT add padding or margin to your .region-sidebar-second
- * (see the layout.css file.)
- */
-
-.region-sidebar-second {
-}
 
 /*
  * Footer
  */
 
-#footer {
+.footer-wrapper {
+  background: #DADADA;
+  margin: 0 0 22px;
 }
 
-/*
- * Page bottom
- */
+.region-footer {
+  padding-bottom: 14px;
+  overflow: hidden;
+  background: url('../images/footer-logos.jpg') no-repeat right center;
+}
 
-.region-bottom { /* Wrapper for any blocks placed in the page bottom region */
+.footer-info {
+  width: 40%;
+  border-bottom: 2px solid #b4b4b5;
+  color: #4d4c4d;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 14px 0 6px;
+}
+
+footer .block-menu {
+  padding-top: 9px;
+  float: left;
+  h2 {
+    display: none;
+  }
+  li {
+    float: left;
+    font-size: 11px;
+    padding-left: 7px;
+    background: url('../images/list-dot.png') no-repeat left;
+    margin-right: 25px;
+  }
+}
+
+@media (max-width: 900px) {
+  .logo {
+    width: auto;
+    float: left;
+    margin-left: 5%;
+  }
+
+  .frontpage-right-col, .frontpage-middle-col, .frontpage-help-market, .frontpage-security-contacts {
+    width: 100%;
+    clear: both;
+  }
+  .frontpage-links, .frontpage-projects, .frontpage-help-market, .pane-boxes-stanford-compliance {
+    display: none;
+  }
+
+  .footer-wrapper {
+    background: #979797;
+    margin-bottom: 0;
+  }
+  .region-footer {
+    background: url('../images/small-footer-logos.jpg') no-repeat right center;
+  }
+  .footer-info {
+    border-bottom-color: #fff;
+    width: 60%;
+    color: #fff;
+  }
+  .region-footer a {
+    color: #fff;
+  }
+  footer .block-menu li {
+    background: url('../images/list-white-dot.jpeg') no-repeat left;
+  }
+
+  .rowonecoltwo ul{
+    min-height: 312px;
+  } 
+
+  .rowonecolthree ul{
+    min-height: 0;
+  }
+
+  .rowtwocolone ul{
+    min-height: 240px;
+  }
+}
+
+@media ( min-width: 600px) {
+.section-research-resources .view-grouping-content {
+  display: block !important;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    background: #2482c8;
+    height: 30px;
+  }
+  .general-two-col {
+    .general-left, .general-right {
+      width: 100%;
+      clear: both;
+    }
+  }
+  .logo a {
+    width: 88px;
+    margin-bottom: -49px;
+  }
+  .content-wrapper, .footer-wrapper {
+    width: 96%;
+    padding: 0 2%;
+  }
+  .frontpage-right, .frontpage-left-col {
+    width: 100%;
+    clear: both;
+  }
+
+  .general-right  {
+    margin-top: 30px;
+  }
+
+  .general-right .inside{
+    border:none;  
+    padding: 0;
+    width: 100%;
+  }
+
+  footer.region-footer {
+    padding-bottom: 70px;
+    background-position: bottom left;
+  }
+  footer .footer-info {
+    width: 100%;
+    border-bottom: 1px solid #fff;
+  }
+  
+  .rowonecoltwo ul,
+  .rowonecolthree ul,
+  .rowtwocolone ul,
+  .rowtwocoltwo ul,
+  .rowtwocolthree ul{
+    min-height: 0;
+  }
+
 }

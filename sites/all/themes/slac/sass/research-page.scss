@@ -1,0 +1,134 @@
+.section-research-resources {
+  .view-grouping-header {
+    margin: 40px auto auto;
+    max-width: 855px;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+  .view-grouping-content {
+    background: #f6f6f6;
+    border: 1px solid #c3c5c5;
+    border-top-width: 3px;
+    max-width: 775px;
+    width: 92%;
+    padding: 12px 4% 0;
+    margin: auto;
+  }
+  .view-content > .view-grouping:first-child {
+    margin-top: 0;
+  }
+  .view-grouping-content {
+    h3 {
+      font-size: 12px;
+      margin: 15px 0;
+      color: #000;
+    }
+    .item-list li a {
+      font-size: 13px;
+    }
+  }
+  .pane-node-body {
+    font-size: 14px;
+    strong {
+      clear: both;
+      display: block;
+      padding: 20px 0 15px;
+    }
+  }
+  .view-header {
+    padding-bottom: 27px;
+    background: url('../images/dotted-heavy.png') repeat-x bottom;
+  }
+}
+
+.section-staff-resources-classic .view-header {
+  padding-bottom: 27px;
+  background: url('../images/dotted-heavy.png') repeat-x bottom;
+}
+
+.section-research-resources {
+  .view-header {
+    .view-content {
+      max-width: 857px;
+      width: 100%;
+      margin: auto;
+    }
+    .views-row a {
+      font-size: 14px;
+    }
+  }
+  .collapse {
+    display: none;
+  }
+}
+
+
+@media (max-width: 600px) {
+ 
+  /* Resources Page */
+  .section-research-resources {
+    #content {
+      background: transparent;
+    }
+    .view-header {
+      background-image: url('../images/dotted-heavy-gray-bg.png');
+    }
+    .pane-node-body strong, .view-header .view-content {
+      display: none;
+    }
+    .view-content {
+      > .view-grouping:first-child {
+        margin-top: 19px;
+      }
+      .view-grouping-header {
+        height: 16px;
+        background: white url('../images/small-list-arrow-down.jpg') no-repeat right center;
+        max-width: 705px;
+        margin: 5px auto auto;
+        color: #20669a;
+        font-weight: bold;
+        width: 95%;
+        padding: 9px 0 9px 5%;
+        &.expanded {
+          background-image: url('../images/small-list-arrow-up.jpg');
+        }
+      }
+    }
+    .view-grouping-content {
+      background: #fff;
+      border: none;
+      overflow: hidden;
+      padding: 0;
+      width: 100%;
+      display: none;
+      .item-list {
+        max-width: 705px;
+        width: 85%;
+        padding: 9px 5% 9px 10%;
+      }
+    }
+    .item-list ul {
+      width: 100%;
+      li {
+        background: url('../images/blue-right-list-arrow.jpg') no-repeat left 7px;
+      }
+    }
+    .view-grouping-content h3 {
+      margin: 5px 0 0;
+    }
+    .collapse {
+      height: 26px;
+      line-height: 26px;
+      display: block;
+      text-align: right;
+      width: 100%;
+      font-weight: bold;
+      background: #ecf5fa;
+      color: #20659A;
+      img {
+        margin-left: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+/* line 1, ../sass/feedback-page.scss */
+.section-feedback .field-name-body, .page-node-done #content .webform-confirmation p {
+  font-size: 14px;
+  padding-bottom: 27px;
+  margin-bottom: 40px;
+  background: url("../images/dotted-heavy.png") repeat-x bottom;
+}
+
+/* line 9, ../sass/feedback-page.scss */
+.section-feedback article {
+  max-width: 840px;
+}
+/* line 12, ../sass/feedback-page.scss */
+.section-feedback .content-wrapper form {
+  max-width: 640px;
+  background: #f6f6f6;
+  border: 3px solid #dbdbdb;
+  padding: 0 8% 32px;
+  overflow: hidden;
+}
+/* line 18, ../sass/feedback-page.scss */
+.section-feedback .content-wrapper form label {
+  font-size: 13px;
+  font-weight: normal;
+  margin-bottom: 3px;
+}
+/* line 23, ../sass/feedback-page.scss */
+.section-feedback .content-wrapper form input {
+  border: none;
+}
+/* line 25, ../sass/feedback-page.scss */
+.section-feedback .content-wrapper form input.form-text {
+  border: 1px solid #d0d0d0;
+  height: 22px;
+  max-width: 380px;
+  width: 96%;
+  padding: 0 2%;
+  outline: none;
+}
+/* line 34, ../sass/feedback-page.scss */
+.section-feedback .content-wrapper form textarea {
+  border: 2px solid #d0d0d0;
+  height: 180px;
+  outline: none;
+}
+/* line 40, ../sass/feedback-page.scss */
+.section-feedback article .form-actions {
+  padding: 5px 0 5px 7px;
+  width: auto;
+  float: left;
+  margin: 0;
+  border: 1px dotted #b1c2ca;
+}
+
+/* line 50, ../sass/feedback-page.scss */
+.section-feedback article .form-actions input {
+  height: 28px;
+  background: #276cbd;
+  padding: 0 25px;
+  font-size: 11px;
+  color: #fff;
+  text-transform: lowercase;
+  margin-right: 7px;
+}
+/* line 60, ../sass/feedback-page.scss */
+.section-feedback .content-wrapper form input.form-text {
+  border: 1px solid #d0d0d0;
+  height: 22px;
+  max-width: 380px;
+  width: 96%;
+  padding: 0 2%;
+  outline: none;
+}
+/* line 68, ../sass/feedback-page.scss */
+.section-feedback .content-wrapper .filter-wrapper {
+  display: none;
+}
+/* line 72, ../sass/feedback-page.scss */
+.section-feedback article .comments .form-actions {
+  margin-top: 1.5em;
+}
+
+/* line 77, ../sass/feedback-page.scss */
+.page-node-done #content {
+  background: #fff;
+  width: 96%;
+  padding: 100px 2% 300px;
+  background: #fff;
+  width: 96%;
+  padding: 100px 2% 300px;
+}
