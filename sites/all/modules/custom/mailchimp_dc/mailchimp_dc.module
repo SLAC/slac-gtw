@@ -242,8 +242,8 @@ function mailchimp_dc_campaign_create($config) {
 /**
  * Return contents from hook
  */
-function _mailchimp_dc_content_options() {
-  $options = array('' => t('--Select--'));
+function _mailchimp_dc_content_options($return_data = FALSE) {
+  $options = ($return_data) ? array() : array('' => t('--Select--'));
   $modules = module_implements('mailchimp_dc_content');
   if (!empty($modules)) {
     foreach ($modules as $module) {
@@ -252,6 +252,9 @@ function _mailchimp_dc_content_options() {
       if (!empty($data)) {
         foreach($data as $key => $items) {
           $options[$key] = $items['title'];
+          if ($return_data) {
+            $options[$key] = $items;
+          }
         }
       } 
     }

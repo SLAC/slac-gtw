@@ -162,7 +162,28 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
  * Form validation callback
  */ 
 function mailchimp_dc_configuration_form_validate($form, &$form_state) {
-  
+  // verify that the content template called through the hook doesn't declare any region this template doesn't have
+  // 1. get current template regions    
+  // compare the MC template regions with the regions declated in the hook implementation,
+  // if hook implementation has regions not in MC template, we throw an error
+  $values = $form_state['values'];
+  $mc_template = mailchimp_campaign_get_templates($values['template']);
+  if (!empty($mc_template)) {
+    $template_sections = $mc_template['info']['sections'];
+    // get all hook implementations
+    $content_templates = _mailchimp_dc_content_options(TRUE);
+    if (array_key_exists($values['content'], $content_templates)) {
+      $content_template_regions = array_keys($content_templates[$values['content']]['content']);
+      // strip out the html_{region_name}
+      foreach ($content_template_regions as $region) {
+        $regions[] = substr($region, strpos($region, '_') + 1);  
+      }
+      $diff = array_diff($regions, $template_sections);
+      if (!empty($diff)) {
+        form_set_error('content', t('The following regions: %regions do not exist in %mc_template from the content template selected.', array('%regions' => implode(',', $diff), '%mc_template' => $mc_template['name'])));
+      }    
+    }
+  }
 }
 
 /**

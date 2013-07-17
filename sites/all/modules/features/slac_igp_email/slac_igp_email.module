@@ -7,7 +7,7 @@
 include_once 'slac_igp_email.features.inc';
 define('VIEW_MODE_TEASER', 'teaser');
 define('VIEW_MODE_LINK', 'link');
-
+define('DIRECTOR_COLUMN', 'Director column');
 
 /**
  * Implements hook_theme
@@ -29,8 +29,16 @@ function slac_igp_email_theme() {
       ),
       'template' => 'slac_igp_email',
     ),
+    'slac_igp_director_column' => array(
+      'variables' => array(
+        'directors_column' => NULL,
+      ),
+      'template' => 'slac_igp_director_column',
+    ),
     'slac_igp_email_title' => array(
-      'variables' => array(),
+      'variables' => array(
+        'type' => NULL,
+      ),
     ),
   ); 
 }
@@ -49,35 +57,52 @@ function slac_igp_email_form_mailchimp_lists_user_subscribe_form_daily_email_alt
  * Implements hook_mailchimp_dc_content
  */
 function slac_igp_email_mailchimp_dc_content($template_sections = array()) {
-    
-  $content = array(
-    'html' => array(
-    'value' => 'This is some test markup stuff',
-    'format' => 'mailchimp_campaign',
-    ),
-  );
   
+  // declare contents in the daily digest  
   $data['SLAC_DD'] = array(
     'module' => 'slac_igp_custom',
     'title' => t('SLAC daily digest'),
     'content' => _slac_igp_email_mailchimp_dc_content($template_sections),
   );
-    
+  
+  // declare contents in the weekly digest
+  $data['SLAC_WD'] = array(
+    'module' => 'slac_igp_custom',
+    'title' => t('SLAC weekly digest'),
+    'content' => _slac_igp_email_mailchimp_weekly_content($template_sections),
+  );
+  
   return $data;
 }
 
 /**
  * Theme function 
  */
-function theme_slac_igp_email_title() {
-  return '<h2>' . date('F j, Y') . '<br />Daily Email</h2>';
+function theme_slac_igp_email_title($vars) {
+  return '<h2>' . date('F j, Y') . '<br />' . $vars['type'] . ' Email</h2>';
+}
+
+/**
+ * Return contents to the mailchimp templates for weekly email
+ */
+function _slac_igp_email_mailchimp_weekly_content($template_sections) {
+  //@todo: iterate through the template_sections
+  return array(
+    'html_director_column' => array(
+      'value' => theme('slac_igp_email'),
+      'format' => 'mailchimp_campaign',
+    ),
+    'html_std_header_title' => array(
+      'value' => theme('slac_igp_email_title', array('type' => 'Weekly')),
+      'format' => 'mailchimp_campaign',
+    ),
+  );
 }
 
 /**
  * Return contents to the mailchimp templates
  */
 function _slac_igp_email_mailchimp_dc_content($template_sections) {
-
   //@todo: iterate through the template_sections
   return array(
     'html_sidebar' => array(
@@ -89,10 +114,35 @@ function _slac_igp_email_mailchimp_dc_content($template_sections) {
       'format' => 'mailchimp_campaign',
     ),
     'html_std_header_title' => array(
-      'value' => theme('slac_igp_email_title'),
+      'value' => theme('slac_igp_email_title', array('type' => 'Daily')),
       'format' => 'mailchimp_campaign',
     ),
   );
+}
+
+/**
+ * Preprocess function, finds and add director's column
+ */
+function slac_igp_directors_column(&$vars) {
+  // director's column is an news article tagged with "Director's Column"
+  $term = taxonomy_get_term_by_name(DIRECTOR_COLUMN);
+  if (!empty($term)) {
+    $keys = array_keys($term);
+    $tid = $keys[0];
+  }
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'news_article')
+    ->propertyCondition('status', 1)
+    ->fieldCondition('field_tags', 'tid', $tid)
+    ->propertyOrderBy('created', 'DESC')
+    ->range(0, 1);
+  $result = $query->execute();
+  
+  if (!empty($result)) {
+    $node = current($result['node']);
+    $vars['director_column'] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=teaser]';
+  }  
 }
 
 /**
