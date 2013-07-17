@@ -115,8 +115,15 @@ function mailchimp_dc_schema() {
         'size' => 'big',
         'description' => 'Time when the campaign was created',
       ),
+      'name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => "Machine name of this recurring campaign",
+      ),
+      
     ),
-    'primary key' => array('date'),
+    'primary key' => array('date', 'name'),
   );
   return $schema;  
 }

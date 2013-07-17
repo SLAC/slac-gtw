@@ -62,8 +62,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
   );
     
   // depends on the type of schedule, we can also have some additional options
-  if (!empty($form_state['values']['schedule_type']) || !empty($config)) {
-  
+  if (!empty($form_state['values']['schedule_type']) || !empty($config)) {  
     if (!empty($form_state['values']['schedule_type'])) {
       $schedule_type = $form_state['values']['schedule_type'];
     }
@@ -75,15 +74,15 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
       case 'weekly':
         $title = t('Select day of the week');
         $options = array(
-          'mon' => t('Monday'),
-          'tue' => t('Tuesday'),
-          'wed' => t('Wednesday'),
-          'thu' => t('Thursday'),
-          'fri' => t('Friday'),
-          'sat' => t('Saturday'),
-          'sun' => t('Sunday'),
+          'Mon' => t('Monday'),
+          'Tue' => t('Tuesday'),
+          'Wed' => t('Wednesday'),
+          'Thu' => t('Thursday'),
+          'Fri' => t('Friday'),
+          'Sat' => t('Saturday'),
+          'Sun' => t('Sunday'),
         );
-        $description = t('Please select the day of the week the weekly mail should be generated');
+        $description = t('Please select the day of the week the weekly mail should be generated (This cannot be changed once saved)');
       break;
       case 'monthly':
         $title = t('Select day of the month');
@@ -91,7 +90,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
           1 => t('First day of the month'),
           15 => t('15th of the month'),
         );
-        $description = t('Please select the day of the month the monthly mail should be generated');
+        $description = t('Please select the day of the month the monthly mail should be generated (This cannot be changed once saved)');
       break;
       default:
         $options = array(
@@ -104,9 +103,8 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     $form['schedule']['schedule_type_setting']['#title'] = $title;
     $form['schedule']['schedule_type_setting']['#options'] = $options;
     $form['schedule']['schedule_type_setting']['#description'] = $description;
-    
+    $form['schedule']['schedule_type_setting']['#disabled'] = (!empty($config)) ? TRUE : FALSE;
     $form['schedule']['schedule_type_setting']['#default_value'] = (!empty($config)) ? $config['schedule_type_setting'] : '';
-    
   }
     
   $form['email'] = array(

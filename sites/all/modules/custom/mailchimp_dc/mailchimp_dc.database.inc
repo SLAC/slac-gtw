@@ -69,7 +69,7 @@ function mailchimp_dc_config_delete($machine_name) {
 /**
  * Save daily campaign record
  */
-function mailchimp_dc_save_dc($campaign_id) {
+function mailchimp_dc_save_dc($campaign_id, $config_name) {
   $existing = mailchimp_dc_load_dc(date('Y-m-d'));
   if (!empty($existing)) {
     return;
@@ -79,6 +79,7 @@ function mailchimp_dc_save_dc($campaign_id) {
     'date' => date('Y-m-d'),
     'timestamp' => REQUEST_TIME,
     'created' => 1,
+    'name' => $config_name,
   );
   
   $record['mc_campaign_id'] = $campaign_id;
@@ -87,21 +88,27 @@ function mailchimp_dc_save_dc($campaign_id) {
 }
 
 /**
- * Load daily campaign record
+ * Load recurring campaign record
  */
-function mailchimp_dc_load_dc($date = NULL) {
+function mailchimp_dc_load_dc($name, $date = NULL) {
   $data = array();
   $query = db_select('mailchimp_dc', 'm')
   ->fields('m')
-  ->condition('date', $date);
-  
+  ->condition('name', $name);
+  if (isset($date)) {
+    if (is_array($date)) {
+      $query->condition('date', $date, 'BETWEEN');
+    }
+    else {
+      $query->condition('date', $date);
+    }
+  }
   $results = $query->execute();
   foreach ($results as $result) {
     $data[] = (array) $result;
   }
   return (!empty($data)) ? $data[0] : array(); 
 }
-
 
 /**
  * Delete a daily campaign record

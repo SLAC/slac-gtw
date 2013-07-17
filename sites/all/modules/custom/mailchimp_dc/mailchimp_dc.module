@@ -13,7 +13,6 @@ function mailchimp_dc_menu() {
     'title' => 'Recurring Campaigns',
     'description' => 'Manage Recurring campaigns',
     'page callback' => 'mailchimp_dc_main',
-    // 'page arguments' => array('mailchimp_dc_configuration_form'),
     'access arguments' => array('administer mailchimp campaigns'),
     'type' => MENU_LOCAL_TASK,
     'weight' => 11,
@@ -39,7 +38,6 @@ function mailchimp_dc_menu() {
     'type' => MENU_CALLBACK,
   );
 
- 
   $items['admin/config/services/mailchimp/mcdc/%mailchimp_dc_config_instance/delete'] = array(
     'title' => 'Add Recurring Campaign',
     'description' => 'Add a new recurring campaign',
@@ -53,6 +51,9 @@ function mailchimp_dc_menu() {
   return $items;
 }
 
+/**
+ * Main page callback
+ */
 function mailchimp_dc_main() {
   
   // load all recurring campaigns
@@ -95,13 +96,57 @@ function mailchimp_dc_config_instance_load($machine_name) {
 /**
  * Implements hook_cron
  */
-function mailchimp_cron() {
-  // check today's date, if no daily campaign exist, we will create one
+function mailchimp_dc_cron() {
   module_load_include('inc', 'mailchimp_dc', 'mailchimp_dc.database');
-  $dc = mailchimp_dc_load_dc(date('Y-m-d'));
-  if (empty($dc)) {
-    mailchimp_dc_campaign_create();    
-  }  
+  $campaigns = mailchimp_dc_config_load_all();
+  if (empty($campaigns)) {
+    return;
+  }
+  foreach($campaigns as $campaign) {
+    switch ($campaign['schedule_type']) {
+      case 'daily':
+        _mailchimp_dc_daily($campaign);
+      break;
+      case 'weekly':
+        _mailchimp_dc_weekly($campaign);
+      break;
+      case 'monthly':
+        //@TODO
+      break;
+    }
+  }
+}
+
+/**
+ * Helper function check to see if a daily campaign has been generated
+ * if not, run the campaign generate function.
+ */
+function _mailchimp_dc_daily($config) {
+  // we simply look for the campaign for this specific
+  // recurring configuration to see if it exist for today
+  $today = date('Y-m-d', REQUEST_TIME);
+  $daily_campaign = mailchimp_dc_load_dc($config['name'], $today);
+  if (empty($daily_campaign)) {
+    mailchimp_dc_campaign_create($config);
+  }
+}
+
+/**
+ * Helper function check to see if a daily campaign has been generated
+ * if not, run the campaign generate function.
+ */
+function _mailchimp_dc_weekly($config) {
+  $today = date('Y-m-d', REQUEST_TIME);
+  // $week_ago = date('Y-m-d', REQUEST_TIME - (3600 * 24 * 7));
+  $scheduled_day = $config['schedule_type_setting'];
+  // if today is the scheduled day
+  if (date('D', REQUEST_TIME) == $scheduled_day) {
+    // check if already been sent
+    $weekly_campaign = mailchimp_dc_load_dc($config['name'], $today);
+    if (empty($weekly_campaign)) {
+      mailchimp_dc_campaign_create($config);
+    }  
+  }
 }
 
 /**
@@ -109,7 +154,7 @@ function mailchimp_cron() {
  */
 function mailchimp_dc_entity_delete($entity, $type) {
   if ($type === 'mailchimp_campaign') {
-    module_load_include('inc', 'mailchimp_dc', 'mailchimp.database');
+    module_load_include('inc', 'mailchimp_dc', 'mailchimp_dc.database');
     $campaign_id = $entity->mc_campaign_id;
     mailchimp_dc_delete_dc($campaign_id);    
   }
@@ -117,20 +162,40 @@ function mailchimp_dc_entity_delete($entity, $type) {
 
 /**
  * Create a campaign based on Daily Campign settings
+ *
+ * @params
+ * (array) $config      Loaded configuration array for the recurring campaign configuration
+ *                      key: daily_email_1, label, schedule_type, schedule_type_setting, list, template, content, from_mail, from_name, created
  */
-function mailchimp_dc_campaign_create() {
-  // if the campaign has not been created yet for the day, let's create the campaign
+function mailchimp_dc_campaign_create($config) {
+  // if the campaign has not been created yet for the period, let's create the campaign
+  $from_name = (empty($config['from_name'])) ? variable_get('site_name', '') : $config['from_name'];
+  switch($config['schedule_type']) {
+    case 'daily':
+      $title = t('Daily Digest !today', array('!today' => date('Y-m-d')));
+      $subject = t('!name Daily Digest !today', array('!name' => $from_name, '!today' => date('Y-m-d')));
+    break;
+    case 'weekly':
+      $title = t('Weekly Digest Week: !week', array('!week' => date('W')));
+      $subject = t('!name Weekly Digest !week', array('!name' => $from_name, '!week' => date('W'))); 
+    break;
+    case 'monthly':
+      $title = t('Monthly Digest: !month', array('!month' => date('F, Y')));
+      $subject = t('!name Monthly Digest !month', array('!name' => $from_name, '!month' => date('F, Y'))); 
+    break;
+  }
+  
   $options = array(
-    'title' => t('Daily Digest !today', array('!today' => date('Y-m-d'))),
-    'subject' => t('!name Daily Digest !today', array('!name' => variable_get('mcdcfrom_name', variable_get('site_name', '')), '!today' => date('Y-m-d'))),
-    'list_id' => variable_get('mcdc_list', array('')),
-    'from_email' => variable_get('mcdc_from_email', variable_get('site_mail', '')),
-    'from_name' => variable_get('mcdcfrom_name', variable_get('site_name', '')),
-    'template_id' => variable_get('mcdc_template', array()),
+    'title' => $title,
+    'subject' => $subject,
+    'list_id' => $config['list'],
+    'from_email' => (empty($config['from_mail'])) ? variable_get('site_mail', '') : $config['from_mail'],
+    'from_name' => $from_name,
+    'template_id' => $config['template'],
   );
     
   // getting the template information
-  $template_id = variable_get('mcdc_template', array());
+  $template_id = $config['template'];
   if (!empty($template_id)) {
     $mc_template = mailchimp_campaign_get_templates($template_id);
   }
@@ -156,10 +221,10 @@ function mailchimp_dc_campaign_create() {
   $content = $template_sections;
   $contents = array_merge(module_invoke_all('mailchimp_dc_content', $template_sections), array());
   if (!empty($contents)) {
-    $config = variable_get('mcdc_content', array());
-    if (array_key_exists($config, $contents)) {
+    $content_template = $config['content'];
+    if (array_key_exists($content_template, $contents)) {
       // let's only replace ones declared
-      foreach ($contents[$config]['content'] as $section => $item) {
+      foreach ($contents[$content_template]['content'] as $section => $item) {
         $content[$section] = $item;
       }
     }
@@ -169,7 +234,7 @@ function mailchimp_dc_campaign_create() {
   if (isset($campaign_id)) {
     // save the dc meta information
     module_load_include('inc', 'mailchimp_dc', 'mailchimp.database');
-    mailchimp_dc_save_dc($campaign_id);
+    mailchimp_dc_save_dc($campaign_id, $config['name']);
     cache_clear_all('mailchimp_campaign_campaigns', 'cache');
   }
 }
@@ -178,7 +243,7 @@ function mailchimp_dc_campaign_create() {
  * Return contents from hook
  */
 function _mailchimp_dc_content_options() {
-  $options = array();
+  $options = array('' => t('--Select--'));
   $modules = module_implements('mailchimp_dc_content');
   if (!empty($modules)) {
     foreach ($modules as $module) {
