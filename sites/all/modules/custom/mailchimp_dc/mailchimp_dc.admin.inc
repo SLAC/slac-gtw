@@ -8,9 +8,7 @@
  * Configuration form callback
  */
 function mailchimp_dc_configuration_form($form, &$form_state, $config = array()) {
-  
-  // dpm($config);
-  
+    
   module_load_include('inc', 'mailchimp_campaign', 'mailchimp_campaign.admin');
   
   $form['label'] = array(
@@ -99,6 +97,8 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
         $options = array(
           '' => t('--Please select--'),
         );
+        $title = '';
+        $description = '';
       break;  
     }    
     $form['schedule']['schedule_type_setting']['#title'] = $title;

@@ -53,6 +53,37 @@ function mailchimp_dc_menu() {
   return $items;
 }
 
+function mailchimp_dc_main() {
+  
+  // load all recurring campaigns
+  module_load_include('inc', 'mailchimp_dc', 'mailchimp_dc.database');
+  
+  $records = mailchimp_dc_config_load_all();
+  
+  $rows = array();
+  foreach ($records as $record) {
+    $action_links = array(
+      l('Edit', 'admin/config/services/mailchimp/mcdc/' . $record['name'] . '/edit'),
+      l('Delete', 'admin/config/services/mailchimp/mcdc/' . $record['name'] . '/delete'),
+    );
+    $rows[] = array(
+      $record['label'],
+      $record['schedule_type'],
+      date('Y-m-d', $record['created']),
+      implode(' | ', $action_links),
+    );
+  }
+    
+  $header = array('name', 'type', 'last updated', 'action');
+  
+  $variables = array(
+    'header' => $header,
+    'rows' => $rows,
+  );
+  
+  return theme('table', $variables);
+}
+
 /**
  * Load function to load a recurring campaign configuration
  */
@@ -61,17 +92,12 @@ function mailchimp_dc_config_instance_load($machine_name) {
   return mailchimp_dc_config_load($machine_name);
 }
 
-function mailchimp_dc_main() {
-  
-  return t('This is a stub for now');
-}
-
 /**
  * Implements hook_cron
  */
 function mailchimp_cron() {
   // check today's date, if no daily campaign exist, we will create one
-  module_load_include('inc', 'mailchimp_dc', 'mailchimp.database');
+  module_load_include('inc', 'mailchimp_dc', 'mailchimp_dc.database');
   $dc = mailchimp_dc_load_dc(date('Y-m-d'));
   if (empty($dc)) {
     mailchimp_dc_campaign_create();    
