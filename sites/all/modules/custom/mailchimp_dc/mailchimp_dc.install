@@ -8,6 +8,85 @@
  * Implements hook_schema
  */
 function mailchimp_dc_schema() {
+
+  $schema['mailchimp_dc_config'] = array(
+    'description' => 'Stores configuration to recurring mailchimp campaigns',
+    'export' => array(
+      'key' => 'name',
+      'identifier' => 'preset', // Exports will be as $tamper_instalce
+      'default hook' => 'default_mailchimp_dc_preset',  // Function hook name.
+      'api' => array(
+        'owner' => 'mailchimp_dc',
+        'api' => 'default_mailchimp_dc_presets',  // Base name for api include files.
+        'minimum_version' => 1,
+        'current_version' => 1,
+      ),
+    ),
+    'fields' => array(
+      'name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => "Machine name of this recurring campaign",
+      ),
+      'label' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => "Human label of this recurring campaign",
+      ),
+      'schedule_type' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'description' => "Schedule type of this recurring campaign, such as weekly or monthly",
+      ),
+      'schedule_type_setting' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+        'description' => "Additional scheduling option such as day of the week or day of the month",
+      ),
+      'list' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'description' => "A short has of the list id in mailchimp",
+      ),
+      'template' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'description' => "The template id selected from mailchimp, usually a number",
+      ),
+      'content' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'description' => "content hook that allows automated content population.",
+      ),
+      'from_mail' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'description' => "From email for this recurring campaign",
+      ),   
+      'from_name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'description' => "From name for this recurring campaign",
+      ),
+      'created' => array(
+        'type' => 'int',
+        'not null' => FALSE,
+        'size' => 'big',
+        'description' => 'Time when the campaign was created',
+      ),
+    ),
+    'primary key' => array('name'),  
+  );
+
   $schema['mailchimp_dc'] = array(
     'description' => 'Stores daily digest creation information',
     'fields' => array(

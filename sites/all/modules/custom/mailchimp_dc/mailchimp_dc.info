@@ -1,6 +1,7 @@
-name = Mailchimp Daily Campaign
-description = Allows mailchimp campaign to be created daily
+name = Mailchimp Recurring Campaign
+description = Allows mailchimp campaigns to be generated on a recurring basis
 core = 7.x
 package = MailChimp
 version = 7.x-1.0-dev
 dependencies[] = mailchimp_campaign
+dependencies[] = ctools
