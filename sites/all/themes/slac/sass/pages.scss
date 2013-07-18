@@ -99,7 +99,7 @@ header {
   }
   #main{
     display:block;
-    margin-top: 5px;
+    margin-top: 20px;
   }
 }
 
@@ -124,8 +124,10 @@ header {
   padding: 0 13px;
   background: url('../images/delimitator.jpg') no-repeat 0 center;
   &.first {
+    display: none
+  }
+  &.last{
     background: transparent;
-    padding-left: 0;
   }
   a {
     color: #f4f4f4;
@@ -175,6 +177,10 @@ header {
   .brown-bodered-white{
     margin-top: 0;
   }
+}
+
+.frontpage-people-finder .brown-bodered-white{
+  margin-top: 0;
 }
 
 .general-left {
@@ -387,6 +393,18 @@ footer .block-menu {
 
   .frontpage-left-col{
     margin-top: 0px;
+  }
+
+  .front #main {
+    margin-top: 80px;
+  }
+}
+
+@media ( max-width: 770px) {
+  #block-system-main-menu .menu li{
+    background: none;
+    padding: 0 5px;
+    font-size: 8px; 
   }
 }
 

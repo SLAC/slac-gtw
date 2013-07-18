@@ -523,6 +523,9 @@ a.submit-feedback {
     margin-bottom: 16px;
   }
 
+  .frontpage-calendar h3{
+    margin-left: -10px;
+  }
 }
 
 
@@ -654,5 +657,9 @@ a.submit-feedback {
   }
   .section-research-resources .general-right, .section-staff-resources-classic .general-right {
     display: none;
+  }
+
+  .frontpage-calendar h3{
+    margin-left: 0;
   }
 }
