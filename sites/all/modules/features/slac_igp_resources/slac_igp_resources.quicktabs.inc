@@ -62,7 +62,7 @@ function slac_igp_resources_quicktabs_default_quicktabs() {
     5 => array(
       'vid' => 'staff_resources_classic',
       'display' => 'block_2',
-      'args' => ' Policies & Procedures',
+      'args' => 'Policies & Procedures',
       'title' => 'Policies & Procedures',
       'weight' => '-95',
       'type' => 'view',
