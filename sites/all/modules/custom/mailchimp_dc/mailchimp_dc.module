@@ -57,7 +57,7 @@ function mailchimp_dc_menu() {
 function mailchimp_dc_action_info() {
   return array(
     'mailchimp_dc_action_add_content' => array(
-      'label' => t('Add content to mailchimp campaign'),
+      'label' => t('Add to Mailchimp campaign'),
       'type' => 'node',
       'configurable' => FALSE,
       'vbo_configurable' => TRUE,
