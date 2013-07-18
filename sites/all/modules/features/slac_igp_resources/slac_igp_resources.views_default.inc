@@ -101,6 +101,13 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['relationships']['field_rr_resource_category_tid']['id'] = 'field_rr_resource_category_tid';
   $handler->display->display_options['relationships']['field_rr_resource_category_tid']['table'] = 'field_data_field_rr_resource_category';
   $handler->display->display_options['relationships']['field_rr_resource_category_tid']['field'] = 'field_rr_resource_category_tid';
+  /* Field: Content: Authenticated */
+  $handler->display->display_options['fields']['field_sr_authenticate']['id'] = 'field_sr_authenticate';
+  $handler->display->display_options['fields']['field_sr_authenticate']['table'] = 'field_data_field_sr_authenticate';
+  $handler->display->display_options['fields']['field_sr_authenticate']['field'] = 'field_sr_authenticate';
+  $handler->display->display_options['fields']['field_sr_authenticate']['label'] = '';
+  $handler->display->display_options['fields']['field_sr_authenticate']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_sr_authenticate']['element_label_colon'] = FALSE;
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -117,6 +124,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['path'] = '[field_link]';
+  $handler->display->display_options['fields']['title']['alter']['link_class'] = '[field_sr_authenticate]';
   $handler->display->display_options['fields']['title']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
@@ -292,6 +300,13 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['header']['view']['field'] = 'view';
   $handler->display->display_options['header']['view']['view_to_insert'] = 'staff_resources_classic:block_1';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Authenticated */
+  $handler->display->display_options['fields']['field_resource_authenticated']['id'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['table'] = 'field_data_field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['field'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['label'] = '';
+  $handler->display->display_options['fields']['field_resource_authenticated']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_resource_authenticated']['element_label_colon'] = FALSE;
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -309,6 +324,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['path'] = '[field_link]';
   $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['link_class'] = '[field_resource_authenticated]';
   $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
@@ -361,6 +377,13 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Authenticated */
+  $handler->display->display_options['fields']['field_resource_authenticated']['id'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['table'] = 'field_data_field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['field'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['label'] = '';
+  $handler->display->display_options['fields']['field_resource_authenticated']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_resource_authenticated']['element_label_colon'] = FALSE;
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -378,6 +401,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['path'] = '[field_link]';
   $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['link_class'] = '[field_resource_authenticated]';
   $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
@@ -425,6 +449,13 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Authenticated */
+  $handler->display->display_options['fields']['field_resource_authenticated']['id'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['table'] = 'field_data_field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['field'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['label'] = '';
+  $handler->display->display_options['fields']['field_resource_authenticated']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_resource_authenticated']['element_label_colon'] = FALSE;
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -442,6 +473,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['path'] = '[field_link]';
   $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['link_class'] = '[field_resource_authenticated]';
   $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
@@ -499,6 +531,13 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Authenticated */
+  $handler->display->display_options['fields']['field_resource_authenticated']['id'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['table'] = 'field_data_field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['field'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['label'] = '';
+  $handler->display->display_options['fields']['field_resource_authenticated']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_resource_authenticated']['element_label_colon'] = FALSE;
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -516,6 +555,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['path'] = '[field_link]';
   $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['link_class'] = '[field_resource_authenticated] ';
   $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
@@ -593,6 +633,13 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['relationships']['field_resource_category_tid']['ui_name'] = 'Resource Category';
   $handler->display->display_options['relationships']['field_resource_category_tid']['label'] = 'Resource Category';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Authenticated */
+  $handler->display->display_options['fields']['field_resource_authenticated']['id'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['table'] = 'field_data_field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['field'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['label'] = '';
+  $handler->display->display_options['fields']['field_resource_authenticated']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_resource_authenticated']['element_label_colon'] = FALSE;
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -610,6 +657,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['path'] = '[field_link]';
   $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['link_class'] = '[field_resource_authenticated]';
   $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
@@ -696,6 +744,13 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Authenticated */
+  $handler->display->display_options['fields']['field_resource_authenticated']['id'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['table'] = 'field_data_field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['field'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['label'] = '';
+  $handler->display->display_options['fields']['field_resource_authenticated']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_resource_authenticated']['element_label_colon'] = FALSE;
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -713,6 +768,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['path'] = '[field_link]';
   $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['link_class'] = '[field_resource_authenticated]';
   $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;

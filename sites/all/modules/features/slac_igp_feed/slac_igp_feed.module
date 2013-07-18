@@ -123,8 +123,8 @@ function slac_igp_feed_node_update($node) {
       slac_igp_feed_node_add($node->nid, FEATURED_NEWS, TRUE);
       if (!empty($node->field_news_type[$lang])) {
         if ($node->field_news_type[$lang][0]['value'] === 'external') {
-          // also add it to top of the SLAC SCIENCE queue
-          slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, TRUE);
+          // also add it to bottom of the SLAC SCIENCE queue
+          slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, FALSE);
         }
       }
     }
