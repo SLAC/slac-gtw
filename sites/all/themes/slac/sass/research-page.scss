@@ -28,10 +28,11 @@
     }
     .item-list li a {
       font-size: 13px;
-      .Yes{
+    }
+
+    .item-list li a.Yes{
         background: #e0e0e0;
       }
-    }
   }
 
   .pane-node-body {
