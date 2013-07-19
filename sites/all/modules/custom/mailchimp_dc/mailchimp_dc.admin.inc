@@ -116,7 +116,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     
   $form['email']['list'] = array(
     '#type' => 'select',
-    '#title' => t('List to use for this daily digest'),
+    '#title' => t('List to use for this recurring campaign'),
     '#options' => _mailchimp_campaign_build_option_list(mailchimp_get_lists()),
     '#default_value' => (!empty($config)) ? $config['list'] : '',
     '#required' => TRUE,
@@ -124,7 +124,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
   
   $form['email']['template'] = array(
     '#type' => 'select',
-    '#title' => t('Template to use for this daily digest'),
+    '#title' => t('Template to use for this recurring campaign'),
     '#options' => _mailchimp_campaign_build_option_list(mailchimp_campaign_get_templates()),
     '#default_value' => (!empty($config)) ? $config['template'] : '',
   );

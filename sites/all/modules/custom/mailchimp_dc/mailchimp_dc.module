@@ -52,6 +52,131 @@ function mailchimp_dc_menu() {
 }
 
 /**
+ * Implements hook_action_info
+ */
+function mailchimp_dc_action_info() {
+  return array(
+    'mailchimp_dc_action_add_content' => array(
+      'label' => t('Add to Mailchimp campaign'),
+      'type' => 'node',
+      'configurable' => FALSE,
+      'vbo_configurable' => TRUE,
+      'triggers' => array('any'),
+    ),
+  );  
+}
+
+/**
+ * Action callback
+ */
+function mailchimp_dc_action_add_content($entity, $context) {
+  // add this content item as mailchimp filter style into the campaign
+  // 1. load the campaign
+  // 2. get the content from the specific section
+  // 3. append the content as standard entity|teaser
+  $campaign = mailchimp_campaign_load($context['mc_campaign']);
+  if (empty($campaign)) {
+    return;
+  }
+  if (array_key_exists('html_' . $context['mc_template'], $campaign->template)) {
+    $campaign->template['html_' . $context['mc_template']]['value'] .= '
+[mailchimp_campaign|entity_type=node|entity_id=' . $entity->nid . '|view_mode=' . $context['mc_view_mode'] . ']'; 
+  }
+  $options = array(
+    'title' => $campaign->mc_data['title'],
+    'subject' => $campaign->mc_data['subject'],
+    'list_id' => $campaign->list['id'],
+    'from_email' => $campaign->mc_data['from_email'],
+    'from_name' => $campaign->mc_data['from_name'],
+    'template_id' => $campaign->mc_template['id'],
+  );
+  mailchimp_campaign_save_campaign($campaign->template, $options, $campaign->mc_campaign_id);
+  cache_clear_all('mailchimp_campaign_campaigns', 'cache');
+}
+
+/**
+ * VBO Action configuration form
+ */
+function mailchimp_dc_action_add_content_form($context, &$form_state) {
+  // module_load_include('inc', 'mailchimp_dc', 'mailchimp.database');
+  // load all of the campaigns (that are not sent)
+  $campaigns = mailchimp_campaign_load_multiple();
+  $options = array('' => t('--Please select--'));
+  if (!empty($campaigns)) {
+    foreach($campaigns as $campaign_id => $campaign) {
+      if ($campaign->mc_data['status'] === 'save') {
+        $options[$campaign_id] = $campaign->mc_data['title'];
+      }
+    }
+  }
+  
+  $form['mc_campaign'] = array(
+    '#type' => 'select',
+    '#title' => t('Mailchimp Campaign'),
+    '#description' => t('Please choose the campaign this content should be added to'),
+    '#options' => $options,
+    '#ajax' => array(
+      'callback' => 'mailchimp_dc_action_add_content_form_ajax_callback',
+      'wrapper' => 'mc_template',
+     ),
+     '#required' => TRUE,
+  );
+  
+  $template_regions = array();
+  if (!empty($form_state['values']['mc_campaign'])) {
+    $template_regions = $campaigns[$form_state['values']['mc_campaign']]->mc_template['info']['sections'];
+    $template_regions = array_combine($template_regions, $template_regions); 
+  }
+  
+  // template region in which the story should be added to
+  $form['mc_template'] = array(
+    '#type' => 'select',
+    '#title' => t('Template Region'),
+    '#options' => $template_regions,
+    '#description' => t('Please select the template region this news article should go into'),
+    '#prefix' => '<div id="mc_template">',
+    '#suffix' => '</div>',
+    '#required' => TRUE,
+  );
+  
+  // view modes
+  $entity_info = entity_get_info($context['entity_type']);
+  $options = array();
+  if (!empty($entity_info['view modes'])) {
+    foreach ($entity_info['view modes'] as $view_mode => $info) {
+      $options[$view_mode] = $info['label'];
+    } 
+  }
+  
+  $form['mc_view_mode'] = array(
+    '#type' => 'select',
+    '#title' => t('View mode'),
+    '#options' => $options,
+  );
+  
+  return $form;
+}
+
+/**
+ * Form submission callback
+ */
+function mailchimp_dc_action_add_content_submit($form, &$form_state) {
+  return array(
+    'mc_campaign' => $form_state['values']['mc_campaign'],
+    'mc_template' => $form_state['values']['mc_template'],
+    'mc_view_mode' => $form_state['values']['mc_view_mode'],
+  );
+}
+
+/**
+ * Ajax callback
+ */
+function mailchimp_dc_action_add_content_form_ajax_callback($form, $form_state) {
+  return $form['mc_template'];
+}
+
+
+/**
  * Main page callback
  */
 function mailchimp_dc_main() {
