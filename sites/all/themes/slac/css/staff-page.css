@@ -1,11 +1,343 @@
+/* Grids */
+/* line 52, C:/Program Files (x86)/Scout/vendor/gems/gems/zen-grids-1.2/stylesheets/zen/_grids.scss */
+.container:before, .container:after {
+  content: "";
+  display: table;
+}
+/* line 56, C:/Program Files (x86)/Scout/vendor/gems/gems/zen-grids-1.2/stylesheets/zen/_grids.scss */
+.container:after {
+  clear: both;
+}
+
+/* line 47, ../sass/_mixins.scss */
+.frontpage-left-col {
+  float: left;
+  width: 25%;
+  margin-left: 0%;
+  margin-right: -25%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* line 51, ../sass/_mixins.scss */
+.frontpage-right {
+  float: left;
+  width: 75%;
+  margin-left: 25%;
+  margin-right: -100%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* line 55, ../sass/_mixins.scss */
+.frontpage-help-market {
+  float: left;
+  width: 50%;
+  margin-left: 0%;
+  margin-right: -50%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* line 59, ../sass/_mixins.scss */
+.frontpage-security-contacts {
+  float: left;
+  width: 50%;
+  margin-left: 50%;
+  margin-right: -100%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* line 63, ../sass/_mixins.scss */
+.general-two-col .general-left {
+  float: left;
+  width: 75%;
+  margin-left: 0%;
+  margin-right: -75%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* line 67, ../sass/_mixins.scss */
+.general-two-col .general-right {
+  float: left;
+  width: 25%;
+  margin-left: 75%;
+  margin-right: -100%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* line 71, ../sass/_mixins.scss */
+.pane-quicktabs-staff-resources .quicktabs_main {
+  float: left;
+  width: 75%;
+  margin-left: 0%;
+  margin-right: -75%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* line 75, ../sass/_mixins.scss */
+.pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list {
+  float: left;
+  width: 25%;
+  margin-left: 75%;
+  margin-right: -100%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  float: left;
+}
+
+/* line 81, ../sass/_mixins.scss */
+.rowonecolone,
+.rowtwocolone {
+  float: left;
+  width: 33.33333%;
+  margin-left: 0%;
+  margin-right: -33.33333%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* line 86, ../sass/_mixins.scss */
+.rowonecoltwo,
+.rowtwocoltwo {
+  float: left;
+  width: 33.33333%;
+  margin-left: 33.33333%;
+  margin-right: -66.66667%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* line 91, ../sass/_mixins.scss */
+.rowonecolthree,
+.rowtwocolthree {
+  float: left;
+  width: 33.33333%;
+  margin-left: 66.66667%;
+  margin-right: -100%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* line 98, ../sass/_mixins.scss */
+.frontpage-middle-col {
+  float: left;
+  width: 55.55556%;
+  margin-left: 0%;
+  margin-right: -55.55556%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* line 101, ../sass/_mixins.scss */
+.frontpage-right-col {
+  float: left;
+  width: 44.44444%;
+  margin-left: 55.55556%;
+  margin-right: -100%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+@media (max-width: 900px) {
+  /* line 110, ../sass/_mixins.scss */
+  .frontpage-left-col {
+    float: left;
+    width: 41.66667%;
+    margin-left: 0%;
+    margin-right: -41.66667%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+
+  /* line 114, ../sass/_mixins.scss */
+  .frontpage-right {
+    float: left;
+    width: 58.33333%;
+    margin-left: 41.66667%;
+    margin-right: -100%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+
+  /* line 121, ../sass/_mixins.scss */
+  .frontpage-middle-col,
+  .frontpage-right-col,
+  .frontpage-help-market,
+  .frontpage-security-contacts {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    clear: left;
+  }
+
+  /* line 128, ../sass/_mixins.scss */
+  .staff-top {
+    float: left;
+    width: 90%;
+    margin-left: 0%;
+    margin-right: -90%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+
+  /* line 134, ../sass/_mixins.scss */
+  .rowonecolone,
+  .rowonecolthree,
+  .rowtwocoltwo {
+    float: left;
+    width: 50%;
+    margin-left: 0%;
+    margin-right: -50%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+
+  /* line 139, ../sass/_mixins.scss */
+  .rowonecoltwo,
+  .rowtwocolone,
+  .rowtwocolthree {
+    float: left;
+    width: 50%;
+    margin-left: 50%;
+    margin-right: -100%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+}
+@media (max-width: 600px) {
+  /* line 155, ../sass/_mixins.scss */
+  .frontpage-left-col,
+  .frontpage-right,
+  .frontpage-middle-col,
+  .frontpage-right-col,
+  .general-two-col .general-left,
+  .general-two-col .general-right,
+  .staff-main .inside {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    clear: left;
+  }
+}
 /* Staff classic */
-/* line 6, ../sass/staff-page.scss */
+/* line 7, ../sass/staff-page.scss */
 .section-staff-resources-classic .view-header ul {
   padding-bottom: 0;
   margin-left: 4%;
   width: 96%;
 }
-/* line 12, ../sass/staff-page.scss */
+/* line 13, ../sass/staff-page.scss */
 .section-staff-resources-classic .view-content > .item-list > ol > li {
   margin-top: 17px;
   margin-left: 7%;
@@ -13,84 +345,73 @@
   padding: 0;
   background: transparent;
 }
-/* line 19, ../sass/staff-page.scss */
+/* line 20, ../sass/staff-page.scss */
 .section-staff-resources-classic .view-content ol ol {
   margin-left: 4%;
   margin-top: 4px;
 }
-/* line 22, ../sass/staff-page.scss */
+/* line 23, ../sass/staff-page.scss */
 .section-staff-resources-classic .view-content ol ol li {
   margin: 0;
 }
 
 /* Staff resources main view */
-/* line 31, ../sass/staff-page.scss */
+/* line 32, ../sass/staff-page.scss */
 .staff-resources {
   width: 100%;
   max-width: 900px;
   margin: auto;
 }
 
-/* line 38, ../sass/staff-page.scss */
+/* line 39, ../sass/staff-page.scss */
 .section-staff-resources #page-title {
   width: 100%;
   max-width: 900px;
   margin: auto;
 }
-/* line 43, ../sass/staff-page.scss */
+/* line 44, ../sass/staff-page.scss */
 .section-staff-resources #content {
   background: #fff;
 }
 
-/* line 48, ../sass/staff-page.scss */
+/* line 49, ../sass/staff-page.scss */
 .staff-main, .rowtwocolone {
   clear: both;
 }
 
-/* line 52, ../sass/staff-page.scss */
+/* line 53, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources {
   overflow: hidden;
   width: 100%;
 }
-/* line 55, ../sass/staff-page.scss */
-.pane-quicktabs-staff-resources .quicktabs_main {
-  width: 73%;
-  margin-right: 2%;
-  float: left;
-}
-/* line 60, ../sass/staff-page.scss */
-.pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list {
-  float: right;
-  width: 24%;
-}
 
-/* line 67, ../sass/staff-page.scss */
+/* line 59, ../sass/staff-page.scss */
 .staff-main .right-block .pane-content {
   padding: 0;
   border: none;
   background: transparent;
 }
-/* line 72, ../sass/staff-page.scss */
+/* line 64, ../sass/staff-page.scss */
 .staff-main .right-block .views-row {
   margin-left: 0;
 }
-/* line 74, ../sass/staff-page.scss */
+/* line 66, ../sass/staff-page.scss */
 .staff-main .right-block .views-row a {
   background: none;
   padding-right: 0;
 }
 
-/* line 81, ../sass/staff-page.scss */
+/* line 73, ../sass/staff-page.scss */
 .rowonecolone .right-block:first-child {
   margin-bottom: 25px;
 }
 
-/* line 85, ../sass/staff-page.scss */
+/* line 77, ../sass/staff-page.scss */
 .section-staff-resources #page-title {
   display: none;
 }
 
-/* line 89, ../sass/staff-page.scss */
+/* line 81, ../sass/staff-page.scss */
 .switch-link a {
   float: right;
   display: block;
@@ -99,40 +420,40 @@
   margin-top: 20px;
 }
 
-/* line 97, ../sass/staff-page.scss */
+/* line 89, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources {
   position: relative;
   top: -32px;
   margin-bottom: -30px;
   display: block;
 }
-/* line 102, ../sass/staff-page.scss */
+/* line 94, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources h2.pane-title {
   font-size: 24px;
   margin: 0;
   padding: 0 0 2px 0;
 }
-/* line 107, ../sass/staff-page.scss */
+/* line 99, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs-tabpage {
   min-height: 252px;
 }
-/* line 110, ../sass/staff-page.scss */
+/* line 102, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs_main ul {
   margin-left: 145px;
   padding: 16px 0;
   overflow: hidden;
 }
-/* line 114, ../sass/staff-page.scss */
+/* line 106, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs_main ul li {
   width: 50%;
   float: left;
   margin: 0;
 }
-/* line 118, ../sass/staff-page.scss */
+/* line 110, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs_main ul li a {
   margin-left: 10px;
 }
-/* line 124, ../sass/staff-page.scss */
+/* line 116, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list li {
   font-size: 10px;
   margin: 0 0 13px;
@@ -142,67 +463,63 @@
   padding: 5px 0;
   width: 98%;
 }
-/* line 132, ../sass/staff-page.scss */
+/* line 124, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list li a {
   display: block;
   padding: 0 15px;
   color: #765826;
   text-transform: uppercase;
 }
-/* line 139, ../sass/staff-page.scss */
+/* line 131, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs_main {
   background: whitesmoke url("../images/staff-top-img.jpg") no-repeat 0 0;
   border: 1px dashed #90a7b2;
 }
 
-/* line 145, ../sass/staff-page.scss */
+/* line 137, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources-mobile {
   display: none;
 }
 
 @media (max-width: 900px) {
-  /* line 151, ../sass/staff-page.scss */
+  /* line 143, ../sass/staff-page.scss */
   .staff-main {
     width: 100%;
     overflow: hidden;
   }
-  /* line 154, ../sass/staff-page.scss */
-  .staff-main .inside {
-    width: 45%;
-  }
 
-  /* line 158, ../sass/staff-page.scss */
+  /* line 147, ../sass/staff-page.scss */
   .rowonecolone, .rowonecolthree, .rowtwocoltwo {
     clear: both;
     margin-right: 10%;
   }
 
-  /* line 162, ../sass/staff-page.scss */
+  /* line 151, ../sass/staff-page.scss */
   .rowonecoltwo, .rowtwocolone, .rowtwocolthree {
     margin: 0;
     clear: none;
   }
 
-  /* line 167, ../sass/staff-page.scss */
+  /* line 156, ../sass/staff-page.scss */
   .section-staff-resources #content {
     background: transparent;
   }
 
-  /* line 171, ../sass/staff-page.scss */
+  /* line 160, ../sass/staff-page.scss */
   .pane-quicktabs-staff-resources {
     display: none;
   }
 
-  /* line 175, ../sass/staff-page.scss */
+  /* line 164, ../sass/staff-page.scss */
   .pane-quicktabs-staff-resources-mobile {
     display: block;
   }
 
-  /* line 180, ../sass/staff-page.scss */
+  /* line 169, ../sass/staff-page.scss */
   .ui-accordion .ui-icon {
     display: none;
   }
-  /* line 183, ../sass/staff-page.scss */
+  /* line 172, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-header, .ui-accordion .ui-accordion-content {
     border: none;
     -moz-border-radius: 0px;
@@ -215,7 +532,7 @@
     margin: 0;
     padding: 0;
   }
-  /* line 191, ../sass/staff-page.scss */
+  /* line 180, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-header a {
     height: 16px;
     background: white url("../images/small-list-arrow-down.jpg") no-repeat right center;
@@ -229,22 +546,22 @@
     font-size: 13px;
     font-family: "Arial", sans-serif;
   }
-  /* line 204, ../sass/staff-page.scss */
+  /* line 193, ../sass/staff-page.scss */
   .ui-accordion .ui-state-active a {
     background-image: url("../images/small-list-arrow-up.jpg");
   }
-  /* line 207, ../sass/staff-page.scss */
+  /* line 196, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content {
     margin-top: -1px !important;
     padding: 9px 0 19px;
   }
-  /* line 210, ../sass/staff-page.scss */
+  /* line 199, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content ul {
     max-width: 705px;
     width: 85%;
     padding: 0 5% 0 10%;
   }
-  /* line 214, ../sass/staff-page.scss */
+  /* line 203, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content ul li {
     background: url("../images/blue-right-list-arrow.jpg") no-repeat left 7px;
     padding: 2px 0 2px 11px;
@@ -253,17 +570,15 @@
     clear: both;
     display: block;
   }
-  /* line 221, ../sass/staff-page.scss */
+  /* line 210, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content ul li a {
     color: #20659A;
     font-size: 12px;
   }
 }
 @media (max-width: 600px) {
-  /* line 233, ../sass/staff-page.scss */
+  /* line 222, ../sass/staff-page.scss */
   .staff-main .inside {
-    width: 100%;
-    clear: both;
     margin: 0 0 25px 0;
   }
 }

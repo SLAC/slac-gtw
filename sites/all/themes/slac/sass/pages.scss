@@ -1,3 +1,4 @@
+
 @import "mixins";
 
 
@@ -30,6 +31,12 @@ body {
   width: 100%;
   max-width: 1432px;
   margin: auto;
+}
+
+.header-wrapper, .region-footer{
+  padding: 0 2%;
+  max-width: 1382px;
+  width: 96%;
 }
 
 header, .content-wrapper, .footer-wrapper {
@@ -111,6 +118,7 @@ header {
   margin-top: 70px;
 }
 
+
 /* Header Main Menu, Search*/
 
 #block-system-main-menu .menu li {
@@ -122,9 +130,9 @@ header {
   list-style-image: none;
   float: left;
   padding: 0 13px;
-  background: url('../images/delimitator.jpg') no-repeat 0 center;
+  background: url('../images/delimitator.jpg') no-repeat right center;
   &.first {
-    display: none
+    display: none;
   }
   &.last{
     background: transparent;
@@ -346,16 +354,14 @@ footer .block-menu {
 }
 
 @media (max-width: 900px) {
+
+
   .logo {
     width: auto;
     float: left;
     margin-left: 5%;
   }
 
-  .frontpage-right-col, .frontpage-middle-col, .frontpage-help-market, .frontpage-security-contacts {
-    width: 100%;
-    clear: both;
-  }
   .frontpage-links, .frontpage-projects, .frontpage-help-market, .pane-boxes-stanford-compliance {
     display: none;
   }
@@ -415,6 +421,12 @@ footer .block-menu {
 }
 
 @media (max-width: 600px) {
+
+  .frontpage-right{
+    float: none;
+    overflow: hidden;
+  }
+
   header {
     background: #2482c8;
     height: 30px;
@@ -433,11 +445,7 @@ footer .block-menu {
     width: 96%;
     padding: 0 2%;
   }
-  .frontpage-right, .frontpage-left-col {
-    width: 100%;
-    clear: both;
-  }
-
+  
   .general-right  {
     margin-top: 30px;
   }

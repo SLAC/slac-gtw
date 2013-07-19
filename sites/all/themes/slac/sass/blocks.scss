@@ -326,14 +326,15 @@ a.submit-feedback {
     list-style-image: none;
     list-style-type: none;
     overflow: hidden;
-    text-indent: 300px;
     background: url('../images/socials.png') no-repeat;
     width: 20%;
     min-width: 16px;
     height: 16px;
     a {
       display: block;
-      height: 16px;
+      height: 1px;
+      padding: 23px 0 0 0;
+      overflow:hidden;
     }
   }
   .fb {
@@ -439,8 +440,13 @@ a.submit-feedback {
     display: block;
     overflow: hidden;
     background: url('../images/slider-arrow-bg.png') repeat;
-    text-indent: 100px;
-    @include rounded_corners(10px);
+    @include rounded_corners(10px);   
+    a {
+      display: block;
+      background: url('../images/slider-back.png') no-repeat center;
+      height: 1px;
+      padding: 73px 0 0 0;
+    }
   }
   .views-slideshow-controls-text-previous {
     left: 20px;
@@ -448,15 +454,7 @@ a.submit-feedback {
   .views-slideshow-controls-text-next {
     right: 20px;
   }
-  .views-slideshow-controls-text-previous a {
-    display: block;
-    background: url('../images/slider-back.png') no-repeat center;
-    height: 74px;
-  }
-  .views-slideshow-controls-text-next a {
-    display: block;
-    background: url('../images/slider-back.png') no-repeat center;
-    height: 74px;
+  span.views-slideshow-controls-text-next a{
     background-image: url('../images/slider-next.png');
   }
   span.views-slideshow-controls-text-pause {
@@ -525,6 +523,14 @@ a.submit-feedback {
 
   .frontpage-calendar h3{
     margin-left: -10px;
+  }
+
+  .frontpage-help-market,
+  .frontpage-security-contacts{
+    clear: both;
+    width: 100%;
+    margin-right: 0;
+    float: none;
   }
 }
 
