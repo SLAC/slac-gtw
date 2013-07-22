@@ -1,0 +1,8 @@
+name = Mailchimp List Synchronization 
+description = Simple module that allows a specific file to be sync with a mailchimp list on regular intervals.
+core = 7.x
+package = MailChimp
+version = 7.x-1.0-dev
+dependencies[] = mailchimp_lists
+
+configure = admin/config/services/mailchimp/lists/sync

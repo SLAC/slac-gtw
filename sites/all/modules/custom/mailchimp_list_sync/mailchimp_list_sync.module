@@ -1,0 +1,178 @@
+<?php
+/**
+ * @file
+ * Code for the mailchimp list sync
+ */
+DEFINE('ALREADY_SUBSCRIBED', 214);
+
+/**
+ * Implements hook menu
+ */
+function mailchimp_list_sync_menu() {
+  $items['admin/config/services/mailchimp/lists/sync'] = array(
+    'title' => 'Synchronize list',
+    'description' => 'Synchronize list from Mailchimp',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mailchimp_list_sync_config_form'),
+    'access arguments' => array('administer mailchimp campaigns'),
+    'type' => MENU_LOCAL_ACTION,
+  );
+  return $items;
+}
+
+/**
+ * Impelements hook_cron_queue_info
+ */
+function mailchimp_list_sync_cron_queue_info() {
+  $queues['mailchimp_list_sync'] = array( 
+    'worker callback' => 'mailchimp_list_sync_list_run',
+    'time' => 180,
+  ); 
+  return $queues;   
+}
+
+/** 
+ * Implements hook_cron
+ */
+function mailchimp_list_sync_cron() {
+  // 1. check the timestamp for when the last time this has been done
+  $last_run = variable_get('mailchimp_list_sync', '');
+  $interval = variable_get('mailchimp_list_sync_interval', 5) * 86400;
+  // check if the sync file exist
+  $file_path = variable_get('mailchimp_list_sync_path', '');
+  if ($file_path === '') {
+    return;
+  }
+  if ($last_run === '' || (REQUEST_TIME - $last_run) > $interval) {
+      $split = variable_get('mailchimp_list_sync_limit', 1000);
+      module_load_include('inc', 'mailchimp_list_sync', 'split_file.class');
+      $splitter = new split_file(dirname($file_path));
+      $results = $splitter->file_split($file_path, 'split', $split);
+      if (!empty($results)) {
+        $queue = DrupalQueue::get('mailchimp_list_sync');
+        foreach ($results as $result) {
+          $queue->createItem($result);           
+        }
+      }
+      // Record a new last run
+      variable_set('mailchimp_list_sync', REQUEST_TIME);
+  }
+}
+
+/**
+ * Queue implementation
+ */
+function mailchimp_list_sync_list_run($path) {
+  $list_id = variable_get('mailchimp_list_sync_list', '');
+  if ($list_id === '') {
+    return;
+  }
+  // call mailchimp API to sync the list
+  // assuming one column email address
+  $_contents = file_get_contents($path);
+  $contents = nl2br($_contents);
+  $email_list = explode('<br />', $contents);
+  if (empty($email_list)) {
+    return;
+  }
+  // @todo: email type should be part of the list file data
+  $batch = array();
+  for($i = 0; $i < count($email_list); $i++) {
+    $batch[] = array(
+      'EMAIL' => $email_list[$i],
+      'EMAIL_TYPE' => 'HTML',
+    );
+  }
+  $mcapi = mailchimp_get_api_object();
+  $ret = $mcapi->listBatchSubscribe($list_id, $batch, FALSE, FALSE, FALSE);
+  if ($ret['error_count'] > 0) {
+    foreach ((array) $ret['errors'] as $error) {
+      if ($error['code'] != ALREADY_SUBSCRIBED) {
+        watchdog('mailchimp_list_sync', 'MCAPI Error: %errmsg', array('%errmsg' => $error['message']), WATCHDOG_ERROR);
+      }
+    }
+  }
+  unlink($path);
+}
+
+/**
+ * Configuration callback
+ */
+function mailchimp_list_sync_config_form() {
+  $last_run = variable_get('mailchimp_list_sync', '');  
+  $message = '<div class="messages warning">Email list has never been synchronized.</div>';
+  if ($last_run !== '') {
+    $message = '<div class="messages status">Email list was last synchronized on ' . date('Y-m-d H:i:s', $last_run) . '</div>';
+  }
+  $form['note'] = array(
+    '#markup' => $message, 
+  );
+  
+  $lists = mailchimp_get_lists();
+  $options = array('' => t('-- Select --'));
+  foreach ($lists as $mc_list) {
+    $options[$mc_list['id']] = $mc_list['name'];
+  }
+  $form['mailchimp_list_sync_list'] = array(
+    '#type' => 'select',
+    '#title' => 'Mailchimp lst',
+    '#description' => t('Please select the mailchimp list that will be sync\'ed to'),
+    '#options' => $options,
+    '#required' => TRUE,
+    '#default_value' => variable_get('mailchimp_list_sync_list', ''),
+  );
+    
+  $form['mailchimp_list_sync_interval'] = array(
+    '#type' => 'select',
+    '#options' => array(
+      1 => t('Every day'),
+      2 => t('Two days'),
+      3 => t('Three days'),
+      4 => t('Four days'),
+      5 => t('Five days'),
+      6 => t('Six days'),
+      7 => t('One Week'),
+      14 => t('Two Weeks'),
+      30 => t('One Month (30) days'),
+    ),
+    '#title' => t('Synchronization interval'),
+    '#description' => t('How often should the file be sync\'ed with the list'),
+    '#default_value' => variable_get('mailchimp_list_sync_interval', 5),
+  );
+    
+  // path of the import file
+  $form['mailchimp_list_sync_path'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Email list path'),
+    '#description' => t('Path that contains the email list file'),
+    '#default_value' => variable_get('mailchimp_list_sync_path', ''),
+    '#required' => TRUE,
+  );
+  
+  $form['mailchimp_list_sync_limit'] = array(
+    '#type' => 'select',
+    '#options' => array(
+      100 => t('100'),
+      200 => t('200'),
+      500 => t('500'),
+      1000 => t('1000'),
+    ),
+    '#title' => t('Split import file into smaller files'),
+    '#description' => t('Select how many entries should mailchimp import/sync at one time'),
+    '#default_value' => variable_get('mailchimp_list_sync_limit', 1000),
+  );
+  
+  // implement ways that we can use to fetch from AFS space
+  return system_settings_form($form);
+}
+
+/**
+ * Validation callback
+ */
+function mailchimp_list_sync_config_form_validate($form, &$form_state) {
+  // @todo, check if file is readable?
+  $path = $form_state['values']['mailchimp_list_sync_path'];
+  if (!file_exists($path)) {
+    form_set_error('mailchimp_email_sync_path', t('The file specified in the path does not exist.'));
+  }
+}
