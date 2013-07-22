@@ -7,6 +7,7 @@ version = 7.x-1.0
 project = slac_igp_email
 dependencies[] = entity_view_mode
 dependencies[] = mailchimp_dc
+dependencies[] = mailchimp_list_sync
 dependencies[] = slac_igp_feed
 dependencies[] = views
 features[ctools][] = views:views_default:3.0

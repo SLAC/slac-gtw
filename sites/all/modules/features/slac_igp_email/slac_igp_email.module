@@ -10,6 +10,33 @@ define('VIEW_MODE_LINK', 'link');
 define('DIRECTOR_COLUMN', 'Director column');
 
 /**
+ * Implements hook_cron
+ */
+function slac_igp_email_cron() {
+  // Implementing a simple cron that will re-subscribe people to the weekly email
+  $listid = variable_get('mailchimp_list_sync_list', '');
+  if ($listid === '') {
+    return;
+  }
+  $mcapi = mailchimp_get_api_object();
+  $ret = $mcapi->listMembers($listid, 'unsubscribed');   
+  if (empty($ret['data'])) {
+    return;
+  }
+  // re-subscribe to user
+  // declare an rules event
+  foreach ($ret['data'] as $item) {
+    $ret = $mcapi->listSubscribe($listid, $item['email'], array(), 'html', FALSE, FALSE, FALSE, FALSE);
+    if (!$ret) {
+      watchdog('slac_igp_email', 'MCAPI Error when calling listSubscribe on %email, Error code: %errcode, Error message: %errmsg', array('%email' => $item['email'], '%errcode' => $mcapi->errorCode,'%errmsg' => $mcapi->errorMessage), WATCHDOG_ERROR);
+      return;
+    }
+    // invoke a rules component
+    rules_invoke_component('rules_slac_igp_email_resubscription', $item['email']);
+  }
+}
+
+/**
  * Implements hook_theme
  */
 function slac_igp_email_theme() {
