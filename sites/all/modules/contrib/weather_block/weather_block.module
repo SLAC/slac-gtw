@@ -939,8 +939,14 @@ function weather_block_validate(&$form, &$form_state) {
 
 function weather_set_location() {
 
-  unset($_SESSION['weather_location']['city']);
-  unset($_SESSION['weather_location']['id']);
+  if (isset($_SESSION['weather_location']['city'])) {
+    unset($_SESSION['weather_location']['city']);
+  }
+
+  if (isset($_SESSION['weather_location']['id'])) {
+    unset($_SESSION['weather_location']['id']);
+  }
+
   unset($term);
 
   $term = '';
