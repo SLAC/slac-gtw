@@ -99,6 +99,37 @@
   word-wrap: break-word;
 }
 
+/* line 71, ../sass/_mixins.scss */
+.pane-quicktabs-staff-resources .quicktabs_main {
+  float: left;
+  width: 75%;
+  margin-left: 0%;
+  margin-right: -75%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* line 75, ../sass/_mixins.scss */
+.pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list {
+  float: left;
+  width: 25%;
+  margin-left: 75%;
+  margin-right: -100%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  float: left;
+}
+
 /* line 81, ../sass/_mixins.scss */
 .rowonecolone,
 .rowtwocolone {
@@ -184,8 +215,8 @@
     width: 41.66667%;
     margin-left: 0%;
     margin-right: -41.66667%;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -199,8 +230,8 @@
     width: 58.33333%;
     margin-left: 41.66667%;
     margin-right: -100%;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -217,8 +248,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -233,8 +264,8 @@
     width: 90%;
     margin-left: 0%;
     margin-right: -90%;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -250,8 +281,8 @@
     width: 50%;
     margin-left: 0%;
     margin-right: -50%;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -267,8 +298,8 @@
     width: 50%;
     margin-left: 50%;
     margin-right: -100%;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -289,8 +320,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
