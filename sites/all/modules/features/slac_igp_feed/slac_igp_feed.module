@@ -80,16 +80,9 @@ function slac_igp_feed_node_insert($node) {
     module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
     $lang = $node->language;
     $promoted = (bool) $node->promote;
-    
     // if news article is promoted, regardless we will add them into the featured queue
     if ($promoted) {
       slac_igp_feed_node_add($node->nid, FEATURED_NEWS, FALSE);
-      if (!empty($node->field_news_type[$lang])) {
-        if ($node->field_news_type[$lang][0]['value'] === 'external') {
-          // place it on top of the slac science queue
-          slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, TRUE);
-        }
-      } 
     }
     // not promoted
     else {
@@ -121,12 +114,6 @@ function slac_igp_feed_node_update($node) {
     if ($promoted) {
       slac_igp_feed_node_remove($node->nid, $subqueues);
       slac_igp_feed_node_add($node->nid, FEATURED_NEWS, TRUE);
-      if (!empty($node->field_news_type[$lang])) {
-        if ($node->field_news_type[$lang][0]['value'] === 'external') {
-          // also add it to bottom of the SLAC SCIENCE queue
-          slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, FALSE);
-        }
-      }
     }
     else {
       if (empty($node->field_news_type[$lang])) {
