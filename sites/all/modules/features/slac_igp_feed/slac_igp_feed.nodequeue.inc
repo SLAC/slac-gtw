@@ -70,7 +70,7 @@ function slac_igp_feed_node_remove($nid, $subqueue_title) {
 }
 
 /**
- * Retrieve a subqueue given teh subqueue title
+ * Retrieve a subqueue given the subqueue title
  * 
  * @params
  * (string) $subqueue_title     Title of the subqueue
@@ -80,18 +80,30 @@ function slac_igp_feed_node_remove($nid, $subqueue_title) {
  *
  */
 function slac_igp_feed_get_subqueue($subqueue_title) {
-  $queue = slac_igp_feed_get_queue();
-  if (empty($queue)) {
-    return;
-  }
-  $subqueues = array();
-  $subqueues = nodequeue_load_subqueues_by_queue($queue->qid);
+  $subqueues = slac_igp_feed_get_subqueues_all();
   foreach ($subqueues as $key => $subqueue) {
     if ($subqueue->title == $subqueue_title) {
       return $subqueues[$key];
     }
   }
   return;  
+}
+
+/**
+ * Retrieve a all subqueues from the main queu
+ *
+ * @return
+ * (mixed) $subqueues           Subqueue objects
+ *
+ */
+function slac_igp_feed_get_subqueues_all() {
+  $queue = slac_igp_feed_get_queue();
+  if (empty($queue)) {
+    return;
+  }
+  $subqueues = array();
+  $subqueues = nodequeue_load_subqueues_by_queue($queue->qid);
+  return $subqueues;  
 }
 
 /**

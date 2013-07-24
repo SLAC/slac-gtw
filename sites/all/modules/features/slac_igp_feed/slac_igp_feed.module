@@ -11,6 +11,110 @@ DEFINE('LAB_NEWS', 'Lab News');
 DEFINE('SLAC_SCIENCE', 'SLAC Science');
 
 /**
+ * Implements hook_cron
+ * we are automatically expiring older contents from the queue
+ */
+function slac_igp_feed_cron() {
+  // get the configurations for all of the subqueues
+  module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
+  $queue = slac_igp_feed_get_queue();
+  $subqueues = slac_igp_feed_get_subqueues_all();
+  foreach ($subqueues as $subqueue) {
+    $varname = _slac_igp_feed_subqueue_expiration_varname($queue->qid, $subqueue->sqid);
+    // get the configuration
+    $config = variable_get($varname, array());
+    if (!empty($config) && ($config['date'] !== '' && $config['exclude'] !== '')) {
+      // 1. load all the nids from the subqueue
+      // 2. exclude top x number
+      $nodes = nodequeue_load_nodes($subqueue->sqid, FALSE, $config['exclude'], 1000);
+      foreach ($nodes as $node) {
+        // check for date interval greater than our configuration
+        if (REQUEST_TIME - $node->created > $config['date'] * 604800) {
+          // take it out of the queue
+          nodequeue_subqueue_remove_node($subqueue->sqid, $node->nid); 
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter
+ * Adding some node queue expiration logic that will keep the queue short
+ */ 
+function slac_igp_feed_form_alter(&$form, &$form_state, $form_id) {
+  if (substr($form_id, 0, strrpos($form_id, '_')) !== 'nodequeue_arrange_subqueue_form') {
+    return;
+  }  
+  
+  $var_name = _slac_igp_feed_subqueue_expiration_varname($form['nodes']['#queue']['qid'], $form['nodes']['#subqueue']['sqid']);
+  $config = variable_get($var_name, array());    
+  // building a configuration form
+  $form['subqueue_expiration'] = array(
+  '#type' => 'fieldset', 
+  '#title' => t('Expiration settings'), 
+  '#collapsible' => TRUE, 
+  '#collapsed' => TRUE,
+  );
+  
+  $form['subqueue_expiration']['subqueue_expiration_date'] = array(
+    '#type' => 'select',
+    '#title' => 'Created date',
+    '#description' => t('Select how far back a node is created before we take them out of the queue'),
+    '#options' => array(
+      '' => t('--Please select--'),
+      1 => t('1 Week'),
+      2 => t('2 Weeks'),
+      3 => t('3 Weeks'),
+      4 => t('4 Weeks'),
+    ),
+    '#default_value' => (!empty($config)) ? $config['date'] : '',
+  );
+  
+  $options = array('' => t('--Please Select--'));
+  for($i = 1; $i <= 20; $i++) {
+    $options[$i] = $i;
+  }
+  
+  $form['subqueue_expiration']['subqueue_expiration_exclude'] = array(
+    '#type' => 'select',
+    '#title' => 'Exclude top items',
+    '#description' => t('Select how many items on the top of the queue that will be excluded from the expiration process.'),
+    '#options' => $options,
+    '#default_value' => (!empty($config)) ? $config['exclude'] : '',
+  );
+  
+  $form['actions']['submit']['#submit'][] = 'slac_igp_feed_subqueue_expiration_submit';
+}
+
+/** 
+ * Form submission callback
+ */
+function slac_igp_feed_subqueue_expiration_submit($form, &$form_state) {
+  $config = array(
+    'date' => $form_state['values']['subqueue_expiration']['subqueue_expiration_date'],
+    'exclude' => $form_state['values']['subqueue_expiration']['subqueue_expiration_exclude'],
+  );
+  // we are storing the configuration setting in variables like
+  //nodequeue_subqueue_expiration_[qid]_[sqid]
+  $var_name = _slac_igp_feed_subqueue_expiration_varname($form['nodes']['#queue']['qid'], $form['nodes']['#subqueue']['sqid']);
+  variable_set($var_name, $config);
+}
+
+/**
+ * Helper function that returns a variable name for the 
+ * subqueue expiration configuration
+ */
+function _slac_igp_feed_subqueue_expiration_varname($qid, $sqid) {
+  $var_name = array(
+    'nodequeue_subqueue_expiration',
+    $qid,
+    $sqid,
+  );
+  return implode('_', $var_name);
+}
+
+/**
  * Implements hook_views_api_alter
  */
 function slac_igp_feed_views_api_alter(&$list) {
