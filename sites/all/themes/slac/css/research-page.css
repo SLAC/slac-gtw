@@ -54,7 +54,7 @@
 /* line 52, ../sass/research-page.scss */
 .section-staff-resources-classic .view-header {
   padding-bottom: 27px;
-  background: url("../images/dotted-heavy.png") repeat-x bottom;
+  border-bottom: 1px dashed #b4c2cb;
 }
 
 /* line 59, ../sass/research-page.scss */
