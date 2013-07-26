@@ -9,7 +9,7 @@
   clear: both;
 }
 
-/* line 47, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+/* line 47, ../sass/_mixins.scss */
 .frontpage-left-col {
   float: left;
   width: 25%;
@@ -24,7 +24,7 @@
   word-wrap: break-word;
 }
 
-/* line 51, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+/* line 51, ../sass/_mixins.scss */
 .frontpage-right {
   float: left;
   width: 75%;
@@ -39,7 +39,7 @@
   word-wrap: break-word;
 }
 
-/* line 55, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+/* line 55, ../sass/_mixins.scss */
 .frontpage-help-market {
   float: left;
   width: 50%;
@@ -54,7 +54,7 @@
   word-wrap: break-word;
 }
 
-/* line 59, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+/* line 59, ../sass/_mixins.scss */
 .frontpage-security-contacts {
   float: left;
   width: 50%;
@@ -69,7 +69,7 @@
   word-wrap: break-word;
 }
 
-/* line 63, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+/* line 63, ../sass/_mixins.scss */
 .general-two-col .general-left {
   float: left;
   width: 75%;
@@ -84,7 +84,7 @@
   word-wrap: break-word;
 }
 
-/* line 67, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+/* line 67, ../sass/_mixins.scss */
 .general-two-col .general-right {
   float: left;
   width: 25%;
@@ -99,7 +99,7 @@
   word-wrap: break-word;
 }
 
-/* line 71, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+/* line 71, ../sass/_mixins.scss */
 .pane-quicktabs-staff-resources .quicktabs_main {
   float: left;
   width: 75%;
@@ -114,7 +114,7 @@
   word-wrap: break-word;
 }
 
-/* line 75, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+/* line 75, ../sass/_mixins.scss */
 .pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list {
   float: left;
   width: 25%;
@@ -130,7 +130,7 @@
   float: left;
 }
 
-/* line 81, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+/* line 81, ../sass/_mixins.scss */
 .rowonecolone,
 .rowtwocolone {
   float: left;
@@ -146,7 +146,7 @@
   word-wrap: break-word;
 }
 
-/* line 86, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+/* line 86, ../sass/_mixins.scss */
 .rowonecoltwo,
 .rowtwocoltwo {
   float: left;
@@ -162,7 +162,7 @@
   word-wrap: break-word;
 }
 
-/* line 91, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+/* line 91, ../sass/_mixins.scss */
 .rowonecolthree,
 .rowtwocolthree {
   float: left;
@@ -178,7 +178,7 @@
   word-wrap: break-word;
 }
 
-/* line 98, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+/* line 98, ../sass/_mixins.scss */
 .frontpage-middle-col {
   float: left;
   width: 55.55556%;
@@ -193,7 +193,7 @@
   word-wrap: break-word;
 }
 
-/* line 101, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+/* line 101, ../sass/_mixins.scss */
 .frontpage-right-col {
   float: left;
   width: 44.44444%;
@@ -209,14 +209,14 @@
 }
 
 @media (max-width: 900px) {
-  /* line 110, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+  /* line 110, ../sass/_mixins.scss */
   .frontpage-left-col {
     float: left;
     width: 41.66667%;
     margin-left: 0%;
     margin-right: -41.66667%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -224,14 +224,14 @@
     word-wrap: break-word;
   }
 
-  /* line 114, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+  /* line 114, ../sass/_mixins.scss */
   .frontpage-right {
     float: left;
     width: 58.33333%;
     margin-left: 41.66667%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -239,7 +239,7 @@
     word-wrap: break-word;
   }
 
-  /* line 121, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+  /* line 121, ../sass/_mixins.scss */
   .frontpage-middle-col,
   .frontpage-right-col,
   .frontpage-help-market,
@@ -248,8 +248,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -258,14 +258,14 @@
     clear: left;
   }
 
-  /* line 128, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+  /* line 128, ../sass/_mixins.scss */
   .staff-top {
     float: left;
     width: 90%;
     margin-left: 0%;
     margin-right: -90%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -273,7 +273,7 @@
     word-wrap: break-word;
   }
 
-  /* line 134, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+  /* line 134, ../sass/_mixins.scss */
   .rowonecolone,
   .rowonecolthree,
   .rowtwocoltwo {
@@ -281,8 +281,8 @@
     width: 50%;
     margin-left: 0%;
     margin-right: -50%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -290,7 +290,7 @@
     word-wrap: break-word;
   }
 
-  /* line 139, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+  /* line 139, ../sass/_mixins.scss */
   .rowonecoltwo,
   .rowtwocolone,
   .rowtwocolthree {
@@ -298,8 +298,8 @@
     width: 50%;
     margin-left: 50%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -308,7 +308,7 @@
   }
 }
 @media (max-width: 600px) {
-  /* line 155, D:/Sites/slac-gtw/sites/all/themes/slac/sass/_mixins.scss */
+  /* line 155, ../sass/_mixins.scss */
   .frontpage-left-col,
   .frontpage-right,
   .frontpage-middle-col,
@@ -320,8 +320,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;

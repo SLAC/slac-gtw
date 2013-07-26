@@ -93,7 +93,7 @@ audio:not([controls]) {
  */
 /* line 101, ../sass/normalize.scss */
 html {
-  font-size: 75%;
+  font-size: 100%;
   line-height: normal;
   font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
   /*
