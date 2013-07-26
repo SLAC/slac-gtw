@@ -301,8 +301,8 @@
 }
 /* Staff classic */
 /* line 7, ../sass/staff-page.scss */
-.section-staff-resources-classic #page-title {
-  display: none;
+.section-staff-resources-classic h2.pane-title {
+  margin-top: 0;
 }
 /* line 10, ../sass/staff-page.scss */
 .section-staff-resources-classic .view-header ul {
