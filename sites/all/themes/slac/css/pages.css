@@ -567,7 +567,7 @@ header {
 /* line 250, ../sass/pages.scss */
 .not-front #page-title {
   font-size: 24px;
-  margin: 0 0 7px 0.9%;
+  margin: 0 0 7px 0;
   color: #46494B;
 }
 

@@ -48,7 +48,7 @@
 /* line 46, ../sass/research-page.scss */
 .section-research-resources .view-header {
   padding-bottom: 27px;
-  background: url("../images/dotted-heavy.png") repeat-x bottom;
+  border-bottom: 1px dashed #b1c2ca;
 }
 
 /* line 52, ../sass/research-page.scss */
@@ -57,40 +57,44 @@
   border-bottom: 1px dashed #b4c2cb;
 }
 
-/* line 59, ../sass/research-page.scss */
+/* line 58, ../sass/research-page.scss */
+.section-research-resources #page-title {
+  margin-left: 0.9%;
+}
+/* line 62, ../sass/research-page.scss */
 .section-research-resources .view-header .view-content {
   max-width: 857px;
   width: 100%;
   margin: auto;
 }
-/* line 64, ../sass/research-page.scss */
+/* line 67, ../sass/research-page.scss */
 .section-research-resources .view-header .views-row a {
   font-size: 14px;
 }
-/* line 68, ../sass/research-page.scss */
+/* line 71, ../sass/research-page.scss */
 .section-research-resources .collapse {
   display: none;
 }
 
 @media (max-width: 600px) {
   /* Resources Page */
-  /* line 78, ../sass/research-page.scss */
+  /* line 81, ../sass/research-page.scss */
   .section-research-resources #content {
     background: transparent;
   }
-  /* line 81, ../sass/research-page.scss */
+  /* line 84, ../sass/research-page.scss */
   .section-research-resources .view-header {
     background-image: url("../images/dotted-heavy-gray-bg.png");
   }
-  /* line 84, ../sass/research-page.scss */
+  /* line 87, ../sass/research-page.scss */
   .section-research-resources .pane-node-body strong, .section-research-resources .view-header .view-content {
     display: none;
   }
-  /* line 88, ../sass/research-page.scss */
+  /* line 91, ../sass/research-page.scss */
   .section-research-resources .view-content > .view-grouping:first-child {
     margin-top: 19px;
   }
-  /* line 91, ../sass/research-page.scss */
+  /* line 94, ../sass/research-page.scss */
   .section-research-resources .view-content .view-grouping-header {
     height: 16px;
     background: white url("../images/small-list-arrow-down.jpg") no-repeat right center;
@@ -101,11 +105,11 @@
     width: 95%;
     padding: 9px 0 9px 5%;
   }
-  /* line 100, ../sass/research-page.scss */
+  /* line 103, ../sass/research-page.scss */
   .section-research-resources .view-content .view-grouping-header.expanded {
     background-image: url("../images/small-list-arrow-up.jpg");
   }
-  /* line 105, ../sass/research-page.scss */
+  /* line 108, ../sass/research-page.scss */
   .section-research-resources .view-grouping-content {
     background: #fff;
     border: none;
@@ -114,25 +118,25 @@
     width: 100%;
     display: none;
   }
-  /* line 112, ../sass/research-page.scss */
+  /* line 115, ../sass/research-page.scss */
   .section-research-resources .view-grouping-content .item-list {
     max-width: 705px;
     width: 85%;
     padding: 9px 5% 9px 10%;
   }
-  /* line 118, ../sass/research-page.scss */
+  /* line 121, ../sass/research-page.scss */
   .section-research-resources .item-list ul {
     width: 100%;
   }
-  /* line 120, ../sass/research-page.scss */
+  /* line 123, ../sass/research-page.scss */
   .section-research-resources .item-list ul li {
     background: url("../images/blue-right-list-arrow.jpg") no-repeat left 7px;
   }
-  /* line 124, ../sass/research-page.scss */
+  /* line 127, ../sass/research-page.scss */
   .section-research-resources .view-grouping-content h3 {
     margin: 5px 0 0;
   }
-  /* line 127, ../sass/research-page.scss */
+  /* line 130, ../sass/research-page.scss */
   .section-research-resources .collapse {
     height: 26px;
     line-height: 26px;
@@ -143,7 +147,7 @@
     background: #ecf5fa;
     color: #20659A;
   }
-  /* line 136, ../sass/research-page.scss */
+  /* line 139, ../sass/research-page.scss */
   .section-research-resources .collapse img {
     margin-left: 20px;
   }
