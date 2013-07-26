@@ -301,13 +301,17 @@
 }
 /* Staff classic */
 /* line 7, ../sass/staff-page.scss */
+.section-staff-resources-classic #page-title {
+  display: none;
+}
+/* line 10, ../sass/staff-page.scss */
 .section-staff-resources-classic .view-header ul {
   padding-bottom: 0;
   margin-left: 4%;
   width: 96%;
   font-size: 13px;
 }
-/* line 14, ../sass/staff-page.scss */
+/* line 17, ../sass/staff-page.scss */
 .section-staff-resources-classic .view-content > .item-list > ol > li {
   margin-top: 17px;
   margin-left: 7%;
@@ -315,131 +319,131 @@
   padding: 0;
   background: transparent;
 }
-/* line 21, ../sass/staff-page.scss */
+/* line 24, ../sass/staff-page.scss */
 .section-staff-resources-classic .view-content ol ol {
   margin-left: 4%;
   margin-top: 4px;
 }
-/* line 24, ../sass/staff-page.scss */
+/* line 27, ../sass/staff-page.scss */
 .section-staff-resources-classic .view-content ol ol li {
   margin: 0;
 }
 
 /* Staff resources main view */
-/* line 33, ../sass/staff-page.scss */
+/* line 36, ../sass/staff-page.scss */
 .staff-resources {
   width: 100%;
   max-width: 900px;
   margin: auto;
 }
 
-/* line 40, ../sass/staff-page.scss */
+/* line 43, ../sass/staff-page.scss */
 .section-staff-resources #page-title {
   width: 100%;
   max-width: 900px;
   margin: auto;
 }
-/* line 45, ../sass/staff-page.scss */
+/* line 48, ../sass/staff-page.scss */
 .section-staff-resources #content {
   background: #fff;
 }
 
-/* line 50, ../sass/staff-page.scss */
+/* line 53, ../sass/staff-page.scss */
 .staff-main, .rowtwocolone {
   clear: both;
 }
 
-/* line 54, ../sass/staff-page.scss */
+/* line 57, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources {
   overflow: hidden;
   width: 100%;
 }
 
-/* line 60, ../sass/staff-page.scss */
+/* line 63, ../sass/staff-page.scss */
 .staff-main .right-block .pane-content {
   padding: 0;
   border: none;
   background: transparent;
 }
-/* line 65, ../sass/staff-page.scss */
+/* line 68, ../sass/staff-page.scss */
 .staff-main .right-block .views-row {
   margin-left: 0;
 }
-/* line 67, ../sass/staff-page.scss */
+/* line 70, ../sass/staff-page.scss */
 .staff-main .right-block .views-row a {
   background: none;
   padding-right: 0;
 }
 
-/* line 74, ../sass/staff-page.scss */
+/* line 77, ../sass/staff-page.scss */
 .rowonecolone .right-block:first-child {
   margin-bottom: 25px;
 }
 
-/* line 78, ../sass/staff-page.scss */
+/* line 81, ../sass/staff-page.scss */
 .section-staff-resources #page-title {
   display: none;
 }
 
-/* line 82, ../sass/staff-page.scss */
+/* line 85, ../sass/staff-page.scss */
 .switch-link a {
   float: right;
   display: block;
   position: relative;
   z-index: 99;
-  margin-top: 20px;
+  top: -32px;
   font-size: 11px;
   color: #154E6B;
 }
 
-/* line 92, ../sass/staff-page.scss */
+/* line 95, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources {
   position: relative;
   top: -32px;
   margin-bottom: -30px;
   display: block;
 }
-/* line 97, ../sass/staff-page.scss */
+/* line 100, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources h2.pane-title {
   font-size: 24px;
   margin: 0;
   padding: 0 0 2px 0;
   color: #46494B;
 }
-/* line 103, ../sass/staff-page.scss */
+/* line 106, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs-tabpage {
   min-height: 252px;
   background: whitesmoke url("../images/staff-top-img.jpg") no-repeat 0 0;
   border: 1px dashed #90a7b2;
 }
-/* line 108, ../sass/staff-page.scss */
+/* line 111, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs_main {
   float: left;
   width: 74%;
 }
-/* line 111, ../sass/staff-page.scss */
+/* line 114, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs_main ul {
   margin-left: 145px;
   padding: 16px 0;
   overflow: hidden;
 }
-/* line 115, ../sass/staff-page.scss */
+/* line 118, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs_main ul li {
   width: 50%;
   float: left;
   margin: 0;
   font-size: 12px;
 }
-/* line 120, ../sass/staff-page.scss */
+/* line 123, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs_main ul li a {
   margin-left: 10px;
 }
-/* line 127, ../sass/staff-page.scss */
+/* line 130, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list {
   float: right;
   width: 25%;
 }
-/* line 130, ../sass/staff-page.scss */
+/* line 133, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list li {
   font-size: 12px;
   margin: 0 0 13px;
@@ -449,7 +453,7 @@
   padding: 5px 0;
   width: 98%;
 }
-/* line 138, ../sass/staff-page.scss */
+/* line 141, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list li a {
   display: block;
   padding: 0 15px;
@@ -457,50 +461,50 @@
   text-transform: uppercase;
 }
 
-/* line 148, ../sass/staff-page.scss */
+/* line 151, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources-mobile {
   display: none;
 }
 
 @media (max-width: 900px) {
-  /* line 154, ../sass/staff-page.scss */
+  /* line 157, ../sass/staff-page.scss */
   .staff-main {
     width: 100%;
     overflow: hidden;
   }
 
-  /* line 158, ../sass/staff-page.scss */
+  /* line 161, ../sass/staff-page.scss */
   .rowonecolone, .rowonecolthree, .rowtwocoltwo {
     clear: both;
     margin-right: 10%;
   }
 
-  /* line 162, ../sass/staff-page.scss */
+  /* line 165, ../sass/staff-page.scss */
   .rowonecoltwo, .rowtwocolone, .rowtwocolthree {
     margin: 0;
     clear: none;
   }
 
-  /* line 167, ../sass/staff-page.scss */
+  /* line 170, ../sass/staff-page.scss */
   .section-staff-resources #content {
     background: transparent;
   }
 
-  /* line 171, ../sass/staff-page.scss */
+  /* line 174, ../sass/staff-page.scss */
   .pane-quicktabs-staff-resources {
     display: none;
   }
 
-  /* line 175, ../sass/staff-page.scss */
+  /* line 178, ../sass/staff-page.scss */
   .pane-quicktabs-staff-resources-mobile {
     display: block;
   }
 
-  /* line 180, ../sass/staff-page.scss */
+  /* line 183, ../sass/staff-page.scss */
   .ui-accordion .ui-icon {
     display: none;
   }
-  /* line 183, ../sass/staff-page.scss */
+  /* line 186, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-header, .ui-accordion .ui-accordion-content {
     border: none;
     -moz-border-radius: 0px;
@@ -513,7 +517,7 @@
     margin: 0;
     padding: 0;
   }
-  /* line 191, ../sass/staff-page.scss */
+  /* line 194, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-header a {
     height: 16px;
     background: white url("../images/small-list-arrow-down.jpg") no-repeat right center;
@@ -527,22 +531,22 @@
     font-size: 13px;
     font-family: "Arial", sans-serif;
   }
-  /* line 204, ../sass/staff-page.scss */
+  /* line 207, ../sass/staff-page.scss */
   .ui-accordion .ui-state-active a {
     background-image: url("../images/small-list-arrow-up.jpg");
   }
-  /* line 207, ../sass/staff-page.scss */
+  /* line 210, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content {
     margin-top: -1px !important;
     padding: 9px 0 19px;
   }
-  /* line 210, ../sass/staff-page.scss */
+  /* line 213, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content ul {
     max-width: 705px;
     width: 85%;
     padding: 0 5% 0 10%;
   }
-  /* line 214, ../sass/staff-page.scss */
+  /* line 217, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content ul li {
     background: url("../images/blue-right-list-arrow.jpg") no-repeat left 7px;
     padding: 2px 0 2px 11px;
@@ -551,14 +555,14 @@
     clear: both;
     display: block;
   }
-  /* line 221, ../sass/staff-page.scss */
+  /* line 224, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content ul li a {
     color: #20659A;
     font-size: 12px;
   }
 }
 @media (max-width: 600px) {
-  /* line 233, ../sass/staff-page.scss */
+  /* line 236, ../sass/staff-page.scss */
   .staff-main .inside {
     margin: 0 0 25px 0;
   }
