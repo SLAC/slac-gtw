@@ -378,8 +378,6 @@ function slac_igp_workflow_views_default_views() {
     3 => 0,
   );
   $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
-  $handler->display->display_options['filters']['date_filter']['default_date'] = 'now -7 days';
-  $handler->display->display_options['filters']['date_filter']['default_to_date'] = 'now';
   $handler->display->display_options['filters']['date_filter']['year_range'] = '-0:+1';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
     'node.created' => 'node.created',
