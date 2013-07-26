@@ -302,7 +302,7 @@
 /* Staff classic */
 /* line 7, ../sass/staff-page.scss */
 .section-staff-resources-classic h2.pane-title {
-  margin-top: 0;
+  display: none;
 }
 /* line 10, ../sass/staff-page.scss */
 .section-staff-resources-classic .view-header ul {
