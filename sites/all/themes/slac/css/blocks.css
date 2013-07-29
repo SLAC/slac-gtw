@@ -330,9 +330,10 @@
 /* line 25, ../sass/blocks.scss */
 .pane-boxes-stanford-compliance .pane-title {
   font-size: 11px;
+  margin-top: -12px;
 }
 
-/* line 29, ../sass/blocks.scss */
+/* line 30, ../sass/blocks.scss */
 .blue-bodered-white {
   background: #fff;
   border: 1px solid #aebdc5;
@@ -344,7 +345,7 @@
   margin-top: 20px;
   color: #393939;
 }
-/* line 35, ../sass/blocks.scss */
+/* line 36, ../sass/blocks.scss */
 .blue-bodered-white .pane-title {
   margin: 0;
   font-size: 14px;
@@ -354,12 +355,12 @@
   padding-left: 20px;
   line-height: 22px;
 }
-/* line 44, ../sass/blocks.scss */
+/* line 45, ../sass/blocks.scss */
 .blue-bodered-white > .pane-content {
   padding: 12px 18px;
 }
 
-/* line 49, ../sass/blocks.scss */
+/* line 50, ../sass/blocks.scss */
 .brown-bodered-white .view-footer, .blue-bodered-white .view-footer, #boxes-box-weather_traffic small {
   width: 100%;
   clear: both;
@@ -369,14 +370,14 @@
   line-height: 15px;
 }
 
-/* line 58, ../sass/blocks.scss */
+/* line 59, ../sass/blocks.scss */
 .brown-bodered-white .view-footer a, .blue-bodered-white .view-footer a, #boxes-box-weather_traffic small a, .switch-link a {
   background: url(../images/arrow-dot-line.png) no-repeat left center;
   padding-left: 15px;
 }
 
 /* Blue dashed list */
-/* line 66, ../sass/blocks.scss */
+/* line 67, ../sass/blocks.scss */
 .blue-dashed-list .pane-content ul li, .blue-dashed-list .views-row {
   list-style-type: none;
   list-style-image: none;
@@ -387,26 +388,26 @@
   margin: 0 0 13px;
   border: 1px dashed #90a7b2;
 }
-/* line 76, ../sass/blocks.scss */
-.blue-dashed-list .pane-content li:nth-child(2n+1), .blue-dashed-list .views-row-odd {
+/* line 77, ../sass/blocks.scss */
+.blue-dashed-list .odd, .blue-dashed-list .views-row-odd {
   margin-right: 7%;
   clear: both;
 }
-/* line 80, ../sass/blocks.scss */
+/* line 81, ../sass/blocks.scss */
 .blue-dashed-list .pane-content li a, .blue-dashed-list .views-row a {
   padding: 5px 8px;
   display: block;
 }
 
 /* Front People Finder Block */
-/* line 89, ../sass/blocks.scss */
+/* line 90, ../sass/blocks.scss */
 .frontpage-people-finder input {
   margin: 0;
   padding: 0;
   float: left;
   outline: none;
 }
-/* line 95, ../sass/blocks.scss */
+/* line 96, ../sass/blocks.scss */
 .frontpage-people-finder .searchbox {
   height: 21px;
   line-height: 21px;
@@ -422,7 +423,7 @@
   width: 64%;
   font-size: 12px;
 }
-/* line 106, ../sass/blocks.scss */
+/* line 107, ../sass/blocks.scss */
 .frontpage-people-finder .searchbutton {
   width: 28px;
   height: 23px;
@@ -434,7 +435,7 @@
   color: #fff;
   font-size: 11px;
 }
-/* line 117, ../sass/blocks.scss */
+/* line 118, ../sass/blocks.scss */
 .frontpage-people-finder .advanced-search {
   display: block;
   clear: both;
@@ -444,12 +445,12 @@
 }
 
 /* Frontpage Calendar */
-/* line 129, ../sass/blocks.scss */
+/* line 130, ../sass/blocks.scss */
 .frontpage-calendar .views-row-grouped {
   clear: both;
   color: #20659A;
 }
-/* line 133, ../sass/blocks.scss */
+/* line 134, ../sass/blocks.scss */
 .frontpage-calendar h3 {
   margin: 0;
   float: left;
@@ -457,15 +458,15 @@
   width: 18%;
   text-transform: uppercase;
 }
-/* line 141, ../sass/blocks.scss */
+/* line 142, ../sass/blocks.scss */
 .frontpage-calendar .views-row-grouped .views-row-last {
   background: url("../images/dotted-bottom-border.png") no-repeat 0 bottom;
 }
-/* line 144, ../sass/blocks.scss */
+/* line 145, ../sass/blocks.scss */
 .frontpage-calendar .views-row-grouped:first-child .views-row {
   padding-top: 0;
 }
-/* line 148, ../sass/blocks.scss */
+/* line 149, ../sass/blocks.scss */
 .frontpage-calendar .views-row {
   float: right;
   width: 76%;
@@ -473,44 +474,44 @@
   padding: 15px 0 0 5%;
   font-size: 11px;
 }
-/* line 155, ../sass/blocks.scss */
+/* line 156, ../sass/blocks.scss */
 .frontpage-calendar .views-row-last {
   padding-bottom: 15px;
 }
-/* line 158, ../sass/blocks.scss */
+/* line 159, ../sass/blocks.scss */
 .frontpage-calendar .views-row:hover {
   text-decoration: underline;
 }
-/* line 161, ../sass/blocks.scss */
+/* line 162, ../sass/blocks.scss */
 .frontpage-calendar .views-field-title {
   font-weight: bold;
 }
-/* line 164, ../sass/blocks.scss */
+/* line 165, ../sass/blocks.scss */
 .frontpage-calendar .view-footer {
   border: none;
 }
 
 /**/
-/* line 171, ../sass/blocks.scss */
+/* line 172, ../sass/blocks.scss */
 .frontpage-access-info {
   font-size: 11px;
 }
-/* line 173, ../sass/blocks.scss */
+/* line 174, ../sass/blocks.scss */
 .frontpage-access-info .views-row {
   margin-bottom: 10px;
 }
-/* line 175, ../sass/blocks.scss */
+/* line 176, ../sass/blocks.scss */
 .frontpage-access-info .views-row div {
   display: inline;
 }
 
 /* Weather block */
-/* line 184, ../sass/blocks.scss */
+/* line 185, ../sass/blocks.scss */
 .frontpage-weather .current {
   overflow: hidden;
   margin-bottom: 10px;
 }
-/* line 187, ../sass/blocks.scss */
+/* line 188, ../sass/blocks.scss */
 .frontpage-weather .current h2 {
   color: #393939;
   font-size: 15px;
@@ -518,11 +519,11 @@
   font-weight: normal;
   padding: 10px 0 5px;
 }
-/* line 194, ../sass/blocks.scss */
+/* line 195, ../sass/blocks.scss */
 .frontpage-weather .current .temp {
   float: left;
 }
-/* line 198, ../sass/blocks.scss */
+/* line 199, ../sass/blocks.scss */
 .frontpage-weather .temp-nr {
   background: url("../images/far.jpg") no-repeat right 3px;
   font-size: 24px;
@@ -530,7 +531,7 @@
   padding-right: 15px;
   float: left;
 }
-/* line 206, ../sass/blocks.scss */
+/* line 207, ../sass/blocks.scss */
 .frontpage-weather .current .condition {
   font-size: 12px;
   color: #706a65;
@@ -539,41 +540,41 @@
   float: left;
   margin: 2px 0 0 5px;
 }
-/* line 214, ../sass/blocks.scss */
+/* line 215, ../sass/blocks.scss */
 .frontpage-weather .current .icon {
   float: right;
   width: 75px;
   margin: -25px -8px 0 0;
 }
-/* line 220, ../sass/blocks.scss */
+/* line 221, ../sass/blocks.scss */
 .frontpage-weather .forecast {
   border-bottom: 1px solid #e0e0e0;
   padding-bottom: 12px;
   margin-bottom: 13px;
   overflow: hidden;
 }
-/* line 225, ../sass/blocks.scss */
+/* line 226, ../sass/blocks.scss */
 .frontpage-weather .forecast li {
   float: left;
   width: 32.5%;
   text-align: center;
   border-left: 1px solid #ececec;
 }
-/* line 230, ../sass/blocks.scss */
+/* line 231, ../sass/blocks.scss */
 .frontpage-weather .forecast li:first-child {
   border: none;
 }
-/* line 234, ../sass/blocks.scss */
+/* line 235, ../sass/blocks.scss */
 .frontpage-weather .forecast .day {
   display: block;
 }
-/* line 237, ../sass/blocks.scss */
+/* line 238, ../sass/blocks.scss */
 .frontpage-weather .forecast .hight {
   padding: 0 6px 0  4px;
   font-size: 11px;
   background: url("../images/grade-dark.jpg") no-repeat right 3px;
 }
-/* line 242, ../sass/blocks.scss */
+/* line 243, ../sass/blocks.scss */
 .frontpage-weather .forecast .low {
   padding: 0 6px 0  4px;
   font-size: 11px;
@@ -581,38 +582,38 @@
   color: #b6afa6;
   background: url("../images/grade-light.jpg") no-repeat right 3px;
 }
-/* line 250, ../sass/blocks.scss */
+/* line 251, ../sass/blocks.scss */
 .frontpage-weather #map-canvas {
   width: 100% !important;
 }
 
-/* line 255, ../sass/blocks.scss */
+/* line 256, ../sass/blocks.scss */
 #boxes-box-weather_traffic small {
   border: none;
   display: block;
 }
 
 /* Front page top links block*/
-/* line 262, ../sass/blocks.scss */
+/* line 263, ../sass/blocks.scss */
 .frontpage-top-links .pane-content ul li {
   font-size: 12px;
   margin: 0 0 7px 0;
   float: left;
   width: 44%;
 }
-/* line 267, ../sass/blocks.scss */
+/* line 268, ../sass/blocks.scss */
 .frontpage-top-links .pane-content ul li.views-row-odd {
   clear: both;
   margin-right: 6%;
 }
-/* line 271, ../sass/blocks.scss */
+/* line 272, ../sass/blocks.scss */
 .frontpage-top-links .pane-content ul li a {
   padding-left: 12px;
   background: url("../images/list-dot.png") no-repeat 0 7px;
   display: block;
 }
 
-/* line 279, ../sass/blocks.scss */
+/* line 280, ../sass/blocks.scss */
 .frontpage-slac-science .pane-content > .view-news > .view-content .views-row,
 .frontpage-news-list .views-row {
   padding-left: 12px;
@@ -621,36 +622,36 @@
 }
 
 /* Front page right sidebar boxes */
-/* line 288, ../sass/blocks.scss */
+/* line 289, ../sass/blocks.scss */
 .frontpage-security-contacts p,
 .pane-boxes-it-help-desk p {
   margin: 0 0 8px 0;
   font-size: 12px;
 }
 
-/* line 294, ../sass/blocks.scss */
+/* line 295, ../sass/blocks.scss */
 .pane-views-flea-market-block .views-row {
   font-size: 11px;
   padding: 8px 0;
   border-top: 1px dashed #b8c9d1;
 }
-/* line 299, ../sass/blocks.scss */
+/* line 300, ../sass/blocks.scss */
 .pane-views-flea-market-block .views-row-first {
   padding-top: 0;
   border-top: none;
 }
 
-/* line 305, ../sass/blocks.scss */
+/* line 306, ../sass/blocks.scss */
 .pane-boxes-slac-projects .pane-content {
   overflow: hidden;
   padding-bottom: 8px;
 }
-/* line 308, ../sass/blocks.scss */
+/* line 309, ../sass/blocks.scss */
 .pane-boxes-slac-projects .pane-content img {
   float: left;
   margin: 0 20px 0 0;
 }
-/* line 312, ../sass/blocks.scss */
+/* line 313, ../sass/blocks.scss */
 .pane-boxes-slac-projects .pane-content li {
   color: #20659A;
   list-style-type: none;
@@ -659,7 +660,7 @@
   margin-bottom: 7px;
 }
 
-/* line 321, ../sass/blocks.scss */
+/* line 322, ../sass/blocks.scss */
 a.submit-feedback {
   background: #2482c9;
   width: 110px;
@@ -679,12 +680,12 @@ a.submit-feedback {
 }
 
 /* Socials */
-/* line 337, ../sass/blocks.scss */
+/* line 338, ../sass/blocks.scss */
 .socials {
   padding-bottom: 7px;
   overflow: hidden;
 }
-/* line 340, ../sass/blocks.scss */
+/* line 341, ../sass/blocks.scss */
 .socials li {
   float: left;
   list-style-image: none;
@@ -695,85 +696,85 @@ a.submit-feedback {
   min-width: 16px;
   height: 16px;
 }
-/* line 349, ../sass/blocks.scss */
+/* line 350, ../sass/blocks.scss */
 .socials li a {
   display: block;
   height: 1px;
   padding: 23px 0 0 0;
   overflow: hidden;
 }
-/* line 356, ../sass/blocks.scss */
+/* line 357, ../sass/blocks.scss */
 .socials .fb {
   background-position: center 0;
 }
-/* line 359, ../sass/blocks.scss */
+/* line 360, ../sass/blocks.scss */
 .socials .flickr {
   background-position: center -20px;
 }
-/* line 362, ../sass/blocks.scss */
+/* line 363, ../sass/blocks.scss */
 .socials .rss {
   background-position: center -40px;
 }
-/* line 365, ../sass/blocks.scss */
+/* line 366, ../sass/blocks.scss */
 .socials .twitter {
   background-position: center -60px;
 }
-/* line 368, ../sass/blocks.scss */
+/* line 369, ../sass/blocks.scss */
 .socials .youtube {
   background-position: center -80px;
 }
 
 /* Front slider */
-/* line 375, ../sass/blocks.scss */
+/* line 376, ../sass/blocks.scss */
 .frontpage-news-slider {
   position: relative;
 }
 
-/* line 379, ../sass/blocks.scss */
+/* line 380, ../sass/blocks.scss */
 .views-slideshow-cycle-main-frame {
   max-width: 100%;
 }
-/* line 381, ../sass/blocks.scss */
+/* line 382, ../sass/blocks.scss */
 .views-slideshow-cycle-main-frame div {
   max-width: 100%;
 }
 
 /* Front middle general */
-/* line 388, ../sass/blocks.scss */
+/* line 389, ../sass/blocks.scss */
 .frontpage-slac-science .pane-content > .view-news > .view-content .views-row, .frontpage-news-list .views-row {
   padding-bottom: 7px;
   font-size: 12px;
 }
 
-/* line 394, ../sass/blocks.scss */
+/* line 395, ../sass/blocks.scss */
 .frontpage-slac-science .pane-content > .view-news > .view-content .views-field-title, .frontpage-slac-science .views-field-created {
   display: inline;
 }
 
-/* line 400, ../sass/blocks.scss */
+/* line 401, ../sass/blocks.scss */
 .frontpage-news-list .views-field-title, .frontpage-news-list .views-field-created {
   display: inline;
 }
 
-/* line 405, ../sass/blocks.scss */
+/* line 406, ../sass/blocks.scss */
 .frontpage-slac-science .views-field-created, .frontpage-news-list .views-field-created {
   font-size: 11px;
   color: #46494b;
   font-style: italic;
 }
 
-/* line 411, ../sass/blocks.scss */
+/* line 412, ../sass/blocks.scss */
 .frontpage-slac-science .view-header {
   margin: -12px -18px 10px;
   position: relative;
 }
-/* line 414, ../sass/blocks.scss */
+/* line 415, ../sass/blocks.scss */
 .frontpage-slac-science .view-header img {
   max-width: 100%;
   display: block;
 }
 
-/* line 420, ../sass/blocks.scss */
+/* line 421, ../sass/blocks.scss */
 .frontpage-news-slider .views-field-nothing, .frontpage-slac-science .view-header .views-field-nothing {
   position: absolute;
   bottom: 0;
@@ -786,7 +787,7 @@ a.submit-feedback {
   width: 94%;
 }
 
-/* line 432, ../sass/blocks.scss */
+/* line 433, ../sass/blocks.scss */
 .frontpage-news-slider .title a, .frontpage-slac-science .view-header .title a {
   color: #fff;
   text-decoration: none;
@@ -798,15 +799,15 @@ a.submit-feedback {
 .frontpage-news-slider img{
   float: left;
 }*/
-/* line 444, ../sass/blocks.scss */
+/* line 445, ../sass/blocks.scss */
 .frontpage-news-slider {
   border: 1px solid #b0aeac;
 }
-/* line 446, ../sass/blocks.scss */
+/* line 447, ../sass/blocks.scss */
 .frontpage-news-slider .views-field-nothing {
   margin: -1px;
 }
-/* line 449, ../sass/blocks.scss */
+/* line 450, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span {
   position: absolute;
   top: 45%;
@@ -822,34 +823,34 @@ a.submit-feedback {
   -ms-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 459, ../sass/blocks.scss */
+/* line 460, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span a {
   display: block;
   background: url("../images/slider-back.png") no-repeat center;
   height: 1px;
   padding: 73px 0 0 0;
 }
-/* line 466, ../sass/blocks.scss */
+/* line 467, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text-previous {
   left: 20px;
 }
-/* line 469, ../sass/blocks.scss */
+/* line 470, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text-next {
   right: 20px;
 }
-/* line 472, ../sass/blocks.scss */
+/* line 473, ../sass/blocks.scss */
 .frontpage-news-slider span.views-slideshow-controls-text-next a {
   background-image: url("../images/slider-next.png");
 }
-/* line 475, ../sass/blocks.scss */
+/* line 476, ../sass/blocks.scss */
 .frontpage-news-slider span.views-slideshow-controls-text-pause {
   display: none;
 }
-/* line 477, ../sass/blocks.scss */
+/* line 478, ../sass/blocks.scss */
 .frontpage-news-slider span.views-slideshow-controls-text-pause a {
   display: none;
 }
-/* line 481, ../sass/blocks.scss */
+/* line 482, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-pager-fields {
   position: absolute;
   right: 0;
@@ -857,7 +858,7 @@ a.submit-feedback {
   z-index: 99;
   margin: 10px 15px 0 0;
 }
-/* line 488, ../sass/blocks.scss */
+/* line 489, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-pager-field-item {
   float: left;
   width: 22px;
@@ -867,19 +868,19 @@ a.submit-feedback {
   background: url("../images/slider-pager.png") no-repeat 0 0;
   margin-left: 6px;
 }
-/* line 496, ../sass/blocks.scss */
+/* line 497, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-pager-field-item.active {
   background-image: url("../images/slider-pager-active.png");
 }
 
-/* line 503, ../sass/blocks.scss */
+/* line 504, ../sass/blocks.scss */
 .section-about .field-type-text-with-summary p {
   padding-bottom: 20px;
   margin-bottom: 0 0 20px 0;
   border-bottom: 1px dashed #b1c2ca;
   color: #45464C;
 }
-/* line 509, ../sass/blocks.scss */
+/* line 510, ../sass/blocks.scss */
 .section-about .field-type-text-with-summary li {
   margin-left: 2.5%;
   width: 97.5%;
@@ -890,28 +891,28 @@ a.submit-feedback {
 }
 
 @media (max-width: 1300px) {
-  /* line 520, ../sass/blocks.scss */
+  /* line 521, ../sass/blocks.scss */
   .pane-boxes-stanford-compliance {
     margin-top: 44px;
   }
 
-  /* line 524, ../sass/blocks.scss */
+  /* line 525, ../sass/blocks.scss */
   .pane-boxes-stanford-compliance h2 {
-    margin-top: -27px;
+    margin-top: -26px;
   }
 }
 @media (max-width: 900px) {
-  /* line 531, ../sass/blocks.scss */
+  /* line 532, ../sass/blocks.scss */
   .brown-bodered-white h2 {
     font-size: 11px;
     margin-top: -12px;
   }
 
-  /* line 536, ../sass/blocks.scss */
+  /* line 537, ../sass/blocks.scss */
   .blue-striped-list > .pane-content {
     padding: 10px;
   }
-  /* line 539, ../sass/blocks.scss */
+  /* line 540, ../sass/blocks.scss */
   .blue-striped-list .view-content .views-row {
     background: #e9f2f9;
     border: none;
@@ -920,7 +921,7 @@ a.submit-feedback {
     margin-top: 7px;
     margin-bottom: 7px;
   }
-  /* line 546, ../sass/blocks.scss */
+  /* line 547, ../sass/blocks.scss */
   .blue-striped-list .view-content .views-row a {
     background: none;
     padding: 0;
@@ -928,27 +929,27 @@ a.submit-feedback {
     padding: 6px 7%;
   }
 
-  /* line 554, ../sass/blocks.scss */
+  /* line 555, ../sass/blocks.scss */
   .frontpage-news-slider .views-field-nothing .body {
     display: none;
   }
 
-  /* line 557, ../sass/blocks.scss */
+  /* line 558, ../sass/blocks.scss */
   .frontpage-top-links .view-content .views-row {
     width: 100%;
   }
 
-  /* line 561, ../sass/blocks.scss */
+  /* line 562, ../sass/blocks.scss */
   .frontpage-slac-science {
     margin-bottom: 16px;
   }
 
-  /* line 565, ../sass/blocks.scss */
+  /* line 566, ../sass/blocks.scss */
   .frontpage-calendar h3 {
     margin-left: -10px;
   }
 
-  /* line 570, ../sass/blocks.scss */
+  /* line 571, ../sass/blocks.scss */
   .frontpage-help-market,
   .frontpage-security-contacts {
     clear: both;
@@ -958,31 +959,31 @@ a.submit-feedback {
   }
 }
 @media (max-width: 600px) {
-  /* line 585, ../sass/blocks.scss */
+  /* line 586, ../sass/blocks.scss */
   .frontpage-calendar {
     display: block;
   }
 
   /* People search*/
-  /* line 589, ../sass/blocks.scss */
+  /* line 590, ../sass/blocks.scss */
   .no-bg {
     background: transparent;
     border: none;
   }
-  /* line 592, ../sass/blocks.scss */
+  /* line 593, ../sass/blocks.scss */
   .no-bg.brown-bodered-white {
     margin-top: 0;
   }
-  /* line 594, ../sass/blocks.scss */
+  /* line 595, ../sass/blocks.scss */
   .no-bg.brown-bodered-white > .pane-content {
     padding: 0;
   }
 
-  /* line 600, ../sass/blocks.scss */
+  /* line 601, ../sass/blocks.scss */
   .frontpage-people-finder .advanced-search {
     display: none;
   }
-  /* line 603, ../sass/blocks.scss */
+  /* line 604, ../sass/blocks.scss */
   .frontpage-people-finder form {
     height: 26px;
     border: 3px solid #b8d6ee;
@@ -990,7 +991,7 @@ a.submit-feedback {
     position: relative;
     background: #fff;
   }
-  /* line 610, ../sass/blocks.scss */
+  /* line 611, ../sass/blocks.scss */
   .frontpage-people-finder .searchbox {
     height: 26px;
     border: none;
@@ -1005,7 +1006,7 @@ a.submit-feedback {
     border: none;
     margin: 0;
   }
-  /* line 620, ../sass/blocks.scss */
+  /* line 621, ../sass/blocks.scss */
   .frontpage-people-finder .searchbutton {
     background: #b8d6ee url("../images/small-search-icon.jpg") no-repeat center right;
     border: none;
@@ -1020,7 +1021,7 @@ a.submit-feedback {
   }
 
   /* Middle blocks */
-  /* line 635, ../sass/blocks.scss */
+  /* line 636, ../sass/blocks.scss */
   .blue-bodered-white .pane-title {
     background: #a8bcc7 url("../images/blue-arrow.jpg") no-repeat right center;
     font-size: 12px;
@@ -1028,21 +1029,21 @@ a.submit-feedback {
     line-height: 32px;
     margin-bottom: 20px;
   }
-  /* line 642, ../sass/blocks.scss */
+  /* line 643, ../sass/blocks.scss */
   .blue-bodered-white > .pane-content {
     padding: 0;
   }
 
-  /* line 646, ../sass/blocks.scss */
+  /* line 647, ../sass/blocks.scss */
   .frontpage-slac-science .view-header {
     margin: 0 0 20px 0;
   }
 
-  /* line 650, ../sass/blocks.scss */
+  /* line 651, ../sass/blocks.scss */
   .blue-bodered-white .view-footer {
     display: none;
   }
-  /* line 653, ../sass/blocks.scss */
+  /* line 654, ../sass/blocks.scss */
   .blue-bodered-white .pane-content > .view-news > .view-content .views-row {
     padding: 8px 52px 8px 11px;
     margin: 0 0 18px 0;
@@ -1050,44 +1051,44 @@ a.submit-feedback {
     font-size: 13px;
     background: white url("/sites/all/themes/slac/images/list-arrow.jpg") no-repeat right center;
   }
-  /* line 660, ../sass/blocks.scss */
+  /* line 661, ../sass/blocks.scss */
   .blue-bodered-white .views-field-created {
     font-size: 12px;
   }
 
   /* Socials */
-  /* line 666, ../sass/blocks.scss */
+  /* line 667, ../sass/blocks.scss */
   .socials li {
     min-width: 24px;
     height: 24px;
     background: url("../images/socialsx24.png") no-repeat;
   }
-  /* line 671, ../sass/blocks.scss */
+  /* line 672, ../sass/blocks.scss */
   .socials .flickr {
     background-position: center -30px;
   }
-  /* line 674, ../sass/blocks.scss */
+  /* line 675, ../sass/blocks.scss */
   .socials .rss {
     background-position: center -60px;
   }
-  /* line 677, ../sass/blocks.scss */
+  /* line 678, ../sass/blocks.scss */
   .socials .twitter {
     background-position: center -90px;
   }
-  /* line 680, ../sass/blocks.scss */
+  /* line 681, ../sass/blocks.scss */
   .socials .youtube {
     background-position: center -120px;
   }
 
   /* */
-  /* line 686, ../sass/blocks.scss */
+  /* line 687, ../sass/blocks.scss */
   .frontpage-news-slider .views-field-nothing, .frontpage-slac-science .view-header .views-field-nothing {
     position: static;
     background: #fff;
     color: #1a6199;
   }
 
-  /* line 691, ../sass/blocks.scss */
+  /* line 692, ../sass/blocks.scss */
   .frontpage-news-slider .title a, .frontpage-slac-science .view-header .title a {
     color: #1a6199;
     display: block;
@@ -1095,23 +1096,23 @@ a.submit-feedback {
   }
 
   /* Feedback page */
-  /* line 697, ../sass/blocks.scss */
+  /* line 698, ../sass/blocks.scss */
   .section-feedback article .form-actions {
     width: 96%;
     padding: 5px 2% 0;
   }
-  /* line 700, ../sass/blocks.scss */
+  /* line 701, ../sass/blocks.scss */
   .section-feedback article .form-actions input {
     width: 100%;
     margin-bottom: 5px;
   }
 
-  /* line 705, ../sass/blocks.scss */
+  /* line 706, ../sass/blocks.scss */
   .section-research-resources .general-right, .section-staff-resources-classic .general-right {
     display: none;
   }
 
-  /* line 709, ../sass/blocks.scss */
+  /* line 710, ../sass/blocks.scss */
   .frontpage-calendar h3 {
     margin-left: 0;
   }

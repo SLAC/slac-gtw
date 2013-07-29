@@ -24,6 +24,7 @@
 
 .pane-boxes-stanford-compliance .pane-title{
   font-size: 11px;
+  margin-top: -12px;
 }
 
 .blue-bodered-white {
@@ -73,7 +74,7 @@
     margin: 0 0 13px;
     border: 1px dashed #90a7b2;
   }
-  .pane-content li:nth-child(2n+1), .views-row-odd {
+  .odd, .views-row-odd {
     margin-right: 7%;
     clear: both;
   }
@@ -522,7 +523,7 @@ a.submit-feedback {
   }
     
   .pane-boxes-stanford-compliance h2{
-    margin-top: -27px;
+    margin-top: -26px;
   }
 }
 
