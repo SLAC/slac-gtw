@@ -68,15 +68,6 @@
     @include zen-grid-item(3, 10);    
   }
 
-  .pane-quicktabs-staff-resources .quicktabs_main{
-    @include zen-grid-item(9, 1);    
-  }
-
-  .pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list{
-    @include zen-grid-item(3, 10);    
-    float: left
-  }
-
   .rowonecolone,
   .rowtwocolone{
     @include zen-grid-item(4, 1);  

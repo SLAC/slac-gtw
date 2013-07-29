@@ -6,7 +6,8 @@
     max-width: 855px;
     width: 100%;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 14px;
+    color: #575B5C;
   }
   .view-grouping-content {
     background: #f6f6f6;
@@ -27,9 +28,9 @@
       color: #000;
     }
     .item-list li a {
-      font-size: 13px;
+      font-size: 12px;
       &.Yes{
-        background: #e0e0e0;
+        border-bottom: 1px solid #666;
       }
     }
   }
@@ -44,16 +45,19 @@
   }
   .view-header {
     padding-bottom: 27px;
-    background: url('../images/dotted-heavy.png') repeat-x bottom;
+    border-bottom: 1px dashed #b1c2ca;
   }
 }
 
 .section-staff-resources-classic .view-header {
   padding-bottom: 27px;
-  background: url('../images/dotted-heavy.png') repeat-x bottom;
+  border-bottom: 1px dashed #b4c2cb;
 }
 
 .section-research-resources {
+  #page-title{
+    margin-left: 0.9%;
+  }
   .view-header {
     .view-content {
       max-width: 857px;

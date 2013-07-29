@@ -2,12 +2,19 @@
   font-size: 14px;
   padding-bottom: 27px;
   margin-bottom: 40px;
-  background: url('../images/dotted-heavy.png') repeat-x bottom;
+  border-bottom: 1px dashed #b1c2ca;
+}
+
+.section-feedback .field-name-body p{
+  margin: 0
 }
 
 .section-feedback {
   article {
     max-width: 840px;
+  }
+  .filter-wrapper {
+    display: none;
   }
   .content-wrapper form {
     max-width: 640px;
@@ -22,6 +29,7 @@
     }
     input {
       border: none;
+      font-size:  12px;
       &.form-text {
         border: 1px solid #d0d0d0;
         height: 22px;
@@ -49,28 +57,24 @@
 .section-feedback {
   article .form-actions input {
     height: 28px;
-    background: #276cbd;
+    background: #2582CA;
     padding: 0 25px;
     font-size: 11px;
     color: #fff;
     text-transform: lowercase;
     margin-right: 7px;
+    min-width: 138px;
   }
-  .content-wrapper {
-    form input.form-text {
-      border: 1px solid #d0d0d0;
-      height: 22px;
-      max-width: 380px;
-      width: 96%;
-      padding: 0 2%;
-      outline: none;
-    }
-    .filter-wrapper {
-      display: none;
-    }
+  article select{
+    width: 300px;
+    font-size: 12px;
   }
   article .comments .form-actions {
     margin-top: 1.5em;
+  }
+
+ .comment_forbidden{
+    margin-top: 20px;
   }
 }
 

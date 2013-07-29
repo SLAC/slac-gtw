@@ -125,20 +125,17 @@ header {
   height: 25px;
   line-height: 25px;
   text-transform: uppercase;
-  font-size: 10px;
+  font-size: 11px;
   list-style-type: none;
   list-style-image: none;
   float: left;
   padding: 0 13px;
   background: url('../images/delimitator.jpg') no-repeat right center;
-  &.first {
-    display: none;
-  }
   &.last{
     background: transparent;
   }
   a {
-    color: #f4f4f4;
+    color: #fff;
     text-decoration: none;
   }
 }
@@ -164,7 +161,7 @@ header {
     height: 24px;
     line-height: 24px;
     width: 228px;
-    font-size: 12px;
+    font-size: 14px;
     color: #535353;
   }
   .search-button {
@@ -185,30 +182,17 @@ header {
   .brown-bodered-white{
     margin-top: 0;
   }
-}
-
-.frontpage-people-finder .brown-bodered-white{
-  margin-top: 0;
-}
-
-.general-left {
+}.general-left {
   ul li a {
     font-size: 13px;
   }
   .item-list {
     ul {
       padding-bottom: 10px;
-      li {
-        padding: 2px 0 2px 11px;
-        margin: 0;
-        font-size: 12px;
-        clear: both;
-        display: block;
-        background: url('../images/list-dot.png') no-repeat 0 9px;
-      }
     }
+    ul li,
     ol li {
-      padding: 2px 0 2px 11px;
+      padding: 3px 0 3px 11px;
       margin: 0;
       font-size: 12px;
       clear: both;
@@ -217,12 +201,12 @@ header {
     }
   }
   .views-row {
-    padding: 2px 0 2px 11px;
+    padding: 5px 0 5px 11px;
     margin: 0;
-    font-size: 12px;
+    font-size: 14px;
     clear: both;
     display: block;
-    background: url('../images/list-dot.png') no-repeat 0 9px;
+    background: url("../images/list-dot.png") no-repeat 0 12px;
   }
 }
 
@@ -252,7 +236,7 @@ header {
 }
 
 .right-block .views-row, .pane-quicktabs-staff-resources .quicktabs_main ul li a {
-  padding: 4px 0 4px 13px;
+  padding: 4px 0 4px 10px;
   display: block;
   background: url('../images/right-list-arrow.jpg') no-repeat 0 9px;
 }
@@ -264,8 +248,9 @@ header {
 }
 
 .not-front #page-title {
-  font-size: 20px;
+  font-size: 24px;
   margin: 0 0 7px 0;
+  color: #46494B;
 }
 
 .general-right {
@@ -276,7 +261,7 @@ header {
   }
   .right-block p {
     margin: 30px 0 10px;
-    &:first-child {
+    &:first-child{
       margin: 0 0 10px;
     }
   }
@@ -285,7 +270,7 @@ header {
     padding: 0;
     float: none;
     margin: 30px auto auto;
-    border: 1px dotted #b1c2ca;
+    border: 1px dashed #b1c2ca;
     a.submit-feedback {
     @include box-shadow(0px, 0px, 0px, 0px, rgba(0, 0, 0, 0));
     width: auto;
