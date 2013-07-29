@@ -360,8 +360,8 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['block_description'] = 'Staff Resources Classic';
 
-  /* Display: Top links */
-  $handler = $view->new_display('block', 'Top links', 'block_4');
+  /* Display: Top links (2 column) */
+  $handler = $view->new_display('block', 'Top links (2 column)', 'block_4');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Top links';
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -369,7 +369,86 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '18';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['style_options']['columns'] = '2';
+  $handler->display->display_options['style_options']['alignment'] = 'vertical';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Authenticated */
+  $handler->display->display_options['fields']['field_resource_authenticated']['id'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['table'] = 'field_data_field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['field'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['label'] = '';
+  $handler->display->display_options['fields']['field_resource_authenticated']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_resource_authenticated']['element_label_colon'] = FALSE;
+  /* Field: Field: Link */
+  $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
+  $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['label'] = '';
+  $handler->display->display_options['fields']['field_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['path'] = '[field_link]';
+  $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['link_class'] = '[field_resource_authenticated]';
+  $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Taxonomy term: Name */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'staff_resource' => 'staff_resource',
+  );
+  /* Filter criterion: Field: Link (field_link:url) */
+  $handler->display->display_options['filters']['field_link_url']['id'] = 'field_link_url';
+  $handler->display->display_options['filters']['field_link_url']['table'] = 'field_data_field_link';
+  $handler->display->display_options['filters']['field_link_url']['field'] = 'field_link_url';
+  $handler->display->display_options['filters']['field_link_url']['operator'] = 'not empty';
+  /* Filter criterion: Taxonomy term: Resource Category (field_resource_category) */
+  $handler->display->display_options['filters']['field_resource_category_tid']['id'] = 'field_resource_category_tid';
+  $handler->display->display_options['filters']['field_resource_category_tid']['table'] = 'field_data_field_resource_category';
+  $handler->display->display_options['filters']['field_resource_category_tid']['field'] = 'field_resource_category_tid';
+  $handler->display->display_options['filters']['field_resource_category_tid']['value'] = array(
+    1517 => '1517',
+  );
+  $handler->display->display_options['filters']['field_resource_category_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_resource_category_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_resource_category_tid']['vocabulary'] = 'resource_category_staff';
+
+  /* Display: Top links (1 column) */
+  $handler = $view->new_display('block', 'Top links (1 column)', 'block_8');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Top links';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '11';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -606,15 +685,17 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['filters']['name']['operator'] = '!=';
   $handler->display->display_options['filters']['name']['value'] = 'Directorates';
 
-  /* Display: Staff Resource by Parent */
-  $handler = $view->new_display('block', 'Staff Resource by Parent', 'block_2');
+  /* Display: Staff Resource by Parent (2 column) */
+  $handler = $view->new_display('block', 'Staff Resource by Parent (2 column)', 'block_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '18';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['style_options']['columns'] = '2';
+  $handler->display->display_options['style_options']['alignment'] = 'vertical';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -663,6 +744,86 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Taxonomy term: Name */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Taxonomy term: Name */
+  $handler->display->display_options['arguments']['name']['id'] = 'name';
+  $handler->display->display_options['arguments']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['arguments']['name']['field'] = 'name';
+  $handler->display->display_options['arguments']['name']['relationship'] = 'field_resource_category_tid';
+  $handler->display->display_options['arguments']['name']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['name']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['name']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['name']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['name']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['name']['limit'] = '0';
+
+  /* Display: Staff Resource by Parent (1 Column) */
+  $handler = $view->new_display('block', 'Staff Resource by Parent (1 Column)', 'block_9');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '18';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Parent */
+  $handler->display->display_options['relationships']['parent']['id'] = 'parent';
+  $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
+  $handler->display->display_options['relationships']['parent']['field'] = 'parent';
+  $handler->display->display_options['relationships']['parent']['ui_name'] = 'Parent';
+  /* Relationship: Resource Category */
+  $handler->display->display_options['relationships']['field_resource_category_tid']['id'] = 'field_resource_category_tid';
+  $handler->display->display_options['relationships']['field_resource_category_tid']['table'] = 'field_data_field_resource_category';
+  $handler->display->display_options['relationships']['field_resource_category_tid']['field'] = 'field_resource_category_tid';
+  $handler->display->display_options['relationships']['field_resource_category_tid']['ui_name'] = 'Resource Category';
+  $handler->display->display_options['relationships']['field_resource_category_tid']['label'] = 'Resource Category';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Authenticated */
+  $handler->display->display_options['fields']['field_resource_authenticated']['id'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['table'] = 'field_data_field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['field'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['label'] = '';
+  $handler->display->display_options['fields']['field_resource_authenticated']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_resource_authenticated']['element_label_colon'] = FALSE;
+  /* Field: Field: Link */
+  $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
+  $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['label'] = '';
+  $handler->display->display_options['fields']['field_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['path'] = '[field_link]';
+  $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['link_class'] = '[field_resource_authenticated]';
+  $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Taxonomy term: Name */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Taxonomy term: Name */
   $handler->display->display_options['arguments']['name']['id'] = 'name';
@@ -725,113 +886,6 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['filters']['name']['field'] = 'name';
   $handler->display->display_options['filters']['name']['operator'] = '!=';
   $handler->display->display_options['filters']['name']['value'] = 'Modern';
-
-  /* Display: Staff Resource Org */
-  $handler = $view->new_display('block', 'Staff Resource Org', 'block_7');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'list';
-  $handler->display->display_options['style_options']['grouping'] = array(
-    0 => array(
-      'field' => 'name_1',
-      'rendered' => 1,
-      'rendered_strip' => 0,
-    ),
-  );
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Taxonomy term: Authenticated */
-  $handler->display->display_options['fields']['field_resource_authenticated']['id'] = 'field_resource_authenticated';
-  $handler->display->display_options['fields']['field_resource_authenticated']['table'] = 'field_data_field_resource_authenticated';
-  $handler->display->display_options['fields']['field_resource_authenticated']['field'] = 'field_resource_authenticated';
-  $handler->display->display_options['fields']['field_resource_authenticated']['label'] = '';
-  $handler->display->display_options['fields']['field_resource_authenticated']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_resource_authenticated']['element_label_colon'] = FALSE;
-  /* Field: Field: Link */
-  $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
-  $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
-  $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
-  $handler->display->display_options['fields']['field_link']['label'] = '';
-  $handler->display->display_options['fields']['field_link']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_link']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
-  /* Field: Taxonomy term: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['label'] = '';
-  $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['path'] = '[field_link]';
-  $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['link_class'] = '[field_resource_authenticated]';
-  $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
-  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
-  /* Field: Field: Link */
-  $handler->display->display_options['fields']['field_link_1']['id'] = 'field_link_1';
-  $handler->display->display_options['fields']['field_link_1']['table'] = 'field_data_field_link';
-  $handler->display->display_options['fields']['field_link_1']['field'] = 'field_link';
-  $handler->display->display_options['fields']['field_link_1']['relationship'] = 'parent';
-  $handler->display->display_options['fields']['field_link_1']['label'] = '';
-  $handler->display->display_options['fields']['field_link_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_link_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_link_1']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_link_1']['type'] = 'link_plain';
-  /* Field: Taxonomy term: Name */
-  $handler->display->display_options['fields']['name_1']['id'] = 'name_1';
-  $handler->display->display_options['fields']['name_1']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['name_1']['field'] = 'name';
-  $handler->display->display_options['fields']['name_1']['relationship'] = 'parent';
-  $handler->display->display_options['fields']['name_1']['label'] = '';
-  $handler->display->display_options['fields']['name_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['name_1']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['name_1']['alter']['path'] = '[field_link_1] ';
-  $handler->display->display_options['fields']['name_1']['alter']['external'] = TRUE;
-  $handler->display->display_options['fields']['name_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Taxonomy term: Name */
-  $handler->display->display_options['arguments']['name']['id'] = 'name';
-  $handler->display->display_options['arguments']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['arguments']['name']['field'] = 'name';
-  $handler->display->display_options['arguments']['name']['relationship'] = 'parent';
-  $handler->display->display_options['arguments']['name']['default_action'] = 'summary';
-  $handler->display->display_options['arguments']['name']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['name']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['name']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['name']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['name']['limit'] = '0';
-  $handler->display->display_options['arguments']['name']['case'] = 'lower';
-  $handler->display->display_options['arguments']['name']['transform_dash'] = TRUE;
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
-  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
-  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['value'] = array(
-    'staff_resource' => 'staff_resource',
-  );
-  /* Filter criterion: Taxonomy term: Organization (field_resource_org) */
-  $handler->display->display_options['filters']['field_resource_org_value']['id'] = 'field_resource_org_value';
-  $handler->display->display_options['filters']['field_resource_org_value']['table'] = 'field_data_field_resource_org';
-  $handler->display->display_options['filters']['field_resource_org_value']['field'] = 'field_resource_org_value';
-  $handler->display->display_options['filters']['field_resource_org_value']['value'] = array(
-    'Yes' => 'Yes',
-  );
-  /* Filter criterion: Taxonomy term: Name */
-  $handler->display->display_options['filters']['name']['id'] = 'name';
-  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['filters']['name']['field'] = 'name';
-  $handler->display->display_options['filters']['name']['relationship'] = 'parent';
-  $handler->display->display_options['filters']['name']['operator'] = '!=';
-  $handler->display->display_options['filters']['name']['value'] = 'Directorates';
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
@@ -939,6 +993,113 @@ function slac_igp_resources_views_default_views() {
       'label' => 'Taxonomy term: Name',
     ),
   );
+
+  /* Display: Staff Resource Org */
+  $handler = $view->new_display('block', 'Staff Resource Org', 'block_7');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'name_1',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Authenticated */
+  $handler->display->display_options['fields']['field_resource_authenticated']['id'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['table'] = 'field_data_field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['field'] = 'field_resource_authenticated';
+  $handler->display->display_options['fields']['field_resource_authenticated']['label'] = '';
+  $handler->display->display_options['fields']['field_resource_authenticated']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_resource_authenticated']['element_label_colon'] = FALSE;
+  /* Field: Field: Link */
+  $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
+  $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['label'] = '';
+  $handler->display->display_options['fields']['field_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['path'] = '[field_link]';
+  $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['link_class'] = '[field_resource_authenticated]';
+  $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
+  /* Field: Field: Link */
+  $handler->display->display_options['fields']['field_link_1']['id'] = 'field_link_1';
+  $handler->display->display_options['fields']['field_link_1']['table'] = 'field_data_field_link';
+  $handler->display->display_options['fields']['field_link_1']['field'] = 'field_link';
+  $handler->display->display_options['fields']['field_link_1']['relationship'] = 'parent';
+  $handler->display->display_options['fields']['field_link_1']['label'] = '';
+  $handler->display->display_options['fields']['field_link_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_link_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_link_1']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_link_1']['type'] = 'link_plain';
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name_1']['id'] = 'name_1';
+  $handler->display->display_options['fields']['name_1']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name_1']['field'] = 'name';
+  $handler->display->display_options['fields']['name_1']['relationship'] = 'parent';
+  $handler->display->display_options['fields']['name_1']['label'] = '';
+  $handler->display->display_options['fields']['name_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['name_1']['alter']['path'] = '[field_link_1] ';
+  $handler->display->display_options['fields']['name_1']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['name_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Taxonomy term: Name */
+  $handler->display->display_options['arguments']['name']['id'] = 'name';
+  $handler->display->display_options['arguments']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['arguments']['name']['field'] = 'name';
+  $handler->display->display_options['arguments']['name']['relationship'] = 'parent';
+  $handler->display->display_options['arguments']['name']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['name']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['name']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['name']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['name']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['name']['limit'] = '0';
+  $handler->display->display_options['arguments']['name']['case'] = 'lower';
+  $handler->display->display_options['arguments']['name']['transform_dash'] = TRUE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'staff_resource' => 'staff_resource',
+  );
+  /* Filter criterion: Taxonomy term: Organization (field_resource_org) */
+  $handler->display->display_options['filters']['field_resource_org_value']['id'] = 'field_resource_org_value';
+  $handler->display->display_options['filters']['field_resource_org_value']['table'] = 'field_data_field_resource_org';
+  $handler->display->display_options['filters']['field_resource_org_value']['field'] = 'field_resource_org_value';
+  $handler->display->display_options['filters']['field_resource_org_value']['value'] = array(
+    'Yes' => 'Yes',
+  );
+  /* Filter criterion: Taxonomy term: Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'parent';
+  $handler->display->display_options['filters']['name']['operator'] = '!=';
+  $handler->display->display_options['filters']['name']['value'] = 'Directorates';
   $export['staff_resources_classic'] = $view;
 
   return $export;

@@ -104,7 +104,7 @@ function slac_igp_resources_quicktabs_default_quicktabs() {
   $quicktabs->tabs = array(
     0 => array(
       'vid' => 'staff_resources_classic',
-      'display' => 'block_4',
+      'display' => 'block_8',
       'args' => '',
       'title' => 'Top Links',
       'weight' => '-100',
@@ -112,7 +112,7 @@ function slac_igp_resources_quicktabs_default_quicktabs() {
     ),
     1 => array(
       'vid' => 'staff_resources_classic',
-      'display' => 'block_2',
+      'display' => 'block_9',
       'args' => 'Central Services',
       'title' => 'Central Services',
       'weight' => '-99',
@@ -120,7 +120,7 @@ function slac_igp_resources_quicktabs_default_quicktabs() {
     ),
     2 => array(
       'vid' => 'staff_resources_classic',
-      'display' => 'block_2',
+      'display' => 'block_9',
       'args' => 'Helpful Resources',
       'title' => 'Helpful Resources',
       'weight' => '-98',
@@ -128,7 +128,7 @@ function slac_igp_resources_quicktabs_default_quicktabs() {
     ),
     3 => array(
       'vid' => 'staff_resources_classic',
-      'display' => 'block_2',
+      'display' => 'block_9',
       'args' => 'HR Services & Benefits',
       'title' => 'HR Services & Benefits',
       'weight' => '-97',
@@ -136,7 +136,7 @@ function slac_igp_resources_quicktabs_default_quicktabs() {
     ),
     4 => array(
       'vid' => 'staff_resources_classic',
-      'display' => 'block_2',
+      'display' => 'block_9',
       'args' => 'Life at SLAC',
       'title' => 'Life at SLAC',
       'weight' => '-96',
@@ -144,7 +144,7 @@ function slac_igp_resources_quicktabs_default_quicktabs() {
     ),
     5 => array(
       'vid' => 'staff_resources_classic',
-      'display' => 'block_2',
+      'display' => 'block_9',
       'args' => ' Policies & Procedures',
       'title' => 'Policies & Procedures',
       'weight' => '-95',
@@ -152,7 +152,7 @@ function slac_igp_resources_quicktabs_default_quicktabs() {
     ),
     6 => array(
       'vid' => 'staff_resources_classic',
-      'display' => 'block_2',
+      'display' => 'block_9',
       'args' => 'Safety & Training',
       'title' => 'Safety & Training',
       'weight' => '-94',

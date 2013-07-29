@@ -147,7 +147,7 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->pid = 'new-4';
     $pane->panel = 'colthreerowfive';
     $pane->type = 'block';
-    $pane->subtype = 'views-flea_market-block';
+    $pane->subtype = 'boxes-it_help_desk';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -171,7 +171,7 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->pid = 'new-5';
     $pane->panel = 'colthreerowfive';
     $pane->type = 'block';
-    $pane->subtype = 'boxes-it_help_desk';
+    $pane->subtype = 'views-flea_market-block';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(

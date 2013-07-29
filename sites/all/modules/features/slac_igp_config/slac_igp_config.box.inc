@@ -19,13 +19,7 @@ function slac_igp_config_default_box() {
   $box->description = 'Connect (Social media)';
   $box->options = array(
     'body' => array(
-      'value' => '<ul class="socials">
-<li class="fb"><a href="#">Facebook</a></li>
-<li class="flickr"><a href="#">Flickr</a></li>
-<li class="rss"><a href="#">RSS</a></li>
-<li class="twitter"><a href="#">Twitter</a></li>
-<li class="youtube"><a href="#">Youtube</a></li>
-</ul>',
+      'value' => '<ul class="socials"><li class="fb"><a href="https://www.facebook.com/SLAC.National.Lab">Facebook</a></li><li class="flickr"><a href="http://www.flickr.com/photos/slaclab/">Flickr</a></li><li class="rss"><a href="https://news.slac.stanford.edu/today-stories">RSS</a></li><li class="twitter"><a href="https://twitter.com/SLACLab">Twitter</a></li><li class="youtube"><a href="http://www.youtube.com/user/SLAC">Youtube</a></li></ul>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -86,11 +80,7 @@ Building 50 <br />
   $box->description = 'IT Help Desk';
   $box->options = array(
     'body' => array(
-      'value' => '<p>7am - 6pm, Monday - Friday</p><p><a href="#">Building 50, First Floor Lobby</a></p><p>xHELP (650-926-4357)</p><p><a href="mailto:ithelp@slac.stanford.edu">ithelp@slac.stanford.edu</a></p>
-<div class="view-footer">
-<a href="#">Submit Request</a>
-</div>
-',
+      'value' => '<p>7am - 6pm, Monday - Friday</p><p><a href="https://www6.slac.stanford.edu/visiting-slac/maps-directions-visitormap.aspx">Building 50, First Floor Lobby</a></p><p>xHELP (650-926-4357)</p><p><a href="mailto:ithelp@slac.stanford.edu">ithelp@slac.stanford.edu</a></p><div class="view-footer"><a href="https://www-rt.slac.stanford.edu/rt3/NoAuth/Forms/RequestHelp.html">Submit Request</a></div>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -125,16 +115,11 @@ Building 50 <br />
   $box->api_version = 1;
   $box->delta = 'search_people';
   $box->plugin_key = 'simple';
-  $box->title = '';
+  $box->title = 'People finder';
   $box->description = 'Search (People)';
   $box->options = array(
     'body' => array(
-      'value' => '<form name="people_search" method="get" action="http://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search">
-<input type="text" id="searchbox" maxlength="2047" class="searchbox" name="name" size="18" value="Search" onfocus="value=\'\'">
-<input type="hidden" name="gone" value="active" />
-<input id="search-button" class="searchbutton" width="27" type="button" value="go" height="22" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" alt="go">
-<a href="http://www-public.slac.stanford.edu/phonebook/search.aspx" class="advanced-search">Advanced People Search</a>
-</form>',
+      'value' => '<form action="http://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><input class="searchbox" id="searchbox" maxlength="2047" name="name" onfocus="value=\'\'" size="18" type="text" value="Search"> <input name="gone" type="hidden" value="active"> <input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="button" value="go" width="27"> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -150,9 +135,10 @@ Building 50 <br />
   $box->description = 'Site Security';
   $box->options = array(
     'body' => array(
-      'value' => '<p><a href="#">Site Entry Authorization Form</a></p><p><a href="#">Gate Hours &amp; Access Information</a></p><p>x5555 - Emergency</p><p>x2551 - Non-emergency</p>',
+      'value' => '<p><a href="https://portal.slac.stanford.edu/info/esh/security">Site Entry Authorization Form</a></p><p><a href="http://www-group.slac.stanford.edu/esh/security/">Gate Hours &amp; Access Information</a></p><p>x5555 - Emergency</p><p>x2551 - Non-emergency</p>',
       'format' => 'full_html',
     ),
+    'additional_classes' => '',
   );
   $export['site_security'] = $box;
 
@@ -165,9 +151,10 @@ Building 50 <br />
   $box->description = 'SLAC Projects';
   $box->options = array(
     'body' => array(
-      'value' => '<ul><li>RSB Building Construction</li><li>SUSB Building Construction</li><li>Project Delta - ERP Site</li><li>LCLS II</li><li>FACET Upgrade</li></ul>',
+      'value' => '<div class="img"><img alt="" src="/sites/all/themes/slac/images/linac-thumb.png"></div><ul><li><a href="http://www-project.slac.stanford.edu/rsbproject/">RSB Building Construction</a></li><li><a href="https://news.slac.stanford.edu/tags/programs-facilities/infrastructure-safety/susb-project">SUSB Building Construction</a></li><li><a href="https://news.slac.stanford.edu/tags/programs-facilities/infrastructure-safety/slac-enterprise-resource-planning">Project Delta - ERP Site</a></li><li><a href="https://news.slac.stanford.edu/tags/programs-facilities/lightsources/lcls-ii">LCLS II</a></li><li><a href="https://news.slac.stanford.edu/tags/programs-facilities/accelerator-programs/facet-and-plasma-wakefield-acceleration">FACET Upgrade</a></li></ul>',
       'format' => 'full_html',
     ),
+    'additional_classes' => '',
   );
   $export['slac_projects'] = $box;
 
@@ -180,9 +167,10 @@ Building 50 <br />
   $box->description = 'Stanford Compliance Helpline';
   $box->options = array(
     'body' => array(
-      'value' => '<p><a href="#">Helpline Request Form</a></p><p>650-721-2667 (650-721-COMP)</p><p><a href="mailto:compliance@stanford.edu">compliance@stanford.edu</a></p>',
+      'value' => '<p><a href="https://acp.stanford.edu/compliance/compliance-and-ethics-helpline">Helpline Request Form</a></p><p>650-721-2667 (650-721-COMP)</p><p><a href="mailto:compliance@stanford.edu">compliance@stanford.edu</a></p>',
       'format' => 'full_html',
     ),
+    'additional_classes' => '',
   );
   $export['stanford_compliance'] = $box;
 
