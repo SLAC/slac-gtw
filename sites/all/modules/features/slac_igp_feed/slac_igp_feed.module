@@ -156,11 +156,14 @@ function slac_igp_feed_preprocess_views_view(&$vars) {
         $ret[$key] = $group_items;
       }
     }
-    
+
     $output = '';
     foreach ($ret as $key => $views_rows) {
       $output .= '<div class="views-row-grouped">';
-      $output .= '<h3>' . $title[$key] . '</h3>';
+      $title_date = explode(' ', $title[$key]);
+      $month = '<span class="month">' . $title_date[0] . '</span>';
+      $day = '<span class="day">' . $title_date[1] . '</span>';
+      $output .= '<h3>' . $month . $day . '</h3>';
       foreach ($views_rows as $row) {
         $output .= $row->__toString();
       }
