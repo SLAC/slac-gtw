@@ -224,6 +224,22 @@ function STARTERKIT_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
+
+/**
+ * Preprocess quicktabs
+ */
+function slac_preprocess_qt_quicktabs(&$variables) {
+  // adding the tab title into each tab content area for staff resources
+  $element = $variables['element'];
+  if ($element['#options']['attributes']['id'] === 'quicktabs-staff_resources') {
+    foreach ($element['tabs']['tablinks'] as $key => $data) {
+      $element['container']['divs'][$key]['#prefix'] .= '<h3>' . $data['#title'] . '</h3>'; 
+    }
+  }
+  $variables['element'] = $element;
+}
+
+
 function slac_preprocess_block(&$variables) {
   // In the header region visually hide block titles.
   if ($variables['block']->region == 'header') {
