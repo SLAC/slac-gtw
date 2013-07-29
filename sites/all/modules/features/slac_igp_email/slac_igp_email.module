@@ -7,7 +7,7 @@
 include_once 'slac_igp_email.features.inc';
 define('VIEW_MODE_TEASER', 'teaser');
 define('VIEW_MODE_LINK', 'link');
-define('DIRECTOR_COLUMN', 'Director column');
+define('DIRECTOR_COLUMN', 'DIRECTOR COLUMN');
 
 /**
  * Implements hook_cron
@@ -152,7 +152,7 @@ function _slac_igp_email_mailchimp_dc_content($template_sections) {
  */
 function slac_igp_directors_column(&$vars) {
   // director's column is an news article tagged with "Director's Column"
-  $term = taxonomy_get_term_by_name(DIRECTOR_COLUMN);
+  $term = taxonomy_get_term_by_name(strtolower(DIRECTOR_COLUMN));
   if (!empty($term)) {
     $keys = array_keys($term);
     $tid = $keys[0];
