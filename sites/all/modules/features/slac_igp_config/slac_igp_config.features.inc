@@ -70,14 +70,6 @@ function slac_igp_config_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
-    'research_resource' => array(
-      'name' => t('Research resource'),
-      'base' => 'node_content',
-      'description' => t('Resource links to different links'),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
   );
   return $items;
 }
