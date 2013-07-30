@@ -184,8 +184,8 @@
     width: 41.66667%;
     margin-left: 0%;
     margin-right: -41.66667%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -199,8 +199,8 @@
     width: 58.33333%;
     margin-left: 41.66667%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -217,8 +217,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -233,8 +233,8 @@
     width: 90%;
     margin-left: 0%;
     margin-right: -90%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -250,8 +250,8 @@
     width: 50%;
     margin-left: 0%;
     margin-right: -50%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -267,8 +267,8 @@
     width: 50%;
     margin-left: 50%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -289,8 +289,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -412,7 +412,7 @@
 }
 /* line 106, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources .quicktabs-tabpage {
-  min-height: 252px;
+  min-height: 259px;
   background: whitesmoke url("../images/staff-top-img.jpg") no-repeat 0 0;
   border: 1px dashed #90a7b2;
 }
@@ -545,13 +545,13 @@
     padding: 9px 0 19px;
   }
   /* line 219, ../sass/staff-page.scss */
-  .ui-accordion .ui-accordion-content ul {
+  .ui-accordion .ui-accordion-content .view-content {
     max-width: 705px;
     width: 85%;
     padding: 0 5% 0 10%;
   }
-  /* line 223, ../sass/staff-page.scss */
-  .ui-accordion .ui-accordion-content ul li {
+  /* line 224, ../sass/staff-page.scss */
+  .ui-accordion .ui-accordion-content .views-row {
     background: url("../images/blue-right-list-arrow.jpg") no-repeat left 7px;
     padding: 2px 0 2px 11px;
     margin: 0;
@@ -560,14 +560,31 @@
     display: block;
   }
   /* line 230, ../sass/staff-page.scss */
-  .ui-accordion .ui-accordion-content ul li a {
+  .ui-accordion .ui-accordion-content .views-row a {
     color: #20659A;
     font-size: 12px;
   }
 }
 @media (max-width: 600px) {
-  /* line 242, ../sass/staff-page.scss */
+  /* line 240, ../sass/staff-page.scss */
   .staff-main .inside {
     margin: 0 0 25px 0;
+  }
+
+  /* line 244, ../sass/staff-page.scss */
+  .rowtwocolone {
+    clear: none;
+    margin-bottom: 40px;
+  }
+
+  /* line 249, ../sass/staff-page.scss */
+  .rowonecolthree {
+    clear: both;
+    margin-bottom: 40px;
+  }
+
+  /* line 254, ../sass/staff-page.scss */
+  .rowtwocoltwo {
+    clear: both;
   }
 }
