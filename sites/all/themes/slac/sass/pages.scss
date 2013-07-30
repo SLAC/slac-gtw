@@ -121,33 +121,37 @@ header {
 
 /* Header Main Menu, Search*/
 
-#block-system-main-menu .menu li {
-  height: 25px;
-  line-height: 25px;
-  text-transform: uppercase;
-  font-size: 11px;
-  list-style-type: none;
-  list-style-image: none;
-  float: left;
-  padding: 0 13px;
-  background: url('../images/delimitator.jpg') no-repeat right center;
-  &.last{
-    background: transparent;
-  }
-  a {
-    color: #fff;
-    text-decoration: none;
+#block-system-main-menu{
+  float: right;
+  .menu li {
+    height: 25px;
+    line-height: 25px;
+    text-transform: uppercase;
+    font-size: 11px;
+    list-style-type: none;
+    list-style-image: none;
+    float: left;
+    padding: 0 13px;
+    background: url('../images/delimitator.jpg') no-repeat right center;
+    &.last{
+      background: transparent;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
   }
 }
 
 #block-boxes-web-search,
 #block-boxes-search-people{
   float: right;
-  clear: left;
+  clear: right;
+  margin-left: 20px;
 }
 
 .header-search,
-#people_search{
+#block-boxes-search-people{
   position: relative;
   background: #fff;
   overflow: hidden;
@@ -176,12 +180,19 @@ header {
   }
 }
 
-#people_search{
-  background: #2582CA;
-  color: #F2F2F2;
-  padding: 0;
-  font-size: 11px;
-  text-transform: uppercase;
+
+#block-boxes-search-people{
+  clear:none;
+  .searchbutton{
+    background: #2582CA;
+    color: #F2F2F2;
+    padding: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    width: 26px;
+    height: 22px;
+    margin: 1px;
+  }
 }
 
 /*
@@ -297,12 +308,9 @@ header {
   }
 }
   
-.rowonecoltwo ul{
-  min-height: 296px;
-} 
-
+.rowonecoltwo ul,
 .rowonecolthree ul{
-  min-height: 310px;
+  min-height: 311px;
 }
 
 .rowtwocolone ul,
