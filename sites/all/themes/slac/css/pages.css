@@ -458,7 +458,7 @@ header {
 
 /* line 150, ../sass/pages.scss */
 .header-search,
-#people_search {
+#block-boxes-search-people {
   position: relative;
   background: #fff;
   overflow: hidden;
@@ -469,7 +469,7 @@ header {
 }
 /* line 158, ../sass/pages.scss */
 .header-search input,
-#people_search input {
+#block-boxes-search-people input {
   float: left;
   border: none;
   background: none;
@@ -482,19 +482,19 @@ header {
 }
 /* line 169, ../sass/pages.scss */
 .header-search .search-button,
-#people_search .search-button {
+#block-boxes-search-people .search-button {
   width: 26px;
   height: 22px;
   margin: 1px;
 }
 /* line 174, ../sass/pages.scss */
 .front .header-search, .front
-#people_search {
+#block-boxes-search-people {
   background: #ebebeb;
 }
 
 /* line 179, ../sass/pages.scss */
-#people_search {
+#block-boxes-search-people .search-button {
   background: #2582CA;
   color: #F2F2F2;
   padding: 0;
