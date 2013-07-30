@@ -270,19 +270,24 @@
 
 /* Front page top links block*/
 
-.frontpage-top-links .pane-content ul li {
-  font-size: 12px;
-  margin: 0 0 7px 0;
-  float: left;
-  width: 44%;
-  &.views-row-odd {
-    clear: both;
-    margin-right: 6%;
-  }
-  a {
-    padding-left: 12px;
-    background: url('../images/list-dot.png') no-repeat 0 7px;
-    display: block;
+.frontpage-top-links{
+   .views-view-grid{
+    margin: 0;
+   }
+   td{
+    font-size: 12px;
+    margin: 0 0 7px 0;
+    float: left;
+    width: 44%;
+    &.col-1 {
+      clear: both;
+      margin-right: 6%;
+    }
+    a{
+      padding-left: 12px;
+      background: url('../images/list-dot.png') no-repeat 0 7px;
+      display: block;
+    }
   }
 }
 

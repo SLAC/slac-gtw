@@ -184,8 +184,8 @@
     width: 41.66667%;
     margin-left: 0%;
     margin-right: -41.66667%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -199,8 +199,8 @@
     width: 58.33333%;
     margin-left: 41.66667%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -217,8 +217,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -233,8 +233,8 @@
     width: 90%;
     margin-left: 0%;
     margin-right: -90%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -250,8 +250,8 @@
     width: 50%;
     margin-left: 0%;
     margin-right: -50%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -267,8 +267,8 @@
     width: 50%;
     margin-left: 50%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -289,8 +289,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -606,26 +606,30 @@
 }
 
 /* Front page top links block*/
-/* line 273, ../sass/blocks.scss */
-.frontpage-top-links .pane-content ul li {
+/* line 274, ../sass/blocks.scss */
+.frontpage-top-links .views-view-grid {
+  margin: 0;
+}
+/* line 277, ../sass/blocks.scss */
+.frontpage-top-links td {
   font-size: 12px;
   margin: 0 0 7px 0;
   float: left;
   width: 44%;
 }
-/* line 278, ../sass/blocks.scss */
-.frontpage-top-links .pane-content ul li.views-row-odd {
+/* line 282, ../sass/blocks.scss */
+.frontpage-top-links td.col-1 {
   clear: both;
   margin-right: 6%;
 }
-/* line 282, ../sass/blocks.scss */
-.frontpage-top-links .pane-content ul li a {
+/* line 286, ../sass/blocks.scss */
+.frontpage-top-links td a {
   padding-left: 12px;
   background: url("../images/list-dot.png") no-repeat 0 7px;
   display: block;
 }
 
-/* line 290, ../sass/blocks.scss */
+/* line 295, ../sass/blocks.scss */
 .frontpage-slac-science .pane-content > .view-news > .view-content .views-row,
 .frontpage-news-list .views-row {
   padding-left: 12px;
@@ -634,36 +638,36 @@
 }
 
 /* Front page right sidebar boxes */
-/* line 299, ../sass/blocks.scss */
+/* line 304, ../sass/blocks.scss */
 .frontpage-security-contacts p,
 .pane-boxes-it-help-desk p {
   margin: 0 0 8px 0;
   font-size: 12px;
 }
 
-/* line 305, ../sass/blocks.scss */
+/* line 310, ../sass/blocks.scss */
 .pane-views-flea-market-block .views-row {
   font-size: 11px;
   padding: 8px 0;
   border-top: 1px dashed #b8c9d1;
 }
-/* line 310, ../sass/blocks.scss */
+/* line 315, ../sass/blocks.scss */
 .pane-views-flea-market-block .views-row-first {
   padding-top: 0;
   border-top: none;
 }
 
-/* line 316, ../sass/blocks.scss */
+/* line 321, ../sass/blocks.scss */
 .pane-boxes-slac-projects .pane-content {
   overflow: hidden;
   padding-bottom: 8px;
 }
-/* line 319, ../sass/blocks.scss */
+/* line 324, ../sass/blocks.scss */
 .pane-boxes-slac-projects .pane-content img {
   float: left;
   margin: 0 20px 0 0;
 }
-/* line 323, ../sass/blocks.scss */
+/* line 328, ../sass/blocks.scss */
 .pane-boxes-slac-projects .pane-content li {
   color: #20659A;
   list-style-type: none;
@@ -672,7 +676,7 @@
   margin-bottom: 7px;
 }
 
-/* line 332, ../sass/blocks.scss */
+/* line 337, ../sass/blocks.scss */
 a.submit-feedback {
   background: #2482c9;
   width: 110px;
@@ -692,12 +696,12 @@ a.submit-feedback {
 }
 
 /* Socials */
-/* line 348, ../sass/blocks.scss */
+/* line 353, ../sass/blocks.scss */
 .socials {
   padding-bottom: 7px;
   overflow: hidden;
 }
-/* line 351, ../sass/blocks.scss */
+/* line 356, ../sass/blocks.scss */
 .socials li {
   float: left;
   list-style-image: none;
@@ -708,85 +712,85 @@ a.submit-feedback {
   min-width: 16px;
   height: 16px;
 }
-/* line 360, ../sass/blocks.scss */
+/* line 365, ../sass/blocks.scss */
 .socials li a {
   display: block;
   height: 1px;
   padding: 23px 0 0 0;
   overflow: hidden;
 }
-/* line 367, ../sass/blocks.scss */
+/* line 372, ../sass/blocks.scss */
 .socials .fb {
   background-position: center 0;
 }
-/* line 370, ../sass/blocks.scss */
+/* line 375, ../sass/blocks.scss */
 .socials .flickr {
   background-position: center -20px;
 }
-/* line 373, ../sass/blocks.scss */
+/* line 378, ../sass/blocks.scss */
 .socials .rss {
   background-position: center -40px;
 }
-/* line 376, ../sass/blocks.scss */
+/* line 381, ../sass/blocks.scss */
 .socials .twitter {
   background-position: center -60px;
 }
-/* line 379, ../sass/blocks.scss */
+/* line 384, ../sass/blocks.scss */
 .socials .youtube {
   background-position: center -80px;
 }
 
 /* Front slider */
-/* line 386, ../sass/blocks.scss */
+/* line 391, ../sass/blocks.scss */
 .frontpage-news-slider {
   position: relative;
 }
 
-/* line 390, ../sass/blocks.scss */
+/* line 395, ../sass/blocks.scss */
 .views-slideshow-cycle-main-frame {
   max-width: 100%;
 }
-/* line 392, ../sass/blocks.scss */
+/* line 397, ../sass/blocks.scss */
 .views-slideshow-cycle-main-frame div {
   max-width: 100%;
 }
 
 /* Front middle general */
-/* line 399, ../sass/blocks.scss */
+/* line 404, ../sass/blocks.scss */
 .frontpage-slac-science .pane-content > .view-news > .view-content .views-row, .frontpage-news-list .views-row {
   padding-bottom: 7px;
   font-size: 12px;
 }
 
-/* line 405, ../sass/blocks.scss */
+/* line 410, ../sass/blocks.scss */
 .frontpage-slac-science .pane-content > .view-news > .view-content .views-field-title, .frontpage-slac-science .views-field-created {
   display: inline;
 }
 
-/* line 411, ../sass/blocks.scss */
+/* line 416, ../sass/blocks.scss */
 .frontpage-news-list .views-field-title, .frontpage-news-list .views-field-created {
   display: inline;
 }
 
-/* line 416, ../sass/blocks.scss */
+/* line 421, ../sass/blocks.scss */
 .frontpage-slac-science .views-field-created, .frontpage-news-list .views-field-created {
   font-size: 11px;
   color: #46494b;
   font-style: italic;
 }
 
-/* line 422, ../sass/blocks.scss */
+/* line 427, ../sass/blocks.scss */
 .frontpage-slac-science .view-header {
   margin: -12px -18px 10px;
   position: relative;
 }
-/* line 425, ../sass/blocks.scss */
+/* line 430, ../sass/blocks.scss */
 .frontpage-slac-science .view-header img {
   max-width: 100%;
   display: block;
 }
 
-/* line 431, ../sass/blocks.scss */
+/* line 436, ../sass/blocks.scss */
 .frontpage-news-slider .views-field-nothing, .frontpage-slac-science .view-header .views-field-nothing {
   position: absolute;
   bottom: 0;
@@ -799,7 +803,7 @@ a.submit-feedback {
   width: 94%;
 }
 
-/* line 443, ../sass/blocks.scss */
+/* line 448, ../sass/blocks.scss */
 .frontpage-news-slider .title a, .frontpage-slac-science .view-header .title a {
   color: #fff;
   text-decoration: none;
@@ -811,15 +815,15 @@ a.submit-feedback {
 .frontpage-news-slider img{
   float: left;
 }*/
-/* line 455, ../sass/blocks.scss */
+/* line 460, ../sass/blocks.scss */
 .frontpage-news-slider {
   border: 1px solid #b0aeac;
 }
-/* line 457, ../sass/blocks.scss */
+/* line 462, ../sass/blocks.scss */
 .frontpage-news-slider .views-field-nothing {
   margin: -1px;
 }
-/* line 460, ../sass/blocks.scss */
+/* line 465, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span {
   position: absolute;
   top: 45%;
@@ -835,34 +839,34 @@ a.submit-feedback {
   -ms-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 470, ../sass/blocks.scss */
+/* line 475, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span a {
   display: block;
   background: url("../images/slider-back.png") no-repeat center;
   height: 1px;
   padding: 73px 0 0 0;
 }
-/* line 477, ../sass/blocks.scss */
+/* line 482, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text-previous {
   left: 20px;
 }
-/* line 480, ../sass/blocks.scss */
+/* line 485, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text-next {
   right: 20px;
 }
-/* line 483, ../sass/blocks.scss */
+/* line 488, ../sass/blocks.scss */
 .frontpage-news-slider span.views-slideshow-controls-text-next a {
   background-image: url("../images/slider-next.png");
 }
-/* line 486, ../sass/blocks.scss */
+/* line 491, ../sass/blocks.scss */
 .frontpage-news-slider span.views-slideshow-controls-text-pause {
   display: none;
 }
-/* line 488, ../sass/blocks.scss */
+/* line 493, ../sass/blocks.scss */
 .frontpage-news-slider span.views-slideshow-controls-text-pause a {
   display: none;
 }
-/* line 492, ../sass/blocks.scss */
+/* line 497, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-pager-fields {
   position: absolute;
   right: 0;
@@ -870,7 +874,7 @@ a.submit-feedback {
   z-index: 99;
   margin: 10px 15px 0 0;
 }
-/* line 499, ../sass/blocks.scss */
+/* line 504, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-pager-field-item {
   float: left;
   width: 22px;
@@ -880,19 +884,19 @@ a.submit-feedback {
   background: url("../images/slider-pager.png") no-repeat 0 0;
   margin-left: 6px;
 }
-/* line 507, ../sass/blocks.scss */
+/* line 512, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-pager-field-item.active {
   background-image: url("../images/slider-pager-active.png");
 }
 
-/* line 514, ../sass/blocks.scss */
+/* line 519, ../sass/blocks.scss */
 .section-about .field-type-text-with-summary p {
   padding-bottom: 20px;
   margin-bottom: 0 0 20px 0;
   border-bottom: 1px dashed #b1c2ca;
   color: #45464C;
 }
-/* line 520, ../sass/blocks.scss */
+/* line 525, ../sass/blocks.scss */
 .section-about .field-type-text-with-summary li {
   margin-left: 2.5%;
   width: 97.5%;
@@ -903,28 +907,28 @@ a.submit-feedback {
 }
 
 @media (max-width: 1300px) {
-  /* line 531, ../sass/blocks.scss */
+  /* line 536, ../sass/blocks.scss */
   .pane-boxes-stanford-compliance {
     margin-top: 44px;
   }
 
-  /* line 535, ../sass/blocks.scss */
+  /* line 540, ../sass/blocks.scss */
   .pane-boxes-stanford-compliance h2 {
     margin-top: -26px;
   }
 }
 @media (max-width: 900px) {
-  /* line 542, ../sass/blocks.scss */
+  /* line 547, ../sass/blocks.scss */
   .brown-bodered-white h2 {
     font-size: 11px;
     margin-top: -12px;
   }
 
-  /* line 547, ../sass/blocks.scss */
+  /* line 552, ../sass/blocks.scss */
   .blue-striped-list > .pane-content {
     padding: 10px;
   }
-  /* line 550, ../sass/blocks.scss */
+  /* line 555, ../sass/blocks.scss */
   .blue-striped-list .view-content .views-row {
     background: #e9f2f9;
     border: none;
@@ -933,7 +937,7 @@ a.submit-feedback {
     margin-top: 7px;
     margin-bottom: 7px;
   }
-  /* line 557, ../sass/blocks.scss */
+  /* line 562, ../sass/blocks.scss */
   .blue-striped-list .view-content .views-row a {
     background: none;
     padding: 0;
@@ -941,27 +945,27 @@ a.submit-feedback {
     padding: 6px 7%;
   }
 
-  /* line 565, ../sass/blocks.scss */
+  /* line 570, ../sass/blocks.scss */
   .frontpage-news-slider .views-field-nothing .body {
     display: none;
   }
 
-  /* line 568, ../sass/blocks.scss */
+  /* line 573, ../sass/blocks.scss */
   .frontpage-top-links .view-content .views-row {
     width: 100%;
   }
 
-  /* line 572, ../sass/blocks.scss */
+  /* line 577, ../sass/blocks.scss */
   .frontpage-slac-science {
     margin-bottom: 16px;
   }
 
-  /* line 576, ../sass/blocks.scss */
+  /* line 581, ../sass/blocks.scss */
   .frontpage-calendar h3 {
     margin-left: -10px;
   }
 
-  /* line 581, ../sass/blocks.scss */
+  /* line 586, ../sass/blocks.scss */
   .frontpage-help-market,
   .frontpage-security-contacts {
     clear: both;
@@ -971,31 +975,31 @@ a.submit-feedback {
   }
 }
 @media (max-width: 600px) {
-  /* line 596, ../sass/blocks.scss */
+  /* line 601, ../sass/blocks.scss */
   .frontpage-calendar {
     display: block;
   }
 
   /* People search*/
-  /* line 600, ../sass/blocks.scss */
+  /* line 605, ../sass/blocks.scss */
   .no-bg {
     background: transparent;
     border: none;
   }
-  /* line 603, ../sass/blocks.scss */
+  /* line 608, ../sass/blocks.scss */
   .no-bg.brown-bodered-white {
     margin-top: 0;
   }
-  /* line 605, ../sass/blocks.scss */
+  /* line 610, ../sass/blocks.scss */
   .no-bg.brown-bodered-white > .pane-content {
     padding: 0;
   }
 
-  /* line 611, ../sass/blocks.scss */
+  /* line 616, ../sass/blocks.scss */
   .frontpage-people-finder .advanced-search {
     display: none;
   }
-  /* line 614, ../sass/blocks.scss */
+  /* line 619, ../sass/blocks.scss */
   .frontpage-people-finder form {
     height: 26px;
     border: 3px solid #b8d6ee;
@@ -1003,7 +1007,7 @@ a.submit-feedback {
     position: relative;
     background: #fff;
   }
-  /* line 621, ../sass/blocks.scss */
+  /* line 626, ../sass/blocks.scss */
   .frontpage-people-finder .searchbox {
     height: 26px;
     border: none;
@@ -1018,7 +1022,7 @@ a.submit-feedback {
     border: none;
     margin: 0;
   }
-  /* line 631, ../sass/blocks.scss */
+  /* line 636, ../sass/blocks.scss */
   .frontpage-people-finder .searchbutton {
     background: #b8d6ee url("../images/small-search-icon.jpg") no-repeat center right;
     border: none;
@@ -1033,7 +1037,7 @@ a.submit-feedback {
   }
 
   /* Middle blocks */
-  /* line 646, ../sass/blocks.scss */
+  /* line 651, ../sass/blocks.scss */
   .blue-bodered-white .pane-title {
     background: #a8bcc7 url("../images/blue-arrow.jpg") no-repeat right center;
     font-size: 12px;
@@ -1041,21 +1045,21 @@ a.submit-feedback {
     line-height: 32px;
     margin-bottom: 20px;
   }
-  /* line 653, ../sass/blocks.scss */
+  /* line 658, ../sass/blocks.scss */
   .blue-bodered-white > .pane-content {
     padding: 0;
   }
 
-  /* line 657, ../sass/blocks.scss */
+  /* line 662, ../sass/blocks.scss */
   .frontpage-slac-science .view-header {
     margin: 0 0 20px 0;
   }
 
-  /* line 661, ../sass/blocks.scss */
+  /* line 666, ../sass/blocks.scss */
   .blue-bodered-white .view-footer {
     display: none;
   }
-  /* line 664, ../sass/blocks.scss */
+  /* line 669, ../sass/blocks.scss */
   .blue-bodered-white .pane-content > .view-news > .view-content .views-row {
     padding: 8px 52px 8px 11px;
     margin: 0 0 18px 0;
@@ -1063,44 +1067,44 @@ a.submit-feedback {
     font-size: 13px;
     background: white url("/sites/all/themes/slac/images/list-arrow.jpg") no-repeat right center;
   }
-  /* line 671, ../sass/blocks.scss */
+  /* line 676, ../sass/blocks.scss */
   .blue-bodered-white .views-field-created {
     font-size: 12px;
   }
 
   /* Socials */
-  /* line 677, ../sass/blocks.scss */
+  /* line 682, ../sass/blocks.scss */
   .socials li {
     min-width: 24px;
     height: 24px;
     background: url("../images/socialsx24.png") no-repeat;
   }
-  /* line 682, ../sass/blocks.scss */
+  /* line 687, ../sass/blocks.scss */
   .socials .flickr {
     background-position: center -30px;
   }
-  /* line 685, ../sass/blocks.scss */
+  /* line 690, ../sass/blocks.scss */
   .socials .rss {
     background-position: center -60px;
   }
-  /* line 688, ../sass/blocks.scss */
+  /* line 693, ../sass/blocks.scss */
   .socials .twitter {
     background-position: center -90px;
   }
-  /* line 691, ../sass/blocks.scss */
+  /* line 696, ../sass/blocks.scss */
   .socials .youtube {
     background-position: center -120px;
   }
 
   /* */
-  /* line 697, ../sass/blocks.scss */
+  /* line 702, ../sass/blocks.scss */
   .frontpage-news-slider .views-field-nothing, .frontpage-slac-science .view-header .views-field-nothing {
     position: static;
     background: #fff;
     color: #1a6199;
   }
 
-  /* line 702, ../sass/blocks.scss */
+  /* line 707, ../sass/blocks.scss */
   .frontpage-news-slider .title a, .frontpage-slac-science .view-header .title a {
     color: #1a6199;
     display: block;
@@ -1108,23 +1112,23 @@ a.submit-feedback {
   }
 
   /* Feedback page */
-  /* line 708, ../sass/blocks.scss */
+  /* line 713, ../sass/blocks.scss */
   .section-feedback article .form-actions {
     width: 96%;
     padding: 5px 2% 0;
   }
-  /* line 711, ../sass/blocks.scss */
+  /* line 716, ../sass/blocks.scss */
   .section-feedback article .form-actions input {
     width: 100%;
     margin-bottom: 5px;
   }
 
-  /* line 716, ../sass/blocks.scss */
+  /* line 721, ../sass/blocks.scss */
   .section-research-resources .general-right, .section-staff-resources-classic .general-right {
     display: none;
   }
 
-  /* line 720, ../sass/blocks.scss */
+  /* line 725, ../sass/blocks.scss */
   .frontpage-calendar h3 {
     margin-left: 0;
   }
