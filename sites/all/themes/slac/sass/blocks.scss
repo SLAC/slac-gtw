@@ -270,6 +270,7 @@
 
 /* Front page top links block*/
 
+
 .frontpage-top-links{
    .views-view-grid{
     margin: 0;
@@ -288,6 +289,9 @@
       background: url('../images/list-dot.png') no-repeat 0 7px;
       display: block;
     }
+  }
+  .mobile{
+    display:none;
   }
 }
 
@@ -570,6 +574,10 @@ a.submit-feedback {
   .frontpage-news-slider .views-field-nothing .body {
     display: none;
   }
+
+  .frontpage-top-links .desktop{display: none;}
+  .frontpage-top-links .mobile{display: block;}
+
   .frontpage-top-links .view-content .views-row {
     width: 100%;
   }
