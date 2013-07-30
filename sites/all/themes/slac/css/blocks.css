@@ -967,22 +967,27 @@ a.submit-feedback {
   }
 
   /* line 583, ../sass/blocks.scss */
-  .frontpage-top-links .view-content .views-row {
+  .frontpage-top-links .views-row {
     width: 100%;
     overflow: hidden;
+    margin-bottom: 14px;
+  }
+  /* line 587, ../sass/blocks.scss */
+  .frontpage-top-links .views-row .views-row-last {
+    margin-bottom: 7px;
   }
 
-  /* line 588, ../sass/blocks.scss */
+  /* line 592, ../sass/blocks.scss */
   .frontpage-slac-science {
     margin-bottom: 16px;
   }
 
-  /* line 592, ../sass/blocks.scss */
+  /* line 596, ../sass/blocks.scss */
   .frontpage-calendar h3 {
     margin-left: -10px;
   }
 
-  /* line 597, ../sass/blocks.scss */
+  /* line 601, ../sass/blocks.scss */
   .frontpage-help-market,
   .frontpage-security-contacts {
     clear: both;
@@ -992,31 +997,31 @@ a.submit-feedback {
   }
 }
 @media (max-width: 600px) {
-  /* line 612, ../sass/blocks.scss */
+  /* line 616, ../sass/blocks.scss */
   .frontpage-calendar {
     display: block;
   }
 
   /* People search*/
-  /* line 616, ../sass/blocks.scss */
+  /* line 620, ../sass/blocks.scss */
   .no-bg {
     background: transparent;
     border: none;
   }
-  /* line 619, ../sass/blocks.scss */
+  /* line 623, ../sass/blocks.scss */
   .no-bg.brown-bodered-white {
     margin-top: 0;
   }
-  /* line 621, ../sass/blocks.scss */
+  /* line 625, ../sass/blocks.scss */
   .no-bg.brown-bodered-white > .pane-content {
     padding: 0;
   }
 
-  /* line 627, ../sass/blocks.scss */
+  /* line 631, ../sass/blocks.scss */
   .frontpage-people-finder .advanced-search {
     display: none;
   }
-  /* line 630, ../sass/blocks.scss */
+  /* line 634, ../sass/blocks.scss */
   .frontpage-people-finder form {
     height: 26px;
     border: 3px solid #b8d6ee;
@@ -1024,7 +1029,7 @@ a.submit-feedback {
     position: relative;
     background: #fff;
   }
-  /* line 637, ../sass/blocks.scss */
+  /* line 641, ../sass/blocks.scss */
   .frontpage-people-finder .searchbox {
     height: 26px;
     border: none;
@@ -1039,7 +1044,7 @@ a.submit-feedback {
     border: none;
     margin: 0;
   }
-  /* line 647, ../sass/blocks.scss */
+  /* line 651, ../sass/blocks.scss */
   .frontpage-people-finder .searchbutton {
     background: #b8d6ee url("../images/small-search-icon.jpg") no-repeat center right;
     border: none;
@@ -1054,7 +1059,7 @@ a.submit-feedback {
   }
 
   /* Middle blocks */
-  /* line 662, ../sass/blocks.scss */
+  /* line 666, ../sass/blocks.scss */
   .blue-bodered-white .pane-title {
     background: #a8bcc7 url("../images/blue-arrow.jpg") no-repeat right center;
     font-size: 12px;
@@ -1062,21 +1067,21 @@ a.submit-feedback {
     line-height: 32px;
     margin-bottom: 20px;
   }
-  /* line 669, ../sass/blocks.scss */
+  /* line 673, ../sass/blocks.scss */
   .blue-bodered-white > .pane-content {
     padding: 0;
   }
 
-  /* line 673, ../sass/blocks.scss */
+  /* line 677, ../sass/blocks.scss */
   .frontpage-slac-science .view-header {
     margin: 0 0 20px 0;
   }
 
-  /* line 677, ../sass/blocks.scss */
+  /* line 681, ../sass/blocks.scss */
   .blue-bodered-white .view-footer {
     display: none;
   }
-  /* line 680, ../sass/blocks.scss */
+  /* line 684, ../sass/blocks.scss */
   .blue-bodered-white .pane-content > .view-news > .view-content .views-row {
     padding: 8px 52px 8px 11px;
     margin: 0 0 18px 0;
@@ -1084,44 +1089,44 @@ a.submit-feedback {
     font-size: 13px;
     background: white url("/sites/all/themes/slac/images/list-arrow.jpg") no-repeat right center;
   }
-  /* line 687, ../sass/blocks.scss */
+  /* line 691, ../sass/blocks.scss */
   .blue-bodered-white .views-field-created {
     font-size: 12px;
   }
 
   /* Socials */
-  /* line 693, ../sass/blocks.scss */
+  /* line 697, ../sass/blocks.scss */
   .socials li {
     min-width: 24px;
     height: 24px;
     background: url("../images/socialsx24.png") no-repeat;
   }
-  /* line 698, ../sass/blocks.scss */
+  /* line 702, ../sass/blocks.scss */
   .socials .flickr {
     background-position: center -30px;
   }
-  /* line 701, ../sass/blocks.scss */
+  /* line 705, ../sass/blocks.scss */
   .socials .rss {
     background-position: center -60px;
   }
-  /* line 704, ../sass/blocks.scss */
+  /* line 708, ../sass/blocks.scss */
   .socials .twitter {
     background-position: center -90px;
   }
-  /* line 707, ../sass/blocks.scss */
+  /* line 711, ../sass/blocks.scss */
   .socials .youtube {
     background-position: center -120px;
   }
 
   /* */
-  /* line 713, ../sass/blocks.scss */
+  /* line 717, ../sass/blocks.scss */
   .frontpage-news-slider .views-field-nothing, .frontpage-slac-science .view-header .views-field-nothing {
     position: static;
     background: #fff;
     color: #1a6199;
   }
 
-  /* line 718, ../sass/blocks.scss */
+  /* line 722, ../sass/blocks.scss */
   .frontpage-news-slider .title a, .frontpage-slac-science .view-header .title a {
     color: #1a6199;
     display: block;
@@ -1129,23 +1134,23 @@ a.submit-feedback {
   }
 
   /* Feedback page */
-  /* line 724, ../sass/blocks.scss */
+  /* line 728, ../sass/blocks.scss */
   .section-feedback article .form-actions {
     width: 96%;
     padding: 5px 2% 0;
   }
-  /* line 727, ../sass/blocks.scss */
+  /* line 731, ../sass/blocks.scss */
   .section-feedback article .form-actions input {
     width: 100%;
     margin-bottom: 5px;
   }
 
-  /* line 732, ../sass/blocks.scss */
+  /* line 736, ../sass/blocks.scss */
   .section-research-resources .general-right, .section-staff-resources-classic .general-right {
     display: none;
   }
 
-  /* line 736, ../sass/blocks.scss */
+  /* line 740, ../sass/blocks.scss */
   .frontpage-calendar h3 {
     margin-left: 0;
   }

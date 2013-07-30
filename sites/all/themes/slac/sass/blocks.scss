@@ -580,9 +580,13 @@ a.submit-feedback {
   .frontpage-top-links .desktop{display: none;}
   .frontpage-top-links .mobile{display: block;}
 
-  .frontpage-top-links .view-content .views-row {
+  .frontpage-top-links .views-row {
     width: 100%;
     overflow: hidden;
+    margin-bottom: 14px;
+    .views-row-last{
+      margin-bottom: 7px;
+    }
   }
 
   .frontpage-slac-science {
