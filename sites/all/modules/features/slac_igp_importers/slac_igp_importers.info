@@ -17,6 +17,7 @@ features[ctools][] = feeds_tamper:feeds_tamper_default:2
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[feeds_importer][] = organization_term
+features[feeds_importer][] = research_resource_term
 features[feeds_importer][] = slac_access_info
 features[feeds_importer][] = slac_events
 features[feeds_importer][] = slac_flea_market
