@@ -87,8 +87,8 @@
   <?php if (array_key_exists('field_link', $content)): ?>
     <?php $link = strip_tags(render($content['field_link'])); ?>
   <?php endif; ?>
-  <?php if (array_key_exists('field_news_image', $content)): ?>
-    <?php print render($content['field_news_image']); ?>
+  <?php if (array_key_exists('field_news_image_source', $content)): ?>
+    <?php print render($content['field_news_image_source']); ?>
   <?php endif; ?>
   <?php if ($title_prefix || $title_suffix || $display_submitted || !$page && $title): ?>
       <?php print render($title_prefix); ?>
