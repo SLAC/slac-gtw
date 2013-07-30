@@ -568,6 +568,8 @@ a.submit-feedback {
         padding: 0;
         line-height: normal;
         padding: 6px 7%;
+        width: 86%;
+        float: left;
       }
     }
   }
@@ -580,6 +582,7 @@ a.submit-feedback {
 
   .frontpage-top-links .view-content .views-row {
     width: 100%;
+    overflow: hidden;
   }
 
   .frontpage-slac-science {
