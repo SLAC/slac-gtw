@@ -9,6 +9,14 @@
  */
 function slac_igp_config_taxonomy_default_vocabularies() {
   return array(
+    'organization' => array(
+      'name' => 'Organization',
+      'machine_name' => 'organization',
+      'description' => 'Organizations in SLAC',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
     'related_links' => array(
       'name' => 'Related Links',
       'machine_name' => 'related_links',
@@ -44,7 +52,7 @@ function slac_igp_config_taxonomy_default_vocabularies() {
     'staff_resource' => array(
       'name' => 'Staff Resource',
       'machine_name' => 'staff_resource',
-      'description' => '',
+      'description' => 'Staff resource to handle new modern view and A-Z index',
       'hierarchy' => 0,
       'module' => 'taxonomy',
       'weight' => 0,
