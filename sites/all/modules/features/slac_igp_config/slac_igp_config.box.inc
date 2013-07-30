@@ -119,7 +119,8 @@ Building 50 <br />
   $box->description = 'Search (People)';
   $box->options = array(
     'body' => array(
-      'value' => '<form action="http://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><input class="searchbox" id="searchbox" maxlength="2047" name="name" onfocus="value=\'\'" size="18" type="text" value="Search"> <input name="gone" type="hidden" value="active"> <input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="button" value="go" width="27"> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>',
+      'value' => '<form action="http://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><input class="searchbox" id="searchbox" maxlength="2047" name="name" size="18" type="text" value="Search"  onblur="if (this.value == \'\') {this.value = \'Search\';}"
+ onfocus="if (this.value == \'Search\') {this.value = \'\';}"> <input name="gone" type="hidden" value="active"> <input name="if" type="hidden" value="1"><input name="url" type="hidden" value=""><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27"> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
