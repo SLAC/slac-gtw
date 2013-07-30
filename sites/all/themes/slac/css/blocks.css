@@ -692,11 +692,11 @@ a.submit-feedback {
   color: #fff;
   font-size: 9px;
   text-decoration: none;
-  -webkit-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0);
-  -moz-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0);
-  -ms-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0);
-  -o-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0);
-  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
 
 /* Socials */
@@ -967,13 +967,13 @@ a.submit-feedback {
   }
 
   /* line 583, ../sass/blocks.scss */
-  .frontpage-top-links .views-row {
+  .frontpage-top-links .view-content .views-row {
     width: 100%;
     overflow: hidden;
     margin-bottom: 14px;
   }
   /* line 587, ../sass/blocks.scss */
-  .frontpage-top-links .views-row .views-row-last {
+  .frontpage-top-links .view-content .views-row .views-row-last {
     margin-bottom: 7px;
   }
 
