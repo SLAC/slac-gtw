@@ -581,7 +581,7 @@ header {
 }
 
 /* line 262, ../sass/pages.scss */
-.right-block .views-row, .pane-quicktabs-staff-resources .quicktabs_main ul li a {
+.right-block .views-row {
   padding: 4px 0 4px 10px;
   display: block;
   background: url("../images/right-list-arrow.jpg") no-repeat 0 9px;

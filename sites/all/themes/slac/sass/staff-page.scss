@@ -108,21 +108,35 @@
     background: whitesmoke url('../images/staff-top-img.jpg') no-repeat 0 0;
     border: 1px dashed #90a7b2;
   }
+  h3{
+    margin: 13px 0 0;
+    height: 28px;
+    line-height: 28px;
+    width: 257px;
+    padding-left: 60px;
+    background: #2582CA;
+    margin-left: 83px;
+    color: #fff;
+    font-size: 17px;
+  }
   .quicktabs_main{
     float: left;
-    width: 74%;
-    ul {
-      margin-left: 145px;
-      padding: 16px 0;
-      overflow: hidden;
-      li {
-        width: 50%;
-        float: left;
-        margin: 0;
-        font-size: 12px;
-        a {
-          margin-left: 10px;
-        }
+    width: 74%;  
+    .view-content{
+      padding: 13px 0;
+    }
+    table {
+      margin: 0 0 0 145px; 
+    }
+    td {
+      width: 50%;
+      margin: 0;
+      font-size: 12px;
+      a {
+        margin-left: 10px;
+        padding: 3px 0 4px 10px;
+        display: block;
+        background: url('../images/right-list-arrow.jpg') no-repeat 0 9px;
       }
     }
   }
@@ -132,7 +146,7 @@
     width:  25%;
     li {
       font-size: 12px;
-      margin: 0 0 13px;
+      margin: 0 0 12px;
       border: 1px dashed #90a7b2;
       clear: both;
       display: block;
