@@ -55,7 +55,7 @@
 }
 /* line 48, ../sass/feedback-page.scss */
 .section-feedback article .form-actions {
-  padding: 5px 0 5px 7px;
+  padding: 5px 7px;
   width: auto;
   float: left;
   margin: 0;
@@ -70,25 +70,24 @@
   font-size: 11px;
   color: #fff;
   text-transform: lowercase;
-  margin-right: 7px;
   min-width: 138px;
   width: 100%;
 }
-/* line 69, ../sass/feedback-page.scss */
+/* line 68, ../sass/feedback-page.scss */
 .section-feedback article select {
   width: 300px;
   font-size: 12px;
 }
-/* line 73, ../sass/feedback-page.scss */
+/* line 72, ../sass/feedback-page.scss */
 .section-feedback article .comments .form-actions {
   margin-top: 1.5em;
 }
-/* line 77, ../sass/feedback-page.scss */
+/* line 76, ../sass/feedback-page.scss */
 .section-feedback .comment_forbidden {
   margin-top: 20px;
 }
 
-/* line 82, ../sass/feedback-page.scss */
+/* line 81, ../sass/feedback-page.scss */
 .page-node-done #content {
   background: #fff;
   width: 96%;
