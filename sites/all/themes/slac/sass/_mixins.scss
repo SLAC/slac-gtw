@@ -143,10 +143,12 @@
   .frontpage-right-col,
   .general-two-col .general-left,
   .general-two-col .general-right,
-  .staff-main .inside,{
+  .staff-top{
     @include zen-grid-item(5, 1);  
     @include zen-clear();
   }
+
+
 
 }
 

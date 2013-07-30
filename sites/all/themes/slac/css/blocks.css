@@ -184,8 +184,8 @@
     width: 41.66667%;
     margin-left: 0%;
     margin-right: -41.66667%;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -199,8 +199,8 @@
     width: 58.33333%;
     margin-left: 41.66667%;
     margin-right: -100%;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -217,8 +217,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -233,8 +233,8 @@
     width: 90%;
     margin-left: 0%;
     margin-right: -90%;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -250,8 +250,8 @@
     width: 50%;
     margin-left: 0%;
     margin-right: -50%;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -267,8 +267,8 @@
     width: 50%;
     margin-left: 50%;
     margin-right: -100%;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -284,13 +284,13 @@
   .frontpage-right-col,
   .general-two-col .general-left,
   .general-two-col .general-right,
-  .staff-main .inside {
+  .staff-top {
     float: left;
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.5%;
-    padding-right: 0.5%;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
