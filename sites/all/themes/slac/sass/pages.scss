@@ -140,14 +140,16 @@ header {
   }
 }
 
-#block-boxes-web-search {
-  clear: both;
+#block-boxes-web-search,
+#block-boxes-search-people{
   float: right;
+  clear: left;
 }
 
-.header-search {
+.header-search,
+#people_search{
   position: relative;
-  background: #ebebeb;
+  background: #fff;
   overflow: hidden;
   padding: 0 0 0 7px;
   height: 24px;
@@ -169,6 +171,17 @@ header {
     height: 22px;
     margin: 1px;
   }
+  .front &{
+    background: #ebebeb;
+  }
+}
+
+#people_search{
+  background: #2582CA;
+  color: #F2F2F2;
+  padding: 0;
+  font-size: 11px;
+  text-transform: uppercase;
 }
 
 /*

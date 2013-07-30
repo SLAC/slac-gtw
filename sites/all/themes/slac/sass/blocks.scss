@@ -74,7 +74,7 @@
     margin: 0 0 13px;
     border: 1px dashed #90a7b2;
   }
-  .odd, .views-row-odd {
+  .pane-content ul li.odd, .views-row-odd {
     margin-right: 7%;
     clear: both;
   }
@@ -137,6 +137,16 @@
     color: #94753F;
     width: 18%;
     text-transform: uppercase;
+    font-weight: normal;
+  }
+  .month{
+    font-size: 14px;
+    display: block; 
+  }
+  .day{
+    font-size: 22px;
+    display: block;
+    margin-top: -9px;
   }
   .views-row-grouped {
     .views-row-last {
