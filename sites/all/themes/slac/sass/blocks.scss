@@ -69,13 +69,13 @@
     list-style-image: none;
     background: #f1f1f1;
     float: left;
-    width: 45%;
+    width: 46%;
     font-size: 12px;
     margin: 0 0 13px;
     border: 1px dashed #90a7b2;
   }
   .pane-content ul li.odd, .views-row-odd {
-    margin-right: 7%;
+    margin-right: 6%;
     clear: both;
   }
   .pane-content li a, .views-row a {
@@ -324,7 +324,7 @@
 
 .pane-boxes-slac-projects .pane-content {
   overflow:hidden;
-  padding-bottom: 8px;
+  padding-bottom: 12px;
   img{
     float: left;
     margin: 0 20px 0 0;

@@ -466,13 +466,12 @@ header {
 #block-boxes-search-people {
   position: relative;
   background: #fff;
-  overflow: hidden;
   padding: 0 0 0 7px;
   height: 24px;
   width: 256px;
   margin-top: 12px;
 }
-/* line 162, ../sass/pages.scss */
+/* line 161, ../sass/pages.scss */
 .header-search input,
 #block-boxes-search-people input {
   float: left;
@@ -485,24 +484,24 @@ header {
   font-size: 14px;
   color: #535353;
 }
-/* line 173, ../sass/pages.scss */
+/* line 172, ../sass/pages.scss */
 .header-search .search-button,
 #block-boxes-search-people .search-button {
   width: 26px;
   height: 22px;
   margin: 1px;
 }
-/* line 178, ../sass/pages.scss */
+/* line 177, ../sass/pages.scss */
 .front .header-search, .front
 #block-boxes-search-people {
   background: #ebebeb;
 }
 
-/* line 184, ../sass/pages.scss */
+/* line 183, ../sass/pages.scss */
 #block-boxes-search-people {
   clear: none;
 }
-/* line 186, ../sass/pages.scss */
+/* line 185, ../sass/pages.scss */
 #block-boxes-search-people .searchbutton {
   background: #2582CA;
   color: #F2F2F2;
@@ -512,6 +511,10 @@ header {
   width: 26px;
   height: 22px;
   margin: 1px;
+}
+/* line 195, ../sass/pages.scss */
+#block-boxes-search-people .advanced-search {
+  display: none;
 }
 
 /*

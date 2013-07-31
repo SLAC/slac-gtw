@@ -383,14 +383,14 @@
   list-style-image: none;
   background: #f1f1f1;
   float: left;
-  width: 45%;
+  width: 46%;
   font-size: 12px;
   margin: 0 0 13px;
   border: 1px dashed #90a7b2;
 }
 /* line 77, ../sass/blocks.scss */
 .blue-dashed-list .pane-content ul li.odd, .blue-dashed-list .views-row-odd {
-  margin-right: 7%;
+  margin-right: 6%;
   clear: both;
 }
 /* line 81, ../sass/blocks.scss */
@@ -664,7 +664,7 @@
 /* line 325, ../sass/blocks.scss */
 .pane-boxes-slac-projects .pane-content {
   overflow: hidden;
-  padding-bottom: 8px;
+  padding-bottom: 12px;
 }
 /* line 328, ../sass/blocks.scss */
 .pane-boxes-slac-projects .pane-content img {
@@ -692,11 +692,11 @@ a.submit-feedback {
   color: #fff;
   font-size: 9px;
   text-decoration: none;
-  -webkit-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0);
-  -moz-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0);
-  -ms-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0);
-  -o-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0);
-  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
 
 /* Socials */

@@ -30,10 +30,11 @@
     .item-list li a {
       font-size: 12px;
       &.Yes{
-        border-bottom: 1px solid #666;
+          padding-right: 15px;
+          background: url("../images/right-list-icon.png") no-repeat right 2px;
+        }
       }
     }
-  }
 
   .pane-node-body {
     font-size: 14px;
