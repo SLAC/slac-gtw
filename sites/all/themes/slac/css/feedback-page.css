@@ -72,23 +72,24 @@
   text-transform: lowercase;
   min-width: 138px;
   width: 100%;
+  margin: 0;
 }
-/* line 68, ../sass/feedback-page.scss */
+/* line 69, ../sass/feedback-page.scss */
 .section-feedback article select {
   max-width: 300px;
   width: 100%;
   font-size: 12px;
 }
-/* line 73, ../sass/feedback-page.scss */
+/* line 74, ../sass/feedback-page.scss */
 .section-feedback article .comments .form-actions {
   margin-top: 1.5em;
 }
-/* line 77, ../sass/feedback-page.scss */
+/* line 78, ../sass/feedback-page.scss */
 .section-feedback .comment_forbidden {
   margin-top: 20px;
 }
 
-/* line 82, ../sass/feedback-page.scss */
+/* line 83, ../sass/feedback-page.scss */
 .page-node-done #content {
   background: #fff;
   width: 96%;
