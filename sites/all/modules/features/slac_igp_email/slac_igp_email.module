@@ -118,14 +118,14 @@ function slac_igp_email_mailchimp_dc_content($template_sections = array()) {
   
   // declare contents in the daily digest  
   $data['SLAC_DD'] = array(
-    'module' => 'slac_igp_custom',
+    'module' => 'slac_igp_email',
     'title' => t('SLAC daily digest'),
     'content' => _slac_igp_email_mailchimp_dc_content($template_sections),
   );
   
   // declare contents in the weekly digest
   $data['SLAC_WD'] = array(
-    'module' => 'slac_igp_custom',
+    'module' => 'slac_igp_email',
     'title' => t('SLAC weekly digest'),
     'content' => _slac_igp_email_mailchimp_weekly_content($template_sections),
   );
@@ -147,7 +147,7 @@ function _slac_igp_email_mailchimp_weekly_content($template_sections) {
   //@todo: iterate through the template_sections
   return array(
     'html_director_column' => array(
-      'value' => theme('slac_igp_email'),
+      'value' => theme('slac_igp_director_column'),
       'format' => 'mailchimp_campaign',
     ),
     'html_std_header_title' => array(
