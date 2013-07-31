@@ -12,11 +12,30 @@
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 (function ($, Drupal, window, document, undefined) {
 
-  // Drupal.behaviors.header = {
-  //   attach: function (context, settings) {
-  //     $('.region-header .block').prepend('<div class="icon"></div>');
-  //   }
-  // }
+  Drupal.behaviors.mobileHeader = {
+    attach: function (context, settings) {
+      var $menu = $('.region-header #block-system-main-menu .menu:first'),
+      	  $searchbox = $('.region-header #block-boxes-web-search');
+
+      if( $menu.not('visible') ){
+      	// width < 600px
+      	$('<ul class="mobile-menu">'+ $menu.html() +'</ul>').insertBefore('#main');
+      	$('<div class="mobile-search">'+ $searchbox.find('form').parent().html() +'</div>').insertBefore('#main');
+      	$('.mobile-search form').append('<input id="search-people" type="radio" name="same" checked="true"/><label for="search-people">People</label><input id="search-slac" type="radio" name="same" /><label for="search-slac">SLAC</label>');
+      }
+
+      $menu.parent().toggle(function(){
+      	$('.mobile-menu').slideDown('slow');
+      },function(){
+      	$('.mobile-menu').slideUp('slow');
+      }); 
+      $searchbox.toggle(function(){
+      	$('.mobile-search').slideDown('slow');
+      },function(){
+      	$('.mobile-search').slideUp('slow');
+      }); 
+    }
+  }
   
   // combo searchbox
   Drupal.behaviors.search = {
