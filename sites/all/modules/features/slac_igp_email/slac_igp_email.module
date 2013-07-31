@@ -181,7 +181,7 @@ function _slac_igp_email_mailchimp_dc_content($template_sections) {
 /**
  * Preprocess function, finds and add director's column
  */
-function slac_igp_directors_column(&$vars) {
+function slac_igp_email_preprocess_slac_igp_director_column(&$vars) {
   // director's column is an news article tagged with "Director's Column"
   $term = taxonomy_get_term_by_name(strtolower(DIRECTOR_COLUMN));
   if (!empty($term)) {
