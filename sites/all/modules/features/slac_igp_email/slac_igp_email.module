@@ -7,7 +7,7 @@
 include_once 'slac_igp_email.features.inc';
 define('VIEW_MODE_TEASER', 'teaser');
 define('VIEW_MODE_LINK', 'link');
-define('DIRECTOR_COLUMN', 'DIRECTOR COLUMN');
+define('DIRECTOR_COLUMN', 'DIRECTOR\'S COLUMNS');
 
 /**
  * Implements hook_field_formatter_info
