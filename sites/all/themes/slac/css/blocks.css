@@ -914,29 +914,50 @@ a.submit-feedback {
   line-height: 20px;
 }
 
+/* line 542, ../sass/blocks.scss */
+.back-on-top {
+  display: block;
+  width: 88%;
+  padding: 0 6%;
+  overflow: hidden;
+  background: #d5d5d5;
+  height: 40px;
+  line-height: 40px;
+  font-size: 12px;
+  text-transform: uppercase;
+  display: none;
+}
+
+/* line 554, ../sass/blocks.scss */
+.back-on-top span {
+  float: left;
+  padding-right: 30px;
+  background: url("../images/go-to-top-arrow.png") no-repeat right center;
+}
+
 @media (max-width: 1300px) {
-  /* line 543, ../sass/blocks.scss */
+  /* line 561, ../sass/blocks.scss */
   .pane-boxes-stanford-compliance {
     margin-top: 44px;
   }
 
-  /* line 547, ../sass/blocks.scss */
+  /* line 565, ../sass/blocks.scss */
   .pane-boxes-stanford-compliance h2 {
     margin-top: -26px;
   }
 }
 @media (max-width: 900px) {
-  /* line 554, ../sass/blocks.scss */
+  /* line 572, ../sass/blocks.scss */
   .brown-bodered-white h2 {
     font-size: 11px;
     margin-top: -12px;
   }
 
-  /* line 559, ../sass/blocks.scss */
+  /* line 577, ../sass/blocks.scss */
   .blue-striped-list > .pane-content {
     padding: 10px;
   }
-  /* line 562, ../sass/blocks.scss */
+  /* line 580, ../sass/blocks.scss */
   .blue-striped-list .view-content .views-row {
     background: #e9f2f9;
     border: none;
@@ -945,7 +966,7 @@ a.submit-feedback {
     margin-top: 7px;
     margin-bottom: 7px;
   }
-  /* line 569, ../sass/blocks.scss */
+  /* line 587, ../sass/blocks.scss */
   .blue-striped-list .view-content .views-row a {
     background: none;
     padding: 0;
@@ -955,43 +976,43 @@ a.submit-feedback {
     float: left;
   }
 
-  /* line 579, ../sass/blocks.scss */
+  /* line 597, ../sass/blocks.scss */
   .frontpage-news-slider .views-field-nothing .body {
     display: none;
   }
 
-  /* line 583, ../sass/blocks.scss */
+  /* line 601, ../sass/blocks.scss */
   .frontpage-top-links .desktop {
     display: none;
   }
 
-  /* line 584, ../sass/blocks.scss */
+  /* line 602, ../sass/blocks.scss */
   .frontpage-top-links .mobile {
     display: block;
   }
 
-  /* line 586, ../sass/blocks.scss */
+  /* line 604, ../sass/blocks.scss */
   .frontpage-top-links .view-content .views-row {
     width: 100%;
     overflow: hidden;
     margin-bottom: 14px;
   }
-  /* line 590, ../sass/blocks.scss */
+  /* line 608, ../sass/blocks.scss */
   .frontpage-top-links .view-content .views-row.views-row-last {
     margin-bottom: 7px;
   }
 
-  /* line 595, ../sass/blocks.scss */
+  /* line 613, ../sass/blocks.scss */
   .frontpage-slac-science {
     margin-bottom: 16px;
   }
 
-  /* line 599, ../sass/blocks.scss */
+  /* line 617, ../sass/blocks.scss */
   .frontpage-calendar h3 {
     margin-left: -10px;
   }
 
-  /* line 604, ../sass/blocks.scss */
+  /* line 622, ../sass/blocks.scss */
   .frontpage-help-market,
   .frontpage-security-contacts {
     clear: both;
@@ -1001,31 +1022,31 @@ a.submit-feedback {
   }
 }
 @media (max-width: 600px) {
-  /* line 619, ../sass/blocks.scss */
+  /* line 637, ../sass/blocks.scss */
   .frontpage-calendar {
     display: block;
   }
 
   /* People search*/
-  /* line 623, ../sass/blocks.scss */
+  /* line 641, ../sass/blocks.scss */
   .no-bg {
     background: transparent;
     border: none;
   }
-  /* line 626, ../sass/blocks.scss */
+  /* line 644, ../sass/blocks.scss */
   .no-bg.brown-bodered-white {
     margin-top: 0;
   }
-  /* line 628, ../sass/blocks.scss */
+  /* line 646, ../sass/blocks.scss */
   .no-bg.brown-bodered-white > .pane-content {
     padding: 0;
   }
 
-  /* line 634, ../sass/blocks.scss */
+  /* line 652, ../sass/blocks.scss */
   .frontpage-people-finder .advanced-search {
     display: none;
   }
-  /* line 637, ../sass/blocks.scss */
+  /* line 655, ../sass/blocks.scss */
   .frontpage-people-finder form {
     height: 26px;
     border: 3px solid #b8d6ee;
@@ -1033,7 +1054,7 @@ a.submit-feedback {
     position: relative;
     background: #fff;
   }
-  /* line 644, ../sass/blocks.scss */
+  /* line 662, ../sass/blocks.scss */
   .frontpage-people-finder .searchbox {
     height: 26px;
     border: none;
@@ -1048,7 +1069,7 @@ a.submit-feedback {
     border: none;
     margin: 0;
   }
-  /* line 654, ../sass/blocks.scss */
+  /* line 672, ../sass/blocks.scss */
   .frontpage-people-finder .searchbutton {
     background: #b8d6ee url("../images/small-search-icon.jpg") no-repeat center right;
     border: none;
@@ -1063,7 +1084,7 @@ a.submit-feedback {
   }
 
   /* Middle blocks */
-  /* line 669, ../sass/blocks.scss */
+  /* line 687, ../sass/blocks.scss */
   .blue-bodered-white .pane-title {
     background: #a8bcc7 url("../images/blue-arrow.jpg") no-repeat right center;
     font-size: 12px;
@@ -1071,21 +1092,21 @@ a.submit-feedback {
     line-height: 32px;
     margin-bottom: 20px;
   }
-  /* line 676, ../sass/blocks.scss */
+  /* line 694, ../sass/blocks.scss */
   .blue-bodered-white > .pane-content {
     padding: 0;
   }
 
-  /* line 680, ../sass/blocks.scss */
+  /* line 698, ../sass/blocks.scss */
   .frontpage-slac-science .view-header {
     margin: 0 0 20px 0;
   }
 
-  /* line 684, ../sass/blocks.scss */
+  /* line 702, ../sass/blocks.scss */
   .blue-bodered-white .view-footer {
     display: none;
   }
-  /* line 687, ../sass/blocks.scss */
+  /* line 705, ../sass/blocks.scss */
   .blue-bodered-white .pane-content > .view-news > .view-content .views-row {
     padding: 8px 52px 8px 11px;
     margin: 0 0 18px 0;
@@ -1093,44 +1114,44 @@ a.submit-feedback {
     font-size: 13px;
     background: white url("/sites/all/themes/slac/images/list-arrow.jpg") no-repeat right center;
   }
-  /* line 694, ../sass/blocks.scss */
+  /* line 712, ../sass/blocks.scss */
   .blue-bodered-white .views-field-created {
     font-size: 12px;
   }
 
   /* Socials */
-  /* line 700, ../sass/blocks.scss */
+  /* line 718, ../sass/blocks.scss */
   .socials li {
     min-width: 24px;
     height: 24px;
     background: url("../images/socialsx24.png") no-repeat;
   }
-  /* line 705, ../sass/blocks.scss */
+  /* line 723, ../sass/blocks.scss */
   .socials .flickr {
     background-position: center -30px;
   }
-  /* line 708, ../sass/blocks.scss */
+  /* line 726, ../sass/blocks.scss */
   .socials .rss {
     background-position: center -60px;
   }
-  /* line 711, ../sass/blocks.scss */
+  /* line 729, ../sass/blocks.scss */
   .socials .twitter {
     background-position: center -90px;
   }
-  /* line 714, ../sass/blocks.scss */
+  /* line 732, ../sass/blocks.scss */
   .socials .youtube {
     background-position: center -120px;
   }
 
   /* */
-  /* line 720, ../sass/blocks.scss */
+  /* line 738, ../sass/blocks.scss */
   .frontpage-news-slider .views-field-nothing, .frontpage-slac-science .view-header .views-field-nothing {
     position: static;
     background: #fff;
     color: #1a6199;
   }
 
-  /* line 725, ../sass/blocks.scss */
+  /* line 743, ../sass/blocks.scss */
   .frontpage-news-slider .title a, .frontpage-slac-science .view-header .title a {
     color: #1a6199;
     display: block;
@@ -1138,24 +1159,29 @@ a.submit-feedback {
   }
 
   /* Feedback page */
-  /* line 731, ../sass/blocks.scss */
+  /* line 749, ../sass/blocks.scss */
   .section-feedback article .form-actions {
     width: 96%;
     padding: 5px 2% 0;
   }
-  /* line 734, ../sass/blocks.scss */
+  /* line 752, ../sass/blocks.scss */
   .section-feedback article .form-actions input {
     width: 100%;
     margin-bottom: 5px;
   }
 
-  /* line 739, ../sass/blocks.scss */
+  /* line 757, ../sass/blocks.scss */
   .section-research-resources .general-right, .section-staff-resources-classic .general-right {
     display: none;
   }
 
-  /* line 743, ../sass/blocks.scss */
+  /* line 761, ../sass/blocks.scss */
   .frontpage-calendar h3 {
     margin-left: 0;
+  }
+
+  /* line 765, ../sass/blocks.scss */
+  .back-on-top {
+    display: block;
   }
 }

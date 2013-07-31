@@ -539,6 +539,24 @@ a.submit-feedback {
   }
 }
 
+.back-on-top{
+  display: block;
+  width: 88%;
+  padding: 0 6%;
+  overflow:hidden;
+  background: #d5d5d5;
+  height: 40px;
+  line-height: 40px;
+  font-size: 12px;
+  text-transform:uppercase;
+  display: none;
+}
+.back-on-top span{
+  float: left;
+  padding-right: 30px;
+  background: url('../images/go-to-top-arrow.png') no-repeat right center;
+}
+
 @media (max-width: 1300px) {
   .pane-boxes-stanford-compliance{
     margin-top: 44px;
@@ -743,4 +761,6 @@ a.submit-feedback {
   .frontpage-calendar h3{
     margin-left: 0;
   }
+
+  .back-on-top{display: block;}
 }

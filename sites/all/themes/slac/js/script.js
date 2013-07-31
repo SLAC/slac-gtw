@@ -68,4 +68,10 @@
 	  }
 	}
 
+	Drupal.behaviors.backOnTop = {
+	  attach: function (context, settings) {
+	  	$('<a hred="#" class="back-on-top"><span>Go to top</span></a>').insertBefore('.footer-wrapper')	
+	  }
+	}
+
 })(jQuery, Drupal, this, this.document);
