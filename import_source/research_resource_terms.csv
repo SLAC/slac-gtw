@@ -1,0 +1,105 @@
+guid,name,link,auth,parent
+rr-1,Faculty,,,
+rr-2,Find a program,,,
+rr-3,Online Resources,,,
+rr-4,Publications,,,
+rr-5,Scientific Seminar Series,,,
+rr-6,Site Operations,,,
+rr-7,SLAC Documents,,,Publications
+rr-8,Specialized Document Collections,,,Publications
+rr-9,Other Document Resources,,,Publications
+rr-10,Organizations and Offices,,,Online Resources
+rr-11,Database and Articles,,,Online Resources
+rr-12,Photon Science Programs,,,Find a program
+rr-13,Particle Physics and Astrophysics Programs: Accelerators,,,Find a program
+rr-14,Particle Physics and Astrophysics Programs: Experiments,,,Find a program
+rr-15,Particle Physics and Astrophysics Programs: Theory,,,Find a program
+rr-16,SLAC Faculty Affairs Office,http://home.slac.stanford.edu/SLACFacAffairs.html,No,Faculty
+rr-17,Particle Physics and Astrophysics Faculty,http://home.slac.stanford.edu/ppa/PPAFacultyIndex.html,No,Faculty
+rr-18,Photon Science Faculty,http://www-ssrl.slac.stanford.edu/organization/facultyindex.html,No,Faculty
+rr-19,KIPAC Faculty and Affiliated Faculty,http://kipac.stanford.edu/kipac/people,No,Faculty
+rr-20,Stanford Academic Departments,http://www.stanford.edu/home/academics/departments.html,No,Faculty
+rr-21,Accelerator Directorate,http://www-public.slac.stanford.edu/accelerator/,No,Site Operations
+rr-22,LCLS Real Time Status,https://slacportal.slac.stanford.edu/sites/lcls_public/Pages/status.aspx,No,Site Operations
+rr-23,SPEAR status,http://www-ssrl.slac.stanford.edu/talk_display.html,No,Site Operations
+rr-24,Accelerator Systems Division,https://www-internal.slac.stanford.edu/ad/ad.html,Yes,Site Operations
+rr-25,Operations Schedules,https://www-internal.slac.stanford.edu/ad/admo/ADMO_HP.htm#schedules,Yes,Site Operations
+rr-26,HEP Shift Reports,https://www-internal.slac.stanford.edu/ad/,Yes,Site Operations
+rr-27,Find SLAC Documents,https://www-internal.slac.stanford.edu/scidoc/SciDoc_DocSearch_SearchSciDoc.asp,Yes,SLAC Documents
+rr-28,Register SLAC Documents using SciDoc,https://www-internal.slac.stanford.edu/scidoc/,Yes,SLAC Documents
+rr-29,SLAC Author Responsibilities,http://www-group.slac.stanford.edu/infomedia/resources/ims_resources_dr_authorResponsibilities.html,No,SLAC Documents
+rr-30,Recent SLAC Scientific Publications,http://www-public.slac.stanford.edu/scidoc/RecentPubs.asp,No,SLAC Documents
+rr-31,BaBar/PEP-II Publications Database,http://www.slac.stanford.edu/accel/pepii/peppub.html,No,Specialized Document Collections
+rr-32,eConf Proceedings Archive,http://www.slac.stanford.edu/econf/search.html,No,Specialized Document Collections
+rr-33,ICFA Instrumentation Bulletin,http://www.slac.stanford.edu/pubs/icfa/,No,Specialized Document Collections
+rr-34,Mechanical Design Document Control,http://mdweb.slac.stanford.edu/Doc%2Control.php,No,Specialized Document Collections
+rr-35,SLD Publications and Notes,http://www-sld.slac.stanford.edu/sldwww/pubs.html,No,Specialized Document Collections
+rr-36,SSRL User and Staff Publications,http://www-ssrl.slac.stanford.edu/content/publications/ssrl-publications-reports,No,Specialized Document Collections
+rr-37,SLAC Research Library,http://www.slac.stanford.edu/library/,No,Other Document Resources
+rr-38,SPIRES-HEP Literature Database,http://inspirehep.net,No,Other Document Resources
+rr-39,Stanford Libraries,http://www-sul.stanford.edu/,No,Other Document Resources
+rr-40,Online Particle Physics Information,http://www.slac.stanford.edu/library/pdg/hepinfo.html,No,Organizations and Offices
+rr-41,Library: Book Catalog,http://www.slac.stanford.edu/library/catalog/catalog.html,No,Organizations and Offices
+rr-42,Library: Book Purchasing,http://www.slac.stanford.edu/library/services/order.html,No,Organizations and Offices
+rr-43,American Astronomical Society,http://www.aas.org/,No,Organizations and Offices
+rr-44,American Physical Society,http://www.aps.org/,No,Organizations and Offices
+rr-45,National Radio Astronomy Observatory,http://www.nrao.edu/,No,Organizations and Offices
+rr-46,The National Academies,http://www.nationalacademies.org/,No,Organizations and Offices
+rr-47,National Aeronautics and Space Administration,http://www.nasa.gov/home/index.html?skipIntro=1,No,Organizations and Offices
+rr-48,National Science Foundation,http://www.nsf.gov/,No,Organizations and Offices
+rr-49,Office of High Energy Physics (HEP),http://science.energy.gov/hep/,No,Organizations and Offices
+rr-50,Office of Science,http://science.energy.gov,No,Organizations and Offices
+rr-51,Office of Science Basic Energy Sciences,http://science.energy.gov/bes/,No,Organizations and Offices
+rr-52,Office of Science High Energy Physics,http://science.energy.gov/hep/,No,Organizations and Offices
+rr-53,Other Phone Directories,http://www.slac.stanford.edu/comp/telecom/phone-dir/phone-dir.html,No,Organizations and Offices
+rr-54,SLACspeak Glossary,http://www.slac.stanford.edu/FIND/slacspeak/,No,Organizations and Offices
+rr-55,SPIRES HEP Preprints Database,http://inspirehep.net,No,Organizations and Offices
+rr-56,Science and Engineering,http://www-sul.stanford.edu/catdb/sci.html,No,Database and Articles
+rr-57,arXiv,http://arxiv.org/,No,Database and Articles
+rr-58,Astrophysics Data System Abstract Service,http://adswww.harvard.edu/ads_abstracts.html,No,Database and Articles
+rr-59,Atomic Spectra Database,http://physics.nist.gov/PhysRefData/ASD1/choice.html?nist_atomic_spectra.html,No,Database and Articles
+rr-60,Encyclopedia of Astronomy and Astrophysics,http://eaa.iop.org/index.cfm?action=home,No,Database and Articles
+rr-61,INSPEC,http://search.lanl.gov/ssplus/jsp/AdvancedSearch.jsp?collection=ins,No,Database and Articles
+rr-62,Accelerator Seminar,http://today.slac.stanford.edu/event-archive.asp,No,Scientific Seminar Series
+rr-63,ACKS Seminar,http://today.slac.stanford.edu/event-archive.asp,No,Scientific Seminar Series
+rr-64,Berkeley and Stanford Synchrotron Radiation Summer School (Physical Sciences),http://www-ssrl.slac.stanford.edu/sbsummerschool/,No,Scientific Seminar Series
+rr-65,Experimental Seminar,http://www.slac.stanford.edu/exp/seminar/,No,Scientific Seminar Series
+rr-66,KIPAC Seminar,http://www-group.slac.stanford.edu/kipac/events.html,No,Scientific Seminar Series
+rr-67,Photon Science Seminar Series,http://www-ssrl.slac.stanford.edu/content/events/photon-science-seminar-series,No,Scientific Seminar Series
+rr-68,SLAC Colloquium,http://www2.slac.stanford.edu/colloquium/,No,Scientific Seminar Series
+rr-69,SLAC Seminar Calendar,https://www.slac.stanford.edu/cgi-bin/meetingmaker/2512/webevent.cgi,No,Scientific Seminar Series
+rr-70,SLAC Summer Institute (SSI),http://www-conf.slac.stanford.edu/ssi/,No,Scientific Seminar Series
+rr-71,SSRL Seminar,http://www-ssrl.slac.stanford.edu/content/events/ssrl-presents-series,No,Scientific Seminar Series
+rr-72,Stanford: Conferences and Symposia Calendar,http://events.stanford.edu/byCategory/3/,No,Scientific Seminar Series
+rr-73,Stanford School of Earth Sciences,http://esdb.stanford.edu/esevents/FMPro?-db=ES+Calendar&amp;-lay=Web&amp;-format=week.html&amp;week=Current&amp;-token=All&amp;-find,No,Scientific Seminar Series
+rr-74,Structural Molecular Biology (SMB) Summer School,http://smb.slac.stanford.edu/public/news/summer_school/,No,Scientific Seminar Series
+rr-75,Theory Seminar,https://www.slac.stanford.edu/cgi-bin/meetingmaker/2512/webevent.cgi?cmd=opencal&amp;cal=cal6,No,Scientific Seminar Series
+rr-76,LCLS,http://lcls.slac.stanford.edu/,No,Photon Science Programs
+rr-77,LUSI,http://www-ssrl.slac.stanford.edu/lcls/lusi/,No,Photon Science Programs
+rr-78,PULSE,http://www.stanford.edu/group/pulse_institute/,No,Photon Science Programs
+rr-79,SIMES,http://simes.slac.stanford.edu,No,Photon Science Programs
+rr-80,SSRL,http://www-ssrl.slac.stanford.edu/,No,Photon Science Programs
+rr-81,SUNCAT,http://suncat.slac.stanford.edu,No,Photon Science Programs
+rr-82,Accelerator Research A,http://www.slac.stanford.edu/grp/ara/,No,Particle Physics and Astrophysics Programs: Accelerators
+rr-83,Accelerator Research B,http://www.slac.stanford.edu/grp/arb/,No,Particle Physics and Astrophysics Programs: Accelerators
+rr-84,FACET,http://facet.slac.stanford.edu,No,Particle Physics and Astrophysics Programs: Accelerators
+rr-85,ILC,http://www-project.slac.stanford.edu/ilc/,No,Particle Physics and Astrophysics Programs: Accelerators
+rr-86,Laser Acceleration (E163),http://www-project.slac.stanford.edu/e163/,No,Particle Physics and Astrophysics Programs: Accelerators
+rr-87,Accelerator Systems Division,https://www-internal.slac.stanford.edu/ad/ad.html,Yes,Particle Physics and Astrophysics Programs: Accelerators
+rr-88,ORION,http://www-project.slac.stanford.edu/orion/,No,Particle Physics and Astrophysics Programs: Accelerators
+rr-89,Plasma Wakefield (E157/E162/E164),http://www.slac.stanford.edu/grp/arb/e164/,No,Particle Physics and Astrophysics Programs: Accelerators
+rr-90,Polarized Positron Source Studies (E166),http://www.slac.stanford.edu/exp/e166/,No,Particle Physics and Astrophysics Programs: Accelerators
+rr-91,Atlas@SLAC,http://www.slac.stanford.edu/exp/atlas/,No,Particle Physics and Astrophysics Programs: Experiments
+rr-92,Astro Gamma,http://www-group.slac.stanford.edu/astrogamma/,No,Particle Physics and Astrophysics Programs: Experiments
+rr-93,B Meson Decays (Group B),http://www.slac.stanford.edu/grp/eb/,No,Particle Physics and Astrophysics Programs: Experiments
+rr-94,BaBar,http://www.slac.stanford.edu/BFROOT/,No,Particle Physics and Astrophysics Programs: Experiments
+rr-95,Enriched Xenon Observatory (EXO),http://www-project.slac.stanford.edu/exo/,No,Particle Physics and Astrophysics Programs: Experiments
+rr-96,Experimental Physics (Group C),http://www-group.slac.stanford.edu/ec/,No,Particle Physics and Astrophysics Programs: Experiments
+rr-97,FGST,http://fgst.slac.stanford.edu/,No,Particle Physics and Astrophysics Programs: Experiments
+rr-98,FLASH (E165),http://www.slac.stanford.edu/exp/e165/,No,Particle Physics and Astrophysics Programs: Experiments
+rr-99,Large Synoptic Survey Telescope (LSST): Collaboration Member,http://www.lsst.org/lsst_home.shtml,No,Particle Physics and Astrophysics Programs: Experiments
+rr-100,Microdrop Particle Search,http://www.slac.stanford.edu/exp/mps/FCS/FCS.htm,No,Particle Physics and Astrophysics Programs: Experiments
+rr-101,Nuclear Spectroscopic Telescope Array (NuSTAR): Collaboration Member,http://www.nustar.caltech.edu/,No,Particle Physics and Astrophysics Programs: Experiments
+rr-102,Particle Physics (Group K),http://www.slac.stanford.edu/grp/ek/,No,Particle Physics and Astrophysics Programs: Experiments
+rr-103,Supernova / Acceleration Probe (SNAP): Collaboration Member,http://snap.lbl.gov/,No,Particle Physics and Astrophysics Programs: Experiments
+rr-104,Theoretical Physics,http://www.slac.stanford.edu/grp/th/thinterest.html,No,Particle Physics and Astrophysics Programs: Theory

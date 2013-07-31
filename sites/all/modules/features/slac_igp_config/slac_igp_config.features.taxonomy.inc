@@ -9,6 +9,14 @@
  */
 function slac_igp_config_taxonomy_default_vocabularies() {
   return array(
+    'organization' => array(
+      'name' => 'Organization',
+      'machine_name' => 'organization',
+      'description' => 'Organizations in SLAC',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
     'related_links' => array(
       'name' => 'Related Links',
       'machine_name' => 'related_links',
@@ -17,26 +25,10 @@ function slac_igp_config_taxonomy_default_vocabularies() {
       'module' => 'taxonomy',
       'weight' => 0,
     ),
-    'research_resource_subtype' => array(
-      'name' => 'Research Resource Subtype',
-      'machine_name' => 'research_resource_subtype',
-      'description' => '',
-      'hierarchy' => 0,
-      'module' => 'taxonomy',
-      'weight' => 0,
-    ),
-    'resource_category_research' => array(
-      'name' => 'Resource category (Research)',
-      'machine_name' => 'resource_category_research',
-      'description' => '',
-      'hierarchy' => 0,
-      'module' => 'taxonomy',
-      'weight' => 0,
-    ),
-    'resource_category_staff' => array(
-      'name' => 'Resource category (Staff)',
-      'machine_name' => 'resource_category_staff',
-      'description' => 'Primary way to organize staff resource',
+    'research_resource' => array(
+      'name' => 'Research Resource',
+      'machine_name' => 'research_resource',
+      'description' => 'manages research resources stored in the system',
       'hierarchy' => 0,
       'module' => 'taxonomy',
       'weight' => 0,
@@ -44,7 +36,7 @@ function slac_igp_config_taxonomy_default_vocabularies() {
     'staff_resource' => array(
       'name' => 'Staff Resource',
       'machine_name' => 'staff_resource',
-      'description' => '',
+      'description' => 'Staff resource to handle new modern view and A-Z index',
       'hierarchy' => 0,
       'module' => 'taxonomy',
       'weight' => 0,

@@ -1,0 +1,53 @@
+guid,name,link,auth,parent
+org-1,Director's Office,http://www-group.slac.stanford.edu/do/,No,
+org-2,Human Resources,https://www-internal.slac.stanford.edu/humanresources/,No,Director's Office
+org-3,Office of Communications,http://www-group.slac.stanford.edu/com/,No,Director's Office
+org-4,Office of the Chief Financial Officer,http://www-group.slac.stanford.edu/ocfo/,No,Director's Office
+org-5,University Counsel for SLAC,http://www-group.slac.stanford.edu/legal/,No,Director's Office
+org-6,Subcouncils,http://www-group.slac.stanford.edu/operations/Subcouncils.asp,No,Director's Office
+org-7,Accelerator Directorate for Staff (SLAC Portal Site),https://slacportal.slac.stanford.edu/sites/ad_public/Pages/Default.aspx,No,
+org-8,Accelerator Operation & Safety,https://slacspace.slac.stanford.edu/sites/aosd/Pages/Default.aspx,Yes,Accelerator Directorate for Staff (SLAC Portal Site)
+org-9,Accelerator Research,https://slacportal.slac.stanford.edu/sites/ard_public/Pages/Default.aspx,No,Accelerator Directorate for Staff (SLAC Portal Site)
+org-10,AD Business Office,https://slacspace.slac.stanford.edu/sites/adbus/Pages/Default.aspx,Yes,Accelerator Directorate for Staff (SLAC Portal Site)
+org-11,FACET,https://slacportal.slac.stanford.edu/sites/ard_public/facet/Pages/default.aspx,No,Accelerator Directorate for Staff (SLAC Portal Site)
+org-12,Instrumentation & Controls,https://slacspace.slac.stanford.edu/sites/controls/Pages/default.aspx,Yes,Accelerator Directorate for Staff (SLAC Portal Site)
+org-13,LCLS II Project,https://slacspace.slac.stanford.edu/sites/lcls/lcls_ii/Pages/default.aspx,Yes,Accelerator Directorate for Staff (SLAC Portal Site)
+org-14,LCLS Accelerator Systems,https://slacportal.slac.stanford.edu/sites/lclscore_public/Pages/Default.aspx,No,Accelerator Directorate for Staff (SLAC Portal Site)
+org-15,Mechanical Engineering & Technical Support,https://slacportal.slac.stanford.edu/sites/ad_public/metsd/Pages/default.aspx,No,Accelerator Directorate for Staff (SLAC Portal Site)
+org-16,CAD Applications,http://mdweb.slac.stanford.edu/CAD%20Support.php,No,Mechanical Engineering & Technical Support
+org-17,Design Services,http://mdweb.slac.stanford.edu/,No,Mechanical Engineering & Technical Support
+org-18,Mechanical Engineering,https://slacportal.slac.stanford.edu/sites/me_public/Pages/Default.aspx,No,Mechanical Engineering & Technical Support
+org-19,RF Accelerator Research & engineering,https://slacportal.slac.stanford.edu/sites/ad_public/rfared/Pages/default.aspx,No,Accelerator Directorate for Staff (SLAC Portal Site)
+org-20,S0-20 Accelerator Division,https://slacspace.slac.stanford.edu/sites/s0-20facetcore/Pages/Default.aspx,No,Accelerator Directorate for Staff (SLAC Portal Site)
+org-21,SPEAR3 Accelerator Division,https://slacportal.slac.stanford.edu/sites/spear3core_public/Pages/Default.aspx,No,Accelerator Directorate for Staff (SLAC Portal Site)
+org-22,LCLS Directorate,http://lcls.slac.stanford.edu,No,
+org-23,Organization,http://www-ssrl.slac.stanford.edu/lcls/users/committees-contacts.html,No,LCLS Directorate
+org-24,Recent News,https://slacportal.slac.stanford.edu/sites/lcls_public/Pages/NewsListings.aspx,No,LCLS Directorate
+org-25,Machine Status,https://slacportal.slac.stanford.edu/sites/lcls_public/Pages/status.aspx,No,LCLS Directorate
+org-26,Schedules,http://www-ssrl.slac.stanford.edu/lcls/users/schedules.html,No,LCLS Directorate
+org-27,Instruments,https://slacportal.slac.stanford.edu/sites/lcls_public/instruments/Pages/default.aspx,No,LCLS Directorate
+org-28,Publications,https://slacportal.slac.stanford.edu/sites/lcls_public/Pages/Publications.aspx,No,LCLS Directorate
+org-29,LCLS Home,https://slacportal.slac.stanford.edu/sites/lcls_public/Pages/Default.aspx,No,LCLS Directorate
+org-30,Infrastructure and Safety,https://www-internal.slac.stanford.edu/infrastructure-and-safety/,No,
+org-31,"Computing Division,Office of the Chief Information Officer",http://www-group.slac.stanford.edu/scs/,No,Infrastructure and Safety
+org-32,Computing Help Desk,https://www-internal.slac.stanford.edu/comp/ITDS/,No,"Computing Division,Office of the Chief Information Officer"
+org-33,"Environment,Safety,Health and Quality",http://www-group.slac.stanford.edu/esh/,No,Infrastructure and Safety
+org-34,Facilities,http://www-group.slac.stanford.edu/fac/,No,Infrastructure and Safety
+org-35,Major Capital Projects,https://slacspace.slac.stanford.edu/sites/lcls/strategic_projects/capital_projects_collab/Pages/default.aspx,Yes,Infrastructure and Safety
+org-36,Project Management Office,https://slacspace.slac.stanford.edu/sites/ipm/pmo/default.aspx,Yes,Infrastructure and Safety
+org-37,Particle Physics & Astrophysics Directorate,http://www-group.slac.stanford.edu/ppa/,No,
+org-38,KIPAC,http://www-group.slac.stanford.edu/kipac/,No,Particle Physics & Astrophysics Directorate
+org-39,Elementary Particle Physics Research,http://home.slac.stanford.edu/ppap.html,No,Particle Physics & Astrophysics Directorate
+org-40,Scientific Computing Applications,http://www-group.slac.stanford.edu/ppa-sca/,No,Particle Physics & Astrophysics Directorate
+org-41,Photon Science Directorate,http://home.slac.stanford.edu/photonscience.html,No,
+org-42,PULSE,http://pulse.slac.stanford.edu/,No,Photon Science Directorate
+org-43,SIMES,http://simes.slac.stanford.edu,No,Photon Science Directorate
+org-44,SUNCAT,http://suncat.slac.stanford.edu,No,Photon Science Directorate
+org-45,Photon Science Seminar Series,http://www-ssrl.slac.stanford.edu/content/events/photon-science-seminar-series,No,Photon Science Directorate
+org-46,SSRL Directorate,http://www-ssrl.slac.stanford.edu/,No,
+org-47,Organization,http://www-ssrl.slac.stanford.edu/content/sites/default/files/documents/ssrl-organizational-chart_0.pdf,No,SSRL Directorate
+org-48,Machine Status,http://www-ssrl.slac.stanford.edu/talk_display.html,No,SSRL Directorate
+org-49,Beamline Map,http://www-ssrl.slac.stanford.edu/userresources/beamlines/beamlines.html,No,SSRL Directorate
+org-50,News & Events,http://www-ssrl.slac.stanford.edu/content/ssrl-news/ssrl-news-events,No,SSRL Directorate
+org-51,Newsletter,http://www-ssrl.slac.stanford.edu/newsletters/headlines/headlines.html,No,SSRL Directorate
+org-52,Science Highlights,http://www-ssrl.slac.stanford.edu/content/science/highlight/archive,No,SSRL Directorate

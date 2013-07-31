@@ -194,11 +194,23 @@ function slac_igp_config_default_page_manager_pages() {
     $pane = new stdClass();
     $pane->pid = 'new-6';
     $pane->panel = 'colthreerowfour';
-    $pane->type = 'block';
-    $pane->subtype = 'views-staff_resources_classic-block_5';
+    $pane->type = 'views';
+    $pane->subtype = 'organization';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '0',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block',
       'override_title' => 0,
       'override_title_text' => '',
     );
@@ -206,10 +218,7 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'brown-bodered-white blue-striped-list blue-dashed-list',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
@@ -362,11 +371,23 @@ function slac_igp_config_default_page_manager_pages() {
     $pane = new stdClass();
     $pane->pid = 'new-13';
     $pane->panel = 'colthreerowtwo';
-    $pane->type = 'block';
-    $pane->subtype = 'views-staff_resources_classic-block_4';
+    $pane->type = 'views';
+    $pane->subtype = 'staff_resource_modern';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '18',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_2',
       'override_title' => 0,
       'override_title_text' => '',
     );
@@ -374,10 +395,7 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'brown-bodered-white blue-striped-list ',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
@@ -385,6 +403,39 @@ function slac_igp_config_default_page_manager_pages() {
     $display->panels['colthreerowtwo'][0] = 'new-13';
     $pane = new stdClass();
     $pane->pid = 'new-14';
+    $pane->panel = 'colthreerowtwo';
+    $pane->type = 'views';
+    $pane->subtype = 'staff_resource_modern';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '18',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_3',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $display->content['new-14'] = $pane;
+    $display->panels['colthreerowtwo'][1] = 'new-14';
+    $pane = new stdClass();
+    $pane->pid = 'new-15';
     $pane->panel = 'coltworowfour';
     $pane->type = 'block';
     $pane->subtype = 'weather_block-weather_block';
@@ -405,10 +456,10 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-14'] = $pane;
-    $display->panels['coltworowfour'][0] = 'new-14';
+    $display->content['new-15'] = $pane;
+    $display->panels['coltworowfour'][0] = 'new-15';
     $pane = new stdClass();
-    $pane->pid = 'new-15';
+    $pane->pid = 'new-16';
     $pane->panel = 'coltworowone';
     $pane->type = 'block';
     $pane->subtype = 'system-main-menu';
@@ -429,10 +480,10 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-15'] = $pane;
-    $display->panels['coltworowone'][0] = 'new-15';
+    $display->content['new-16'] = $pane;
+    $display->panels['coltworowone'][0] = 'new-16';
     $pane = new stdClass();
-    $pane->pid = 'new-16';
+    $pane->pid = 'new-17';
     $pane->panel = 'coltworowthree';
     $pane->type = 'block';
     $pane->subtype = 'views-access_information-block';
@@ -453,10 +504,10 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-16'] = $pane;
-    $display->panels['coltworowthree'][0] = 'new-16';
+    $display->content['new-17'] = $pane;
+    $display->panels['coltworowthree'][0] = 'new-17';
     $pane = new stdClass();
-    $pane->pid = 'new-17';
+    $pane->pid = 'new-18';
     $pane->panel = 'coltworowtwo';
     $pane->type = 'block';
     $pane->subtype = 'views-calendar-block';
@@ -477,8 +528,8 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-17'] = $pane;
-    $display->panels['coltworowtwo'][0] = 'new-17';
+    $display->content['new-18'] = $pane;
+    $display->panels['coltworowtwo'][0] = 'new-18';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
