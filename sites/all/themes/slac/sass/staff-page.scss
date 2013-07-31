@@ -121,7 +121,10 @@
   }
   .quicktabs_main{
     float: left;
-    width: 74%;  
+    width: 74%; 
+    .view-footer{
+      display: none;
+    }
     .view-content{
       padding: 13px 0;
     }
