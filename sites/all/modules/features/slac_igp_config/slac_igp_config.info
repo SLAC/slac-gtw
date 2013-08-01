@@ -17,7 +17,6 @@ dependencies[] = list
 dependencies[] = menu
 dependencies[] = options
 dependencies[] = page_manager
-dependencies[] = slac_igp_email
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text

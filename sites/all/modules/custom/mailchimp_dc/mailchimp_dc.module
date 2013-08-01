@@ -51,6 +51,75 @@ function mailchimp_dc_menu() {
   return $items;
 }
 
+/** 
+ * Implements hook_menu_alter
+ */
+function mailchimp_dc_menu_alter(&$items) {
+  // we are substituting the default mailchimp campaign table with our view
+  $items['admin/config/services/mailchimp/campaigns']['page callback'] = 'mailchimp_dc_campaigns_overview';
+  unset($items['admin/config/services/mailchimp/campaigns']['file']);
+}
+
+/**
+ * embed our views table
+ */
+function mailchimp_dc_campaigns_overview() {
+  drupal_set_title('Mailchimp Campaigns');
+  return views_embed_view('mailchimp_campaigns', 'main');
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function mailchimp_dc_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'mailchimp_dc') . '/views',
+  );
+}
+
+/**
+ * Implements hook_entity_insert
+ */
+function mailchimp_dc_entity_insert($entity, $type) {
+  if ($type === 'mailchimp_campaign') {
+    // adding some meta data about campaigns into another table for views to integrate
+    $campaign = mailchimp_campaign_get_campaigns(array($entity->mc_campaign_id));
+    if (empty($campaign)) {
+      return;
+    }
+    $c = $campaign[$entity->mc_campaign_id];
+    $record = array(
+      'mc_campaign_id' => $c['id'],
+      'list_id' => $c['list_id'],
+      'title' => $c['title'],
+      'archive_url' => (array_key_exists('archive_url_long', $c)) ? $c['archive_url_long'] : '',
+      'from_name' => (array_key_exists('from_name', $c)) ? $c['from_name'] : '',
+      'from_email' => (array_key_exists('from_email', $c)) ? $c['from_email'] : '',
+      'subject' => $c['subject'],
+      'status' => $c['status'],
+      'created' => (array_key_exists('create_time', $c)) ? strtotime($c['create_time']) : 0,
+      'updated' => (array_key_exists('content_updated_time', $c)) ? strtotime($c['content_updated_time']) : 0,
+      'sent' => (array_key_exists('send_time', $c)) ? strtotime($c['send_time']) : 0,
+    );
+    module_load_include('inc', 'mailchimp_dc', 'mailchimp_dc.database');
+    mailchimp_dc_record_save($record, 'mc_campaign_id', 'mailchimp_dc_campaign');
+  }
+}
+
+/**
+ * Implements hook_entity_delete
+ */
+function mailchimp_dc_entity_delete($entity, $type) {
+  if ($type === 'mailchimp_campaign') {
+    module_load_include('inc', 'mailchimp_dc', 'mailchimp_dc.database');
+    $campaign_id = $entity->mc_campaign_id;
+    // delete recorder and the campaign record
+    mailchimp_dc_record_delete('mc_campaign_id', $campaign_id, 'mailchimp_dc');
+    mailchimp_dc_record_delete('mc_campaign_id', $campaign_id, 'mailchimp_dc_campaign');    
+  }
+}
+
 /**
  * Implements hook_action_info
  */
@@ -271,17 +340,6 @@ function _mailchimp_dc_weekly($config) {
     if (empty($weekly_campaign)) {
       mailchimp_dc_campaign_create($config);
     }  
-  }
-}
-
-/**
- * Implements hook_entity_delete
- */
-function mailchimp_dc_entity_delete($entity, $type) {
-  if ($type === 'mailchimp_campaign') {
-    module_load_include('inc', 'mailchimp_dc', 'mailchimp_dc.database');
-    $campaign_id = $entity->mc_campaign_id;
-    mailchimp_dc_delete_dc($campaign_id);    
   }
 }
 

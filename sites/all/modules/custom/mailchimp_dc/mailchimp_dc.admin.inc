@@ -227,9 +227,7 @@ function mailchimp_dc_configuration_delete($form, &$form_state, $config) {
  * Delete submission handler
  */
 function mailchimp_dc_configuration_delete_submit($form, &$form_state) {
-  
-  mailchimp_dc_config_delete($form_state['values']['name']);
-
+  mailchimp_dc_record_delete('name', $form_state['values']['name'], 'mailchimp_dc_config');
   $form_state['redirect'] = 'admin/config/services/mailchimp/mcdc';
   drupal_set_message(t('Recurring campaign has been deleted.'));  
 }

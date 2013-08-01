@@ -3,6 +3,54 @@
  * @file
  * Code for the mailchimp dc module
  */
+ 
+/**
+ * Save function that rules them all
+ *
+ * @params
+ * (array) $record    an associative array key = db table field name, value = field value
+ * (string) $pk       primary key field
+ * (string) $table    table name
+ */
+function mailchimp_dc_record_save($record, $pk, $table) {
+  $existing = mailchimp_dc_record_load($pk, $record[$pk], $table);
+  if (!empty($existing)) {
+    drupal_write_record($table, $record, $pk);
+  }
+  else {
+    drupal_write_record($table, $record);
+  }
+}
+
+/**
+ * Load function that rules them all
+ * (string) $pk       primary key field
+ * (string) $value    primary key field value
+ * (string) $table    table name
+ */
+function mailchimp_dc_record_load($pk, $value, $table) {
+  $data = array();
+  $query = db_select($table, 't')
+  ->fields('t')
+  ->condition($pk, $value);
+  
+  $result = $query->execute();
+  $data = $result->fetchAssoc();
+
+  return $data;  
+}
+
+/**
+ * Delete a database record
+ * (string) $pk       primary key field
+ * (string) $value    primary key field value
+ * (string) $table    table name 
+ */
+function mailchimp_dc_record_delete($pk, $value, $table) {
+  $query = db_delete($table)
+  ->condition($pk, $value);
+  $query->execute();  
+} 
 
 /**
  * Saves a recurring campaign configuration
@@ -58,15 +106,6 @@ function mailchimp_dc_config_load_all($conditions = array()) {
 }
 
 /**
- * Delete a daily campaign record
- */
-function mailchimp_dc_config_delete($machine_name) {
-  $query = db_delete('mailchimp_dc_config')
-  ->condition('name', $machine_name);
-  $query->execute();
-}
-
-/**
  * Save daily campaign record
  */
 function mailchimp_dc_save_dc($campaign_id, $config_name) {
@@ -88,7 +127,7 @@ function mailchimp_dc_save_dc($campaign_id, $config_name) {
 }
 
 /**
- * Load recurring campaign record
+ * Load
  */
 function mailchimp_dc_load_dc($name, $date = NULL) {
   $data = array();
@@ -108,13 +147,4 @@ function mailchimp_dc_load_dc($name, $date = NULL) {
     $data[] = (array) $result;
   }
   return (!empty($data)) ? $data[0] : array(); 
-}
-
-/**
- * Delete a daily campaign record
- */
-function mailchimp_dc_delete_dc($campaign_id) {
-  $query = db_delete('mailchimp_dc')
-  ->condition('mc_campaign_id', $campaign_id);
-  $query->execute();
 }

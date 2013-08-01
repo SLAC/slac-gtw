@@ -125,5 +125,81 @@ function mailchimp_dc_schema() {
     ),
     'primary key' => array('date', 'name'),
   );
+  
+  // Table to store mailchimp campaign information for views
+  $schema['mailchimp_dc_campaign'] = array(
+    'description' => 'Store detailed mailchimp campaign informaiton',
+    'fields' => array(
+      'mc_campaign_id' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'description' => "MC Campaign id",
+      ),
+      'list_id' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'description' => "MC list id",
+      ),
+      'title' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'description' => "MC Title",
+      ),
+      'archive_url' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'description' => "Campaign archive url",
+      ),
+      'from_name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'description' => "From name",
+      ),
+      'from_email' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'description' => "From email",
+      ),
+      'subject' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'description' => "Subject",
+      ),
+      'status' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'description' => "status",
+      ),
+      'created' => array(
+        'type' => 'int',
+        'size' => 'big',
+        'default' => 0,
+        'not null' => FALSE,
+        'description' => "When the campaign is created",
+      ),
+      'updated' => array(
+        'type' => 'int',
+        'size' => 'big',
+        'default' => 0,
+        'not null' => FALSE,
+        'description' => "When the campaign is updated",
+      ),
+      'sent' => array(
+        'type' => 'int',
+        'not null' => FALSE,
+        'size' => 'big',
+        'description' => 'Time when the campaign was sent',
+      ),
+    ),
+    'primary key' => array('mc_campaign_id'),
+  );
   return $schema;  
 }
