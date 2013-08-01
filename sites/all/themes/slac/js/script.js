@@ -24,7 +24,7 @@
       	$('<div class="mobile-search">'+ $searchbox.find('form').parent().html() +'</div>').insertBefore('#main');
       	$('.mobile-search form').append('<input id="search-people" type="radio" name="same" checked="true"/><label for="search-people">People</label><input id="search-slac" type="radio" name="same" /><label for="search-slac">SLAC</label>');
         
-        if( $('html').hasClass('touch') ){
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/i.test(navigator.userAgent) ) {
           // touch device
           var $menuMobile = $('.mobile-menu'),
               $searchMobile = $('.mobile-search');
