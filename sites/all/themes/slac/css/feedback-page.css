@@ -9,19 +9,24 @@
 }
 
 /* line 10, ../sass/feedback-page.scss */
+.page-node-done #content .webform-confirmation p {
+  margin-top: 0;
+}
+
+/* line 14, ../sass/feedback-page.scss */
 .section-feedback .field-name-body p {
   margin: 0;
 }
 
-/* line 15, ../sass/feedback-page.scss */
+/* line 19, ../sass/feedback-page.scss */
 .section-feedback article {
   max-width: 840px;
 }
-/* line 18, ../sass/feedback-page.scss */
+/* line 22, ../sass/feedback-page.scss */
 .section-feedback .filter-wrapper {
   display: none;
 }
-/* line 21, ../sass/feedback-page.scss */
+/* line 25, ../sass/feedback-page.scss */
 .section-feedback .content-wrapper form {
   max-width: 640px;
   background: #f6f6f6;
@@ -29,18 +34,18 @@
   padding: 0 8% 32px;
   overflow: hidden;
 }
-/* line 27, ../sass/feedback-page.scss */
+/* line 31, ../sass/feedback-page.scss */
 .section-feedback .content-wrapper form label {
   font-size: 13px;
   font-weight: normal;
   margin-bottom: 3px;
 }
-/* line 32, ../sass/feedback-page.scss */
+/* line 36, ../sass/feedback-page.scss */
 .section-feedback .content-wrapper form input {
   border: none;
   font-size: 12px;
 }
-/* line 35, ../sass/feedback-page.scss */
+/* line 39, ../sass/feedback-page.scss */
 .section-feedback .content-wrapper form input.form-text {
   border: 1px solid #d0d0d0;
   height: 22px;
@@ -49,13 +54,13 @@
   padding: 0 2%;
   outline: none;
 }
-/* line 44, ../sass/feedback-page.scss */
+/* line 48, ../sass/feedback-page.scss */
 .section-feedback .content-wrapper form textarea {
   border: 2px solid #d0d0d0;
   height: 180px;
   outline: none;
 }
-/* line 50, ../sass/feedback-page.scss */
+/* line 54, ../sass/feedback-page.scss */
 .section-feedback article .form-actions {
   padding: 5px 7px;
   width: auto;
@@ -64,8 +69,9 @@
   border: 1px dotted #b1c2ca;
 }
 
-/* line 60, ../sass/feedback-page.scss */
+/* line 64, ../sass/feedback-page.scss */
 .section-feedback article .form-actions input {
+  display: block;
   height: 28px;
   background: #2582CA;
   padding: 0 25px;
@@ -76,22 +82,22 @@
   width: 100%;
   margin: 0;
 }
-/* line 71, ../sass/feedback-page.scss */
+/* line 76, ../sass/feedback-page.scss */
 .section-feedback article select {
   max-width: 300px;
   width: 100%;
   font-size: 12px;
 }
-/* line 76, ../sass/feedback-page.scss */
+/* line 81, ../sass/feedback-page.scss */
 .section-feedback article .comments .form-actions {
   margin-top: 1.5em;
 }
-/* line 80, ../sass/feedback-page.scss */
+/* line 85, ../sass/feedback-page.scss */
 .section-feedback .comment_forbidden {
   margin-top: 20px;
 }
 
-/* line 85, ../sass/feedback-page.scss */
+/* line 90, ../sass/feedback-page.scss */
 .page-node-done #content {
   background: #fff;
   width: 96%;
@@ -99,4 +105,11 @@
   background: #fff;
   width: 96%;
   padding: 100px 2% 300px;
+}
+
+/* IE7 logo fix */
+/* line 100, ../sass/feedback-page.scss */
+.lt-ie8 .section-feedback #content {
+  padding-top: 40px;
+  margin-top: 60px;
 }
