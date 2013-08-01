@@ -14,26 +14,31 @@
 
   Drupal.behaviors.mobileHeader = {
     attach: function (context, settings) {
-      var $menu = $('.region-header #block-system-main-menu .menu:first'),
-      	  $searchbox = $('.region-header #block-boxes-web-search');
+      if( $('body').width() < 601 ){
+        // width < 600px
 
-      if( $menu.not('visible') ){
-      	// width < 600px
+        var $menu = $('.region-header #block-system-main-menu .menu:first'),
+      	    $searchbox = $('.region-header #block-boxes-web-search');      
+      	
       	$('<ul class="mobile-menu">'+ $menu.html() +'</ul>').insertBefore('#main');
       	$('<div class="mobile-search">'+ $searchbox.find('form').parent().html() +'</div>').insertBefore('#main');
       	$('.mobile-search form').append('<input id="search-people" type="radio" name="same" checked="true"/><label for="search-people">People</label><input id="search-slac" type="radio" name="same" /><label for="search-slac">SLAC</label>');
-      }
+        
+        var $menuMobile = $('.mobile-menu'),
+            $searchMobile = $('.mobile-search');
 
-      $menu.parent().toggle(function(){
-      	$('.mobile-menu').slideDown('slow');
-      },function(){
-      	$('.mobile-menu').slideUp('slow');
-      }); 
-      $searchbox.toggle(function(){
-      	$('.mobile-search').slideDown('slow');
-      },function(){
-      	$('.mobile-search').slideUp('slow');
-      }); 
+        $menu.parent().toggle(function(){
+        	$menuMobile.slideDown('slow');
+        },function(){
+        	$menuMobile.slideUp('slow');
+        });
+        
+        $searchbox.toggle(function(){
+        	$searchMobile.slideDown('slow');
+        },function(){
+        	$searchMobile.slideUp('slow');
+        });
+      }
     }
   }
   

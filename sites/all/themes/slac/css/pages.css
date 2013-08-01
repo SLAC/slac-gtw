@@ -898,7 +898,7 @@ footer .block-menu li {
   }
   /* line 535, ../sass/pages.scss */
   .mobile-menu li a {
-    padding-left: 2.5%;
+    padding-left: 14px;
     text-decoration: none;
   }
 
