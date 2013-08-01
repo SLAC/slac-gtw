@@ -33,15 +33,17 @@
               $searchMobile.hide();
 
           $menu.parent().toggle(function(){
+            if( $searchMobile.is(':visible') ) $searchbox.click();
           	$menuMobile.fadeIn('slow');
           },function(){
-          	$menuMobile.fadeOut('slow');
+          	$menuMobile.hide();
           });
           
           $searchbox.toggle(function(){
-          	$searchMobile.fadeIn('slow');
+            if( $menuMobile.is(':visible') ) $menu.parent().click();
+            $searchMobile.fadeIn('slow');
           },function(){
-          	$searchMobile.fadeOut('slow');
+          	$searchMobile.hide();
           });
         }
       }

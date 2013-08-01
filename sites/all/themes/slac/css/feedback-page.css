@@ -107,9 +107,21 @@
   padding: 100px 2% 300px;
 }
 
+/* line 99, ../sass/feedback-page.scss */
+.section-feedback #content {
+  margin-top: 20px;
+}
+
 /* IE7 logo fix */
-/* line 100, ../sass/feedback-page.scss */
+/* line 104, ../sass/feedback-page.scss */
 .lt-ie8 .section-feedback #content {
   padding-top: 40px;
   margin-top: 60px;
+}
+
+@media (max-width: 600px) {
+  /* line 110, ../sass/feedback-page.scss */
+  .section-feedback #content {
+    padding-top: 20px;
+  }
 }
