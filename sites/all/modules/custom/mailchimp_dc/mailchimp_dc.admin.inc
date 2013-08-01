@@ -30,6 +30,13 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
    '#disabled' => (!empty($config)) ? TRUE : FALSE,
   );
   
+  $form['status']= array(
+    '#type' => 'checkbox',
+    '#title' => 'Enabled',
+    '#description' => t('Check if this recurring campaign is enabled, if disabled no mailing campaign will be generated.'),
+    '#default_value' => (!empty($config)) ? $config['status'] : 1,
+  );
+  
   $form['schedule'] = array(
     '#type' => 'fieldset', 
     '#title' => t('Scheduling settings'), 
@@ -106,6 +113,34 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     $form['schedule']['schedule_type_setting']['#disabled'] = (!empty($config)) ? TRUE : FALSE;
     $form['schedule']['schedule_type_setting']['#default_value'] = (!empty($config)) ? $config['schedule_type_setting'] : '';
   }
+  
+  for ($i = 0; $i < 24; $i++) {
+    if ($i < 12) {
+      $time_slot[$i * 100] = $i . ' am';
+    }
+    else {
+      if ($i > 12) {
+        $time_slot[$i * 100] = $i - 12 . ' pm';
+      }
+      else {
+        $time_slot[$i * 100] = $i . ' pm';
+      }
+    }
+  }  
+  $form['schedule']['schedule_time'] = array(
+    '#type' => 'select',
+    '#title' => 'Scheduled Time (After)',
+    '#description' => t('Please select after what time the mailing campaign will be generated (This guarantees contents are placed before the mailing is generated).'),
+    '#options' => $time_slot,
+    '#default_value' => (!empty($config)) ? $config['schedule_time'] : 0,
+  );
+  
+  $form['schedule']['auto_send'] = array(
+    '#type' => 'checkbox',
+    '#title' => 'Automatically send the campaign',
+    '#description' => t('Check this if you would like the campaign to be automatically sent once it is generated'),
+    '#default_value' => (!empty($config)) ? $config['auto_send'] : 0,
+  );
     
   $form['email'] = array(
     '#type' => 'fieldset', 

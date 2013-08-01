@@ -3,6 +3,7 @@
  * @file
  * Code for the mailchimp dc module
  */
+module_load_include('inc', 'mailchimp_dc', 'mailchimp_dc.action');
 
 /** 
  * Implements hook_menu
@@ -121,131 +122,6 @@ function mailchimp_dc_entity_delete($entity, $type) {
 }
 
 /**
- * Implements hook_action_info
- */
-function mailchimp_dc_action_info() {
-  return array(
-    'mailchimp_dc_action_add_content' => array(
-      'label' => t('Add to Mailchimp campaign'),
-      'type' => 'node',
-      'configurable' => FALSE,
-      'vbo_configurable' => TRUE,
-      'triggers' => array('any'),
-    ),
-  );  
-}
-
-/**
- * Action callback
- */
-function mailchimp_dc_action_add_content($entity, $context) {
-  // add this content item as mailchimp filter style into the campaign
-  // 1. load the campaign
-  // 2. get the content from the specific section
-  // 3. append the content as standard entity|teaser
-  $campaign = mailchimp_campaign_load($context['mc_campaign']);
-  if (empty($campaign)) {
-    return;
-  }
-  if (array_key_exists('html_' . $context['mc_template'], $campaign->template)) {
-    $campaign->template['html_' . $context['mc_template']]['value'] .= '
-[mailchimp_campaign|entity_type=node|entity_id=' . $entity->nid . '|view_mode=' . $context['mc_view_mode'] . ']'; 
-  }
-  $options = array(
-    'title' => $campaign->mc_data['title'],
-    'subject' => $campaign->mc_data['subject'],
-    'list_id' => $campaign->list['id'],
-    'from_email' => $campaign->mc_data['from_email'],
-    'from_name' => $campaign->mc_data['from_name'],
-    'template_id' => $campaign->mc_template['id'],
-  );
-  mailchimp_campaign_save_campaign($campaign->template, $options, $campaign->mc_campaign_id);
-  cache_clear_all('mailchimp_campaign_campaigns', 'cache');
-}
-
-/**
- * VBO Action configuration form
- */
-function mailchimp_dc_action_add_content_form($context, &$form_state) {
-  // module_load_include('inc', 'mailchimp_dc', 'mailchimp.database');
-  // load all of the campaigns (that are not sent)
-  $campaigns = mailchimp_campaign_load_multiple();
-  $options = array('' => t('--Please select--'));
-  if (!empty($campaigns)) {
-    foreach($campaigns as $campaign_id => $campaign) {
-      if ($campaign->mc_data['status'] === 'save') {
-        $options[$campaign_id] = $campaign->mc_data['title'];
-      }
-    }
-  }
-  
-  $form['mc_campaign'] = array(
-    '#type' => 'select',
-    '#title' => t('Mailchimp Campaign'),
-    '#description' => t('Please choose the campaign this content should be added to'),
-    '#options' => $options,
-    '#ajax' => array(
-      'callback' => 'mailchimp_dc_action_add_content_form_ajax_callback',
-      'wrapper' => 'mc_template',
-     ),
-     '#required' => TRUE,
-  );
-  
-  $template_regions = array();
-  if (!empty($form_state['values']['mc_campaign'])) {
-    $template_regions = $campaigns[$form_state['values']['mc_campaign']]->mc_template['info']['sections'];
-    $template_regions = array_combine($template_regions, $template_regions); 
-  }
-  
-  // template region in which the story should be added to
-  $form['mc_template'] = array(
-    '#type' => 'select',
-    '#title' => t('Template Region'),
-    '#options' => $template_regions,
-    '#description' => t('Please select the template region this news article should go into'),
-    '#prefix' => '<div id="mc_template">',
-    '#suffix' => '</div>',
-    '#required' => TRUE,
-  );
-  
-  // view modes
-  $entity_info = entity_get_info($context['entity_type']);
-  $options = array();
-  if (!empty($entity_info['view modes'])) {
-    foreach ($entity_info['view modes'] as $view_mode => $info) {
-      $options[$view_mode] = $info['label'];
-    } 
-  }
-  
-  $form['mc_view_mode'] = array(
-    '#type' => 'select',
-    '#title' => t('View mode'),
-    '#options' => $options,
-  );
-  
-  return $form;
-}
-
-/**
- * Form submission callback
- */
-function mailchimp_dc_action_add_content_submit($form, &$form_state) {
-  return array(
-    'mc_campaign' => $form_state['values']['mc_campaign'],
-    'mc_template' => $form_state['values']['mc_template'],
-    'mc_view_mode' => $form_state['values']['mc_view_mode'],
-  );
-}
-
-/**
- * Ajax callback
- */
-function mailchimp_dc_action_add_content_form_ajax_callback($form, $form_state) {
-  return $form['mc_template'];
-}
-
-
-/**
  * Main page callback
  */
 function mailchimp_dc_main() {
@@ -321,7 +197,9 @@ function _mailchimp_dc_daily($config) {
   $today = date('Y-m-d', REQUEST_TIME);
   $daily_campaign = mailchimp_dc_load_dc($config['name'], $today);
   if (empty($daily_campaign)) {
-    mailchimp_dc_campaign_create($config);
+    if ((int) date('Gi', REQUEST_TIME) >= (int) $config['schedule_time']) {
+      mailchimp_dc_campaign_create($config);
+    }
   }
 }
 
@@ -338,7 +216,9 @@ function _mailchimp_dc_weekly($config) {
     // check if already been sent
     $weekly_campaign = mailchimp_dc_load_dc($config['name'], $today);
     if (empty($weekly_campaign)) {
-      mailchimp_dc_campaign_create($config);
+      if ((int) date('Gi', REQUEST_TIME) >= (int) $config['schedule_time']) {
+        mailchimp_dc_campaign_create($config);
+      }    
     }  
   }
 }
@@ -351,6 +231,10 @@ function _mailchimp_dc_weekly($config) {
  *                      key: daily_email_1, label, schedule_type, schedule_type_setting, list, template, content, from_mail, from_name, created
  */
 function mailchimp_dc_campaign_create($config) {
+  if ((bool) $config['status'] === FALSE) {
+    return;
+  }
+  
   // if the campaign has not been created yet for the period, let's create the campaign
   $from_name = (empty($config['from_name'])) ? variable_get('site_name', '') : $config['from_name'];
   switch($config['schedule_type']) {
@@ -412,10 +296,19 @@ function mailchimp_dc_campaign_create($config) {
       }
     }
   }
-  
+
   $campaign_id = mailchimp_campaign_save_campaign($content, $options);
   if (isset($campaign_id)) {
-    // save the dc meta information
+    // send the campaign if it is set
+    if ((bool) $config['auto_send']) {
+      $campaign = mailchimp_campaign_load($campaign_id);
+      mailchimp_campaign_send_campaign($campaign);
+      drupal_set_message(t('Campaign %name has been sent.',
+          array('%name' => $campaign->label()))
+      );
+    }
+
+    // save the dc meta information (indicate already generated)
     module_load_include('inc', 'mailchimp_dc', 'mailchimp.database');
     mailchimp_dc_save_dc($campaign_id, $config['name']);
     cache_clear_all('mailchimp_campaign_campaigns', 'cache');
@@ -445,51 +338,3 @@ function _mailchimp_dc_content_options($return_data = FALSE) {
   
   return $options;
 }
-
-/**
- * Implements hook_ctools_plugin_api
- */
-/*
-function mailchimp_dc_ctools_plugin_api($owner, $api) {
-  if ($owner == 'mailchimp_dc' && $api == 'default_mailchimp_dc_preset') {
-    return array('version' => 1);
-  }
-}
-*/
-
-/**
- * Implements hook_default_mymodule_preset
- */
-/*
-function mailchimp_dc_default_mailchimp_dc_presets() {
-  $export = array();
-
-  $preset = new stdClass;
-  $preset->api_version = 1;
-  $preset->name = 'default';
-  $preset->label = 'Default';
-  $preset->schedule_type = 'daily';
-  $preset->schedule_type_setting = '';
-  $preset->list = '';
-  $preset->template = 9999;
-  $preset->content = '';
-  $preset->from_email = '';
-  $preset->from_name = '';
-  $preset->created = REQUEST_TIME;
-  
-  $export['default'] = $preset;
-
-  return $export;
-}
-*/
-
-/**
- * Implements hook_ctools_plugin_directory
- */
-/*
-function mailchimp_dc_ctools_plugin_directory($module, $type) {
-  if ($type == 'export_ui') {
-    return 'plugins/export_ui';
-  }
-}
-*/

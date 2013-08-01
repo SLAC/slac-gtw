@@ -47,6 +47,19 @@ function mailchimp_dc_schema() {
         'not null' => FALSE,
         'description' => "Additional scheduling option such as day of the week or day of the month",
       ),
+      'schedule_time' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'description' => "Time of the day when the mail should go out",
+      ),
+      'auto_send' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'default' => 0,
+        'not null' => FALSE,
+        'description' => "Indicate if mail campaign should go out automatically or not."
+      ),
       'list' => array(
         'type' => 'varchar',
         'length' => 255,
@@ -77,6 +90,12 @@ function mailchimp_dc_schema() {
         'not null' => FALSE,
         'description' => "From name for this recurring campaign",
       ),
+      'status' => array(
+        'type' => 'int',
+        'not null' => FALSE,
+        'size' => 'tiny',
+        'description' => 'Indicate the status of this campaign',
+      ), 
       'created' => array(
         'type' => 'int',
         'not null' => FALSE,
