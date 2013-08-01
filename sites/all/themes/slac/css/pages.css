@@ -1,10 +1,10 @@
 /* Grids */
-/* line 52, D:/projects/slac-gtw/sites/all/themes/slac/sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 52, C:/Program Files (x86)/Scout/vendor/gems/gems/zen-grids-1.2/stylesheets/zen/_grids.scss */
 .container:before, .container:after {
   content: "";
   display: table;
 }
-/* line 56, D:/projects/slac-gtw/sites/all/themes/slac/sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 56, C:/Program Files (x86)/Scout/vendor/gems/gems/zen-grids-1.2/stylesheets/zen/_grids.scss */
 .container:after {
   clear: both;
 }
@@ -480,7 +480,7 @@ header {
   outline: none;
   height: 24px;
   line-height: 24px;
-  width: 228px;
+  width: 225px;
   font-size: 14px;
   color: #535353;
 }
@@ -490,8 +490,9 @@ header {
   width: 26px;
   height: 22px;
   margin: 1px;
+  float: right;
 }
-/* line 177, ../sass/pages.scss */
+/* line 178, ../sass/pages.scss */
 .front .header-search, .front
 #block-boxes-search-people {
   background: #ebebeb;
