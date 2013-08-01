@@ -118,10 +118,3 @@
   padding-top: 40px;
   margin-top: 60px;
 }
-
-@media (max-width: 600px) {
-  /* line 110, ../sass/feedback-page.scss */
-  .section-feedback #content {
-    padding-top: 20px;
-  }
-}

@@ -1,10 +1,10 @@
 /* Grids */
-/* line 52, C:/Program Files (x86)/Scout/vendor/gems/gems/zen-grids-1.2/stylesheets/zen/_grids.scss */
+/* line 52, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 .container:before, .container:after {
   content: "";
   display: table;
 }
-/* line 56, C:/Program Files (x86)/Scout/vendor/gems/gems/zen-grids-1.2/stylesheets/zen/_grids.scss */
+/* line 56, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 .container:after {
   clear: both;
 }
@@ -895,9 +895,9 @@ footer .block-menu li {
     padding: 0 12.5%;
     border-bottom: 3px solid #ffffff;
     background-color: #e9f2f9;
-    background-image: url(../images/list-arrow.jpg);
+    background-image: url(../images/mobile-menu-arrow.png);
     background-repeat: no-repeat;
-    background-position: 7.5% center;
+    background-position: 10% center;
   }
   /* line 536, ../sass/pages.scss */
   .mobile-menu li.last {
