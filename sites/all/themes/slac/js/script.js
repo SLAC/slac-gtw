@@ -24,20 +24,26 @@
       	$('<div class="mobile-search">'+ $searchbox.find('form').parent().html() +'</div>').insertBefore('#main');
       	$('.mobile-search form').append('<input id="search-people" type="radio" name="same" checked="true"/><label for="search-people">People</label><input id="search-slac" type="radio" name="same" /><label for="search-slac">SLAC</label>');
         
-        var $menuMobile = $('.mobile-menu'),
-            $searchMobile = $('.mobile-search');
+        if( $('html').hasClass('touch') ){
+          // touch device
+          var $menuMobile = $('.mobile-menu'),
+              $searchMobile = $('.mobile-search');
 
-        $menu.parent().toggle(function(){
-        	$menuMobile.slideDown('slow');
-        },function(){
-        	$menuMobile.slideUp('slow');
-        });
-        
-        $searchbox.toggle(function(){
-        	$searchMobile.slideDown('slow');
-        },function(){
-        	$searchMobile.slideUp('slow');
-        });
+              $menuMobile.hide();
+              $searchMobile.hide();
+
+          $menu.parent().toggle(function(){
+          	$menuMobile.fadeIn('slow');
+          },function(){
+          	$menuMobile.fadeOut('slow');
+          });
+          
+          $searchbox.toggle(function(){
+          	$searchMobile.fadeIn('slow');
+          },function(){
+          	$searchMobile.fadeOut('slow');
+          });
+        }
       }
     }
   }

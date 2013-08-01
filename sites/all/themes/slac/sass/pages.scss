@@ -371,6 +371,11 @@ footer .block-menu {
   }
 }
 
+.mobile-search,
+.mobile-menu{
+  display: none;
+ }
+
 @media (max-width: 900px) {
 
 
@@ -512,7 +517,7 @@ footer .block-menu {
   }
 
   .mobile-menu{
-    display: none;
+    display: block;
     width: 100%;
     margin-top: 50px;
     font-size: 12px;
@@ -540,7 +545,7 @@ footer .block-menu {
   }
 
   .mobile-search{
-    display: none;
+    display: block;
     height: 54px;
     padding: 3px;
     margin: 50px 10px 20px;
