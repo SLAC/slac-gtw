@@ -79,6 +79,12 @@ function mailchimp_dc_action_add_content_form($context, &$form_state) {
   if (!empty($form_state['values']['mc_campaign'])) {
     $template_regions = $campaigns[$form_state['values']['mc_campaign']]->mc_template['info']['sections'];
     $template_regions = array_combine($template_regions, $template_regions); 
+    // exclude some standard sections
+    foreach ($template_regions as $key => $value) {
+      if (substr($value, 0, 4) === 'std_') {
+        unset($template_regions[$key]);
+      }
+    }
   }
   
   // template region in which the story should be added to
@@ -95,12 +101,17 @@ function mailchimp_dc_action_add_content_form($context, &$form_state) {
   // view modes
   $entity_info = entity_get_info($context['entity_type']);
   $options = array();
+  
+  // exclude some view mode that doesn't need to appear
+  $exclude = array('rss', 'search_index', 'search_result', 'diff_standard');
   if (!empty($entity_info['view modes'])) {
     foreach ($entity_info['view modes'] as $view_mode => $info) {
+      if (in_array($view_mode, $exclude)) {
+        continue;
+      }
       $options[$view_mode] = $info['label'];
     } 
   }
-  
   $form['mc_view_mode'] = array(
     '#type' => 'select',
     '#title' => t('View mode'),
