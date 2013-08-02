@@ -106,4 +106,19 @@
 	  }
 	}
 
+  Drupal.behaviors.researchPage = {
+    attach: function (context, settings) {
+      // this function adds class 'no-children'
+      var $container = $('.view-id-research_resource');
+      if( $container.is(':visible') ){
+        $container.find('.view-content ul:first > li').each(function(){
+          var $this = $(this);
+          if( ! $this.find('.item-list ul ul').is(':visible') ){
+            $this.addClass('no-children');
+          }
+        });
+      }
+    }
+  }
+
 })(jQuery, Drupal, this, this.document);
