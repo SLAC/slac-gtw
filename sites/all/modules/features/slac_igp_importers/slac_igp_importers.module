@@ -6,7 +6,7 @@
  
 // news article tags that will be translated into news article type/status
 DEFINE('SLAC_NEWS_INTERNAL', 'Internal');
-DEFINE('SLAC_NEWS_EXTERNAL', 'External');
+DEFINE('SLAC_NEWS_EXTERNAL', 'www-intranet');
 DEFINE('SLAC_NEWS_PROMOTED', 'Promoted');
 
 // feed importer node title for importing events
