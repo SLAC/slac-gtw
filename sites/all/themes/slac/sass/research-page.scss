@@ -79,14 +79,21 @@
  
   /* Resources Page */
   .section-research-resources {
+    #block-boxes-search-people{
+      display: none;
+    }
     #content {
       background: transparent;
     }
     .view-header {
+      display: none;
       background-image: url('../images/dotted-heavy-gray-bg.png');
     }
     .pane-node-body strong, .view-header .view-content {
       display: none;
+    }
+    .pane-node-body p{
+      margin-bottom: 0;
     }
     .view-content {
       > .view-grouping:first-child {
@@ -142,8 +149,6 @@
       }
     }
   }
-
-
 }
 
 

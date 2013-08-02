@@ -80,22 +80,31 @@
 @media (max-width: 600px) {
   /* Resources Page */
   /* line 82, ../sass/research-page.scss */
+  .section-research-resources #block-boxes-search-people {
+    display: none;
+  }
+  /* line 85, ../sass/research-page.scss */
   .section-research-resources #content {
     background: transparent;
   }
-  /* line 85, ../sass/research-page.scss */
+  /* line 88, ../sass/research-page.scss */
   .section-research-resources .view-header {
+    display: none;
     background-image: url("../images/dotted-heavy-gray-bg.png");
   }
-  /* line 88, ../sass/research-page.scss */
+  /* line 92, ../sass/research-page.scss */
   .section-research-resources .pane-node-body strong, .section-research-resources .view-header .view-content {
     display: none;
   }
-  /* line 92, ../sass/research-page.scss */
+  /* line 95, ../sass/research-page.scss */
+  .section-research-resources .pane-node-body p {
+    margin-bottom: 0;
+  }
+  /* line 99, ../sass/research-page.scss */
   .section-research-resources .view-content > .view-grouping:first-child {
     margin-top: 19px;
   }
-  /* line 95, ../sass/research-page.scss */
+  /* line 102, ../sass/research-page.scss */
   .section-research-resources .view-content .view-grouping-header {
     height: 16px;
     background: white url("../images/small-list-arrow-down.jpg") no-repeat right center;
@@ -106,11 +115,11 @@
     width: 95%;
     padding: 9px 0 9px 5%;
   }
-  /* line 104, ../sass/research-page.scss */
+  /* line 111, ../sass/research-page.scss */
   .section-research-resources .view-content .view-grouping-header.expanded {
     background-image: url("../images/small-list-arrow-up.jpg");
   }
-  /* line 109, ../sass/research-page.scss */
+  /* line 116, ../sass/research-page.scss */
   .section-research-resources .view-grouping-content {
     background: #fff;
     border: none;
@@ -119,25 +128,25 @@
     width: 100%;
     display: none;
   }
-  /* line 116, ../sass/research-page.scss */
+  /* line 123, ../sass/research-page.scss */
   .section-research-resources .view-grouping-content .item-list {
     max-width: 705px;
     width: 85%;
     padding: 9px 5% 9px 10%;
   }
-  /* line 122, ../sass/research-page.scss */
+  /* line 129, ../sass/research-page.scss */
   .section-research-resources .item-list ul {
     width: 100%;
   }
-  /* line 124, ../sass/research-page.scss */
+  /* line 131, ../sass/research-page.scss */
   .section-research-resources .item-list ul li {
     background: url("../images/blue-right-list-arrow.jpg") no-repeat left 7px;
   }
-  /* line 128, ../sass/research-page.scss */
+  /* line 135, ../sass/research-page.scss */
   .section-research-resources .view-grouping-content h3 {
     margin: 5px 0 0;
   }
-  /* line 131, ../sass/research-page.scss */
+  /* line 138, ../sass/research-page.scss */
   .section-research-resources .collapse {
     height: 26px;
     line-height: 26px;
@@ -148,12 +157,12 @@
     background: #ecf5fa;
     color: #20659A;
   }
-  /* line 140, ../sass/research-page.scss */
+  /* line 147, ../sass/research-page.scss */
   .section-research-resources .collapse img {
     margin-left: 20px;
   }
 }
-/* line 168, ../sass/research-page.scss */
+/* line 173, ../sass/research-page.scss */
 .section-research-resources .view-grouping-header {
   margin: 40px auto auto;
   max-width: 855px;
@@ -163,7 +172,7 @@
   color: #575B5C;
 }
 
-/* line 176, ../sass/research-page.scss */
+/* line 181, ../sass/research-page.scss */
 .section-research-resources .view-grouping-content {
   background: #f6f6f6;
   border: 1px solid #c3c5c5;
@@ -174,42 +183,42 @@
   margin: auto;
 }
 
-/* line 185, ../sass/research-page.scss */
+/* line 190, ../sass/research-page.scss */
 .section-research-resources .view-content > .view-grouping:first-child {
   margin-top: 0;
 }
 
-/* line 189, ../sass/research-page.scss */
+/* line 194, ../sass/research-page.scss */
 .section-research-resources .view-grouping-content h3 {
   font-size: 12px;
   margin: 15px 0;
   color: #000;
 }
 
-/* line 194, ../sass/research-page.scss */
+/* line 199, ../sass/research-page.scss */
 .section-research-resources .view-grouping-content .item-list li a {
   font-size: 12px;
 }
 
-/* line 198, ../sass/research-page.scss */
+/* line 203, ../sass/research-page.scss */
 .section-research-resources .pane-node-body {
   font-size: 14px;
 }
 
-/* line 202, ../sass/research-page.scss */
+/* line 207, ../sass/research-page.scss */
 .section-research-resources .pane-node-body strong {
   clear: both;
   display: block;
   padding: 20px 0 15px;
 }
 
-/* line 207, ../sass/research-page.scss */
+/* line 212, ../sass/research-page.scss */
 .section-research-resources .view-header {
   padding-bottom: 27px;
   border-bottom: 1px dashed #b1c2ca;
 }
 
-/* line 213, ../sass/research-page.scss */
+/* line 218, ../sass/research-page.scss */
 .Yes {
   padding-right: 15px;
   background: url("../images/right-list-icon.png") no-repeat right 2px;

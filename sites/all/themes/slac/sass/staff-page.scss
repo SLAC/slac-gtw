@@ -234,10 +234,14 @@
         margin: 0;
         font-size: 12px;
         clear: both;
-        display: block;a {
+        display: block;
+        a {
           color: #20659A;
           font-size: 12px;
         }
+      }
+      .view-footer{
+        display: none;
       }
     }
   }

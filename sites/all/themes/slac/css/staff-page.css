@@ -1,10 +1,10 @@
 /* Grids */
-/* line 52, D:/projects/slac-gtw/sites/all/themes/slac/sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 52, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 .container:before, .container:after {
   content: "";
   display: table;
 }
-/* line 56, D:/projects/slac-gtw/sites/all/themes/slac/sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 56, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 .container:after {
   clear: both;
 }
@@ -567,31 +567,35 @@
     clear: both;
     display: block;
   }
-  /* line 237, ../sass/staff-page.scss */
+  /* line 238, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .views-row a {
     color: #20659A;
     font-size: 12px;
   }
+  /* line 243, ../sass/staff-page.scss */
+  .ui-accordion .ui-accordion-content .view-footer {
+    display: none;
+  }
 }
 @media (max-width: 600px) {
-  /* line 247, ../sass/staff-page.scss */
+  /* line 251, ../sass/staff-page.scss */
   .staff-main .inside {
     margin: 0 0 25px 0;
   }
 
-  /* line 251, ../sass/staff-page.scss */
+  /* line 255, ../sass/staff-page.scss */
   .rowtwocolone {
     clear: none;
     margin-bottom: 40px;
   }
 
-  /* line 256, ../sass/staff-page.scss */
+  /* line 260, ../sass/staff-page.scss */
   .rowonecolthree {
     clear: both;
     margin-bottom: 40px;
   }
 
-  /* line 261, ../sass/staff-page.scss */
+  /* line 265, ../sass/staff-page.scss */
   .rowtwocoltwo {
     clear: both;
   }
