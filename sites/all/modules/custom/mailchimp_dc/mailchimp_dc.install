@@ -53,6 +53,12 @@ function mailchimp_dc_schema() {
         'not null' => FALSE,
         'description' => "Time of the day when the mail should go out",
       ),
+      'suppress' => array(
+        'type' => 'blob',
+        'serialize' => TRUE,
+        'not null' => FALSE,
+        'description' => "Dates that should be suppressed, I.E 12-07-2013"
+      ),
       'auto_send' => array(
         'type' => 'int',
         'size' => 'tiny',
@@ -96,6 +102,13 @@ function mailchimp_dc_schema() {
         'size' => 'tiny',
         'description' => 'Indicate the status of this campaign',
       ), 
+      'data' => array(
+        'type' => 'blob',
+        'serialize' => TRUE,
+        'not null' => FALSE,
+        'size' => 'big',
+        'description' => "Additional configuration data"
+      ),
       'created' => array(
         'type' => 'int',
         'not null' => FALSE,

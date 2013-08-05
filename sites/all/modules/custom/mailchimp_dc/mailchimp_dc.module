@@ -192,6 +192,10 @@ function mailchimp_dc_cron() {
  * if not, run the campaign generate function.
  */
 function _mailchimp_dc_daily($config) {
+  // check for suppressed dates
+  if(_mailchimp_dc_date_suppress($config)) {
+    return;
+  }
   // we simply look for the campaign for this specific
   // recurring configuration to see if it exist for today
   $today = date('Y-m-d', REQUEST_TIME);
@@ -208,6 +212,10 @@ function _mailchimp_dc_daily($config) {
  * if not, run the campaign generate function.
  */
 function _mailchimp_dc_weekly($config) {
+  // check for suppressed dates
+  if(_mailchimp_dc_date_suppress($config)) {
+    return;
+  }
   $today = date('Y-m-d', REQUEST_TIME);
   // $week_ago = date('Y-m-d', REQUEST_TIME - (3600 * 24 * 7));
   $scheduled_day = $config['schedule_type_setting'];
@@ -221,6 +229,26 @@ function _mailchimp_dc_weekly($config) {
       }    
     }  
   }
+}
+
+/**
+ * Helper function check to see if current day is a suppressed date for generating email
+ *
+ * @returns
+ * TRUE (If today is a suppressed date)
+ * FALSE (If today is not a suppressed date)
+ */
+function _mailchimp_dc_date_suppress($config) {
+  // check for sending date suppression
+  $dates = unserialize($config['suppress']);
+  if ($dates != '') {
+    $dates = nl2br($dates);
+    $dates = explode('<br />', $dates);
+    if (in_array(date('Y-m-d', REQUEST_TIME), $dates)) {
+      return TRUE;      
+    }
+  }
+  return FALSE;  
 }
 
 /**

@@ -185,6 +185,20 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     '#default_value' => (!empty($config)) ? $config['from_name'] : '',
   );
   
+  $form['advance'] = array(
+    '#type' => 'fieldset', 
+    '#title' => t('Advanced Settings'), 
+    '#collapsible' => TRUE, 
+    '#collapsed' => TRUE,
+  );
+  
+  $form['advance']['suppress'] = array(
+    '#type' => 'textarea',
+    '#title' => 'Suppress Dates',
+    '#description' => t('Please enter the list of dates to disable/suppress the recurring campaign, please enter one date per line in the format of YYYY-MM-DD (05-22-2013)'),
+    '#default_value' => (!empty($config)) ? unserialize($config['suppress']) : '',
+  );
+  
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Save'),
@@ -219,6 +233,27 @@ function mailchimp_dc_configuration_form_validate($form, &$form_state) {
       }    
     }
   }
+  
+  // check to see if the suppressed dates entered are ok
+  if ($values['suppress'] !== '') {
+    $dates = nl2br($values['suppress']);
+    $dates = explode('<br />', $dates);
+    foreach ($dates as $date) {
+      $date_pieces = explode('-', $date);
+      if (count($date_pieces) !== 3) {
+        $errors[] = $date;
+      }
+      else {
+        if (!checkdate($date_pieces[1], $date_pieces[2], $date_pieces[0])) {
+          $errors[] = $date;
+        }
+      } 
+    }
+    if (!empty($errors)) {
+      form_set_error('suppress', t('The following dates are not in the correct format: %dates. Please enter dates in the format of YYYY-MM-DD', array('%dates' => implode(',', $errors))));
+    } 
+  }
+  
 }
 
 /**
