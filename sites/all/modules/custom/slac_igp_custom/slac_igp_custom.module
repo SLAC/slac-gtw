@@ -88,6 +88,9 @@ function slac_igp_custom_block_view_alter(&$data, $block) {
  */
 function slac_igp_custom_preprocess_slac_igp_weather(&$vars) {
   $weather = $vars['weather'];
+  if (!$weather) {
+    return;
+  }
   
   $current = array(
     'condition' => (string) $weather->condition->condition->attributes()->text,
