@@ -163,3 +163,5 @@ features_exclude[taxonomy][organization_directorate] = organization_directorate
 features_exclude[taxonomy][research_resource_subtype] = research_resource_subtype
 features_exclude[taxonomy][resource_category_research] = resource_category_research
 features_exclude[taxonomy][resource_category_staff] = resource_category_staff
+features_exclude[dependencies][slac_igp_email] = slac_igp_email
+no autodetect = 1
