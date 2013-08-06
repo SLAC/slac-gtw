@@ -21,6 +21,8 @@
  * -- zip: Smart IP specific item
  * -- region: Smart IP specific item
  * -- region_code: Smart IP specific item
+ * -- time_zone: Smart IP specific item
+ * -- ip_address: Smart IP specific item
  * -- timestamp: Timestamp of these data stored
  *
  * @ingroup themeable

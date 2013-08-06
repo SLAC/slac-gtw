@@ -202,6 +202,7 @@ function device_geolocation_detector_ajax() {
     $smart_ip_session['location']['zip']          = '';
     $smart_ip_session['location']['latitude']     = '';
     $smart_ip_session['location']['longitude']    = '';
+    $smart_ip_session['location']['time_zone']    = '';
     foreach ($_POST as $label => $address) {
       if (!empty($address)) {
         $label = check_plain($label);
@@ -221,7 +222,8 @@ function device_geolocation_detector_ajax() {
     drupal_alter('device_geolocation_detector_ajax', $smart_ip_session['location']);
 
     if (isset($smart_ip_session['location']) && $user->uid) {
-      user_save($user, array('data' => array('geoip_location' => $smart_ip_session['location'])));
+      $user_obj = user_load($user->uid);
+      user_save($user_obj, array('data' => array('geoip_location' => $smart_ip_session['location'])));
     }
     smart_ip_session_set('smart_ip', $smart_ip_session);
   }
@@ -252,7 +254,8 @@ function device_geolocation_get_coordinates() {
     $smart_ip_session['location'] = smart_ip_get_current_visitor_location_data();
     smart_ip_session_set('smart_ip', $smart_ip_session);
     if ($user->uid) {
-      user_save($user, array('data' => array('geoip_location' => $smart_ip_session['location'])));
+      $user_obj = user_load($user->uid);
+      user_save($user_obj, array('data' => array('geoip_location' => $smart_ip_session['location'])));
     }
     if (!empty($smart_ip_session['location']['latitude'])) {
       $latitude  = $smart_ip_session['location']['latitude'];

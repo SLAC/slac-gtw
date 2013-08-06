@@ -7,9 +7,9 @@ files[] = device_geolocation.install
 files[] = theme/device-geolocation-visitor-info.tpl.php
 dependencies[] = smart_ip
 configure = admin/structure/block
-; Information added by drupal.org packaging script on 2013-03-26
-version = "7.x-2.0"
+; Information added by drupal.org packaging script on 2013-07-19
+version = "7.x-2.2"
 core = "7.x"
 project = "smart_ip"
-datestamp = "1364269218"
+datestamp = "1374253278"
 

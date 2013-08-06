@@ -190,6 +190,15 @@ function smart_ip_update_7002() {
 }
 
 /**
+ * Corrected GeoIP Web Service city to city_isp_org.
+ */
+function smart_ip_update_7003() {
+  if (variable_get('smart_ip_maxmind_service', 'country') == 'city') {
+    variable_set('smart_ip_maxmind_service', 'city_isp_org');
+  }
+}
+
+/**
  * Implements hook_uninstall().
  *
  * Removes all tables and variables inserted into the
@@ -197,6 +206,7 @@ function smart_ip_update_7002() {
  */
 function smart_ip_uninstall() {
   variable_del('smart_ip_source');
+  variable_del('smart_ip_ip2location_bin_path');
   variable_del('smart_ip_maxmind_service');
   variable_del('smart_ip_maxmind_key');
   variable_del('smart_ip_use_ipinfodb_api_version');
