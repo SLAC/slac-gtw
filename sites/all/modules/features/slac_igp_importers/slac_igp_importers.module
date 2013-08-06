@@ -141,6 +141,9 @@ function _slac_igp_importers_feeds_event($source, $result) {
     // @todo: This does not handle multi-day event
     if (!empty($library['loaded'])) {
       $html = str_get_html($item['description']);
+      if (!$html) {
+        return;
+      }
       $date = $html->find('span[class=date-display-single]', 0)->plaintext;
       $date_array = explode('-', $date);
       if (count($date_array) === 3) {
