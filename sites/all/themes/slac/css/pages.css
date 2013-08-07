@@ -916,7 +916,7 @@ footer .block-menu li {
     height: 54px;
     padding: 3px;
     margin: 50px 10px 20px;
-    background-color: #b8d7ec;
+    background-color: #b8d6ee;
   }
   /* line 555, ../sass/pages.scss */
   .mobile-search form {
@@ -945,21 +945,22 @@ footer .block-menu li {
     margin: 0;
     height: 26px;
     width: 26px;
+    background: #b8d6ee url("../images/small-search-icon.jpg") no-repeat center right;
   }
-  /* line 584, ../sass/pages.scss */
+  /* line 585, ../sass/pages.scss */
   .mobile-search input[type="radio"],
   .mobile-search label {
     height: 30px;
     float: left;
     vertical-align: middle;
   }
-  /* line 590, ../sass/pages.scss */
+  /* line 591, ../sass/pages.scss */
   .mobile-search input[type="radio"] {
     width: auto;
     margin-left: 20px;
     margin-right: 10px;
   }
-  /* line 596, ../sass/pages.scss */
+  /* line 597, ../sass/pages.scss */
   .mobile-search label {
     width: 50px;
     margin-top: 8px;

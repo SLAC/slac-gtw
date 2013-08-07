@@ -550,7 +550,7 @@ footer .block-menu {
     height: 54px;
     padding: 3px;
     margin: 50px 10px 20px;
-    background-color: rgb(184,215,236);
+    background-color: #b8d6ee;
 
     form{
       position: relative;
@@ -578,6 +578,7 @@ footer .block-menu {
       margin: 0;
       height: 26px;
       width: 26px;
+      background: #b8d6ee url('../images/small-search-icon.jpg') no-repeat center right;
     }
 
     input[type="radio"],
