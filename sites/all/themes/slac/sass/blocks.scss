@@ -138,6 +138,7 @@
     width: 18%;
     text-transform: uppercase;
     font-weight: normal;
+    text-align: center;
   }
   .month{
     font-size: 14px;
@@ -678,7 +679,8 @@ a.submit-feedback {
       width: 28px;
       float: right;
       overflow: hidden;
-      text-indent: 100px;
+      text-indent: -9000px;
+      text-transform: capitalize;
       position: absolute;
       top: 0;
       right: 0;
