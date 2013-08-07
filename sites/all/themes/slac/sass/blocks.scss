@@ -398,7 +398,9 @@ a.submit-feedback {
 }
 
 .views-slideshow-cycle-main-frame {
+  overflow: hidden;
   max-width: 100%;
+  background-color: #fff;
   div {
     max-width: 100%;
   }
