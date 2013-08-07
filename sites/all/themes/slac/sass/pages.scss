@@ -582,13 +582,15 @@ footer .block-menu {
 
     input[type="radio"],
     label{
-      height: 25px;
+      height: 30px;
       float: left;
+      vertical-align: middle
     }
 
     input[type="radio"]{
       width: auto;
-      margin: 3px 5px 0 20px;
+      margin-left: 20px;
+      margin-right: 10px;
     }
 
     label{

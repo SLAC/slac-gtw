@@ -949,15 +949,17 @@ footer .block-menu li {
   /* line 584, ../sass/pages.scss */
   .mobile-search input[type="radio"],
   .mobile-search label {
-    height: 25px;
+    height: 30px;
     float: left;
+    vertical-align: middle;
   }
-  /* line 589, ../sass/pages.scss */
+  /* line 590, ../sass/pages.scss */
   .mobile-search input[type="radio"] {
     width: auto;
-    margin: 3px 5px 0 20px;
+    margin-left: 20px;
+    margin-right: 10px;
   }
-  /* line 594, ../sass/pages.scss */
+  /* line 596, ../sass/pages.scss */
   .mobile-search label {
     width: 50px;
     margin-top: 8px;
