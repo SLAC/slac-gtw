@@ -576,26 +576,38 @@
   .ui-accordion .ui-accordion-content .view-footer {
     display: none;
   }
+
+  /* line 250, ../sass/staff-page.scss */
+  .staff-main > div {
+    width: 50%;
+    margin-right: 0;
+    margin-left: 0;
+    float: left;
+  }
+  /* line 256, ../sass/staff-page.scss */
+  .staff-main .rowtwocolone {
+    clear: none;
+  }
 }
 @media (max-width: 600px) {
-  /* line 251, ../sass/staff-page.scss */
+  /* line 263, ../sass/staff-page.scss */
   .staff-main .inside {
     margin: 0 0 25px 0;
   }
 
-  /* line 255, ../sass/staff-page.scss */
+  /* line 267, ../sass/staff-page.scss */
   .rowtwocolone {
     clear: none;
     margin-bottom: 40px;
   }
 
-  /* line 260, ../sass/staff-page.scss */
+  /* line 272, ../sass/staff-page.scss */
   .rowonecolthree {
     clear: both;
     margin-bottom: 40px;
   }
 
-  /* line 265, ../sass/staff-page.scss */
+  /* line 277, ../sass/staff-page.scss */
   .rowtwocoltwo {
     clear: both;
   }

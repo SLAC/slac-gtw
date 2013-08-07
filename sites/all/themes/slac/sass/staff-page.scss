@@ -245,6 +245,18 @@
       }
     }
   }
+
+  .staff-main{
+    & > div{
+      width: 50%;
+      margin-right: 0;
+      margin-left: 0;
+      float: left;
+    }
+    .rowtwocolone{
+      clear: none;
+    }
+  }
 }
   
 @media (max-width: 600px) {

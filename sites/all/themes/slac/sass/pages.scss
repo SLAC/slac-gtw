@@ -428,6 +428,28 @@ footer .block-menu {
   .front #main {
     margin-top: 80px;
   }
+
+  .header-search,
+  #block-boxes-search-people{
+    width: auto;
+    margin-left: 0;
+    input{
+      width: 200px;
+    }
+  }  
+}
+
+@media ( max-width: 900px ) and ( min-width: 600px) {
+  .section-research-resources .general-two-col{
+    .general-left{
+      width: 65%;
+      margin-right: -65%;
+    }
+    .general-right{
+      width: 35%;
+      margin-left: 65%;
+    }
+  }
 }
 
 @media ( max-width: 770px) {
