@@ -115,10 +115,32 @@
         $container.find('.view-content ul:first > li').each(function(){
           var $this = $(this);
           if( ! $this.find('.item-list ul ul').is(':visible') ){
-            $this.addClass('no-children');
+            $this.addClass('parents no-children');
+          } else{
+            $this.addClass('parents');
           }
         });
       }
+    }
+  }
+
+  Drupal.behaviors.mobileAccordion = {
+    attach: function (context, settings) {
+      var $links = $('.view-id-research_resource .parents');
+      $links.find('.views-field-name:first a').toggle(
+        function(){
+          var $this = $(this);
+          $this.css('background-image', $this.css('background-image').replace('down','up'));
+          $this.parent().parent().parent().find('.item-list').css({'height':'auto'});
+          return false;
+        },
+        function(){
+          var $this = $(this);
+          $this.css('background-image', $this.css('background-image').replace('up','down'));
+          $this.parent().parent().parent().find('.item-list').css({'height':'0'});
+          return false;
+        }
+      );
     }
   }
 
