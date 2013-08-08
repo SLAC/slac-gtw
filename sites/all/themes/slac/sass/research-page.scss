@@ -253,11 +253,15 @@
 .section-research-resources .pane-node-body strong {
   clear: both;
   display: block;
-  padding: 20px 0 15px;
+  padding: 20px 0 0;
 }
 .section-research-resources .view-header {
     padding-bottom: 27px;
     border-bottom: 1px dashed #b1c2ca;
+    a{
+      color: #20659A !important;
+      text-transform: none !important;
+    }
 }
 
 
