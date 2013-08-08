@@ -592,22 +592,23 @@
 @media (max-width: 600px) {
   /* line 263, ../sass/staff-page.scss */
   .staff-main .inside {
+    width: 100%;
     margin: 0 0 25px 0;
   }
 
-  /* line 267, ../sass/staff-page.scss */
+  /* line 268, ../sass/staff-page.scss */
   .rowtwocolone {
     clear: none;
     margin-bottom: 40px;
   }
 
-  /* line 272, ../sass/staff-page.scss */
+  /* line 273, ../sass/staff-page.scss */
   .rowonecolthree {
     clear: both;
     margin-bottom: 40px;
   }
 
-  /* line 277, ../sass/staff-page.scss */
+  /* line 278, ../sass/staff-page.scss */
   .rowtwocoltwo {
     clear: both;
   }

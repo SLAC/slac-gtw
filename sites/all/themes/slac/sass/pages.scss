@@ -586,6 +586,7 @@ footer .block-menu {
       width: 85%;
       height: 26px;
       padding: 0 12.5% 0 2.5%;
+      margin-bottom: 8px;
       background-color: #ffffff;
       font-family: arial;
       font-size: 12px;
@@ -605,9 +606,9 @@ footer .block-menu {
 
     input[type="radio"],
     label{
-      height: 30px;
+      padding: 0;
+      margin: 0;
       float: left;
-      vertical-align: middle
     }
 
     input[type="radio"]{
@@ -617,8 +618,8 @@ footer .block-menu {
     }
 
     label{
+      height: 30px;
       width: 50px;
-      margin-top: 8px;
       font-size: 12px;
       color: rgb(130,130,130);
     }

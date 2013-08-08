@@ -130,14 +130,15 @@
       $links.find('.views-field-name:first a').toggle(
         function(){
           var $this = $(this);
+          $links.each(function(){if($(this).hasClass('expanded')) $(this).find('.views-field-name:first a').click()})
           $this.css('background-image', $this.css('background-image').replace('down','up'));
-          $this.parent().parent().parent().find('.item-list').css({'height':'auto'});
+          $this.parent().parent().parent().addClass('expanded').find('.item-list').css({'height':'auto'});
           return false;
         },
         function(){
           var $this = $(this);
           $this.css('background-image', $this.css('background-image').replace('up','down'));
-          $this.parent().parent().parent().find('.item-list').css({'height':'0'});
+          $this.parent().parent().parent().removeClass('expanded').find('.item-list').css({'height':'0'});
           return false;
         }
       );
