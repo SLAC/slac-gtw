@@ -982,10 +982,11 @@ footer .block-menu li {
   /* line 614, ../sass/pages.scss */
   .mobile-search input[type="radio"] {
     width: auto;
+    margin-top: -2px;
     margin-left: 20px;
     margin-right: 10px;
   }
-  /* line 620, ../sass/pages.scss */
+  /* line 621, ../sass/pages.scss */
   .mobile-search label {
     height: 30px;
     width: 50px;
