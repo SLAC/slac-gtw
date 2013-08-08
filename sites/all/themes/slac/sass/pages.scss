@@ -181,8 +181,12 @@ header {
 }
 
 #block-boxes-search-people{
+  position: relative;
   clear:none;
   .searchbutton{
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
     background: #2582CA;
     color: #F2F2F2;
     padding: 0;
@@ -190,7 +194,6 @@ header {
     text-transform: uppercase;
     width: 26px;
     height: 22px;
-    margin: 1px;
   }
   .advanced-search{display: none;}
 }
@@ -469,6 +472,10 @@ footer .block-menu {
 
 @media (max-width: 600px) {
 
+  .not-front #content {
+    padding-top: 20px;
+  }
+
   .frontpage-right{
     float: none;
     overflow: hidden;
@@ -523,14 +530,18 @@ footer .block-menu {
   .region-header {
     .block-menu,
     #block-boxes-web-search{
+      display: inline-block;
       width: 90px;
       clear: none;
       height: 30px;
       background: url('../images/menu-button.png') no-repeat center 0;
       cursor: pointer;
+      float: none !important;
     }
     #block-boxes-web-search {
       width: 40px;
+      margin-left: 0;
+      margin-right: 10px;
       background: url('../images/small-screen-search.png') no-repeat center 0;
     }
     > .block {
@@ -544,6 +555,7 @@ footer .block-menu {
     display: block;
     width: 100%;
     margin-top: 50px;
+    margin-bottom: -20px;
     font-size: 12px;
     font-weight: bold;
     line-height: 33px;
@@ -572,7 +584,7 @@ footer .block-menu {
     display: block;
     height: 54px;
     padding: 3px;
-    margin: 50px 10px 20px;
+    margin: 50px 10px -20px;
     background-color: #b8d6ee;
 
     form{

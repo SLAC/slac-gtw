@@ -69,7 +69,7 @@
     list-style-image: none;
     background: #f1f1f1;
     float: left;
-    width: 46%;
+    width: 45.5%;
     font-size: 12px;
     margin: 0 0 13px;
     border: 1px dashed #90a7b2;
@@ -96,13 +96,14 @@
   .searchbox {
     height: 21px;
     line-height: 21px;
-    background: #e2e2e2;
+    background: #ebebeb;
     border: 1px solid #cecdce;
     margin-right: 7px;
     @include rounded_corners(2px);
     padding: 0 5px;
     width: 64%;
     font-size: 12px;
+    color: #535353;
   }
   .searchbutton {
     width: 28px;
@@ -400,9 +401,18 @@ a.submit-feedback {
 .views-slideshow-cycle-main-frame {
   overflow: hidden;
   max-width: 100%;
-  background-color: #fff;
+  background-color: transparent;
   div {
     max-width: 100%;
+    div &.views-field-field-news-image{
+      position: relative;
+    }
+    &.views-field-field-news-image{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
   }
   img{
     display: block;
@@ -447,6 +457,8 @@ a.submit-feedback {
   position: absolute;
   bottom: 0;
   left: 0;
+  right: 0;
+  height: auto;
   background: url('../images/transparent-blue-bg.png') repeat;
   padding: 10px 3%;
   color: #fff;
@@ -742,12 +754,9 @@ a.submit-feedback {
 
   /* */
   .frontpage-news-slider .views-field-nothing, .frontpage-slac-science .view-header .views-field-nothing {
-    position: static;
-    background: #fff;
-    color: #1a6199;
+    /*position: static;*/
   }
   .frontpage-news-slider .title a, .frontpage-slac-science .view-header .title a {
-    color: #1a6199;
     display: block;
     margin-bottom: 5px;
   }
