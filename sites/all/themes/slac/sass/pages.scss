@@ -181,8 +181,12 @@ header {
 }
 
 #block-boxes-search-people{
+  position: relative;
   clear:none;
   .searchbutton{
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
     background: #2582CA;
     color: #F2F2F2;
     padding: 0;
@@ -190,7 +194,6 @@ header {
     text-transform: uppercase;
     width: 26px;
     height: 22px;
-    margin: 1px;
   }
   .advanced-search{display: none;}
 }
