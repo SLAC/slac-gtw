@@ -95,6 +95,7 @@ header {
 
 .region-header {
   float: right;
+  overflow: hidden;
   .block {
     float: left;
   }
@@ -134,6 +135,7 @@ header {
     padding: 0 13px;
     background: url('../images/delimitator.jpg') no-repeat right center;
     &.last{
+      padding-right: 0;
       background: transparent;
     }
     a {
