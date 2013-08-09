@@ -80,7 +80,7 @@ Building 50 <br />
   $box->description = 'IT Help Desk';
   $box->options = array(
     'body' => array(
-      'value' => '<p>7am - 6pm, Monday - Friday</p><p><a href="https://www6.slac.stanford.edu/visiting-slac/maps-directions-visitormap.aspx">Building 50, First Floor Lobby</a></p><p>xHELP (650-926-4357)</p><p><a href="mailto:ithelp@slac.stanford.edu">ithelp@slac.stanford.edu</a></p><div class="view-footer"><a href="https://www-rt.slac.stanford.edu/rt3/NoAuth/Forms/RequestHelp.html">Submit Request</a></div>',
+      'value' => '<p>7am - 6pm, Monday - Friday</p><p><a href="https://www6.slac.stanford.edu/visiting-slac/maps-directions-visitormap.aspx">Building 50, First Floor Lobby</a></p><p>xHELP (650-926-4357)</p><p><a href="mailto:ithelp@slac.stanford.edu">ithelp@slac.stanford.edu</a></p><div class="view-footer"><a href="https://www-rt.slac.stanford.edu/rt3/NoAuth/Forms/RequestHelp.html">Submit IT Help Request</a></div>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -119,7 +119,7 @@ Building 50 <br />
   $box->description = 'Search (People)';
   $box->options = array(
     'body' => array(
-      'value' => '<form action="http://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><input class="searchbox" id="searchbox" maxlength="2047" name="name" onblur="if (this.value == \'\') {this.value = \'Search\';}" onfocus="if (this.value == \'Search\') {this.value = \'\';}" size="18" type="text" value="People finder"> <input name="gone" type="hidden" value="active"> <input name="if" type="hidden" value="1"><input name="url" type="hidden" value=""><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27"> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>',
+      'value' => '<form action="http://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><input class="searchbox" id="searchbox" maxlength="2047" name="name" onblur="if (this.value == \'\') {this.value = \'Search\';}" onfocus="if (this.value == \'Search\') {this.value = \'\';}" size="18" type="text" value=""> <input name="gone" type="hidden" value="active"> <input name="if" type="hidden" value="1"><input name="url" type="hidden" value=""><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27"> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',

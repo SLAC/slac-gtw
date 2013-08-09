@@ -438,10 +438,14 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
 
-  /* Display: Top Links (2 Column) */
-  $handler = $view->new_display('block', 'Top Links (2 Column)', 'block_2');
+  /* Display: Home: Top Links (2 Column) */
+  $handler = $view->new_display('block', 'Home: Top Links (2 Column)', 'block_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Top Links';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['footer'] = FALSE;
   /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
@@ -467,10 +471,41 @@ function slac_igp_resources_views_default_views() {
     1 => '1',
   );
 
-  /* Display: Top Links (1 Column) */
-  $handler = $view->new_display('block', 'Top Links (1 Column)', 'block_3');
+  /* Display: Top Links (2 Column) */
+  $handler = $view->new_display('block', 'Top Links (2 Column)', 'block_5');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Top Links';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '18';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'staff_resource' => 'staff_resource',
+  );
+  /* Filter criterion: Taxonomy term: Promoted (field_resource_promoted) */
+  $handler->display->display_options['filters']['field_resource_promoted_value']['id'] = 'field_resource_promoted_value';
+  $handler->display->display_options['filters']['field_resource_promoted_value']['table'] = 'field_data_field_resource_promoted';
+  $handler->display->display_options['filters']['field_resource_promoted_value']['field'] = 'field_resource_promoted_value';
+  $handler->display->display_options['filters']['field_resource_promoted_value']['value'] = array(
+    1 => '1',
+  );
+
+  /* Display: Home: Top Links (1 Column) */
+  $handler = $view->new_display('block', 'Home: Top Links (1 Column)', 'block_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Top Links';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
