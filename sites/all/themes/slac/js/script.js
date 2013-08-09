@@ -153,4 +153,19 @@
     }
   }
 
+  Drupal.behaviors.sliderResize = {
+    attach: function (context, settings) {
+      // fix slider width/height on screen resize
+      var slider = $('#views_slideshow_cycle_main_news-block');
+      if( slider.is(':visible') ){        
+        var resizer = function(){
+          slider.find('div:first,.views_slideshow_slide')
+          .css({'width':slider.width(),'height':slider.find('.views_slideshow_slide:visible img').height()})
+        }
+        $(window).resize(resizer);
+        $('.views-slideshow-controls-top *').click(resizer);
+      }
+    }
+  }
+
 })(jQuery, Drupal, this, this.document);

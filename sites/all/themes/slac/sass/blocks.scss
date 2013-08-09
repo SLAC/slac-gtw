@@ -400,7 +400,7 @@ a.submit-feedback {
   max-width: 100%;
   background-color: transparent;
   div {
-    max-width: 100%;
+    width: 100%;
     div &.views-field-field-news-image{
       position: relative;
     }
@@ -413,6 +413,8 @@ a.submit-feedback {
   }
   img{
     display: block;
+    width: 100% !important;
+    height: auto;
   }
 }
 

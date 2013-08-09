@@ -83,7 +83,8 @@ header {
   a {
     display: block;
     max-width: 148px;
-    width: 100%;
+    min-width: 88px;
+    width: auto;
     margin: auto;
     margin-bottom: -55px;
   }
@@ -145,31 +146,43 @@ header {
   }
 }
 
-#block-boxes-web-search,
-#block-boxes-search-people{
-  float: right;
-  clear: right;
-  margin-left: 20px;
+#block-boxes-web-search{
+  margin-left: 2%;
 }
 
-.header-search,
+#block-boxes-web-search,
 #block-boxes-search-people{
-  position: relative;
+  width: 48.5%;
   background: #fff;
-  padding: 0 0 0 7px;
   height: 24px;
-  width: 256px;
   margin-top: 12px;
+  float: right;
+  clear: right;
+  form{
+    position: relative;
+    height: 24px;
+    width: 100%;
+    overflow: hidden;
+  }
   input {
-    float: left;
     border: none;
-    background: none;
+    background: transparent;
     outline: none;
     height: 24px;
-    line-height: 24px;
-    width: 225px;
-    font-size: 14px;
+    font-size: 0.85em;
     color: #535353;
+  }
+  input[type="text"]{    
+    padding-left: 7px;
+    max-width: 100%;
+    min-width: 80%;
+    width: auto;
+  }
+  input[type="image"]{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
   }
   .search-button {
     width: 26px;
@@ -434,17 +447,7 @@ footer .block-menu {
   .front #main {
     margin-top: 80px;
   }
-
-  .header-search,
-  #block-boxes-search-people{
-    width: auto;
-    margin-left: 0;
-    input[type="text"]{
-      max-width: 200px;
-      min-width: 160px;
-      width: auto;
-    }
-  }  
+  
 }
 
 @media ( max-width: 900px ) and ( min-width: 600px) {
@@ -475,6 +478,11 @@ footer .block-menu {
 }
 
 @media (max-width: 600px) {
+
+  #block-boxes-web-search,
+  #block-boxes-search-people{
+    margin-top: 0;
+  }
 
   .frontpage-right-col{
     margin-top: 15px;
