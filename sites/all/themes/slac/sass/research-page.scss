@@ -285,14 +285,20 @@
   .view-id-research_resource .view-content{
     padding: 0;
     li,li.no-children{
+      padding: 0;
       margin-top: 5px;
       background-color: #fff;
+
       .item-list{
         height: 0;
         padding: 0;
         background-color: transparent;
         border: 0;
         overflow: hidden;
+
+        .item-list{
+          height: auto;
+        }
         li{
           margin-top: 0;
         }
@@ -306,23 +312,34 @@
           }
         }
         li li{
-          background: url("../images/blue-right-list-arrow.jpg") no-repeat 10px 12px;
+          background: url("../images/blue-right-list-arrow.jpg") no-repeat 20px 12px;
         }
       }
       .views-field-name{
         padding: 5px 0;
         a{
           display: block;
+          padding: 3px 0 3px 11px;
           color: #20659A;
           font-weight: bold;
           background: white url("../images/small-list-arrow-down.jpg") no-repeat right center;
           text-decoration: none;
         }
       }
+
+      .collapse-block{
+        height: 30px;
+        padding-right: 40px;
+        line-height: 30px;
+        text-align: right;
+        color: #20659A;
+        background: #e9f2f9 url("../images/collapse.png") no-repeat right center;
+        cursor: pointer;
+      }
     }
     li.no-children .item-list{
       li{
-        background: url("../images/blue-right-list-arrow.jpg") no-repeat 10px 12px;
+        background: url("../images/blue-right-list-arrow.jpg") no-repeat 20px 12px;
       }
       a{
         font-weight: inherit;

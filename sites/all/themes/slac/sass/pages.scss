@@ -110,7 +110,7 @@ header {
   }
 }
 
-.frontpage-right, .frontpage-left-col {
+.frontpage-right{
   margin-bottom: 32px;
 }
 
@@ -414,7 +414,7 @@ footer .block-menu {
   }
 
   .rowonecoltwo ul{
-    min-height: 312px;
+    min-height: 298px;
   } 
 
   .rowonecolthree ul{
@@ -422,7 +422,7 @@ footer .block-menu {
   }
 
   .rowtwocolone ul{
-    min-height: 240px;
+    min-height: 88px;
   }
 
   .frontpage-left-col{
@@ -437,8 +437,10 @@ footer .block-menu {
   #block-boxes-search-people{
     width: auto;
     margin-left: 0;
-    input{
-      width: 200px;
+    input[type="text"]{
+      max-width: 200px;
+      min-width: 160px;
+      width: auto;
     }
   }  
 }
@@ -472,8 +474,16 @@ footer .block-menu {
 
 @media (max-width: 600px) {
 
+  .frontpage-right-col{
+    margin-top: 15px;
+  }
+
+  .frontpage-security-contacts{
+    margin-top: -12px;
+  }
+
   .not-front #content {
-    padding-top: 20px;
+    padding-top: 50px;
   }
 
   .frontpage-right{
@@ -597,6 +607,7 @@ footer .block-menu {
 
     #searchbox{
       width: 85%;
+      max-width: none;
       height: 26px;
       padding: 0 12.5% 0 2.5%;
       margin-bottom: 8px;

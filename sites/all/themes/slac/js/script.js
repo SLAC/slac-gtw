@@ -127,18 +127,26 @@
   Drupal.behaviors.mobileAccordion = {
     attach: function (context, settings) {
       var $links = $('.view-id-research_resource .parents');
+      
+      $links.each(function(){
+        $(this).find('.item-list:first').css({'display':'none','height':'auto'})
+        .append('<div class="collapse-block">Collapse</div>')
+      })
+      $('.collapse-block').click(function(){
+        $(this).parents('.parents').find('.views-field-name:first a').click();
+      })
       $links.find('.views-field-name:first a').toggle(
         function(){
           var $this = $(this);
           $links.each(function(){if($(this).hasClass('expanded')) $(this).find('.views-field-name:first a').click()})
           $this.css('background-image', $this.css('background-image').replace('down','up'));
-          $this.parent().parent().parent().addClass('expanded').find('.item-list').css({'height':'auto'});
+          $this.parents('.parents').addClass('expanded').find('.item-list:first').stop(true,true).slideDown(300);
           return false;
         },
         function(){
           var $this = $(this);
           $this.css('background-image', $this.css('background-image').replace('up','down'));
-          $this.parent().parent().parent().removeClass('expanded').find('.item-list').css({'height':'0'});
+          $this.parents('.parents').removeClass('expanded').find('.item-list:first').stop(true,true).slideUp(300);
           return false;
         }
       );

@@ -171,6 +171,9 @@
 
 .pane-quicktabs-staff-resources-mobile{
   display: none;
+  h2{
+    margin-top: 0;
+  }
 }
 
 
@@ -251,10 +254,12 @@
       width: 50%;
       margin-right: 0;
       margin-left: 0;
+      margin-bottom: 40px;
       float: left;
-    }
-    .rowtwocolone{
       clear: none;
+    }
+    .rowonecoltwo ul{
+      min-height: 312px;
     }
   }
 }
@@ -263,6 +268,10 @@
   .staff-main .inside {
     width: 100%;
     margin: 0 0 25px 0;
+    clear: none;
+    ul{
+      min-height: inherit;
+    }
   }
 
   .rowtwocolone{

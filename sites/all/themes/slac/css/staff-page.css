@@ -489,34 +489,38 @@
 .pane-quicktabs-staff-resources-mobile {
   display: none;
 }
+/* line 174, ../sass/staff-page.scss */
+.pane-quicktabs-staff-resources-mobile h2 {
+  margin-top: 0;
+}
 
 @media (max-width: 900px) {
-  /* line 178, ../sass/staff-page.scss */
+  /* line 181, ../sass/staff-page.scss */
   .staff-main {
     width: 100%;
     overflow: hidden;
   }
 
-  /* line 183, ../sass/staff-page.scss */
+  /* line 186, ../sass/staff-page.scss */
   .section-staff-resources #content {
     background: transparent;
   }
 
-  /* line 187, ../sass/staff-page.scss */
+  /* line 190, ../sass/staff-page.scss */
   .pane-quicktabs-staff-resources {
     display: none;
   }
 
-  /* line 191, ../sass/staff-page.scss */
+  /* line 194, ../sass/staff-page.scss */
   .pane-quicktabs-staff-resources-mobile {
     display: block;
   }
 
-  /* line 196, ../sass/staff-page.scss */
+  /* line 199, ../sass/staff-page.scss */
   .ui-accordion .ui-icon {
     display: none;
   }
-  /* line 199, ../sass/staff-page.scss */
+  /* line 202, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-header, .ui-accordion .ui-accordion-content {
     border: none;
     -moz-border-radius: 0px;
@@ -529,7 +533,7 @@
     margin: 0;
     padding: 0;
   }
-  /* line 207, ../sass/staff-page.scss */
+  /* line 210, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-header a {
     height: 16px;
     background: white url("../images/small-list-arrow-down.jpg") no-repeat right center;
@@ -543,22 +547,22 @@
     font-size: 13px;
     font-family: "Arial", sans-serif;
   }
-  /* line 220, ../sass/staff-page.scss */
+  /* line 223, ../sass/staff-page.scss */
   .ui-accordion .ui-state-active a {
     background-image: url("../images/small-list-arrow-up.jpg");
   }
-  /* line 223, ../sass/staff-page.scss */
+  /* line 226, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content {
     margin-top: -1px !important;
     padding: 9px 0 19px;
   }
-  /* line 226, ../sass/staff-page.scss */
+  /* line 229, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .view-content {
     max-width: 705px;
     width: 85%;
     padding: 0 5% 0 10%;
   }
-  /* line 231, ../sass/staff-page.scss */
+  /* line 234, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .views-row {
     background: url("../images/blue-right-list-arrow.jpg") no-repeat left 7px;
     padding: 2px 0 2px 11px;
@@ -567,48 +571,55 @@
     clear: both;
     display: block;
   }
-  /* line 238, ../sass/staff-page.scss */
+  /* line 241, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .views-row a {
     color: #20659A;
     font-size: 12px;
   }
-  /* line 243, ../sass/staff-page.scss */
+  /* line 246, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .view-footer {
     display: none;
   }
 
-  /* line 250, ../sass/staff-page.scss */
+  /* line 253, ../sass/staff-page.scss */
   .staff-main > div {
     width: 50%;
     margin-right: 0;
     margin-left: 0;
+    margin-bottom: 40px;
     float: left;
-  }
-  /* line 256, ../sass/staff-page.scss */
-  .staff-main .rowtwocolone {
     clear: none;
+  }
+  /* line 261, ../sass/staff-page.scss */
+  .staff-main .rowonecoltwo ul {
+    min-height: 312px;
   }
 }
 @media (max-width: 600px) {
-  /* line 263, ../sass/staff-page.scss */
+  /* line 268, ../sass/staff-page.scss */
   .staff-main .inside {
     width: 100%;
     margin: 0 0 25px 0;
+    clear: none;
+  }
+  /* line 272, ../sass/staff-page.scss */
+  .staff-main .inside ul {
+    min-height: inherit;
   }
 
-  /* line 268, ../sass/staff-page.scss */
+  /* line 277, ../sass/staff-page.scss */
   .rowtwocolone {
     clear: none;
     margin-bottom: 40px;
   }
 
-  /* line 273, ../sass/staff-page.scss */
+  /* line 282, ../sass/staff-page.scss */
   .rowonecolthree {
     clear: both;
     margin-bottom: 40px;
   }
 
-  /* line 278, ../sass/staff-page.scss */
+  /* line 287, ../sass/staff-page.scss */
   .rowtwocoltwo {
     clear: both;
   }
