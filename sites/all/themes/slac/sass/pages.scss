@@ -133,7 +133,7 @@ header {
     list-style-image: none;
     float: left;
     padding: 0 13px;
-    background: url('../images/delimitator.jpg') no-repeat right center;
+    background: transparent url('../images/delimitator.jpg') no-repeat right center;
     &.last{
       padding-right: 0;
       background: transparent;
@@ -544,7 +544,7 @@ footer .block-menu {
     #block-boxes-web-search{
       display: inline-block;
       width: 90px;
-      clear: none;
+      clear: right;
       height: 30px;
       background: url('../images/menu-button.png') no-repeat center 0;
       cursor: pointer;

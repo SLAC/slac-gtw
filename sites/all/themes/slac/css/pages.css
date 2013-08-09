@@ -442,7 +442,7 @@ header {
   list-style-image: none;
   float: left;
   padding: 0 13px;
-  background: url("../images/delimitator.jpg") no-repeat right center;
+  background: transparent url("../images/delimitator.jpg") no-repeat right center;
 }
 /* line 137, ../sass/pages.scss */
 #block-system-main-menu .menu li.last {
@@ -914,7 +914,7 @@ footer .block-menu li {
   .region-header #block-boxes-web-search {
     display: inline-block;
     width: 90px;
-    clear: none;
+    clear: right;
     height: 30px;
     background: url("../images/menu-button.png") no-repeat center 0;
     cursor: pointer;
