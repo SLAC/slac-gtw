@@ -85,6 +85,20 @@ function slac_igp_feed_form_alter(&$form, &$form_state, $form_id) {
   );
   
   $form['actions']['submit']['#submit'][] = 'slac_igp_feed_subqueue_expiration_submit';
+  $form['#validate'][] = 'slac_igp_feed_subqueue_expiration_validate';
+}
+
+/**
+ * Form validation callback
+ */
+function slac_igp_feed_subqueue_expiration_validate($form, &$form_state) {
+  $v = $form_state['values']['subqueue_expiration'];
+  if (!empty($v['subqueue_expiration_date']) && empty($v['subqueue_expiration_exclude'])) {
+    form_set_error('subqueue_expiration][subqueue_expiration_exclude', t('You must select number of items to exclude as well.'));
+  }
+  if (!empty($v['subqueue_expiration_exclude']) && empty($v['subqueue_expiration_date'])) {
+    form_set_error('subqueue_expiration][subqueue_expiration_date', t('You must select created date as well.'));
+  }
 }
 
 /** 
