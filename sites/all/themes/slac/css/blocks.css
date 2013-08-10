@@ -1181,17 +1181,19 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
     margin-bottom: 5px;
   }
 
-  /* line 768, ../sass/blocks.scss */
-  .section-research-resources .general-right, .section-staff-resources-classic .general-right {
+  /* line 770, ../sass/blocks.scss */
+  .section-research-resources .general-right,
+  .section-staff-resources-classic .general-right,
+  .section-a-z .general-right {
     display: none;
   }
 
-  /* line 772, ../sass/blocks.scss */
+  /* line 774, ../sass/blocks.scss */
   .frontpage-calendar h3 {
     margin-left: 0;
   }
 
-  /* line 776, ../sass/blocks.scss */
+  /* line 778, ../sass/blocks.scss */
   .back-on-top {
     display: block;
   }

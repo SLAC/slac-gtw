@@ -765,7 +765,9 @@ a.submit-feedback {
       margin-bottom: 5px;
     }
   }
-  .section-research-resources .general-right, .section-staff-resources-classic .general-right {
+  .section-research-resources .general-right,
+  .section-staff-resources-classic .general-right,
+  .section-a-z .general-right{
     display: none;
   }
 
