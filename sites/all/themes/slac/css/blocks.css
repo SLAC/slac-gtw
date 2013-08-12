@@ -1039,7 +1039,7 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
     display: block;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 620px) {
   /* line 655, ../sass/blocks.scss */
   .frontpage-calendar {
     display: block;

@@ -163,7 +163,7 @@
   padding: 0 0 0 30px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 620px) {
   /* Resources Page */
   /* line 153, ../sass/research-page.scss */
   .section-research-resources #block-boxes-search-people {
@@ -321,7 +321,7 @@
   background: url("../images/right-list-icon.png") no-repeat right 2px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 620px) {
   /* line 286, ../sass/research-page.scss */
   .section-research-resources .view-id-research_resource {
     margin-top: 20px;

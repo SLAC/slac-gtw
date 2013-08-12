@@ -595,7 +595,7 @@
     min-height: 312px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 620px) {
   /* line 268, ../sass/staff-page.scss */
   .staff-main .inside {
     width: 100%;

@@ -450,7 +450,8 @@ footer .block-menu {
 }
 
 @media ( max-width: 800px) {
-  .section-research-resources .general-two-col{
+  .section-research-resources .general-two-col,
+  .section-a-z .general-two-col{
     .general-left{
       width: 100%;
       margin-right: 0;
@@ -466,13 +467,13 @@ footer .block-menu {
   }
 }
 
-@media ( min-width: 600px) {
+@media ( min-width: 620px) {
 .section-research-resources .view-grouping-content {
   display: block !important;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 620px) {
 
   #block-boxes-web-search,
   #block-boxes-search-people{
