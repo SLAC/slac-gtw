@@ -45,7 +45,7 @@
           	$searchMobile.hide();
           });
         }
-        if( $(window).width() < 621 ) menuToggle();
+        if( $(window).width() < 621 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Firefox/i.test(navigator.userAgent) ) menuToggle();
     }
   }
   
