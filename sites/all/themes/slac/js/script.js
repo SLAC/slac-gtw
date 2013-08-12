@@ -31,21 +31,28 @@
             $searchMobile.hide();
 
         var menuToggle = function(){
-          $menu.parent().toggle(function(){
-            if( $searchMobile.is(':visible') ) $searchbox.click();
-          	$menuMobile.fadeIn('slow');
-          },function(){
-          	$menuMobile.hide();
-          });
-          
-          $searchbox.toggle(function(){
-            if( $menuMobile.is(':visible') ) $menu.parent().click();
-            $searchMobile.fadeIn('slow');
-          },function(){
-          	$searchMobile.hide();
-          });
+          if( $(window).width() < 620 ){
+            $menu.parent().toggle(function(){
+              if( $searchMobile.is(':visible') ) $searchbox.click();
+            	$menuMobile.fadeIn('slow');
+            },function(){
+            	$menuMobile.hide();
+            });
+            
+            $searchbox.toggle(function(){
+              if( $menuMobile.is(':visible') ) $menu.parent().click();
+              $searchMobile.fadeIn('slow');
+            },function(){
+            	$searchMobile.hide();
+            });
+          } else{
+            $searchbox.unbind('click'); $menu.parent().unbind('click');
+          }
         }
-        if( $(window).width() < 621 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Firefox/i.test(navigator.userAgent) ) menuToggle();
+        menuToggle();
+        $(window).resize(function(){
+          menuToggle();
+        }) 
     }
   }
   
