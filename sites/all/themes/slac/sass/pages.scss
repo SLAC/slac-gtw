@@ -391,10 +391,9 @@ footer .block-menu {
   }
 }
 
-.mobile-search,
-.mobile-menu{
+#mobile-menu-wrap{
   display: none;
- }
+}
 
 @media (max-width: 900px) {
 
@@ -571,6 +570,11 @@ footer .block-menu {
         display: none;
       }
     }
+  }
+
+  // mobile menu
+  #mobile-menu-wrap{
+    display: block;
   }
 
   .mobile-menu{

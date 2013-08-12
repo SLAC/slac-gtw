@@ -751,6 +751,9 @@ a.submit-feedback {
   /* */
   .frontpage-news-slider .views-field-nothing, .frontpage-slac-science .view-header .views-field-nothing {
     /*position: static;*/
+    .body{
+      display: none;
+    }
   }
   .frontpage-news-slider .title a, .frontpage-slac-science .view-header .title a {
     display: block;

@@ -14,25 +14,23 @@
 
   Drupal.behaviors.mobileHeader = {
     attach: function (context, settings) {
-      if( $('body').width() < 601 ){
-        // width < 600px
+      var $menu = $('.region-header #block-system-main-menu .menu:first'),
+    	    $searchbox = $('.region-header #block-boxes-web-search');     
+    	$('<div id="mobile-menu-wrap"/>').insertBefore('#main')
+    	$('<ul class="mobile-menu">'+ $menu.html() +'</ul>').appendTo('#mobile-menu-wrap');
+    	$('<div class="mobile-search">'+ $searchbox.find('form').parent().html() +'</div>').appendTo('#mobile-menu-wrap');
+    	$('.mobile-search form').append('<input id="search-people" type="radio" name="same" checked="true"/><label for="search-people">People</label><input id="search-slac" type="radio" name="same" /><label for="search-slac">SLAC</label>');
+      $('.mobile-search #search-button').attr('src',$('.mobile-search #search-button').attr('src').replace('.jpg','')+'-mobile.jpg');
 
-        var $menu = $('.region-header #block-system-main-menu .menu:first'),
-      	    $searchbox = $('.region-header #block-boxes-web-search');      
-      	
-      	$('<ul class="mobile-menu">'+ $menu.html() +'</ul>').insertBefore('#main');
-      	$('<div class="mobile-search">'+ $searchbox.find('form').parent().html() +'</div>').insertBefore('#main');
-      	$('.mobile-search form').append('<input id="search-people" type="radio" name="same" checked="true"/><label for="search-people">People</label><input id="search-slac" type="radio" name="same" /><label for="search-slac">SLAC</label>');
-        $('.mobile-search #search-button').attr('src',$('.mobile-search #search-button').attr('src').replace('.jpg','')+'-mobile.jpg');
+      //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Firefox/i.test(navigator.userAgent) ) {
+        // touch device
+        var $menuMobile = $('.mobile-menu'),
+            $searchMobile = $('.mobile-search');
 
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Firefox/i.test(navigator.userAgent) ) {
-          // touch device
-          var $menuMobile = $('.mobile-menu'),
-              $searchMobile = $('.mobile-search');
+            $menuMobile.hide();
+            $searchMobile.hide();
 
-              $menuMobile.hide();
-              $searchMobile.hide();
-
+        var menuToggle = function(){
           $menu.parent().toggle(function(){
             if( $searchMobile.is(':visible') ) $searchbox.click();
           	$menuMobile.fadeIn('slow');
@@ -47,7 +45,7 @@
           	$searchMobile.hide();
           });
         }
-      }
+        if( $('body').width() < 601 ) menuToggle();
     }
   }
   
