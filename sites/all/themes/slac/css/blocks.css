@@ -822,8 +822,13 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
   line-height: 18px;
   width: 94%;
 }
+/* line 468, ../sass/blocks.scss */
+.frontpage-news-slider .views-field-nothing .body, .frontpage-slac-science .view-header .views-field-nothing .body {
+  max-height: 54px;
+  overflow: hidden;
+}
 
-/* line 469, ../sass/blocks.scss */
+/* line 474, ../sass/blocks.scss */
 .frontpage-news-slider .title a, .frontpage-slac-science .view-header .title a {
   color: #fff;
   text-decoration: none;
@@ -835,11 +840,11 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
 .frontpage-news-slider img{
   float: left;
 }*/
-/* line 481, ../sass/blocks.scss */
+/* line 486, ../sass/blocks.scss */
 .frontpage-news-slider {
   border: 1px solid #b0aeac;
 }
-/* line 483, ../sass/blocks.scss */
+/* line 488, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span {
   position: absolute;
   top: 45%;
@@ -855,34 +860,34 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
   -ms-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 493, ../sass/blocks.scss */
+/* line 498, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span a {
   display: block;
   background: url("../images/slider-back.png") no-repeat center;
   height: 1px;
   padding: 73px 0 0 0;
 }
-/* line 500, ../sass/blocks.scss */
+/* line 505, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text-previous {
   left: 20px;
 }
-/* line 503, ../sass/blocks.scss */
+/* line 508, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text-next {
   right: 20px;
 }
-/* line 506, ../sass/blocks.scss */
+/* line 511, ../sass/blocks.scss */
 .frontpage-news-slider span.views-slideshow-controls-text-next a {
   background-image: url("../images/slider-next.png");
 }
-/* line 509, ../sass/blocks.scss */
+/* line 514, ../sass/blocks.scss */
 .frontpage-news-slider span.views-slideshow-controls-text-pause {
   display: none;
 }
-/* line 511, ../sass/blocks.scss */
+/* line 516, ../sass/blocks.scss */
 .frontpage-news-slider span.views-slideshow-controls-text-pause a {
   display: none;
 }
-/* line 515, ../sass/blocks.scss */
+/* line 520, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-pager-fields {
   position: absolute;
   right: 0;
@@ -890,7 +895,7 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
   z-index: 99;
   margin: 10px 15px 0 0;
 }
-/* line 522, ../sass/blocks.scss */
+/* line 527, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-pager-field-item {
   float: left;
   width: 22px;
@@ -900,19 +905,19 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
   background: url("../images/slider-pager.png") no-repeat 0 0;
   margin-left: 6px;
 }
-/* line 530, ../sass/blocks.scss */
+/* line 535, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-pager-field-item.active {
   background-image: url("../images/slider-pager-active.png");
 }
 
-/* line 537, ../sass/blocks.scss */
+/* line 542, ../sass/blocks.scss */
 .section-about .field-type-text-with-summary p {
   padding-bottom: 20px;
   margin-bottom: 0 0 20px 0;
   border-bottom: 1px dashed #b1c2ca;
   color: #45464C;
 }
-/* line 543, ../sass/blocks.scss */
+/* line 548, ../sass/blocks.scss */
 .section-about .field-type-text-with-summary li {
   margin-left: 2.5%;
   width: 97.5%;
@@ -922,7 +927,7 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
   line-height: 20px;
 }
 
-/* line 553, ../sass/blocks.scss */
+/* line 558, ../sass/blocks.scss */
 .back-on-top {
   display: block;
   width: 88%;
@@ -936,7 +941,7 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
   display: none;
 }
 
-/* line 565, ../sass/blocks.scss */
+/* line 570, ../sass/blocks.scss */
 .back-on-top span {
   float: left;
   padding-right: 30px;
@@ -944,28 +949,28 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
 }
 
 @media (max-width: 1300px) {
-  /* line 572, ../sass/blocks.scss */
+  /* line 577, ../sass/blocks.scss */
   .pane-boxes-stanford-compliance {
     margin-top: 44px;
   }
 
-  /* line 576, ../sass/blocks.scss */
+  /* line 581, ../sass/blocks.scss */
   .pane-boxes-stanford-compliance h2 {
     margin-top: -26px;
   }
 }
 @media (max-width: 900px) {
-  /* line 583, ../sass/blocks.scss */
+  /* line 588, ../sass/blocks.scss */
   .brown-bodered-white h2 {
     font-size: 11px;
     margin-top: -12px;
   }
 
-  /* line 588, ../sass/blocks.scss */
+  /* line 593, ../sass/blocks.scss */
   .blue-striped-list > .pane-content {
     padding: 10px;
   }
-  /* line 591, ../sass/blocks.scss */
+  /* line 596, ../sass/blocks.scss */
   .blue-striped-list .view-content .views-row {
     background: #e9f2f9;
     border: none;
@@ -974,7 +979,7 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
     margin-top: 7px;
     margin-bottom: 7px;
   }
-  /* line 598, ../sass/blocks.scss */
+  /* line 603, ../sass/blocks.scss */
   .blue-striped-list .view-content .views-row a {
     background: none;
     padding: 0;
@@ -984,43 +989,43 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
     float: left;
   }
 
-  /* line 608, ../sass/blocks.scss */
-  .frontpage-news-slider .views-field-nothing .body {
+  /* line 613, ../sass/blocks.scss */
+  .frontpage-news-slider .views-field-nothing .body, .frontpage-slac-science .view-header .views-field-nothing .body {
     display: none;
   }
 
-  /* line 612, ../sass/blocks.scss */
+  /* line 617, ../sass/blocks.scss */
   .frontpage-top-links .desktop {
     display: none;
   }
 
-  /* line 613, ../sass/blocks.scss */
+  /* line 618, ../sass/blocks.scss */
   .frontpage-top-links .mobile {
     display: block;
   }
 
-  /* line 615, ../sass/blocks.scss */
+  /* line 620, ../sass/blocks.scss */
   .frontpage-top-links .view-content .views-row {
     width: 100%;
     overflow: hidden;
     margin-bottom: 14px;
   }
-  /* line 619, ../sass/blocks.scss */
+  /* line 624, ../sass/blocks.scss */
   .frontpage-top-links .view-content .views-row.views-row-last {
     margin-bottom: 7px;
   }
 
-  /* line 624, ../sass/blocks.scss */
+  /* line 629, ../sass/blocks.scss */
   .frontpage-slac-science {
     margin-bottom: 16px;
   }
 
-  /* line 628, ../sass/blocks.scss */
+  /* line 633, ../sass/blocks.scss */
   .frontpage-calendar h3 {
     margin-left: -10px;
   }
 
-  /* line 633, ../sass/blocks.scss */
+  /* line 638, ../sass/blocks.scss */
   .frontpage-help-market,
   .frontpage-security-contacts {
     clear: both;
@@ -1029,37 +1034,37 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
     float: none;
   }
 
-  /* line 640, ../sass/blocks.scss */
+  /* line 645, ../sass/blocks.scss */
   .back-on-top {
     display: block;
   }
 }
 @media (max-width: 600px) {
-  /* line 650, ../sass/blocks.scss */
+  /* line 655, ../sass/blocks.scss */
   .frontpage-calendar {
     display: block;
   }
 
   /* People search*/
-  /* line 654, ../sass/blocks.scss */
+  /* line 659, ../sass/blocks.scss */
   .no-bg {
     background: transparent;
     border: none;
   }
-  /* line 657, ../sass/blocks.scss */
+  /* line 662, ../sass/blocks.scss */
   .no-bg.brown-bodered-white {
     margin-top: 0;
   }
-  /* line 659, ../sass/blocks.scss */
+  /* line 664, ../sass/blocks.scss */
   .no-bg.brown-bodered-white > .pane-content {
     padding: 0;
   }
 
-  /* line 665, ../sass/blocks.scss */
+  /* line 670, ../sass/blocks.scss */
   .frontpage-people-finder .advanced-search {
     display: none;
   }
-  /* line 668, ../sass/blocks.scss */
+  /* line 673, ../sass/blocks.scss */
   .frontpage-people-finder form {
     height: 26px;
     border: 3px solid #b8d6ee;
@@ -1067,7 +1072,7 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
     position: relative;
     background: #fff;
   }
-  /* line 675, ../sass/blocks.scss */
+  /* line 680, ../sass/blocks.scss */
   .frontpage-people-finder .searchbox {
     height: 26px;
     border: none;
@@ -1082,7 +1087,7 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
     border: none;
     margin: 0;
   }
-  /* line 685, ../sass/blocks.scss */
+  /* line 690, ../sass/blocks.scss */
   .frontpage-people-finder .searchbutton {
     background: #b8d6ee url("../images/small-search-icon.jpg") no-repeat center right;
     border: none;
@@ -1098,7 +1103,7 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
   }
 
   /* Middle blocks */
-  /* line 701, ../sass/blocks.scss */
+  /* line 706, ../sass/blocks.scss */
   .blue-bodered-white .pane-title {
     background: #a8bcc7 url("../images/blue-arrow.jpg") no-repeat right center;
     font-size: 12px;
@@ -1106,21 +1111,21 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
     line-height: 32px;
     margin-bottom: 20px;
   }
-  /* line 708, ../sass/blocks.scss */
+  /* line 713, ../sass/blocks.scss */
   .blue-bodered-white > .pane-content {
     padding: 0;
   }
 
-  /* line 712, ../sass/blocks.scss */
+  /* line 717, ../sass/blocks.scss */
   .frontpage-slac-science .view-header {
     margin: 0 0 20px 0;
   }
 
-  /* line 716, ../sass/blocks.scss */
+  /* line 721, ../sass/blocks.scss */
   .blue-bodered-white .view-footer {
     display: none;
   }
-  /* line 719, ../sass/blocks.scss */
+  /* line 724, ../sass/blocks.scss */
   .blue-bodered-white .pane-content > .view-news > .view-content .views-row {
     padding: 8px 52px 8px 11px;
     margin: 0 0 18px 0;
@@ -1128,76 +1133,66 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
     font-size: 13px;
     background: white url("/sites/all/themes/slac/images/list-arrow.jpg") no-repeat right center;
   }
-  /* line 726, ../sass/blocks.scss */
+  /* line 731, ../sass/blocks.scss */
   .blue-bodered-white .views-field-created {
     font-size: 12px;
   }
 
   /* Socials */
-  /* line 732, ../sass/blocks.scss */
+  /* line 737, ../sass/blocks.scss */
   .socials li {
     min-width: 24px;
     height: 24px;
     background: url("../images/socialsx24.png") no-repeat;
   }
-  /* line 737, ../sass/blocks.scss */
+  /* line 742, ../sass/blocks.scss */
   .socials .flickr {
     background-position: center -30px;
   }
-  /* line 740, ../sass/blocks.scss */
+  /* line 745, ../sass/blocks.scss */
   .socials .rss {
     background-position: center -60px;
   }
-  /* line 743, ../sass/blocks.scss */
+  /* line 748, ../sass/blocks.scss */
   .socials .twitter {
     background-position: center -90px;
   }
-  /* line 746, ../sass/blocks.scss */
+  /* line 751, ../sass/blocks.scss */
   .socials .youtube {
     background-position: center -120px;
   }
 
-  /* */
-  /* line 752, ../sass/blocks.scss */
-  .frontpage-news-slider .views-field-nothing, .frontpage-slac-science .view-header .views-field-nothing {
-    /*position: static;*/
-  }
-  /* line 754, ../sass/blocks.scss */
-  .frontpage-news-slider .views-field-nothing .body, .frontpage-slac-science .view-header .views-field-nothing .body {
-    display: none;
-  }
-
-  /* line 758, ../sass/blocks.scss */
+  /* line 756, ../sass/blocks.scss */
   .frontpage-news-slider .title a, .frontpage-slac-science .view-header .title a {
     display: block;
     margin-bottom: 5px;
   }
 
   /* Feedback page */
-  /* line 763, ../sass/blocks.scss */
+  /* line 761, ../sass/blocks.scss */
   .section-feedback article .form-actions {
     width: 96%;
     padding: 5px 2% 0;
   }
-  /* line 766, ../sass/blocks.scss */
+  /* line 764, ../sass/blocks.scss */
   .section-feedback article .form-actions input {
     width: 100%;
     margin-bottom: 5px;
   }
 
-  /* line 773, ../sass/blocks.scss */
+  /* line 771, ../sass/blocks.scss */
   .section-research-resources .general-right,
   .section-staff-resources-classic .general-right,
   .section-a-z .general-right {
     display: none;
   }
 
-  /* line 777, ../sass/blocks.scss */
+  /* line 775, ../sass/blocks.scss */
   .frontpage-calendar h3 {
     margin-left: 0;
   }
 
-  /* line 781, ../sass/blocks.scss */
+  /* line 779, ../sass/blocks.scss */
   .back-on-top {
     display: block;
   }
