@@ -45,7 +45,7 @@
           	$searchMobile.hide();
           });
         }
-        if( $('body').width() < 601 ) menuToggle();
+        if( $(window).width() < 601 ) menuToggle();
     }
   }
   
@@ -134,21 +134,21 @@
       })
       $links.find('.views-field-name:first a').toggle(
         function(){
-          if( $('body').width() > 600 ) return;
+          if( $(window).width() > 600 ) return;
           var $this = $(this);
           $links.each(function(){if($(this).hasClass('expanded')) $(this).find('.views-field-name:first a').click()})
           $this.parents('.parents').addClass('expanded').find('.item-list:first').css({'display':'none','height':'auto'}).stop(true,true).slideDown(300);
           return false;
         },
         function(){
-          if( $('body').width() > 600 ) return;
+          if( $(window).width() > 600 ) return;
           var $this = $(this);
           $this.parents('.parents').removeClass('expanded').find('.item-list:first').stop(true,true).slideUp(300);
           return false;
         }
       )
       $(window).resize(function(){
-        if( $('body').width() > 600 ) $links.find('.item-list:first').show();
+        if( $(window).width() > 600 ) $links.find('.item-list:first').show();
         else $links.find('.item-list:first').hide();
       }) 
     }

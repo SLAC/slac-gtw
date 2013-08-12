@@ -449,20 +449,16 @@ footer .block-menu {
   
 }
 
-@media ( max-width: 900px ) and ( min-width: 600px) {
+@media ( max-width: 800px) {
   .section-research-resources .general-two-col{
     .general-left{
-      width: 65%;
-      margin-right: -65%;
+      width: 100%;
+      margin-right: 0;
     }
     .general-right{
-      width: 35%;
-      margin-left: 65%;
+      display: none;
     }
   }
-}
-
-@media ( max-width: 770px) {
   #block-system-main-menu .menu li{
     background: none;
     padding: 0 5px;
