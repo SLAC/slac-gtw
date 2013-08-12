@@ -133,6 +133,12 @@
         padding-bottom: 0;
       }
     }
+    .collapse-block{
+      display: none;
+    }
+    .parents{
+      background: transparent;
+    }
   }
   .view-id-research_resource .view-header .view-content{
     padding: 0 0 0 30px;
@@ -284,10 +290,14 @@
   }
   .view-id-research_resource .view-content{
     padding: 0;
-    li,li.no-children{
+    .parents,.parents.no-children{
       padding: 0;
       margin-top: 5px;
-      background-color: #fff;
+      background: white url("../images/small-list-arrow-down.jpg") no-repeat right 12px;
+
+      &.expanded{
+        background: white url("../images/small-list-arrow-up.jpg") no-repeat right 12px;
+      }
 
       .item-list{
         height: 0;
@@ -322,12 +332,12 @@
           padding: 3px 0 3px 11px;
           color: #20659A;
           font-weight: bold;
-          background: white url("../images/small-list-arrow-down.jpg") no-repeat right center;
           text-decoration: none;
         }
       }
 
       .collapse-block{
+        display: block;
         height: 30px;
         padding-right: 40px;
         line-height: 30px;

@@ -129,27 +129,30 @@
       var $links = $('.view-id-research_resource .parents');
       
       $links.each(function(){
-        $(this).find('.item-list:first').css({'display':'none','height':'auto'})
-        .append('<div class="collapse-block">Collapse</div>')
+        $(this).find('.item-list:first').append('<div class="collapse-block">Collapse</div>')
       })
       $('.collapse-block').click(function(){
         $(this).parents('.parents').find('.views-field-name:first a').click();
       })
       $links.find('.views-field-name:first a').toggle(
         function(){
+          if( $('body').width() > 600 ) return;
           var $this = $(this);
           $links.each(function(){if($(this).hasClass('expanded')) $(this).find('.views-field-name:first a').click()})
-          $this.css('background-image', $this.css('background-image').replace('down','up'));
-          $this.parents('.parents').addClass('expanded').find('.item-list:first').stop(true,true).slideDown(300);
+          $this.parents('.parents').addClass('expanded').find('.item-list:first').css({'display':'none','height':'auto'}).stop(true,true).slideDown(300);
           return false;
         },
         function(){
+          if( $('body').width() > 600 ) return;
           var $this = $(this);
-          $this.css('background-image', $this.css('background-image').replace('up','down'));
           $this.parents('.parents').removeClass('expanded').find('.item-list:first').stop(true,true).slideUp(300);
           return false;
         }
-      );
+      )
+      $(window).resize(function(){
+        if( $('body').width() > 600 ) $links.find('.item-list:first').show();
+        else $links.find('.item-list:first').hide();
+      }) 
     }
   }
 
