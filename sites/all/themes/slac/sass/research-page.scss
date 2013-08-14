@@ -300,18 +300,17 @@
       }
 
       .item-list{
-        height: 0;
+        display: none;
+        height: auto;
         padding: 0;
-        background-color: transparent;
+        background: transparent;
         border: 0;
         overflow: hidden;
 
         .item-list{
-          height: auto;
+          display: block;
         }
-        li{
-          margin-top: 0;
-        }
+
         li,li li{
           padding-left: 24px;
           margin: 0;
@@ -322,7 +321,7 @@
           }
         }
         li li{
-          background: url("../images/blue-right-list-arrow.jpg") no-repeat 20px 12px;
+          background: url("../images/blue-right-list-arrow.jpg") no-repeat 20px 14px;
         }
       }
       .views-field-name{
@@ -331,7 +330,6 @@
           display: block;
           padding: 3px 0 3px 11px;
           color: #20659A;
-          font-weight: bold;
           text-decoration: none;
         }
       }
@@ -347,14 +345,8 @@
         cursor: pointer;
       }
     }
-    li.no-children .item-list{
-      li{
-        background: url("../images/blue-right-list-arrow.jpg") no-repeat 20px 12px;
-      }
-      a{
-        font-weight: inherit;
-        background: transparent;
-      }
+    .parents.no-children .item-list li{
+      background: url("../images/blue-right-list-arrow.jpg") no-repeat 20px 14px;
     }
   }
   .pane-node-body strong{

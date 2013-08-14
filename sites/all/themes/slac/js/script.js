@@ -117,17 +117,11 @@
   Drupal.behaviors.researchPage = {
     attach: function (context, settings) {
       // this function adds class 'no-children'
-      var $container = $('.view-id-research_resource');
-      if( $container.is(':visible') ){
-        $container.find('.view-content ul:first > li').each(function(){
-          var $this = $(this);
-          if( ! $this.find('.item-list ul ul').is(':visible') ){
-            $this.addClass('parents no-children');
-          } else{
-            $this.addClass('parents');
-          }
-        });
-      }
+      var $links = $('.view-id-research_resource .view-content ul:first > li');
+      $links.each(function(){
+        var $this = $(this);
+        $this.addClass(( $this.find('.item-list').length == 1 ? 'parents no-children' : 'parents'));
+      })
     }
   }
 
@@ -140,7 +134,7 @@
         $(this).parents('.parents.expanded').find('.views-field-name:first a').click();
       });
       
-      $links.find('.views-field-name:first a').toggle(
+      /*$links.find('.views-field-name:first a').toggle(
         function(){
           if( $(window).width() > 620 ) return;
           var $this = $(this);
@@ -153,7 +147,23 @@
           $(this).parents('.parents.expanded').removeClass('expanded').find('.item-list:first').stop(true,true).slideUp('fast');
           return false;
         }
-      )
+      )*/
+
+
+      $links.find('.views-field-name:first a').click(function(e){
+        e.preventDefault();
+        if( $(window).width() > 620 ) return;
+        var $this = $(this);
+        if( $this.hasClass('active') ){
+          $this.parents('.parents.expanded').removeClass('expanded').find('.item-list:first').stop(true,true).slideUp('fast');
+          $this.removeClass('active');
+        } else{
+          $this.parents('.parents').parent().find('a.active').click();
+          $this.parents('.parents').addClass('expanded').find('.item-list:first').stop(true,true).slideDown('fast');
+          $this.addClass('active');
+        }
+      });
+
       // on window resize
       $(window).resize(function(){
         if( $(window).width() > 620 ) $links.find('.item-list:first').show();
