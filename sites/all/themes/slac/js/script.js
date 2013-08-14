@@ -49,7 +49,9 @@
             $searchbox.unbind('click'); $menu.parent().unbind('click');
           }
         }
+        // on DOM ready
         menuToggle();
+        // on window resize
         $(window).resize(function(){
           menuToggle();
         }) 
@@ -154,6 +156,7 @@
           return false;
         }
       )
+      // on window resize
       $(window).resize(function(){
         if( $(window).width() > 620 ) $links.find('.item-list:first').show();
         else $links.find('.item-list:first').hide();
@@ -170,7 +173,11 @@
               slider.find('div:first,.views_slideshow_slide')
               .css({'width':slider.width(),'height':slider.find('.views_slideshow_slide:visible img').height()})
             }
+        // on DOM ready
+        resizer();
+        // on window resize
         $(window).resize(resizer);
+        // on slider btns click
         $('.views-slideshow-controls-top *').click(resizer);
       } catch(e){}
     }
