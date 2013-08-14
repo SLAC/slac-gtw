@@ -594,32 +594,36 @@
   .staff-main .rowonecoltwo ul {
     min-height: 312px;
   }
+  /* line 264, ../sass/staff-page.scss */
+  .staff-main .rowonecolone, .staff-main .rowonecolthree, .staff-main .rowtwocoltwo {
+    clear: both;
+  }
 }
 @media (max-width: 620px) {
-  /* line 268, ../sass/staff-page.scss */
+  /* line 271, ../sass/staff-page.scss */
   .staff-main .inside {
     width: 100%;
     margin: 0 0 25px 0;
     clear: none;
   }
-  /* line 272, ../sass/staff-page.scss */
+  /* line 275, ../sass/staff-page.scss */
   .staff-main .inside ul {
     min-height: inherit;
   }
 
-  /* line 277, ../sass/staff-page.scss */
+  /* line 280, ../sass/staff-page.scss */
   .rowtwocolone {
     clear: none;
     margin-bottom: 40px;
   }
 
-  /* line 282, ../sass/staff-page.scss */
+  /* line 285, ../sass/staff-page.scss */
   .rowonecolthree {
     clear: both;
     margin-bottom: 40px;
   }
 
-  /* line 287, ../sass/staff-page.scss */
+  /* line 290, ../sass/staff-page.scss */
   .rowtwocoltwo {
     clear: both;
   }

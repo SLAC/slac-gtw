@@ -261,6 +261,9 @@
     .rowonecoltwo ul{
       min-height: 312px;
     }
+    .rowonecolone,.rowonecolthree,.rowtwocoltwo{
+      clear: both;
+    }
   }
 }
   

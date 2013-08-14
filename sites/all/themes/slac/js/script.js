@@ -135,23 +135,22 @@
     attach: function (context, settings) {
       var $links = $('.view-id-research_resource .parents');
       
-      $links.each(function(){
-        $(this).find('.item-list:first').append('<div class="collapse-block">Collapse</div>')
-      })
+      $links.siblings('.parents').find('.item-list:first').append('<div class="collapse-block">Collapse</div>');
       $('.collapse-block').click(function(){
-        $(this).parents('.parents').find('.views-field-name:first a').click();
-      })
+        $(this).parents('.parents.expanded').find('.views-field-name:first a').click();
+      });
+      
       $links.find('.views-field-name:first a').toggle(
         function(){
           if( $(window).width() > 620 ) return;
           var $this = $(this);
           $this.parents('.parents').siblings('.parents.expanded').find('.views-field-name:first a').click();
-          $this.parents('.parents').addClass('expanded').find('.item-list:first').css({'display':'none','height':'auto'}).stop(true,true).slideDown(300);
+          $this.parents('.parents').addClass('expanded').find('.item-list:first').css({'display':'none','height':'auto'}).stop(true,true).slideDown('fast');
           return false;
         },
         function(){
           if( $(window).width() > 620 ) return;
-          $(this).parents('.parents.expanded').removeClass('expanded').find('.item-list:first').stop(true,true).slideUp(300);
+          $(this).parents('.parents.expanded').removeClass('expanded').find('.item-list:first').stop(true,true).slideUp('fast');
           return false;
         }
       )
