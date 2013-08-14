@@ -174,7 +174,7 @@
               .css({'width':slider.width(),'height':slider.find('.views_slideshow_slide:visible img').height()})
             }
         // on DOM ready
-        resizer();
+        $(window).load(resizer);
         // on window resize
         $(window).resize(resizer);
         // on slider btns click

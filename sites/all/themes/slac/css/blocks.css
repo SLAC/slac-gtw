@@ -865,7 +865,7 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
 /* line 511, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span {
   position: absolute;
-  top: 45%;
+  top: 40%;
   z-index: 99;
   width: 30px;
   height: 74px;
@@ -1093,14 +1093,14 @@ div .views-slideshow-cycle-main-frame div.views-field-field-news-image {
   }
   /* line 704, ../sass/blocks.scss */
   .frontpage-people-finder .searchbox {
+    display: block;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
-    right: 26px;
-    max-width: 100%;
-    width: auto;
+    width: 92%;
     height: 26px;
+    padding: 0 6% 0 2%;
     margin: 0;
     background: #fff;
     border: none;
