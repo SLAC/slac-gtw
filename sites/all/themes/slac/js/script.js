@@ -34,16 +34,16 @@
           if( $(window).width() < 620 ){
             $menu.parent().toggle(function(){
               if( $searchMobile.is(':visible') ) $searchbox.click();
-            	$menuMobile.fadeIn('slow');
+            	$menuMobile.stop(true,true).show();
             },function(){
-            	$menuMobile.hide();
+            	$menuMobile.stop(true,true).hide();
             });
             
             $searchbox.toggle(function(){
               if( $menuMobile.is(':visible') ) $menu.parent().click();
-              $searchMobile.fadeIn('slow');
+              $searchMobile.stop(true,true).show();
             },function(){
-            	$searchMobile.hide();
+            	$searchMobile.stop(true,true).hide();
             });
           } else{
             $searchbox.unbind('click'); $menu.parent().unbind('click');
