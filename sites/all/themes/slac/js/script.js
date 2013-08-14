@@ -175,7 +175,8 @@
         // on DOM ready
         $(window).load(resizer);
         // on window resize
-        $(window).resize(resizer);
+        window.addEventListener("resize", resizer);
+        window.addEventListener("orientationchange", resizer);
         // on slider btns click
         $('.views-slideshow-controls-top *').click(resizer);
       } catch(e){}
