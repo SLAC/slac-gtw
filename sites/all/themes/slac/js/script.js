@@ -131,24 +131,8 @@
       
       $links.siblings('.parents').find('.item-list:first').append('<div class="collapse-block">Collapse</div>');
       $('.collapse-block').click(function(){
-        $(this).parents('.parents.expanded').find('.views-field-name:first a').click();
+        $(this).parents('.parents.expanded').find('a.active').click();
       });
-      
-      /*$links.find('.views-field-name:first a').toggle(
-        function(){
-          if( $(window).width() > 620 ) return;
-          var $this = $(this);
-          $this.parents('.parents').siblings('.parents.expanded').find('.views-field-name:first a').click();
-          $this.parents('.parents').addClass('expanded').find('.item-list:first').css({'display':'none','height':'auto'}).stop(true,true).slideDown('fast');
-          return false;
-        },
-        function(){
-          if( $(window).width() > 620 ) return;
-          $(this).parents('.parents.expanded').removeClass('expanded').find('.item-list:first').stop(true,true).slideUp('fast');
-          return false;
-        }
-      )*/
-
 
       $links.find('.views-field-name:first a').click(function(e){
         e.preventDefault();
