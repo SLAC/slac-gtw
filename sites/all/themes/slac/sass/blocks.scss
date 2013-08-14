@@ -422,6 +422,8 @@ a.submit-feedback {
   }
 }
 
+
+
 /* Front middle general */
 
 .frontpage-slac-science .pane-content > .view-news > .view-content .views-row, .frontpage-news-list .views-row {
@@ -449,10 +451,22 @@ a.submit-feedback {
 
 .frontpage-slac-science .view-header {
   margin: -12px -18px 10px;
-  position: relative;
+
+  .view-content{
+      position: relative;
+  }
+
+  div{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
   img {
-    max-width: 100%;
     display: block;
+    max-width: 100%;
+    height: auto;
   }
 }
 
@@ -460,7 +474,6 @@ a.submit-feedback {
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
   height: auto;
   background: url('../images/transparent-blue-bg.png') repeat;
   padding: 10px 3%;
@@ -686,21 +699,26 @@ a.submit-feedback {
       padding: 0 28px 0 0;
       position: relative;
       background: #b8d6ee;
+      overflow: hidden;
     }
     .searchbox {
-      height: 26px;
-      border: none;
-      background: #fff;
-      border: none;
       position: absolute;
       top: 0;
       bottom: 0;
       left: 0;
       right: 26px;
+      max-width: 100%;
       width: auto;
+      height: 26px;
       margin: 0;
+      background: #fff;
+      border: none;
+      border-radius: 0;
     }
     .searchbutton {
+      position: absolute;
+      top: 0;
+      right: 0;
       background: #b8d6ee url('../images/small-search-icon.jpg') no-repeat center right;
       border: none;
       height: 26px;
@@ -709,9 +727,7 @@ a.submit-feedback {
       overflow: hidden;
       text-indent: -9000px;
       text-transform: capitalize;
-      position: absolute;
-      top: 0;
-      right: 0;
+      border-radius: 0;
     }
   }
   /* Middle blocks */
@@ -727,9 +743,13 @@ a.submit-feedback {
       padding: 0;
     }
   }
+
+  /* slac science block */
   .frontpage-slac-science .view-header {
+    position: relative;
     margin: 0 0 20px 0;
   }
+
   .blue-bodered-white {
     .view-footer {
       display: none;
