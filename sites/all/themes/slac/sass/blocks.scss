@@ -411,7 +411,7 @@ a.submit-feedback {
       top: 0;
       bottom: 0;
       width: 100%;
-      height: 366px;
+      height: auto;
     }
   }
   img{
@@ -454,6 +454,7 @@ a.submit-feedback {
 
   .view-content{
       position: relative;
+      overflow: hidden;
   }
 
   div{
@@ -473,11 +474,11 @@ a.submit-feedback {
 .frontpage-news-slider .views-field-nothing, .frontpage-slac-science .view-header .views-field-nothing {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: -5%;
+  right: -5%;
   height: auto;
   width: 100%;
-  padding: 0;
+  padding: 0 5%;
   margin: 0;
   background: url('../images/transparent-blue-bg.png') repeat;
   color: #fff;
@@ -505,6 +506,12 @@ a.submit-feedback {
       font-size: 0.8em;
     }
   }
+}
+
+.frontpage-news-slider .views-field-nothing{
+  left: 0;
+  right: 0;
+  padding: 0;
 }
 
 .frontpage-news-slider .title a, .frontpage-slac-science .view-header .title a {
