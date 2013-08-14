@@ -52,9 +52,8 @@
         // on DOM ready
         menuToggle();
         // on window resize
-        $(window).resize(function(){
-          menuToggle();
-        }) 
+        window.addEventListener("orientationchange", menuToggle);
+        window.addEventListener("resize", menuToggle);
     }
   }
   
@@ -159,20 +158,19 @@
   Drupal.behaviors.sliderResize = {
     attach: function (context, settings) {
       // fix slider width/height on screen resize
-      try{
-        var slider = $('#views_slideshow_cycle_main_news-block'),
-            resizer = function(){
-              slider.find('div:first,.views_slideshow_slide')
-              .css({'width':slider.width(),'height':slider.find('.views_slideshow_slide:visible img').height()})
-            }
-        // on DOM ready
-        $(window).load(resizer);
-        // on window resize
-        window.addEventListener("resize", resizer);
-        window.addEventListener("orientationchange", resizer);
-        // on slider btns click
-        $('.views-slideshow-controls-top *').click(resizer);
-      } catch(e){}
+      var slider = $('#views_slideshow_cycle_main_news-block'),
+          resizer = function(){
+            slider.find('div:first,.views_slideshow_slide')
+            .css({'width':slider.width(),'height':slider.find('.views_slideshow_slide:visible img').height()})
+            //console.log(slider.width(),slider.height(),slider.find('.views_slideshow_slide:visible img').height())
+          }
+      // on DOM ready
+      $(window).load(resizer);
+      // on window resize
+      window.addEventListener("orientationchange", resizer);
+      window.addEventListener("resize", resizer);
+      // on slider btns click
+      $('.views-slideshow-controls-top *').click(resizer);
     }
   }
 
