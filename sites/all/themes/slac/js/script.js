@@ -145,14 +145,13 @@
         function(){
           if( $(window).width() > 620 ) return;
           var $this = $(this);
-          $links.each(function(){if($(this).hasClass('expanded')) $(this).find('.views-field-name:first a').click()})
+          $this.parents('.parents').siblings('.parents.expanded').find('.views-field-name:first a').click();
           $this.parents('.parents').addClass('expanded').find('.item-list:first').css({'display':'none','height':'auto'}).stop(true,true).slideDown(300);
           return false;
         },
         function(){
           if( $(window).width() > 620 ) return;
-          var $this = $(this);
-          $this.parents('.parents').removeClass('expanded').find('.item-list:first').stop(true,true).slideUp(300);
+          $(this).parents('.parents.expanded').removeClass('expanded').find('.item-list:first').stop(true,true).slideUp(300);
           return false;
         }
       )
