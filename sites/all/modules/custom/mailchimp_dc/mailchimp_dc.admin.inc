@@ -60,10 +60,12 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
      ),
      '#default_value' => (!empty($config)) ? $config['schedule_type'] : '',
   );  
-  
+    
   $form['schedule']['schedule_type_setting'] = array(
     '#type' => 'select',
-    '#options' => array('' => t('--Select--')),
+    '#title' => (empty($config)) ? t('Exclude weekend? (Saturday/Sunday)') : '',
+    '#options' => (empty($config)) ? $options = array('1' => t('Yes'),'0' => t('No'),) : array('' => t('--Select--')),
+    '#description' => (empty($config)) ? t('Exclude weekend disable the daily mailing campaign to be generated/send during weekends. (This cannot be changed once saved)') : '',
     '#prefix' => '<div id="schedule_type_settings">',
     '#suffix' => '</div>',
   );
@@ -78,6 +80,15 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     }
   
     switch ($schedule_type) {
+      case 'daily':
+        $title = t('Exclude weekend? (Saturday/Sunday)');
+        $options = array(
+          '1' => t('Yes'),
+          '0' => t('No'),
+        );
+        $description = t('Exclude weekend disable the daily mailing campaign to be generated/send during weekends');
+      break;
+    
       case 'weekly':
         $title = t('Select day of the week');
         $options = array(

@@ -196,6 +196,12 @@ function _mailchimp_dc_daily($config) {
   if(_mailchimp_dc_date_suppress($config)) {
     return;
   }
+  // exclude weekend is set to true
+  if ((bool) $config['schedule_type_setting']) {
+    if (date('w', REQUEST_TIME) == 0 || date('w', REQUEST_TIME) == 6) {
+      return;
+    }
+  }
   // we simply look for the campaign for this specific
   // recurring configuration to see if it exist for today
   $today = date('Y-m-d', REQUEST_TIME);
