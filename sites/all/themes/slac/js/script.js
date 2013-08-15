@@ -76,6 +76,18 @@
        })
      }
    }
+   
+  // alpha pager
+  Drupal.behaviors.alphapager = {
+     attach: function (context, settings) {
+        $('.alpha-link').each(function() {
+          var name = $(this).attr('href').substring(1);
+          if ($('a[name='+name+']').length == 0) {
+            $(this).parent().html(name);
+          }
+        })
+     }
+   }
 
 	// Drupal.behaviors.researchLists = {
 	//   attach: function (context, settings) {

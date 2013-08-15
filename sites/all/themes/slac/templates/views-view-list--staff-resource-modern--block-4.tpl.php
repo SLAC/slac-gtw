@@ -11,7 +11,7 @@
 ?>
 <?php print $wrapper_prefix; ?>
   <?php if (!empty($title)) : ?>
-    <a name="<?php print $title; ?>"></a>
+    <a name="<?php print $title; ?>" class="alpha-anchor"></a>
     <h3><?php print $title; ?></h3>
   <?php endif; ?>
   <?php print $list_type_prefix; ?>
