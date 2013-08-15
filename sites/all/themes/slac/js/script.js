@@ -52,8 +52,10 @@
         // on DOM ready
         menuToggle();
         // on window resize
-        window.addEventListener("orientationchange", menuToggle);
-        window.addEventListener("resize", menuToggle);
+        try{
+          window.addEventListener("orientationchange", menuToggle);
+        } catch(e){}
+        $(window).resize(menuToggle);
     }
   }
   
@@ -168,8 +170,10 @@
       // on DOM ready
       $(window).load(resizer);
       // on window resize
-      window.addEventListener("orientationchange", resizer);
-      window.addEventListener("resize", resizer);
+      try{
+        window.addEventListener("orientationchange", resizer);
+      } catch(e){}
+      $(window).resize(resizer);
       // on slider btns click
       $('.views-slideshow-controls-top *').click(resizer);
     }
