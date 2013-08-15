@@ -149,9 +149,9 @@
 
       // on window resize
       $(window).resize(function(){
-        if( $(window).width() > 620 ) $links.find('.item-list:first').show();
-        else $links.find('.item-list:first').hide();
-      }) 
+        if( $(window).width() > 620 ) $links.find('.item-list:hidden').show();
+        else  $links.find('.item-list:first').hide();$links.siblings().find('a.active').click();
+      })
     }
   }
 
