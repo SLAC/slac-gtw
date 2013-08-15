@@ -389,41 +389,6 @@ a.submit-feedback {
   }
 }
 
-/* Front slider */
-
-.frontpage-news-slider {
-  position: relative;
-}
-
-.views-slideshow-cycle-main-frame {
-  overflow: hidden;
-  max-width: 100%;
-  background-color: transparent;
-  border: 1px solid #b0aeac;
-  div {
-    width: 100%;
-    border: none;
-    div &.views-field-field-news-image{
-      position: relative;
-    }
-    &.views-field-field-news-image{
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-      height: auto;
-    }
-  }
-  img{
-    display: block;
-    width: 100% !important;
-    height: auto;
-    border: none;
-  }
-}
-
-
-
 /* Front middle general */
 
 .frontpage-slac-science .pane-content > .view-news > .view-content .views-row, .frontpage-news-list .views-row {
@@ -471,7 +436,114 @@ a.submit-feedback {
   }
 }
 
-.frontpage-news-slider .views-field-nothing, .frontpage-slac-science .view-header .views-field-nothing {
+
+/* Front slider */
+
+.frontpage-news-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  div{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+  .views-slideshow-cycle-main-frame{
+    position: relative;
+  }
+  .views_slideshow_slide{
+    & > div{
+      position: relative;
+      overflow: hidden;
+    }
+    img{
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border: none;
+    }
+    .views-field-nothing{
+      position: absolute;
+      bottom: 0;
+      left: -5%;
+      right: -5%;
+      width: 110%;
+      height: auto;
+      background: url('../images/transparent-blue-bg.png') repeat;
+      color: #fff;
+      font-size: 13px;
+      line-height: 18px;
+      span{
+        display: block;
+        margin: 10px 7.5%;
+      }
+      .title a{
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2em;
+        line-height: normal;
+      }
+    }
+  }
+  .views-slideshow-controls-text span {
+    position: absolute;
+    top: 40%;
+    width: 30px;
+    height: 70px;
+    display: block;
+    overflow: hidden;
+    background: url('../images/slider-arrow-bg.png') repeat;
+    @include rounded_corners(10px);
+    z-index: 99;
+
+    &.views-slideshow-controls-text-previous {
+      left: 20px;
+      a{
+        background: url('../images/slider-back.png') no-repeat center;
+      }
+    }
+    &.views-slideshow-controls-text-next {
+      right: 20px;
+      a{
+        background: url('../images/slider-next.png') no-repeat center;
+      }
+    }
+    &.views-slideshow-controls-text-pause{
+      display: none;
+    }
+
+    a {
+      display: block;
+      height: 100%;
+      text-indent: -9000px;
+      text-transform: capitalize;
+    }
+  }
+  .views-slideshow-pager-fields{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    width: auto;
+    height: auto;
+    z-index: 99;
+    .views-slideshow-pager-field-item {
+      float: left;
+      width: 20px;
+      height: 20px;
+      margin: 0 2px;
+      text-indent: -9000px;
+      text-transform: capitalize;
+      background: url('../images/slider-pager.png') no-repeat 0 0;
+      overflow: hidden;
+      &.active {
+        background-image: url('../images/slider-pager-active.png');
+      }
+    }
+  }
+}
+
+.frontpage-slac-science .view-header .views-field-nothing {
   position: absolute;
   bottom: 0;
   left: -5%;
@@ -495,8 +567,11 @@ a.submit-feedback {
     }
   }
 
-  .title a{
+  .title a {
+    color: #fff;
+    text-decoration: none;
     font-size: 1.2em;
+    line-height: normal;
   }
 
   .body{
@@ -504,80 +579,6 @@ a.submit-feedback {
     overflow: hidden;
     a{
       font-size: 0.8em;
-    }
-  }
-}
-
-.frontpage-news-slider .views-field-nothing{
-  left: 0;
-  right: 0;
-  padding: 0;
-}
-
-.frontpage-news-slider .title a, .frontpage-slac-science .view-header .title a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 20px;
-  line-height: normal;
-}
-
-/*
-.frontpage-news-slider img{
-  float: left;
-}*/
-
-.frontpage-news-slider {
-  .views-slideshow-controls-text span {
-    position: absolute;
-    top: 40%;
-    z-index: 99;
-    width: 30px;
-    height: 74px;
-    display: block;
-    overflow: hidden;
-    background: url('../images/slider-arrow-bg.png') repeat;
-    @include rounded_corners(10px);   
-    a {
-      display: block;
-      background: url('../images/slider-back.png') no-repeat center;
-      height: 1px;
-      padding: 73px 0 0 0;
-      text-indent: -9000px;
-      text-transform: capitalize;
-    }
-  }
-  .views-slideshow-controls-text-previous {
-    left: 20px;
-  }
-  .views-slideshow-controls-text-next {
-    right: 20px;
-  }
-  span.views-slideshow-controls-text-next a{
-    background-image: url('../images/slider-next.png');
-  }
-  span.views-slideshow-controls-text-pause {
-    display: none;
-    a {
-      display: none;
-    }
-  }
-  .views-slideshow-pager-fields {
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 99;
-    margin: 10px 15px 0 0;
-  }
-  .views-slideshow-pager-field-item {
-    float: left;
-    width: 22px;
-    height: 22px;
-    overflow: hidden;
-    text-indent: 100px;
-    background: url('../images/slider-pager.png') no-repeat 0 0;
-    margin-left: 6px;
-    &.active {
-      background-image: url('../images/slider-pager-active.png');
     }
   }
 }
@@ -808,11 +809,7 @@ a.submit-feedback {
       background-position: center -120px;
     }
   }
-
-  .frontpage-news-slider .title a, .frontpage-slac-science .view-header .title a {
-    display: block;
-    margin-bottom: 5px;
-  }
+  
   /* Feedback page */
   .section-feedback article .form-actions {
     width: 96%;
