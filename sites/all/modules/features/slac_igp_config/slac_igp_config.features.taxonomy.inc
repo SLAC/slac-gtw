@@ -9,6 +9,14 @@
  */
 function slac_igp_config_taxonomy_default_vocabularies() {
   return array(
+    'alphabets' => array(
+      'name' => 'Alphabets',
+      'machine_name' => 'alphabets',
+      'description' => 'Alphabets that will be used for alpha pagers',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
     'organization' => array(
       'name' => 'Organization',
       'machine_name' => 'organization',

@@ -677,3 +677,14 @@ footer .block-menu {
     }
   }
 }
+
+/* Alpha pagers */
+.view-alphapager {
+  overflow: hidden;
+  border-bottom: 1px dashed grey;
+}
+
+.alpha-pager-item {
+  float:left;
+  margin:5px;
+}

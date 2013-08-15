@@ -665,7 +665,7 @@ header {
   font-size: 11px;
   font-weight: bold;
   text-transform: uppercase;
-  margin: 5px  7px;
+  margin: 5px 7px;
   padding: 5px 0;
   height: auto;
 }
@@ -910,7 +910,7 @@ footer .block-menu li {
   /* line 536, ../sass/pages.scss */
   footer .footer-info {
     width: 100%;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid white;
   }
 
   /* line 545, ../sass/pages.scss */
@@ -964,7 +964,7 @@ footer .block-menu li {
   .mobile-menu li {
     width: 75%;
     padding: 0 12.5%;
-    border-bottom: 3px solid #ffffff;
+    border-bottom: 3px solid white;
     background-color: #e9f2f9;
     background-image: url(../images/mobile-menu-arrow.png);
     background-repeat: no-repeat;
@@ -1052,4 +1052,16 @@ footer .block-menu li {
     width: 30px;
     margin-right: 0;
   }
+}
+/* Alpha pagers */
+/* line 682, ../sass/pages.scss */
+.view-alphapager {
+  overflow: hidden;
+  border-bottom: 1px dashed grey;
+}
+
+/* line 687, ../sass/pages.scss */
+.alpha-pager-item {
+  float: left;
+  margin: 5px;
 }
