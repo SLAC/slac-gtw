@@ -22,3 +22,5 @@ features[views_view][] = organization
 features[views_view][] = research_resource
 features[views_view][] = staff_resource_modern
 features_exclude[dependencies][ctools] = ctools
+features_exclude[dependencies][context] = context
+no autodetect = 1

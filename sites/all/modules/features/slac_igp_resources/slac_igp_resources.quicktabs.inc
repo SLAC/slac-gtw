@@ -137,8 +137,8 @@ function slac_igp_resources_quicktabs_default_quicktabs() {
     4 => array(
       'vid' => 'staff_resource_modern',
       'display' => 'block_1',
-      'args' => 'Life at SLAC',
-      'title' => 'Life at SLAC',
+      'args' => 'Life @ SLAC',
+      'title' => 'Life @ SLAC',
       'weight' => '-96',
       'type' => 'view',
     ),
@@ -174,7 +174,7 @@ function slac_igp_resources_quicktabs_default_quicktabs() {
   t('Central Services');
   t('HR Services & Benefits');
   t('Helpful Resources');
-  t('Life at SLAC');
+  t('Life @ SLAC');
   t('Policies & Procedures');
   t('Safety & Training');
   t('Staff Resources (Mobile)');
