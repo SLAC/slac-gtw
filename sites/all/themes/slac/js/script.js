@@ -150,7 +150,7 @@
       // on window resize
       $(window).resize(function(){
         if( $(window).width() > 620 ) $links.find('.item-list:hidden').show();
-        else  $links.find('.item-list:first').hide();$links.siblings().find('a.active').click();
+        else  $links.find('.item-list:first').hide().parents('.parents').filter('.expanded').find('.item-list:first').show();
       })
     }
   }
@@ -160,8 +160,7 @@
       // fix slider width/height on screen resize
       var slider = $('.views-slideshow-cycle-main-frame'),
           resizer = function(){
-            var h = slider.find('.views_slideshow_slide:visible img').height(),
-                w = slider.find('.views_slideshow_slide:visible img').width();
+            var h = slider.find('.views_slideshow_slide:visible img').height();
             slider.css({'width':'100%','height':h})
             .find('.views_slideshow_slide:visible').css({'width':'100%','height':'100%'});
             if( h != slider.find('.views_slideshow_slide:visible img').height() ){resizer()}
