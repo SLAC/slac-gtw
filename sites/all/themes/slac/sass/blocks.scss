@@ -484,6 +484,10 @@ a.submit-feedback {
         font-size: 1.2em;
         line-height: normal;
       }
+      .body{
+        max-height: 36px;
+        overflow: hidden;
+      }
     }
   }
   .views-slideshow-controls-text span {
@@ -577,9 +581,6 @@ a.submit-feedback {
   .body{
     max-height: 36px;
     overflow: hidden;
-    a{
-      font-size: 0.8em;
-    }
   }
 }
 
