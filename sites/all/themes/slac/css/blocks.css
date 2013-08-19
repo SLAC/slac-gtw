@@ -991,15 +991,15 @@ a.submit-feedback {
   background: url("../images/go-to-top-arrow.png") no-repeat right center;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1370px) {
   /* line 623, ../sass/blocks.scss */
   .pane-boxes-stanford-compliance {
-    margin-top: 44px;
+    margin-top: 44px !important;
   }
 
   /* line 627, ../sass/blocks.scss */
   .pane-boxes-stanford-compliance h2 {
-    margin-top: -26px;
+    margin-top: -26px !important;
   }
 }
 @media (max-width: 900px) {
