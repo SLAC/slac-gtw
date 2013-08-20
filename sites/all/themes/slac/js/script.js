@@ -190,5 +190,20 @@
       $('.views-slideshow-controls-top *').click(resizer);
     }
   }
+  
+  // handle staff resource image changes
+  Drupal.behaviors.srswitch = {
+    attach: function (context, settings) {
+      $('#quicktabs-staff_resources .quicktabs-tabs a').click(function() {
+        var path = Drupal.settings.basePath + 'sites/all/themes/slac/images';
+        var text = $(this).text();
+        text = text.replace('&', 'and');
+        text = text.replace('@', 'at');
+        text = text.replace(/ /g,"-");
+        text = text.toLowerCase();
+        $('.pane-quicktabs-staff-resources .quicktabs-tabpage').css('background', 'whitesmoke url("'+path+'/sr-'+text+'.jpg") no-repeat 0 0');
+      });
+    }
+  }
 
 })(jQuery, Drupal, this, this.document);
