@@ -87,12 +87,36 @@
 
   $zen-column-count: 9;
   .frontpage-middle-col {
-    @include zen-grid-item(5, 1); 
+    @include zen-grid-item(5, 1);
   }
   .frontpage-right-col {
-    @include zen-grid-item(4, 6); 
+    @include zen-grid-item(4, 6);
   }
 
+@media (min-width: 900px) {
+.frontpage-left-col {
+  padding-left: 0;
+  padding-right: 2%;
+  & > div{
+    margin-right: 1%;
+  }
+}
+.frontpage-right{
+  padding-left: 0;
+  padding-right: 0;
+  .frontpage-middle-col {
+    padding-left: 0;
+    padding-right: 2%;
+  }
+  .frontpage-right-col {
+    padding-left: 0;
+    padding-right: 0;
+    & > div{
+      margin-left: 2%;
+    }
+  }
+}
+}
 
 @media (max-width: 900px) {
 

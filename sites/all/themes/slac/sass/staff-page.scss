@@ -61,6 +61,11 @@
   }
 }
 
+.staff-top{
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
 .staff-main, .rowtwocolone {
   clear: both;
 }
@@ -189,6 +194,10 @@
 
 
 @media (max-width: 900px) {
+  .staff-top{
+    width: 100%;
+  }
+
   .staff-main {
     width: 100%;
     overflow: hidden;

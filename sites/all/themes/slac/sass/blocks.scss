@@ -7,7 +7,7 @@
   margin-top: 12px;
   margin-bottom: 28px;
   color: #5d5d5d;
-  > .pane-content {
+  > .pane-content{
     padding: 12px 17px 5px;
     overflow: hidden;
   }
@@ -28,10 +28,10 @@
 }
 
 .blue-bodered-white {
+  margin-top: 20px;
   background: #fff;
   border: 1px solid #aebdc5;
   @include rounded_corners(2px);
-  margin-top: 20px;
   color: #393939;
   .pane-title {
     margin: 0;
@@ -302,6 +302,20 @@
 }
 
 /* Front page right sidebar boxes */
+
+
+@media (min-width: 900px) {
+.frontpage-help-market{
+  padding-left: 2% !important;
+  padding-right: 1% !important;
+  margin-left: 0 !important;
+}
+.frontpage-security-contacts{
+  padding-left: 1% !important;
+  padding-right: 0 !important;
+  margin-left: 50% !important;
+}
+}
 
 .frontpage-security-contacts p, 
 .pane-boxes-it-help-desk p {
@@ -619,7 +633,7 @@ a.submit-feedback {
   background: url('../images/go-to-top-arrow.png') no-repeat right center;
 }
 
-@media (max-width: 1370px) {
+@media (max-width: 1292px) {
   .pane-boxes-stanford-compliance{
     margin-top: 44px !important;
   }
