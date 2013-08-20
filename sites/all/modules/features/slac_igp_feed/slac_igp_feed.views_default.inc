@@ -37,7 +37,7 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
-  $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/access">View All Access Items</a>';
+  $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/access" target="_blank">View All Access Items</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
@@ -137,7 +137,7 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/calendar/all">View  All Calendar Items</a>';
+  $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/calendar/all" target="_blank">View  All Calendar Items</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
