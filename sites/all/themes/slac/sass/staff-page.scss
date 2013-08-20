@@ -129,7 +129,7 @@
     border: 1px dashed #90a7b2;
   }
   h3{
-    margin: 13px 0 0;
+    margin: 10px 0;
     height: 28px;
     line-height: 28px;
     width: 257px;
@@ -146,18 +146,19 @@
       display: none;
     }
     .view-content{
-      padding: 13px 0;
     }
     table {
-      margin: 0 0 0 145px; 
+      margin: 0 0 0 142px;
+      border-collapse: collapse;
     }
     td {
       width: 50%;
+      padding: 0;
       margin: 0;
       font-size: 12px;
+      white-space: nowrap;
       a {
-        margin-left: 10px;
-        padding: 3px 0 4px 10px;
+        padding: 3px 8px;
         display: block;
         background: url('../images/right-list-arrow.jpg') no-repeat 0 9px;
       }
