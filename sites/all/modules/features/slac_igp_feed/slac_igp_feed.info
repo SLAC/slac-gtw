@@ -24,3 +24,4 @@ features[views_view][] = news
 features_exclude[dependencies][ctools] = ctools
 features_exclude[dependencies][image] = image
 features_exclude[box][feedback] = feedback
+no autodetect = 1

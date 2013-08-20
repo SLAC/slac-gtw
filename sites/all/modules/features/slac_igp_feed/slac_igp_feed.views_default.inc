@@ -495,6 +495,37 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['filters']['field_news_image_fid']['field'] = 'field_news_image_fid';
   $handler->display->display_options['filters']['field_news_image_fid']['operator'] = 'not empty';
 
+  /* Display: News slideshow (mobile) */
+  $handler = $view->new_display('block', 'News slideshow (mobile)', 'block_4');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'news_article' => 'news_article',
+  );
+  /* Filter criterion: Nodequeue: Subqueue title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'nodequeue_subqueue';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['relationship'] = 'nodequeue_rel';
+  $handler->display->display_options['filters']['title']['value'] = 'Featured News';
+  /* Filter criterion: Content: Image (field_news_image:fid) */
+  $handler->display->display_options['filters']['field_news_image_fid']['id'] = 'field_news_image_fid';
+  $handler->display->display_options['filters']['field_news_image_fid']['table'] = 'field_data_field_news_image';
+  $handler->display->display_options['filters']['field_news_image_fid']['field'] = 'field_news_image_fid';
+  $handler->display->display_options['filters']['field_news_image_fid']['operator'] = 'not empty';
+
   /* Display: Lab News */
   $handler = $view->new_display('block', 'Lab News', 'block_1');
   $handler->display->display_options['defaults']['pager'] = FALSE;
