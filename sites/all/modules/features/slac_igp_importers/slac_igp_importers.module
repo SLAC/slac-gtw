@@ -143,7 +143,7 @@ function _slac_igp_importers_feeds_event($source, $result) {
     }  
       
     $html = str_get_html($item['description']);
-    if (!$html) {
+    if (!is_object($html)) {
       return;
     }
     $date = $html->find('span[class=date-display-single]', 0)->plaintext;
