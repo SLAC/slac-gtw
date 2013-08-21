@@ -138,13 +138,17 @@ function _slac_igp_importers_feeds_event($source, $result) {
     }
     
     // extract and format date for calendar item
-    // @todo: This does not handle multi-day event
-    if (!empty($library['loaded'])) {
-      $html = str_get_html($item['description']);
-      if (!$html) {
-        return;
-      }
-      $date = $html->find('span[class=date-display-single]', 0)->plaintext;
+    if (empty($library['loaded'])) {
+      return;
+    }  
+      
+    $html = str_get_html($item['description']);
+    if (!$html) {
+      return;
+    }
+    $date = $html->find('span[class=date-display-single]', 0)->plaintext;
+    // for single day event
+    if (!empty($date)) {
       $date_array = explode('-', $date);
       if (count($date_array) === 3) {
         $start_date =  $date_array[0] . ', ' . $date_array[1];
@@ -158,6 +162,22 @@ function _slac_igp_importers_feeds_event($source, $result) {
         $date_string = preg_replace($pattern, '', $date_array[0]);
         $result->items[$key]['Blank source 2'] = gmdate('Y-m-d H:i:s', strtotime($date_string));
         $result->items[$key]['Blank source 3'] = gmdate('Y-m-d H:i:s', strtotime($date_string));        
+      }        
+    }
+    // for multiday event
+    else {
+      // handles something that looks like Sunday, August 25, 2013 - 8:00a.m.;
+      // can also handle Sunday, August 25, 2013 (All Day);
+      $date_start = $html->find('span[class=date-display-start]', 0)->plaintext;
+      $date_end = $html->find('span[class=date-display-end]', 0)->plaintext;
+      if (!empty($date_start) && !empty($date_end)) {
+        $pattern = '/\((.*?)\)/';
+        $date_start = preg_replace($pattern, '', $date_start);
+        $date_end = preg_replace($pattern, '', $date_end);
+        $date_start = str_replace(array(', ', ' - '), ' ', substr($date_start, strpos($date_start, ', ')));
+        $date_end = str_replace(array(', ', ' - '), ' ', substr($date_end, strpos($date_end, ', ')));
+        $result->items[$key]['Blank source 2'] = gmdate('Y-m-d H:i:s', strtotime($date_start));
+        $result->items[$key]['Blank source 3'] = gmdate('Y-m-d H:i:s', strtotime($date_end));          
       }
     }
   }
