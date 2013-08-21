@@ -162,17 +162,18 @@
     color: #94753F;
     width: 18%;
     text-transform: uppercase;
-    font-weight: normal;
     text-align: center;
   }
   .month{
-    font-size: 14px;
-    display: block; 
+    font-size: 0.7em;
+    display: block;
+    font-weight: bold;
   }
   .day{
-    font-size: 22px;
+    font-size: 1em;    
+    font-weight: normal;
     display: block;
-    margin-top: -9px;
+    margin-top: -0.6em;
   }
   .views-row-grouped {
     .views-row-last {
