@@ -1,14 +1,22 @@
 @import "mixins";
 
+
+.frontpage-right{
+  margin-bottom: 20px;
+}
+
+.frontpage-left-col{
+  margin-top: 74px;
+}
+
 .brown-bodered-white {
   background: #fff;
   border: 1px solid #d1c9b9;
   @include rounded_corners(2px);
-  margin-top: 12px;
-  margin-bottom: 28px;
+  margin-bottom: 36px;
   color: #5d5d5d;
   > .pane-content{
-    padding: 12px 17px 5px;
+    padding: 12px;
     overflow: hidden;
   }
   h2 {
@@ -22,13 +30,26 @@
   }
 }
 
+.frontpage-links{
+  .pane-title{
+    display:none;
+  }
+  .pane-content{
+    padding-bottom: 2px;
+  }
+}
+
+.frontpage-people-finder .brown-bodered-white{
+  margin-top: 12px;
+}
+
 .pane-boxes-stanford-compliance .pane-title{
   font-size: 11px;
   margin-top: -12px;
 }
 
 .blue-bodered-white {
-  margin-top: 20px;
+  margin-bottom: 36px;
   background: #fff;
   border: 1px solid #aebdc5;
   @include rounded_corners(2px);
@@ -47,11 +68,17 @@
   }
 }
 
+.frontpage-news-list .blue-bodered-white{
+  margin-top: 20px;
+}
+.frontpage-slac-science .blue-bodered-white{
+  margin-bottom: 24px;
+}
 .brown-bodered-white .view-footer, .blue-bodered-white .view-footer, #boxes-box-weather_traffic small {
   width: 100%;
   clear: both;
   border-top: 1px dashed #b8c9d1;
-  padding: 13px 0 5px;
+  padding: 12px 0 0;
   font-size: 11px;
   line-height: 15px;
 }
@@ -67,20 +94,20 @@
   .pane-content ul li, .views-row {
     list-style-type: none;
     list-style-image: none;
-    background: #f1f1f1;
     float: left;
-    width: 45.5%;
+    width: 47%;
     font-size: 12px;
-    margin: 0 0 13px;
-    border: 1px dashed #90a7b2;
+    margin-bottom: 10px;
+    a{
+      display: block;
+      padding: 5px 8px;
+      background: #f1f1f1;
+      border: 1px dashed #90a7b2;
+    }
   }
   .pane-content ul li.odd, .views-row-odd {
     margin-right: 6%;
     clear: both;
-  }
-  .pane-content li a, .views-row a {
-    padding: 5px 8px;
-    display: block;
   }
 }
 
@@ -304,16 +331,19 @@
 /* Front page right sidebar boxes */
 
 
-@media (min-width: 900px) {
-.frontpage-help-market{
-  padding-left: 2% !important;
-  padding-right: 1% !important;
-  margin-left: 0 !important;
-}
+@media (min-width: 901px) {
+.frontpage-help-market,
 .frontpage-security-contacts{
-  padding-left: 1% !important;
+  width: 48% !important;
+}
+.frontpage-help-market{
+  padding-left: 0 !important;
+  padding-right: 2% !important;
+}
+.frontpage-security-contacts{  
+  padding-left: 2% !important;
   padding-right: 0 !important;
-  margin-left: 50% !important;
+  margin-left: 52% !important;
 }
 }
 
@@ -368,7 +398,6 @@ a.submit-feedback {
 /* Socials */
 
 .socials {
-  padding-bottom: 7px;
   overflow: hidden;
   li {
     float: left;
@@ -445,7 +474,7 @@ a.submit-feedback {
 
   img {
     display: block;
-    max-width: 100%;
+    width: 100%;
     height: auto;
   }
 }
@@ -473,7 +502,7 @@ a.submit-feedback {
     }
     img{
       display: block;
-      max-width: 100%;
+      width: 100%;
       height: auto;
       border: none;
     }
@@ -633,7 +662,7 @@ a.submit-feedback {
   background: url('../images/go-to-top-arrow.png') no-repeat right center;
 }
 
-@media (max-width: 1292px) {
+@media (max-width: 1217px) {
   .pane-boxes-stanford-compliance{
     margin-top: 44px !important;
   }
@@ -656,7 +685,7 @@ a.submit-feedback {
     .view-content .views-row {
       background: #e9f2f9;
       border: none;
-      font-size: 15px;
+      font-size: 14px;
       width: 46%;
       margin-top: 7px;
       margin-bottom: 7px;
@@ -676,6 +705,17 @@ a.submit-feedback {
 
   .frontpage-top-links .desktop{display: none;}
   .frontpage-top-links .mobile{display: block;}
+
+  .frontpage-directorate-links{
+    .views-row a{
+      background-color: #e9f2f9;
+      border: none;
+      font-size: 14px;
+    }
+    .views-row-last{
+      margin-bottom: 0;
+    }
+  }
 
   .frontpage-top-links .view-content .views-row {
     width: 100%;
@@ -787,6 +827,22 @@ a.submit-feedback {
   .frontpage-slac-science .view-header {
     position: relative;
     margin: 0 0 20px 0;
+  }
+
+ .frontpage-directorate-links{
+    .views-row{
+      width: 100%;
+      margin: 0;
+      margin-bottom: 14px;
+      &.views-row-last{
+        margin-bottom: 0;
+      }
+      a{
+        float: none;
+        width: 86%;
+        padding: 6px 7%;
+      }
+    }
   }
 
   .blue-bodered-white {

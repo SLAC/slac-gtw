@@ -93,30 +93,54 @@
     @include zen-grid-item(4, 6);
   }
 
-@media (min-width: 900px) {
+@media (min-width: 901px){
+// fix frontpage layout
 .frontpage-left-col {
   padding-left: 0;
-  padding-right: 2%;
-  & > div{
-    margin-right: 1%;
-  }
+  padding-right: 2.5%;
 }
 .frontpage-right{
   padding-left: 0;
   padding-right: 0;
   .frontpage-middle-col {
+    width: 58.05556%;
     padding-left: 0;
-    padding-right: 2%;
+    padding-right: 3.33%;
+    margin-right: -58.05556%;
   }
   .frontpage-right-col {
+    width: 41.94444%;
     padding-left: 0;
     padding-right: 0;
-    & > div{
-      margin-left: 2%;
-    }
+    margin-left: 58.05556%;
   }
 }
 }
+// IE8 fix
+.lt-ie9{
+// fix frontpage layout
+.frontpage-left-col {
+  padding-left: 0;
+  padding-right: 2.5%;
+}
+.frontpage-right{
+  padding-left: 0;
+  padding-right: 0;
+  .frontpage-middle-col {
+    width: 58.05556%;
+    padding-left: 0;
+    padding-right: 3.33%;
+    margin-right: -58.05556%;
+  }
+  .frontpage-right-col {
+    width: 41.94444%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 58.05556%;
+  }
+}
+}
+
 
 @media (max-width: 900px) {
 

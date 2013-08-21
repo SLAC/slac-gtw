@@ -38,21 +38,11 @@
 }
 
 /* Staff resources main view */
-
-.staff-resources {
-  width: 100%;
-  max-width: 900px;
-  margin: auto;
-}
-
 .section-staff-resources {
   #page-title {
     width: 100%;
     max-width: 900px;
     margin: auto;
-  }
-  #content {
-    background: #fff;
   }
   .staff-top{
     h2{
@@ -204,10 +194,6 @@
     overflow: hidden;
   }
 
-  .section-staff-resources #content {
-    background: transparent;
-  }
-
   .pane-quicktabs-staff-resources{
     display: none;
   }
@@ -231,7 +217,7 @@
     .ui-accordion-header a {
       height: 16px;
       background: #fff url('../images/small-list-arrow-down.jpg') no-repeat right center;
-      max-width: 705px;
+      max-width: 100%;
       margin: 5px auto auto;
       color: #20669a;
       font-weight: bold;
@@ -248,9 +234,8 @@
       margin-top: -1px !important;
       padding: 9px 0 19px; 
       .view-content {
-        max-width: 705px;
-        width: 85%;
-        padding: 0 5% 0 10%;
+        width: 90%;
+        padding: 0 2.5% 0 7.5%;
       }
       .views-row {
         background: url("../images/blue-right-list-arrow.jpg") no-repeat left 7px;

@@ -48,12 +48,15 @@ header, .content-wrapper, .footer-wrapper {
 .not-front #content {
   width: 100%;
   max-width: 1432px;
-  padding: 100px 0 32px;
+  padding: 80px 0 32px;
   margin: auto;
   background: #fbf9f9;
-  & > *{
-    padding: 0 32px;
-  }
+}
+
+@media (min-width: 900px){
+.not-front #content > *{
+  padding: 0 32px;
+}
 }
 
 .grippie {
@@ -118,13 +121,6 @@ header {
   }
 }
 
-.frontpage-right{
-  margin-bottom: 44px;
-}
-
-.frontpage-left-col{
-  margin-top: 70px;
-}
 
 /* Header Main Menu, Search*/
 
@@ -221,15 +217,7 @@ header {
 /*
  * Content
  */
-
-.frontpage-links{
-  .pane-title{
-    display:none;
-  }
-  .brown-bodered-white{
-    margin-top: 0;
-  }
-}.general-left {
+.general-left {
   ul li a {
     font-size: 13px;
   }
@@ -297,9 +285,18 @@ header {
 }
 
 .not-front #page-title {
+  margin-top: 7px;
   font-size: 24px;
-  margin: 0 0 7px 0;
   color: #46494B;
+}
+
+.not-front .general-left{
+  padding-left: 0 !important;
+  padding-right: 2% !important;
+}
+.not-front .general-right{
+  padding-left: 2% !important;
+  padding-right: 0 !important;
 }
 
 .general-right {
@@ -395,6 +392,10 @@ footer .block-menu {
   p{
     margin: 0;
   }
+  #content .general-left{
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #b1c2ca;
+  }
   #content .general-right .inside{
     padding: 0 0 0 13%;
     margin: 0 !important;
@@ -405,16 +406,24 @@ footer .block-menu {
   display: none;
 }
 
+.not-front.section-staff-resources #content > div{
+  max-width: 900px;
+  width: auto;
+  margin: 0 auto;
+}
+
 @media (max-width: 900px) {
-
-
   .logo {
     width: auto;
     float: left;
     margin-left: 5%;
   }
 
-  .frontpage-links, .frontpage-projects, .frontpage-help-market, .pane-boxes-stanford-compliance {
+  .frontpage-links,
+  .frontpage-projects,
+  .frontpage-help-market,
+  .pane-boxes-stanford-compliance,
+  .frontpage-weather {
     display: none;
   }
 
@@ -457,6 +466,28 @@ footer .block-menu {
     margin-top: 80px;
   }
   
+  .not-front{
+    &.section-staff-resources,
+    &.section-feedback{
+      #content {
+        background-color: transparent;
+      }
+    }
+    &.section-feedback #content{
+      background-color: #fff !important;
+    }
+    #content{
+      padding-top: 50px;
+    }
+    #content > div,
+    #content > article{
+      width: 94%;
+      margin: 0 3%;
+    }
+    #content > #page-title{
+      margin-left: 3%;
+    }
+  }
 }
 
 @media ( max-width: 800px) {
@@ -481,6 +512,15 @@ footer .block-menu {
     #content .general-right{
       display: none;
     }
+  }
+
+  .not-front .general-left{
+    padding-left: 1% !important;
+    padding-right: 1% !important;
+  }
+  .not-front .general-right{
+    padding-left: 1% !important;
+    padding-right: 1% !important;
   }
 }
 
@@ -509,6 +549,12 @@ footer .block-menu {
   .not-front #content {
     background-color: transparent;
     padding-top: 50px;
+  }
+
+  .not-front.section-feedback{
+    #edit-actions{
+      float: none;
+    }
   }
 
   .frontpage-right{
