@@ -38,4 +38,5 @@
     </li>
   <?php endforeach; ?>
   </ul>
+  <span class="switch-link"><a href="http://weather.yahoo.com/united-states/california/stanford-2498941" target="_blank">View Detailed Weather Information</a></span>
 </div>
