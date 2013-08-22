@@ -15,28 +15,31 @@
  */
 ?>
 <div class="panel-display panel-frontpage clearfix" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
-  
- 
+
+
 
     <div class="frontpage-left-col">
 
       <?php if ($content['coltworowone']): ?>
-        <div class="inside frontpage-links"><?php print $content['coltworowone']; ?></div>
+        <div class="inside frontpage-slider-mobile"><?php print $content['coltworowone']; ?></div>
       <?php endif ?>
       <?php if ($content['coltworowtwo']): ?>
-        <div class="inside frontpage-calendar"><?php print $content['coltworowtwo']; ?></div>
+        <div class="inside frontpage-links"><?php print $content['coltworowtwo']; ?></div>
       <?php endif ?>
       <?php if ($content['coltworowthree']): ?>
-        <div class="inside frontpage-access-info"><?php print $content['coltworowthree']; ?></div>
+        <div class="inside frontpage-calendar"><?php print $content['coltworowthree']; ?></div>
       <?php endif ?>
       <?php if ($content['coltworowfour']): ?>
-        <div class="inside frontpage-weather"><?php print $content['coltworowfour']; ?></div>
+        <div class="inside frontpage-access-info"><?php print $content['coltworowfour']; ?></div>
+      <?php endif ?>
+      <?php if ($content['coltworowfive']): ?>
+        <div class="inside frontpage-weather"><?php print $content['coltworowfive']; ?></div>
       <?php endif ?>
 
     </div>
 
   <div class="frontpage-right">
-   
+
     <div class="frontpage-middle-col">
 
       <?php if ($content['colonerowone']): ?>
@@ -48,7 +51,7 @@
       <?php if ($content['colonerowthree']): ?>
         <div class="inside frontpage-slac-science"><?php print $content['colonerowthree']; ?></div>
       <?php endif ?>
-      
+
     </div>
 
     <div class="frontpage-right-col">
@@ -73,7 +76,7 @@
       <?php endif ?>
     </div>
   </div>
-  
+
 </div>
 
 
