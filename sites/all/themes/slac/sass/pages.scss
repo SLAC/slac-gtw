@@ -470,14 +470,11 @@ footer .block-menu {
   }
   
   .not-front{
-    &.section-staff-resources,
-    &.section-feedback{
-      #content {
-        background-color: transparent;
-      }
+    &.section-staff-resources #content {
+      background-color: transparent;
     }
     &.section-feedback #content{
-      background-color: #fff !important;
+      background-color: #fff;
     }
     #content{
       padding-top: 50px;
@@ -555,6 +552,9 @@ footer .block-menu {
   }
 
   .not-front.section-feedback{
+    #content{
+      background-color: transparent;
+    }
     #edit-actions{
       float: none;
     }
