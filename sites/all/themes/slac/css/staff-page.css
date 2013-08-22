@@ -328,7 +328,7 @@
     word-wrap: break-word;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 620px) {
   /* line 194, ../sass/_mixins.scss */
   .frontpage-left-col,
   .frontpage-right,

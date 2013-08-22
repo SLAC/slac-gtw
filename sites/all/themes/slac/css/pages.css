@@ -1,10 +1,10 @@
 /* Grids */
-/* line 52, D:/projects/slac-gtw/sites/all/themes/slac/sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 52, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 .container:before, .container:after {
   content: "";
   display: table;
 }
-/* line 56, D:/projects/slac-gtw/sites/all/themes/slac/sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 56, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
 .container:after {
   clear: both;
 }
@@ -328,7 +328,7 @@
     word-wrap: break-word;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 620px) {
   /* line 194, ../sass/_mixins.scss */
   .frontpage-left-col,
   .frontpage-right,

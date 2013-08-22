@@ -483,7 +483,24 @@ a.submit-feedback {
 
 /* Front slider */
 
-.frontpage-news-slider {
+.frontpage-slider-mobile > div{
+  margin-bottom: 36px;
+  .views-slideshow-controls-top{
+    display: none;
+  }
+  .views_slideshow_slide{
+
+    .views-field-nothing{
+      background: #fff;
+      .title a,span{
+        color: #20659A;
+      }
+    }
+  }
+}
+
+.frontpage-news-slider,
+.frontpage-slider-mobile{
   position: relative;
   width: 100%;
   height: 100%;
@@ -590,6 +607,8 @@ a.submit-feedback {
     }
   }
 }
+
+.frontpage-slider-mobile{display: none;}
 
 .frontpage-slac-science .view-header .views-field-nothing {
   position: absolute;
@@ -752,7 +771,12 @@ a.submit-feedback {
 
 @media (max-width: 620px) {
 
-
+  .frontpage-news-slider{
+    display: none;
+  }
+  .frontpage-slider-mobile{
+    display: block;
+  }
   .frontpage-calendar {
     display: block;
   }
