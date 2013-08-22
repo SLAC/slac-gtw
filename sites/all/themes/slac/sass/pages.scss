@@ -53,6 +53,9 @@ header, .content-wrapper, .footer-wrapper {
   background: #fbf9f9;
 }
 
+.lt-ie9 .not-front #content > *{
+  padding: 0 32px;
+}
 @media (min-width: 900px){
 .not-front #content > *{
   padding: 0 32px;
