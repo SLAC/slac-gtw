@@ -160,17 +160,19 @@ function slac_igp_feed_preprocess_views_view(&$vars) {
       $ret = array_slice($ret, 0, 3);
     }
     
+    $more = array();
     foreach ($ret as $key => $group) {
       $title[$key] = $group->find('h3', 0)->plaintext;
       $group_items = $group->find('div[class=views-row]');
       if (count($group_items) > 2) {
         // for each grouped day, only 2 events will show
         $ret[$key] = array_slice($group_items, 0, 2);
+        $more[$key] = l('(More events)', 'http://news.slac.stanford.edu/calendar/all/' . date('Y-m-d', strtotime($title[$key] . ' ' . date('Y'))));
       } else {
         $ret[$key] = $group_items;
       }
     }
-
+    
     $output = '';
     foreach ($ret as $key => $views_rows) {
       $output .= '<div class="views-row-grouped">';
@@ -180,6 +182,9 @@ function slac_igp_feed_preprocess_views_view(&$vars) {
       $output .= '<h3>' . $month . $day . '</h3>';
       foreach ($views_rows as $row) {
         $output .= $row->__toString();
+      }
+      if (array_key_exists($key, $more)) {
+        $output .= '<span class="more">' . $more[$key] . '</span>';
       }
       $output .= '</div>';
     }
