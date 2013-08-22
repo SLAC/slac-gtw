@@ -65,6 +65,7 @@ function slac_igp_config_default_page_manager_pages() {
       'colthreerowfour' => NULL,
       'colthreerowfive' => NULL,
       'colthreerowsix' => NULL,
+      'coltworowfive' => NULL,
     ),
   );
   $display->cache = array();
@@ -445,7 +446,40 @@ function slac_igp_config_default_page_manager_pages() {
     $display->panels['colthreerowtwo'][1] = 'new-14';
     $pane = new stdClass();
     $pane->pid = 'new-15';
-    $pane->panel = 'coltworowfour';
+    $pane->panel = 'colthreerowtwo';
+    $pane->type = 'views';
+    $pane->subtype = 'top_links';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $display->content['new-15'] = $pane;
+    $display->panels['colthreerowtwo'][2] = 'new-15';
+    $pane = new stdClass();
+    $pane->pid = 'new-16';
+    $pane->panel = 'coltworowfive';
     $pane->type = 'block';
     $pane->subtype = 'weather_block-weather_block';
     $pane->shown = TRUE;
@@ -465,14 +499,38 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-15'] = $pane;
-    $display->panels['coltworowfour'][0] = 'new-15';
+    $display->content['new-16'] = $pane;
+    $display->panels['coltworowfive'][0] = 'new-16';
     $pane = new stdClass();
-    $pane->pid = 'new-16';
+    $pane->pid = 'new-17';
+    $pane->panel = 'coltworowfour';
+    $pane->type = 'block';
+    $pane->subtype = 'views-access_information-block';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'brown-bodered-white',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-17'] = $pane;
+    $display->panels['coltworowfour'][0] = 'new-17';
+    $pane = new stdClass();
+    $pane->pid = 'new-18';
     $pane->panel = 'coltworowone';
     $pane->type = 'views';
     $pane->subtype = 'news';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'override_pager_settings' => 0,
@@ -493,64 +551,20 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $display->content['new-16'] = $pane;
-    $display->panels['coltworowone'][0] = 'new-16';
-    $pane = new stdClass();
-    $pane->pid = 'new-17';
-    $pane->panel = 'coltworowone';
-    $pane->type = 'block';
-    $pane->subtype = 'system-main-menu';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
+      'style' => 'default',
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'brown-bodered-white blue-dashed-list',
-    );
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $display->content['new-17'] = $pane;
-    $display->panels['coltworowone'][1] = 'new-17';
-    $pane = new stdClass();
-    $pane->pid = 'new-18';
-    $pane->panel = 'coltworowthree';
-    $pane->type = 'block';
-    $pane->subtype = 'views-access_information-block';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'brown-bodered-white',
+      'css_class' => '',
     );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
     $display->content['new-18'] = $pane;
-    $display->panels['coltworowthree'][0] = 'new-18';
+    $display->panels['coltworowone'][0] = 'new-18';
     $pane = new stdClass();
     $pane->pid = 'new-19';
-    $pane->panel = 'coltworowtwo';
+    $pane->panel = 'coltworowthree';
     $pane->type = 'block';
     $pane->subtype = 'views-calendar-block';
     $pane->shown = TRUE;
@@ -571,7 +585,52 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->position = 0;
     $pane->locks = array();
     $display->content['new-19'] = $pane;
-    $display->panels['coltworowtwo'][0] = 'new-19';
+    $display->panels['coltworowthree'][0] = 'new-19';
+    $pane = new stdClass();
+    $pane->pid = 'new-20';
+    $pane->panel = 'coltworowtwo';
+    $pane->type = 'block';
+    $pane->subtype = 'system-main-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'brown-bodered-white blue-dashed-list',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-20'] = $pane;
+    $display->panels['coltworowtwo'][0] = 'new-20';
+    $pane = new stdClass();
+    $pane->pid = 'new-21';
+    $pane->panel = 'coltworowtwo';
+    $pane->type = 'block';
+    $pane->subtype = 'menu-menu-sidebar-menu';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $display->content['new-21'] = $pane;
+    $display->panels['coltworowtwo'][1] = 'new-21';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

@@ -57,5 +57,13 @@ function slac_igp_config_taxonomy_default_vocabularies() {
       'module' => 'taxonomy',
       'weight' => 0,
     ),
+    'top_links' => array(
+      'name' => 'Top links',
+      'machine_name' => 'top_links',
+      'description' => 'Top links that will appear on the home page',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
   );
 }

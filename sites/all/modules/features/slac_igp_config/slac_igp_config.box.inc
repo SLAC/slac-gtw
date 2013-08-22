@@ -119,7 +119,7 @@ Building 50 <br />
   $box->description = 'Search (People)';
   $box->options = array(
     'body' => array(
-      'value' => '<form action="http://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><input class="searchbox" id="searchbox" maxlength="2047" name="name" onblur="if (this.value == \'\') {this.value = \'Search\';}" onfocus="if (this.value == \'Search\') {this.value = \'\';}" size="18" type="text" value=""> <input name="gone" type="hidden" value="active"> <input name="if" type="hidden" value="1"><input name="url" type="hidden" value=""><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27"> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>',
+      'value' => '<form action="http://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><input class="searchbox" id="searchbox" maxlength="2047" name="name" onblur="if (this.value == \'\') {this.value = \'Search\';}" onfocus="if (this.value == \'Search\') {this.value = \'\';}" size="18" type="text" value=""> <input name="gone" type="hidden" value="active"> <input name="lf" type="hidden" value="1"><input name="url" type="hidden" value=""><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27"> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -151,7 +151,14 @@ Building 50 <br />
   $box->description = 'SLAC Projects';
   $box->options = array(
     'body' => array(
-      'value' => '<div class="img"><img alt="" src="/sites/all/themes/slac/images/linac-thumb.png"></div><ul><li><a href="http://www-project.slac.stanford.edu/rsbproject/">RSB Building Construction</a></li><li><a href="https://news.slac.stanford.edu/tags/programs-facilities/infrastructure-safety/susb-project">SUSB Building Construction</a></li><li><a href="https://news.slac.stanford.edu/tags/programs-facilities/infrastructure-safety/slac-enterprise-resource-planning">Project Delta - ERP Site</a></li><li><a href="https://news.slac.stanford.edu/tags/programs-facilities/lightsources/lcls-ii">LCLS II</a></li><li><a href="https://news.slac.stanford.edu/tags/programs-facilities/accelerator-programs/facet-and-plasma-wakefield-acceleration">FACET Upgrade</a></li></ul>',
+      'value' => '<div class="img"><img alt="" src="/sites/all/themes/slac/images/linac-thumb.png"></div>
+<ul>
+<li><a href="https://news.slac.stanford.edu/tags/programs-facilities/infrastructure-safety/susb-project">SUSB Building Construction</a></li>
+<li><a href="http://www-project.slac.stanford.edu/rsbproject/">RSB Building Construction</a></li>
+<li><a href="https://news.slac.stanford.edu/tags/programs-facilities/infrastructure-safety/slac-enterprise-resource-planning">Project Delta - ERP Site</a></li>
+<li><a href="https://news.slac.stanford.edu/tags/programs-facilities/lightsources/lcls-ii">LCLS II</a></li>
+<li><a href="https://news.slac.stanford.edu/tags/programs-facilities/accelerator-programs/facet-and-plasma-wakefield-acceleration">FACET Upgrade</a></li>
+</ul>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',

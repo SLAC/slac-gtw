@@ -52,7 +52,6 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['path'] = '[field_link]';
   $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
@@ -76,6 +75,11 @@ function slac_igp_resources_views_default_views() {
 
   /* Display: Directorate links */
   $handler = $view->new_display('block', 'Directorate links', 'block');
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Taxonomy term: Weight */
+  $handler->display->display_options['sorts']['weight']['id'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['weight']['field'] = 'weight';
 
   /* Display: Organization index */
   $handler = $view->new_display('block', 'Organization index', 'block_1');
@@ -118,7 +122,6 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['path'] = '[field_link]';
   $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
@@ -143,7 +146,6 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name_1']['alter']['path'] = '[field_link_1]';
   $handler->display->display_options['fields']['name_1']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['name_1']['alter']['external'] = TRUE;
-  $handler->display->display_options['fields']['name_1']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['name_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Taxonomy term: Name */
@@ -297,7 +299,6 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['path'] = '[field_link] ';
   $handler->display->display_options['fields']['name']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
@@ -399,7 +400,6 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['link_class'] = '[field_resource_authenticated]';
-  $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
@@ -451,7 +451,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="/staff-resourcesl">View Staff Resources</a>';
+  $handler->display->display_options['footer']['area']['content'] = '<a href="/staff-resources">View Staff Resources</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -590,7 +590,6 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['link_class'] = '[field_resource_authenticated]';
-  $handler->display->display_options['fields']['name']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
