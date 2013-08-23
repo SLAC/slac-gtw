@@ -196,9 +196,12 @@
     @include zen-clear();
   }
 
-
-
+  .frontpage-right{
+    .frontpage-middle-col,
+    .frontpage-right-col,
+    .frontpage-security-contacts{
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 }
-
-
-

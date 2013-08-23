@@ -762,10 +762,6 @@ a.submit-feedback {
     }
   }
 
-  .frontpage-slac-science {
-    margin-bottom: 16px;
-  }
-
   .frontpage-calendar h3{
     margin-left: -10px;
   }
@@ -796,6 +792,9 @@ a.submit-feedback {
   .frontpage-calendar {
     display: block;
   }
+  .pane-organization > div{
+    padding-bottom: 12px;
+  }
   /* People search*/
   .no-bg {
     background: transparent;
@@ -806,6 +805,10 @@ a.submit-feedback {
         padding: 0;
       }
     }
+  }
+
+  .frontpage-people-finder .brown-bodered-white > div{
+    padding: 0;
   }
   .frontpage-people-finder {
     .advanced-search {
@@ -859,18 +862,11 @@ a.submit-feedback {
       line-height: 32px;
       margin-bottom: 20px;
     }
-    > .pane-content {
+    > div {
       padding: 0;
     }
-        .view-footer {
+    .view-footer {
       display: none;
-    }
-    .pane-content > .view-news > .view-content .views-row {
-      padding: 8px 52px 8px 11px;
-      margin: 0 0 18px 0;
-      min-height: 44px;
-      font-size: 13px;
-      background: white url('/sites/all/themes/slac/images/list-arrow.jpg') no-repeat right center;
     }
     .views-field-created {
       font-size: 12px;
@@ -878,12 +874,33 @@ a.submit-feedback {
   }
 
   /* slac science block */
-  .frontpage-slac-science .view-header {
-    position: relative;
-    margin: 0 0 20px 0;
+  .frontpage-slac-science,
+  .frontpage-news-list{
+    .view-header {
+      position: relative;
+      margin: 0 0 20px 0;
+    }
+    .blue-bodered-white > div > .view-content{
+      .views-row{
+        min-height: 60px;
+        padding-top: 10px;
+        padding-right: 60px;
+        margin-bottom: 20px;
+        background: #fff url(../images/list-arrow.jpg) no-repeat right center;
+        overflow: hidden;
+        a{
+          display: block;
+          font-size: 1.2em;
+        }
+      }
+    }
   }
 
- .frontpage-directorate-links{
+  .frontpage-news-list .blue-bodered-white{
+    margin-top: 0;
+  }
+
+  .frontpage-directorate-links{
     .views-row{
       width: 100%;
       margin: 0;

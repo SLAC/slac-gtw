@@ -350,6 +350,14 @@
     word-wrap: break-word;
     clear: left;
   }
+
+  /* line 202, ../sass/_mixins.scss */
+  .frontpage-right .frontpage-middle-col,
+  .frontpage-right .frontpage-right-col,
+  .frontpage-right .frontpage-security-contacts {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 /* A-Z page */
 /* line 5, ../sass/staff-page.scss */
