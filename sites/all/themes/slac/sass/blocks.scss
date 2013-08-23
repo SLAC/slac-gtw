@@ -783,8 +783,15 @@ a.submit-feedback {
 
 @media (max-width: 620px) {
 
+  .layoutfix{
+    position: relative;
+    .frontpage-left-col{
+      position: absolute;
+    }
+  }
+
   .frontpage-news-slider{
-    display: none;
+    margin-bottom: 36px;
   }
   .frontpage-slider-mobile{
     display: block;
@@ -807,7 +814,10 @@ a.submit-feedback {
     }
   }
 
-  .frontpage-people-finder .brown-bodered-white > div{
+  .frontpage-people-finder{
+    display: none;
+  }
+  /*.frontpage-people-finder .brown-bodered-white > div{
     padding: 0;
   }
   .frontpage-people-finder {
@@ -852,7 +862,8 @@ a.submit-feedback {
       border-radius: 0;
       z-index: 99;
     }
-  }
+  }*/
+
   /* Middle blocks */
   .blue-bodered-white {
     .pane-title {

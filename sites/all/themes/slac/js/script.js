@@ -190,6 +190,28 @@
       $('.views-slideshow-controls-top *').click(resizer);
     }
   }
+
+  // frontpage mobile fix
+  Drupal.behaviors.sliderResize = {
+    attach: function (context, settings) {
+      if( $('body').hasClass('front')){
+        var leftCol = $('.frontpage-left-col'),
+            middleCol = $('.frontpage-middle-col'),
+            setPosition = function(){
+              if( $(window).width() <= 620 ){
+                $('#content').addClass('layoutfix');
+                leftCol.css('top',middleCol.height()+12);
+                middleCol.css('padding-bottom',leftCol.height()-3);
+              } else $('#content').removeClass('layoutfix');
+            }
+        try{
+          window.addEventListener("orientationchange", setPosition);
+        } catch(e){}
+        $(window).resize(setPosition);
+        $(window).load(setPosition);
+      }
+    }
+  }
   
   // handle staff resource image changes
   Drupal.behaviors.srswitch = {
