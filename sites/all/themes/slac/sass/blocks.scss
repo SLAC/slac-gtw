@@ -783,11 +783,12 @@ a.submit-feedback {
 
 @media (max-width: 620px) {
 
-  .layoutfix{
+  // frontpage layout fix
+  .front #content{
     position: relative;
-    .frontpage-left-col{
-      position: absolute;
-    }
+  }
+  .layoutfix.frontpage-left-col{
+    position: absolute;
   }
 
   .frontpage-news-slider{

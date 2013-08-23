@@ -196,13 +196,11 @@
         var leftCol = $('.frontpage-left-col'),
             middleCol = $('.frontpage-middle-col'),
             setPosition = function(){
-              if( $(window).width() <= 620 ){
-                $('#content').addClass('layoutfix');
-                leftCol.css('top',middleCol.height()+12);
+              if( $('#content').css('position') == 'relative' ){
+                leftCol.addClass('layoutfix').css('top',middleCol.height()+12);
                 middleCol.css('padding-bottom',leftCol.height()-3);
               } else{
-                $('#content').removeClass('layoutfix');
-                leftCol.attr('style','');
+                leftCol.attr('style','').removeClass('layoutfix');
                 middleCol.attr('style','');
               }
             }
