@@ -178,6 +178,8 @@
           slider.css({'width':'100%','height':h})
           .find('.views_slideshow_slide:visible').css({'width':'100%','height':'100%'});
           if( h != slider.find('.views_slideshow_slide:visible img').height() ){resizer()}
+        
+          try{setPosition()} catch(e){}
         }
       // on DOM ready
       $(window).load(resizer);
@@ -188,12 +190,8 @@
       $(window).resize(resizer);
       // on slider btns click
       $('.views-slideshow-controls-top *').click(resizer);
-    }
-  }
 
-  // frontpage mobile fix
-  Drupal.behaviors.sliderResize = {
-    attach: function (context, settings) {
+      // frontpage mobile fix
       if( $('body').hasClass('front')){
         var leftCol = $('.frontpage-left-col'),
             middleCol = $('.frontpage-middle-col'),
@@ -202,13 +200,12 @@
                 $('#content').addClass('layoutfix');
                 leftCol.css('top',middleCol.height()+12);
                 middleCol.css('padding-bottom',leftCol.height()-3);
-              } else $('#content').removeClass('layoutfix');
+              } else{
+                $('#content').removeClass('layoutfix');
+                leftCol.attr('style','');
+                middleCol.attr('style','');
+              }
             }
-        try{
-          window.addEventListener("orientationchange", setPosition);
-        } catch(e){}
-        $(window).resize(setPosition);
-        $(window).load(setPosition);
       }
     }
   }
