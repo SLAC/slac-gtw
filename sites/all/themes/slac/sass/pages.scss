@@ -255,9 +255,10 @@ header {
     margin: 0;
     line-height: normal;
     padding: 0 0 2px 0;
-    letter-spacing: 1px;
   }
-  .pane-content {
+  .pane-content,
+  .view-related-resources,
+  ul{
     border: 1px dashed #b4c2cb;
     border-top: 2px solid #988055;
     background: #f5f5f5;

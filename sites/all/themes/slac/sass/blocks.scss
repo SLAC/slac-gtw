@@ -10,23 +10,21 @@
 }
 
 .brown-bodered-white {
-  background: #fff;
+  padding: 0;
+  margin-bottom: 36px;
+  color: #5d5d5d;background: #fff;
   border: 1px solid #d1c9b9;
   @include rounded_corners(2px);
-  margin-bottom: 36px;
-  color: #5d5d5d;
-  > .pane-content{
+  > div{
     padding: 12px;
     overflow: hidden;
   }
-  h2 {
-    margin: 0;
+  h2{
+    margin: -13px 0 0 0;
     font-size: 12px;
     text-transform: uppercase;
     color: #94753F;
-    margin-top: -13px;
     line-height: normal;
-
   }
 }
 
@@ -34,9 +32,15 @@
   .pane-title{
     display:none;
   }
-  .pane-content{
+  .menu{
+    padding: 12px;
     padding-bottom: 2px;
+    overflow: hidden;
   }
+}
+
+.pane-organization > div{
+  padding-bottom: 2px;
 }
 
 .frontpage-people-finder .brown-bodered-white{
@@ -63,8 +67,29 @@
     padding-left: 20px;
     line-height: 22px;
   }
-  > .pane-content {
-    padding: 12px 18px;
+  > div {
+    padding: 12px;
+  }
+}
+
+.blue-dashed-list {
+  ul.menu li, .views-row {
+    list-style-type: none;
+    list-style-image: none;
+    float: left;
+    width: 47%;
+    font-size: 12px;
+    margin-bottom: 10px;
+    a{
+      display: block;
+      padding: 5px 8px;
+      background: #f1f1f1;
+      border: 1px dashed #90a7b2;
+    }
+  }
+  ul.menu li.odd, .views-row-odd {
+    margin-right: 6%;
+    clear: both;
   }
 }
 
@@ -79,6 +104,7 @@
   clear: both;
   border-top: 1px dashed #b8c9d1;
   padding: 12px 0 0;
+  margin-top: 3px;
   font-size: 11px;
   line-height: 15px;
 }
@@ -88,30 +114,7 @@
   padding-left: 15px;
 }
 
-/* Blue dashed list */
 
-.blue-dashed-list {
-  .pane-content ul li, .views-row {
-    list-style-type: none;
-    list-style-image: none;
-    float: left;
-    width: 47%;
-    font-size: 12px;
-    margin-bottom: 10px;
-    a{
-      display: block;
-      padding: 5px 8px;
-      background: #f1f1f1;
-      border: 1px dashed #90a7b2;
-    }
-  }
-  .pane-content ul li.odd, .views-row-odd {
-    margin-right: 6%;
-    clear: both;
-  }
-}
-
-/* Front People Finder Block */
 
 .frontpage-people-finder {
   input {
@@ -148,8 +151,6 @@
     background: url('../images/arrow-dot-line.png') no-repeat left 12px;
   }
 }
-
-/* Frontpage Calendar */
 
 .frontpage-calendar {
   .views-row-grouped {
@@ -202,9 +203,14 @@
   .view-footer {
     border: none;
   }
+  .more{
+    display: block;
+    clear: both;
+    a{
+      font-size: 11px;
+    }
+  }
 }
-
-/**/
 
 .frontpage-access-info {
   font-size: 11px;
@@ -216,18 +222,17 @@
   }
 }
 
-/* Weather block */
-
 .frontpage-weather {
   .current {
-    overflow: hidden;
+    padding-bottom: 0;
     margin-bottom: 10px;
+    overflow: hidden;
     h2 {
-      color: #393939;
-      font-size: 15px;
+      font-size: 1em;
       text-transform: none;
-      font-weight: normal;
+      font-weight: bold;
       padding: 10px 0 5px;
+      color: #5D5D5D;
     }
     .temp {
       float: left;
@@ -256,10 +261,15 @@
     }
   }
   .forecast {
+    padding-top: 0;
+    margin-bottom: 12px;
     border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 12px;
-    margin-bottom: 13px;
     overflow: hidden;
+    ul:after{
+      content: "";
+      display: table;
+      clear: both;
+    }
     li {
       float: left;
       width: 32.5%;
@@ -269,8 +279,14 @@
         border: none;
       }
     }
+    img{
+      display: block;
+      width: 75%;
+      margin: 0 auto;
+    }
     .day {
       display: block;
+      font-size: 0.8em;
     }
     .hight {
       padding: 0 6px 0  4px;
@@ -284,49 +300,55 @@
       color: #b6afa6;
       background: url('../images/grade-light.jpg') no-repeat right 3px;
     }
+    .switch-link{
+      display: block;
+      padding-top: 12px;
+      a{
+        position: static;
+        float: none;
+        color: #20659A;
+        line-height: 15px;
+      }
+    }
+  }
+  #boxes-box-weather_traffic{
+    padding-top: 0;
+    small {
+      border: none;
+      display: block;
+    }
   }
   #map-canvas {
     width: 100% !important;
   }
 }
 
-#boxes-box-weather_traffic small {
-  border: none;
-  display: block;
-}
-
 /* Front page top links block*/
 
 
 .frontpage-top-links{
-   .views-view-grid{
-    margin: 0;
-   }
-   td{
-    font-size: 12px;
-    margin: 0 0 7px 0;
-    float: left;
-    width: 44%;
-    &.col-1 {
-      clear: both;
-      margin-right: 6%;
-    }
-    a{
-      padding-left: 12px;
-      background: url('../images/list-dot.png') no-repeat 0 7px;
-      display: block;
-    }
-  }
   .mobile{
     display:none;
   }
 }
 
-.frontpage-slac-science .pane-content > .view-news > .view-content .views-row, 
-.frontpage-news-list .views-row {
-  padding-left: 12px;
-  background: url('../images/list-dot.png') no-repeat 0 7px;
-  display: block;
+.pane-top-links{
+  .item-list ul{
+    width: 100%;
+    .views-row{
+      float: left;
+      width: 48%;
+      margin-bottom: 7px;
+      a{
+        padding-left: 12px;
+        font-size: 12px;
+        background: url("../images/list-dot.png") no-repeat 0 7px;
+      }
+    }
+    .views-row-even{
+      margin-left: 4%;
+    }
+  }
 }
 
 /* Front page right sidebar boxes */
@@ -366,10 +388,10 @@
   }
 }
 
-.pane-boxes-slac-projects .pane-content {
+.pane-boxes-slac-projects .boxes-box-content {
   overflow:hidden;
-  padding-bottom: 12px;
   img{
+    display: block;
     float: left;
     margin: 0 20px 0 0;
   }
@@ -435,44 +457,38 @@ a.submit-feedback {
 
 /* Front middle general */
 
-.frontpage-slac-science .pane-content > .view-news > .view-content .views-row, .frontpage-news-list .views-row {
-  padding-bottom: 7px;
-  font-size: 12px;
-}
-
-.frontpage-slac-science {
-  .pane-content > .view-news > .view-content .views-field-title, .views-field-created {
-    display: inline;
+.frontpage-slac-science,
+.frontpage-news-list{
+  .views-row {
+    padding-left: 12px;
+    background: url('../images/list-dot.png') no-repeat 0 7px;
+    .views-field-title,
+    .views-field-created{
+      display: inline;
+      font-size: 12px;
+      line-height: 1.85em;
+    }
+    .views-field-created{
+      color: #5D5D5D;
+      font-style: italic;
+      font-size: 11px;
+    }
   }
 }
-
-.frontpage-news-list {
-  .views-field-title, .views-field-created {
-    display: inline;
-  }
-}
-
-.frontpage-slac-science .views-field-created, .frontpage-news-list .views-field-created {
-  font-size: 11px;
-  color: #46494b;
-  font-style: italic;
-}
-
 .frontpage-slac-science .view-header {
-  margin: -12px -18px 10px;
-
+  margin: -12px;
+  margin-bottom: 12px;
   .view-content{
       position: relative;
       overflow: hidden;
   }
-
   div{
     height: 100%;
     width: 100%;
     padding: 0;
     margin: 0;
+    background: transparent;
   }
-
   img {
     display: block;
     width: 100%;
@@ -846,6 +862,19 @@ a.submit-feedback {
     > .pane-content {
       padding: 0;
     }
+        .view-footer {
+      display: none;
+    }
+    .pane-content > .view-news > .view-content .views-row {
+      padding: 8px 52px 8px 11px;
+      margin: 0 0 18px 0;
+      min-height: 44px;
+      font-size: 13px;
+      background: white url('/sites/all/themes/slac/images/list-arrow.jpg') no-repeat right center;
+    }
+    .views-field-created {
+      font-size: 12px;
+    }
   }
 
   /* slac science block */
@@ -870,21 +899,6 @@ a.submit-feedback {
     }
   }
 
-  .blue-bodered-white {
-    .view-footer {
-      display: none;
-    }
-    .pane-content > .view-news > .view-content .views-row {
-      padding: 8px 52px 8px 11px;
-      margin: 0 0 18px 0;
-      min-height: 44px;
-      font-size: 13px;
-      background: white url('/sites/all/themes/slac/images/list-arrow.jpg') no-repeat right center;
-    }
-    .views-field-created {
-      font-size: 12px;
-    }
-  }
   /* Socials */
   .socials {
     li {
