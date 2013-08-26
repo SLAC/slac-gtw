@@ -139,6 +139,13 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/calendar/all">View  All Calendar Items</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -205,6 +212,15 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_event_date_1] [field_event_location]';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = 'add to calendar';
+  $handler->display->display_options['fields']['nothing_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing_1']['alter']['path'] = 'node/[nid]/ical';
+  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Date -  start date (field_event_date) */
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
   $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
@@ -232,6 +248,32 @@ function slac_igp_feed_views_default_views() {
 
   /* Display: Calendar */
   $handler = $view->new_display('block', 'Calendar', 'block');
+
+  /* Display: Feed */
+  $handler = $view->new_display('feed', 'Feed', 'feed_1');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'date_ical';
+  $handler->display->display_options['style_options']['cal_name'] = 'SLAC Events';
+  $handler->display->display_options['style_options']['no_calname'] = 0;
+  $handler->display->display_options['style_options']['disable_webcal'] = 0;
+  $handler->display->display_options['row_plugin'] = 'date_ical';
+  $handler->display->display_options['row_options']['date_field'] = 'field_data_field_event_date.field_event_date_value';
+  $handler->display->display_options['row_options']['summary_field'] = 'default_title';
+  $handler->display->display_options['row_options']['location_field'] = 'field_data_field_event_location.field_event_location';
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['path'] = 'node/%/ical';
   $export['calendar'] = $view;
 
   $view = new view();
