@@ -256,7 +256,7 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'date_ical';
   $handler->display->display_options['style_options']['cal_name'] = 'SLAC Events';
-  $handler->display->display_options['style_options']['no_calname'] = 0;
+  $handler->display->display_options['style_options']['no_calname'] = 1;
   $handler->display->display_options['style_options']['disable_webcal'] = 0;
   $handler->display->display_options['row_plugin'] = 'date_ical';
   $handler->display->display_options['row_options']['date_field'] = 'field_data_field_event_date.field_event_date_value';
