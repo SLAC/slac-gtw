@@ -153,6 +153,15 @@
 }
 
 .frontpage-calendar {
+  .views-field-nothing {
+    width:90%;
+  }
+  .views-field-nothing-1 {
+    position:relative;
+    float:right;
+    bottom:20px;
+  }
+
   .views-row-grouped {
     clear: both;
     color: #20659A;
@@ -206,6 +215,7 @@
   .more{
     display: block;
     clear: both;
+    padding-top:0;
     a{
       font-size: 11px;
     }

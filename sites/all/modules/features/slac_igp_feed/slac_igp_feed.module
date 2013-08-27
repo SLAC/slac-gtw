@@ -167,7 +167,9 @@ function slac_igp_feed_preprocess_views_view(&$vars) {
       if (count($group_items) > 2) {
         // for each grouped day, only 2 events will show
         $ret[$key] = array_slice($group_items, 0, 2);
-        $more[$key] = l('(More events)', 'http://news.slac.stanford.edu/calendar/all/' . date('Y-m-d', strtotime($title[$key] . ' ' . date('Y'))));
+        $additional = count($group_items) - 2;
+        $text = ($additional > 1) ? $additional . ' more events' : $additional . ' more event';
+        $more[$key] = l( $text, 'http://news.slac.stanford.edu/calendar/all/' . date('Y-m-d', strtotime($title[$key] . ' ' . date('Y'))));
       } else {
         $ret[$key] = $group_items;
       }
@@ -184,7 +186,7 @@ function slac_igp_feed_preprocess_views_view(&$vars) {
         $output .= $row->__toString();
       }
       if (array_key_exists($key, $more)) {
-        $output .= '<span class="more">' . $more[$key] . '</span>';
+        $output .= '<span class="more views-row views-row-last">' . $more[$key] . ' &raquo;</span>';
       }
       $output .= '</div>';
     }
