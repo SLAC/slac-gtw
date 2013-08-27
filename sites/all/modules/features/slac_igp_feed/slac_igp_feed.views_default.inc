@@ -217,7 +217,7 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
   $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing_1']['label'] = '';
-  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = 'add to calendar';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<img src="/slac-gtw/sites/all/themes/slac/images/calendar-icon-gray.png" />';
   $handler->display->display_options['fields']['nothing_1']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nothing_1']['alter']['path'] = 'node/[nid]/ical';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
@@ -256,7 +256,7 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'date_ical';
   $handler->display->display_options['style_options']['cal_name'] = 'SLAC Events';
-  $handler->display->display_options['style_options']['no_calname'] = 1;
+  $handler->display->display_options['style_options']['no_calname'] = 0;
   $handler->display->display_options['style_options']['disable_webcal'] = 0;
   $handler->display->display_options['row_plugin'] = 'date_ical';
   $handler->display->display_options['row_options']['date_field'] = 'field_data_field_event_date.field_event_date_value';
