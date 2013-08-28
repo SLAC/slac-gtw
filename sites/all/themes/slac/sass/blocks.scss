@@ -190,18 +190,27 @@
     .views-row-last {
       background: url('../images/dotted-bottom-border.png') no-repeat 0 bottom;
     }
-    &:first-child .views-row {
-      padding-top: 0;
+    &:first-child{
+      .views-row-first{
+        padding-top: 0;
+      }
     }
   }
   .views-row {
     float: right;
     width: 76%;
     border-left: 1px dashed #b8c9d1;
-    padding: 10px 0 0 5%;
+    padding: 10px 0 10px 5%;
     font-size: 11px;
   }
+  .views-row-first{
+    padding-bottom: 0;
+  }  
   .views-row-last {
+    padding-top: 0;
+  }
+  .views-row-first.views-row-last{
+    padding-top: 10px;
     padding-bottom: 10px;
   }
   .views-row:hover {
