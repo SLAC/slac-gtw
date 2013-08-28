@@ -372,7 +372,23 @@
 }
 
 .pane-staff-resource-modern{
-  
+  table{
+    margin: 0;
+    border-collapse: collapse;
+  }
+  td{
+    width: 50%;
+    padding-bottom: 7px;
+  }
+  .views-field-name a{
+    padding-left: 12px;
+    font-size: 12px;
+    background: url("../images/list-dot.png") no-repeat 0 7px;
+    }
+    .col-last{
+      width: 46%;
+      padding-left: 4%;
+    }
 }
 
 /* Front page right sidebar boxes */
