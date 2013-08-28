@@ -197,11 +197,11 @@
     float: right;
     width: 76%;
     border-left: 1px dashed #b8c9d1;
-    padding: 15px 0 0 5%;
+    padding: 10px 0 0 5%;
     font-size: 11px;
   }
   .views-row-last {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
   }
   .views-row:hover {
     text-decoration: underline;
@@ -359,6 +359,10 @@
       margin-left: 4%;
     }
   }
+}
+
+.pane-staff-resource-modern{
+  
 }
 
 /* Front page right sidebar boxes */
