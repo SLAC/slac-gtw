@@ -1542,3 +1542,7 @@ a.submit-feedback {
     display: block;
   }
 }
+/* line 1019, ../sass/blocks.scss */
+.error {
+  box-sizing: border-box;
+}
