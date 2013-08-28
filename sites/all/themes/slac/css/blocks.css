@@ -1544,5 +1544,6 @@ a.submit-feedback {
 }
 /* line 1019, ../sass/blocks.scss */
 .error {
-  box-sizing: border-box;
+  width: auto !important;
+  margin: auto auto !important;
 }
