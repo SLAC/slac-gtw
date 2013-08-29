@@ -588,6 +588,9 @@ a.submit-feedback {
       height: auto;
       border: none;
     }
+    &:hover .views-field-nothing{
+      background: rgb(38,130,202);
+    }
     .views-field-nothing{
       position: absolute;
       bottom: 0;
@@ -599,7 +602,6 @@ a.submit-feedback {
       color: #fff;
       line-height: 18px;
       &:hover{
-        background: rgb(38,130,202);
         .title a{
           border-color: #fff;
         }
@@ -689,54 +691,58 @@ a.submit-feedback {
 
 .frontpage-slider-mobile{display: none;}
 
-.frontpage-slac-science .view-header .views-field-nothing {
-  position: absolute;
-  bottom: 0;
-  left: -5%;
-  right: -5%;
-  height: auto;
-  width: 100%;
-  padding: 0 5%;
-  margin: 0;
-  background: url('../images/transparent-blue-bg.png') repeat;
-  color: #fff;
-  line-height: 18px;
-  &:hover{
+.frontpage-slac-science .view-header{
+  &:hover .views-field-nothing{
     background: rgb(38,130,202);
-    .title a{
-      border-color: #fff;
-    }
-    .body{
-      border-color: #dddddd;
-    }
   }
-  span{
-    display: block;
-    width: 96%;
-    margin: 10px auto;
-    a{
-      display: block;
-      margin: 0;
-    }
-  }
-
-  .title a {
-    display: inline;
+  .views-field-nothing {
+    position: absolute;
+    bottom: 0;
+    left: -5%;
+    right: -5%;
+    height: auto;
+    width: 100%;
+    padding: 0 5%;
+    margin: 0;
+    background: url('../images/transparent-blue-bg.png') repeat;
     color: #fff;
-    text-decoration: none;
-    font-size: 1.2em;
-    line-height: normal;
-    border-bottom: 1px dashed transparent;
-  }
+    line-height: 18px;
+    &:hover{
+      .title a{
+        border-color: #fff;
+      }
+      .body{
+        border-color: #dddddd;
+      }
+    }
+    span{
+      display: block;
+      width: 96%;
+      margin: 10px auto;
+      a{
+        display: block;
+        margin: 0;
+      }
+    }
 
-  .body{
-    display: inline;
-    max-height: 80px;
-    font-size: 0.8em;
-    line-height: 1.4em;
-    color: #dddddd;
-    overflow: hidden;
-    border-bottom: 1px dashed transparent;
+    .title a {
+      display: inline;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2em;
+      line-height: normal;
+      border-bottom: 1px dashed transparent;
+    }
+
+    .body{
+      display: inline;
+      max-height: 80px;
+      font-size: 0.8em;
+      line-height: 1.4em;
+      color: #dddddd;
+      overflow: hidden;
+      border-bottom: 1px dashed transparent;
+    }
   }
 }
 
