@@ -1310,7 +1310,7 @@ a.submit-feedback {
 
   /* line 821, ../sass/blocks.scss */
   .frontpage-news-slider .views-field-nothing .body, .frontpage-slac-science .view-header .views-field-nothing .body {
-    display: none;
+    display: none !important;
   }
 
   /* line 825, ../sass/blocks.scss */
