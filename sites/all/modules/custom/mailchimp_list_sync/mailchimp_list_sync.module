@@ -46,8 +46,11 @@ function mailchimp_list_sync_cron() {
   if ($last_run === '' || (REQUEST_TIME - $last_run) > $interval) {
       $split = variable_get('mailchimp_list_sync_limit', 1000);
       module_load_include('inc', 'mailchimp_list_sync', 'split_file.class');
-      $splitter = new split_file(dirname($file_path));
-      $results = $splitter->file_split($file_path, 'split', $split);
+      $results = array($file_path);  
+      if ($split != 0) {
+        $splitter = new split_file(dirname($file_path));
+        $results = $splitter->file_split($file_path, 'split', $split);        
+      } 
       if (!empty($results)) {
         $queue = DrupalQueue::get('mailchimp_list_sync');
         foreach ($results as $result) {
@@ -152,6 +155,7 @@ function mailchimp_list_sync_config_form() {
   $form['mailchimp_list_sync_limit'] = array(
     '#type' => 'select',
     '#options' => array(
+      0 => t('No split'),
       100 => t('100'),
       200 => t('200'),
       500 => t('500'),
