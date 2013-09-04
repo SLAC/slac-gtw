@@ -94,7 +94,7 @@ function og_tag_importer_import_validate($form, &$form_state) {
   }
   
   // store the fetched tags for submission handler
-  $form_state['og_tags'] = $result['data'];
+  $form_state['og_tags'] = (array_key_exists('data', $result)) ? $result['data'] : array();
 }
 
 /**
@@ -122,11 +122,13 @@ function og_tag_importer_import_tags($og_tags) {
   $bundle = variable_get('og_tag_importer_bundle', 'page');
 
   // @todo: manual mapping?
+  // $og_meta = array('og:url', 'og:image', 'og:site_name', 'og:title', 'og:description');
   $mapping = og_tag_importer_auto_map();
   $data = array();
   foreach ($og_tags as $tag_name => $value) {
-    if (array_key_exists($tag_name, $mapping)) {
-      $data[$mapping[$tag_name]][] = $value;
+    $map = variable_get('og_tag_importer_' . str_replace(':', '_', $tag_name), (array_key_exists($tag_name, $mapping)) ? $mapping[$tag_name] : '');
+    if ($map != '') {
+      $data[$map][] = $value;
     }
   }
   $node = new stdClass();
@@ -269,21 +271,116 @@ function og_tag_importer_fetch($url) {
 /**
  * Configuration callback
  */
-function og_tag_importer_admin() {
+function og_tag_importer_admin($form, &$form_state) {
 
   $types = _node_types_build();
+  
+  $form['message'] = array(
+    '#prefix' => '<div class="messages warning">',
+    '#markup' => 'Please note changing the node type will cause mapping configuration to change, please verify the field mapping again',
+    '#suffix' => '</div>',
+  );
   
   $form['og_tag_importer_bundle'] = array(
     '#type' => 'select',
     '#title' => t('Please select the node type to import the contents into'),
     '#options' => $types->names,
-    '#default_value' => variable_get('og_tag_importer_bundle', 'page'),
+    '#default_value' => variable_get('og_tag_importer_bundle', 'page'),    
+  );
+    
+  $options = array(
+    'link' => array('' => t('--select--')),
+    'image' => array('' => t('--select--')),
+    'text' => array('' => t('--select--')),
+  );
+    
+  $bundle = variable_get('og_tag_importer_bundle', 'page');
+  $fields = field_info_instances('node', $bundle);
+  foreach ($fields as $field_name => $instance) {
+    switch($instance['widget']['module']) {
+      case 'link':
+        $options['link'][$field_name] = $instance['label'];
+      break;
+      case 'image':
+        $options['image'][$field_name] = $instance['label'];
+      break;
+      case 'text':
+        $options['text']['title'] = t('Title');
+        $options['text'][$field_name] = $instance['label'];
+      break;
+    }
+  }
+  
+  $auto_mapping_default = og_tag_importer_auto_map();
+  
+  $form['og'] = array(
+    '#title' => 'mapping',
+    '#description' => t('Override mapping configuration for OG:Tag import'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#type' => 'fieldset',
   );
   
-  // @todo:
-  // load in the manual mapping configuration and allow user to override the mapping information
+  $default_title = variable_get('og_tag_importer_og_title'. 'title');
+  if ($default_title == '') {
+    $default_title = $auto_mapping_default['og:title'];
+  }
+  $form['og']['og_tag_importer_og_title'] = array(
+    '#title' => 'og:title',
+    '#type' => 'select',
+    '#options' => $options['text'],
+    '#default_value' => $default_title,
+  );
+  
+  $default_image = variable_get('og_tag_importer_og_image'. '');
+  if ($default_image == '') {
+    $default_image = $auto_mapping_default['og:image'];
+  }
+  $form['og']['og_tag_importer_og_image'] = array(
+    '#title' => 'og:image',
+    '#type' => 'select',
+    '#options' => $options['image'],
+    '#default_value' => $default_image,
+  );
+
+  $default_url = variable_get('og_tag_importer_og_url'. '');
+  if ($default_url == '') {
+    $default_url = $auto_mapping_default['og:url'];
+  }  
+  $form['og']['og_tag_importer_og_url'] = array(
+    '#title' => 'og:url',
+    '#type' => 'select',
+    '#options' => $options['link'],
+    '#default_value' => $default_url,
+  );
+ 
+  $default_description = variable_get('og_tag_importer_og_description'. 'body');
+  if ($default_description == '') {
+    $default_description = $auto_mapping_default['og:description'];
+  }   
+  $form['og']['og_tag_importer_og_description'] = array(
+    '#title' => 'og:description',
+    '#type' => 'select',
+    '#options' => $options['text'],
+    '#default_value' => $default_description,
+  );
+
+  $default_site_name = variable_get('og_tag_importer_og_site_name'. 'body');
+  if ($default_site_name == '') {
+    $default_site_name = $auto_mapping_default['og:site_name'];
+  }    
+  $form['og']['og_tag_importer_og_site_name'] = array(
+    '#title' => 'og:site_name',
+    '#type' => 'select',
+    '#options' => $options['text'],
+    '#default_value' => $default_site_name,
+  );
+
   return system_settings_form($form);
 }
+
+
+
 
 /**
  * Import an url into an image
