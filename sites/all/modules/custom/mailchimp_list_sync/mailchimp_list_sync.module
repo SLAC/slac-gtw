@@ -95,7 +95,10 @@ function mailchimp_list_sync_list_run($path) {
       }
     }
   }
-  unlink($path);
+  
+  if (variable_get('mailchimp_list_sync_limit', 1000) != 0) {
+    unlink($path);  
+  }
 }
 
 /**
