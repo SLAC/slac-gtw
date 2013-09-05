@@ -180,6 +180,9 @@ function mailchimp_dc_cron() {
       case 'weekly':
         _mailchimp_dc_weekly($campaign);
       break;
+      case 'bi-weekly':
+        _mailchimp_dc_biweekly($campaign);
+      break;
       case 'monthly':
         //@TODO
       break;
@@ -214,7 +217,7 @@ function _mailchimp_dc_daily($config) {
 }
 
 /**
- * Helper function check to see if a daily campaign has been generated
+ * Helper function check to see if a weekly campaign has been generated
  * if not, run the campaign generate function.
  */
 function _mailchimp_dc_weekly($config) {
@@ -234,6 +237,37 @@ function _mailchimp_dc_weekly($config) {
         mailchimp_dc_campaign_create($config);
       }    
     }  
+  }
+}
+
+/**
+ * Helper function check to see if a bi-weekly campaign has been generated
+ * if not, run the campaign generate function.
+ */
+function _mailchimp_dc_biweekly($config) {
+  // check for suppressed dates
+  if(_mailchimp_dc_date_suppress($config)) {
+    return;
+  }
+  $today = date('Y-m-d', REQUEST_TIME);
+  $scheduled_day = $config['schedule_type_setting'];
+  // if today is the scheduled day
+  if (date('D', REQUEST_TIME) == $scheduled_day) {
+    // check if already been sent today
+    $biweekly_campaign = mailchimp_dc_load_dc($config['name'], $today);
+    if (!empty($biweekly_campaign)) {
+      return;
+    }
+    // check the last time this campaign was sent, check the week number
+    // if less than 2 weeks has past we 
+    $last_run = db_query("SELECT timestamp FROM {mailchimp_dc} WHERE name = :name ORDER BY date DESC", array(':name' => $config['name']))->fetchField();
+    if (date('W', REQUEST_TIME) - date('W', $last_run) < 2) {
+      return;
+    }
+    // lastly check the time the mail is suppose to be generated
+    if ((int) date('Gi', REQUEST_TIME) >= (int) $config['schedule_time']) {
+      mailchimp_dc_campaign_create($config);
+    }     
   }
 }
 
@@ -277,6 +311,7 @@ function mailchimp_dc_campaign_create($config) {
       $subject = t('!name Daily Digest !today', array('!name' => $from_name, '!today' => date('Y-m-d')));
     break;
     case 'weekly':
+    case 'bi-weekly':
       $title = t('Weekly Digest Week: !week', array('!week' => date('W')));
       $subject = t('!name Weekly Digest !week', array('!name' => $from_name, '!week' => date('W'))); 
     break;

@@ -52,6 +52,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     '#options' => array(
       'daily' => t('Daily'),
       'weekly' => t('Weekly'),
+      'bi-weekly' => t('Bi-weekly'),
       'monthly' => t('Monthly'),
     ),
     '#ajax' => array(
@@ -90,6 +91,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
       break;
     
       case 'weekly':
+      case 'bi-weekly':
         $title = t('Select day of the week');
         $options = array(
           'Mon' => t('Monday'),
