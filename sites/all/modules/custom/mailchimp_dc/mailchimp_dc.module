@@ -81,10 +81,11 @@ function mailchimp_dc_views_api() {
 
 /**
  * Implements hook_entity_insert
+ * // adding some meta data about campaigns into another table for views to integrate
  */
 function mailchimp_dc_entity_insert($entity, $type) {
   if ($type === 'mailchimp_campaign') {
-    // adding some meta data about campaigns into another table for views to integrate
+    
     $campaign = mailchimp_campaign_get_campaigns(array($entity->mc_campaign_id));
     if (empty($campaign)) {
       return;
@@ -367,18 +368,19 @@ function mailchimp_dc_campaign_create($config) {
   }
 
   $campaign_id = mailchimp_campaign_save_campaign($content, $options);
+  module_load_include('inc', 'mailchimp_dc', 'mailchimp.database');
   if (isset($campaign_id)) {
     // send the campaign if it is set
     if ((bool) $config['auto_send']) {
       $campaign = mailchimp_campaign_load($campaign_id);
       mailchimp_campaign_send_campaign($campaign);
+      // update the status of the campaign in our table.
+      mailchimp_dc_record_save(array('mc_campaign_id' => $campaign_id, 'status' => 'sent'), 'mc_campaign_id', 'mailchimp_dc_campaign');
       drupal_set_message(t('Campaign %name has been sent.',
           array('%name' => $campaign->label()))
       );
     }
-
     // save the dc meta information (indicate already generated)
-    module_load_include('inc', 'mailchimp_dc', 'mailchimp.database');
     mailchimp_dc_save_dc($campaign_id, $config['name']);
     cache_clear_all('mailchimp_campaign_campaigns', 'cache');
   }
