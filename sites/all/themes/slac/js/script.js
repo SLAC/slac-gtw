@@ -19,7 +19,7 @@
     	$('<div id="mobile-menu-wrap"/>').insertBefore('#main')
     	$('<ul class="mobile-menu">'+ $menu.html() +'</ul>').appendTo('#mobile-menu-wrap');
     	$('<div class="mobile-search">'+ $searchbox.find('form').parent().html() +'</div>').appendTo('#mobile-menu-wrap');
-    	$('.mobile-search form').append('<input id="search-people" type="radio" name="same" checked="true"/><label for="search-people">People</label><input id="search-slac" type="radio" name="same" /><label for="search-slac">SLAC</label>');
+    	$('.mobile-search form').append('<input id="people" type="radio" name="searchType" checked="true" value="people" /><label for="search-people">People</label><input id="slac" type="radio" name="searchType" value="slac" /><label for="search-slac">SLAC</label>');
       $('.mobile-search #search-button').attr('src',$('.mobile-search #search-button').attr('src').replace('.jpg','')+'-mobile.jpg');
 
       //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Firefox/i.test(navigator.userAgent) ) {
@@ -62,10 +62,10 @@
   // combo searchbox
   Drupal.behaviors.search = {
      attach: function (context, settings) {
-       $('#searchForm').submit(function(e) {
+       $('.mobile-search form').submit(function(e) {
           e.preventDefault();
-         var search_type = $('#searchForm input[name="searchType"]:checked').val();
-         var keyword = $('#searchForm #keyword').val();
+         var search_type = $('.mobile-search form input[name="searchType"]:checked').val();
+         var keyword = $('.mobile-search form #searchbox').val();
          // people search
          if (search_type == 'people') {
            var url = "http://www-public.slac.stanford.edu/phonebook/dirsearch.aspx?lf=1&url=&gone=active&NAME=" + keyword;
