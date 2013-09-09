@@ -153,7 +153,6 @@ function mailchimp_dc_schema() {
         'not null' => TRUE,
         'description' => "Machine name of this recurring campaign",
       ),
-      
     ),
     'primary key' => array('date', 'name'),
   );
@@ -229,6 +228,12 @@ function mailchimp_dc_schema() {
         'not null' => FALSE,
         'size' => 'big',
         'description' => 'Time when the campaign was sent',
+      ),
+      'recurring_campaign' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'description' => "Machine name of this recurring campaign",
       ),
     ),
     'primary key' => array('mc_campaign_id'),

@@ -157,6 +157,25 @@ function mailchimp_dc_views_data() {
       'handler' => 'views_handler_argument_string',
     ),
   );
+  
+  // Contains the machine name of the recurring campaign
+  $data['mailchimp_dc_campaign']['recurring_campaign'] = array(
+    'title' => t('Recurring Campaign'),
+    'help' => t('The recurring campaign that generated this mailchimp campaign'),
+    'field' => array(
+      'handler' => 'views_handler_field',
+      'click sortable' => TRUE,
+    ),
+    'filter' => array(
+      'handler' => 'views_handler_filter_recurring_campaign',
+    ),
+    'sort' => array(
+      'handler' => 'views_handler_sort',
+    ),
+    'argument' => array(
+      'handler' => 'views_handler_argument_string',
+    ),
+  );
     
   $data['mailchimp_dc_campaign']['created'] = array(
     'title' => t('Created date'),

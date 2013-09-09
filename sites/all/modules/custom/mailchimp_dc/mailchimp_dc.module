@@ -381,6 +381,8 @@ function mailchimp_dc_campaign_create($config) {
       );
     }
     // save the dc meta information (indicate already generated)
+    // also add another data column to indicate which recurring campaign this comes from
+    mailchimp_dc_record_save(array('mc_campaign_id' => $campaign_id, 'recurring_campaign' => $config['name']), 'mc_campaign_id', 'mailchimp_dc_campaign');
     mailchimp_dc_save_dc($campaign_id, $config['name']);
     cache_clear_all('mailchimp_campaign_campaigns', 'cache');
   }

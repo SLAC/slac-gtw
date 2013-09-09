@@ -5,3 +5,5 @@ package = MailChimp
 version = 7.x-1.0-dev
 dependencies[] = mailchimp_campaign
 dependencies[] = ctools
+
+files[] = views/views_handler_filter_recurring_campaign.inc

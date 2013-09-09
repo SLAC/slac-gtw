@@ -185,10 +185,24 @@ function mailchimp_dc_views_default_views() {
       ),
     ),
   );
+  /* Filter criterion: Mailchimp Recurring Campaigns: Recurring Campaign */
+  $handler->display->display_options['filters']['recurring_campaign']['id'] = 'recurring_campaign';
+  $handler->display->display_options['filters']['recurring_campaign']['table'] = 'mailchimp_dc_campaign';
+  $handler->display->display_options['filters']['recurring_campaign']['field'] = 'recurring_campaign';
+  $handler->display->display_options['filters']['recurring_campaign']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['recurring_campaign']['expose']['operator_id'] = 'recurring_campaign_op';
+  $handler->display->display_options['filters']['recurring_campaign']['expose']['label'] = 'Recurring Campaign';
+  $handler->display->display_options['filters']['recurring_campaign']['expose']['operator'] = 'recurring_campaign_op';
+  $handler->display->display_options['filters']['recurring_campaign']['expose']['identifier'] = 'recurring_campaign';
+  $handler->display->display_options['filters']['recurring_campaign']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
   
   /* Display: Mailchimp Campaigns */
   $handler = $view->new_display('block', 'Mailchimp Campaigns', 'main');
-  
+
   $views['mailchimp_campaigns'] = $view; 
   return $views;  
 }
