@@ -121,8 +121,6 @@ function og_tag_importer_import_submit($form, &$form_state) {
 function og_tag_importer_import_tags($og_tags) {
   $bundle = variable_get('og_tag_importer_bundle', 'page');
 
-  // @todo: manual mapping?
-  // $og_meta = array('og:url', 'og:image', 'og:site_name', 'og:title', 'og:description');
   $mapping = og_tag_importer_auto_map();
   $data = array();
   foreach ($og_tags as $tag_name => $value) {
@@ -131,6 +129,7 @@ function og_tag_importer_import_tags($og_tags) {
       $data[$map][] = $value;
     }
   }
+    
   $node = new stdClass();
   $node->type = $bundle;
   node_object_prepare($node);
@@ -140,7 +139,6 @@ function og_tag_importer_import_tags($og_tags) {
   
   node_save($node);
   
-  // @todo: using entity meta wrapper to fill in each of the values (maybe besides title and body)
   $wrapper = entity_metadata_wrapper('node', $node);
   foreach ($data as $field_name => $values) {
     if ($field_name == 'title') {
@@ -162,7 +160,7 @@ function og_tag_importer_import_tags($og_tags) {
         break;
         default:
           if (array_key_exists('value', $field_info['columns'])) {
-            $wrapper->{$field_name}->set(array('value' => implode('<br />', $values)));
+            $wrapper->{$field_name}->set(array('value' => implode("\n\n", $values)));
           }
         break;
       }
