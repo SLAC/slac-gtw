@@ -51,21 +51,32 @@ function mailchimp_dc_action_add_content($entity, $context) {
  * VBO Action configuration form
  */
 function mailchimp_dc_action_add_content_form($context, &$form_state) {
-  // module_load_include('inc', 'mailchimp_dc', 'mailchimp.database');
+  $form['#attached']['css'] = array(
+    drupal_get_path('module', 'mailchimp_dc') . '/mailchimp_dc_action.css',
+  );
+
   // load all of the campaigns (that are not sent)
+  module_load_include('inc','mailchimp_dc', 'mailchimp_dc.database');
   $campaigns = mailchimp_campaign_load_multiple();
-  $options = array('' => t('--Please select--'));
+  $options = array(); //array('' => t('--Please select--'));
   if (!empty($campaigns)) {
     foreach($campaigns as $campaign_id => $campaign) {
       if ($campaign->mc_data['status'] === 'save') {
-        $options[$campaign_id] = $campaign->mc_data['title'];
+        $local_record = mailchimp_dc_record_load('mc_campaign_id', $campaign_id, 'mailchimp_dc_campaign');
+        $row = array(
+          array('data' => l($local_record['subject'], 'admin/config/services/mailchimp/campaigns/' . $campaign_id, array('attributes' => array('target' => '_blank'))), 'width' => '30%'),
+          array('data' => $local_record['recurring_campaign'], 'width' => '30%'),
+          array('data' => date('Y-m-d', $local_record['created']), 'width' => '20%'),
+          array('data' => l('View', $local_record['archive_url'], array('attributes' => array('target' => '_blank'))), 'width' => '20%'),
+        );
+        $options[$campaign_id] = theme('table', array('header' => array(), 'rows' => array($row)));
       }
     }
   }
   
   $form['mc_campaign'] = array(
-    '#type' => 'select',
-    '#title' => t('Mailchimp Campaign'),
+    '#type' => 'radios',
+    '#title' => t('Mailchimp Campaign (Subject, Recurring Campaign, Date Created, Archive Link)'),
     '#description' => t('Please choose the campaign this content should be added to'),
     '#options' => $options,
     '#ajax' => array(
