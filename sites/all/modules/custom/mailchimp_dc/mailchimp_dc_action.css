@@ -1,0 +1,16 @@
+/*
+ * Css File
+ */
+.form-item.form-item-mc-campaign {
+  padding:0 !important;
+}
+ 
+.form-item-mc-campaign table {
+  width:95%;
+  margin-bottom:0;
+}
+
+.form-item-mc-campaign input[type="radio"] {
+  float:left;
+  margin: 10px 5px 0 0;
+}
