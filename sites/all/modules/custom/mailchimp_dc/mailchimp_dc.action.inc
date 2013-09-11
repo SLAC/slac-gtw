@@ -32,8 +32,11 @@ function mailchimp_dc_action_add_content($entity, $context) {
     return;
   }
   if (array_key_exists('html_' . $context['mc_template'], $campaign->template)) {
-    $campaign->template['html_' . $context['mc_template']]['value'] .= '
-[mailchimp_campaign|entity_type=node|entity_id=' . $entity->nid . '|view_mode=' . $context['mc_view_mode'] . ']'; 
+    $content = "\n";
+    $content .= '<div class="item">';
+    $content .= '[mailchimp_campaign|entity_type=node|entity_id=' . $entity->nid . '|view_mode=' . $context['mc_view_mode'] . ']';
+    $content .= '</div>';
+    $campaign->template['html_' . $context['mc_template']]['value'] .= $content;
   }
   $options = array(
     'title' => $campaign->mc_data['title'],
