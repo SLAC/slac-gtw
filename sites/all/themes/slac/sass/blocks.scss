@@ -17,7 +17,9 @@
   @include rounded_corners(2px);
   > div{
     padding: 12px;
-    overflow: hidden;
+    &.contextual-links-wrapper{
+      padding: 0;
+    }
   }
   h2{
     margin: -13px 0 0 0;
@@ -69,6 +71,9 @@
   }
   > div {
     padding: 12px;
+    &.contextual-links-wrapper{
+      padding: 0;
+    }
   }
 }
 
@@ -153,8 +158,9 @@
 }
 
 .frontpage-calendar {
-  .views-field-nothing {
-    width:90%;
+  .views-field-nothing,
+  .views-field-title{
+    padding-right: 18px;
   }
   .views-field-nothing-1 {
     position: relative;
@@ -200,18 +206,11 @@
     float: right;
     width: 76%;
     border-left: 1px dashed #b8c9d1;
-    padding: 10px 0 10px 5%;
+    padding: 0 0 10px 5%;
     font-size: 11px;
   }
-  .views-row-first{
-    padding-bottom: 0;
-  }  
-  .views-row-last {
-    padding-top: 0;
-  }
-  .views-row-first.views-row-last{
+  .views-row.views-row-first{
     padding-top: 10px;
-    padding-bottom: 10px;
   }
   .views-row:hover {
     text-decoration: underline;
@@ -845,6 +844,13 @@ a.submit-feedback {
 
   .frontpage-calendar h3{
     margin-left: -10px;
+  }
+
+  .frontpage-calendar {
+    .views-field-nothing,
+    .views-field-title{
+      padding-right: 25px;
+    }
   }
 
   .frontpage-help-market,

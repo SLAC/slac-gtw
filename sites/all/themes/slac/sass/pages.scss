@@ -761,11 +761,24 @@ footer .block-menu {
 
 /* Alpha pagers */
 .view-alphapager {
+  width: 100%;
   overflow: hidden;
   border-bottom: 1px dashed grey;
 }
 
 .alpha-pager-item {
-  float:left;
-  margin:5px;
+  float: left;
+  width: 20px;
+  margin-right: 7.5px;
+  margin-bottom: 7.5px;
+  text-align: center;
+  span{
+    display: block;
+    font-size: 12px;
+  }
+  a{
+    display: block;
+    padding: 0 !important;
+    font-size: 1em;
+  }
 }
