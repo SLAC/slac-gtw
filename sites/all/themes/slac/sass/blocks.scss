@@ -788,6 +788,14 @@ a.submit-feedback {
   }
 }
 
+.frontpage-directorate-links{
+  .view-content:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 @media (max-width: 900px) {
 
   .brown-bodered-white h2 {
