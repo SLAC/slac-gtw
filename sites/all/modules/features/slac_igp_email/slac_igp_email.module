@@ -17,16 +17,68 @@ function slac_igp_email_field_formatter_info() {
     'link_image' => array(
       'label' => t('URL, as rendered image'),
       'field types' => array('link_field'),
+      'settings' => array(
+          'width' => 'Width',
+          'height' => 'Height',
+        ),
       // 'multiple values' => FIELD_BEHAVIOR_DEFAULT,
     ),
   );  
 }
 
 /**
+ * Implements hook_field_formatter_settings_form().
+ */
+function slac_igp_email_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $element['width'] = array(
+    '#title' => t('Width'),
+    '#type' => 'textfield',
+    '#element_validate' => array('_slac_igp_email_element_validate'),
+  );
+
+  $element['height'] = array(
+    '#title' => t('Height'),
+    '#type' => 'textfield',
+    '#element_validate' => array('_slac_igp_email_element_validate'),
+  );
+  
+  return $element;
+}
+
+/**
+ * Element validation function
+ */
+function _slac_igp_email_element_validate($element, &$form_state, $form) {
+  if (!empty($element['#value'])) {
+    $val = (int) $element['#value'];
+    if (!is_int($val) || $val == 0) {
+      form_error($element, t('Please enter an integer value greater than 0'));
+    }
+  }
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function slac_igp_email_field_formatter_settings_summary($field, $instance, $view_mode) {
+   $display = $instance['display'][$view_mode];
+   $settings = $display['settings'];
+   $summary = sprintf('Width: %s, Height: %s', $settings['width'], $settings['height']);
+   
+   return $summary;
+}
+
+
+/**
  * Implements hook_field_formatter_view().
  */
 function slac_igp_email_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
   $elements = array();
+  $settings = $display['settings'];
+    
   foreach ($items as $delta => $item) {
     if ($display['type'] == 'link_image') {
       $elements[$delta] = array(
@@ -34,7 +86,13 @@ function slac_igp_email_field_formatter_view($entity_type, $entity, $field, $ins
         '#alt' => (isset($item['title'])) ? $item['title'] : '',
         '#title' => (isset($item['title'])) ? $item['title'] : '',
         '#path' => $item['url'],
-      );      
+      );
+      if (isset($settings['width']) && $settings['width'] != 0) {
+        $elements[$delta]['#width'] = $settings['width'];
+      } 
+      if (isset($settings['height']) && $settings['height'] != 0) {
+        $elements[$delta]['#height'] = $settings['height'];
+      }
     }
   }
   return $elements;
