@@ -53,14 +53,21 @@ function slac_igp_feed_form_alter(&$form, &$form_state, $form_id) {
   $form['subqueue_expiration'] = array(
   '#type' => 'fieldset', 
   '#title' => t('Expiration settings'), 
+  '#description' => t('The configuration below will allow older items in the queue to expire and be removed from the queue, you also have the ability to exclude this for the top [X] number of items in the queue.'),
   '#collapsible' => TRUE, 
   '#collapsed' => TRUE,
   );
   
+  $form['subqueue_expiration']['example'] = array(
+    '#prefix' => '<div class="messages status">',
+    '#markup' => t('For example, if you choose 2 weeks for the %date option and excluding 3 items from the top, it means that anything created older than 2 weeks will be periodically removed from the queue but 3 items on the top of this queue will remain there regardless of their posted date.', array('%date' => 'Dating back to')),
+    '#suffix' => '</div>',
+  );
+  
   $form['subqueue_expiration']['subqueue_expiration_date'] = array(
     '#type' => 'select',
-    '#title' => 'Created date',
-    '#description' => t('Select how far back a node is created before we take them out of the queue'),
+    '#title' => 'Dating back to',
+    '#description' => t('Select how old an item is (based on Post Date) before we take it out of the queue.'),
     '#options' => array(
       '' => t('--Please select--'),
       1 => t('1 Week'),
@@ -79,7 +86,7 @@ function slac_igp_feed_form_alter(&$form, &$form_state, $form_id) {
   $form['subqueue_expiration']['subqueue_expiration_exclude'] = array(
     '#type' => 'select',
     '#title' => 'Exclude top items',
-    '#description' => t('Select how many items on the top of the queue that will be excluded from the expiration process.'),
+    '#description' => t('Select how many item(s) on the top of the queue that should remain in the queue (excluded from the expiration settings.)'),
     '#options' => $options,
     '#default_value' => (!empty($config)) ? $config['exclude'] : '',
   );
