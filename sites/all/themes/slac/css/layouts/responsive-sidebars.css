@@ -43,7 +43,7 @@
 /*
  * Containers for grid items and flow items.
  */
-/* line 52, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 52, c:/program files (x86)/scout/vendor/gems/gems/zen-grids-1.2/stylesheets/zen/_grids.scss */
 #header:before, #header:after,
 #main:before,
 #main:after,
@@ -52,7 +52,7 @@
   content: "";
   display: table;
 }
-/* line 56, ../../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 56, c:/program files (x86)/scout/vendor/gems/gems/zen-grids-1.2/stylesheets/zen/_grids.scss */
 #header:after,
 #main:after,
 #footer:after {
