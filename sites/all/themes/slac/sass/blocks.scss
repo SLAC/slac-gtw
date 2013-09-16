@@ -562,7 +562,9 @@ a.submit-feedback {
   }
 }
 
-.frontpage-news-slider .views-slideshow-cycle-main-frame{
+.frontpage-news-slider .views-slideshow-cycle-main-frame,
+.frontpage-news-slider .views_slideshow_slide > div,
+.frontpage-news-slider .views_slideshow_slide a{
   height: 378px;
 }
 /*
