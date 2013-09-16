@@ -561,6 +561,16 @@ a.submit-feedback {
     }
   }
 }
+
+.frontpage-news-slider .views-slideshow-cycle-main-frame{
+  height: 378px;
+}
+/*
+@media (max-width: 1470) {
+  .frontpage-news-slider .views-slideshow-cycle-main-frame{
+    height: auto;
+  }
+}*/
   
 .frontpage-news-slider,
 .frontpage-slider-mobile{
@@ -793,12 +803,6 @@ a.submit-feedback {
     content: "";
     display: table;
     clear: both;
-  }
-}
-
-@media (min-width: 1470) {
-  .frontpage-news-slider .views-slideshow-cycle-main-frame{
-    height: 378px;
   }
 }
 
