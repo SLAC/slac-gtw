@@ -80,6 +80,11 @@
 
     .parents > .views-field-name a{      
       letter-spacing: 1px;
+      &:hover{
+        cursor: default;
+        text-decoration:none;
+        display:none;
+      }
     }
 
     li{
