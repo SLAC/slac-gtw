@@ -147,9 +147,16 @@ function _slac_igp_importers_feeds_event($source, $result) {
       return;
     }
     $date = $html->find('span[class=date-display-single]', 0)->plaintext;
+    
     // for single day event
     if (!empty($date)) {
       $date_array = explode('-', $date);
+      // only have one date (no end date)
+      if (count($date_array) === 2) {
+        $start_date = $date_array[0] . ', ' . $date_array[1];
+        $result->items[$key]['Blank source 2'] = gmdate('Y-m-d H:i:s', strtotime($start_date));
+        $result->items[$key]['Blank source 3'] = gmdate('Y-m-d H:i:s', strtotime($start_date));
+      }
       if (count($date_array) === 3) {
         $start_date =  $date_array[0] . ', ' . $date_array[1];
         $end_date = $date_array[0] . ', ' . $date_array[2];
