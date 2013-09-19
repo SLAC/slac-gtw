@@ -86,6 +86,7 @@ function slac_igp_email_field_formatter_view($entity_type, $entity, $field, $ins
         '#alt' => (isset($item['title'])) ? $item['title'] : '',
         '#title' => (isset($item['title'])) ? $item['title'] : '',
         '#path' => $item['url'],
+        '#attributes' => array('align' => 'left'),
       );
       if (isset($settings['width']) && $settings['width'] != 0) {
         $elements[$delta]['#width'] = $settings['width'];
