@@ -1282,8 +1282,8 @@ a.submit-feedback {
   /* line 799, ../sass/blocks.scss */
   .frontpage-news-slider .views_slideshow_slide img,
   .frontpage-slider-mobile .views_slideshow_slide img {
-    height: 378px;
-    width: 588px;
+    height: auto;
+    width: auto;
   }
 }
 @media (max-width: 1318px) and (min-width: 901px) {
