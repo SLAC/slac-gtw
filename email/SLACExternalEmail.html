@@ -14,7 +14,7 @@
 		}
 		body{
 			width:100% !important;
-			font-family: Arial;
+			font-family:Arial;
 		}
 		.ReadMsgBody{
 			width:100%;
@@ -60,7 +60,7 @@
 	@tip Set the border for your email.
 	*/
 		#templateContainer{
-			/*@editable*/border: none;
+			/*@editable*/border:none;
 		}
 	/*
 	@tab Page
@@ -164,7 +164,7 @@
 	@section preheader link
 	@tip Set the styling for your email's preheader links. Choose a color that helps them stand out from your text.
 	*/
-		.preheaderContent div a:link,.preheaderContent div a:visited,.preheaderContent div a .yshortcuts {
+		.preheaderContent div a:link,.preheaderContent div a:visited,.preheaderContent div a .yshortcuts{
 			/*@editable*/color:#900;
 			/*@editable*/font-weight:normal;
 			/*@editable*/text-decoration:none;
@@ -199,7 +199,7 @@
 	@section header link
 	@tip Set the styling for your email's header links. Choose a color that helps them stand out from your text.
 	*/
-		.headerContent a:link,.headerContent a:visited,.headerContent a .yshortcuts {
+		.headerContent a:link,.headerContent a:visited,.headerContent a .yshortcuts{
 			/*@editable*/color:#900;
 			/*@editable*/font-weight:normal;
 			/*@editable*/text-decoration:none;
@@ -216,7 +216,9 @@
 		#templateContainer,.bodyContent{
 			/*@editable*/background-color:#FFFFFF;
 		}
-		.bodyContent{border-right: 2px dotted #c7c7c7}
+		.bodyContent{
+			border-right:2px dotted #c7c7c7;
+		}
 	/*
 	@tab Body
 	@section body text
@@ -235,7 +237,7 @@
 	@section body link
 	@tip Set the styling for your email's main content links. Choose a color that helps them stand out from your text.
 	*/
-		.bodyContent div a:link,.bodyContent div a:visited,.bodyContent div a .yshortcuts {
+		.bodyContent div a:link,.bodyContent div a:visited,.bodyContent div a .yshortcuts{
 			/*@editable*/color:#900;
 			/*@editable*/font-weight:normal;
 			/*@editable*/text-decoration:none;
@@ -270,7 +272,7 @@
 	@section sidebar link
 	@tip Set the styling for your email's sidebar links. Choose a color that helps them stand out from your text.
 	*/
-		.sidebarContent div a:link,.sidebarContent div a:visited,.sidebarContent div a .yshortcuts {
+		.sidebarContent div a:link,.sidebarContent div a:visited,.sidebarContent div a .yshortcuts{
 			/*@editable*/color:#900;
 			/*@editable*/font-weight:normal;
 			/*@editable*/text-decoration:none;
@@ -304,7 +306,7 @@
 	@section left column link
 	@tip Set the styling for your email's left column links. Choose a color that helps them stand out from your text.
 	*/
-		.leftColumnContent div a:link,.leftColumnContent div a:visited,.leftColumnContent div a .yshortcuts {
+		.leftColumnContent div a:link,.leftColumnContent div a:visited,.leftColumnContent div a .yshortcuts{
 			/*@editable*/color:#900;
 			/*@editable*/font-weight:normal;
 			/*@editable*/text-decoration:none;
@@ -338,7 +340,7 @@
 	@section center column link
 	@tip Set the styling for your email's center column links. Choose a color that helps them stand out from your text.
 	*/
-		.centerColumnContent div a:link,.centerColumnContent div a:visited,.centerColumnContent div a .yshortcuts {
+		.centerColumnContent div a:link,.centerColumnContent div a:visited,.centerColumnContent div a .yshortcuts{
 			/*@editable*/color:#900;
 			/*@editable*/font-weight:normal;
 			/*@editable*/text-decoration:none;
@@ -372,7 +374,7 @@
 	@section right column link
 	@tip Set the styling for your email's right column links. Choose a color that helps them stand out from your text.
 	*/
-		.rightColumnContent div a:link,.rightColumnContent div a:visited,.rightColumnContent div a .yshortcuts {
+		.rightColumnContent div a:link,.rightColumnContent div a:visited,.rightColumnContent div a .yshortcuts{
 			/*@editable*/color:#900;
 			/*@editable*/font-weight:normal;
 			/*@editable*/text-decoration:none;
@@ -390,7 +392,20 @@
 		#templateFooter{
 			/*@editable*/background-color:#dcdbda;
 			/*@editable*/border-top:0;
+			color: #656565;
+			font-family:Arial;
+			font-size:12px;
+			line-height:125%;
+			text-align:left;
 		}
+
+		hr{background: #606060;
+			border: none;
+			border-top: 1px solid #606060;
+			border-bottom: 5px solid #dcdbda;
+		}
+
+
 	/*
 	@tab Footer
 	@section footer text
@@ -398,7 +413,7 @@
 	@theme footer
 	*/
 		.footerContent div{
-			/*@editable*/color:#707070;
+			/*@editable*/color: #656565;
 			/*@editable*/font-family:Arial;
 			/*@editable*/font-size:12px;
 			/*@editable*/line-height:125%;
@@ -409,7 +424,7 @@
 	@section footer link
 	@tip Set the styling for your email's footer links. Choose a color that helps them stand out from your text.
 	*/
-		.footerContent div a:link,.footerContent div a:visited,.footerContent div a .yshortcuts {
+		.footerContent div a:link,.footerContent div a:visited,.footerContent div a .yshortcuts{
 			/*@editable*/color:#900;
 			/*@editable*/font-weight:normal;
 			/*@editable*/text-decoration:none;
@@ -424,7 +439,7 @@
 	@theme footer
 	*/
 		#social{
-			/*@editable*/background-color: transparent;
+			/*@editable*/background-color:transparent;
 			/*@editable*/border:0;
 		}
 	/*
@@ -442,7 +457,7 @@
 	@theme footer
 	*/
 		#utility{
-			/*@editable*/background-color: transparent;
+			/*@editable*/background-color:transparent;
 			/*@editable*/border:0;
 		}
 	/*
@@ -453,66 +468,60 @@
 		#utility div{
 			/*@editable*/text-align:left;
 		}
-		a{color: #990000; text-decoration: none;}
-		
+		a{
+			color:#990000;
+			text-decoration:none;
+		}
 		#monkeyRewards img{
 			max-width:190px;
 		}
-
 		.in-the-news-title{
-			background: #900;
-			color: #fff;
-			font-weight: bold;
-			height: 32px;
-			line-height: 32px;
-			width: 100%;
-			text-indent: 12px;
-			margin-top: 13px;
+			background:#900;
+			color:#fff;
+			font-weight:bold;
+			border-bottom: 6px solid #900;
+			border-top: 6px solid #900;
+			width:100%;
+			text-indent:12px;
+			margin-top:13px;
 		}
-
-		.centerColumnContent,
-		.leftColumnContent{
-			border-right: 2px dotted #c7c7c7;
+		.centerColumnContent,.leftColumnContent{
+			border-right:2px dotted #c7c7c7;
 		}
 		.in-the-news-table{
-			margin: 10px 0;
-		}
-
-		.in-the-news-table h4{
-			border-top: 15px solid #fff;
-			border-bottom: 15px solid #fff;
-			text-align: center;
-			margin: 0;
-		}
-
-		.bodyContent h2,
-		.right-header{
-			padding-bottom: 3px;
-			border-bottom: 2px dotted #ccc;
-		}
-		.right-header{
-			color: #666;
-			font-weight: normal;
-			text-align: center;
-		}
-		.created{
-			font-size: 12px;
-			color: #000;
-			font-style: italic;
-			margin-bottom: 12px;
-		}
-
-		.right-item{
-			border-bottom: 2px dotted #ccc;
+			border-bottom: 10px solid #fff;
 			border-top: 10px solid #fff;
 		}
-		.right-item > div{
-			border: 10px solid #fff;
-			border-top: none;
-			border-bottom: 10px solid #fff;
+		.in-the-news-table h4{
+			border-top:15px solid #fff;
+			border-bottom:15px solid #fff;
+			text-align:center;
+			margin:0;
 		}
-		
-
+		.bodyContent h2,.right-header{
+			padding-bottom:3px;
+			border-bottom:2px dotted #ccc;
+		}
+		.right-header{
+			color:#666;
+			font-weight:normal;
+			text-align:center;
+		}
+		.created{
+			font-size:12px;
+			color:#000;
+			font-style:italic;
+			margin-bottom:12px;
+		}
+		.right-item{
+			border-bottom:2px dotted #ccc;
+			border-top:10px solid #fff;
+		}
+		.right-item>div{
+			border:10px solid #fff;
+			border-top:none;
+			border-bottom:10px solid #fff;
+		}
 </style></head>
     <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
     	<center>
@@ -530,7 +539,7 @@
 
 
 													<table border="0" cellpadding="0" cellspacing="4" align="right" style="margin-top: -29px;position: relative;">
-	                                                    <tr mc:hideable="">
+	                                                    <tr mc:hideable>
 	                                                        <td align="left" valign="middle" style="padding: 0 2px 5px;">
 	                                                            <div mc:edit="sbwi_link_one">
 	                                                                <a href="*|FACEBOOK:PROFILEURL|*"><img src="https://gallery.mailchimp.com/4d6eda42ff1685191e724199c/images/fb.png" alt""=""></a>
@@ -557,7 +566,7 @@
                         	<tr>
                             	<td align="center" valign="top">
                                     <!-- // Begin Template Body \\ -->
-                                	<table border="0" cellpadding="0" cellspacing="0" width="600" id="templateBody"  style="margin-top: 10px;">
+                                	<table border="0" cellpadding="0" cellspacing="0" width="600" id="templateBody" style="margin-top: 10px;">
                                     	<tr>
                                         	<td valign="top">
                                             	<table border="0" cellpadding="0" cellspacing="0" width="400">
@@ -607,7 +616,7 @@
 
                                                             <!-- // Begin Module: Top Image with Content \\ -->
                                                             <table border="0" cellpadding="20" cellspacing="0" width="100%">
-                                                                <tr mc:repeatable="">
+                                                                <tr mc:repeatable>
                                                                     <td valign="top" style="padding-top: 8px;">
                                                                     	<h2 class="right-header">Headlines </h2>
                                                                         <div mc:edit="tiwc200_content00" class="right-item">
@@ -642,7 +651,7 @@
                                                         
                                                             <!-- // Begin Module: Top Image with Content \\ -->
                                                             <table border="0" cellpadding="10" cellspacing="0" width="100%">
-                                                                <tr mc:repeatable="">
+                                                                <tr mc:repeatable>
                                                                     <td valign="top">
                                                                         <img src="http://gallery.mailchimp.com/653153ae841fd11de66ad181a/images/placeholder_160.gif" style="max-width:160px;" mc:label="image" mc:edit="tiwc200_image01">
                                                                         <div mc:edit="tiwc200_content01">
@@ -659,7 +668,7 @@
                                                         
                                                             <!-- // Begin Module: Top Image with Content \\ -->
                                                             <table border="0" cellpadding="10" cellspacing="0" width="100%">
-                                                                <tr mc:repeatable="">
+                                                                <tr mc:repeatable>
                                                                     <td valign="top">
                                                                         <img src="http://gallery.mailchimp.com/653153ae841fd11de66ad181a/images/placeholder_160.gif" style="max-width:160px;" mc:label="image" mc:edit="tiwc200_image02">
                                                                         <div mc:edit="tiwc200_content02">
@@ -676,7 +685,7 @@
                                                         
                                                             <!-- // Begin Module: Top Image with Content \\ -->
                                                             <table border="0" cellpadding="10" cellspacing="0" width="100%">
-                                                                <tr mc:repeatable="">
+                                                                <tr mc:repeatable>
                                                                     <td valign="top">
                                                                         <img src="http://gallery.mailchimp.com/653153ae841fd11de66ad181a/images/placeholder_160.gif" style="max-width:160px;" mc:label="image" mc:edit="tiwc200_image03">
                                                                         <div mc:edit="tiwc200_content03">
@@ -705,14 +714,14 @@
                                         	<td valign="top" class="footerContent">
                                             
                                                 <!-- // Begin Module: Standard Footer \\ -->
-                                                  <tr>
+                                                  </td></tr><tr>
 									                  <td mc:edit="footer">*|LIST:COMPANY|* *|HTML:LIST_ADDRESS_HTML|*<br>
 									                    <hr noshade="noshade" style="margin:0;padding:0">
 									                    Operated by Stanford University for the U.S. Department of Energy Office of Science
 									                    <p>&nbsp;</p></td>
 									                  <td valign="top" width="190" id="monkeyRewards">
                                                             <div mc:edit="monkeyrewards">
-                                                                <img align="none" height="55" src="https://gallery.mailchimp.com/4d6eda42ff1685191e724199c/images/footer_logos.png" style="width: 203px; height: 55px;" width="203" />
+                                                                <img align="none" height="55" src="https://gallery.mailchimp.com/4d6eda42ff1685191e724199c/images/footer_logos.png" style="width: 203px; height: 55px;" width="203">
                                                             </div>
                                                         </td>
 
@@ -732,9 +741,9 @@
                             </tr>
                         </table>
                         <br>
-                    </td>
-                </tr>
-            </table>
+                    
+                
+            
         </center>
     </body>
 </html>
