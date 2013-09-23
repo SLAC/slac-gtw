@@ -162,12 +162,25 @@ function slac_igp_email_theme() {
 
 /**
  * Implements hook_form_FORM_ID_alter
- */
+ * The mailchimp list name in Drupal must be (Daliy Email [daily_email])
+ */ 
 function slac_igp_email_form_mailchimp_lists_user_subscribe_form_daily_email_alter(&$form, &$form_state, $form_id) {
   $form['submit']['#value'] = t('Subscribe');
   hide($form['mailchimp_lists']['mailchimp_daily_email']['title']);
   hide($form['mailchimp_lists']['mailchimp_daily_email']['mergevars']['FNAME']);
   hide($form['mailchimp_lists']['mailchimp_daily_email']['mergevars']['LNAME']);
+  
+  $form['#validate'][] = 'slac_igp_email_mailchimp_signup_validate';
+}
+
+function slac_igp_email_mailchimp_signup_validate($form, &$form_state) {
+  $email = $form_state['values']['mailchimp_lists']['mailchimp_daily_email']['mergevars']['EMAIL'];
+  $email_domain = trim(substr($email, strpos($email, '@') + 1));
+  if (strtolower($email_domain) != 'slac.stanford.edu') {
+    form_set_error('mailchimp_lst][mailchimp_daily_email][mergevars][EMAIL', t('Only slac.stanford.edu email address is allowed to subscribe'));
+  }
+  
+  
 }
 
 /**
