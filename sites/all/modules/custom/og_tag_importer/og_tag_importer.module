@@ -156,7 +156,7 @@ function og_tag_importer_import_tags($og_tags) {
           if (empty($image)) {
             return;
           }
-          $wrapper->{$field_name}->set($image);
+          $wrapper->{$field_name}->set(array($image));
         break;
         default:
           if (array_key_exists('value', $field_info['columns'])) {
@@ -301,6 +301,12 @@ function og_tag_importer_admin($form, &$form_state) {
       break;
       case 'image':
         $options['image'][$field_name] = $instance['label'];
+      break;
+      case 'media':
+				$count = array_count_values($instance['widget']['settings']['allowed_types']);
+				if ($count['image'] == 1 && $count[0] == 3) {
+					$options['image'][$field_name] = $instance['label'];
+				}      	
       break;
       case 'text':
         $options['text']['title'] = t('Title');
