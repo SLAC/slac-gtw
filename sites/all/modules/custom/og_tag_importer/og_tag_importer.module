@@ -125,11 +125,11 @@ function og_tag_importer_import_tags($og_tags) {
   $data = array();
   foreach ($og_tags as $tag_name => $value) {
     $map = variable_get('og_tag_importer_' . str_replace(':', '_', $tag_name), (array_key_exists($tag_name, $mapping)) ? $mapping[$tag_name] : '');
+
     if ($map != '') {
       $data[$map][] = $value;
     }
   }
-    
   $node = new stdClass();
   $node->type = $bundle;
   node_object_prepare($node);
@@ -155,8 +155,13 @@ function og_tag_importer_import_tags($og_tags) {
           $image = _og_tag_importer_image_import($values[0]);
           if (empty($image)) {
             return;
-          }
-          $wrapper->{$field_name}->set(array($image));
+          }          
+          if ($field_info['cardinality'] == 1) {
+          	$input = $image;
+          } else {
+          	$input = array($image);	
+          }          
+          $wrapper->{$field_name}->set($input);
         break;
         default:
           if (array_key_exists('value', $field_info['columns'])) {
