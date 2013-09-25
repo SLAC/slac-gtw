@@ -1093,7 +1093,11 @@ a.submit-feedback {
   .back-on-top{display: block;}
 }
 
-.messages.error{
-  width: auto !important;
-  margin: auto auto !important;
+.messages{
+  min-height: 40px;
+  float: none;
+}
+
+.messages li{
+  padding: 5px 0;
 }
