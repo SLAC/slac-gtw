@@ -1192,7 +1192,7 @@ footer .block-menu li {
   }
 
   /* line 747, ../sass/pages.scss */
-  .maintenance-page #main {
+  .maintenance-page div#main {
     margin-top: 120px;
   }
 }
@@ -1248,11 +1248,10 @@ footer .block-menu li {
 }
 /* line 798, ../sass/pages.scss */
 .maintenance-page #main {
-  margin: 0 1.5%;
+  margin: 80px 0 1.5% 0;
   width: 97%;
-  margin-top: 80px;
 }
-/* line 803, ../sass/pages.scss */
+/* line 802, ../sass/pages.scss */
 .maintenance-page #mobile-menu-wrap {
   display: none;
 }
