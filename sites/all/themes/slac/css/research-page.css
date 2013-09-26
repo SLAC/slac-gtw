@@ -98,7 +98,7 @@
 }
 /* line 92, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content li .item-list {
-  padding-left: 30px;
+  padding: 30px 0 15px;
   background-color: #f5f5f5;
   border: 1px solid #d1d0d0;
   border-top: 3px solid #d1d0d0;
