@@ -20,7 +20,7 @@ stylesheets[all][] = css/feedback-page.css
 stylesheets[all][] = css/media-600.css
 stylesheets[all][] = css/media-900.css
 
-
+scripts[] = js/placeholder.js
 scripts[] = js/script.js
 scripts[] = js/modernizr.js
 
