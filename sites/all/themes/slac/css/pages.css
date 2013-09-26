@@ -1094,6 +1094,7 @@ footer .block-menu li {
     margin-left: 0;
   }
 
+  /* mobile menu */
   /* line 654, ../sass/pages.scss */
   #mobile-menu-wrap {
     display: block;
@@ -1189,28 +1190,33 @@ footer .block-menu li {
     font-size: 12px;
     color: #828282;
   }
+
+  /* line 747, ../sass/pages.scss */
+  .maintenance-page #main {
+    margin-top: 120px;
+  }
 }
 @media (max-width: 280px) {
-  /* line 751, ../sass/pages.scss */
+  /* line 755, ../sass/pages.scss */
   .region-header .block-menu,
   .region-header #block-boxes-web-search {
     width: 80px;
   }
-  /* line 754, ../sass/pages.scss */
+  /* line 758, ../sass/pages.scss */
   .region-header #block-boxes-web-search {
     width: 30px;
     margin-right: 0;
   }
 }
 /* Alpha pagers */
-/* line 762, ../sass/pages.scss */
+/* line 766, ../sass/pages.scss */
 .view-alphapager {
   width: 100%;
   overflow: hidden;
   border-bottom: 1px dashed grey;
 }
 
-/* line 768, ../sass/pages.scss */
+/* line 772, ../sass/pages.scss */
 .alpha-pager-item {
   float: left;
   width: 20px;
@@ -1218,14 +1224,35 @@ footer .block-menu li {
   margin-bottom: 7.5px;
   text-align: center;
 }
-/* line 774, ../sass/pages.scss */
+/* line 778, ../sass/pages.scss */
 .alpha-pager-item span {
   display: block;
   font-size: 12px;
 }
-/* line 778, ../sass/pages.scss */
+/* line 782, ../sass/pages.scss */
 .alpha-pager-item a {
   display: block;
   padding: 0 !important;
   font-size: 1em;
+}
+
+/* line 790, ../sass/pages.scss */
+.maintenance-page #header {
+  max-width: 1432px;
+  margin: auto;
+  width: 98%;
+}
+/* line 795, ../sass/pages.scss */
+.maintenance-page #page {
+  background: url("../images/header-bg.jpg") repeat-x;
+}
+/* line 798, ../sass/pages.scss */
+.maintenance-page #main {
+  margin: 0 1.5%;
+  width: 97%;
+  margin-top: 80px;
+}
+/* line 803, ../sass/pages.scss */
+.maintenance-page #mobile-menu-wrap {
+  display: none;
 }

@@ -650,7 +650,7 @@ footer .block-menu {
   }
 
 
-  // mobile menu
+  /* mobile menu */
   #mobile-menu-wrap{
     display: block;
   }
@@ -742,7 +742,11 @@ footer .block-menu {
       font-size: 12px;
       color: rgb(130,130,130);
     }
-  }  
+  }
+
+  .maintenance-page #main{
+    margin-top:  120px;
+  }
 }
 
 @media (max-width: 280px) {
@@ -779,5 +783,24 @@ footer .block-menu {
     display: block;
     padding: 0 !important;
     font-size: 1em;
+  }
+}
+
+.maintenance-page{
+  #header{
+    max-width: 1432px;
+    margin: auto;
+    width: 98%;
+  }
+  #page{
+    background: url("../images/header-bg.jpg") repeat-x;
+  }
+  #main{
+    margin:  0 1.5%;
+    width:  97%;
+    margin-top:  80px;
+  }
+  #mobile-menu-wrap{
+    display: none;
   }
 }
