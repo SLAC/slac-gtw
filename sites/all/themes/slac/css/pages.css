@@ -924,18 +924,16 @@ footer .block-menu li {
   }
 }
 @media (max-width: 800px) {
-  /* line 499, ../sass/pages.scss */
-  .section-research-resources .general-two-col .general-left,
-  .section-a-z .general-two-col .general-left {
-    width: 100%;
-    margin-right: 0;
-  }
-  /* line 503, ../sass/pages.scss */
-  .section-research-resources .general-two-col .general-right,
-  .section-a-z .general-two-col .general-right {
-    display: none;
-  }
-
+  /*  .section-research-resources .general-two-col,
+    .section-a-z .general-two-col{
+      .general-left{
+        width: 100%;
+        margin-right: 0;
+      }
+      .general-right{
+        display: none;
+      }
+    }*/
   /* line 507, ../sass/pages.scss */
   #block-system-main-menu .menu li {
     background: none;

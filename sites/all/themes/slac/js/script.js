@@ -170,10 +170,11 @@
 
     /* Staff Resources collapse button */
 
-    $('.pane-quicktabs-staff-resources-mobile .ui-accordion-content').append('<div class="collapse-block">Collapse</div>');
-    $('.pane-quicktabs-staff-resources-mobile .ui-accordion-content').click(function(){
-      $(this).closest('.ui-accordion-content').slideUp('fast');
-    });
+    // $('.pane-quicktabs-staff-resources-mobile .ui-accordion-content').append('<div class="collapse-block">Collapse</div>');
+    // $('.pane-quicktabs-staff-resources-mobile .ui-accordion-content').click(function(){
+    //   $(this).closest('.ui-accordion-content').slideUp('fast').removeClass('ui-accordion-content-active')
+    //     .prev('h3').removeClass('ui-state-active');
+    // });
   }
 
   Drupal.behaviors.sliderResize = {

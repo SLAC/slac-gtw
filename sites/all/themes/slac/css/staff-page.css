@@ -236,8 +236,8 @@
     width: 41.66667%;
     margin-left: 0%;
     margin-right: -41.66667%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -251,8 +251,8 @@
     width: 58.33333%;
     margin-left: 41.66667%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -269,8 +269,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -285,8 +285,8 @@
     width: 90%;
     margin-left: 0%;
     margin-right: -90%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -302,8 +302,8 @@
     width: 50%;
     margin-left: 0%;
     margin-right: -50%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -319,8 +319,8 @@
     width: 50%;
     margin-left: 50%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -341,8 +341,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -617,14 +617,15 @@
   /* line 233, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content {
     margin-top: -1px !important;
-    padding: 9px 0 19px;
+    padding: 9px 0 0;
+    margin-bottom: 19px;
   }
-  /* line 236, ../sass/staff-page.scss */
+  /* line 237, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .view-content {
     width: 90%;
     padding: 0 2.5% 0 7.5%;
   }
-  /* line 240, ../sass/staff-page.scss */
+  /* line 241, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .views-row {
     background: url("../images/blue-right-list-arrow.jpg") no-repeat left 7px;
     padding: 2px 0 2px 11px;
@@ -633,17 +634,17 @@
     clear: both;
     display: block;
   }
-  /* line 247, ../sass/staff-page.scss */
+  /* line 248, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .views-row a {
     color: #20659A;
     font-size: 12px;
   }
-  /* line 252, ../sass/staff-page.scss */
+  /* line 253, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .view-footer {
     display: none;
   }
 
-  /* line 259, ../sass/staff-page.scss */
+  /* line 260, ../sass/staff-page.scss */
   .staff-main > div {
     width: 50%;
     margin-right: 0;
@@ -652,40 +653,40 @@
     float: left;
     clear: none;
   }
-  /* line 267, ../sass/staff-page.scss */
+  /* line 268, ../sass/staff-page.scss */
   .staff-main .rowonecoltwo ul {
     min-height: 312px;
   }
-  /* line 270, ../sass/staff-page.scss */
+  /* line 271, ../sass/staff-page.scss */
   .staff-main .rowonecolone, .staff-main .rowonecolthree, .staff-main .rowtwocoltwo {
     clear: both;
   }
 }
 @media (max-width: 620px) {
-  /* line 277, ../sass/staff-page.scss */
+  /* line 278, ../sass/staff-page.scss */
   .staff-main .inside {
     width: 100%;
     margin: 0 0 25px 0;
     clear: none;
   }
-  /* line 281, ../sass/staff-page.scss */
+  /* line 282, ../sass/staff-page.scss */
   .staff-main .inside ul {
     min-height: inherit;
   }
 
-  /* line 286, ../sass/staff-page.scss */
+  /* line 287, ../sass/staff-page.scss */
   .rowtwocolone {
     clear: none;
     margin-bottom: 40px;
   }
 
-  /* line 291, ../sass/staff-page.scss */
+  /* line 292, ../sass/staff-page.scss */
   .rowonecolthree {
     clear: both;
     margin-bottom: 40px;
   }
 
-  /* line 296, ../sass/staff-page.scss */
+  /* line 297, ../sass/staff-page.scss */
   .rowtwocoltwo {
     clear: both;
   }
