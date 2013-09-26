@@ -141,7 +141,7 @@
   Drupal.behaviors.mobileAccordion = {
     attach: function (context, settings) {
       var $links = $('.view-id-research_resource .parents');
-      
+
       $links.siblings('.parents').find('.item-list:first').append('<div class="collapse-block">Collapse</div>');
       $('.collapse-block').click(function(){
         $(this).parents('.parents.expanded').find('a.active').click();
@@ -167,6 +167,13 @@
         else  $links.find('.item-list:first').hide().parents('.parents').filter('.expanded').find('.item-list:first').show();
       })
     }
+
+    /* Staff Resources collapse button */
+
+    $('.pane-quicktabs-staff-resources-mobile .ui-accordion-content').append('<div class="collapse-block">Collapse</div>');
+    $('.pane-quicktabs-staff-resources-mobile .ui-accordion-content').click(function(){
+      $(this).closest('.ui-accordion-content').slideUp('fast');
+    });
   }
 
   Drupal.behaviors.sliderResize = {

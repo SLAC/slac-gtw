@@ -138,9 +138,6 @@
         padding-bottom: 0;
       }
     }
-    .collapse-block{
-      display: none;
-    }
     .parents{
       background: transparent;
     }
@@ -150,6 +147,9 @@
   }
 }
 
+.collapse-block{
+  display: none;
+}
 
 @media (max-width: 620px) {
  
@@ -335,17 +335,6 @@
           text-decoration: none;
         }
       }
-
-      .collapse-block{
-        display: block;
-        height: 30px;
-        padding-right: 40px;
-        line-height: 30px;
-        text-align: right;
-        color: #20659A;
-        background: #e9f2f9 url("../images/collapse.png") no-repeat right center;
-        cursor: pointer;
-      }
     }
     .parents.no-children .item-list li{
       background: url("../images/blue-right-list-arrow.jpg") no-repeat 20px 14px;
@@ -355,4 +344,15 @@
     display: none;
   }
 }
+
+  .collapse-block{
+    display: block;
+    height: 30px;
+    padding-right: 40px;
+    line-height: 30px;
+    text-align: right;
+    color: #20659A;
+    background: #e9f2f9 url("../images/collapse.png") no-repeat right center;
+    cursor: pointer;
+  }
 }
