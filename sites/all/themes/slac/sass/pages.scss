@@ -57,13 +57,13 @@ header, .content-wrapper, .footer-wrapper {
   padding: 0 32px;
 }
 
-@media (min-width: 1447px){
+@media (max-width: 1447px){
   .frontpage-links ul.menu li a{
     height:  30px;
   }
 }
 
-@media (min-width: 970px){
+@media (max-width: 970px){
   .frontpage-links ul.menu li a{
     font-size: 11px;
   }
