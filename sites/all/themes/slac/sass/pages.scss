@@ -30,7 +30,7 @@ body {
 
 .header-wrapper, #content, .region-footer {
   width: 100%;
-  max-width: 1432px;//1462px
+  max-width: 1432px;
   margin: auto;
 }
 
@@ -56,10 +56,23 @@ header, .content-wrapper, .footer-wrapper {
 .lt-ie9 .not-front #content > *{
   padding: 0 32px;
 }
-@media (min-width: 900px){
-.not-front #content > *{
-  padding: 0 32px;
+
+@media (min-width: 1447px){
+  .frontpage-links ul.menu li a{
+    height:  30px;
+  }
 }
+
+@media (min-width: 970px){
+  .frontpage-links ul.menu li a{
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 900px){
+  .not-front #content > *{
+    padding: 0 32px;
+  }
 }
 
 .grippie {
