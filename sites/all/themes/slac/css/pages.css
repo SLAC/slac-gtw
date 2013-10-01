@@ -1267,3 +1267,8 @@ footer .block-menu li {
 .maintenance-page #mobile-menu-wrap {
   display: none;
 }
+
+/* line 820, ../sass/pages.scss */
+.boxes-box-controls {
+  display: none;
+}
