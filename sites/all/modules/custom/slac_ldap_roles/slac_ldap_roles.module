@@ -137,7 +137,7 @@ function slac_ldap_roles_get_config() {
 
   $config = array(
     'base_dn' => variable_get('slac_ldap_base_dn', 'DC=win,DC=slac,DC=stanford,DC=edu'),
-    'domain_controllers' => array(variable_get('slac_ldap_domain_controllers', 'ldap04.win.slac.stanford.edu')),
+    'domain_controllers' => variable_get('slac_ldap_domain_controllers', 'ldap04.win.slac.stanford.edu'),
     'admin_username' => variable_get('slac_ldap_admin_username', 'aegir-service'),
     'admin_password' => variable_get('slac_ldap_admin_password', ''),
   );
