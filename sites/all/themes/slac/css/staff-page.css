@@ -617,14 +617,13 @@
   /* line 233, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content {
     margin-top: -1px !important;
-    padding: 9px 0 0;
   }
-  /* line 236, ../sass/staff-page.scss */
+  /* line 235, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .view-content {
     width: 90%;
-    padding: 0 2.5% 0 7.5%;
+    padding: 0 2.5% 20px 7.5%;
   }
-  /* line 240, ../sass/staff-page.scss */
+  /* line 239, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .views-row {
     background: url("../images/blue-right-list-arrow.jpg") no-repeat left 7px;
     padding: 2px 0 2px 11px;
@@ -633,17 +632,17 @@
     clear: both;
     display: block;
   }
-  /* line 247, ../sass/staff-page.scss */
+  /* line 246, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .views-row a {
     color: #20659A;
     font-size: 12px;
   }
-  /* line 252, ../sass/staff-page.scss */
+  /* line 251, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .view-footer {
     display: none;
   }
 
-  /* line 259, ../sass/staff-page.scss */
+  /* line 258, ../sass/staff-page.scss */
   .staff-main > div {
     width: 50%;
     margin-right: 0;
@@ -652,40 +651,40 @@
     float: left;
     clear: none;
   }
-  /* line 267, ../sass/staff-page.scss */
+  /* line 266, ../sass/staff-page.scss */
   .staff-main .rowonecoltwo ul {
     min-height: 312px;
   }
-  /* line 270, ../sass/staff-page.scss */
+  /* line 269, ../sass/staff-page.scss */
   .staff-main .rowonecolone, .staff-main .rowonecolthree, .staff-main .rowtwocoltwo {
     clear: both;
   }
 }
 @media (max-width: 620px) {
-  /* line 277, ../sass/staff-page.scss */
+  /* line 276, ../sass/staff-page.scss */
   .staff-main .inside {
     width: 100%;
     margin: 0 0 25px 0;
     clear: none;
   }
-  /* line 281, ../sass/staff-page.scss */
+  /* line 280, ../sass/staff-page.scss */
   .staff-main .inside ul {
     min-height: inherit;
   }
 
-  /* line 286, ../sass/staff-page.scss */
+  /* line 285, ../sass/staff-page.scss */
   .rowtwocolone {
     clear: none;
     margin-bottom: 40px;
   }
 
-  /* line 291, ../sass/staff-page.scss */
+  /* line 290, ../sass/staff-page.scss */
   .rowonecolthree {
     clear: both;
     margin-bottom: 40px;
   }
 
-  /* line 296, ../sass/staff-page.scss */
+  /* line 295, ../sass/staff-page.scss */
   .rowtwocoltwo {
     clear: both;
   }
