@@ -84,6 +84,7 @@
 
     li{
       margin-top: 20px;
+      padding-left: 0;
       background: transparent;  
       .item-list{
 /*        padding: 30px 0 15px;*/
@@ -105,6 +106,7 @@
         li{
           margin-top: 0;
           background: url("../images/list-dot.png") no-repeat 0 9px;
+          padding-left: 11px;
         }
         a{
           line-height: 1em;
@@ -136,6 +138,7 @@
     }
     .parents{
       background: transparent;
+      padding-left: 0;
     }
   }
   .view-id-research_resource .view-header .view-content{
