@@ -65,9 +65,6 @@
       font-size: 14px;
     }
   }
-  .collapse {
-    display: none;
-  }
   .view-id-research_resource .view-content{
     padding: 30px;
     padding-top: 0;
@@ -203,19 +200,6 @@
     .view-grouping-content h3 {
       margin: 5px 0 0;
     }
-    .collapse {
-      height: 26px;
-      line-height: 26px;
-      display: block;
-      text-align: right;
-      width: 100%;
-      font-weight: bold;
-      background: #ecf5fa;
-      color: #20659A;
-      img {
-        margin-left: 20px;
-      }
-    }
   }
 }
 
@@ -340,14 +324,3 @@
   }
 }
 }
-
-  .collapse-block{
-    display: block;
-    height: 30px;
-    padding-right: 40px;
-    line-height: 30px;
-    text-align: right;
-    color: #20659A;
-    background: #e9f2f9 url("../images/collapse.png") no-repeat right center;
-    cursor: pointer;
-  }
