@@ -115,7 +115,18 @@
 	//   }
 	// }
 
-	Drupal.behaviors.listOddClass = {
+
+  Drupal.behaviors.staffCollapse = {
+    attach: function (context, settings) {
+       $('<div class="collapse-block">Collapse</div>').insertAfter('.section-staff-resources .ui-accordion-content .view-content');
+        if (Modernizr.mq('(max-width: 620px)')) {
+        $('.collapse').click(function(){
+        $(this).parents('.ui-accordion-content').eq(0).prev().click();
+        })
+      }
+    }
+  }
+
 	  attach: function (context, settings) {
 		$('.brown-bodered-white .menu li').filter(function(index) {return index % 2 == 0}).addClass('odd');
 	  }
