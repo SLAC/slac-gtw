@@ -118,12 +118,10 @@
 
   Drupal.behaviors.staffCollapse = {
     attach: function (context, settings) {
-       $('<div class="collapse-block">Collapse</div>').insertAfter('.section-staff-resources .ui-accordion-content .view-content');
-        if (Modernizr.mq('(max-width: 620px)')) {
-          $('.collapse-block').click(function(){
-          $(this).parents('.ui-accordion-content').eq(0).prev().click();
-        });
-      };
+      $('<div class="collapse-block">Collapse</div>').insertAfter('.section-staff-resources .ui-accordion-content .view-content');
+        $('.collapse-block').click(function(){
+        $(this).parents('.ui-accordion-content').eq(0).prev().click();
+      });
     }
   }
 
