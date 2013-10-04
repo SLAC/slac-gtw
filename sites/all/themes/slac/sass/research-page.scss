@@ -140,6 +140,9 @@
     .parents{
       background: transparent;
       padding-left: 0;
+      & > .item-list{
+          padding-left: 11px;
+      }
     }
   }
   .view-id-research_resource .view-header .view-content{
