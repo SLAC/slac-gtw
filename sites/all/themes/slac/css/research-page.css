@@ -1,4 +1,4 @@
-/* line 4, ../sass/research-page.scss */
+/* line 3, ../sass/research-page.scss */
 .section-research-resources .view-grouping-header {
   margin: 40px auto auto;
   max-width: 855px;
@@ -7,7 +7,7 @@
   font-size: 14px;
   color: #575B5C;
 }
-/* line 12, ../sass/research-page.scss */
+/* line 11, ../sass/research-page.scss */
 .section-research-resources .view-grouping-content {
   background: #f6f6f6;
   border: 1px solid #c3c5c5;
@@ -17,177 +17,177 @@
   padding: 12px 4% 0;
   margin: auto;
 }
-/* line 21, ../sass/research-page.scss */
+/* line 20, ../sass/research-page.scss */
 .section-research-resources .view-content > .view-grouping:first-child {
   margin-top: 0;
 }
-/* line 25, ../sass/research-page.scss */
+/* line 24, ../sass/research-page.scss */
 .section-research-resources .view-grouping-content h3 {
   font-size: 12px;
   margin: 15px 0;
   color: #000;
 }
-/* line 30, ../sass/research-page.scss */
+/* line 29, ../sass/research-page.scss */
 .section-research-resources .view-grouping-content .item-list li a {
   font-size: 12px;
 }
-/* line 32, ../sass/research-page.scss */
+/* line 31, ../sass/research-page.scss */
 .section-research-resources .view-grouping-content .item-list li a.Yes {
   padding-right: 15px;
   background: url("../images/right-list-icon.png") no-repeat right 2px;
 }
-/* line 39, ../sass/research-page.scss */
+/* line 38, ../sass/research-page.scss */
 .section-research-resources .pane-node-body {
   font-size: 14px;
 }
-/* line 41, ../sass/research-page.scss */
+/* line 40, ../sass/research-page.scss */
 .section-research-resources .pane-node-body strong {
   clear: both;
   display: block;
   padding: 20px 0 15px;
 }
-/* line 47, ../sass/research-page.scss */
+/* line 46, ../sass/research-page.scss */
 .section-research-resources .view-header {
   padding-bottom: 27px;
   border-bottom: 1px dashed #b1c2ca;
 }
 
-/* line 53, ../sass/research-page.scss */
+/* line 52, ../sass/research-page.scss */
 .section-staff-resources-classic .view-header {
   padding-bottom: 27px;
   border-bottom: 1px dashed #b4c2cb;
 }
 
-/* line 60, ../sass/research-page.scss */
+/* line 59, ../sass/research-page.scss */
 .section-research-resources .view-header .view-content {
   max-width: 857px;
   width: 100%;
   margin: auto;
 }
-/* line 65, ../sass/research-page.scss */
+/* line 64, ../sass/research-page.scss */
 .section-research-resources .view-header .views-row a {
   font-size: 14px;
 }
-/* line 69, ../sass/research-page.scss */
+/* line 68, ../sass/research-page.scss */
 .section-research-resources .collapse {
   display: none;
 }
-/* line 72, ../sass/research-page.scss */
+/* line 71, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content {
   padding: 30px;
   padding-top: 0;
 }
-/* line 76, ../sass/research-page.scss */
+/* line 75, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content .views-field-name a {
   color: #47484b;
   text-transform: uppercase;
 }
-/* line 81, ../sass/research-page.scss */
+/* line 80, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content .parents > .views-field-name a {
   letter-spacing: 1px;
 }
-/* line 83, ../sass/research-page.scss */
+/* line 82, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content .parents > .views-field-name a:hover {
   cursor: default;
   text-decoration: none;
 }
-/* line 89, ../sass/research-page.scss */
+/* line 88, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content li {
   margin-top: 20px;
   background: transparent;
 }
-/* line 92, ../sass/research-page.scss */
+/* line 91, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content li .item-list {
   padding: 30px 0 15px;
   background-color: #f5f5f5;
   border: 1px solid #d1d0d0;
   border-top: 3px solid #d1d0d0;
 }
-/* line 97, ../sass/research-page.scss */
+/* line 96, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content li .item-list a {
   line-height: 1em;
   text-transform: inherit;
   font-weight: bold;
 }
-/* line 103, ../sass/research-page.scss */
+/* line 102, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content li ul .views-field-name {
   padding-bottom: 10px;
 }
-/* line 106, ../sass/research-page.scss */
+/* line 105, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content li ul .item-list {
   background: transparent;
   border: 0;
 }
-/* line 109, ../sass/research-page.scss */
+/* line 108, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content li ul .item-list li {
   margin-top: 0;
   background: url("../images/list-dot.png") no-repeat 0 9px;
 }
-/* line 113, ../sass/research-page.scss */
+/* line 112, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content li ul .item-list a {
   line-height: 1em;
   color: #20659A !important;
   text-transform: inherit;
   font-weight: normal;
 }
-/* line 119, ../sass/research-page.scss */
+/* line 118, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content li ul .item-list ul .views-field-name {
   padding-bottom: 0;
 }
-/* line 124, ../sass/research-page.scss */
+/* line 123, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content li.no-children .item-list {
   padding-top: 20px;
   padding-bottom: 10px;
 }
-/* line 127, ../sass/research-page.scss */
+/* line 126, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content li.no-children .item-list li {
   margin-top: 0;
   background: url("../images/list-dot.png") no-repeat 0 9px;
 }
-/* line 131, ../sass/research-page.scss */
+/* line 130, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content li.no-children .item-list a {
   line-height: 1em;
   color: #20659A !important;
   text-transform: inherit;
   font-weight: normal;
 }
-/* line 137, ../sass/research-page.scss */
+/* line 136, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content li.no-children .item-list ul .views-field-name {
   padding-bottom: 0;
 }
-/* line 141, ../sass/research-page.scss */
+/* line 140, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-content .parents {
   background: transparent;
 }
-/* line 145, ../sass/research-page.scss */
+/* line 144, ../sass/research-page.scss */
 .section-research-resources .view-id-research_resource .view-header .view-content {
   padding: 0 0 0 30px;
 }
 
 @media (max-width: 620px) {
   /* Resources Page */
-  /* line 154, ../sass/research-page.scss */
+  /* line 153, ../sass/research-page.scss */
   .section-research-resources #block-boxes-search-people {
     display: none;
   }
-  /* line 157, ../sass/research-page.scss */
+  /* line 156, ../sass/research-page.scss */
   .section-research-resources .view-header {
     display: none;
     background-image: url("../images/dotted-heavy-gray-bg.png");
   }
-  /* line 161, ../sass/research-page.scss */
+  /* line 160, ../sass/research-page.scss */
   .section-research-resources .pane-node-body strong, .section-research-resources .view-header .view-content {
     display: none;
   }
-  /* line 164, ../sass/research-page.scss */
+  /* line 163, ../sass/research-page.scss */
   .section-research-resources .pane-node-body p {
     margin-bottom: 0;
   }
-  /* line 168, ../sass/research-page.scss */
+  /* line 167, ../sass/research-page.scss */
   .section-research-resources .view-content > .view-grouping:first-child {
     margin-top: 19px;
   }
-  /* line 171, ../sass/research-page.scss */
+  /* line 170, ../sass/research-page.scss */
   .section-research-resources .view-content .view-grouping-header {
     height: 16px;
     background: white url("../images/small-list-arrow-down.jpg") no-repeat right center;
@@ -198,11 +198,11 @@
     width: 95%;
     padding: 9px 0 9px 5%;
   }
-  /* line 180, ../sass/research-page.scss */
+  /* line 179, ../sass/research-page.scss */
   .section-research-resources .view-content .view-grouping-header.expanded {
     background-image: url("../images/small-list-arrow-up.jpg");
   }
-  /* line 185, ../sass/research-page.scss */
+  /* line 184, ../sass/research-page.scss */
   .section-research-resources .view-grouping-content {
     background: #fff;
     border: none;
@@ -211,25 +211,25 @@
     width: 100%;
     display: none;
   }
-  /* line 192, ../sass/research-page.scss */
+  /* line 191, ../sass/research-page.scss */
   .section-research-resources .view-grouping-content .item-list {
     max-width: 705px;
     width: 85%;
     padding: 9px 5% 9px 10%;
   }
-  /* line 198, ../sass/research-page.scss */
+  /* line 197, ../sass/research-page.scss */
   .section-research-resources .item-list ul {
     width: 100%;
   }
-  /* line 200, ../sass/research-page.scss */
+  /* line 199, ../sass/research-page.scss */
   .section-research-resources .item-list ul li {
     background: url("../images/blue-right-list-arrow.jpg") no-repeat left 7px;
   }
-  /* line 204, ../sass/research-page.scss */
+  /* line 203, ../sass/research-page.scss */
   .section-research-resources .view-grouping-content h3 {
     margin: 5px 0 0;
   }
-  /* line 207, ../sass/research-page.scss */
+  /* line 206, ../sass/research-page.scss */
   .section-research-resources .collapse {
     height: 26px;
     line-height: 26px;
@@ -240,12 +240,12 @@
     background: #ecf5fa;
     color: #20659A;
   }
-  /* line 216, ../sass/research-page.scss */
+  /* line 215, ../sass/research-page.scss */
   .section-research-resources .collapse img {
     margin-left: 20px;
   }
 }
-/* line 223, ../sass/research-page.scss */
+/* line 222, ../sass/research-page.scss */
 .section-research-resources .view-grouping-header {
   margin: 40px auto auto;
   max-width: 855px;
@@ -255,7 +255,7 @@
   color: #575B5C;
 }
 
-/* line 231, ../sass/research-page.scss */
+/* line 230, ../sass/research-page.scss */
 .section-research-resources .view-grouping-content {
   background: #f6f6f6;
   border: 1px solid #c3c5c5;
@@ -266,80 +266,80 @@
   margin: auto;
 }
 
-/* line 240, ../sass/research-page.scss */
+/* line 239, ../sass/research-page.scss */
 .section-research-resources .view-content > .view-grouping:first-child {
   margin-top: 0;
 }
 
-/* line 244, ../sass/research-page.scss */
+/* line 243, ../sass/research-page.scss */
 .section-research-resources .view-grouping-content h3 {
   font-size: 12px;
   margin: 15px 0;
   color: #000;
 }
 
-/* line 249, ../sass/research-page.scss */
+/* line 248, ../sass/research-page.scss */
 .section-research-resources .view-grouping-content .item-list li a {
   font-size: 12px;
 }
 
-/* line 253, ../sass/research-page.scss */
+/* line 252, ../sass/research-page.scss */
 .section-research-resources .pane-node-body {
   font-size: 14px;
 }
 
-/* line 257, ../sass/research-page.scss */
+/* line 256, ../sass/research-page.scss */
 .section-research-resources .pane-node-body p {
   margin-top: 0;
   line-height: 1.45em;
 }
 
-/* line 262, ../sass/research-page.scss */
+/* line 261, ../sass/research-page.scss */
 .section-research-resources .pane-node-body strong {
   clear: both;
   display: block;
   padding: 20px 0 0;
 }
 
-/* line 267, ../sass/research-page.scss */
+/* line 266, ../sass/research-page.scss */
 .section-research-resources .view-header {
   padding-bottom: 27px;
   border-bottom: 1px dashed #b1c2ca;
 }
-/* line 270, ../sass/research-page.scss */
+/* line 269, ../sass/research-page.scss */
 .section-research-resources .view-header a {
   color: #20659A !important;
   text-transform: none !important;
 }
 
-/* line 277, ../sass/research-page.scss */
+/* line 276, ../sass/research-page.scss */
 .Yes {
   padding-right: 15px;
   background: url("../images/right-list-icon.png") no-repeat right 2px;
 }
 
 @media (max-width: 620px) {
-  /* line 284, ../sass/research-page.scss */
+  /* line 283, ../sass/research-page.scss */
   .section-research-resources .view-id-research_resource {
     margin-top: 20px;
     padding-top: 15px;
     border-top: 1px dashed #ccc;
   }
-  /* line 289, ../sass/research-page.scss */
+  /* line 288, ../sass/research-page.scss */
   .section-research-resources .view-id-research_resource .view-content {
     padding: 0;
   }
-  /* line 291, ../sass/research-page.scss */
+  /* line 290, ../sass/research-page.scss */
   .section-research-resources .view-id-research_resource .view-content .parents, .section-research-resources .view-id-research_resource .view-content .parents.no-children {
     padding: 0;
     margin-top: 5px;
     background: white url("../images/small-list-arrow-down.jpg") no-repeat right 12px;
   }
-  /* line 296, ../sass/research-page.scss */
+  /* line 295, ../sass/research-page.scss */
   .section-research-resources .view-id-research_resource .view-content .parents.expanded, .section-research-resources .view-id-research_resource .view-content .parents.no-children.expanded {
     background: white url("../images/small-list-arrow-up.jpg") no-repeat right 12px;
   }
-  /* line 300, ../sass/research-page.scss */
+  /* line 299, ../sass/research-page.scss */
   .section-research-resources .view-id-research_resource .view-content .parents .item-list, .section-research-resources .view-id-research_resource .view-content .parents.no-children .item-list {
     display: none;
     height: auto;
@@ -348,46 +348,46 @@
     border: 0;
     overflow: hidden;
   }
-  /* line 308, ../sass/research-page.scss */
+  /* line 307, ../sass/research-page.scss */
   .section-research-resources .view-id-research_resource .view-content .parents .item-list .item-list, .section-research-resources .view-id-research_resource .view-content .parents.no-children .item-list .item-list {
     display: block;
   }
-  /* line 312, ../sass/research-page.scss */
+  /* line 311, ../sass/research-page.scss */
   .section-research-resources .view-id-research_resource .view-content .parents .item-list li, .section-research-resources .view-id-research_resource .view-content .parents .item-list li li, .section-research-resources .view-id-research_resource .view-content .parents.no-children .item-list li, .section-research-resources .view-id-research_resource .view-content .parents.no-children .item-list li li {
     padding-left: 24px;
     margin: 0;
     background: transparent;
   }
-  /* line 316, ../sass/research-page.scss */
+  /* line 315, ../sass/research-page.scss */
   .section-research-resources .view-id-research_resource .view-content .parents .item-list li a, .section-research-resources .view-id-research_resource .view-content .parents .item-list li li a, .section-research-resources .view-id-research_resource .view-content .parents.no-children .item-list li a, .section-research-resources .view-id-research_resource .view-content .parents.no-children .item-list li li a {
     line-height: 16px;
     background: transparent;
   }
-  /* line 321, ../sass/research-page.scss */
+  /* line 320, ../sass/research-page.scss */
   .section-research-resources .view-id-research_resource .view-content .parents .item-list li li, .section-research-resources .view-id-research_resource .view-content .parents.no-children .item-list li li {
     background: url("../images/blue-right-list-arrow.jpg") no-repeat 20px 14px;
   }
-  /* line 325, ../sass/research-page.scss */
+  /* line 324, ../sass/research-page.scss */
   .section-research-resources .view-id-research_resource .view-content .parents .views-field-name, .section-research-resources .view-id-research_resource .view-content .parents.no-children .views-field-name {
     padding: 5px 0;
   }
-  /* line 327, ../sass/research-page.scss */
+  /* line 326, ../sass/research-page.scss */
   .section-research-resources .view-id-research_resource .view-content .parents .views-field-name a, .section-research-resources .view-id-research_resource .view-content .parents.no-children .views-field-name a {
     display: block;
     padding: 3px 0 3px 11px;
     color: #20659A;
     text-decoration: none;
   }
-  /* line 335, ../sass/research-page.scss */
+  /* line 334, ../sass/research-page.scss */
   .section-research-resources .view-id-research_resource .view-content .parents.no-children .item-list li {
     background: url("../images/blue-right-list-arrow.jpg") no-repeat 20px 14px;
   }
-  /* line 339, ../sass/research-page.scss */
+  /* line 338, ../sass/research-page.scss */
   .section-research-resources .pane-node-body strong {
     display: none;
   }
 }
-/* line 345, ../sass/research-page.scss */
+/* line 344, ../sass/research-page.scss */
 .collapse-block {
   display: block;
   height: 30px;
