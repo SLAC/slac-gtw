@@ -127,6 +127,7 @@
     }
   }
 
+	Drupal.behaviors.listOddClass = {
 	  attach: function (context, settings) {
 		$('.brown-bodered-white .menu li').filter(function(index) {return index % 2 == 0}).addClass('odd');
 	  }
