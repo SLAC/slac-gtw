@@ -487,7 +487,7 @@
 }
 /* line 121, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources h3 {
-  margin: 10px 0;
+  margin: 13px 0 10px;
   height: 28px;
   line-height: 28px;
   width: 257px;
@@ -544,46 +544,47 @@
 .pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list li a {
   display: block;
   padding: 0 15px;
+  line-height: 15px;
   color: #8B6A30;
   text-transform: uppercase;
 }
 
-/* line 179, ../sass/staff-page.scss */
+/* line 180, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources-mobile {
   display: none;
 }
-/* line 181, ../sass/staff-page.scss */
+/* line 182, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources-mobile h2 {
   margin-top: 0;
 }
 
 @media (max-width: 900px) {
-  /* line 188, ../sass/staff-page.scss */
+  /* line 189, ../sass/staff-page.scss */
   .staff-top {
     width: 100%;
   }
 
-  /* line 192, ../sass/staff-page.scss */
+  /* line 193, ../sass/staff-page.scss */
   .staff-main {
     width: 100%;
     overflow: hidden;
   }
 
-  /* line 197, ../sass/staff-page.scss */
+  /* line 198, ../sass/staff-page.scss */
   .pane-quicktabs-staff-resources {
     display: none;
   }
 
-  /* line 201, ../sass/staff-page.scss */
+  /* line 202, ../sass/staff-page.scss */
   .pane-quicktabs-staff-resources-mobile {
     display: block;
   }
 
-  /* line 206, ../sass/staff-page.scss */
+  /* line 207, ../sass/staff-page.scss */
   .ui-accordion .ui-icon {
     display: none;
   }
-  /* line 209, ../sass/staff-page.scss */
+  /* line 210, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-header, .ui-accordion .ui-accordion-content {
     border: none;
     -moz-border-radius: 0px;
@@ -596,7 +597,7 @@
     margin: 0;
     padding: 0;
   }
-  /* line 217, ../sass/staff-page.scss */
+  /* line 218, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-header a {
     height: 16px;
     background: white url("../images/small-list-arrow-down.jpg") no-repeat right center;
@@ -610,20 +611,20 @@
     font-size: 13px;
     font-family: "Arial", sans-serif;
   }
-  /* line 230, ../sass/staff-page.scss */
+  /* line 231, ../sass/staff-page.scss */
   .ui-accordion .ui-state-active a {
     background-image: url("../images/small-list-arrow-up.jpg");
   }
-  /* line 233, ../sass/staff-page.scss */
+  /* line 234, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content {
     margin-top: -1px !important;
   }
-  /* line 235, ../sass/staff-page.scss */
+  /* line 236, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .view-content {
     width: 90%;
     padding: 0 2.5% 20px 7.5%;
   }
-  /* line 239, ../sass/staff-page.scss */
+  /* line 240, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .views-row {
     background: url("../images/blue-right-list-arrow.jpg") no-repeat left 7px;
     padding: 2px 0 2px 11px;
@@ -632,17 +633,17 @@
     clear: both;
     display: block;
   }
-  /* line 246, ../sass/staff-page.scss */
+  /* line 247, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .views-row a {
     color: #20659A;
     font-size: 12px;
   }
-  /* line 251, ../sass/staff-page.scss */
+  /* line 252, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .view-footer {
     display: none;
   }
 
-  /* line 258, ../sass/staff-page.scss */
+  /* line 259, ../sass/staff-page.scss */
   .staff-main > div {
     width: 50%;
     margin-right: 0;
@@ -651,40 +652,40 @@
     float: left;
     clear: none;
   }
-  /* line 266, ../sass/staff-page.scss */
+  /* line 267, ../sass/staff-page.scss */
   .staff-main .rowonecoltwo ul {
     min-height: 312px;
   }
-  /* line 269, ../sass/staff-page.scss */
+  /* line 270, ../sass/staff-page.scss */
   .staff-main .rowonecolone, .staff-main .rowonecolthree, .staff-main .rowtwocoltwo {
     clear: both;
   }
 }
 @media (max-width: 620px) {
-  /* line 276, ../sass/staff-page.scss */
+  /* line 277, ../sass/staff-page.scss */
   .staff-main .inside {
     width: 100%;
     margin: 0 0 25px 0;
     clear: none;
   }
-  /* line 280, ../sass/staff-page.scss */
+  /* line 281, ../sass/staff-page.scss */
   .staff-main .inside ul {
     min-height: inherit;
   }
 
-  /* line 285, ../sass/staff-page.scss */
+  /* line 286, ../sass/staff-page.scss */
   .rowtwocolone {
     clear: none;
     margin-bottom: 40px;
   }
 
-  /* line 290, ../sass/staff-page.scss */
+  /* line 291, ../sass/staff-page.scss */
   .rowonecolthree {
     clear: both;
     margin-bottom: 40px;
   }
 
-  /* line 295, ../sass/staff-page.scss */
+  /* line 296, ../sass/staff-page.scss */
   .rowtwocoltwo {
     clear: both;
   }
