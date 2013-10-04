@@ -367,4 +367,9 @@
   .section-research-resources .pane-node-body strong {
     display: none;
   }
+
+  /* line 327, ../sass/research-page.scss */
+  .section-research-resources .collapse-block {
+    display: block;
+  }
 }

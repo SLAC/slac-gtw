@@ -832,8 +832,10 @@ a.submit-feedback {
     color: #20659A;
     background: #e9f2f9 url("../images/collapse.png") no-repeat right center;
     cursor: pointer;
+    .section-research-resources &{
+      display: none;
+    }
   }
-  
   .brown-bodered-white h2 {
     font-size: 11px;
     margin-top: -12px;
