@@ -147,12 +147,8 @@
   }
 }
 
-.collapse-block{
-  display: none;
-}
-
 @media (max-width: 620px) {
- 
+
   /* Resources Page */
   .section-research-resources {
     #block-boxes-search-people{
@@ -344,6 +340,7 @@
     display: none;
   }
 }
+}
 
   .collapse-block{
     display: block;
@@ -355,4 +352,3 @@
     background: #e9f2f9 url("../images/collapse.png") no-repeat right center;
     cursor: pointer;
   }
-}
