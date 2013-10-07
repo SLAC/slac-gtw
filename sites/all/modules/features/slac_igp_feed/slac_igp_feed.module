@@ -214,24 +214,16 @@ function slac_igp_feed_node_insert($node) {
   if ($node->type === 'news_article') {
     module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
     $lang = $node->language;
-    $promoted = (bool) $node->promote;
-    // if news article is promoted, regardless we will add them into the featured queue
-    if ($promoted) {
-      slac_igp_feed_node_add($node->nid, FEATURED_NEWS, FALSE);
+    if (empty($node->field_news_type[$lang])) {
+      return;
     }
-    // not promoted
-    else {
-      if (empty($node->field_news_type[$lang])) {
-        return;
-      }
-      switch($node->field_news_type[$lang][0]['value']) {
-        case 'internal':
-          slac_igp_feed_node_add($node->nid, LAB_NEWS, FALSE);
-        break;
-        case 'external':
-          slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, FALSE);
-        break;
-      }
+    switch($node->field_news_type[$lang][0]['value']) {
+      case 'internal':
+        slac_igp_feed_node_add($node->nid, LAB_NEWS, FALSE);
+      break;
+      case 'external':
+        slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, FALSE);
+      break;
     }
   }
 }

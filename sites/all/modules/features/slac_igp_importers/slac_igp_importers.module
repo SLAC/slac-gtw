@@ -209,11 +209,14 @@ function _slac_igp_importers_feeds_news($result) {
         $result->items[$key]['Blank source 2'] = 'external';
         unset($result->items[$key]['tags'][$tags[SLAC_NEWS_EXTERNAL]]);
       }
+            
       // Setting promoted
+/*
       if (array_key_exists(SLAC_NEWS_PROMOTED, $tags)) {
         $result->items[$key]['Blank source 1'] = 1;
         unset($result->items[$key]['tags'][$tags[SLAC_NEWS_PROMOTED]]);
       }
+*/
     }
   }  
 }
