@@ -1,10 +1,10 @@
 /* Grids */
-/* line 52, c:/program files (x86)/scout/vendor/gems/gems/zen-grids-1.2/stylesheets/zen/_grids.scss */
+/* line 52, C:/Program Files (x86)/Scout/vendor/gems/gems/zen-grids-1.2/stylesheets/zen/_grids.scss */
 .container:before, .container:after {
   content: "";
   display: table;
 }
-/* line 56, c:/program files (x86)/scout/vendor/gems/gems/zen-grids-1.2/stylesheets/zen/_grids.scss */
+/* line 56, C:/Program Files (x86)/Scout/vendor/gems/gems/zen-grids-1.2/stylesheets/zen/_grids.scss */
 .container:after {
   clear: both;
 }
@@ -236,8 +236,8 @@
     width: 41.66667%;
     margin-left: 0%;
     margin-right: -41.66667%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -251,8 +251,8 @@
     width: 58.33333%;
     margin-left: 41.66667%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -269,8 +269,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -285,8 +285,8 @@
     width: 90%;
     margin-left: 0%;
     margin-right: -90%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -302,8 +302,8 @@
     width: 50%;
     margin-left: 0%;
     margin-right: -50%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -319,8 +319,8 @@
     width: 50%;
     margin-left: 50%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -341,8 +341,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -487,7 +487,7 @@
 }
 /* line 121, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources h3 {
-  margin: 10px 0;
+  margin: 13px 0 10px;
   height: 28px;
   line-height: 28px;
   width: 257px;
@@ -544,46 +544,47 @@
 .pane-quicktabs-staff-resources .quicktabs-wrapper > .item-list li a {
   display: block;
   padding: 0 15px;
+  line-height: 15px;
   color: #8B6A30;
   text-transform: uppercase;
 }
 
-/* line 179, ../sass/staff-page.scss */
+/* line 180, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources-mobile {
   display: none;
 }
-/* line 181, ../sass/staff-page.scss */
+/* line 182, ../sass/staff-page.scss */
 .pane-quicktabs-staff-resources-mobile h2 {
   margin-top: 0;
 }
 
 @media (max-width: 900px) {
-  /* line 188, ../sass/staff-page.scss */
+  /* line 189, ../sass/staff-page.scss */
   .staff-top {
     width: 100%;
   }
 
-  /* line 192, ../sass/staff-page.scss */
+  /* line 193, ../sass/staff-page.scss */
   .staff-main {
     width: 100%;
     overflow: hidden;
   }
 
-  /* line 197, ../sass/staff-page.scss */
+  /* line 198, ../sass/staff-page.scss */
   .pane-quicktabs-staff-resources {
     display: none;
   }
 
-  /* line 201, ../sass/staff-page.scss */
+  /* line 202, ../sass/staff-page.scss */
   .pane-quicktabs-staff-resources-mobile {
     display: block;
   }
 
-  /* line 206, ../sass/staff-page.scss */
+  /* line 207, ../sass/staff-page.scss */
   .ui-accordion .ui-icon {
     display: none;
   }
-  /* line 209, ../sass/staff-page.scss */
+  /* line 210, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-header, .ui-accordion .ui-accordion-content {
     border: none;
     -moz-border-radius: 0px;
@@ -596,7 +597,7 @@
     margin: 0;
     padding: 0;
   }
-  /* line 217, ../sass/staff-page.scss */
+  /* line 218, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-header a {
     height: 16px;
     background: white url("../images/small-list-arrow-down.jpg") no-repeat right center;
@@ -610,19 +611,18 @@
     font-size: 13px;
     font-family: "Arial", sans-serif;
   }
-  /* line 230, ../sass/staff-page.scss */
+  /* line 231, ../sass/staff-page.scss */
   .ui-accordion .ui-state-active a {
     background-image: url("../images/small-list-arrow-up.jpg");
   }
-  /* line 233, ../sass/staff-page.scss */
+  /* line 234, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content {
     margin-top: -1px !important;
-    padding: 9px 0 19px;
   }
   /* line 236, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .view-content {
     width: 90%;
-    padding: 0 2.5% 0 7.5%;
+    padding: 0 2.5% 20px 7.5%;
   }
   /* line 240, ../sass/staff-page.scss */
   .ui-accordion .ui-accordion-content .views-row {

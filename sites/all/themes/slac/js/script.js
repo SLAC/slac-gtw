@@ -38,7 +38,7 @@
             },function(){
             	$menuMobile.stop(true,true).hide();
             });
-            
+
             $searchbox.toggle(function(){
               if( $menuMobile.is(':visible') ) $menu.parent().click();
               $searchMobile.stop(true,true).show();
@@ -58,7 +58,7 @@
         $(window).resize(menuToggle);
     }
   }
-  
+
   // combo searchbox
   Drupal.behaviors.search = {
      attach: function (context, settings) {
@@ -76,7 +76,7 @@
        })
      }
    }
-   
+
   // alpha pager
   Drupal.behaviors.alphapager = {
      attach: function (context, settings) {
@@ -94,7 +94,7 @@
 
  //    	$('.section-research-resources .view-content .view-grouping-content').append('<span class="collapse">Collapse<img src="/sites/all/themes/slac/images/collapse.png" alt="" /></span>');	
 	// 		$(window).resize(function() {
-	// 			if (Modernizr.mq('(max-width: 620px)')) {		
+	// 			if (Modernizr.mq('(max-width: 620px)')) {
 	// 	    	$('.section-research-resources .view-content .view-grouping-header').click(function(){
 	// 				  var $this = $(this);
 	// 	        if (!$this.index() && !$this.hasClass('processed')) {
@@ -114,6 +114,16 @@
 	// 		});
 	//   }
 	// }
+
+
+  Drupal.behaviors.staffCollapse = {
+    attach: function (context, settings) {
+      $('<div class="collapse-block">Collapse</div>').insertAfter('.section-staff-resources .ui-accordion-content .view-content');
+        $('.collapse-block').click(function(){
+        $(this).parents('.ui-accordion-content').eq(0).prev().click();
+      });
+    }
+  }
 
 	Drupal.behaviors.listOddClass = {
 	  attach: function (context, settings) {
@@ -141,7 +151,7 @@
   Drupal.behaviors.mobileAccordion = {
     attach: function (context, settings) {
       var $links = $('.view-id-research_resource .parents');
-      
+
       $links.siblings('.parents').find('.item-list:first').append('<div class="collapse-block">Collapse</div>');
       $('.collapse-block').click(function(){
         $(this).parents('.parents.expanded').find('a.active').click();
@@ -167,6 +177,14 @@
         else  $links.find('.item-list:first').hide().parents('.parents').filter('.expanded').find('.item-list:first').show();
       })
     }
+
+    /* Staff Resources collapse button */
+
+    // $('.pane-quicktabs-staff-resources-mobile .ui-accordion-content').append('<div class="collapse-block">Collapse</div>');
+    // $('.pane-quicktabs-staff-resources-mobile .ui-accordion-content').click(function(){
+    //   $(this).closest('.ui-accordion-content').slideUp('fast').removeClass('ui-accordion-content-active')
+    //     .prev('h3').removeClass('ui-state-active');
+    // });
   }
 
   Drupal.behaviors.sliderResize = {
@@ -178,7 +196,7 @@
           slider.css({'width':'100%','height':h})
           .find('.views_slideshow_slide:visible').css({'width':'100%','height':'100%'});
           if( h != slider.find('.views_slideshow_slide:visible img').height() ){resizer()}
-        
+
           try{setPosition()} catch(e){}
         }
       // on DOM ready
@@ -207,7 +225,7 @@
       }
     }
   }
-  
+
   // handle staff resource image changes
   Drupal.behaviors.srswitch = {
     attach: function (context, settings) {
@@ -220,6 +238,12 @@
         text = text.toLowerCase();
         $('.pane-quicktabs-staff-resources .quicktabs-tabpage').css('background', 'whitesmoke url("'+path+'/sr-'+text+'.jpg") no-repeat 0 0');
       });
+    }
+  }
+
+  Drupal.behaviors.iePlaceholders = {
+    attach: function (context, settings) {
+      $("#people_search .searchbox").textPlaceholder();
     }
   }
 

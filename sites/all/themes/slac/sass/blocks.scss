@@ -1,6 +1,6 @@
 @import "mixins";
 
-
+.collapse-block{display: none;}
 .frontpage-right{
   margin-bottom: 20px;
 }
@@ -822,6 +822,20 @@ a.submit-feedback {
 
 @media (max-width: 900px) {
 
+
+  .collapse-block{
+    display: block;
+    height: 30px;
+    padding-right: 40px;
+    line-height: 30px;
+    text-align: right;
+    color: #20659A;
+    background: #e9f2f9 url("../images/collapse.png") no-repeat right center;
+    cursor: pointer;
+    .section-research-resources &{
+      display: none;
+    }
+  }
   .brown-bodered-white h2 {
     font-size: 11px;
     margin-top: -12px;
@@ -1093,7 +1107,11 @@ a.submit-feedback {
   .back-on-top{display: block;}
 }
 
-.messages.error{
-  width: auto !important;
-  margin: auto auto !important;
+.messages{
+  min-height: 40px;
+  float: none;
+}
+
+.messages li{
+  padding: 5px 0;
 }

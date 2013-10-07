@@ -1,5 +1,4 @@
 
- 
 .section-research-resources {
   .view-grouping-header {
     margin: 40px auto auto;
@@ -66,9 +65,6 @@
       font-size: 14px;
     }
   }
-  .collapse {
-    display: none;
-  }
   .view-id-research_resource .view-content{
     padding: 30px;
     padding-top: 0;
@@ -88,9 +84,10 @@
 
     li{
       margin-top: 20px;
+      padding-left: 0;
       background: transparent;  
       .item-list{
-        padding-left: 30px;
+/*        padding: 30px 0 15px;*/
         background-color: #f5f5f5;
         border: 1px solid #d1d0d0;
         border-top: 3px solid #d1d0d0;
@@ -109,6 +106,7 @@
         li{
           margin-top: 0;
           background: url("../images/list-dot.png") no-repeat 0 9px;
+          padding-left: 11px;
         }
         a{
           line-height: 1em;
@@ -123,10 +121,11 @@
     }
     li.no-children .item-list{
       padding-top: 20px;
-      padding-bottom: 10px;
+      /*padding-bottom: 10px;*/
        li{
         margin-top: 0;
         background: url("../images/list-dot.png") no-repeat 0 9px;
+          padding-left: 11px;
       }
       a{
         line-height: 1em;
@@ -138,11 +137,12 @@
         padding-bottom: 0;
       }
     }
-    .collapse-block{
-      display: none;
-    }
     .parents{
       background: transparent;
+      padding-left: 0;
+      & > .item-list{
+          padding-left: 11px;
+      }
     }
   }
   .view-id-research_resource .view-header .view-content{
@@ -150,9 +150,8 @@
   }
 }
 
-
 @media (max-width: 620px) {
- 
+
   /* Resources Page */
   .section-research-resources {
     #block-boxes-search-people{
@@ -207,19 +206,6 @@
     }
     .view-grouping-content h3 {
       margin: 5px 0 0;
-    }
-    .collapse {
-      height: 26px;
-      line-height: 26px;
-      display: block;
-      text-align: right;
-      width: 100%;
-      font-weight: bold;
-      background: #ecf5fa;
-      color: #20659A;
-      img {
-        margin-left: 20px;
-      }
     }
   }
 }
@@ -335,17 +321,6 @@
           text-decoration: none;
         }
       }
-
-      .collapse-block{
-        display: block;
-        height: 30px;
-        padding-right: 40px;
-        line-height: 30px;
-        text-align: right;
-        color: #20659A;
-        background: #e9f2f9 url("../images/collapse.png") no-repeat right center;
-        cursor: pointer;
-      }
     }
     .parents.no-children .item-list li{
       background: url("../images/blue-right-list-arrow.jpg") no-repeat 20px 14px;
@@ -355,4 +330,6 @@
     display: none;
   }
 }
+
+  .section-research-resources .collapse-block{display: block;}
 }
