@@ -208,7 +208,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
   $form['advance']['suppress'] = array(
     '#type' => 'textarea',
     '#title' => 'Suppress Dates',
-    '#description' => t('Please enter the list of dates to disable/suppress the recurring campaign, please enter one date per line in the format of YYYY-MM-DD (05-22-2013)'),
+    '#description' => t('Please enter the list of dates to disable/suppress the recurring campaign, please enter one date per line in the format of YYYY-MM-DD (2013-05-23)'),
     '#default_value' => (!empty($config)) ? unserialize($config['suppress']) : '',
   );
   
