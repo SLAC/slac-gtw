@@ -143,6 +143,7 @@ function slac_igp_email_theme() {
       'variables' => array(
         'featured_news' => NULL,
         'news' => NULL,
+        'config' => NULL,
       ),
       'template' => 'slac_igp_email',
     ),
@@ -186,20 +187,20 @@ function slac_igp_email_mailchimp_signup_validate($form, &$form_state) {
 /**
  * Implements hook_mailchimp_dc_content
  */
-function slac_igp_email_mailchimp_dc_content($template_sections = array()) {
+function slac_igp_email_mailchimp_dc_content($config = array(), $template_sections = array()) {
   
   // declare contents in the daily digest  
   $data['SLAC_DD'] = array(
     'module' => 'slac_igp_email',
     'title' => t('SLAC daily digest'),
-    'content' => _slac_igp_email_mailchimp_dc_content($template_sections),
+    'content' => _slac_igp_email_mailchimp_dc_content($config, $template_sections),
   );
   
   // declare contents in the weekly digest
   $data['SLAC_WD'] = array(
     'module' => 'slac_igp_email',
     'title' => t('SLAC weekly digest'),
-    'content' => _slac_igp_email_mailchimp_weekly_content($template_sections),
+    'content' => _slac_igp_email_mailchimp_weekly_content($config, $template_sections),
   );
   
   return $data;
@@ -215,10 +216,10 @@ function theme_slac_igp_email_title($vars) {
 /**
  * Return contents to the mailchimp templates for weekly email
  */
-function _slac_igp_email_mailchimp_weekly_content($template_sections) {
+function _slac_igp_email_mailchimp_weekly_content($config, $template_sections) {
   //@todo: iterate through the template_sections
   return array(
-    'html_director_column' => array(
+    'html_lead_news' => array(
       'value' => theme('slac_igp_director_column'),
       'format' => 'mailchimp_campaign',
     ),
@@ -232,7 +233,7 @@ function _slac_igp_email_mailchimp_weekly_content($template_sections) {
 /**
  * Return contents to the mailchimp templates
  */
-function _slac_igp_email_mailchimp_dc_content($template_sections) {
+function _slac_igp_email_mailchimp_dc_content($config, $template_sections) {
   //@todo: iterate through the template_sections
   return array(
     'html_sidebar' => array(
@@ -240,7 +241,7 @@ function _slac_igp_email_mailchimp_dc_content($template_sections) {
       'format' => 'mailchimp_campaign',
     ),
     'html_news' => array(
-      'value' => theme('slac_igp_email'),
+      'value' => theme('slac_igp_email', array('config' => $config)),
       'format' => 'mailchimp_campaign',
     ),
     'html_std_header_title' => array(
@@ -289,44 +290,56 @@ function slac_igp_email_preprocess_slac_igp_email_sidebar(&$vars) {
  * Preprocess function, providing main contents for the email
  */
 function slac_igp_email_preprocess_slac_igp_email(&$vars) {
-  if (!module_exists('slac_igp_feed')) {
-    return;
-  }
-  module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
-  
+
   // initiate empty arrays
   $vars['featured_news'] = array();
   $vars['news'] = array();
   
-  // load everything in the featured news
-  $output_array = array();
-  $subqueues = array(FEATURED_NEWS, LAB_NEWS, SLAC_SCIENCE);
-  foreach ($subqueues as $subqueue_name) {
-    $subqueue = slac_igp_feed_get_subqueue($subqueue_name);
-    switch ($subqueue_name) {
-      case FEATURED_NEWS:
-        $count = 5;
-        $mode = VIEW_MODE_TEASER;
-        $name = 'featured_news';
-      break;
-      case LAB_NEWS:
-      case SLAC_SCIENCE:
-        $count = 10;
-        $mode = VIEW_MODE_LINK;
-        $name = 'news';
-      break;
-    }
-    // load nodes
-    $nodes = nodequeue_load_nodes($subqueue->sqid, FALSE, 0, $count, TRUE);
-    if (!empty($nodes)) {
-      foreach ($nodes as $node) {
-        // filter nodes by published date, for daily email we only want contents imported today
-        $created_date = date('Y-m-d', $node->created);
-        $now = date('Y-m-d', REQUEST_TIME);
-        if ($created_date == $now) {
-          $vars[$name][] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=' . $mode . ']';
-        }  
-      }
+  $config = $vars['config'];
+  if (empty($config)) {
+    return;
+  }
+  // load the last email campaign
+  module_load_include('inc', 'mailchimp_dc', 'mailchimp_dc.database');
+  $last_campaign = array();
+  $last_campaign = mailchimp_dc_load_dc($config['name']);
+  
+  $vars['featured_news'] = _slac_igp_email_generate_items('promoted', $last_campaign);
+  $vars['news'] = _slac_igp_email_generate_items('regular', $last_campaign);
+}
+
+/**
+ * Generate daily email items from the last campaign
+ * @params    
+ * $type    type of news item
+ */
+function _slac_igp_email_generate_items($type, $last_campaign = array()) {
+  $data = array();
+  if ($type == 'promoted') {
+    $mode = VIEW_MODE_TEASER;
+  } else {
+    $mode = VIEW_MODE_LINK;
+  }
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'news_article')
+    ->propertyCondition('status', 1);
+    
+  if ($type == 'promoted') {
+    $query->propertyCondition('promote', 1);
+  } else {
+    $query->propertyCondition('promote', 0);
+  }
+  if (!empty($last_campaign)) {
+    $query->propertyCondition('created', $last_campaign['timestamp'], '>');
+  }
+  $query->propertyOrderBy('created', 'DESC');
+  $query->range(0, 10);
+  $result = $query->execute();
+  if (!empty($result)) {
+    foreach ($result['node'] as $item) {
+      $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
     }
   }
+  return $data;  
 }

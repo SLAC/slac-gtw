@@ -356,7 +356,7 @@ function mailchimp_dc_campaign_create($config) {
     
   // default contents in case no one implements the hook
   $content = $template_sections;
-  $contents = array_merge(module_invoke_all('mailchimp_dc_content', $template_sections), array());
+  $contents = array_merge(module_invoke_all('mailchimp_dc_content', $config, $template_sections), array());
   if (!empty($contents)) {
     $content_template = $config['content'];
     if (array_key_exists($content_template, $contents)) {
@@ -367,6 +367,7 @@ function mailchimp_dc_campaign_create($config) {
     }
   }
 
+  
   $campaign_id = mailchimp_campaign_save_campaign($content, $options);
   module_load_include('inc', 'mailchimp_dc', 'mailchimp.database');
   if (isset($campaign_id)) {

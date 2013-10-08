@@ -142,6 +142,7 @@ function mailchimp_dc_load_dc($name, $date = NULL) {
       $query->condition('date', $date);
     }
   }
+  $query->orderBy('date', 'DESC');
   $results = $query->execute();
   foreach ($results as $result) {
     $data[] = (array) $result;
