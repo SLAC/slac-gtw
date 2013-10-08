@@ -88,6 +88,18 @@
         })
      }
    }
+   
+  Drupal.behaviors.staff_resource = {
+     attach: function (context, settings) {
+        $('#quicktabs-staff_resources li a').unbind('click');
+        $('#quicktabs-staff_resources li a').click(function() {
+          if ($(this).hasClass('active')) {
+              var tab_url = $(this).attr('href');
+              document.location = tab_url;
+          }
+        })
+     }
+   }
 
 	// Drupal.behaviors.researchLists = {
 	//   attach: function (context, settings) {
