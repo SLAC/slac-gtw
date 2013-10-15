@@ -453,6 +453,10 @@ footer .block-menu {
     display: none;
   }
 
+  .region-footer{
+    width: 100%;
+  }
+
   .footer-wrapper {
     background: #9A9A9A;
     margin-bottom: 0;
@@ -463,6 +467,10 @@ footer .block-menu {
       display: block;
       clear: both;
       float: left;
+      padding-bottom: 70px;
+      a{
+        margin-top: 0;
+      }
     }
   }
 
@@ -612,26 +620,22 @@ footer .block-menu {
     width: 96%;
     padding: 0 2%;
   }
-  
+
   .general-right  {
     margin-top: 30px;
   }
 
   .general-right .inside{
-    border:none;  
+    border:none;
     padding: 0;
     width: 100%;
   }
 
-  footer.region-footer {
-    padding-bottom: 70px;
-    background-position: bottom left;
-  }
   footer .footer-info {
     width: 100%;
     border-bottom: 1px solid #fff;
   }
-  
+
   .rowonecoltwo ul,
   .rowonecolthree ul,
   .rowtwocolone ul,
