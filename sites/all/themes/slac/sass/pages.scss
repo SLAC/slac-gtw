@@ -383,12 +383,19 @@ header {
 }
 
 .footer-logos{
+  width:  30%;
+  max-width: 279px;
   float: right;
-  & a{
+  a{
     float: right;
-    margin: 22px 20px 0 0;
+    width:  27%;
+    margin: 22px 4% 0 0;
+  }
+  a:first-child{
+    width:  65%;
   }
 }
+
 
 .footer-logos.mobile{
   display: none;
