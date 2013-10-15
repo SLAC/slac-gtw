@@ -28,17 +28,11 @@ body {
  * See the element-focusable rule in system.base.css.
  */
 
-.header-wrapper, #content, .region-footer {
+.header-wrapper, #content,.footer-inner{
   width: 100%;
   max-width: 1432px;
   margin: auto;
 }
-
-/*.header-wrapper, .region-footer{
-  padding: 0 2%;
-  max-width: 1382px;
-  width: 96%;
-}*/
 
 header, .content-wrapper, .footer-wrapper {
   width: 98%;
@@ -369,16 +363,18 @@ header {
 .footer-wrapper {
   background: #DADADA;
   margin: 0;
+  overflow: hidden;
 }
 
 .region-footer {
   padding-bottom: 14px;
   overflow: hidden;
-  background: url('../images/footer-logos.jpg') no-repeat right center;
+  background: transparent;
+  float: left;
+  width: 70%;
 }
-
 .footer-info {
-  width: 40%;
+  width: 57%;
   border-bottom: 2px solid #b4b4b5;
   color: #4d4c4d;
   font-size: 12px;
@@ -400,60 +396,6 @@ footer .block-menu {
     margin-right: 25px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-.footer-wrapper {
-  background: #DADADA;
-  margin: 0;
-  overflow: hidden;
-}
-
-.header-wrapper, #content, 
-.footer-inner{
-  width: 100%;
-  max-width: 1432px;
-  margin: auto;
-}
-
-.region-footer{
-  padding-bottom: 14px;
-  overflow: hidden;
-  background: transparent;
-  float: left;
-  width: 70%;
-}
-
-.footer-logos{
-  float: right;
-}
-
-.footer-logos a{
-  float: right;
-  margin: 13px 20px 0 0;
-}
-
-.footer-logos.mobile{
-  display: none;
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
 .section-thankyou{ 
@@ -501,12 +443,19 @@ footer .block-menu {
   }
 
   .footer-wrapper {
-    background: #979797;
+    background: #9A9A9A;
     margin-bottom: 0;
+    .footer-logos{
+      display: none;
+    }
+
+    .footer-mobile{
+      display: block;
+      clear: both;
+      float: left;
+    }
   }
-  .region-footer {
-    background: url('../images/small-footer-logos.jpg') no-repeat right center;
-  }
+
   .footer-info {
     border-bottom-color: #fff;
     width: 60%;
