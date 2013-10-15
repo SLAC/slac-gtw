@@ -402,6 +402,60 @@ footer .block-menu {
 }
 
 
+
+
+
+
+
+
+
+
+.footer-wrapper {
+  background: #DADADA;
+  margin: 0;
+  overflow: hidden;
+}
+
+.header-wrapper, #content, 
+.footer-inner{
+  width: 100%;
+  max-width: 1432px;
+  margin: auto;
+}
+
+.region-footer{
+  padding-bottom: 14px;
+  overflow: hidden;
+  background: transparent;
+  float: left;
+  width: 70%;
+}
+
+.footer-logos{
+  float: right;
+}
+
+.footer-logos a{
+  float: right;
+  margin: 13px 20px 0 0;
+}
+
+.footer-logos.mobile{
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .section-thankyou{ 
   .title{
     margin-left: 0.7%;
