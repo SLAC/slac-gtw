@@ -382,6 +382,18 @@ header {
   padding: 14px 0 6px;
 }
 
+.footer-logos{
+  float: right;
+  & a{
+    float: right;
+    margin: 22px 20px 0 0;
+  }
+}
+
+.footer-logos.mobile{
+  display: none;
+}
+
 footer .block-menu {
   padding-top: 9px;
   float: left;
@@ -396,7 +408,6 @@ footer .block-menu {
     margin-right: 25px;
   }
 }
-
 
 .section-thankyou{ 
   .title{
@@ -448,8 +459,7 @@ footer .block-menu {
     .footer-logos{
       display: none;
     }
-
-    .footer-mobile{
+    .footer-logos.mobile{
       display: block;
       clear: both;
       float: left;
