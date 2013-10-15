@@ -123,9 +123,16 @@
       </div>
     </div><!-- /#content -->
 
- 
   <div class="footer-wrapper">
     <?php print render($page['footer']); ?>
+    <div class="footer-logos">
+      <a href="http://science.energy.gov/"><img src="http://slac-gtw.wearepropeople.md/sites/all/themes/slac/images/footer-logo-energy.jpg" alt=""></a>
+      <a href="http://www.stanford.edu/"><img src="http://slac-gtw.wearepropeople.md/sites/all/themes/slac/images/footer-logo-stanford.jpg" alt=""></a>
+    </div>
+    <div class="footer-mobile">
+      <a href="http://science.energy.gov/"><img src="http://slac-gtw.wearepropeople.md/sites/all/themes/slac/images/footer-logo-energy-small.jpg" alt=""></a>
+      <a href="http://www.stanford.edu/"><img src="http://slac-gtw.wearepropeople.md/sites/all/themes/slac/images/footer-logo-stanford-small.jpg" alt=""></a>
+    </div>
   </div>
 
 </div><!-- /#page -->
