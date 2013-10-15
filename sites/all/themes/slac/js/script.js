@@ -88,9 +88,17 @@
         })
      }
    }
-   
+  
+  // staff resources page, clicking on a tab goes to a permalink url
   Drupal.behaviors.staff_resource = {
      attach: function (context, settings) {
+		 var path = Drupal.settings.basePath + 'sites/all/themes/slac/images';
+		        var text = $('#quicktabs-staff_resources li.active a').text();
+		        text = text.replace('&', 'and');
+		        text = text.replace('@', 'at');
+		        text = text.replace(/ /g,"-");
+		        text = text.toLowerCase();
+		        $('.pane-quicktabs-staff-resources .quicktabs-tabpage').css('background', 'whitesmoke url("'+path+'/sr-'+text+'.jpg") no-repeat 0 0'); 	
         $('#quicktabs-staff_resources li a').unbind('click');
         $('#quicktabs-staff_resources li a').click(function() {
           if ($(this).hasClass('active')) {
@@ -235,21 +243,6 @@
               }
             }
       }
-    }
-  }
-
-  // handle staff resource image changes
-  Drupal.behaviors.srswitch = {
-    attach: function (context, settings) {
-      $('#quicktabs-staff_resources .quicktabs-tabs a').click(function() {
-        var path = Drupal.settings.basePath + 'sites/all/themes/slac/images';
-        var text = $(this).text();
-        text = text.replace('&', 'and');
-        text = text.replace('@', 'at');
-        text = text.replace(/ /g,"-");
-        text = text.toLowerCase();
-        $('.pane-quicktabs-staff-resources .quicktabs-tabpage').css('background', 'whitesmoke url("'+path+'/sr-'+text+'.jpg") no-repeat 0 0');
-      });
     }
   }
 
