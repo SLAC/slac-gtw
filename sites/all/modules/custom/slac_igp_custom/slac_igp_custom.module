@@ -148,3 +148,73 @@ function slac_igp_custom_preprocess_slac_igp_weather(&$vars) {
   $vars['forecast'] = $forecast;
   $vars['current'] = $current;
 }
+
+
+/**
+ * Implements hook_help
+ */
+function slac_igp_custom_help($path,$arg){
+    switch($path){
+		case "admin/help#image_effect":
+			 return '<p>'.t('add image effect to image module.').'</p>';
+			 break;
+	}
+}
+
+/**
+ * Implements hook_image_effect_info
+ */
+function slac_igp_custom_image_effect_info(){
+  $effects=array();
+  $effects['advance_resize']=array(
+	'label'=>t('Advance Resize'),
+	'help'=>t('Resize image with white background.'),
+	'effect callback'=>'slac_igp_custom_advance_resize_effect',
+	'dimensions callback' => 'image_resize_dimensions',
+	'form callback' => 'image_resize_form',
+	'summary theme' => 'image_resize_summary',
+  );
+  return $effects;
+}
+
+/**
+ * Resize function callback
+ */
+function slac_igp_custom_advance_resize_effect(&$image,$data){
+  if (!slac_igp_custom_image_advance_resize($image, $data['width'], $data['height'])) {
+    watchdog('image', 'Image resize failed using the %toolkit toolkit on %path (%mimetype, %dimensions)', array('%toolkit' => $image->toolkit, '%path' => $image->source, '%mimetype' => $image->info['mime_type'], '%dimensions' => $image->info['width'] . 'x' . $image->info['height']), WATCHDOG_ERROR);
+    return FALSE;
+  }
+  return TRUE;
+
+}
+
+/**
+ * Performing image resize
+ */
+function slac_igp_custom_image_advance_resize(stdClass $image, $width, $height) {
+  $w=$width;
+  $h=$height;
+  $src_x=0;
+  $src_y=0;
+  $src_w=$image->info['width'];
+  $src_h=$image->info['height'];
+  $src_image = $image->resource;
+  $dst_w=$src_w;
+  $dst_h=$src_h;
+  $dst_x=0;
+  $dst_y=0;
+  if($w>$src_w)
+	  $dst_x=($w-$src_w)/2;
+  if($h>$src_h)
+	  $dst_y=($h-$src_h)/2;
+  $dst_image = imagecreatetruecolor($w,$h);
+  $backgroundColor = imagecolorallocate($dst_image, 255, 255, 255);
+  imagefill($dst_image, 0, 0, $backgroundColor);
+  imagecopyresampled($dst_image, $src_image, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h);
+  imagedestroy($src_image);
+  $image->resource = $dst_image;
+  $image->info['width'] = $w;
+  $image->info['height'] = $h;
+  return TRUE;
+}

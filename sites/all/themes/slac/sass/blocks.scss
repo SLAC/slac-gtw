@@ -323,6 +323,7 @@
       display: block;
       padding-top: 12px;
       a{
+      	font-size:11px;
         position: static;
         float: none;
         color: #20659A;
@@ -601,8 +602,14 @@ a.submit-feedback {
     img{
       display: block;
       height: 378px;
-      width: 588px;
+      /*width: 588px;*/
       border: none;
+      margin:auto;
+    }
+    .views-field-field-news-image {
+    	.field-content {
+    		background:white;	
+    	}	
     }
     .views-field-nothing{
       position: absolute;
