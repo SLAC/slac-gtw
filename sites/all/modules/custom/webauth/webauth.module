@@ -27,6 +27,13 @@ function webauth_menu() {
 }
 
 /**
+ * Implements hook_user_logout
+ */
+function webauth_user_logout($account) {
+	_drupal_session_delete_cookie('webauth_at');
+}
+
+/**
  * Implements hook_help().
  */
 function webauth_help($path, $arg) {
