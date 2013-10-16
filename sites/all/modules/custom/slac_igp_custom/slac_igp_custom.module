@@ -3,6 +3,7 @@
  * @file
  * Code for the SLAC IGP Custom module.
  */
+define('FEATURED_NEWS_DISPLAY', 'field_news_image_display');
 
 /**
  * Implements hook_theme
@@ -163,6 +164,7 @@ function slac_igp_custom_help($path,$arg){
 
 /**
  * Implements hook_image_effect_info
+ * Create a custom image effect that adds white space to the side of image
  */
 function slac_igp_custom_image_effect_info(){
   $effects=array();
@@ -217,4 +219,56 @@ function slac_igp_custom_image_advance_resize(stdClass $image, $width, $height) 
   $image->info['width'] = $w;
   $image->info['height'] = $h;
   return TRUE;
+}
+
+
+/**
+ * Implements hook_field_formatter_info().
+ * Creating a custom image formatter that allow user to select alternative image styles
+ */
+function slac_igp_custom_field_formatter_info() {
+  return array(
+    'image_igp' => array(
+      'label' => t('IGP custom'),
+      'field types' => array('image'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function slac_igp_custom_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  switch ($display['type']) {
+    case 'image_igp':
+    $render = '';
+    if (property_exists($entity, FEATURED_NEWS_DISPLAY)) {
+    	if (!empty($entity->{FEATURED_NEWS_DISPLAY})) {
+    		// getting the image style selected from this content
+    		$image_style = $entity->{FEATURED_NEWS_DISPLAY}[LANGUAGE_NONE][0]['value'];
+    		$load = image_style_load($image_style);
+    		if (!empty($load)) {
+    			$render = $image_style;	
+    		}	
+    	}
+    }
+    foreach ($items as $delta => $item) {
+   		if ($render == '') {
+				$element[$delta] = array(
+					'#theme' => 'image',
+					'#path' => $item['uri'],
+				);   			
+   		} 
+   		else {
+				$element[$delta] = array(
+					'#theme' => 'image_style',
+					'#style_name' => $render,
+					'#path' => $item['uri'],
+				);   			
+   		}
+    }
+    break;
+  }
+  return $element;
 }
