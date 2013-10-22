@@ -260,7 +260,7 @@
 
 
 
-      var $description = $this.attr('value');
+      var $description = $('.searchbox').attr('value');
       $('.searchbox').attr("placeholder", $description);
 
       $('.searchbox').each(function(){
