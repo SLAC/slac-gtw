@@ -260,11 +260,11 @@
 
 
 
-      $this = $('.searchbox');
-      var $description = $this.attr('value');
-      $('.searchbox').attr("placeholder", $description);
 
       $('.searchbox').each(function(){
+        var $description = $this.attr('value');
+        $(this).attr("placeholder", $description);
+        $(this).attr("var", '');
         $(this).data('holder',$(this).attr('placeholder'));
         $(this).focusin(function(){
           $(this).attr('placeholder','');
