@@ -15,11 +15,11 @@
   Drupal.behaviors.mobileHeader = {
     attach: function (context, settings) {
       var $menu = $('.region-header #block-system-main-menu .menu:first'),
-    	    $searchbox = $('.region-header #block-boxes-web-search');     
-    	$('<div id="mobile-menu-wrap"/>').insertBefore('#main')
-    	$('<ul class="mobile-menu">'+ $menu.html() +'</ul>').appendTo('#mobile-menu-wrap');
-    	$('<div class="mobile-search">'+ $searchbox.find('form').parent().html() +'</div>').appendTo('#mobile-menu-wrap');
-    	$('.mobile-search form').append('<input id="people" type="radio" name="searchType" checked="true" value="people" /><label for="search-people">People</label><input id="slac" type="radio" name="searchType" value="slac" /><label for="search-slac">SLAC</label>');
+          $searchbox = $('.region-header #block-boxes-web-search');     
+      $('<div id="mobile-menu-wrap"/>').insertBefore('#main')
+      $('<ul class="mobile-menu">'+ $menu.html() +'</ul>').appendTo('#mobile-menu-wrap');
+      $('<div class="mobile-search">'+ $searchbox.find('form').parent().html() +'</div>').appendTo('#mobile-menu-wrap');
+      $('.mobile-search form').append('<input id="people" type="radio" name="searchType" checked="true" value="people" /><label for="search-people">People</label><input id="slac" type="radio" name="searchType" value="slac" /><label for="search-slac">SLAC</label>');
       $('.mobile-search #search-button').attr('src',$('.mobile-search #search-button').attr('src').replace('.jpg','')+'-mobile.jpg');
 
       //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Firefox/i.test(navigator.userAgent) ) {
@@ -34,16 +34,16 @@
           if( $(window).width() < 620 ){
             $menu.parent().toggle(function(){
               if( $searchMobile.is(':visible') ) $searchbox.click();
-            	$menuMobile.stop(true,true).show();
+              $menuMobile.stop(true,true).show();
             },function(){
-            	$menuMobile.stop(true,true).hide();
+              $menuMobile.stop(true,true).hide();
             });
 
             $searchbox.toggle(function(){
               if( $menuMobile.is(':visible') ) $menu.parent().click();
               $searchMobile.stop(true,true).show();
             },function(){
-            	$searchMobile.stop(true,true).hide();
+              $searchMobile.stop(true,true).hide();
             });
           } else{
             $searchbox.unbind('click'); $menu.parent().unbind('click');
@@ -77,12 +77,12 @@
          document.location = url;
        });
 
-	     $('form#websearch').submit(function(e) {
-	     		e.preventDefault();
-	     		var keyword = $(this).children('input[type=text]').val();
-	     		var url = "http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite&qt=" + keyword;
-	     		document.location = url;
-	     });
+       $('form#websearch').submit(function(e) {
+          e.preventDefault();
+          var keyword = $(this).children('input[type=text]').val();
+          var url = "http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite&qt=" + keyword;
+          document.location = url;
+       });
      }
    }
 
@@ -101,13 +101,13 @@
   // staff resources page, clicking on a tab goes to a permalink url
   Drupal.behaviors.staff_resource = {
      attach: function (context, settings) {
-		 var path = Drupal.settings.basePath + 'sites/all/themes/slac/images';
-		        var text = $('#quicktabs-staff_resources li.active a').text();
-		        text = text.replace('&', 'and');
-		        text = text.replace('@', 'at');
-		        text = text.replace(/ /g,"-");
-		        text = text.toLowerCase();
-		        $('.pane-quicktabs-staff-resources .quicktabs-tabpage').css('background', 'whitesmoke url("'+path+'/sr-'+text+'.jpg") no-repeat 0 0'); 	
+     var path = Drupal.settings.basePath + 'sites/all/themes/slac/images';
+            var text = $('#quicktabs-staff_resources li.active a').text();
+            text = text.replace('&', 'and');
+            text = text.replace('@', 'at');
+            text = text.replace(/ /g,"-");
+            text = text.toLowerCase();
+            $('.pane-quicktabs-staff-resources .quicktabs-tabpage').css('background', 'whitesmoke url("'+path+'/sr-'+text+'.jpg") no-repeat 0 0');  
         $('#quicktabs-staff_resources li a').unbind('click');
         $('#quicktabs-staff_resources li a').click(function() {
           if ($(this).hasClass('active')) {
@@ -118,31 +118,31 @@
      }
    }
 
-	// Drupal.behaviors.researchLists = {
-	//   attach: function (context, settings) {
+  // Drupal.behaviors.researchLists = {
+  //   attach: function (context, settings) {
 
- //    	$('.section-research-resources .view-content .view-grouping-content').append('<span class="collapse">Collapse<img src="/sites/all/themes/slac/images/collapse.png" alt="" /></span>');	
-	// 		$(window).resize(function() {
-	// 			if (Modernizr.mq('(max-width: 620px)')) {
-	// 	    	$('.section-research-resources .view-content .view-grouping-header').click(function(){
-	// 				  var $this = $(this);
-	// 	        if (!$this.index() && !$this.hasClass('processed')) {
-	// 	          $this.addClass('processed').toggleClass('expanded').siblings('.view-grouping-content').toggle(1, function() {
-	// 	            $this.removeClass('processed');
-	// 	          });
-	// 	          $this.parent().siblings('.view-grouping').find('.view-grouping-content').hide()
-	// 	          	   .stop().siblings().removeClass('expanded');
-	// 	        }
-	// 				});
-	// 	    	$('.section-research-resources .view-content .collapse').click(function(){
-	// 	    	$(this).closest('.view-grouping-content').hide().siblings().removeClass('expanded');
-	// 	    	});
-	//  			}
+ //     $('.section-research-resources .view-content .view-grouping-content').append('<span class="collapse">Collapse<img src="/sites/all/themes/slac/images/collapse.png" alt="" /></span>');  
+  //    $(window).resize(function() {
+  //      if (Modernizr.mq('(max-width: 620px)')) {
+  //        $('.section-research-resources .view-content .view-grouping-header').click(function(){
+  //          var $this = $(this);
+  //          if (!$this.index() && !$this.hasClass('processed')) {
+  //            $this.addClass('processed').toggleClass('expanded').siblings('.view-grouping-content').toggle(1, function() {
+  //              $this.removeClass('processed');
+  //            });
+  //            $this.parent().siblings('.view-grouping').find('.view-grouping-content').hide()
+  //                 .stop().siblings().removeClass('expanded');
+  //          }
+  //        });
+  //        $('.section-research-resources .view-content .collapse').click(function(){
+  //        $(this).closest('.view-grouping-content').hide().siblings().removeClass('expanded');
+  //        });
+  //        }
 
 
-	// 		});
-	//   }
-	// }
+  //    });
+  //   }
+  // }
 
 
   Drupal.behaviors.staffCollapse = {
@@ -154,17 +154,17 @@
     }
   }
 
-	Drupal.behaviors.listOddClass = {
-	  attach: function (context, settings) {
-		$('.brown-bodered-white .menu li').filter(function(index) {return index % 2 == 0}).addClass('odd');
-	  }
-	}
+  Drupal.behaviors.listOddClass = {
+    attach: function (context, settings) {
+    $('.brown-bodered-white .menu li').filter(function(index) {return index % 2 == 0}).addClass('odd');
+    }
+  }
 
-	Drupal.behaviors.backOnTop = {
-	  attach: function (context, settings) {
-	  	$('<a href="#" class="back-on-top"><span>Go to top</span></a>').insertBefore('.footer-wrapper')	
-	  }
-	}
+  Drupal.behaviors.backOnTop = {
+    attach: function (context, settings) {
+      $('<a href="#" class="back-on-top"><span>Go to top</span></a>').insertBefore('.footer-wrapper') 
+    }
+  }
 
   Drupal.behaviors.researchPage = {
     attach: function (context, settings) {
@@ -258,11 +258,26 @@
   Drupal.behaviors.iePlaceholders = {
     attach: function (context, settings) {
 
-      $this = $('.searchbox');
-      var $description = $this.attr('placeholder');
-      $this.attr("value", $description);
 
-      $this.textPlaceholder();
+
+      $this = $('.searchbox');
+      var $description = $this.attr('value');
+      $('.searchbox').attr("placeholder", $description);
+
+      $('.searchbox').each(function(){
+        $(this).data('holder',$(this).attr('placeholder'));
+        $(this).focusin(function(){
+          $(this).attr('placeholder','');
+        });
+        $(this).focusout(function(){
+          $(this).attr('placeholder',$(this).data('holder'));
+        });
+      })
+
+      $("[placeholder]").textPlaceholder();
+
+
+
     }
   }
 
