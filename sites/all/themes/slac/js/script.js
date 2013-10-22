@@ -259,21 +259,21 @@
     attach: function (context, settings) {
 
 
-      $('.searchbox').each(function(){
-      $this = $(this);
-      var $description = $this.attr('value');
-      $this.attr("placeholder", $description);
 
-        $this.data('holder',$this.attr('placeholder'));
-        $this.focusin(function(){
-          $this.attr('placeholder','');
+      var $description = $this.attr('value');
+      $(this).attr("placeholder", $description);
+
+      $('.searchbox').each(function(){
+        $(this).data('holder',$(this).attr('placeholder'));
+        $(this).focusin(function(){
+          $(this).attr('placeholder','');
         });
-        $this.focusout(function(){
-          $this.attr('placeholder',$this.data('holder'));
+        $(this).focusout(function(){
+          $(this).attr('placeholder',$(this).data('holder'));
         });
       })
 
-      $('.searchbox').textPlaceholder();
+      $("[placeholder]").textPlaceholder();
 
 
 
