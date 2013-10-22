@@ -1,10 +1,10 @@
 /* Grids */
-/* line 52, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 52, C:/Program Files (x86)/Scout/vendor/gems/gems/zen-grids-1.2/stylesheets/zen/_grids.scss */
 .container:before, .container:after {
   content: "";
   display: table;
 }
-/* line 56, ../sass-extensions/zen-grids/stylesheets/zen/_grids.scss */
+/* line 56, C:/Program Files (x86)/Scout/vendor/gems/gems/zen-grids-1.2/stylesheets/zen/_grids.scss */
 .container:after {
   clear: both;
 }
@@ -236,8 +236,8 @@
     width: 41.66667%;
     margin-left: 0%;
     margin-right: -41.66667%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -251,8 +251,8 @@
     width: 58.33333%;
     margin-left: 41.66667%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -269,8 +269,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -285,8 +285,8 @@
     width: 90%;
     margin-left: 0%;
     margin-right: -90%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -302,8 +302,8 @@
     width: 50%;
     margin-left: 0%;
     margin-right: -50%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -319,8 +319,8 @@
     width: 50%;
     margin-left: 50%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -341,8 +341,8 @@
     width: 100%;
     margin-left: 0%;
     margin-right: -100%;
-    padding-left: 0.75%;
-    padding-right: 0.75%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;

@@ -168,6 +168,7 @@ header {
   margin-top: 12px;
   float: right;
   clear: right;
+  max-width: 255px;
   form{
     position: relative;
     height: 24px;
@@ -182,11 +183,12 @@ header {
     font-size: 0.85em;
     color: #535353;
   }
-  input[type="text"]{    
-    padding-left: 7px;
+  input[type="text"]{
+    padding: 0 0 0 7px;
     max-width: 100%;
     min-width: 80%;
     width: auto;
+    line-height: 24px;
   }
   input[type="image"]{
     position: absolute;
