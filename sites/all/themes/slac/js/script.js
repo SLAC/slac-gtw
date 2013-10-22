@@ -259,8 +259,8 @@
     attach: function (context, settings) {
 
       $this = $('.searchbox');
-      var $description = $this.attr('value');
-      $this.attr("placeholder", $description);
+      var $description = $this.attr('placeholder');
+      $this.attr("value", $description);
 
       $this.textPlaceholder();
     }
