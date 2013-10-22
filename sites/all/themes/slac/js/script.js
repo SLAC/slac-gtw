@@ -260,23 +260,6 @@
 
 
 
-
-      $('.searchbox').each(function(){
-        var $description = $this.attr('value');
-        $(this).attr("placeholder", $description);
-        $(this).data('holder',$(this).attr('placeholder'));
-        $(this).focusin(function(){
-          $(this).attr('placeholder','');
-        });
-        $(this).focusout(function(){
-          $(this).attr('placeholder',$(this).data('holder'));
-        });
-      })
-
-      $("[placeholder]").textPlaceholder();
-
-
-
     }
   }
 
