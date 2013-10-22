@@ -308,8 +308,7 @@ function og_tag_importer_admin($form, &$form_state) {
         $options['image'][$field_name] = $instance['label'];
       break;
       case 'media':
-				$count = array_count_values($instance['widget']['settings']['allowed_types']);
-				if ($count['image'] == 1 && $count[0] == 3) {
+				if ($instance['widget']['settings']['allowed_types']['image'] == 'image') {
 					$options['image'][$field_name] = $instance['label'];
 				}      	
       break;
