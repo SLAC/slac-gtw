@@ -257,7 +257,7 @@
 
   Drupal.behaviors.iePlaceholders = {
     attach: function (context, settings) {
-      $("#people_search .searchbox").textPlaceholder();
+      $(".searchbox").textPlaceholder();
     }
   }
 
