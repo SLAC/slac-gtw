@@ -257,7 +257,12 @@
 
   Drupal.behaviors.iePlaceholders = {
     attach: function (context, settings) {
-      $(".searchbox").textPlaceholder();
+
+      $this = $('.searchbox');
+      var $description = $this.attr('value');
+      $this.attr("placeholder", $description);
+
+      $this.textPlaceholder();
     }
   }
 
