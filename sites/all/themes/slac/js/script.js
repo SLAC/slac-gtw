@@ -226,7 +226,7 @@
           var newHeight = (normalWidth * 0.6421052631578947) | 0;
           console.log(newHeight);
           $slider.find('.views-slideshow-cycle-main-frame-row').css('width', normalWidth, 'height', newHeight);
-          $slider.find('.views_slideshow_slide:visible').css('height', newHeight);
+          $slider.find('.views_slideshow_slide:visible, .views-row').css('height', newHeight);
         }
         /*
         var slider = $('.views-slideshow-cycle-main-frame:visible'),
