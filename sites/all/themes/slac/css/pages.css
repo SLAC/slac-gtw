@@ -589,6 +589,11 @@ header {
   background: #ebebeb;
 }
 
+/* line 209, ../sass/pages.scss */
+#people_search {
+  position: relative;
+}
+
 /* line 210, ../sass/pages.scss */
 .search-label {
   position: absolute;
