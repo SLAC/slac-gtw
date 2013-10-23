@@ -1,4 +1,4 @@
-/**
+/*
  * @file
  * A JavaScript file for the theme.
  *
@@ -219,15 +219,28 @@
   Drupal.behaviors.sliderResize = {
     attach: function (context, settings) {
       // fix slider width/height on screen resize
-      resizer = function(){
-          var slider = $('.views-slideshow-cycle-main-frame:visible'),
-              h = slider.find('.views_slideshow_slide:visible img').height();
-          slider.css({'width':'100%','height':h})
-          .find('.views_slideshow_slide:visible').css({'width':'100%','height':'100%'});
-          if( h != slider.find('.views_slideshow_slide:visible img').height() ){resizer()}
-
-          try{setPosition()} catch(e){}
+      var resizer = function() {
+        var $slider = $('.views-slideshow-cycle-main-frame:visible');
+        if ($('.views-slideshow-cycle-main-frame').length) {
+          var normalWidth = $('.frontpage-middle-col').width();
+          var newHeight = (normalWidth * 0.6421052631578947) | 0;
+          console.log(newHeight);
+          $slider.find('.views-slideshow-cycle-main-frame-row').css('width', normalWidth, 'height', newHeight);
+          $slider.find('.views_slideshow_slide:visible').css('height', newHeight);
         }
+        /*
+        var slider = $('.views-slideshow-cycle-main-frame:visible'),
+          h = slider.find('.views_slideshow_slide:visible img').height();
+
+        slider
+          .css({'width' : '100%', 'height' : h})
+          .find('.views_slideshow_slide:visible')
+            .css({'width' : '100%', 'height' : '100%'});
+        if(h != slider.find('.views_slideshow_slide:visible img').height()){resizer()}
+
+        try{setPosition()} catch(e){}
+      */
+      }
       // on DOM ready
       $(window).load(resizer);
       // on window resize
@@ -241,43 +254,72 @@
       // frontpage mobile fix
       if( $('body').hasClass('front')){
         var leftCol = $('.frontpage-left-col'),
-            middleCol = $('.frontpage-middle-col'),
-            setPosition = function(){
-              if( $('#content').css('position') == 'relative' ){
-                leftCol.addClass('layoutfix').css('top',middleCol.height()+12);
-                middleCol.css('padding-bottom',leftCol.height()-3);
-              } else{
-                leftCol.attr('style','').removeClass('layoutfix');
-                middleCol.attr('style','');
-              }
+          middleCol = $('.frontpage-middle-col'),
+          setPosition = function(){
+            if( $('#content').css('position') == 'relative' ){
+              leftCol.addClass('layoutfix').css('top',middleCol.height()+12);
+              middleCol.css('padding-bottom',leftCol.height()-3);
+            } else{
+              leftCol.attr('style','').removeClass('layoutfix');
+              middleCol.attr('style','');
             }
+          }
       }
     }
   }
 
-  Drupal.behaviors.iePlaceholders = {
-    attach: function (context, settings) {
+  // Drupal.behaviors.iePlaceholders = {
+  //   attach: function (context, settings) {
 
+  //     $('.searchbox').each(function(){
+  //       if ($(this).attr('placeholder')) {
+  //         $description = $(this).attr('placeholder');
+  //       }
+  //       else{
+  //         $description = $(this).attr('value');
+  //       };
+  //       $('<label class="search-label">' + $description + '</label>').insertBefore(this);
+  //       $(this).removeAttr("placeholder");
 
+  //       $('.search-label').click()
 
-      var $description = $('.searchbox').attr('value');
-      $('.searchbox').attr("placeholder", $description);
+  //       $('.search-label').click(hideLabel(e))
 
-      $('.searchbox').each(function(){
-        $(this).data('holder',$(this).attr('placeholder'));
-        $(this).focusin(function(){
-          $(this).attr('placeholder','');
-        });
-        $(this).focusout(function(){
-          $(this).attr('placeholder',$(this).data('holder'));
-        });
-      })
+  //       function hideLabel(e){
+  //         var $searchbox = $(e).parent().children('input.searchbox')
+  //         $searchbox.focus()
+  //         $(this).hide()
+  //       }
 
-      $("[placeholder]").textPlaceholder();
+        
+        
+  //    });
 
+  //   }
+  // }
 
-
-    }
-  }
 
 })(jQuery, Drupal, this, this.document);
+
+
+
+
+
+
+
+      // var $description = $('.searchbox').attr('value');
+      // $('.searchbox').attr("placeholder", $description);
+
+      // $('.searchbox').each(function(){
+      //   $(this).data('holder',$(this).attr('placeholder'));
+      //   $(this).focusin(function(){
+      //     $(this).attr('placeholder','');
+      //   });
+      //   $(this).focusout(function(){
+      //     $(this).attr('placeholder',$(this).data('holder'));
+      //   });
+      // })
+
+      // $("[placeholder]").textPlaceholder();
+
+

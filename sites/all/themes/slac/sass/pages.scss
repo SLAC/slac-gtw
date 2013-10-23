@@ -207,6 +207,16 @@ header {
   }
 }
 
+.search-label{
+  position: absolute;
+  top: 0;
+  left:  7px;
+  font-weight: normal;
+  line-height:  24px;
+  font-size:  13px;
+  color: #555;
+}
+
 #block-boxes-web-search input[type="text"]{
   color: #666;
   text-transform: lowercase;
