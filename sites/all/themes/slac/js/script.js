@@ -219,6 +219,7 @@
   Drupal.behaviors.sliderResize = {
     attach: function (context, settings) {
       // fix slider width/height on screen resize
+      /*
       var resizer = function() {
         var $slider = $('.views-slideshow-cycle-main-frame:visible');
         if ($('.views-slideshow-cycle-main-frame').length) {
@@ -228,18 +229,6 @@
           $slider.find('.views-slideshow-cycle-main-frame-row').css('width', normalWidth, 'height', newHeight);
           $slider.find('.views_slideshow_slide:visible, .views-row').css('height', newHeight);
         }
-        /*
-        var slider = $('.views-slideshow-cycle-main-frame:visible'),
-          h = slider.find('.views_slideshow_slide:visible img').height();
-
-        slider
-          .css({'width' : '100%', 'height' : h})
-          .find('.views_slideshow_slide:visible')
-            .css({'width' : '100%', 'height' : '100%'});
-        if(h != slider.find('.views_slideshow_slide:visible img').height()){resizer()}
-
-        try{setPosition()} catch(e){}
-      */
       }
       // on DOM ready
       $(window).load(resizer);
@@ -251,6 +240,10 @@
       // on slider btns click
       $('.views-slideshow-controls-top *').click(resizer);
 
+      to be deleted
+
+
+      */
       // frontpage mobile fix
       if( $('body').hasClass('front')){
         var leftCol = $('.frontpage-left-col'),
