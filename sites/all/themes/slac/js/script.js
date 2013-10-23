@@ -292,27 +292,11 @@
   // }
 
 
+  Drupal.behaviors.iePlaceholders = {
+     attach: function (context, settings) {
+    $('.searchbox').siblings('label').addClass('search-label');
+    }
+  }
+
+  
 })(jQuery, Drupal, this, this.document);
-
-
-
-
-
-
-
-      // var $description = $('.searchbox').attr('value');
-      // $('.searchbox').attr("placeholder", $description);
-
-      // $('.searchbox').each(function(){
-      //   $(this).data('holder',$(this).attr('placeholder'));
-      //   $(this).focusin(function(){
-      //     $(this).attr('placeholder','');
-      //   });
-      //   $(this).focusout(function(){
-      //     $(this).attr('placeholder',$(this).data('holder'));
-      //   });
-      // })
-
-      // $("[placeholder]").textPlaceholder();
-
-
