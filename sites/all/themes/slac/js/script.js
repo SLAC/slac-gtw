@@ -267,7 +267,6 @@
      attach: function (context, settings) {
       $('.searchbox').each(function(){
         $(this).prev('label').addClass('search-label');
-        $(this).attr('placeholder','');
       });
 
         $('.searchbox').focus(function(){
