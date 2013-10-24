@@ -261,42 +261,29 @@
     }
   }
 
-  // Drupal.behaviors.iePlaceholders = {
-  //   attach: function (context, settings) {
-
-  //     $('.searchbox').each(function(){
-  //       if ($(this).attr('placeholder')) {
-  //         $description = $(this).attr('placeholder');
-  //       }
-  //       else{
-  //         $description = $(this).attr('value');
-  //       };
-  //       $('<label class="search-label">' + $description + '</label>').insertBefore(this);
-  //       $(this).removeAttr("placeholder");
-
-  //       $('.search-label').click()
-
-  //       $('.search-label').click(hideLabel(e))
-
-  //       function hideLabel(e){
-  //         var $searchbox = $(e).parent().children('input.searchbox')
-  //         $searchbox.focus()
-  //         $(this).hide()
-  //       }
-
-        
-        
-  //    });
-
-  //   }
-  // }
 
 
   Drupal.behaviors.iePlaceholders = {
      attach: function (context, settings) {
-    $('.searchbox').siblings('label').addClass('search-label');
+      $('.searchbox').each(function(){
+        $(this).prev('label').addClass('search-label');
+        $(this).attr('placeholder','');
+      });
+
+        $('.searchbox').focus(function(){
+          if(($(this).val().length) == 0){
+            $(this).siblings('label').hide();
+          }
+        });
+
+        $('.searchbox').blur(function(){
+          if(($(this).val().length) == 0){
+            $(this).siblings('label').show();
+          }
+        });
+
     }
   }
 
-  
+
 })(jQuery, Drupal, this, this.document);
