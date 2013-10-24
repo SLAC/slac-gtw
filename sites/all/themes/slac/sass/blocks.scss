@@ -586,6 +586,9 @@ a.submit-feedback {
 
 .jcarousel-container-horizontal{
   overflow: hidden;
+  .jcarousel{
+    left: 0 !important;
+  }
 }
 .jcarousel-item {
   position: relative;
@@ -928,7 +931,6 @@ a.submit-feedback {
       background-size: 24px 24px;
     }
   }
-  
   /* Feedback page */
   .section-feedback article .form-actions {
     width: 96%;
