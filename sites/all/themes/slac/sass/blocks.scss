@@ -586,9 +586,6 @@ a.submit-feedback {
 
 .jcarousel-container-horizontal{
   overflow: hidden;
-  .jcarousel{
-    left: 0 !important;
-  }
 }
 .jcarousel-item {
   position: relative;
@@ -756,6 +753,25 @@ a.submit-feedback {
   }
   .frontpage-news-slider .views-field-nothing .body, .frontpage-slac-science .view-header .views-field-nothing .body{
     display: none !important;
+  }
+
+  .jcarousel-item .views-field-nothing{
+    position: relative;
+    background: #fff;
+    .title a{
+      color: #3b78a7;
+    }
+    &:hover{
+      background: #fff;
+      .title a{
+        border-color: #3b78a7;
+      }
+    }
+  }
+
+  .jcarousel-prev-horizontal, .jcarousel-next-horizontal,
+  .jcarousel-navigation{
+    display: none; 
   }
 
   .frontpage-top-links .desktop{display: none;}

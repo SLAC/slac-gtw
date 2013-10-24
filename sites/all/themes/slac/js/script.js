@@ -116,34 +116,7 @@
           }
         })
      }
-   }
-
-  // Drupal.behaviors.researchLists = {
-  //   attach: function (context, settings) {
-
- //     $('.section-research-resources .view-content .view-grouping-content').append('<span class="collapse">Collapse<img src="/sites/all/themes/slac/images/collapse.png" alt="" /></span>');  
-  //    $(window).resize(function() {
-  //      if (Modernizr.mq('(max-width: 620px)')) {
-  //        $('.section-research-resources .view-content .view-grouping-header').click(function(){
-  //          var $this = $(this);
-  //          if (!$this.index() && !$this.hasClass('processed')) {
-  //            $this.addClass('processed').toggleClass('expanded').siblings('.view-grouping-content').toggle(1, function() {
-  //              $this.removeClass('processed');
-  //            });
-  //            $this.parent().siblings('.view-grouping').find('.view-grouping-content').hide()
-  //                 .stop().siblings().removeClass('expanded');
-  //          }
-  //        });
-  //        $('.section-research-resources .view-content .collapse').click(function(){
-  //        $(this).closest('.view-grouping-content').hide().siblings().removeClass('expanded');
-  //        });
-  //        }
-
-
-  //    });
-  //   }
-  // }
-
+    }
 
   Drupal.behaviors.staffCollapse = {
     attach: function (context, settings) {
@@ -207,13 +180,6 @@
       })
     }
 
-    /* Staff Resources collapse button */
-
-    // $('.pane-quicktabs-staff-resources-mobile .ui-accordion-content').append('<div class="collapse-block">Collapse</div>');
-    // $('.pane-quicktabs-staff-resources-mobile .ui-accordion-content').click(function(){
-    //   $(this).closest('.ui-accordion-content').slideUp('fast').removeClass('ui-accordion-content-active')
-    //     .prev('h3').removeClass('ui-state-active');
-    // });
   }
 
   Drupal.behaviors.sliderResize = {
