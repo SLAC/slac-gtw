@@ -266,7 +266,9 @@
   Drupal.behaviors.iePlaceholders = {
      attach: function (context, settings) {
       $('.searchbox').each(function(){
-        $(this).prev('label').addClass('search-label');
+        $(this).prev('label').addClass('search-label').click(function(){
+          $(this).next('.searchbox').trigger();
+        });
       });
 
         $('.searchbox').focus(function(){
