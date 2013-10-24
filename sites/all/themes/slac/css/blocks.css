@@ -1333,54 +1333,8 @@ a.submit-feedback {
     display: none;
   }
 
-  /*.frontpage-people-finder .brown-bodered-white > div{
-    padding: 0;
-  }
-  .frontpage-people-finder {
-    .advanced-search {
-      display: none;
-    }
-    form {
-      height: 26px;
-      border: 3px solid #b8d6ee;
-      padding: 0 28px 0 0;
-      position: relative;
-      background: #b8d6ee;
-      overflow: hidden;
-    }
-    .searchbox {
-      display: block;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 26px;
-      padding: 0 26px 0 5px;
-      margin: 0;
-      background: #fff;
-      border: none;
-      border-radius: 0;
-      box-sizing: border-box;
-    }
-    .searchbutton {
-      position: absolute;
-      top: 0;
-      right: 0;
-      background: #b8d6ee url('../images/small-search-icon.jpg') no-repeat center right;
-      border: none;
-      height: 26px;
-      width: 28px;
-      float: right;
-      overflow: hidden;
-      text-indent: -9000px;
-      text-transform: capitalize;
-      border-radius: 0;
-      z-index: 99;
-    }
-  }*/
   /* Middle blocks */
-  /* line 893, ../sass/blocks.scss */
+  /* line 847, ../sass/blocks.scss */
   .blue-bodered-white .pane-title {
     background: #a8bcc7 url("../images/blue-arrow.jpg") no-repeat right center;
     font-size: 12px;
@@ -1388,27 +1342,27 @@ a.submit-feedback {
     line-height: 32px;
     margin-bottom: 20px;
   }
-  /* line 900, ../sass/blocks.scss */
+  /* line 854, ../sass/blocks.scss */
   .blue-bodered-white > div {
     padding: 0;
   }
-  /* line 903, ../sass/blocks.scss */
+  /* line 857, ../sass/blocks.scss */
   .blue-bodered-white .view-footer {
     display: none;
   }
-  /* line 906, ../sass/blocks.scss */
+  /* line 860, ../sass/blocks.scss */
   .blue-bodered-white .views-field-created {
     font-size: 12px;
   }
 
   /* slac science block */
-  /* line 914, ../sass/blocks.scss */
+  /* line 868, ../sass/blocks.scss */
   .frontpage-slac-science .view-header,
   .frontpage-news-list .view-header {
     position: relative;
     margin: 0 0 20px 0;
   }
-  /* line 919, ../sass/blocks.scss */
+  /* line 873, ../sass/blocks.scss */
   .frontpage-slac-science .blue-bodered-white > div > .view-content .views-row,
   .frontpage-news-list .blue-bodered-white > div > .view-content .views-row {
     min-height: 60px;
@@ -1418,29 +1372,29 @@ a.submit-feedback {
     background: white url(../images/list-arrow.jpg) no-repeat right center;
     overflow: hidden;
   }
-  /* line 926, ../sass/blocks.scss */
+  /* line 880, ../sass/blocks.scss */
   .frontpage-slac-science .blue-bodered-white > div > .view-content .views-row a,
   .frontpage-news-list .blue-bodered-white > div > .view-content .views-row a {
     display: block;
     font-size: 1.2em;
   }
 
-  /* line 934, ../sass/blocks.scss */
+  /* line 888, ../sass/blocks.scss */
   .frontpage-news-list .blue-bodered-white {
     margin-top: 0;
   }
 
-  /* line 939, ../sass/blocks.scss */
+  /* line 893, ../sass/blocks.scss */
   .frontpage-directorate-links .views-row {
     width: 100%;
     margin: 0;
     margin-bottom: 14px;
   }
-  /* line 943, ../sass/blocks.scss */
+  /* line 897, ../sass/blocks.scss */
   .frontpage-directorate-links .views-row.views-row-last {
     margin-bottom: 0;
   }
-  /* line 946, ../sass/blocks.scss */
+  /* line 900, ../sass/blocks.scss */
   .frontpage-directorate-links .views-row a {
     float: none;
     width: 86%;
@@ -1448,69 +1402,69 @@ a.submit-feedback {
   }
 
   /* Socials */
-  /* line 956, ../sass/blocks.scss */
+  /* line 910, ../sass/blocks.scss */
   .socials li {
     min-width: 24px;
     height: 24px;
     background: url("../images/socialsx24.png") no-repeat;
   }
-  /* line 961, ../sass/blocks.scss */
+  /* line 915, ../sass/blocks.scss */
   .socials .flickr {
     background-position: center -30px;
   }
-  /* line 964, ../sass/blocks.scss */
+  /* line 918, ../sass/blocks.scss */
   .socials .rss {
     background-position: center -60px;
   }
-  /* line 967, ../sass/blocks.scss */
+  /* line 921, ../sass/blocks.scss */
   .socials .twitter {
     background-position: center -90px;
   }
-  /* line 970, ../sass/blocks.scss */
+  /* line 924, ../sass/blocks.scss */
   .socials .youtube {
     background-position: center -120px;
   }
-  /* line 973, ../sass/blocks.scss */
+  /* line 927, ../sass/blocks.scss */
   .socials .gplus {
     background-size: 24px 24px;
   }
 
   /* Feedback page */
-  /* line 979, ../sass/blocks.scss */
+  /* line 933, ../sass/blocks.scss */
   .section-feedback article .form-actions {
     width: 96%;
     padding: 5px 2% 0;
   }
-  /* line 982, ../sass/blocks.scss */
+  /* line 936, ../sass/blocks.scss */
   .section-feedback article .form-actions input {
     width: 100%;
     margin-bottom: 5px;
   }
 
-  /* line 989, ../sass/blocks.scss */
+  /* line 943, ../sass/blocks.scss */
   .section-research-resources .general-right,
   .section-staff-resources-classic .general-right,
   .section-a-z .general-right {
     display: none;
   }
 
-  /* line 993, ../sass/blocks.scss */
+  /* line 947, ../sass/blocks.scss */
   .frontpage-calendar h3 {
     margin-left: 0;
   }
 
-  /* line 997, ../sass/blocks.scss */
+  /* line 951, ../sass/blocks.scss */
   .back-on-top {
     display: block;
   }
 }
-/* line 1000, ../sass/blocks.scss */
+/* line 954, ../sass/blocks.scss */
 .messages {
   min-height: 40px;
   float: none;
 }
 
-/* line 1005, ../sass/blocks.scss */
+/* line 959, ../sass/blocks.scss */
 .messages li {
   padding: 5px 0;
 }
