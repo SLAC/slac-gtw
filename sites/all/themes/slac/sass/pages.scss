@@ -778,20 +778,31 @@ footer .block-menu {
       padding: 0;
       margin: 0;
       float: left;
+      height: 30px;
+      line-height: 30px;
     }
 
     input[type="radio"]{
       width: auto;
-      margin-top: -3px;
-      margin-left: 20px;
-      margin-right: 10px;
+      margin: 0 10px;
     }
 
     label{
-      height: 30px;
       width: 50px;
       font-size: 12px;
       color: rgb(130,130,130);
+      display: block !important;
+    }
+    .search-label{
+      display: none !important;
+    }
+    #people{
+      clear: both;
+    }
+    .searchbox{
+      width: 80%;
+      padding: 0 2%;
+      float: left;
     }
   }
 

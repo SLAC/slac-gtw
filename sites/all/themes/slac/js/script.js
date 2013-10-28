@@ -237,13 +237,13 @@
 
         $('.searchbox').focus(function(){
           if(($(this).val().length) == 0){
-            $(this).siblings('label').hide();
+            $(this).siblings('.search-label').hide();
           }
         });
 
         $('.searchbox').blur(function(){
           if(($(this).val().length) == 0){
-            $(this).siblings('label').show();
+            $(this).siblings('.search-label').show();
           }
         });
 
