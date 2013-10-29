@@ -188,7 +188,7 @@
       var resizer = function() {
         var $slider = $('.jcarousel-container');
         if ($slider.length) {
-          var normalWidth = $('.frontpage-middle-col').width() + 3 |0;
+          var normalWidth = $('.frontpage-middle-col').width() + 8 |0;
           $slider.find('.jcarousel-item img').css('width', normalWidth);
         }
       }
