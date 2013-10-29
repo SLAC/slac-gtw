@@ -772,7 +772,7 @@
 .pane-top-links .item-list ul .views-row {
   float: left;
   width: 48%;
-  margin-bottom: 7px;
+  margin: 0 0 7px;
 }
 /* line 362, ../sass/blocks.scss */
 .pane-top-links .item-list ul .views-row a {

@@ -227,8 +227,6 @@
     }
   }
 
-
-
   Drupal.behaviors.iePlaceholders = {
      attach: function (context, settings) {
       $('.searchbox').each(function(){
@@ -249,6 +247,10 @@
 
     }
   }
+
+
+
+
 
 
 })(jQuery, Drupal, this, this.document);
