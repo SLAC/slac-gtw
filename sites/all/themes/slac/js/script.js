@@ -185,31 +185,15 @@
   Drupal.behaviors.sliderResize = {
     attach: function (context, settings) {
       // fix slider width/height on screen resize
-      /*
       var resizer = function() {
-        var $slider = $('.views-slideshow-cycle-main-frame:visible');
-        if ($('.views-slideshow-cycle-main-frame').length) {
-          var normalWidth = $('.frontpage-middle-col').width();
-          var newHeight = (normalWidth * 0.6421052631578947) | 0;
-          console.log(newHeight);
-          $slider.find('.views-slideshow-cycle-main-frame-row').css('width', normalWidth, 'height', newHeight);
-          $slider.find('.views_slideshow_slide:visible, .views-row').css('height', newHeight);
+        var $slider = $('.jcarousel-container');
+        if ($slider.length) {
+          var normalWidth = $('.frontpage-middle-col').width() + 3 |0;
+          $slider.find('.jcarousel-item img').css('width', normalWidth);
         }
       }
-      // on DOM ready
-      $(window).load(resizer);
-      // on window resize
-      try{
-        window.addEventListener("orientationchange", resizer);
-      } catch(e){}
       $(window).resize(resizer);
-      // on slider btns click
-      $('.views-slideshow-controls-top *').click(resizer);
 
-      to be deleted
-
-
-      */
       // frontpage mobile fix
       if( $('body').hasClass('front')){
         var leftCol = $('.frontpage-left-col'),
