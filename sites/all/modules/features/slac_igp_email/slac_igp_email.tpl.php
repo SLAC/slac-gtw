@@ -1,13 +1,14 @@
 <?php
 /**
  * available variables
- *
+ * $features_news		featured news items
+ * $news		news items
  */
 ?>
-<div id="featured_news">
-<?php if (empty($featured_news)): ?>
+<?php if (empty($featured_news) && empty($news)): ?>
 <h3>There is no new lab or science news today.</h3>
 <?php endif; ?>
+<div id="featured_news">
 <?php foreach($featured_news as $featured): ?>
   <div class="item">
     <?php print $featured; ?>
