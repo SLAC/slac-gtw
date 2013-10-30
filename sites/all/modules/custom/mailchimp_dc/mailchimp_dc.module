@@ -123,6 +123,31 @@ function mailchimp_dc_entity_delete($entity, $type) {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter
+ */
+function mailchimp_dc_form_mailchimp_campaign_send_form_alter(&$form, &$form_state, $form_id) {
+	// submission function is not working so we will just use a validation 
+	// handler because it will be the last one called anyways	
+	$form['#validate'][] = 'mailchimp_dc_send_update_status';
+}
+
+/**
+ * Our callback function to update send status
+ */
+function mailchimp_dc_send_update_status($form, &$form_state) {
+	$campaign = $form_state['campaign'];
+	if (empty($campaign)) {
+		return;	
+	}
+	$record = array(
+		'mc_campaign_id' => $campaign->mc_campaign_id,
+		'status' => 'sent',
+	);
+	module_load_include('inc', 'mailchimp_dc', 'mailchimp_dc.database');
+	mailchimp_dc_record_save($record, 'mc_campaign_id', 'mailchimp_dc_campaign');
+}
+
+/**
  * Main page callback
  */
 function mailchimp_dc_main() {
