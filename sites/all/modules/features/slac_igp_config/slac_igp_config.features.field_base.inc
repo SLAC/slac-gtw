@@ -187,6 +187,32 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'image',
   );
 
+  // Exported field_base: 'field_news_image_display'
+  $field_bases['field_news_image_display'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_news_image_display',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'featured_news' => 'Scale and Crop',
+        'featured_news_scale' => 'Resize (maintain aspect ratio)',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_news_image_source'
   $field_bases['field_news_image_source'] = array(
     'active' => 1,
@@ -234,8 +260,8 @@ function slac_igp_config_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        'internal' => 'Internal',
-        'external' => 'External',
+        'internal' => 'Lab News (Internal)',
+        'external' => 'SLAC Science (External)',
       ),
       'allowed_values_function' => '',
     ),

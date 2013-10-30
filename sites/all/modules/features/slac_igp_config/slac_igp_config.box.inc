@@ -19,7 +19,7 @@ function slac_igp_config_default_box() {
   $box->description = 'Connect (Social media)';
   $box->options = array(
     'body' => array(
-      'value' => '<ul class="socials"><li class="fb"><a href="https://www.facebook.com/SLAC.National.Lab">Facebook</a></li><li class="flickr"><a href="http://www.flickr.com/photos/slaclab/">Flickr</a></li><li class="rss"><a href="https://news.slac.stanford.edu/today-stories">RSS</a></li><li class="twitter"><a href="https://twitter.com/SLACLab">Twitter</a></li><li class="youtube"><a href="http://www.youtube.com/user/SLAC">Youtube</a></li></ul>',
+      'value' => '<ul class="socials"><li class="fb"><a href="https://www.facebook.com/SLAC.National.Lab" target="_blank">Facebook</a></li><li class="gplus"><a href="https://plus.google.com/+SLAC/posts" target="_blank">Google+</a></li><li class="flickr"><a href="http://www.flickr.com/photos/slaclab/" target="_blank">Flickr</a></li><li class="rss"><a href="https://news.slac.stanford.edu/today-stories" target="_blank">RSS</a></li><li class="twitter"><a href="https://twitter.com/SLACLab" target="_blank">Twitter</a></li><li class="youtube"><a href="http://www.youtube.com/user/SLAC" target="_blank">Youtube</a></li></ul>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -64,7 +64,7 @@ Building 50 <br />
   $box->description = 'Footer';
   $box->options = array(
     'body' => array(
-      'value' => '<a href="http://slac.stanford.edu">SLAC NATIONAL ACCELERATOR LABORATORY</a> 2575 Sand Hill Road, Menlo Park, CA 94025 Operated by <a href="http://www.stanford.edu">Stanford University</a> for the <a href="http://science.energy.gov/">U.S. Department of Energy Office of Science</a>',
+      'value' => '<a href="http://slac.stanford.edu">SLAC NATIONAL ACCELERATOR LABORATORY</a> 2575 Sand Hill Road, Menlo Park, CA 94025<br>Operated by <a href="http://www.stanford.edu">Stanford University</a> for the <a href="http://science.energy.gov/">U.S. Department of Energy Office of Science</a>',
       'format' => 'full_html',
     ),
     'additional_classes' => 'footer-info',
@@ -96,14 +96,7 @@ Building 50 <br />
   $box->description = 'Search (Combined)';
   $box->options = array(
     'body' => array(
-      'value' => '<form name="searchForm" id="searchForm">
-                <input type="hidden" name="style" value="rebrand">
-                <input type="hidden" name="qt" id="qt">
-                <input class="searchBox" type="text" id="keyword" name="keyword" placeholder="Search" style="color: rgb(204, 204, 204);">      
-                <input id="search-button" class="search-button" width="27" type="image" height="22" name="submit" src="/sites/all/themes/slac/images/search-icon.jpg" alt="go">          
-                    <div class="search_type"><input type="radio" name="searchType" id="people" value="people" class="peopleSearch"><span class="searchLabelIE"><a href="http://www-public.slac.stanford.edu/phonebook/search.aspx">People</a></span>
-                    <input type="radio" name="searchType" id="web" value="web" class="webSearch"><span class="searchLabelIE"><a href="http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite">Web</a></span></div>
-                </form>',
+      'value' => '<form id="searchForm" name="searchForm"><input name="style" type="hidden" value="rebrand"> <input id="qt" name="qt" type="hidden"><input class="searchBox" id="keyword" name="keyword" style="color: rgb(204, 204, 204);" type="text"> <input alt="go" class="search-button" height="22" id="search-button" name="submit" src="/sites/all/themes/slac/images/search-icon.jpg" type="image" width="27"><div class="search_type"><input class="peopleSearch" id="people" name="searchType" type="radio" value="people"><span class="searchLabelIE"><a href="http://www-public.slac.stanford.edu/phonebook/search.aspx">People</a></span> <input class="webSearch" id="web" name="searchType" type="radio" value="web"><span class="searchLabelIE"><a href="http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite">Web</a></span></div></form>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -119,7 +112,7 @@ Building 50 <br />
   $box->description = 'Search (People)';
   $box->options = array(
     'body' => array(
-      'value' => '<form action="http://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><input class="searchbox" id="searchbox" maxlength="2047" name="name" onblur="if (this.value == \'\') {this.value = \'Search\';}" onfocus="if (this.value == \'Search\') {this.value = \'\';}" size="18" type="text" value=""> <input name="gone" type="hidden" value="active"> <input name="lf" type="hidden" value="1"><input name="url" type="hidden" value=""><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27"> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>',
+      'value' => '<form action="https://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><label for="searchbox_people">People Finder</label><input class="searchbox" id="searchbox_people" maxlength="2047" name="name" size="18" type="text"> <input name="gone" type="hidden" value="active"> <input name="lf" type="hidden" value="1"><input name="url" type="hidden" value=""><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27"> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -135,7 +128,7 @@ Building 50 <br />
   $box->description = 'Site Security';
   $box->options = array(
     'body' => array(
-      'value' => '<p><a href="https://portal.slac.stanford.edu/info/esh/security">Site Entry Authorization Form</a></p><p><a href="http://www-group.slac.stanford.edu/esh/security/">Gate Hours &amp; Access Information</a></p><p>x5555 - Emergency</p><p>x2551 - Non-emergency</p>',
+      'value' => '<p><a href="https://portal.slac.stanford.edu/info/esh/security">Site Entry Authorization Form</a></p><p><a href="https://www-internal.slac.stanford.edu/esh/security/gatehours.htm">Gate Hours &amp; Access Information</a></p><p>x5555 - Emergency</p><p>x2551 - Non-emergency</p>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -151,14 +144,7 @@ Building 50 <br />
   $box->description = 'SLAC Projects';
   $box->options = array(
     'body' => array(
-      'value' => '<div class="img"><img alt="" src="/sites/all/themes/slac/images/linac-thumb.png"></div>
-<ul>
-<li><a href="https://news.slac.stanford.edu/tags/programs-facilities/infrastructure-safety/susb-project">SUSB Building Construction</a></li>
-<li><a href="http://www-project.slac.stanford.edu/rsbproject/">RSB Building Construction</a></li>
-<li><a href="https://news.slac.stanford.edu/tags/programs-facilities/infrastructure-safety/slac-enterprise-resource-planning">Project Delta - ERP Site</a></li>
-<li><a href="https://news.slac.stanford.edu/tags/programs-facilities/lightsources/lcls-ii">LCLS II</a></li>
-<li><a href="https://news.slac.stanford.edu/tags/programs-facilities/accelerator-programs/facet-and-plasma-wakefield-acceleration">FACET Upgrade</a></li>
-</ul>',
+      'value' => '<div class="img"><img alt="" src="/sites/all/themes/slac/images/linac-thumb.png"></div><ul><li><a href="http://www-project.slac.stanford.edu/susbproject/">SUSB Building Project</a></li><li><a href="http://www-project.slac.stanford.edu/rsbproject/">RSB Building Project</a></li><li><a href="https://news.slac.stanford.edu/tags/programs-facilities/infrastructure-safety/slac-enterprise-resource-planning">Project Delta - ERP Site</a></li><li><a href="https://slacspace.slac.stanford.edu/sites/lcls/lcls-2/Pages/default.aspx">LCLS-II</a></li><li><a href="https://portal.slac.stanford.edu/sites/ard_public/facet/Pages/default.aspx">FACET Upgrade</a></li></ul>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -225,10 +211,7 @@ Building 50 <br />
   $box->description = 'Search (Web)';
   $box->options = array(
     'body' => array(
-      'value' => '<form class="header-search" name="search" method="get" action="http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite" id="form1">
-  <input type="text" id="searchbox" maxlength="2047" class="searchbox" name="qt" size="18" value="Search" onfocus="value=\'\'">
-  <input id="search-button" class="search-button" width="27" type="image" height="22" name="submit" src="/sites/all/themes/slac/images/search-icon.jpg" alt="go">
-</form>',
+      'value' => '<form action="http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index" class="header-search" id="websearch" method="get" name="search"><label for="searchbox_web">Search SLAC</label><input class="searchbox" id="searchbox_web" maxlength="2047" name="qt" size="18" type="text"><input name="style" type="hidden" value="mainSite"><input alt="go" class="search-button" height="22" id="search-button" name="submit" src="/sites/all/themes/slac/images/search-icon.jpg" type="image" width="27">&nbsp;</form>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',

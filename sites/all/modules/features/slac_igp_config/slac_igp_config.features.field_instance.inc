@@ -560,7 +560,7 @@ function slac_igp_config_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -618,12 +618,9 @@ function slac_igp_config_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
+        'module' => 'slac_igp_custom',
+        'settings' => array(),
+        'type' => 'image_igp',
         'weight' => 4,
       ),
       'link' => array(
@@ -666,6 +663,53 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-news_article-field_news_image_display'
+  $field_instances['node-news_article-field_news_image_display'] = array(
+    'bundle' => 'news_article',
+    'default_value' => array(
+      0 => array(
+        'value' => 'featured_news',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Please choose how the news article image would be displayed in the featured sections on the site.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 7,
+      ),
+      'link' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_news_image_display',
+    'label' => 'Featured Image Display',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'node-news_article-field_news_image_source'
   $field_instances['node-news_article-field_news_image_source'] = array(
     'bundle' => 'news_article',
@@ -676,7 +720,10 @@ function slac_igp_config_field_default_field_instances() {
       'default' => array(
         'label' => 'above',
         'module' => 'slac_igp_email',
-        'settings' => array(),
+        'settings' => array(
+          'height' => 'Height',
+          'width' => 'Width',
+        ),
         'type' => 'link_image',
         'weight' => 6,
       ),
@@ -689,7 +736,10 @@ function slac_igp_config_field_default_field_instances() {
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'slac_igp_email',
-        'settings' => array(),
+        'settings' => array(
+          'height' => '',
+          'width' => 300,
+        ),
         'type' => 'link_image',
         'weight' => 0,
       ),
@@ -723,7 +773,7 @@ function slac_igp_config_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -766,7 +816,7 @@ function slac_igp_config_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -812,7 +862,7 @@ function slac_igp_config_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -848,7 +898,7 @@ function slac_igp_config_field_default_field_instances() {
       ),
       'enable_tokens' => 1,
       'rel_remove' => 'default',
-      'title' => 'optional',
+      'title' => 'none',
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -1027,7 +1077,7 @@ function slac_igp_config_field_default_field_instances() {
       ),
       'enable_tokens' => 1,
       'rel_remove' => 'default',
-      'title' => 'optional',
+      'title' => 'none',
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -1106,7 +1156,7 @@ function slac_igp_config_field_default_field_instances() {
       ),
       'enable_tokens' => 1,
       'rel_remove' => 'default',
-      'title' => 'optional',
+      'title' => 'none',
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -1194,16 +1244,66 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-top_links-field_link'
+  $field_instances['taxonomy_term-top_links-field_link'] = array(
+    'bundle' => 'top_links',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_link',
+    'label' => 'Link',
+    'required' => 0,
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'rel_remove' => 'default',
+      'title' => 'none',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 2,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Authenticated');
   t('Author');
   t('Body');
   t('Date');
+  t('Featured Image Display');
   t('Image');
   t('Image Source');
   t('Link');
   t('Location');
+  t('Please choose how the news article image would be displayed in the featured sections on the site.');
   t('Promoted');
   t('Tags');
   t('Type');

@@ -173,14 +173,14 @@ function slac_igp_workflow_views_default_views() {
       'label' => '',
     ),
     'action::node_make_sticky_action' => array(
-      'selected' => 1,
+      'selected' => 0,
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
       'label' => 'Stick',
     ),
     'action::node_make_unsticky_action' => array(
-      'selected' => 1,
+      'selected' => 0,
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
@@ -345,6 +345,26 @@ function slac_igp_workflow_views_default_views() {
   $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
   $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
   $handler->display->display_options['filters']['type']['expose']['remember'] = TRUE;
+  /* Filter criterion: Content: Type (field_news_type) */
+  $handler->display->display_options['filters']['field_news_type_value']['id'] = 'field_news_type_value';
+  $handler->display->display_options['filters']['field_news_type_value']['table'] = 'field_data_field_news_type';
+  $handler->display->display_options['filters']['field_news_type_value']['field'] = 'field_news_type_value';
+  $handler->display->display_options['filters']['field_news_type_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_news_type_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_news_type_value']['expose']['operator_id'] = 'field_news_type_value_op';
+  $handler->display->display_options['filters']['field_news_type_value']['expose']['label'] = 'News Type';
+  $handler->display->display_options['filters']['field_news_type_value']['expose']['operator'] = 'field_news_type_value_op';
+  $handler->display->display_options['filters']['field_news_type_value']['expose']['identifier'] = 'field_news_type_value';
+  $handler->display->display_options['filters']['field_news_type_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+    7 => 0,
+  );
+  $handler->display->display_options['filters']['field_news_type_value']['reduce_duplicates'] = TRUE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -357,18 +377,6 @@ function slac_igp_workflow_views_default_views() {
   $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
   $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
   $handler->display->display_options['filters']['status']['expose']['remember'] = TRUE;
-  /* Filter criterion: Taxonomy term: Vocabulary */
-  $handler->display->display_options['filters']['vid']['id'] = 'vid';
-  $handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['filters']['vid']['field'] = 'vid';
-  $handler->display->display_options['filters']['vid']['relationship'] = 'term_node_tid';
-  $handler->display->display_options['filters']['vid']['group'] = 1;
-  $handler->display->display_options['filters']['vid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['vid']['expose']['operator_id'] = 'vid_op';
-  $handler->display->display_options['filters']['vid']['expose']['label'] = 'Vocabulary';
-  $handler->display->display_options['filters']['vid']['expose']['operator'] = 'vid_op';
-  $handler->display->display_options['filters']['vid']['expose']['identifier'] = 'vid';
-  $handler->display->display_options['filters']['vid']['expose']['remember'] = TRUE;
   /* Filter criterion: Date: Date (node) */
   $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['table'] = 'node';

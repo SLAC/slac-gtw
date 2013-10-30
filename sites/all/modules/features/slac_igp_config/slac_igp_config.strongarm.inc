@@ -163,6 +163,9 @@ function slac_igp_config_strongarm() {
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
+      'ical' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -309,6 +312,7 @@ function slac_igp_config_strongarm() {
   $strongarm->name = 'node_options_news_article';
   $strongarm->value = array(
     0 => 'status',
+    1 => 'revision',
   );
   $export['node_options_news_article'] = $strongarm;
 

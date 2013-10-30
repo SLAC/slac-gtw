@@ -377,7 +377,7 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->panel = 'colthreerowtwo';
     $pane->type = 'views';
     $pane->subtype = 'staff_resource_modern';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'override_pager_settings' => 0,
@@ -449,7 +449,7 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->panel = 'colthreerowtwo';
     $pane->type = 'views';
     $pane->subtype = 'top_links';
-    $pane->shown = FALSE;
+    $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'override_pager_settings' => 0,
@@ -471,7 +471,10 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'brown-bodered-white desktop',
+    );
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
@@ -625,7 +628,10 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'brown-bodered-white blue-dashed-list',
+    );
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
