@@ -172,8 +172,9 @@ function og_tag_importer_import_tags($og_tags) {
     }
   }
   
+  // let other modules alter the wrapper before we save it
+  drupal_alter('og_tag_importer_import', $wrapper, $data);
   $wrapper->save();
-  
   return $node->nid;
 }
 
