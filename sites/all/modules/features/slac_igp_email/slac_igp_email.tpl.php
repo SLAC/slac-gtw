@@ -6,7 +6,7 @@
  */
 ?>
 <?php if (empty($featured_news) && empty($news)): ?>
-<h3>There is no new lab or science news today.</h3>
+<h3>No new lab or science news today</h3>
 <?php endif; ?>
 <div id="featured_news">
 <?php foreach($featured_news as $featured): ?>
