@@ -13,6 +13,7 @@
   <div class="item">
     <?php print $featured; ?>
   </div>
+  <br clear="all" />
 <?php endforeach; ?>
 </div>
 
