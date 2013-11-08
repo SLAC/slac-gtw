@@ -333,13 +333,13 @@ function mailchimp_dc_campaign_create($config) {
   $from_name = (empty($config['from_name'])) ? variable_get('site_name', '') : $config['from_name'];
   switch($config['schedule_type']) {
     case 'daily':
-      $title = t('Daily Digest !today', array('!today' => date('Y-m-d')));
-      $subject = t('!name Daily Digest !today', array('!name' => $from_name, '!today' => date('Y-m-d')));
+      $title = t('Daily Email !today', array('!today' => date('F j, Y')));
+      $subject = t('!name Daily Email !today', array('!name' => $from_name, '!today' => date('F j, Y')));
     break;
     case 'weekly':
     case 'bi-weekly':
-      $title = t('Weekly Digest Week: !week', array('!week' => date('W')));
-      $subject = t('!name Weekly Digest !week', array('!name' => $from_name, '!week' => date('W'))); 
+      $title = t('Weekly Digest - !today', array('!today' => date('F j, Y')));
+      $subject = t('!name Weekly Digest - !today', array('!name' => $from_name, '!today' => date('F j, Y'))); 
     break;
     case 'monthly':
       $title = t('Monthly Digest: !month', array('!month' => date('F, Y')));
