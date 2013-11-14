@@ -608,7 +608,7 @@ header {
 /* line 220, ../sass/pages.scss */
 #block-boxes-web-search input[type="text"] {
   color: #666;
-  text-transform: lowercase;
+  text-transform: none;
   position: relative;
 }
 

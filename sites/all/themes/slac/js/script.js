@@ -212,22 +212,38 @@
   }
 
   Drupal.behaviors.iePlaceholders = {
+  	
      attach: function (context, settings) {
+     	
+     
       $('.searchbox').each(function(){
         $(this).prev('label').addClass('search-label');
       });
+ 
+        // $('.searchbox').focus(function(){
+          // if(($(this).val().length) == 0){
+            // $(this).siblings('.search-label').hide();
+          // }
+        // });
+// 
+        // $('.searchbox').blur(function(){
+          // if(($(this).val().length) == 0){
+            // $(this).siblings('.search-label').show();
+          // }
+        // });
 
-        $('.searchbox').focus(function(){
-          if(($(this).val().length) == 0){
-            $(this).siblings('.search-label').hide();
-          }
-        });
 
-        $('.searchbox').blur(function(){
-          if(($(this).val().length) == 0){
-            $(this).siblings('.search-label').show();
-          }
-        });
+      $('.searchbox').each(function(){
+      	$(this).prev('label').hide()
+      	var label_value = $(this).prev('label').text()
+      	$(this).attr('placeholder', label_value)
+      	
+      })
+
+	$('.searchbox').placeholder()
+
+
+//header-search
 
     }
   }
