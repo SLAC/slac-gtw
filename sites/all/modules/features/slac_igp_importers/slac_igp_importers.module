@@ -66,13 +66,22 @@ function _slac_igp_importers_feeds_access($source, $result) {
     return;
   }
   
-  foreach ($result->items as $key => $item) {
-  
+  foreach ($result->items as $key => $item) {  
     $html = str_get_html($item['description']);
 
-    $start_date = $html->find('span[class=date-display-start]', 0)->plaintext;
-    $end_date = $html->find('span[class=date-display-end]', 0)->plaintext;
-    
+		$date = $html->find('span[class=date-display-single]', 0)->plaintext; 
+
+		// handle multiday or single day access notices
+		if (!empty($date)) {
+			$_date = substr($date, 0, strpos($date, '-'));
+			$start_date = $_date . $html->find('span[class=date-display-start]', 0)->plaintext;
+			$end_date = $_date . $html->find('span[class=date-display-end]', 0)->plaintext;
+			
+		} else {
+    	$start_date = $html->find('span[class=date-display-start]', 0)->plaintext;
+    	$end_date = $html->find('span[class=date-display-end]', 0)->plaintext;			
+		}
+		    
     $pattern = '/\((.*?)\)/';
     $start_date = preg_replace($pattern, '', $start_date);
     $end_date = preg_replace($pattern, '', $end_date);
