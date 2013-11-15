@@ -330,7 +330,7 @@ function og_tag_importer_admin($form, &$form_state) {
     '#type' => 'fieldset',
   );
   
-  $default_title = variable_get('og_tag_importer_og_title'. 'title');
+  $default_title = variable_get('og_tag_importer_og_title', 'title');
   if ($default_title == '') {
     $default_title = $auto_mapping_default['og:title'];
   }
@@ -341,7 +341,7 @@ function og_tag_importer_admin($form, &$form_state) {
     '#default_value' => $default_title,
   );
   
-  $default_image = variable_get('og_tag_importer_og_image'. '');
+  $default_image = variable_get('og_tag_importer_og_image', '');
   if ($default_image == '') {
     $default_image = $auto_mapping_default['og:image'];
   }
@@ -352,7 +352,7 @@ function og_tag_importer_admin($form, &$form_state) {
     '#default_value' => $default_image,
   );
 
-  $default_url = variable_get('og_tag_importer_og_url'. '');
+  $default_url = variable_get('og_tag_importer_og_url', '');
   if ($default_url == '') {
     $default_url = $auto_mapping_default['og:url'];
   }  
@@ -363,7 +363,7 @@ function og_tag_importer_admin($form, &$form_state) {
     '#default_value' => $default_url,
   );
  
-  $default_description = variable_get('og_tag_importer_og_description'. 'body');
+  $default_description = variable_get('og_tag_importer_og_description', 'body');
   if ($default_description == '') {
     $default_description = $auto_mapping_default['og:description'];
   }   
@@ -374,10 +374,7 @@ function og_tag_importer_admin($form, &$form_state) {
     '#default_value' => $default_description,
   );
 
-  $default_site_name = variable_get('og_tag_importer_og_site_name'. 'body');
-  if ($default_site_name == '') {
-    $default_site_name = $auto_mapping_default['og:site_name'];
-  }    
+  $default_site_name = variable_get('og_tag_importer_og_site_name', 'body');
   $form['og']['og_tag_importer_og_site_name'] = array(
     '#title' => 'og:site_name',
     '#type' => 'select',
