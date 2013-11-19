@@ -169,6 +169,11 @@ header {
   float: right;
   clear: right;
   max-width: 255px;
+  
+  label {
+    display: none;
+  }
+  
   form{
     position: relative;
     height: 24px;
@@ -206,7 +211,12 @@ header {
     background: #ebebeb;
   }
 }
-#people_search{position: relative;}
+#people_search{
+  position: relative;
+  label {
+    display: none
+  }
+  }
 .search-label{
   position: absolute;
   top: 0;

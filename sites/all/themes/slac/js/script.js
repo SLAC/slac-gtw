@@ -233,12 +233,12 @@
         // });
 
 
-      $('.searchbox').each(function(){
-      	$(this).prev('label').hide()
-      	var label_value = $(this).prev('label').text()
-      	$(this).attr('placeholder', label_value)
-      	
-      })
+      // $('.searchbox').each(function(){
+      	// $(this).prev('label').hide()
+      	// var label_value = $(this).prev('label').text()
+      	// $(this).attr('placeholder', label_value)
+//       	
+      // })
 
 	$('.searchbox').placeholder()
 
