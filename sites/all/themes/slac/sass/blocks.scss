@@ -68,6 +68,9 @@
     color: #fff;
     padding-left: 20px;
     line-height: 22px;
+    a {
+      color: inherit;
+    }
   }
   > div {
     padding: 12px;
@@ -861,11 +864,25 @@ a.submit-feedback {
   /* Middle blocks */
   .blue-bodered-white {
     .pane-title {
-      background: #a8bcc7 url('../images/blue-arrow.jpg') no-repeat right center;
+      
       font-size: 12px;
       height: 32px;
       line-height: 32px;
       margin-bottom: 20px;
+      background: #a8bcc7 url('../images/blue-arrow.jpg') no-repeat right center; 
+      .frontpage-news-list & {
+        padding-left: 0;
+        background: none;
+      }
+      
+      a {
+        display: block;
+        .frontpage-news-list & {
+          padding-left: 20px;
+          background: #a8bcc7 url('../images/blue-arrow.jpg') no-repeat right center;          
+        }
+
+      }
     }
     > div {
       padding: 0;
