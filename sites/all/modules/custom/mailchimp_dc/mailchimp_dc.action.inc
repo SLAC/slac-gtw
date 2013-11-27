@@ -36,6 +36,9 @@ function mailchimp_dc_action_add_content($entity, $context) {
     $content .= '<div class="item">';
     $content .= '[mailchimp_campaign|entity_type=node|entity_id=' . $entity->nid . '|view_mode=' . $context['mc_view_mode'] . ']';
     $content .= '</div>';
+    
+    // Allow other modules to add things to the end of the context
+    $content .= implode("\n", module_invoke_all('mailchimp_dc_vbo_content', $context));
     $campaign->template['html_' . $context['mc_template']]['value'] .= $content;
   }
   $options = array(

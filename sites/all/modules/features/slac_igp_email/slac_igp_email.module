@@ -222,6 +222,16 @@ function slac_igp_email_mailchimp_dc_content($config = array(), $template_sectio
 }
 
 /**
+ * Implements hook_mailchimp_dc_vbo_content
+ */
+function slac_igp_email_mailchimp_dc_vbo_content($context) {
+	// let's add a line break for outlook for director's column for weekly email template
+	if ($context['mc_template'] == 'lead_news') {
+		return '<br />';	
+	}
+}
+
+/**
  * Theme function 
  */
 function theme_slac_igp_email_title($vars) {
