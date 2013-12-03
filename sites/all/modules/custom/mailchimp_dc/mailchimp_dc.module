@@ -310,7 +310,11 @@ function _mailchimp_dc_date_suppress($config) {
   if ($dates != '') {
     $dates = nl2br($dates);
     $dates = explode('<br />', $dates);
-    if (in_array(date('Y-m-d', REQUEST_TIME), $dates)) {
+    $new_date = array();
+    foreach ($dates as $date) {
+    	$new_date[] = trim($date);
+    }
+    if (in_array(date('Y-m-d', REQUEST_TIME), $new_date)) {
       return TRUE;      
     }
   }
