@@ -7,3 +7,4 @@
 <div class="item">
   <?php print $director_column; ?>
 </div>
+<br clear="all" />
