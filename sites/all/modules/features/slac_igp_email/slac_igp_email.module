@@ -349,11 +349,18 @@ function _slac_igp_email_generate_items($type, $last_campaign = array()) {
   $query->entityCondition('entity_type', 'node')
     ->entityCondition('bundle', 'news_article')
     ->propertyCondition('status', 1);
-    
+
+  module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
+
   if ($type == 'promoted') {
     $query->propertyCondition('promote', 1);
+    $subqueues = array(slac_igp_feed_get_subqueue('Featured News'));
   } else {
     $query->propertyCondition('promote', 0);
+    $subqueues = array(
+      slac_igp_feed_get_subqueue('Lab News'),
+      slac_igp_feed_get_subqueue('SLAC Science'),
+    );
   }
   if (!empty($last_campaign)) {
     $query->propertyCondition('created', $last_campaign['timestamp'], '>');
@@ -363,7 +370,30 @@ function _slac_igp_email_generate_items($type, $last_campaign = array()) {
   $result = $query->execute();
   if (!empty($result)) {
     foreach ($result['node'] as $item) {
-      $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
+      // also check if this news article is also in the visible queue (according to expiration settings)
+      foreach ($subqueues as $subqueue) {
+        $node_position = nodequeue_get_subqueue_position($subqueue->sqid, $item->nid);
+        if ($node_position == 0) {
+          continue;
+        }
+        // check the specific subqueue expiration settings and its exclusion
+        $expiration_setting = variable_get(_slac_igp_feed_subqueue_expiration_varname($subqueue->qid, $subqueue->sqid), '');
+        // case 1, no expiration setting has been saved
+        if (empty($expiration_setting)) {
+          $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
+        }
+        // saved but exclusion setting is not set
+        elseif ($expiration_setting['exclude'] == 0) {
+          $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
+        }
+        // saved and exclusion setting is set
+        else {
+          // if this node is 6th place and expiration setting exclude 5
+          if ($node_position <= $expiration_setting['exclude']) {
+            $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
+          }
+        }
+      }
     }
   }
   return $data;  
