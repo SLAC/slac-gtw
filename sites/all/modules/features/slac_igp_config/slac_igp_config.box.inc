@@ -19,7 +19,7 @@ function slac_igp_config_default_box() {
   $box->description = 'Connect (Social media)';
   $box->options = array(
     'body' => array(
-      'value' => '<ul class="socials"><li class="fb"><a href="https://www.facebook.com/SLAC.National.Lab" target="_blank">Facebook</a></li><li class="gplus"><a href="https://plus.google.com/+SLAC/posts" target="_blank">Google+</a></li><li class="flickr"><a href="http://www.flickr.com/photos/slaclab/" target="_blank">Flickr</a></li><li class="rss"><a href="https://news.slac.stanford.edu/today-stories" target="_blank">RSS</a></li><li class="twitter"><a href="https://twitter.com/SLACLab" target="_blank">Twitter</a></li><li class="youtube"><a href="http://www.youtube.com/user/SLAC" target="_blank">Youtube</a></li></ul>',
+      'value' => '<ul class="socials"><li class="fb"><a href="https://www.facebook.com/SLAC.National.Lab" target="_blank">Facebook</a></li><li class="gplus"><a href="https://plus.google.com/+SLAC/posts" target="_blank">Google+</a></li><li class="flickr"><a href="http://www.flickr.com/photos/slaclab/" target="_blank">Flickr</a></li><li class="rss"><a href="https://news.slac.stanford.edu/tags/staff-benefits-resources/lab-news" target="_blank">RSS</a></li><li class="twitter"><a href="https://twitter.com/SLACLab" target="_blank">Twitter</a></li><li class="youtube"><a href="http://www.youtube.com/user/SLAC" target="_blank">Youtube</a></li></ul>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -64,7 +64,7 @@ Building 50 <br />
   $box->description = 'Footer';
   $box->options = array(
     'body' => array(
-      'value' => '<a href="http://slac.stanford.edu">SLAC NATIONAL ACCELERATOR LABORATORY</a> 2575 Sand Hill Road, Menlo Park, CA 94025<br>Operated by <a href="http://www.stanford.edu">Stanford University</a> for the <a href="http://science.energy.gov/">U.S. Department of Energy Office of Science</a>',
+      'value' => '<p><a href="http://slac.stanford.edu">SLAC NATIONAL ACCELERATOR LABORATORY</a> <br /> 2575 Sand Hill Road, Menlo Park, CA 94025<br>Operated by <a href="http://www.stanford.edu">Stanford University</a> for the <a href="http://science.energy.gov/">U.S. Department of Energy Office of Science</a></p>',
       'format' => 'full_html',
     ),
     'additional_classes' => 'footer-info',
@@ -80,7 +80,7 @@ Building 50 <br />
   $box->description = 'IT Help Desk';
   $box->options = array(
     'body' => array(
-      'value' => '<p>7am - 6pm, Monday - Friday</p><p><a href="https://www6.slac.stanford.edu/visiting-slac/maps-directions-visitormap.aspx">Building 50, First Floor Lobby</a></p><p>xHELP (650-926-4357)</p><p><a href="mailto:ithelp@slac.stanford.edu">ithelp@slac.stanford.edu</a></p><div class="view-footer"><a href="https://www-rt.slac.stanford.edu/rt3/NoAuth/Forms/RequestHelp.html">Submit IT Help Request</a></div>',
+      'value' => '<p>7am - 5pm, Monday - Friday</p><p><a href="https://www6.slac.stanford.edu/visiting-slac/maps-directions-visitormap.aspx">Building 50, First Floor Lobby</a></p><p>xHELP (650-926-4357)</p><p><a href="mailto:ithelp@slac.stanford.edu">ithelp@slac.stanford.edu</a></p><div class="view-footer"><a href="https://www-rt.slac.stanford.edu/rt3/NoAuth/Forms/RequestHelp.html">Submit IT Help Request</a></div>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -112,7 +112,7 @@ Building 50 <br />
   $box->description = 'Search (People)';
   $box->options = array(
     'body' => array(
-      'value' => '<form action="https://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><label for="searchbox_people">People Finder</label><input class="searchbox" id="searchbox_people" maxlength="2047" name="name" size="18" type="text"> <input name="gone" type="hidden" value="active"> <input name="lf" type="hidden" value="1"><input name="url" type="hidden" value=""><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27"> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>',
+      'value' => '<form action="https://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><label for="searchbox_people">People Finder</label><input class="searchbox" id="searchbox_people" maxlength="2047" name="name" placeholder="People Finder" size="18" type="text"> <input name="gone" type="hidden" value="active"> <input name="lf" type="hidden" value="1"><input name="url" type="hidden" value=""><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27"> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -211,7 +211,7 @@ Building 50 <br />
   $box->description = 'Search (Web)';
   $box->options = array(
     'body' => array(
-      'value' => '<form action="http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index" class="header-search" id="websearch" method="get" name="search"><label for="searchbox_web">Search SLAC</label><input class="searchbox" id="searchbox_web" maxlength="2047" name="qt" size="18" type="text"><input name="style" type="hidden" value="mainSite"><input alt="go" class="search-button" height="22" id="search-button" name="submit" src="/sites/all/themes/slac/images/search-icon.jpg" type="image" width="27">&nbsp;</form>',
+      'value' => '<form action="http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index" class="header-search" id="websearch" method="get" name="search"><label for="searchbox_web">Search SLAC</label><input class="searchbox" id="searchbox_web" maxlength="2047" name="qt" placeholder="Search SLAC" size="18" type="text"><input name="style" type="hidden" value="mainSite"><input alt="go" class="search-button" height="22" id="search-button" name="submit" src="/sites/all/themes/slac/images/search-icon.jpg" type="image" width="27">&nbsp;</form>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',

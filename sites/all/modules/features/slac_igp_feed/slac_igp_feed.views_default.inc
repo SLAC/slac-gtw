@@ -106,6 +106,8 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['filters']['field_event_date_value2']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['filters']['field_event_date_value2']['field'] = 'field_event_date_value2';
   $handler->display->display_options['filters']['field_event_date_value2']['operator'] = '>';
+  $handler->display->display_options['filters']['field_event_date_value2']['granularity'] = 'second';
+  $handler->display->display_options['filters']['field_event_date_value2']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['field_event_date_value2']['default_date'] = 'now';
 
   /* Display: Access Information */
@@ -283,6 +285,15 @@ URL: [field_link] \\n';
 
   /* Display: Calendar */
   $handler = $view->new_display('block', 'Calendar', 'block');
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/calendar/all">View All Upcoming Events</a><br />
+<a href="https://oraweb.slac.stanford.edu/apex/slac/f?p=147:1:755477384478:::::">View SLAC Training Calendar</a><br />
+<a href="https://news.slac.stanford.edu/create/announcement ">Submit Event</a>';
+  $handler->display->display_options['footer']['area']['format'] = 'full_html';
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed_1');
@@ -334,7 +345,8 @@ URL: [field_link] \\n';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Footer: Global: Text area */
@@ -475,9 +487,7 @@ URL: [field_link] \\n';
   $handler->display->display_options['fields']['body']['exclude'] = TRUE;
   $handler->display->display_options['fields']['body']['alter']['max_length'] = '300';
   $handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
-  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '300',
   );
@@ -572,9 +582,7 @@ URL: [field_link] \\n';
   $handler->display->display_options['fields']['body']['exclude'] = TRUE;
   $handler->display->display_options['fields']['body']['alter']['max_length'] = '300';
   $handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
-  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '300',
   );
@@ -775,7 +783,7 @@ URL: [field_link] \\n';
   $handler = $view->new_display('block', 'Lab News', 'block_1');
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['pager']['options']['offset'] = '';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
@@ -788,7 +796,7 @@ URL: [field_link] \\n';
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/today-stories ">View More Lab News</a><br />
+  $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/tags/staff-benefits-resources/lab-news">View More Lab News</a><br />
 <a href="https://news.slac.stanford.edu/create/announcement ">Submit Lab News</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -904,7 +912,7 @@ URL: [field_link] \\n';
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="http://www6.slac.stanford.edu/news/news-center.aspx">View More SLAC Science</a><br />
+  $handler->display->display_options['footer']['area']['content'] = '<a href="https://www6.slac.stanford.edu/news/news-center.aspx">View More SLAC Science</a><br />
 <a href="/suggest-a-story">Suggest a SLAC Science Story</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;

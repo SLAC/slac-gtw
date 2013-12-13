@@ -697,7 +697,7 @@ function slac_igp_config_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_news_image_display',
     'label' => 'Featured Image Display',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -807,7 +807,7 @@ function slac_igp_config_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_news_type',
     'label' => 'Type',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),

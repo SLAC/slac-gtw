@@ -123,13 +123,25 @@ function slac_igp_config_default_page_manager_pages() {
     $pane = new stdClass();
     $pane->pid = 'new-3';
     $pane->panel = 'colonerowtwo';
-    $pane->type = 'block';
-    $pane->subtype = 'views-news-block_1';
+    $pane->type = 'views';
+    $pane->subtype = 'news';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '8',
+      'pager_id' => '0',
+      'offset' => '',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_1',
+      'override_title' => 1,
+      'override_title_text' => '<a href="https://news.slac.stanford.edu/tags/staff-benefits-resources/lab-news">LAB NEWS</a>',
     );
     $pane->cache = array();
     $pane->style = array(
