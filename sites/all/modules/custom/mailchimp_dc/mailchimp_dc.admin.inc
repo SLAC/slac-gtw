@@ -10,7 +10,9 @@
 function mailchimp_dc_configuration_form($form, &$form_state, $config = array()) {
     
   module_load_include('inc', 'mailchimp_campaign', 'mailchimp_campaign.admin');
-  
+
+  $form_state['config'] = $config;
+
   $form['label'] = array(
     '#type' => 'textfield',
     '#title' => t('Name'),
