@@ -127,25 +127,40 @@ function _slac_igp_importers_feeds_event($source, $result) {
   
   $library = libraries_load('slac_igp_importers');
   foreach ($result->items as $key => $item) {
-    // try to match event location from title
-    switch($title) {
-      case SLAC_TRAINING_CALENDAR:
-        // i.e. Supervisory and Managerial Skill Development Series: Performance Management (Bldg. 48, Redwood Conf. Room A)
-        $pattern = '/\((.*?)\)/';
-        preg_match($pattern, $item['title'], $match);
-        if (!empty($match)) {
-          if (array_key_exists(1, $match)) {
-            $result->items[$key]['Blank source 1'] = $match[1];
-            $result->items[$key]['title'] = preg_replace($pattern, '', $item['title']);
-          }
+    // Try to get the location information from this event
+    // from <category>location|[Location]
+    $location_array = array();
+    if (!empty($item['tags'])) {
+      foreach ($item['tags'] as $tag) {
+        if (substr($tag, 0, 9) == 'location|') {
+          $location_array = explode('|', $tag);
+          $result->items[$key]['Blank source 1'] = $location_array[1];
         }
-      break;
-      case SLAC_SCIENCE_CALENDAR:
-      break;
-      case SLAC_STAFF_CALENDAR:
-      break;
+      }
     }
-    
+
+    // try to match location from title
+    if (empty($location_array)) {
+      // try to match event location from title
+      switch($title) {
+        case SLAC_TRAINING_CALENDAR:
+          // i.e. Supervisory and Managerial Skill Development Series: Performance Management (Bldg. 48, Redwood Conf. Room A)
+          $pattern = '/\((.*?)\)/';
+          preg_match($pattern, $item['title'], $match);
+          if (!empty($match)) {
+            if (array_key_exists(1, $match)) {
+              $result->items[$key]['Blank source 1'] = $match[1];
+              $result->items[$key]['title'] = preg_replace($pattern, '', $item['title']);
+            }
+          }
+          break;
+        case SLAC_SCIENCE_CALENDAR:
+          break;
+        case SLAC_STAFF_CALENDAR:
+          break;
+      }
+    }
+
     // extract and format date for calendar item
     if (empty($library['loaded'])) {
       return;
