@@ -126,13 +126,14 @@ function _slac_igp_importers_feeds_event($source, $result) {
   }
   
   $library = libraries_load('slac_igp_importers');
+  // dpm($result->items);
+
   foreach ($result->items as $key => $item) {
     // Try to get the location information from this event
     // from <category>location|[Location]
-    $location_array = array();
     if (!empty($item['tags'])) {
       foreach ($item['tags'] as $tag) {
-        if (substr($tag, 0, 9) == 'location|') {
+        if (substr($tag, 0, 9) === 'location|') {
           $location_array = explode('|', $tag);
           $result->items[$key]['Blank source 1'] = $location_array[1];
         }
@@ -140,7 +141,7 @@ function _slac_igp_importers_feeds_event($source, $result) {
     }
 
     // try to match location from title
-    if (empty($location_array)) {
+    if (empty($result->items[$key]['Blank source 1'])) {
       // try to match event location from title
       switch($title) {
         case SLAC_TRAINING_CALENDAR:
