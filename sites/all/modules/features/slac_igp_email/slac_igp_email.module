@@ -98,8 +98,8 @@ function slac_igp_email_field_formatter_view($entity_type, $entity, $field, $ins
     if ($display['type'] == 'link_image') {
       $elements[$delta] = array(
         '#theme' => 'image',
-        '#alt' => (isset($item['title'])) ? $item['title'] : '',
-        '#title' => (isset($item['title'])) ? $item['title'] : '',
+        '#alt' => (isset($item['url'])) ? $item['url'] : '',
+        '#title' => (isset($item['url'])) ? $item['url'] : '',
         '#path' => $item['url'],
         '#attributes' => array('align' => 'left', 'hspace' => '20'),
       );
