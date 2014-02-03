@@ -330,8 +330,8 @@ function slac_igp_email_preprocess_slac_igp_email(&$vars) {
 
   if (variable_get('mailchimp_dc_' . $config['name'] . '_daily_additional', 0) == 1 && $config['schedule_type'] === 'daily') {
     // additional filtering based on nodequeue
-    $vars['featured_news'] = _slac_igp_email_generate_items_additional('promoted', $last_campaign);
-    $vars['news'] = _slac_igp_email_generate_items_additional('regular', $last_campaign);
+    $vars['featured_news'] = _slac_igp_email_generate_items_views('promoted', $last_campaign);
+    $vars['news'] = _slac_igp_email_generate_items_views('regular', $last_campaign);
   }
   else {
     $vars['featured_news'] = _slac_igp_email_generate_items('promoted', $last_campaign);
@@ -342,6 +342,7 @@ function slac_igp_email_preprocess_slac_igp_email(&$vars) {
 /**
  * Generate daily email items from the last campaign
  * (With the additional filtering by the nodequeue)
+ * (Deprecated -> using views logic to generate items in daily email)
  * @params    
  * $type    type of news item
  */
@@ -451,6 +452,75 @@ function _slac_igp_email_generate_items($type, $last_campaign = array()) {
   return $data;
 }
 
+function _slac_igp_email_generate_items_views($type, $last_campaign = array()) {
+
+  $data = array();
+  if ($type == 'promoted') {
+    $mode = VIEW_MODE_TEASER;
+  } else {
+    $mode = VIEW_MODE_LINK;
+  }
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'news_article')
+    ->propertyCondition('status', 1);
+
+  if ($type == 'promoted') {
+    $query->propertyCondition('promote', 1);
+  } else {
+    $query->propertyCondition('promote', 0);
+  }
+  if (!empty($last_campaign)) {
+    $query->propertyCondition('created', $last_campaign['timestamp'], '>');
+  }
+  $query->propertyOrderBy('created', 'DESC');
+  $query->range(0, 10);
+  $result = $query->execute();
+  if (!empty($result)) {
+    foreach ($result['node'] as $item) {
+      // check to see if the given item belongs to any of the news views displays
+      if (_slac_igp_email_check_in_view($item->nid) === TRUE) {
+        $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
+      }
+    }
+  }
+  return $data;
+}
+
+/**
+ * Check to see if a given node (nid) exists in the news views
+ * @param $nid
+ * @return bool
+ */
+function _slac_igp_email_check_in_view($nid) {
+  // @[views_name]|[view_display]
+  $mapping = array(
+    'news|block', // feature news
+    'news|block_1', // lab news,
+    'news|block_2', // slac science (featured)
+    'news|block_3', // slac science
+  );
+  $items = array();
+  foreach ($mapping as $view_meta) {
+    $v = explode('|', $view_meta);
+    $view_name = $v[0];
+    $view_display = $v[1];
+
+    $view = views_get_view($view_name);
+    if ($view) {
+      $view->execute($view_display);
+      if (!empty($view->result)) {
+        foreach ($view->result as $item) {
+          $items[] = $item->nid;
+        }
+      }
+    }
+  }
+  $items = array_unique($items);
+  return in_array($nid, $items);
+}
+
+
 /**
  * Implements hook_form_alter
  */
@@ -466,7 +536,7 @@ function slac_igp_email_form_alter(&$form, &$form_state, $form_id) {
 
   $form['expiration_settings'] = array(
     '#type' => 'checkbox',
-    '#title' => 'Use Nodequeue Expiration Settings',
+    '#title' => 'Use Views Settings',
     '#description' => t('Checking this will limit the generated daily email items to those that appears on the home page in addition to the time elapsed. This setting only affect daily email types'),
     '#weight' => 0,
     '#default_value' => variable_get('mailchimp_dc_' . $config['name'] . '_daily_additional', 0),
