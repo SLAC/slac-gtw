@@ -176,7 +176,8 @@ function slac_igp_feed_preprocess_views_view(&$vars) {
         $ret[$key] = array_slice($group_items, 0, 2);
         // $additional = count($group_items) - 2;
         // $text = ($additional > 1) ? $additional . ' more events' : $additional . ' more event';
-        $more[$key] = l( 'More events', 'http://news.slac.stanford.edu/calendar/all/' . date('Y-m-d', strtotime($title[$key] . ' ' . date('Y'))));
+        //$more[$key] = l( 'More events', 'http://news.slac.stanford.edu/calendar/all/' . date('Y-m-d', strtotime($title[$key] . ' ' . date('Y'))));  /*removing to fix bug -vf*/
+        $more[$key] = l( 'More events', 'http://news.slac.stanford.edu/calendar/all/');
       } else {
         $ret[$key] = $group_items;
       }
