@@ -1122,7 +1122,30 @@ a.submit-feedback {
       }
     }
     &.views-slideshow-controls-text-pause{
-      display: none;
+      //display: none;
+			height: auto;
+			overflow: visible;
+			position: absolute;
+			right: 15px;
+			top: 10px;
+			line-height: 0;
+			width: auto;
+			z-index: 99;
+			> a {
+				background: url('../images/icons-slider.png') no-repeat scroll top center transparent;
+				display: inline-block;
+				height: 15px;
+				width: 15px;
+				&:hover {
+					background-position: bottom center;
+				}
+			}
+			&.views-slideshow-controls-text-status-pause > a {
+				background-position: top left;
+				&:hover {
+					background-position: bottom left;
+				}
+			}
     }
 
     a {
@@ -1141,15 +1164,16 @@ a.submit-feedback {
     z-index: 99;
     .views-slideshow-pager-field-item {
       float: left;
-      width: 20px;
-      height: 20px;
+      width: 15px;
+      height: 15px;
       margin: 0 2px;
       text-indent: -9000px;
       text-transform: capitalize;
-      background: url('../images/slider-pager.png') no-repeat 0 0;
+      background: url('../images/icons-slider.png') no-repeat top right;
       overflow: hidden;
-      &.active {
-        background-image: url('../images/slider-pager-active.png');
+			cursor: pointer;
+      &.active, &:hover {
+        background-position: bottom right;
       }
     }
   }

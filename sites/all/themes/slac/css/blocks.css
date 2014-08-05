@@ -1665,9 +1665,39 @@ a.submit-feedback {
 /* line 1124, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause,
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-pause {
-  display: none;
+  height: auto;
+  overflow: visible;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  line-height: 0;
+  width: auto;
+  z-index: 99;
 }
-/* line 1128, ../sass/blocks.scss */
+/* line 1134, ../sass/blocks.scss */
+.frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause > a,
+.frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-pause > a {
+  background: url("../images/icons-slider.png") no-repeat scroll top center transparent;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+}
+/* line 1139, ../sass/blocks.scss */
+.frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause > a:hover,
+.frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-pause > a:hover {
+  background-position: bottom center;
+}
+/* line 1143, ../sass/blocks.scss */
+.frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause.views-slideshow-controls-text-status-pause > a,
+.frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-pause.views-slideshow-controls-text-status-pause > a {
+  background-position: top left;
+}
+/* line 1145, ../sass/blocks.scss */
+.frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause.views-slideshow-controls-text-status-pause > a:hover,
+.frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-pause.views-slideshow-controls-text-status-pause > a:hover {
+  background-position: bottom left;
+}
+/* line 1151, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span a,
 .frontpage-slider-mobile .views-slideshow-controls-text span a {
   display: block;
@@ -1675,7 +1705,7 @@ a.submit-feedback {
   text-indent: -9000px;
   text-transform: capitalize;
 }
-/* line 1135, ../sass/blocks.scss */
+/* line 1158, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-pager-fields,
 .frontpage-slider-mobile .views-slideshow-pager-fields {
   position: absolute;
@@ -1685,34 +1715,36 @@ a.submit-feedback {
   height: auto;
   z-index: 99;
 }
-/* line 1142, ../sass/blocks.scss */
+/* line 1165, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-pager-fields .views-slideshow-pager-field-item,
 .frontpage-slider-mobile .views-slideshow-pager-fields .views-slideshow-pager-field-item {
   float: left;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   margin: 0 2px;
   text-indent: -9000px;
   text-transform: capitalize;
-  background: url("../images/slider-pager.png") no-repeat 0 0;
+  background: url("../images/icons-slider.png") no-repeat top right;
   overflow: hidden;
+  cursor: pointer;
 }
-/* line 1151, ../sass/blocks.scss */
-.frontpage-news-slider .views-slideshow-pager-fields .views-slideshow-pager-field-item.active,
-.frontpage-slider-mobile .views-slideshow-pager-fields .views-slideshow-pager-field-item.active {
-  background-image: url("../images/slider-pager-active.png");
+/* line 1175, ../sass/blocks.scss */
+.frontpage-news-slider .views-slideshow-pager-fields .views-slideshow-pager-field-item.active, .frontpage-news-slider .views-slideshow-pager-fields .views-slideshow-pager-field-item:hover,
+.frontpage-slider-mobile .views-slideshow-pager-fields .views-slideshow-pager-field-item.active,
+.frontpage-slider-mobile .views-slideshow-pager-fields .views-slideshow-pager-field-item:hover {
+  background-position: bottom right;
 }
 
-/* line 1158, ../sass/blocks.scss */
+/* line 1182, ../sass/blocks.scss */
 .frontpage-slider-mobile {
   display: none;
 }
 
-/* line 1161, ../sass/blocks.scss */
+/* line 1185, ../sass/blocks.scss */
 .frontpage-slac-science .view-header:hover .views-field-nothing {
   background: #2682ca;
 }
-/* line 1164, ../sass/blocks.scss */
+/* line 1188, ../sass/blocks.scss */
 .frontpage-slac-science .view-header .views-field-nothing {
   position: absolute;
   bottom: 0;
@@ -1726,26 +1758,26 @@ a.submit-feedback {
   color: #fff;
   line-height: 18px;
 }
-/* line 1177, ../sass/blocks.scss */
+/* line 1201, ../sass/blocks.scss */
 .frontpage-slac-science .view-header .views-field-nothing:hover .title a {
   border-color: #fff;
 }
-/* line 1180, ../sass/blocks.scss */
+/* line 1204, ../sass/blocks.scss */
 .frontpage-slac-science .view-header .views-field-nothing:hover .body {
   border-color: #dddddd;
 }
-/* line 1184, ../sass/blocks.scss */
+/* line 1208, ../sass/blocks.scss */
 .frontpage-slac-science .view-header .views-field-nothing span {
   display: block;
   width: 96%;
   margin: 10px auto;
 }
-/* line 1188, ../sass/blocks.scss */
+/* line 1212, ../sass/blocks.scss */
 .frontpage-slac-science .view-header .views-field-nothing span a {
   display: block;
   margin: 0;
 }
-/* line 1194, ../sass/blocks.scss */
+/* line 1218, ../sass/blocks.scss */
 .frontpage-slac-science .view-header .views-field-nothing .title a {
   display: inline;
   color: #fff;
@@ -1754,7 +1786,7 @@ a.submit-feedback {
   line-height: normal;
   border-bottom: 1px dashed transparent;
 }
-/* line 1203, ../sass/blocks.scss */
+/* line 1227, ../sass/blocks.scss */
 .frontpage-slac-science .view-header .views-field-nothing .body {
   display: inline;
   max-height: 80px;
