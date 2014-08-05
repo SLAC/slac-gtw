@@ -289,3 +289,29 @@ function slac_igp_feed_node_update($node) {
 //    slac_igp_feed_node_remove($node->nid, array(FEATURED_NEWS));
 //  }
 //}
+
+
+/**
+ * Implements hook_views_pre_render(&$view)
+ * Custom format display event date if today >= start day:  Through <day-short-name>, <month-name> <day-date>
+ */
+
+function slac_igp_feed_views_pre_render(&$view) {
+  if ($view->name == 'access_information') {
+  	if ($view->current_display == 'block') {
+  	  foreach ($view->result as $key => $row) {
+  	    if (isset($row->field_field_event_date)) {
+    		  if (!empty($row->field_field_event_date)) {
+    		    foreach ($row->field_field_event_date as $key_access => $date_access_info) {
+    		      $start_date = $date_access_info['raw']['value'];
+    		      $end_date = $date_access_info['raw']['value2'];
+    		      if (REQUEST_TIME >= strtotime($start_date)) {
+    		        $view->result[$key]->field_field_event_date[$key_access]['rendered']['#markup'] = t('Through <span class="date-display-end">@date_time</span>',array('@date_time' => format_date(strtotime($end_date),'access_information')));
+    		      }
+    		    }
+    	    }
+  	    }	
+  	  }
+    }
+  }
+}
