@@ -1133,6 +1133,8 @@ a.submit-feedback {
 			z-index: 99;
 			> a {
 				background: url('../images/icons-slider.png') no-repeat scroll top center transparent;
+				border-radius: 100%;
+				box-shadow: 1px 1px 2px 0 #444;
 				display: inline-block;
 				height: 15px;
 				width: 15px;
@@ -1166,6 +1168,8 @@ a.submit-feedback {
       float: left;
       width: 15px;
       height: 15px;
+			border-radius: 100%;
+			box-shadow: 1px 1px 2px 0 #444;
       margin: 0 2px;
       text-indent: -9000px;
       text-transform: capitalize;
