@@ -1098,8 +1098,62 @@ a.submit-feedback {
       }
     }
   }
+	.views-slideshow-controls-bottom {
+		background-color: #4487b9;
+		position: relative;
+	}
   .views-slideshow-controls-text span {
-    position: absolute;
+		&.views-slideshow-controls-text-previous,
+		&.views-slideshow-controls-text-next {
+			height: 28px;
+			padding: 5px;
+			position: absolute;
+			top: 0;
+			width: 16px;
+			z-index: 10;
+			&:hover {
+				background-color: #2073b1;
+			}
+			> a {
+				background: url('../images/slide-control.png') no-repeat scroll transparent;
+			}
+		}
+		&.views-slideshow-controls-text-previous {
+			left: 0;
+			> a {
+				background-position: left center;
+			}
+		}
+		&.views-slideshow-controls-text-next {
+			right: 0;
+			> a {
+				background-position: right center;
+			}
+		}
+		&.views-slideshow-controls-text-pause {
+			left: 50%;
+			padding: 9px 0;
+			position: absolute;
+			text-align: center;
+			margin-left: 52.5px;
+			top: 0;
+			width: 25px;
+			z-index: 5;
+			> a {
+				background: url('../images/slide-pause.png') no-repeat scroll top center transparent;
+				height: 20px;
+				&:hover {
+					background-position: bottom center;
+				}
+			}
+			&.views-slideshow-controls-text-status-pause > a {
+				background-position: bottom center;
+				&:hover {
+					background-position: top center;
+				}
+			}
+		}
+    /* position: absolute;
     top: 40%;
     width: 30px;
     height: 70px;
@@ -1108,7 +1162,7 @@ a.submit-feedback {
     background: url('../images/slider-arrow-bg.png') repeat;
     @include rounded_corners(10px);
     z-index: 99;
-
+		
     &.views-slideshow-controls-text-previous {
       left: 20px;
       a{
@@ -1148,17 +1202,34 @@ a.submit-feedback {
 					background-position: bottom left;
 				}
 			}
-    }
+    } */
 
     a {
       display: block;
+			outline: none;
       height: 100%;
       text-indent: -9000px;
       text-transform: capitalize;
     }
   }
   .views-slideshow-pager-fields{
-    position: absolute;
+		padding: 9px 26px;
+		text-align: center;
+		.views-slideshow-pager-field-item {
+			background: url('../images/slide-pager.png') no-repeat scroll top center transparent;
+			cursor: pointer;
+			display: inline-block;
+			height: 20px;
+			margin: 0 5px;
+			position: relative;
+			text-indent: -999em;
+			width: 20px;
+			z-index: 8;
+			&.active, &:hover {
+        background-position: bottom center;
+      }
+		}
+    /* position: absolute;
     right: 15px;
     top: 10px;
     width: auto;
@@ -1179,7 +1250,7 @@ a.submit-feedback {
       &.active, &:hover {
         background-position: bottom right;
       }
-    }
+    } */
   }
 }
 

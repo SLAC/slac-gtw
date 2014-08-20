@@ -281,11 +281,10 @@
   //Position pager & controls slide
   Drupal.behaviors.control_slide = {
     attach: function (context, settings) {
-      var width_pager_slider = $(".frontpage-news-slider .views-slideshow-pager-fields").width();
-      var style_pager = {
-        right: width_pager_slider + 17
-      };
-      $(".frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause").css(style_pager);
+      var pager_slider = $(".frontpage-news-slider .views-slideshow-pager-fields > .views-slideshow-pager-field-item");
+      var width_pager_slider = pager_slider.width();
+      var length_pager_item = pager_slider.length;
+      $('.frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause').css('margin-left',((width_pager_slider+15)*length_pager_item)/2 );
     }
   }
 
