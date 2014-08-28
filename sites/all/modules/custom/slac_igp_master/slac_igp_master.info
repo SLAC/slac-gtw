@@ -1,0 +1,4 @@
+name = SLAC IGP Master module
+description = Provides hook_update's for development purposes.
+core = 7.x
+package = SLAC

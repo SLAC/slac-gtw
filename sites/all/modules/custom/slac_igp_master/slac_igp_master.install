@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function slac_igp_master_install() {
+  for ($i = 7001; $i < 7200; $i++) {
+    $function_name = 'slac_igp_master_update_' . $i;
+    if (function_exists($function_name)) {
+      $function_name();
+    }
+    else {
+      return;
+    }
+  }
+}
+
+/**
+ * 5.2 Email management. The From field is set to ‘SLAC Office of Communications
+ * communications@slac.stanford.edu’.
+ */
+function slac_igp_master_update_7001() {
+  module_enable(array('slac_igp_mail', 'slac_mail_feature'));
+  features_revert(array('slac_mail_feature' => array('variable')));
+}
