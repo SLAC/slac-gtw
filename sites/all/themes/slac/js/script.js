@@ -302,7 +302,11 @@
 			var space_pause = (pager_slider.width()/2) - pager_slider.find(".views-slideshow-pager-field-item").width(); 
 			var width_control = (pager_wrapper.width() - pager_slider.width())/2;
 			nav_pause.css("margin-left", space_pause);
-			pager_wrapper.find(".views-slideshow-controls-text-previous, .views-slideshow-controls-text-next").css("width", width_control);
+			if (width_control < 50) {
+				pager_wrapper.find(".views-slideshow-controls-text-previous, .views-slideshow-controls-text-next").css("width", width_control);
+			} else {
+				pager_wrapper.find(".views-slideshow-controls-text-previous, .views-slideshow-controls-text-next").css("width", "50px");
+			}
     }
   }
 
