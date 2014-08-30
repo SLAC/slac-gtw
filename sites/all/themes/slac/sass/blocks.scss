@@ -1138,14 +1138,14 @@ a.submit-feedback {
 				height: 20px;
 			}
 			&:hover > a {
-				background-position: -28px -28px;
+				background-position: -32px -32px;
 			}
 			&.views-slideshow-controls-text-status-pause {
 				> a {
-					background-position: -49px 0px;
+					background-position: -53px -4px;
 				}
 				&:hover > a{
-					background-position: -49px -28px;
+					background-position: -53px -32px;
 				}
 			}
 		}
