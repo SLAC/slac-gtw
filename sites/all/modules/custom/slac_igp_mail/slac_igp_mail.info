@@ -1,0 +1,4 @@
+name = SLAC Alters to mailing
+description = Provides nice mail's From field.
+core = 7.x
+package = SLAC

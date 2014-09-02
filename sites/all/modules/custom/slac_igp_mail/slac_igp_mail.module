@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * Alter system_site_information_settings form.
+ *
+ * Add site_mail_name form element after site_mail.
+ */
+function slac_igp_mail_form_system_site_information_settings_alter(&$form, $form_state) {
+  $form_site_information = $form['site_information'];
+
+  $sorted_form_site_information = array();
+
+  foreach ($form_site_information as $key => $form_element) {
+    $sorted_form_site_information[$key] = $form_element;
+    if ($key == 'site_mail') {
+      $sorted_form_site_information['site_mail_name'] = array(
+        '#type' => 'textfield',
+        '#title' => t('From name'),
+        '#default_value' => variable_get('site_mail_name', ''),
+        '#description' => t('Name for the From field of outgoing emails.'),
+      );
+    }
+  }
+
+  $form['site_information'] = $sorted_form_site_information;
+}
+
+/**
+ * Implements hook_mail_alter().
+ *
+ * Add a site_mail_name to From header.
+ */
+function slac_igp_mail_mail_alter(&$message) {
+  $site_mail_name = variable_get('site_mail_name', '');
+  if ($message['headers']['From'] == variable_get('site_mail', '') && !empty($site_mail_name)) {
+    $message['headers']['From'] = variable_get('site_mail_name', '') . ' <' . $message['headers']['From'] . '>';
+  }
+}

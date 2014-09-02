@@ -130,7 +130,7 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->configuration = array(
       'override_pager_settings' => 0,
       'use_pager' => 0,
-      'nodes_per_page' => '8',
+      'nodes_per_page' => '5',
       'pager_id' => '0',
       'offset' => '',
       'more_link' => 0,
@@ -141,7 +141,7 @@ function slac_igp_config_default_page_manager_pages() {
       'url' => '',
       'display' => 'block_1',
       'override_title' => 1,
-      'override_title_text' => '<a href="https://news.slac.stanford.edu/tags/staff-benefits-resources/lab-news">LAB NEWS</a>',
+      'override_title_text' => '<a href="https://news.slac.stanford.edu/tags/staff-benefits-resources/lab-news">Lab News</a>',
     );
     $pane->cache = array();
     $pane->style = array(
