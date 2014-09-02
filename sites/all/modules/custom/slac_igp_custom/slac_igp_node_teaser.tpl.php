@@ -87,8 +87,14 @@
   <?php if (array_key_exists('field_link', $content)): ?>
     <?php $link = strip_tags(render($content['field_link'])); ?>
   <?php endif; ?>
-  <?php if (array_key_exists('field_news_image_source', $content)): ?>
-    <?php print render($content['field_news_image_source']); ?>
+  <?php if (array_key_exists('field_news_image', $content)): ?>
+    <div style="width: 350px;">
+      <?php
+        $rendered = render($content['field_news_image']);
+        $rendered = str_replace('<img ', '<img style="display: block; margin: 0 auto;" ', $rendered);
+        print $rendered;
+      ?>
+    </div>
   <?php endif; ?>
   <?php if ($title_prefix || $title_suffix || $display_submitted || !$page && $title): ?>
       <?php print render($title_prefix); ?>

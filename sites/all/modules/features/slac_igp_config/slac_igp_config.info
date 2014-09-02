@@ -83,6 +83,7 @@ features[field_instance][] = taxonomy_term-staff_resource-field_resource_promote
 features[field_instance][] = taxonomy_term-top_links-field_link
 features[filter][] = filtered_html
 features[filter][] = full_html
+features[image][] = mailchimp_news_teaser
 features[node][] = access_information
 features[node][] = event
 features[node][] = flea_market_post

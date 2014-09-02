@@ -34,6 +34,38 @@ function slac_igp_config_views_api() {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function slac_igp_config_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: mailchimp_news_teaser.
+  $styles['mailchimp_news_teaser'] = array(
+    'name' => 'mailchimp_news_teaser',
+    'effects' => array(
+      4 => array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 350,
+          'height' => 250,
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function slac_igp_config_node_info() {
