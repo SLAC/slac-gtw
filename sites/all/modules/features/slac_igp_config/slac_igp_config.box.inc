@@ -112,7 +112,7 @@ Building 50 <br />
   $box->description = 'Search (People)';
   $box->options = array(
     'body' => array(
-      'value' => '<form action="https://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><label for="searchbox_people">People Finder</label><input class="searchbox" id="searchbox_people" maxlength="2047" name="name" placeholder="People Finder" size="18" type="text"> <input name="gone" type="hidden" value="active"> <input name="lf" type="hidden" value="1"><input name="url" type="hidden" value=""><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27"> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>',
+      'value' => '<form action="https://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><label for="searchbox_people">People Finder</label><input class="searchbox" id="searchbox_people" maxlength="2047" name="name" size="18" type="text" placeholder="People Finder" /> <input name="gone" type="hidden" value="active"> <input name="lf" type="hidden" value="1"><input name="url" type="hidden" value=""><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27"> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -211,7 +211,7 @@ Building 50 <br />
   $box->description = 'Search (Web)';
   $box->options = array(
     'body' => array(
-      'value' => '<form action="http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index" class="header-search" id="websearch" method="get" name="search"><label for="searchbox_web">Search SLAC</label><input class="searchbox" id="searchbox_web" maxlength="2047" name="qt" placeholder="Search SLAC" size="18" type="text"><input name="style" type="hidden" value="mainSite"><input alt="go" class="search-button" height="22" id="search-button" name="submit" src="/sites/all/themes/slac/images/search-icon.jpg" type="image" width="27">&nbsp;</form>',
+      'value' => '<form action="http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index" class="header-search" id="websearch" method="get" name="search"><label for="searchbox_web">Search SLAC</label><input class="searchbox" id="searchbox_web" maxlength="2047" name="qt" size="18" type="text" placeholder="Search SLAC"><input name="style" type="hidden" value="mainSite"><input alt="go" class="search-button" height="22" id="search-button" name="submit" src="/sites/all/themes/slac/images/search-icon.jpg" type="image" width="27">&nbsp;</form>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
