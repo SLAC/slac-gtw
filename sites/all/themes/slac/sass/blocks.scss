@@ -1084,15 +1084,15 @@ a.submit-feedback {
   }
 	.views-slideshow-controls-bottom {
 		background-color: #acbccb;
-    padding: 9px 12px;
+    padding: 6px 12px;
     position: relative;
     text-align: center;
 	}
   .views-slideshow-controls-text span {
 		&.views-slideshow-controls-text-previous,
 		&.views-slideshow-controls-text-next {
-			height: 38px;
-			padding: 5px;
+			height: 100%;
+			padding: 4px 5px;
 			position: absolute;
 			top: 0;
 			width: 50px;
@@ -1103,7 +1103,7 @@ a.submit-feedback {
       box-sizing: border-box;
 			> a {
 				background: url('../images/nav-slider.png') no-repeat scroll transparent;
-				width: 16px;
+				width: 14px;
 			}
 		}
 		&.views-slideshow-controls-text-previous {
@@ -1118,34 +1118,34 @@ a.submit-feedback {
 		&.views-slideshow-controls-text-next {
 			right: 0;
 			> a {
-				background-position: -16px 0;
+				background-position: -14px 0;
 				float: right;
 			}
 			&:hover a {
-				background-position: -16px -28px;
+				background-position: -14px -24px;
 			}
 		}
 		&.views-slideshow-controls-text-pause {
 			left: 50%;
 			margin-left: 46px;
-			padding: 9px 0;
+			padding: 6px 0;
 			position: absolute;
 			top: 0;
 			width: 20px;
 			z-index: 5;
 			> a {
-				background: url("../images/nav-slider.png") no-repeat scroll -32px -4px transparent;
+				background: url("../images/nav-slider.png") no-repeat scroll -28px 0px transparent;
 				height: 20px;
 			}
 			&:hover > a {
-				background-position: -32px -32px;
+				background-position: -28px -28px;
 			}
 			&.views-slideshow-controls-text-status-pause {
 				> a {
-					background-position: -53px -4px;
+					background-position: -49px 0px;
 				}
 				&:hover > a{
-					background-position: -53px -32px;
+					background-position: -49px -28px;
 				}
 			}
 		}
@@ -1161,7 +1161,7 @@ a.submit-feedback {
   .views-slideshow-pager-fields{
 		display: inline-block;
 		.views-slideshow-pager-field-item, .pager-item {
-			background: url('../images/nav-slider.png') no-repeat scroll right -4px transparent;
+			background: url('../images/nav-slider.png') no-repeat scroll right 0 transparent;
 			cursor: pointer;
 			display: inline-block;
 			height: 20px;
@@ -1171,7 +1171,7 @@ a.submit-feedback {
 			width: 20px;
 			z-index: 8;
 			&.active, &:hover {
-        background-position: right -32px;
+        background-position: right -28px;
       }
 			.views-field-counter, .views-content-counter {
 				height: 0\9;

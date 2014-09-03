@@ -1626,7 +1626,7 @@ a.submit-feedback {
 .frontpage-news-slider .views-slideshow-controls-bottom,
 .frontpage-slider-mobile .views-slideshow-controls-bottom {
   background-color: #acbccb;
-  padding: 9px 12px;
+  padding: 6px 12px;
   position: relative;
   text-align: center;
 }
@@ -1634,8 +1634,8 @@ a.submit-feedback {
 .frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-previous, .frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-next,
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-previous,
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-next {
-  height: 38px;
-  padding: 5px;
+  height: 100%;
+  padding: 4px 5px;
   position: absolute;
   top: 0;
   width: 50px;
@@ -1650,7 +1650,7 @@ a.submit-feedback {
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-previous > a,
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-next > a {
   background: url("../images/nav-slider.png") no-repeat scroll transparent;
-  width: 16px;
+  width: 14px;
 }
 /* line 1109, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-previous,
@@ -1675,20 +1675,20 @@ a.submit-feedback {
 /* line 1120, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-next > a,
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-next > a {
-  background-position: -16px 0;
+  background-position: -14px 0;
   float: right;
 }
 /* line 1124, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-next:hover a,
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-next:hover a {
-  background-position: -16px -28px;
+  background-position: -14px -24px;
 }
 /* line 1128, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause,
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-pause {
   left: 50%;
   margin-left: 46px;
-  padding: 9px 0;
+  padding: 6px 0;
   position: absolute;
   top: 0;
   width: 20px;
@@ -1697,23 +1697,23 @@ a.submit-feedback {
 /* line 1136, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause > a,
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-pause > a {
-  background: url("../images/nav-slider.png") no-repeat scroll -32px -4px transparent;
+  background: url("../images/nav-slider.png") no-repeat scroll -28px 0px transparent;
   height: 20px;
 }
 /* line 1140, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause:hover > a,
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-pause:hover > a {
-  background-position: -32px -32px;
+  background-position: -28px -28px;
 }
 /* line 1144, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause.views-slideshow-controls-text-status-pause > a,
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-pause.views-slideshow-controls-text-status-pause > a {
-  background-position: -53px -4px;
+  background-position: -49px 0px;
 }
 /* line 1147, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause.views-slideshow-controls-text-status-pause:hover > a,
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-pause.views-slideshow-controls-text-status-pause:hover > a {
-  background-position: -53px -32px;
+  background-position: -49px -28px;
 }
 /* line 1153, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span a,
@@ -1733,7 +1733,7 @@ a.submit-feedback {
 .frontpage-news-slider .views-slideshow-pager-fields .views-slideshow-pager-field-item, .frontpage-news-slider .views-slideshow-pager-fields .pager-item,
 .frontpage-slider-mobile .views-slideshow-pager-fields .views-slideshow-pager-field-item,
 .frontpage-slider-mobile .views-slideshow-pager-fields .pager-item {
-  background: url("../images/nav-slider.png") no-repeat scroll right -4px transparent;
+  background: url("../images/nav-slider.png") no-repeat scroll right 0 transparent;
   cursor: pointer;
   display: inline-block;
   height: 20px;
@@ -1749,7 +1749,7 @@ a.submit-feedback {
 .frontpage-slider-mobile .views-slideshow-pager-fields .views-slideshow-pager-field-item:hover,
 .frontpage-slider-mobile .views-slideshow-pager-fields .pager-item.active,
 .frontpage-slider-mobile .views-slideshow-pager-fields .pager-item:hover {
-  background-position: right -32px;
+  background-position: right -28px;
 }
 /* line 1176, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-pager-fields .views-slideshow-pager-field-item .views-field-counter, .frontpage-news-slider .views-slideshow-pager-fields .views-slideshow-pager-field-item .views-content-counter, .frontpage-news-slider .views-slideshow-pager-fields .pager-item .views-field-counter, .frontpage-news-slider .views-slideshow-pager-fields .pager-item .views-content-counter,
