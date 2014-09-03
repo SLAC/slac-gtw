@@ -1703,17 +1703,17 @@ a.submit-feedback {
 /* line 1140, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause:hover > a,
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-pause:hover > a {
-  background-position: -32px -32px;
+  background-position: -28px -28px;
 }
 /* line 1144, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause.views-slideshow-controls-text-status-pause > a,
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-pause.views-slideshow-controls-text-status-pause > a {
-  background-position: -53px -4px;
+  background-position: -49px 0px;
 }
 /* line 1147, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span.views-slideshow-controls-text-pause.views-slideshow-controls-text-status-pause:hover > a,
 .frontpage-slider-mobile .views-slideshow-controls-text span.views-slideshow-controls-text-pause.views-slideshow-controls-text-status-pause:hover > a {
-  background-position: -53px -32px;
+  background-position: -49px -28px;
 }
 /* line 1153, ../sass/blocks.scss */
 .frontpage-news-slider .views-slideshow-controls-text span a,
