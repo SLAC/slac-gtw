@@ -17,7 +17,19 @@ function slac_igp_mail_form_system_site_information_settings_alter(&$form, $form
         '#type' => 'textfield',
         '#title' => t('From name'),
         '#default_value' => variable_get('site_mail_name', ''),
-        '#description' => t('Name for the From field of outgoing emails.'),
+        '#description' => t('Name for the From field of drupal outgoing emails.'),
+      );
+      $sorted_form_site_information['slac_igp_mail'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Mailchimp default mail'),
+        '#default_value' => variable_get('slac_igp_mail', ''),
+        '#description' => t('Email address to be used as default for mailchimp campaigns.'),
+      );
+      $sorted_form_site_information['slac_igp_from_name'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Mailchimp default From name'),
+        '#default_value' => variable_get('slac_igp_from_name', ''),
+        '#description' => t('Name for the From field of mailchimp emails.'),
       );
     }
   }
