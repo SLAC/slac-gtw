@@ -88,7 +88,7 @@
     <?php $link = strip_tags(render($content['field_link'])); ?>
   <?php endif; ?>
   <?php if (array_key_exists('field_news_image', $content)): ?>
-    <div style="width: 350px; float: left;">
+    <div class="image-wrapper" style="width: 350px; float: left; margin-right: 20px;">
       <?php
         $rendered = render($content['field_news_image']);
         $rendered = str_replace('<img ', '<img style="display: block; margin: 0 auto;" ', $rendered);
