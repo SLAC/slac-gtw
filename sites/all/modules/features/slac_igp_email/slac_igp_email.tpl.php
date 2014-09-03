@@ -15,10 +15,16 @@
   </div>
   <br clear="all" />
 <?php endforeach; ?>
+<?php foreach($news_with_images as $item): ?>
+  <div class="item">
+    <?php print $item; ?>
+  </div>
+  <br clear="all" />
+<?php endforeach; ?>
 </div>
 
 <div id="sub_news">
-<?php foreach($news as $_news): ?>
-    <?php print $_news; ?>
+<?php foreach($news as $item): ?>
+    <?php print $item; ?>
 <?php endforeach; ?>
 </div>

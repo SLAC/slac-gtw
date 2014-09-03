@@ -227,6 +227,7 @@ function slac_igp_email_preprocess_slac_igp_email_sidebar(&$vars) {
 function slac_igp_email_preprocess_slac_igp_email(&$vars) {
   // initiate empty arrays
   $vars['featured_news'] = array();
+  $vars['news_with_images'] = array();
   $vars['news'] = array();
   
   $config = $vars['config'];
@@ -238,13 +239,16 @@ function slac_igp_email_preprocess_slac_igp_email(&$vars) {
   $last_campaign = array();
   $last_campaign = mailchimp_dc_load_dc($config['name']);
 
-  if (variable_get('mailchimp_dc_' . $config['name'] . '_daily_additional', 0) == 1 && $config['schedule_type'] === 'daily') {
+  if (variable_get('mailchimp_dc_' . $config['name'] . '_daily_additional', 0) == 1
+    && $config['schedule_type'] === 'daily') {
     // additional filtering based on nodequeue
     $vars['featured_news'] = _slac_igp_email_generate_items_views('promoted', $last_campaign);
+    $vars['news_with_images'] = _slac_igp_email_generate_items_views('regular_with_images', $last_campaign);
     $vars['news'] = _slac_igp_email_generate_items_views('regular', $last_campaign);
   }
   else {
     $vars['featured_news'] = _slac_igp_email_generate_items('promoted', $last_campaign);
+    $vars['news_with_images'] = _slac_igp_email_generate_items('regular_with_images', $last_campaign);
     $vars['news'] = _slac_igp_email_generate_items('regular', $last_campaign);
   }
 }
@@ -333,7 +337,7 @@ function _slac_igp_email_generate_items_additional($type, $last_campaign = array
  */
 function _slac_igp_email_generate_items($type, $last_campaign = array()) {
   $data = array();
-  if ($type == 'promoted') {
+  if ($type == 'promoted' || $type == 'regular_with_images') {
     $mode = VIEW_MODE_TEASER;
   } else {
     $mode = VIEW_MODE_LINK;
@@ -356,6 +360,18 @@ function _slac_igp_email_generate_items($type, $last_campaign = array()) {
   $result = $query->execute();
   if (!empty($result)) {
     foreach ($result['node'] as $item) {
+      // Remove nodes with or without images based on display.
+      $node = node_load($item->nid);
+      if (isset($node->field_news_image[LANGUAGE_NONE][0]['fid'])) {
+        if ($mode == VIEW_MODE_LINK) {
+          continue;
+        }
+      }
+      else {
+        if ($mode == VIEW_MODE_TEASER) {
+          continue;
+        }
+      }
       $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
     }
   }
@@ -365,7 +381,7 @@ function _slac_igp_email_generate_items($type, $last_campaign = array()) {
 function _slac_igp_email_generate_items_views($type, $last_campaign = array()) {
 
   $data = array();
-  if ($type == 'promoted') {
+  if ($type == 'promoted' || $type == 'regular_with_images') {
     $mode = VIEW_MODE_TEASER;
   } else {
     $mode = VIEW_MODE_LINK;
@@ -388,6 +404,18 @@ function _slac_igp_email_generate_items_views($type, $last_campaign = array()) {
   $result = $query->execute();
   if (!empty($result)) {
     foreach ($result['node'] as $item) {
+      // Remove nodes with or without images based on display.
+      $node = node_load($item->nid);
+      if (isset($node->field_news_image[LANGUAGE_NONE][0]['fid'])) {
+        if ($mode == VIEW_MODE_LINK) {
+          continue;
+        }
+      }
+      else {
+        if ($mode == VIEW_MODE_TEASER) {
+          continue;
+        }
+      }
       // check to see if the given item belongs to any of the news views displays
       if (_slac_igp_email_check_in_view($item->nid) === TRUE) {
         $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
