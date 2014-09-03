@@ -191,13 +191,13 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
   $form['email']['from_mail'] = array(
     '#type' => 'textfield',
     '#title' => t('From email'),
-    '#default_value' => (!empty($config)) ? $config['from_mail'] : '',
+    '#default_value' => (!empty($config)) ? $config['from_mail'] : variable_get('slac_igp_mail'),
   );
   
   $form['email']['from_name'] = array(
     '#type' => 'textfield',
     '#title' => t('From name'),
-    '#default_value' => (!empty($config)) ? $config['from_name'] : '',
+    '#default_value' => (!empty($config)) ? $config['from_name'] : variable_get('slac_igp_from_name'),
   );
   
   $form['advance'] = array(
