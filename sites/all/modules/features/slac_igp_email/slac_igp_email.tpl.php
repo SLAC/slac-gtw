@@ -16,7 +16,7 @@
   <br clear="all" />
 <?php endforeach; ?>
 <?php foreach($news_with_images as $item): ?>
-  <div class="item">
+  <div class="item news-with-images">
     <?php print $item; ?>
   </div>
   <br clear="all" />
