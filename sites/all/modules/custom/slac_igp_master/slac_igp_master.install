@@ -32,6 +32,13 @@ function slac_igp_master_update_7002() {
 }
 
 /**
+ * Set default mailchimp email.
+ */
+function slac_igp_master_update_7003() {
+  features_revert_module('slac_mail_feature');
+}
+
+/**
  * Port features_revert_module from more current version of features.
  */
 if (!function_exists('features_revert_module')) {

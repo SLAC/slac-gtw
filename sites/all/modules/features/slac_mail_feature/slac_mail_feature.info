@@ -1,9 +1,12 @@
 name = Mail configuration
 core = 7.x
 package = SLAC
+php = 5.2.4
 dependencies[] = ctools
 dependencies[] = strongarm
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[variable][] = site_mail
 features[variable][] = site_mail_name
+features[variable][] = slac_igp_from_name
+features[variable][] = slac_igp_mail

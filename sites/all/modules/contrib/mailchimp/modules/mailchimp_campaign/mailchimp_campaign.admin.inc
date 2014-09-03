@@ -34,7 +34,7 @@ function mailchimp_campaign_campaign_form($form, &$form_state, MailChimpCampaign
     '#type' => 'textfield',
     '#title' => t('From Email'),
     '#description' => t('the From: email address for your campaign message.'),
-    '#default_value' => ($campaign) ? $campaign->mc_data['from_email'] : variable_get('site_mail'),
+    '#default_value' => ($campaign) ? $campaign->mc_data['from_email'] : variable_get('slac_igp_mail'),
     '#size' => 40,
     '#maxlength' => 255,
     '#required' => TRUE,
@@ -43,7 +43,7 @@ function mailchimp_campaign_campaign_form($form, &$form_state, MailChimpCampaign
     '#type' => 'textfield',
     '#title' => t('From Name'),
     '#description' => t('the From: name for your campaign message (not an email address)'),
-    '#default_value' => ($campaign) ? $campaign->mc_data['from_name'] : variable_get('site_name'),
+    '#default_value' => ($campaign) ? $campaign->mc_data['from_name'] : variable_get('slac_igp_from_name'),
     '#size' => 40,
     '#maxlength' => 255,
   );
