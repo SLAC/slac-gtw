@@ -70,7 +70,6 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     '#options' => (empty($config)) ? $options = array('1' => t('Yes'),'0' => t('No'),) : array('' => t('--Select--')),
     '#description' => (empty($config)) ? t('Exclude weekend disable the daily mailing campaign to be generated/send during weekends. (This cannot be changed once saved)') : '',
     '#prefix' => '<div id="schedule_type_settings">',
-    '#suffix' => '</div>',
   );
     
   // depends on the type of schedule, we can also have some additional options
@@ -127,6 +126,12 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     $form['schedule']['schedule_type_setting']['#description'] = $description;
     $form['schedule']['schedule_type_setting']['#disabled'] = (!empty($config)) ? TRUE : FALSE;
     $form['schedule']['schedule_type_setting']['#default_value'] = (!empty($config)) ? $config['schedule_type_setting'] : '';
+
+    $form['schedule']['send_type_setting'] = $form['schedule']['schedule_type_setting'];
+    $form['schedule']['send_type_setting']['#suffix'] = '</div>';
+    $form['schedule']['send_type_setting']['#title'] = 'Send ' . $form['schedule']['send_type_setting']['#title'];
+    $form['schedule']['send_type_setting']['#default_value'] = (!empty($config)) ? $config['send_type_settingA'] : '';
+    $form['schedule']['send_type_setting']['#description'] = str_replace('generated', 'sent', $form['schedule']['send_type_setting']['#description']);
   }
   
   for ($i = 0; $i < 24; $i++) {
@@ -144,17 +149,25 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
   }  
   $form['schedule']['schedule_time'] = array(
     '#type' => 'select',
-    '#title' => 'Scheduled Time (After)',
+    '#title' => 'Create campaign. Scheduled Time',
     '#description' => t('Please select after what time the mailing campaign will be generated (This guarantees contents are placed before the mailing is generated).'),
     '#options' => $time_slot,
     '#default_value' => (!empty($config)) ? $config['schedule_time'] : 0,
   );
+
+  $form['schedule']['send_time'] = array(
+    '#type' => 'select',
+    '#title' => 'Send campaign. Scheduled Time',
+    '#description' => t('Please select after what time the mailing campaign will be send.'),
+    '#options' => $time_slot,
+    '#default_value' => (!empty($config)) ? $config['send_time'] : 0,
+  );
   
-  $form['schedule']['auto_send'] = array(
+  $form['schedule']['send'] = array(
     '#type' => 'checkbox',
-    '#title' => 'Automatically send the campaign',
-    '#description' => t('Check this if you would like the campaign to be automatically sent once it is generated'),
-    '#default_value' => (!empty($config)) ? $config['auto_send'] : 0,
+    '#title' => 'Send the campaign',
+    '#description' => t('Check this if you would like the campaign to be sent on specified date/time'),
+    '#default_value' => (!empty($config)) ? $config['send'] : 0,
   );
     
   $form['email'] = array(
@@ -218,7 +231,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     '#type' => 'submit',
     '#value' => t('Save'),
   );
-  
+
   return $form;
 }
 
@@ -288,7 +301,7 @@ function mailchimp_dc_configuration_form_submit($form, &$form_state) {
 }
 
 function mailchimp_dc_configuration_ajax_callback($form, $form_state) {
-  return $form['schedule']['schedule_type_setting'];
+  return array($form['schedule']['schedule_type_setting'], $form['schedule']['send_type_setting']);
 }
 
 /**
