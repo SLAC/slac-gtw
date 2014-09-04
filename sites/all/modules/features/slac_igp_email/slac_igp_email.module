@@ -466,12 +466,9 @@ function _slac_igp_email_check_in_view($nid) {
 
 
 /**
- * Implements hook_form_alter
+ * Implements hook_form_FORM_ID_alter() for the Mailchimp configuration form.
  */
-function slac_igp_email_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id != 'mailchimp_dc_configuration_form') {
-    return;
-  }
+function slac_igp_email_form_mailchimp_dc_configuration_form_alter(&$form, &$form_state, $form_id) {
   if (empty($form_state['config'])) {
     return;
   }
@@ -480,8 +477,8 @@ function slac_igp_email_form_alter(&$form, &$form_state, $form_id) {
 
   $form['expiration_settings'] = array(
     '#type' => 'checkbox',
-    '#title' => 'Use Views Settings',
-    '#description' => t('Checking this will limit the generated daily email items to those that appears on the home page in addition to the time elapsed. This setting only affect daily email types'),
+    '#title' => t('Use Views settings'),
+    '#description' => t('Checking this will limit the generated daily email items to those that appears on the home page in addition to the time elapsed. This setting only effects daily email types.'),
     '#weight' => 0,
     '#default_value' => variable_get('mailchimp_dc_' . $config['name'] . '_daily_additional', 0),
   );
