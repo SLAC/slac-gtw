@@ -210,7 +210,7 @@ function slac_igp_importers_feeds_importer_default() {
             'unique' => FALSE,
           ),
         ),
-        'update_existing' => '2',
+        'update_existing' => '0',
         'input_format' => 'plain_text',
         'skip_hash_check' => 0,
         'bundle' => 'access_information',
@@ -387,7 +387,7 @@ function slac_igp_importers_feeds_importer_default() {
       'config' => array(),
     ),
     'processor' => array(
-      'plugin_key' => 'FeedsNodeProcessor',
+      'plugin_key' => 'NewsNodeProcessor',
       'config' => array(
         'expire' => '-1',
         'author' => 0,
@@ -401,7 +401,7 @@ function slac_igp_importers_feeds_importer_default() {
           1 => array(
             'source' => 'title',
             'target' => 'title',
-            'unique' => 0,
+            'unique' => 1,
           ),
           2 => array(
             'source' => 'author_name',
@@ -431,8 +431,9 @@ function slac_igp_importers_feeds_importer_default() {
           7 => array(
             'source' => 'tags',
             'target' => 'field_tags',
-            'term_search' => '0',
+            'term_search' => 0,
             'autocreate' => 1,
+            'unique' => FALSE,
           ),
           8 => array(
             'source' => 'Blank source 1',
@@ -452,7 +453,7 @@ function slac_igp_importers_feeds_importer_default() {
         ),
         'update_existing' => '2',
         'input_format' => 'filtered_html',
-        'skip_hash_check' => 0,
+        'skip_hash_check' => 1,
         'bundle' => 'news_article',
       ),
     ),
@@ -461,7 +462,7 @@ function slac_igp_importers_feeds_importer_default() {
     'import_period' => '0',
     'expire_period' => 3600,
     'import_on_create' => 1,
-    'process_in_background' => 0,
+    'process_in_background' => 1,
   );
   $export['slac_news'] = $feeds_importer;
 

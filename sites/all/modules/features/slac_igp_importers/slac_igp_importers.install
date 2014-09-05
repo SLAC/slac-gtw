@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_enable
+ */
+function slac_igp_importers_enable() {
+	cache_clear_all('plugins:feeds:plugins', 'cache');
+}
