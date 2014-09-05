@@ -15,10 +15,17 @@
  * @return
  *
  */
-function slac_igp_feed_node_move($nid, &$subqueue, $front) {
+function slac_igp_feed_node_move($nid, &$subqueue, $front, $index) {
   if ($front) {
-    $position = nodequeue_get_subqueue_position($subqueue->sqid, $nid);
-    nodequeue_queue_front($subqueue, $position);    
+    $current_position = nodequeue_get_subqueue_position($subqueue->sqid, $nid);
+    $position = $current_position + $index;
+
+    if($position > 0) {
+      nodequeue_queue_front($subqueue, $position); 
+    }
+    else {
+      nodequeue_queue_front($subqueue, $current_position); 
+    }
   }
 }
 
@@ -33,12 +40,12 @@ function slac_igp_feed_node_move($nid, &$subqueue, $front) {
  * @return
  *
  */
-function slac_igp_feed_node_add($nid, $subqueue_title, $front) {
+function slac_igp_feed_node_add($nid, $subqueue_title, $front, $index = 0) {
   $queue = slac_igp_feed_get_queue();
   $subqueue = slac_igp_feed_get_subqueue($subqueue_title);
   if (!empty($queue) && !empty($subqueue)) {
     nodequeue_subqueue_add($queue, $subqueue, $nid);
-    slac_igp_feed_node_move($nid, $subqueue, $front);
+    slac_igp_feed_node_move($nid, $subqueue, $front, $index);
   }
 }
 
@@ -53,7 +60,6 @@ function slac_igp_feed_node_add($nid, $subqueue_title, $front) {
  *
  */
 function slac_igp_feed_node_remove($nid, $subqueue_title) {
-
   if (!is_array($subqueue_title)) {
     $titles = array($subqueue_title);
   }
