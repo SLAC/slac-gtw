@@ -45,13 +45,25 @@ function mailchimp_dc_schema() {
         'type' => 'varchar',
         'length' => 64,
         'not null' => FALSE,
-        'description' => "Additional scheduling option such as day of the week or day of the month",
+        'description' => "Additional generate campaign scheduling option such as day of the week or day of the month",
+      ),
+      'send_type_setting' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+        'description' => "Additional sending mails option such as day of the week or day of the month",
       ),
       'schedule_time' => array(
         'type' => 'varchar',
         'length' => 255,
         'not null' => FALSE,
-        'description' => "Time of the day when the mail should go out",
+        'description' => "Time of the day when the mail should be generated",
+      ),
+      'send_time' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'description' => "Time of the day when the mail should be sent",
       ),
       'suppress' => array(
         'type' => 'blob',
@@ -59,12 +71,12 @@ function mailchimp_dc_schema() {
         'not null' => FALSE,
         'description' => "Dates that should be suppressed, I.E 12-07-2013"
       ),
-      'auto_send' => array(
+      'send' => array(
         'type' => 'int',
         'size' => 'tiny',
         'default' => 0,
         'not null' => FALSE,
-        'description' => "Indicate if mail campaign should go out automatically or not."
+        'description' => "Indicate if mail campaign should be sent on scheduled time."
       ),
       'list' => array(
         'type' => 'varchar',
@@ -239,4 +251,47 @@ function mailchimp_dc_schema() {
     'primary key' => array('mc_campaign_id'),
   );
   return $schema;  
+}
+
+/**
+ * Update schema. Convert field auto_send to send.
+ */
+function mailchimp_dc_update_7001() {
+  $add_fields = array(
+    'send' => array(
+      'type' => 'int',
+      'size' => 'tiny',
+      'default' => 0,
+      'not null' => FALSE,
+      'description' => "Indicate if mail campaign should be sent on scheduled time."
+    ),
+    'send_type_setting' => array(
+      'type' => 'varchar',
+      'length' => 64,
+      'not null' => FALSE,
+      'description' => "Additional sending mails option such as day of the week or day of the month",
+    ),
+    'send_time' => array(
+      'type' => 'varchar',
+      'length' => 255,
+      'not null' => FALSE,
+      'description' => "Time of the day when the mail should be sent",
+    ),
+  );
+  foreach ($add_fields as $field_name => $field_config) {
+    db_add_field('mailchimp_dc_config', $field_name, $field_config);
+  }
+
+  $query = db_select('mailchimp_dc_config', 'mdc');
+  $query->fields('mdc', array('name', 'auto_send'));
+  $results = $query->execute()->fetchAll();
+
+  foreach ($results as $result) {
+    db_update('mailchimp_dc_config')
+      ->fields(array('send' => $result->auto_send))
+      ->condition('name', $result->name)
+    ->execute();
+  }
+
+  db_drop_field('mailchimp_dc_config', 'auto_send');
 }

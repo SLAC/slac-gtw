@@ -1,0 +1,30 @@
+<?php
+/**
+ * @file
+ * Code for the mailchimp_date.install file
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function mailchimp_date_schema() {
+  $schema['mailchimp_date'] = array(
+    'description' => 'Stores information when Campaign to be sent',
+    'fields' => array(
+      'mc_campaign_id' => array(
+        'description' => 'MailChimp campaign ID.',
+        'type' => 'varchar',
+        'length' => 16,
+        'not null' => TRUE,
+      ),
+      'date' => array(
+        'description' => 'The Unix timestamp when the campaign to be sent.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('mc_campaign_id'),
+  );
+  return $schema;
+}
