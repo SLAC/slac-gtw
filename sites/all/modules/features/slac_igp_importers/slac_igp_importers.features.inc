@@ -7,18 +7,18 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function slac_igp_importers_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
-  if ($module == "feeds" && $api == "feeds_importer_default") {
-    return array("version" => "1");
+function slac_igp_importers_ctools_plugin_api($owner, $api) {
+  if ($owner == 'strongarm' && $api == 'strongarm') {
+    return array('version' => '1');
   }
-  list($module, $api) = func_get_args();
-  if ($module == "feeds_tamper" && $api == "feeds_tamper_default") {
-    return array("version" => "2");
+  if ($owner == 'feeds' && $api == 'plugins') {
+    return array('version' => '1');
   }
-  list($module, $api) = func_get_args();
-  if ($module == "strongarm" && $api == "strongarm") {
-    return array("version" => "1");
+  if ($owner == 'feeds' && $api == 'feeds_importer_default') {
+    return array('version' => '1');
+  }
+  if ($owner == 'feeds_tamper' && $api == 'feeds_tamper_default') {
+    return array('version' => '2');
   }
 }
 
@@ -45,4 +45,26 @@ function slac_igp_importers_node_info() {
     ),
   );
   return $items;
+}
+/**
+ * Implements hook_feeds_plugins
+ */
+
+function slac_igp_importers_feeds_plugins() {
+  $path = drupal_get_path('module', 'slac_igp_importers') . '/plugins';
+
+  $info = array();
+  $info['NewsNodeProcessor'] = array(
+    'name' => 'News Node Processor',
+    'description' => 'News Node Processor',
+    'help' => 'Creates nodes from news.',
+    'handler' => array(
+      'parent' => 'FeedsProcessor',
+      'class' => 'NewsNodeProcessor',
+      'file' => 'NewsNodeProcessor.inc',
+      'path' => $path,
+    ),
+  );
+
+  return $info;
 }

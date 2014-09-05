@@ -269,6 +269,32 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'list_text',
   );
 
+  // Exported field_base: 'field_override_protection'
+  $field_bases['field_override_protection'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_override_protection',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_resource_authenticated'
   $field_bases['field_resource_authenticated'] = array(
     'active' => 1,

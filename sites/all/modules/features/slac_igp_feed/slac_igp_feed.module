@@ -237,26 +237,32 @@ function slac_igp_feed_node_update($node) {
   if ($node->type === 'news_article') {
     module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
     $lang = $node->language;
+    $promoted_changed = $node->promote == $node->original->promote;
+
+    // if the news article is promoted, take it out of other queue and place it into the featured news queue
     $promoted = (bool) $node->promote;
     $subqueues = array(FEATURED_NEWS, LAB_NEWS, SLAC_SCIENCE);
-    // if the news article is promoted, take it out of other queue and place it into the featured news queu
-    if ($promoted) {
-      slac_igp_feed_node_remove($node->nid, $subqueues);
-      slac_igp_feed_node_add($node->nid, FEATURED_NEWS, FALSE);
-    }
-    else {
-      if (empty($node->field_news_type[$lang])) {
-        return;
+
+    // only update if the promoted is changed or if it's a new node, if not then other factors will cause the nodequeues to be shifted
+    if(!isset($node->original) || $promoted_changed) {
+      if ($promoted) {
+        slac_igp_feed_node_remove($node->nid, $subqueues);
+        slac_igp_feed_node_add($node->nid, FEATURED_NEWS, TRUE);
       }
-      switch($node->field_news_type[$lang][0]['value']) {
-        case 'internal':
-          slac_igp_feed_node_remove($node->nid, $subqueues);
-          slac_igp_feed_node_add($node->nid, LAB_NEWS, FALSE);
-          break;
-        case 'external':
-          slac_igp_feed_node_remove($node->nid, $subqueues);
-          slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, FALSE);
-          break;
+      else {
+        if (empty($node->field_news_type[$lang])) {
+          return;
+        }
+        switch($node->field_news_type[$lang][0]['value']) {
+          case 'internal':
+            slac_igp_feed_node_remove($node->nid, $subqueues);
+            slac_igp_feed_node_add($node->nid, LAB_NEWS, TRUE);
+            break;
+          case 'external':
+            slac_igp_feed_node_remove($node->nid, $subqueues);
+            slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, TRUE, -1);
+            break;
+        }
       }
     }
   }
