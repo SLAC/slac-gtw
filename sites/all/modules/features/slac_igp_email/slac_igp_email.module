@@ -81,6 +81,7 @@ function slac_igp_email_theme() {
     'slac_igp_email_title' => array(
       'variables' => array(
         'type' => NULL,
+        'config' => array(),
       ),
     ),
   ); 
@@ -145,7 +146,12 @@ function slac_igp_email_mailchimp_dc_vbo_content($context) {
  * Theme function 
  */
 function theme_slac_igp_email_title($vars) {
-  return '<h2>' . date('F j, Y') . '<br />' . $vars['type'] . ' Email</h2>';
+  $config = $vars['config'];
+  $timestamp = REQUEST_TIME;
+  if (isset($config['send_date'])) {
+    $timestamp = $config['send_date'];
+  }
+  return '<h2>' . date('F j, Y', $timestamp) . '<br />' . $vars['type'] . ' Email</h2>';
 }
 
 /**
@@ -159,7 +165,7 @@ function _slac_igp_email_mailchimp_weekly_content($config, $template_sections) {
       'format' => 'mailchimp_campaign',
     ),
     'html_std_header_title' => array(
-      'value' => theme('slac_igp_email_title', array('type' => 'Weekly')),
+      'value' => theme('slac_igp_email_title', array('type' => 'Weekly', 'config' => $config)),
       'format' => 'mailchimp_campaign',
     ),
   );

@@ -237,6 +237,12 @@ function _mailchimp_dc_daily($config) {
   $daily_campaign = mailchimp_dc_load_dc($config['name'], $today);
   if (empty($daily_campaign)) {
     if ((int) date('Gi', REQUEST_TIME) >= (int) $config['schedule_time']) {
+      // Set when campaign to be sent only if Send checkbox is checked.
+      if ($config['send']) {
+        // Calculate when campaign to be sent.
+        $send_time_hours = (int) $config['send_time'] / 100;
+        $config['send_date'] = strtotime($today . ' ' . $send_time_hours . ':00');
+      }
       mailchimp_dc_campaign_create($config);
     }
   }
@@ -256,10 +262,27 @@ function _mailchimp_dc_weekly($config) {
   $scheduled_day = $config['schedule_type_setting'];
   // if today is the scheduled day
   if (date('D', REQUEST_TIME) == $scheduled_day) {
-    // check if already been sent
+    // check if already been generated
     $weekly_campaign = mailchimp_dc_load_dc($config['name'], $today);
     if (empty($weekly_campaign)) {
       if ((int) date('Gi', REQUEST_TIME) >= (int) $config['schedule_time']) {
+        // Set when campaign to be sent only if Send checkbox is checked.
+        if ($config['send']) {
+          // Calculate when campaign to be sent.
+
+          // If generate day of week is the same as send day of week
+          // and sending time is after generationg time.
+          if ($config['schedule_type_setting'] == $config['send_type_setting'] && $config['schedule_time'] <= $config['send_time']) {
+            $send_date = $today;
+          }
+          else {
+            $send_date = date('Y-m-d', strtotime('next ' . $config['send_type_setting']));
+          }
+
+          $send_time_hours = (int) $config['send_time'] / 100;
+          $config['send_date'] = strtotime($send_date . ' ' . $send_time_hours . ':00');
+        }
+
         mailchimp_dc_campaign_create($config);
       }    
     }  
@@ -342,12 +365,20 @@ function mailchimp_dc_campaign_create($config) {
     break;
     case 'weekly':
     case 'bi-weekly':
-      $title = t('Weekly Digest - !today', array('!today' => date('F j, Y')));
-      $subject = t('!name Weekly Digest - !today', array('!name' => $from_name, '!today' => date('F j, Y'))); 
+      $send_date_formatted = date('F j, Y');
+      if (isset($config['send_date'])) {
+        $send_date_formatted = date('F j, Y', $config['send_date']);
+      }
+      $title = t('Weekly Digest - !today', array('!today' => $send_date_formatted));
+      $subject = t('!name Weekly Digest - !today', array('!name' => $from_name, '!today' => $send_date_formatted));
     break;
     case 'monthly':
-      $title = t('Monthly Digest: !month', array('!month' => date('F, Y')));
-      $subject = t('!name Monthly Digest !month', array('!name' => $from_name, '!month' => date('F, Y'))); 
+      $send_date_formatted = date('F j, Y');
+      if (isset($config['send_date'])) {
+        $send_date_formatted = date('F j, Y', $config['send_date']);
+      }
+      $title = t('Monthly Digest: !month', array('!month' => $send_date_formatted));
+      $subject = t('!name Monthly Digest !month', array('!name' => $from_name, '!month' => $send_date_formatted));
     break;
   }
   
@@ -395,27 +426,16 @@ function mailchimp_dc_campaign_create($config) {
       }
     }
   }
-
   
   $campaign_id = mailchimp_campaign_save_campaign($content, $options);
-  module_load_include('inc', 'mailchimp_dc', 'mailchimp.database');
-  if (isset($campaign_id)) {
-    // send the campaign if it is set
-    if ((bool) $config['auto_send']) {
-      $campaign = mailchimp_campaign_load($campaign_id);
-      mailchimp_campaign_send_campaign($campaign);
-      // update the status of the campaign in our table.
-      mailchimp_dc_record_save(array('mc_campaign_id' => $campaign_id, 'status' => 'sent'), 'mc_campaign_id', 'mailchimp_dc_campaign');
-      drupal_set_message(t('Campaign %name has been sent.',
-          array('%name' => $campaign->label()))
-      );
-    }
-    // save the dc meta information (indicate already generated)
-    // also add another data column to indicate which recurring campaign this comes from
-    mailchimp_dc_record_save(array('mc_campaign_id' => $campaign_id, 'recurring_campaign' => $config['name']), 'mc_campaign_id', 'mailchimp_dc_campaign');
-    mailchimp_dc_save_dc($campaign_id, $config['name']);
-    cache_clear_all('mailchimp_campaign_campaigns', 'cache');
+
+  // Schedule campaign sending.
+  if (isset($config['send_date'])) {
+    $mailchimp_date_record = array('mc_campaign_id' => $campaign_id, 'date' => $config['send_date']);
+    drupal_write_record('mailchimp_date', $mailchimp_date_record);
   }
+
+  mailchimp_dc_save_dc($campaign_id, $config['name']);
 }
 
 /**
@@ -438,6 +458,6 @@ function _mailchimp_dc_content_options($return_data = FALSE) {
       } 
     }
   }
-  
+
   return $options;
 }

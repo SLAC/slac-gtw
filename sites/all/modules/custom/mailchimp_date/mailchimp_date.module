@@ -1,0 +1,138 @@
+<?php
+
+/**
+ * Implements HOOK_form_FORM_ID_alter().
+ */
+function mailchimp_date_form_mailchimp_campaign_campaign_form_alter(&$form, $form_state) {
+  $new_form = array();
+  foreach ($form as $key => $form_element) {
+    $new_form[$key] = $form[$key];
+    if ($key != 'subject') {
+      continue;
+    }
+
+    $default_value = '';
+    $diable_send_date_field = FALSE;
+    if (isset($form_state['campaign'])) {
+      $campaign_id = $form_state['campaign']->mc_campaign_id;
+      $default_value = mailchimp_date_get_date($campaign_id);
+    }
+
+    $new_form['send_date'] = array(
+      '#type' => 'textfield',
+      '#title' => t('To be sent on'),
+      '#maxlength' => 25,
+      '#description' => t('Format: %time. The date format is YYYY-MM-DD. Leave blank to use the time of form submission.',
+        array(
+          '%time' => format_date(REQUEST_TIME, 'custom', 'Y-m-d H:i:s O'),
+        )
+      ),
+      '#default_value' => $default_value,
+    );
+  }
+
+  $form = $new_form;
+
+  $form['#validate'][] = 'mailchimp_date_form_mailchimp_campaign_campaign_form_validate';
+  $form['#submit'][] = 'mailchimp_date_form_mailchimp_campaign_campaign_form_submit';
+}
+
+/**
+ * Validate callback to check date format.
+ */
+function mailchimp_date_form_mailchimp_campaign_campaign_form_validate($form, &$form_state) {
+  // Validate the "authored on" field.
+  $send_date = &$form_state['values']['send_date'];
+  if (!empty($send_date) && strtotime($send_date) === FALSE) {
+    form_set_error('$send_date', t('You have to specify a valid date.'));
+    return;
+  }
+  if (empty($send_date)) {
+    $send_date = format_date(REQUEST_TIME, 'custom', 'Y-m-d H:i:s O');
+  }
+}
+
+/**
+ * Submit callback. Save date.
+ */
+function mailchimp_date_form_mailchimp_campaign_campaign_form_submit($form, $form_state) {
+  if (isset($form_state['campaign']->mc_campaign_id)) {
+    $campaign_id = $form_state['campaign']->mc_campaign_id;
+  }
+  else {
+    $campaign_id = drupal_static('mailchimp_date_last_inserted_campaign_id', NULL);
+  }
+
+  if (empty($campaign_id)) {
+    watchdog('mailchimp_date', 'Cannot save date for empty campaign_id.');
+    return;
+  }
+
+  db_query('DELETE FROM {mailchimp_date}  WHERE mc_campaign_id = :mc_campaign_id',
+    array(':mc_campaign_id' => $campaign_id));
+
+  $record = array(
+    'mc_campaign_id' => $campaign_id,
+    'date' => strtotime($form_state['values']['send_date']),
+  );
+  drupal_write_record('mailchimp_date', $record);
+}
+
+/**
+ * Get the send date of campaign.
+ *
+ * @param string $campaign_id
+ */
+function mailchimp_date_get_date($campaign_id) {
+  $timestamp = db_query('SELECT date FROM {mailchimp_date} WHERE mc_campaign_id = :mc_campaign_id',
+    array(':mc_campaign_id' => $campaign_id))->fetchField();
+
+  return format_date($timestamp, 'custom', 'Y-m-d H:i:s O');
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function mailchimp_date_entity_insert($entity, $type) {
+  if ($type != 'mailchimp_campaign') {
+    return;
+  }
+  $campaign_id = &drupal_static('mailchimp_date_last_inserted_campaign_id', NULL);
+  $campaign_id = $entity->mc_campaign_id;
+}
+
+/**
+ * Implements hook_entity_view().
+ */
+function mailchimp_date_entity_view($entity, $type, $view_mode, $langcode) {
+  if ($type != 'mailchimp_campaign') {
+    return;
+  }
+
+  $formatted_date = mailchimp_date_get_date($entity->mc_campaign_id);
+  if (!empty($formatted_date)) {
+    $entity->content['send_date'] = array(
+      '#prefix' => '<div class="field campaign-send-date"><div class="field-label">' . t('Scheduled send date') . "</div>",
+      '#markup' => $formatted_date,
+      '#suffix' => '</div>',
+    );
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function mailchimp_date_cron() {
+  $query = db_select('mailchimp_dc_campaign', 'mdcc');
+  $query->join('mailchimp_date', 'md', 'mdcc.mc_campaign_id = md.mc_campaign_id');
+  $query->fields('mdcc', array('mc_campaign_id'));
+  $query->condition('mdcc.status', 'save');
+  $query->condition('md.date', 0, '>');
+  $query->condition('md.date', REQUEST_TIME, '<');
+  $results = $query->execute()->fetchAll();
+
+  foreach ($results as $record) {
+    $campaign = mailchimp_campaign_load($record->mc_campaign_id);
+    mailchimp_campaign_send_campaign($campaign);
+  }
+}

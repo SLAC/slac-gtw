@@ -39,6 +39,13 @@ function slac_igp_master_update_7003() {
 }
 
 /**
+ * Enable mailchimp date module to support specifying when campaign to be sent.
+ */
+function slac_igp_master_update_7004() {
+  module_enable(array('mailchimp_date'));
+}
+
+/**
  * Port features_revert_module from more current version of features.
  */
 if (!function_exists('features_revert_module')) {
