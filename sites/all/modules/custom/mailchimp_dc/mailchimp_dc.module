@@ -238,6 +238,7 @@ function _mailchimp_dc_daily($config) {
   if (empty($daily_campaign)) {
     if ((int) date('Gi', REQUEST_TIME) >= (int) $config['schedule_time']) {
       // Set when campaign to be sent only if Send checkbox is checked.
+      $config['send_date'] = 0;
       if ($config['send']) {
         // Calculate when campaign to be sent.
         $send_time_hours = (int) $config['send_time'] / 100;
@@ -267,6 +268,7 @@ function _mailchimp_dc_weekly($config) {
     if (empty($weekly_campaign)) {
       if ((int) date('Gi', REQUEST_TIME) >= (int) $config['schedule_time']) {
         // Set when campaign to be sent only if Send checkbox is checked.
+        $config['send_date'] = 0;
         if ($config['send']) {
           // Calculate when campaign to be sent.
 

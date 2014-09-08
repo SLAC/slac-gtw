@@ -11,8 +11,7 @@ function mailchimp_date_form_mailchimp_campaign_campaign_form_alter(&$form, $for
       continue;
     }
 
-    $default_value = '';
-    $diable_send_date_field = FALSE;
+    $default_value = format_date(REQUEST_TIME, 'custom', 'Y-m-d H:i:s O');
     if (isset($form_state['campaign'])) {
       $campaign_id = $form_state['campaign']->mc_campaign_id;
       $default_value = mailchimp_date_get_date($campaign_id);
@@ -22,7 +21,7 @@ function mailchimp_date_form_mailchimp_campaign_campaign_form_alter(&$form, $for
       '#type' => 'textfield',
       '#title' => t('To be sent on'),
       '#maxlength' => 25,
-      '#description' => t('Format: %time. The date format is YYYY-MM-DD. Leave blank to use the time of form submission.',
+      '#description' => t('Format: %time. The date format is YYYY-MM-DD. If you leave it blank campaign won\'t be sent.',
         array(
           '%time' => format_date(REQUEST_TIME, 'custom', 'Y-m-d H:i:s O'),
         )
@@ -47,9 +46,6 @@ function mailchimp_date_form_mailchimp_campaign_campaign_form_validate($form, &$
     form_set_error('$send_date', t('You have to specify a valid date.'));
     return;
   }
-  if (empty($send_date)) {
-    $send_date = format_date(REQUEST_TIME, 'custom', 'Y-m-d H:i:s O');
-  }
 }
 
 /**
@@ -71,9 +67,15 @@ function mailchimp_date_form_mailchimp_campaign_campaign_form_submit($form, $for
   db_query('DELETE FROM {mailchimp_date}  WHERE mc_campaign_id = :mc_campaign_id',
     array(':mc_campaign_id' => $campaign_id));
 
+  if (empty($form_state['values']['send_date'])) {
+    $send_date = 0;
+  }
+  else {
+    $send_date = strtotime($form_state['values']['send_date']);
+  }
   $record = array(
     'mc_campaign_id' => $campaign_id,
-    'date' => strtotime($form_state['values']['send_date']),
+    'date' => $send_date,
   );
   drupal_write_record('mailchimp_date', $record);
 }
