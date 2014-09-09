@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * Impliments hook_update_N()
+ */
+function slac_igp_config_update_7000() {
+  $query = new EntityFieldQuery;
+
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'news_article')
+    ->fieldCondition('field_override_protection', 'value', '0');
+
+  $result = $query->execute();
+
+  if(isset($result['node'])) {
+    $node_keys = array_keys($result['node']);
+    $nodes = node_load_multiple($node_keys);
+
+    foreach ($nodes as $nid => $node) {
+      // change all fields to be protected from being overridden
+     $node->field_override_protection[$node->language][0]['value'] = 1;
+
+     node_save($node);
+    }
+  }
+}
