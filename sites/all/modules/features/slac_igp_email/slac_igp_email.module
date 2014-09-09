@@ -466,12 +466,9 @@ function _slac_igp_email_check_in_view($nid) {
 
 
 /**
- * Implements hook_form_alter
+ * Implements hook_form_FORM_ID_alter() for the Mailchimp configuration form.
  */
-function slac_igp_email_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id != 'mailchimp_dc_configuration_form') {
-    return;
-  }
+function slac_igp_email_form_mailchimp_dc_configuration_form_alter(&$form, &$form_state, $form_id) {
   if (empty($form_state['config'])) {
     return;
   }
@@ -480,8 +477,8 @@ function slac_igp_email_form_alter(&$form, &$form_state, $form_id) {
 
   $form['expiration_settings'] = array(
     '#type' => 'checkbox',
-    '#title' => 'Use Views Settings',
-    '#description' => t('Checking this will limit the generated daily email items to those that appears on the home page in addition to the time elapsed. This setting only affect daily email types'),
+    '#title' => t('Use Views settings'),
+    '#description' => t('Checking this will limit the generated daily email items to those that appears on the home page in addition to the time elapsed. This setting only effects daily email types.'),
     '#weight' => 0,
     '#default_value' => variable_get('mailchimp_dc_' . $config['name'] . '_daily_additional', 0),
   );
@@ -496,4 +493,160 @@ function slac_igp_email_form_alter(&$form, &$form_state, $form_id) {
 function slac_igp_email_mailchimp_expiration($form, &$form_state) {
   $config = $form_state['config'];
   variable_set('mailchimp_dc_' . $config['name'] . '_daily_additional', $form_state['values']['expiration_settings']);
+}
+
+/**
+ * hook_form_FORM_ID_alter() implementation for the Mailchimp campaign form.
+ *
+ * This replaces the "html_news" field with entity reference fields so that
+ * users can more simply "link to" and reorder news articles. Ideally we could
+ * just plop an entity reference field on the campaign entity, but that approach
+ * didn't work because the mailchimp_campaign entities use hexadecimal IDs, and
+ * Drupal's field system expects numeric entity IDs. And various attempts at
+ * trying to finangle a field with the same functionality into place failed. So,
+ * this so-dumb-it's-brilliant workaround; we have created another entity named
+ * campaign_news, and put our fields on there. We create instances of that
+ * entity which refer to mailchimp_campaign entities. We also hack those entity
+ * fields on to this form.
+ */
+function slac_igp_email_form_mailchimp_campaign_campaign_form_alter(&$form, &$form_state) {
+  // Give weights to all the "content" things so we can put things in between them later.
+  $weight = 0;
+  foreach (element_children($form['content']) as $field) {
+    $form['content'][$field]['#weight'] = $weight += 10;
+  }
+  if (!empty($form['content']['html_news'])) {
+    if (!empty($form_state['campaign'])) {
+      $efq = new EntityFieldQuery();
+      $efq->entityCondition('entity_type', 'campaign_news')
+        ->entityCondition('bundle', 'campaign_news')
+        ->fieldCondition('field_campaign_id', 'value', $form_state['campaign']->mc_campaign_id)
+        ->range(0, 1);
+      if ($result = $efq->execute()) {
+        $news_ref = entity_load('campaign_news', array_keys($result['campaign_news']));
+        $news_ref = reset($news_ref);
+      }
+      else {
+        // Load the references from the text field and make a campaign_news
+        // entity of them.
+        $news_ref = entity_create('campaign_news', array('type' => 'campaign_news'));
+        $news_ref->field_campaign_id[LANGUAGE_NONE][0]['value'] = $form_state['campaign']->mc_campaign_id;
+        $xml = new SimpleXMLElement('<div>' . $form['content']['html_news']['#default_value'] . '</div>');
+        foreach ($xml->xpath('//div[@id="featured_news"]/div') as $item) {
+          $item = (string)$item;
+          if (preg_match('/\[mailchimp_campaign.+entity_id=(\d+).+\]/', $item, $matches)) {
+            $news_ref->field_featured_news[LANGUAGE_NONE][] = array('target_id' => $matches[1]);
+          }
+        }
+        if ($sub_items_xml = $xml->xpath('//div[@id="sub_news"]')) {
+          if (preg_match_all('/\[mailchimp_campaign.+?entity_id=(\d+).+?\]/', (string) $sub_items_xml[0], $matches)) {
+            foreach ($matches[1] as $id) {
+              $news_ref->field_sub_news[LANGUAGE_NONE][] = array('target_id' => $id);
+            }
+          }
+        }
+        entity_save('campaign_news', $news_ref);
+      }
+    }
+    else {
+      $news_ref = entity_create('campaign_news', array('type' => 'campaign_news'));
+    }
+
+    $form_state['news_ref'] = $news_ref;
+
+    field_attach_form('campaign_news', $news_ref, $form, $form_state, NULL, array('field_name' => 'field_featured_news'));
+    field_attach_form('campaign_news', $news_ref, $form, $form_state, NULL, array('field_name' => 'field_sub_news'));
+
+    // Move the fields to where we want them to be
+    $form['content']['field_featured_news'] = $form['field_featured_news'];
+    $form['content']['field_featured_news']['#weight'] = $form['content']['html_news']['#weight'] + 2;
+    unset($form['field_featured_news']);
+    $form['content']['field_sub_news'] = $form['field_sub_news'];
+    $form['content']['field_sub_news']['#weight'] = $form['content']['html_news']['#weight'] + 4;
+    unset($form['field_sub_news']);
+
+    // Make the normal field invisible
+    $form['content']['html_news']['#access'] = FALSE;
+
+    // We're going to attach two submit handlers; one before the standard
+    // callback so that we can format the "html_news" field value, and one after
+    // so that we can update our campaign_news entity.
+    $form['#submit'][] = 'slac_igp_email_form_mailchimp_campaign_campaign_form_submit';
+    array_unshift($form['#submit'], 'slac_igp_email_form_mailchimp_campaign_campaign_form_presubmit');
+  }
+}
+
+/**
+ * "Presubmit" handler for the Mailchimp campaign form.
+ *
+ * Update the content of the "html_news" field based on the values of the
+ * featured/sub_news fields.
+ */
+function slac_igp_email_form_mailchimp_campaign_campaign_form_presubmit(&$form, &$form_state) {
+  if (isset($form_state['news_ref'])) {
+    $news_val = '<div id="featured_news">';
+    // First, sort the results
+    usort($form_state['values']['content']['field_featured_news'][LANGUAGE_NONE], '_field_sort_items_helper');
+    usort($form_state['values']['content']['field_sub_news'][LANGUAGE_NONE], '_field_sort_items_helper');
+    foreach ($form_state['values']['content']['field_featured_news'][LANGUAGE_NONE] as $feat_val) {
+      if (!empty($feat_val['target_id'])) {
+        $news_val .= '<div class="item">[mailchimp_campaign|entity_type=node|entity_id=' . $feat_val['target_id'] . '|view_mode=teaser]</div><br clear="all" />';
+      }
+    }
+    $news_val .= '</div><div id="sub_news">';
+    foreach ($form_state['values']['content']['field_sub_news'][LANGUAGE_NONE] as $feat_val) {
+      if (!empty($feat_val['target_id'])) {
+        $news_val .= '[mailchimp_campaign|entity_type=node|entity_id=' . $feat_val['target_id'] . '|view_mode=link]';
+      }
+    }
+    $news_val .= '</div>';
+    $form_state['values']['content']['html_news']['value'] = $news_val;
+  }
+}
+
+/**
+ * Submit handler for the Mailchimp campaign form.
+ *
+ * Update the associated campaign_news entity, if possible. Note that this will
+ * *not* be possible if the entity has not been saved before, since we can't
+ * reasonably get the newly-created MailChimp campaign ID from here. Instead,
+ * we'll rely on the fact that a new entity will be created the next time the
+ * form is viewed. This is awkward, but it should work…
+ */
+function slac_igp_email_form_mailchimp_campaign_campaign_form_submit(&$form, &$form_state) {
+  if (isset($form_state['news_ref']) && isset($form_state['news_ref']->id)) {
+    if ($news = entity_load('campaign_news', array($form_state['news_ref']->id))) {
+      $news = reset($news);
+      foreach (array('field_featured_news', 'field_sub_news') as $field) {
+        $news->{$field} = array(LANGUAGE_NONE => array());
+        foreach ($form_state['values']['content'][$field][LANGUAGE_NONE] as $item) {
+          if (!empty($item['target_id'])) {
+            $news->{$field}[LANGUAGE_NONE][] = $item;
+          }
+        }
+      }
+      entity_save('campaign_news', $news);
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_delete().
+ *
+ * If a Mailchimp entity is being deleted and there's a campaign_news entity
+ * which refers to it, delete it.
+ */
+function slac_igp_email_entity_delete($entity, $type) {
+  if ($type === 'mailchimp_campaign') {
+    $efq = new EntityFieldQuery();
+    $efq->entityCondition('entity_type', 'campaign_news')
+      ->entityCondition('bundle', 'campaign_news')
+      ->fieldCondition('field_campaign_id', 'value', $entity->mc_campaign_id)
+      ->range(0, 1);
+    if ($result = $efq->execute()) {
+      foreach (array_keys($result['campaign_news']) as $id) {
+        entity_delete('campaign_news', $id);
+      }
+    }
+  }
 }

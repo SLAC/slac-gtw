@@ -106,6 +106,7 @@ features[variable][] = comment_form_location_news_article
 features[variable][] = comment_news_article
 features[variable][] = comment_preview_news_article
 features[variable][] = comment_subject_field_news_article
+features[variable][] = cron_safe_threshold
 features[variable][] = date_format_calendar_item
 features[variable][] = date_format_calendar_item_time
 features[variable][] = field_bundle_settings_node__access_information
