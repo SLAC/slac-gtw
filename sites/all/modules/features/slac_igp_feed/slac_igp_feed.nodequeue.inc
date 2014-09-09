@@ -18,10 +18,8 @@
 function slac_igp_feed_node_move($nid, &$subqueue, $front, $index) {
   if ($front) {
     $current_position = nodequeue_get_subqueue_position($subqueue->sqid, $nid);
-    $position = $current_position + $index;
-
-    if($position > 0) {
-      nodequeue_queue_front($subqueue, $position); 
+    if($index != 0) {
+      nodequeue_queue_front($subqueue, $current_position + $index);
     }
     else {
       nodequeue_queue_front($subqueue, $current_position); 
