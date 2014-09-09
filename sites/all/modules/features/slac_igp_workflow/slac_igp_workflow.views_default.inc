@@ -43,6 +43,7 @@ function slac_igp_workflow_views_default_views() {
     'type' => 'type',
     'name' => 'name',
     'status' => 'status',
+    'field_override_protection' => 'field_override_protection',
     'created' => 'created',
     'edit_node' => 'edit_node',
     'delete_node' => 'edit_node',
@@ -83,6 +84,13 @@ function slac_igp_workflow_views_default_views() {
     'status' => array(
       'sortable' => 1,
       'default_sort_order' => 'desc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_override_protection' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -291,6 +299,11 @@ function slac_igp_workflow_views_default_views() {
   $handler->display->display_options['fields']['status']['table'] = 'node';
   $handler->display->display_options['fields']['status']['field'] = 'status';
   $handler->display->display_options['fields']['status']['not'] = 0;
+  /* Field: Content: Override Protection */
+  $handler->display->display_options['fields']['field_override_protection']['id'] = 'field_override_protection';
+  $handler->display->display_options['fields']['field_override_protection']['table'] = 'field_data_field_override_protection';
+  $handler->display->display_options['fields']['field_override_protection']['field'] = 'field_override_protection';
+  $handler->display->display_options['fields']['field_override_protection']['label'] = 'Protection';
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
