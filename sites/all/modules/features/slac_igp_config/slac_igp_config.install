@@ -1,26 +1,25 @@
 <?php
 
 /**
- * Impliments hook_update_N()
+ * Set default value for protection override field.
  */
-function slac_igp_config_update_7000() {
+function slac_igp_config_update_7000(&$sandbox) {
   $query = new EntityFieldQuery;
 
   $query->entityCondition('entity_type', 'node')
-    ->entityCondition('bundle', 'news_article')
-    ->fieldCondition('field_override_protection', 'value', '0');
+    ->entityCondition('bundle', 'news_article');
 
   $result = $query->execute();
 
   if(isset($result['node'])) {
     $node_keys = array_keys($result['node']);
-    $nodes = node_load_multiple($node_keys);
 
-    foreach ($nodes as $nid => $node) {
+    foreach ($node_keys as $nid) {
+      $node = node_load($nid);
       // change all fields to be protected from being overridden
-     $node->field_override_protection[$node->language][0]['value'] = 1;
+      $node->field_override_protection[$node->language][0]['value'] = 1;
 
-     node_save($node);
+      node_save($node);
     }
   }
 }
