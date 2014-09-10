@@ -239,11 +239,9 @@ function _mailchimp_dc_daily($config) {
     if ((int) date('Gi', REQUEST_TIME) >= (int) $config['schedule_time']) {
       // Set when campaign to be sent only if Send checkbox is checked.
       $config['send_date'] = 0;
-      if ($config['send']) {
-        // Calculate when campaign to be sent.
-        $send_time_hours = (int) $config['send_time'] / 100;
-        $config['send_date'] = strtotime($today . ' ' . $send_time_hours . ':00');
-      }
+      // Calculate when campaign to be sent.
+      $send_time_hours = (int) $config['send_time'] / 100;
+      $config['send_date'] = strtotime($today . ' ' . $send_time_hours . ':00');
       mailchimp_dc_campaign_create($config);
     }
   }
@@ -269,21 +267,19 @@ function _mailchimp_dc_weekly($config) {
       if ((int) date('Gi', REQUEST_TIME) >= (int) $config['schedule_time']) {
         // Set when campaign to be sent only if Send checkbox is checked.
         $config['send_date'] = 0;
-        if ($config['send']) {
-          // Calculate when campaign to be sent.
+        // Calculate when campaign to be sent.
 
-          // If generate day of week is the same as send day of week
-          // and sending time is after generationg time.
-          if ($config['schedule_type_setting'] == $config['send_type_setting'] && $config['schedule_time'] <= $config['send_time']) {
-            $send_date = $today;
-          }
-          else {
-            $send_date = date('Y-m-d', strtotime('next ' . $config['send_type_setting']));
-          }
-
-          $send_time_hours = (int) $config['send_time'] / 100;
-          $config['send_date'] = strtotime($send_date . ' ' . $send_time_hours . ':00');
+        // If generate day of week is the same as send day of week
+        // and sending time is after generationg time.
+        if ($config['schedule_type_setting'] == $config['send_type_setting'] && $config['schedule_time'] <= $config['send_time']) {
+          $send_date = $today;
         }
+        else {
+          $send_date = date('Y-m-d', strtotime('next ' . $config['send_type_setting']));
+        }
+
+        $send_time_hours = (int) $config['send_time'] / 100;
+        $config['send_date'] = strtotime($send_date . ' ' . $send_time_hours . ':00');
 
         mailchimp_dc_campaign_create($config);
       }    
