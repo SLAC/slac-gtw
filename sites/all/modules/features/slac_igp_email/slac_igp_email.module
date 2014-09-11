@@ -515,8 +515,9 @@ function slac_igp_email_form_mailchimp_campaign_campaign_form_alter(&$form, &$fo
   foreach (element_children($form['content']) as $field) {
     $form['content'][$field]['#weight'] = $weight += 10;
   }
-  if (!empty($form['content']['html_news'])) {
-    if (!empty($form_state['campaign'])) {
+
+  if (!empty($form_state['campaign'])) {
+    if (isset($form_state['campaign']->mc_campaign_id)) {
       $efq = new EntityFieldQuery();
       $efq->entityCondition('entity_type', 'campaign_news')
         ->entityCondition('bundle', 'campaign_news')
@@ -527,22 +528,35 @@ function slac_igp_email_form_mailchimp_campaign_campaign_form_alter(&$form, &$fo
         $news_ref = reset($news_ref);
       }
       else {
+        if (!empty($form['content']['html_news'])) {
+          $xml = new SimpleXMLElement('<div>' . $form['content']['html_news']['#default_value'] . '</div>');
+          $lead_source = '';
+          foreach ($xml->xpath('//div[@id="featured_news"]/div') as $div) {
+            $lead_source .= (string)$div;
+          }
+          $sub_source = (string)$xml->xpath('//div[@id="sub_news"]')[0];
+        }
+        elseif (isset($form['content']['html_lead_news']) && isset($form['content']['html_sub_news'])) {
+          $lead_source = $form['content']['html_lead_news']['#default_value'];
+          $sub_source = $form['content']['html_sub_news']['#default_vaule'];
+        }
+        else {
+          return;
+        }
+
         // Load the references from the text field and make a campaign_news
         // entity of them.
         $news_ref = entity_create('campaign_news', array('type' => 'campaign_news'));
         $news_ref->field_campaign_id[LANGUAGE_NONE][0]['value'] = $form_state['campaign']->mc_campaign_id;
-        $xml = new SimpleXMLElement('<div>' . $form['content']['html_news']['#default_value'] . '</div>');
-        foreach ($xml->xpath('//div[@id="featured_news"]/div') as $item) {
-          $item = (string)$item;
-          if (preg_match('/\[mailchimp_campaign.+entity_id=(\d+).+\]/', $item, $matches)) {
-            $news_ref->field_featured_news[LANGUAGE_NONE][] = array('target_id' => $matches[1]);
+
+        if (preg_match_all('/\[mailchimp_campaign.+entity_id=(\d+).+\]/', $lead_source, $matches)) {
+          foreach ($matches[1] as $id) {
+            $news_ref->field_featured_news[LANGUAGE_NONE][] = array('target_id' => $id);
           }
         }
-        if ($sub_items_xml = $xml->xpath('//div[@id="sub_news"]')) {
-          if (preg_match_all('/\[mailchimp_campaign.+?entity_id=(\d+).+?\]/', (string) $sub_items_xml[0], $matches)) {
-            foreach ($matches[1] as $id) {
-              $news_ref->field_sub_news[LANGUAGE_NONE][] = array('target_id' => $id);
-            }
+        if (preg_match_all('/\[mailchimp_campaign.+?entity_id=(\d+).+?\]/', $sub_source, $matches)) {
+          foreach ($matches[1] as $id) {
+            $news_ref->field_sub_news[LANGUAGE_NONE][] = array('target_id' => $id);
           }
         }
         entity_save('campaign_news', $news_ref);
@@ -559,14 +573,23 @@ function slac_igp_email_form_mailchimp_campaign_campaign_form_alter(&$form, &$fo
 
     // Move the fields to where we want them to be
     $form['content']['field_featured_news'] = $form['field_featured_news'];
-    $form['content']['field_featured_news']['#weight'] = $form['content']['html_news']['#weight'] + 2;
     unset($form['field_featured_news']);
+
     $form['content']['field_sub_news'] = $form['field_sub_news'];
-    $form['content']['field_sub_news']['#weight'] = $form['content']['html_news']['#weight'] + 4;
     unset($form['field_sub_news']);
 
-    // Make the normal field invisible
-    $form['content']['html_news']['#access'] = FALSE;
+    if (isset($form['content']['html_news'])) {
+      $form['content']['field_featured_news']['#weight'] = $form['content']['html_news']['#weight'] + 2;
+      $form['content']['field_sub_news']['#weight'] = $form['content']['html_news']['#weight'] + 4;
+      // Make the normal field invisible
+/*       $form['content']['html_news']['#access'] = FALSE; */
+    }
+    else {
+      $form['content']['field_featured_news']['#weight'] = $form['content']['html_lead_news']['#weight'];
+      $form['content']['field_sub_news']['#weight'] = $form['content']['html_sub_news']['#weight'];
+      $form['content']['html_lead_news']['#access'] = FALSE;
+      $form['content']['html_sub_news']['#access'] = FALSE;
+    }
 
     // We're going to attach two submit handlers; one before the standard
     // callback so that we can format the "html_news" field value, and one after
@@ -584,23 +607,30 @@ function slac_igp_email_form_mailchimp_campaign_campaign_form_alter(&$form, &$fo
  */
 function slac_igp_email_form_mailchimp_campaign_campaign_form_presubmit(&$form, &$form_state) {
   if (isset($form_state['news_ref'])) {
-    $news_val = '<div id="featured_news">';
+    $featured_val = '<div id="featured_news">';
     // First, sort the results
     usort($form_state['values']['content']['field_featured_news'][LANGUAGE_NONE], '_field_sort_items_helper');
     usort($form_state['values']['content']['field_sub_news'][LANGUAGE_NONE], '_field_sort_items_helper');
     foreach ($form_state['values']['content']['field_featured_news'][LANGUAGE_NONE] as $feat_val) {
       if (!empty($feat_val['target_id'])) {
-        $news_val .= '<div class="item">[mailchimp_campaign|entity_type=node|entity_id=' . $feat_val['target_id'] . '|view_mode=teaser]</div><br clear="all" />';
+        $featured_val .= '<div class="item">[mailchimp_campaign|entity_type=node|entity_id=' . $feat_val['target_id'] . '|view_mode=teaser]</div><br clear="all" />';
       }
     }
-    $news_val .= '</div><div id="sub_news">';
+    $featured_val .= '</div>';
+    $sub_val = '<div id="sub_news">';
     foreach ($form_state['values']['content']['field_sub_news'][LANGUAGE_NONE] as $feat_val) {
       if (!empty($feat_val['target_id'])) {
-        $news_val .= '[mailchimp_campaign|entity_type=node|entity_id=' . $feat_val['target_id'] . '|view_mode=link]';
+        $sub_val .= '[mailchimp_campaign|entity_type=node|entity_id=' . $feat_val['target_id'] . '|view_mode=link]';
       }
     }
-    $news_val .= '</div>';
-    $form_state['values']['content']['html_news']['value'] = $news_val;
+    $sub_val .= '</div>';
+    if (isset($form_state['values']['content']['html_news'])) {
+      $form_state['values']['content']['html_news']['value'] = $featured_val . $sub_val;
+    }
+    else {
+      $form_state['values']['content']['html_lead_news']['value'] = $featured_val;
+      $form_state['values']['content']['html_sub_news']['value'] = $sub_val;
+    }
   }
 }
 
