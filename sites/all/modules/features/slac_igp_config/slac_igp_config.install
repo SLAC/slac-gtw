@@ -17,9 +17,16 @@ function slac_igp_config_update_7000(&$sandbox) {
     foreach ($node_keys as $nid) {
       $node = node_load($nid);
       // change all fields to be protected from being overridden
-      $node->field_override_protection[$node->language][0]['value'] = 1;
+      $node->field_override_protection[$node->language][0]['value'] = 0;
 
       node_save($node);
     }
   }
+}
+
+/**
+ * Invert the last updb
+ */
+function slac_igp_config_update_7001(&$sandbox) {
+  slac_igp_config_update_7000($sandbox);
 }
