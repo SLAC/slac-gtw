@@ -269,34 +269,6 @@ function slac_igp_feed_node_update($node) {
 }
 
 /**
- * Implements hook_node_presave
- */
-//function slac_igp_feed_node_presave($node) {
-//
-//  if ($node->type !== 'news_article') {
-//    return;
-//  }
-//  if (!isset($node->original)) {
-//    return;
-//  }
-//  $original_node = $node->original;
-//  $subqueues = array(FEATURED_NEWS, LAB_NEWS, SLAC_SCIENCE);
-//  module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
-//
-//  // designates this content has been promoted
-//  if ((bool) $original_node->promote === FALSE && (bool) $node->promote) {
-//    // let's move it into the featured queue
-//    slac_igp_feed_node_remove($node->nid, $subqueues);
-//    slac_igp_feed_node_add($node->nid, FEATURED_NEWS, FALSE);
-//  }
-//
-//  // if content is demoted, it will simply be taken out of the featured news queue
-//  if ((bool) $original_node->promote && (bool) $node->promote === FALSE) {
-//    slac_igp_feed_node_remove($node->nid, array(FEATURED_NEWS));
-//  }
-//}
-
-/**
  * Implements hook_views_pre_render(&$view)
  * Custom format display event date if today >= start day:  Through <day-short-name>, <month-name> <day-date>
  */
