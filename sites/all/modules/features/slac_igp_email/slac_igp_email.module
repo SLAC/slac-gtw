@@ -582,7 +582,7 @@ function slac_igp_email_form_mailchimp_campaign_campaign_form_alter(&$form, &$fo
       $form['content']['field_featured_news']['#weight'] = $form['content']['html_news']['#weight'] + 2;
       $form['content']['field_sub_news']['#weight'] = $form['content']['html_news']['#weight'] + 4;
       // Make the normal field invisible
-/*       $form['content']['html_news']['#access'] = FALSE; */
+      $form['content']['html_news']['#access'] = FALSE;
     }
     else {
       $form['content']['field_featured_news']['#weight'] = $form['content']['html_lead_news']['#weight'];
