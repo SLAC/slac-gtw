@@ -829,7 +829,7 @@ function slac_igp_config_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Selecting this box will prevent any further automated edits/updates to this item',
     'display' => array(
       'default' => array(
         'label' => 'above',

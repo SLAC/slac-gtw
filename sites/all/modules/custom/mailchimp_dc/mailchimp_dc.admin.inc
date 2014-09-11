@@ -91,7 +91,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
 
     case 'weekly':
     case 'bi-weekly':
-      $title = t('Select day of the week');
+      $title = t('Select the day of the week to generate the campaign');
       $options = array(
         'Mon' => t('Monday'),
         'Tue' => t('Tuesday'),
@@ -148,16 +148,16 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
   }  
   $form['schedule']['schedule_time'] = array(
     '#type' => 'select',
-    '#title' => 'Create campaign. Scheduled Time',
-    '#description' => t('Please select after what time the mailing campaign will be generated (This guarantees contents are placed before the mailing is generated).'),
+    '#title' => 'Select the time of the day to generate the campaign',
+    '#description' => t('The campaign will be generated after this hour. .'),
     '#options' => $time_slot,
     '#default_value' => (!empty($config)) ? $config['schedule_time'] : 0,
   );
 
   $form['schedule']['send_time'] = array(
     '#type' => 'select',
-    '#title' => 'Send campaign. Scheduled Time',
-    '#description' => t('Please select after what time the mailing campaign will be send.'),
+    '#title' => 'Select the time of the day to send campaign.',
+    '#description' => t('The campaign will be sent after this hour. .'),
     '#options' => $time_slot,
     '#default_value' => (!empty($config)) ? $config['send_time'] : 0,
   );
@@ -165,7 +165,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
   $form['schedule']['send'] = array(
     '#type' => 'checkbox',
     '#title' => 'Send the campaign',
-    '#description' => t('Check this if you would like the campaign to be sent on specified date/time'),
+    '#description' => t('Check this if you would like the campaign to be automatically sent on the specified date and time above.'),
     '#default_value' => (!empty($config)) ? $config['send'] : 0,
   );
     
