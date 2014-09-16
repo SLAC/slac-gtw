@@ -299,3 +299,35 @@ function slac_igp_feed_views_pre_render(&$view) {
     }
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Add a lock icon to the nodequeue form representing the node's "override" lock
+ * state.
+ */
+function slac_igp_feed_form_nodequeue_arrange_subqueue_form_alter(&$form, &$form_state) {
+  if ($form['nodes']['#queue']['name'] === 'news_articles') {
+    $nids = element_children($form['nodes']);
+    // Even though we have things that look like nodes at
+    // $form['nodes'][$nid]['#node'], trying to get values from them will cause
+    // good ol' EntityMalformedException for whatever reason. So this dumb
+    // workaround.
+    $nodes = node_load_multiple($nids);
+    foreach ($nids as $nid) {
+      $override = field_get_items('node', $nodes[$nid], 'field_override_protection');
+      $locked = isset($override[0]['value']) && $override[0]['value'];
+      $uri = entity_uri('node', $nodes[$nid]);
+      $uri['options']['attributes']['class'][] = $locked ? 'field-override-protection-locked' : 'field-override-protection-unlocked';
+      $uri['options']['html'] = FALSE;
+      $form['nodes'][$nid]['title'] = array(
+        '#theme' => 'link',
+        '#text' => $nodes[$nid]->title,
+        '#path' => $uri['path'],
+        '#options' => $uri['options'],
+      );
+    }
+    $form['#attached']['css'][] = drupal_get_path('module', 'slac_igp_feed') . '/css/slac_igp_feed.nodequeue.css';
+  }
+}
+
