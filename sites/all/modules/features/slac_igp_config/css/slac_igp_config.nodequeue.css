@@ -1,0 +1,14 @@
+a.field-override-protection-unlocked, a.field-override-protection-locked {
+  padding-left: 16px;
+  background-position: top left;
+  background-repeat: no-repeat;
+  /**
+   * The lock image was borrowed from the core color module
+   * (modules/color/images/lock.png)
+   */
+  background-image: url('../images/lock.png');
+}
+
+a.field-override-protection-unlocked {
+  background-position: left -25px;
+}
