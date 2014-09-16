@@ -825,7 +825,7 @@ function slac_igp_config_field_default_field_instances() {
     'bundle' => 'news_article',
     'default_value' => array(
       0 => array(
-        'value' => 1,
+        'value' => 0,
       ),
     ),
     'deleted' => 0,
@@ -868,7 +868,6 @@ function slac_igp_config_field_default_field_instances() {
       'weight' => 31,
     ),
   );
-
 
   // Exported field_instance: 'node-news_article-field_tags'
   $field_instances['node-news_article-field_tags'] = array(
@@ -1356,6 +1355,7 @@ function slac_igp_config_field_default_field_instances() {
   t('Override Protection');
   t('Please choose how the news article image would be displayed in the featured sections on the site.');
   t('Promoted');
+  t('Selecting this box will prevent any further automated edits/updates to this item');
   t('Tags');
   t('Type');
 
