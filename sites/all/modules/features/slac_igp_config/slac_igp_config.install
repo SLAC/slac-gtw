@@ -17,7 +17,8 @@ function slac_igp_config_update_7000(&$sandbox) {
     foreach ($node_keys as $nid) {
       $node = node_load($nid);
       // change all fields to be protected from being overridden
-      $node->field_override_protection[$node->language][0]['value'] = 0;
+      $lang = field_language('node', $node, 'field_override_protection');
+      $node->field_override_protection[$lang][0]['value'] = 0;
 
       node_save($node);
     }
