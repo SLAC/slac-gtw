@@ -780,7 +780,11 @@ function slac_igp_config_field_default_field_instances() {
   // Exported field_instance: 'node-news_article-field_news_type'
   $field_instances['node-news_article-field_news_type'] = array(
     'bundle' => 'news_article',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'internal',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
