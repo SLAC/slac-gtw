@@ -43,7 +43,7 @@ function slac_igp_config_image_default_styles() {
   $styles['mailchimp_news_teaser'] = array(
     'name' => 'mailchimp_news_teaser',
     'effects' => array(
-      4 => array(
+      0 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -53,8 +53,8 @@ function slac_igp_config_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => 350,
-          'height' => 250,
+          'width' => 200,
+          'height' => 350,
           'upscale' => 0,
         ),
         'weight' => 1,
