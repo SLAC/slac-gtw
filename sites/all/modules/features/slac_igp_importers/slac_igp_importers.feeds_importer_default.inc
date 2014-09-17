@@ -436,16 +436,11 @@ function slac_igp_importers_feeds_importer_default() {
             'unique' => FALSE,
           ),
           8 => array(
-            'source' => 'Blank source 1',
-            'target' => 'promote',
-            'unique' => FALSE,
-          ),
-          9 => array(
             'source' => 'Blank source 2',
             'target' => 'field_news_type',
             'unique' => FALSE,
           ),
-          10 => array(
+          9 => array(
             'source' => 'enclosure',
             'target' => 'field_news_image_source:url',
             'unique' => FALSE,
