@@ -15,15 +15,30 @@
  * @return
  *
  */
-function slac_igp_feed_node_move($nid, &$subqueue, $front, $index) {
+function slac_igp_feed_node_move($nid, &$subqueue, $front, $index = 0) {
   if ($front) {
     $current_position = nodequeue_get_subqueue_position($subqueue->sqid, $nid);
-    if($index != 0) {
-      nodequeue_queue_front($subqueue, $current_position + $index);
+    nodequeue_queue_front($subqueue, $current_position + $index);
+  }
+  else {
+    // Get current nids in the queue by position. Apparently no API func for
+    // this.
+    $q = db_select('nodequeue_nodes', 'nn')
+      ->fields('nn', array('nid'))
+      ->condition('nn.sqid', $subqueue->sqid)
+      ->orderBy('nn.position');
+    $nids = $q->execute()->fetchCol();
+    // Nodequeue positions are one-based, but our $nids array is zero-based.
+    array_splice($nids, $index - 1, 0, $nid);
+    // Put things in the order and format nodequeue_save_subqueue_order()
+    // expects.
+    $order = array();
+    foreach (array_unique($nids) as $order_nid) {
+      $order[] = array('nid' => $order_nid);
     }
-    else {
-      nodequeue_queue_front($subqueue, $current_position); 
-    }
+    // Why is this function buried away in an admin include? Who knows.
+    module_load_include('inc', 'nodequeue', 'includes/nodequeue.admin');
+    nodequeue_save_subqueue_order($order, $subqueue->qid, $subqueue->sqid);
   }
 }
 

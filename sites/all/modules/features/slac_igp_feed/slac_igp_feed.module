@@ -206,35 +206,23 @@ function slac_igp_feed_preprocess_views_view(&$vars) {
 }
 
 /**
- * Implements hook_node_insert
- * Automatically insert items into nodequeue based on type: internal/external
- * and if the item is promoted or not
- * IMPORTANT: we are assuming RSS feeds are sorted in decending order with newest items first
+ * Implements hook_node_insert().
  */
 function slac_igp_feed_node_insert($node) {
-  if ($node->type === 'news_article') {
-    module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
-    $lang = $node->language;
-    if (empty($node->field_news_type[$lang])) {
-      return;
-    }
-    switch($node->field_news_type[$lang][0]['value']) {
-      case 'internal':
-        slac_igp_feed_node_add($node->nid, LAB_NEWS, FALSE);
-      break;
-      case 'external':
-        slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, FALSE);
-      break;
-    }
-  }
+  _slac_igp_feed_queue_mgmt($node);
 }
 
 /**
- * Implements hook_node_presave().
- *
- * @param $node
+ * Implements hook_node_update().
  */
-function slac_igp_feed_node_presave($node) {
+function _slac_igp_feed_node_update($node) {
+  _slac_igp_feed_queue_mgmt($node);
+}
+
+/**
+ * Positions a node into a queue based on certain factors.
+ */
+function _slac_igp_feed_queue_mgmt($node) {
   if ($node->type === 'news_article') {
     module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
 
@@ -268,7 +256,7 @@ function slac_igp_feed_node_presave($node) {
             break;
           case 'external':
             slac_igp_feed_node_remove($node->nid, $subqueues);
-            slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, TRUE, -1);
+            slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, FALSE, 2);
             break;
         }
       }
