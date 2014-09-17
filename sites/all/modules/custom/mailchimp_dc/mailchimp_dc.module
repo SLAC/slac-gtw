@@ -359,7 +359,7 @@ function mailchimp_dc_campaign_create($config) {
   switch($config['schedule_type']) {
     case 'daily':
       $title = t('Daily Email !today', array('!today' => date('F j, Y')));
-      $subject = t('SLAC Today Daily Email !today', array('!name' => $from_name, '!today' => date('F j, Y')));
+      $subject = t('!name SLAC Today Daily Email !today', array('!name' => $from_name, '!today' => date('F j, Y')));
     break;
     case 'weekly':
     case 'bi-weekly':
@@ -368,7 +368,7 @@ function mailchimp_dc_campaign_create($config) {
         $send_date_formatted = date('F j, Y', $config['send_date']);
       }
       $title = t('Weekly Digest - !today', array('!today' => $send_date_formatted));
-      $subject = t('SLAC Today Weekly Digest - !today', array('!name' => $from_name, '!today' => $send_date_formatted));
+      $subject = t('!name SLAC Today Weekly Digest - !today', array('!name' => $from_name, '!today' => $send_date_formatted));
     break;
     case 'monthly':
       $send_date_formatted = date('F j, Y');

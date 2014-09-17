@@ -151,7 +151,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     '#title' => 'Select the time of the day to generate the campaign',
     '#description' => t('The campaign will be generated after this hour. .'),
     '#options' => $time_slot,
-    '#default_value' => (!empty($config)) ? $config['schedule_time'] : 0,
+    '#default_value' => (isset($config['schedule_time'])) ? $config['schedule_time'] : 0,
   );
 
   $form['schedule']['send_time'] = array(
@@ -159,14 +159,14 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     '#title' => 'Select the time of the day to send campaign.',
     '#description' => t('The campaign will be sent after this hour. .'),
     '#options' => $time_slot,
-    '#default_value' => (!empty($config)) ? $config['send_time'] : 0,
+    '#default_value' => (isset($config['send_time'])) ? $config['send_time'] : 0,
   );
   
   $form['schedule']['send'] = array(
     '#type' => 'checkbox',
     '#title' => 'Send the campaign',
     '#description' => t('Check this if you would like the campaign to be automatically sent on the specified date and time above.'),
-    '#default_value' => (!empty($config)) ? $config['send'] : 0,
+    '#default_value' => (isset($config['send'])) ? $config['send'] : 0,
   );
     
   $form['email'] = array(
@@ -180,7 +180,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     '#type' => 'select',
     '#title' => t('List to use for this recurring campaign'),
     '#options' => _mailchimp_campaign_build_option_list(mailchimp_get_lists()),
-    '#default_value' => (!empty($config)) ? $config['list'] : '',
+    '#default_value' => (isset($config['list'])) ? $config['list'] : '',
     '#required' => TRUE,
   );
   
@@ -188,7 +188,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     '#type' => 'select',
     '#title' => t('Template to use for this recurring campaign'),
     '#options' => _mailchimp_campaign_build_option_list(mailchimp_campaign_get_templates()),
-    '#default_value' => (!empty($config)) ? $config['template'] : '',
+    '#default_value' => (isset($config['template'])) ? $config['template'] : '',
   );
   
   $form['email']['content'] = array(
@@ -196,20 +196,20 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     '#title' => t('Content template'),
     '#description' => t('Content templates are dynamic contents declared through @hook', array('@hook' => 'hook_mailchimp_dc_content')),
     '#options' => _mailchimp_dc_content_options(),
-    '#default_value' => (!empty($config)) ? $config['content'] : '',
+    '#default_value' => (isset($config['content'])) ? $config['content'] : '',
     '#required' => FALSE,
   );
 
   $form['email']['from_mail'] = array(
     '#type' => 'textfield',
     '#title' => t('From email'),
-    '#default_value' => (!empty($config)) ? $config['from_mail'] : variable_get('slac_igp_mail'),
+    '#default_value' => (isset($config['from_mail'])) ? $config['from_mail'] : variable_get('slac_igp_mail'),
   );
   
   $form['email']['from_name'] = array(
     '#type' => 'textfield',
     '#title' => t('From name'),
-    '#default_value' => (!empty($config)) ? $config['from_name'] : variable_get('slac_igp_from_name'),
+    '#default_value' => (isset($config['from_name'])) ? $config['from_name'] : variable_get('slac_igp_from_name'),
   );
   
   $form['advance'] = array(
@@ -223,7 +223,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     '#type' => 'textarea',
     '#title' => 'Suppress Dates',
     '#description' => t('Please enter the list of dates to disable/suppress the recurring campaign, please enter one date per line in the format of YYYY-MM-DD (2013-05-23)'),
-    '#default_value' => (!empty($config)) ? unserialize($config['suppress']) : '',
+    '#default_value' => (isset($config['suppress'])) ? unserialize($config['suppress']) : '',
   );
   
   $form['submit'] = array(
