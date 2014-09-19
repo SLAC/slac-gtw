@@ -101,7 +101,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
         'Sat' => t('Saturday'),
         'Sun' => t('Sunday'),
       );
-      $description = t('Please select the day of the week the weekly mail should be generated (This cannot be changed once saved)');
+      $description = t('This is the day of the week the email will be generated (this cannot be changed once saved).');
     break;
     case 'monthly':
       $title = t('Select day of the month');
@@ -148,8 +148,8 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
   }  
   $form['schedule']['schedule_time'] = array(
     '#type' => 'select',
-    '#title' => 'Select the time of the day to generate the campaign',
-    '#description' => t('The campaign will be generated after this hour. .'),
+    '#title' => 'Select the time of the day to generate the campaign.',
+    '#description' => t('The campaign will be generated after this hour.'),
     '#options' => $time_slot,
     '#default_value' => (isset($config['schedule_time'])) ? $config['schedule_time'] : 0,
   );
