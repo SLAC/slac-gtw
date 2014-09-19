@@ -108,7 +108,7 @@ function og_tag_importer_import_submit($form, &$form_state) {
     
     if (isset($nid)) {
       drupal_set_message('Your imported content has been created', 'status');
-      $form_state['redirect'] = 'node/' . $nid;
+      $form_state['redirect'] = 'node/' . $nid . '/edit';
     }
     else {
       drupal_set_message('A problem has occurred with importing this content.', 'error');
