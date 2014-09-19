@@ -529,12 +529,19 @@ function slac_igp_email_form_mailchimp_campaign_campaign_form_alter(&$form, &$fo
       }
       else {
         if (!empty($form['content']['html_news'])) {
-          $xml = new SimpleXMLElement('<div>' . $form['content']['html_news']['#default_value'] . '</div>');
-          $lead_source = '';
-          foreach ($xml->xpath('//div[@id="featured_news"]/div') as $div) {
-            $lead_source .= (string)$div;
+          try {
+            $xml = new SimpleXMLElement('<div>' . $form['content']['html_news']['#default_value'] . '</div>');
+            $lead_source = '';
+            foreach ($xml->xpath('//div[@id="featured_news"]/div') as $div) {
+              $lead_source .= (string)$div;
+            }
+            $sub_source = (string)$xml->xpath('//div[@id="sub_news"]')[0];
           }
-          $sub_source = (string)$xml->xpath('//div[@id="sub_news"]')[0];
+          catch (Exception $e) {
+            // Parsing the ecks em ell probably failed.
+            $lead_source = '';
+            $sub_source = '';
+          }
         }
         elseif (isset($form['content']['html_lead_news']) && isset($form['content']['html_sub_news'])) {
           $lead_source = $form['content']['html_lead_news']['#default_value'];
