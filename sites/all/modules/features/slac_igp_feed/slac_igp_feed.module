@@ -23,7 +23,7 @@ function slac_igp_feed_cron() {
     $varname = _slac_igp_feed_subqueue_expiration_varname($queue->qid, $subqueue->sqid);
     // get the configuration
     $config = variable_get($varname, array());
-    if (!empty($config) && ($config['date'] !== '' && $config['exclude'] !== '')) {
+    if (!empty($config) && !empty($config['date']) && !empty($config['exclude'])) {
       // 1. load all the nids from the subqueue
       // 2. exclude top x number
       $nodes = nodequeue_load_nodes($subqueue->sqid, FALSE, $config['exclude'], 1000);
@@ -215,7 +215,7 @@ function slac_igp_feed_node_insert($node) {
 /**
  * Implements hook_node_update().
  */
-function _slac_igp_feed_node_update($node) {
+function slac_igp_feed_node_update($node) {
   _slac_igp_feed_queue_mgmt($node);
 }
 
