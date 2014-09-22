@@ -428,7 +428,7 @@ function mailchimp_dc_campaign_create($config) {
   $campaign_id = mailchimp_campaign_save_campaign($content, $options);
 
   // Schedule campaign sending.
-  if (isset($config['send_date'])) {
+  if (isset($config['send']) && !empty($config['send']) && isset($config['send_date'])) {
     $mailchimp_date_record = array('mc_campaign_id' => $campaign_id, 'date' => $config['send_date']);
     drupal_write_record('mailchimp_date', $mailchimp_date_record);
   }
