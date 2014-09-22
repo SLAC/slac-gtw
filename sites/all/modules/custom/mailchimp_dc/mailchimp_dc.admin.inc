@@ -129,7 +129,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     $form['schedule']['send_type_setting'] = $form['schedule']['schedule_type_setting'];
     $form['schedule']['send_type_setting']['#suffix'] = '</div>';
     $form['schedule']['send_type_setting']['#title'] = 'Send ' . $form['schedule']['send_type_setting']['#title'];
-    $form['schedule']['send_type_setting']['#default_value'] = (!empty($config)) ? $config['send_type_settingA'] : '';
+    $form['schedule']['send_type_setting']['#default_value'] = (!empty($config)) ? $config['send_type_setting'] : '';
     $form['schedule']['send_type_setting']['#description'] = str_replace('generated', 'sent', $form['schedule']['send_type_setting']['#description']);
   }
   
