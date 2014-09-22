@@ -377,7 +377,7 @@ function slac_igp_importers_feeds_importer_default() {
       'plugin_key' => 'FeedsHTTPFetcher',
       'config' => array(
         'auto_detect_feeds' => FALSE,
-        'use_pubsubhubbub' => FALSE,
+        'use_pubsubhubbub' => TRUE,
         'designated_hub' => '',
         'request_timeout' => NULL,
       ),
