@@ -535,7 +535,8 @@ function slac_igp_email_form_mailchimp_campaign_campaign_form_alter(&$form, &$fo
             foreach ($xml->xpath('//div[@id="featured_news"]/div') as $div) {
               $lead_source .= (string)$div;
             }
-            $sub_source = (string)$xml->xpath('//div[@id="sub_news"]')[0];
+            $xpath = $xml->xpath('//div[@id="sub_news"]');
+            $sub_source = (string)$xpath[0];
           }
           catch (Exception $e) {
             // Parsing the ecks em ell probably failed.
