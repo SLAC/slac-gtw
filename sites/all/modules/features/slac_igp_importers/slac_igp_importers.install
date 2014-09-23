@@ -6,3 +6,12 @@
 function slac_igp_importers_enable() {
 	cache_clear_all('plugins:feeds:plugins', 'cache');
 }
+
+/**
+ * Disable trouble-causing Feeds Tamper module.
+ */
+function slac_igp_importers_update_7000(&$sandbox) {
+  $stupid_modules = array('feeds_tamper_ui', 'feeds_tamper');
+  module_disable($stupid_modules);
+  drupal_uninstall_modules($stupid_modules);
+}
