@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Uninstall unused Rules module.
+ */
+function slac_igp_email_update_7000(&$sandbox) {
+  module_disable(array('rules_admin', 'rules'));
+  drupal_uninstall_modules(array('rules_admin', 'rules'));
+}
