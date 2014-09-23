@@ -182,7 +182,8 @@ function _slac_igp_importers_feeds_access($source, $result) {
   foreach ($result->items as $key => $item) {  
     $html = str_get_html($item['description']);
 
-		$date = $html->find('span[class=date-display-single]', 0)->plaintext; 
+    $date_find = $html->find('span[class=date-display-single]', 0);
+    $date = is_object($date_find) ? $date_find->plaintext : '';
 
 		// handle multiday or single day access notices
 		if (!empty($date)) {
@@ -190,7 +191,8 @@ function _slac_igp_importers_feeds_access($source, $result) {
 			$start_date = $_date . $html->find('span[class=date-display-start]', 0)->plaintext;
 			$end_date = $_date . $html->find('span[class=date-display-end]', 0)->plaintext;
 			
-		} else {
+		}
+		else {
     	$start_date = $html->find('span[class=date-display-start]', 0)->plaintext;
     	$end_date = $html->find('span[class=date-display-end]', 0)->plaintext;			
 		}
@@ -284,7 +286,8 @@ function _slac_igp_importers_feeds_event($source, $result) {
     if (!is_object($html)) {
       return;
     }
-    $date = $html->find('span[class=date-display-single]', 0)->plaintext;
+    $date_find = $html->find('span[class=date-display-single]', 0);
+    $date = is_object($date_find) ? $date_find->plaintext : '';
     
     // for single day event
     if (!empty($date)) {
