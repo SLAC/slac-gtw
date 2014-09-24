@@ -8,7 +8,6 @@ project = slac_igp_importers
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = feeds
-dependencies[] = feeds_tamper
 dependencies[] = libraries
 dependencies[] = slac_igp_config
 dependencies[] = slac_igp_feed
