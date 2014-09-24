@@ -53,8 +53,8 @@ function slac_igp_config_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => 200,
-          'height' => 350,
+          'width' => 350,
+          'height' => 200,
           'upscale' => 0,
         ),
         'weight' => 1,
