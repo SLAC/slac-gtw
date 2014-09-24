@@ -355,37 +355,32 @@ function mailchimp_dc_campaign_create($config) {
   }
   
   // if the campaign has not been created yet for the period, let's create the campaign
-  $from_name = (empty($config['from_name'])) ? variable_get('site_name', '') : $config['from_name'];
+  $params = array(
+    '!today' => empty($config['send_date']) ? date('F j, Y') : date('F j, Y', $config['send_date']),
+    '!name' => empty($config['label']) ? variable_get('site_name', 'SLAC Office of Communications') : check_plain($config['label']),
+  );
   switch($config['schedule_type']) {
     case 'daily':
-      $title = t('Daily Email !today', array('!today' => date('F j, Y')));
-      $subject = t('!name Daily Email !today', array('!name' => $from_name, '!today' => date('F j, Y')));
-    break;
+      $title = t('Daily Email !today', $params);
+      $subject = t('!name Daily Email !today', $params);
+      break;
     case 'weekly':
     case 'bi-weekly':
-      $send_date_formatted = date('F j, Y');
-      if (isset($config['send_date'])) {
-        $send_date_formatted = date('F j, Y', $config['send_date']);
-      }
-      $title = t('Weekly Digest - !today', array('!today' => $send_date_formatted));
-      $subject = t('!name SLAC Today Weekly Digest - !today', array('!name' => $from_name, '!today' => $send_date_formatted));
-    break;
+      $title = t('Weekly Digest - !today', $params);
+      $subject = t('!name SLAC Today Weekly Digest - !today', $params);
+      break;
     case 'monthly':
-      $send_date_formatted = date('F j, Y');
-      if (isset($config['send_date'])) {
-        $send_date_formatted = date('F j, Y', $config['send_date']);
-      }
-      $title = t('Monthly Digest: !month', array('!month' => $send_date_formatted));
-      $subject = t('!name Monthly Digest !month', array('!name' => $from_name, '!month' => $send_date_formatted));
-    break;
+      $title = t('Monthly Digest: !today', $params);
+      $subject = t('!name Monthly Digest !today', $params);
+      break;
   }
   
   $options = array(
     'title' => $title,
     'subject' => $subject,
     'list_id' => $config['list'],
-    'from_email' => (empty($config['from_mail'])) ? variable_get('site_mail', '') : $config['from_mail'],
-    'from_name' => $from_name,
+    'from_email' => empty($config['from_mail']) ? variable_get('site_mail', '') : $config['from_mail'],
+    'from_name' => empty($config['from_name']) ? variable_get('site_name', '') : $config['from_name'],
     'template_id' => $config['template'],
   );
     
