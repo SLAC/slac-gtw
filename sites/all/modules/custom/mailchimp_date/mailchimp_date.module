@@ -137,6 +137,16 @@ function mailchimp_date_cron() {
 
   foreach ($results as $record) {
     $campaign = mailchimp_campaign_load($record->mc_campaign_id);
-    mailchimp_campaign_send_campaign($campaign);
+    // Make sure MailChimp agrees with us that this campaign hasn't been sent.
+    if ($campaign->mc_data['status'] === 'save') {
+      mailchimp_campaign_send_campaign($campaign);      
+    }
+    else {
+      // Update our record with MC's status.
+      db_update('mailchimp_dc_campaign')
+        ->fields(array('status' => $campaign->mc_data['status']))
+        ->condition('mc_campaign_id', $record->mc_campaign_id)
+        ->execute();
+    }
   }
 }
