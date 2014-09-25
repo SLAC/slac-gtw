@@ -295,3 +295,26 @@ function mailchimp_dc_update_7001() {
 
   db_drop_field('mailchimp_dc_config', 'auto_send');
 }
+
+function mailchimp_dc_update_7002() {
+  $query = db_select('mailchimp_dc_campaign', 'mdcc');
+  $query->join('mailchimp_dc', 'md', 'mdcc.mc_campaign_id = md.mc_campaign_id');
+  $query->fields('mdcc', array('mc_campaign_id', 'status'));
+  $query->condition('mdcc.status', 'sent', '<>');
+  $results = $query->execute()->fetchAll();
+
+  foreach ($results as $record) {
+    $campaign = mailchimp_campaign_load($record->mc_campaign_id);
+    // Make sure MailChimp agrees with us that this campaign hasn't been sent.
+    if ($campaign->mc_data['status'] === 'save') {
+      mailchimp_campaign_send_campaign($campaign);      
+    }
+    elseif ($campaign->mc_data['status'] !== $record->status) {
+      // Update our record with MC's status.
+      db_update('mailchimp_dc_campaign')
+        ->fields(array('status' => $campaign->mc_data['status']))
+        ->condition('mc_campaign_id', $record->mc_campaign_id)
+        ->execute();
+    }
+  }
+}
