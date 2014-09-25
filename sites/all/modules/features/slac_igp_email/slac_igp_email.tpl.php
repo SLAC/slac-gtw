@@ -5,7 +5,7 @@
  * $news		news items
  */
 ?>
-<?php if (empty($featured_news) && empty($news)): ?>
+<?php if (empty($featured_news) && empty($news_with_images) && empty($news)): ?>
 <h3>No new lab or science news today</h3>
 <?php endif; ?>
 <div id="featured_news">
