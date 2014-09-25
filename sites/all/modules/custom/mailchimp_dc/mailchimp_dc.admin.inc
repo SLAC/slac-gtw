@@ -128,7 +128,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
   if ($schedule_type != 'daily') {
     $form['schedule']['send_type_setting'] = $form['schedule']['schedule_type_setting'];
     $form['schedule']['send_type_setting']['#suffix'] = '</div>';
-    $form['schedule']['send_type_setting']['#title'] = 'Send ' . $form['schedule']['send_type_setting']['#title'];
+    $form['schedule']['send_type_setting']['#title'] = $form['schedule']['send_type_setting']['#title'];
     $form['schedule']['send_type_setting']['#default_value'] = (!empty($config)) ? $config['send_type_setting'] : '';
     $form['schedule']['send_type_setting']['#description'] = str_replace('generated', 'sent', $form['schedule']['send_type_setting']['#description']);
   }
@@ -157,7 +157,7 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
   $form['schedule']['send_time'] = array(
     '#type' => 'select',
     '#title' => 'Select the time of the day to send campaign.',
-    '#description' => t('The campaign will be sent after this hour. .'),
+    '#description' => t('The campaign will be sent after this hour.'),
     '#options' => $time_slot,
     '#default_value' => (isset($config['send_time'])) ? $config['send_time'] : 0,
   );
