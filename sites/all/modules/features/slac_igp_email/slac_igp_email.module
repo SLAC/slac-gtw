@@ -10,6 +10,14 @@ define('VIEW_MODE_LINK', 'link');
 define('DIRECTOR_COLUMN', 'DIRECTOR\'S COLUMNS');
 define('IMAGE_SOURCE_FIELD', 'field_news_image_source');
 
+/**
+ * The "ID" of a publically-accessible directory to which images are copied.
+ *
+ * 'https://www.slac.stanford.edu/slac/www/' . this ID number will be used.
+ */
+define('SLAC_IGP_EMAIL_PUBLIC_SITE_DIR_ID_STAGE', 394);
+define('SLAC_IGP_EMAIL_PUBLIC_SITE_DIR_ID_PROD', 546);
+
 
 /**
  * Implements hook_og_tag_importer_import_alter
@@ -687,4 +695,44 @@ function slac_igp_email_entity_delete($entity, $type) {
       }
     }
   }
+}
+
+/**
+ * Implements hook_filter_info().
+ *
+ * We're creating a filter to rewrite image paths to use the publically-
+ * accessible copy of the image directory instead of one behind Webauth.
+ */
+function slac_igp_email_filter_info() {
+  return array(
+    'slac_img_path_rewrite' => array(
+      'title' => t('Rewrite SLAC image paths'),
+      'process callback' => 'slac_igp_email_img_path_rewrite',
+      'weight' => 50,
+    ),
+  );
+}
+
+/**
+ * Filter callback for our path rewriting filter.
+ *
+ * We're using just a dumb str_replace() here. But it's probably okay.
+ *
+ * @todo This works for the production site only theoretically at this point. It
+ * may need tweaking after golive.
+ */
+function slac_igp_email_img_path_rewrite($text, $filter, $format, $langcode, $cache, $cache_id) {
+  $stage_dest = 'https://www.slac.stanford.edu/slac/www/' . SLAC_IGP_EMAIL_PUBLIC_SITE_DIR_ID_STAGE;
+  $prod_dest = 'https://www.slac.stanford.edu/slac/www/' . SLAC_IGP_EMAIL_PUBLIC_SITE_DIR_ID_PROD;
+  
+  $text = str_replace(
+    array(
+      'https://intranet-stage.slac.stanford.edu/sites/intranet-stage.slac.stanford.edu/files/styles/mailchimp_news_teaser/public',
+      // @todo Will the site directory be used on live? Or just "default" maybe?
+      'https://intranet.slac.stanford.edu/sites/intranet.slac.stanford.edu/files/styles/mailchimp_news_teaser/public',
+    ),
+    array($stage_dest, $prod_dest),
+    $text
+  );
+  return $text;
 }

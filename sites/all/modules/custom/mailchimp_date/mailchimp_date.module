@@ -129,8 +129,8 @@ function mailchimp_date_entity_view($entity, $type, $view_mode, $langcode) {
 function mailchimp_date_cron() {
   $query = db_select('mailchimp_dc_campaign', 'mdcc');
   $query->join('mailchimp_date', 'md', 'mdcc.mc_campaign_id = md.mc_campaign_id');
-  $query->fields('mdcc', array('mc_campaign_id'));
-  $query->condition('mdcc.status', 'save');
+  $query->fields('mdcc', array('mc_campaign_id', 'status'));
+  $query->condition('mdcc.status', 'sent', '<>');
   $query->condition('md.date', 0, '>');
   $query->condition('md.date', REQUEST_TIME, '<');
   $results = $query->execute()->fetchAll();
@@ -141,7 +141,7 @@ function mailchimp_date_cron() {
     if ($campaign->mc_data['status'] === 'save') {
       mailchimp_campaign_send_campaign($campaign);      
     }
-    else {
+    elseif ($campaign->mc_data['status'] !== $record->status) {
       // Update our record with MC's status.
       db_update('mailchimp_dc_campaign')
         ->fields(array('status' => $campaign->mc_data['status']))
