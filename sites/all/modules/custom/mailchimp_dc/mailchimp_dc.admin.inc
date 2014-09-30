@@ -128,9 +128,9 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
   if ($schedule_type != 'daily') {
     $form['schedule']['send_type_setting'] = $form['schedule']['schedule_type_setting'];
     $form['schedule']['send_type_setting']['#suffix'] = '</div>';
-    $form['schedule']['send_type_setting']['#title'] = $form['schedule']['send_type_setting']['#title'];
+    $form['schedule']['send_type_setting']['#title'] = t('Select the day of the week to send the campaign (this will also represent the date in the subject of the email)');
     $form['schedule']['send_type_setting']['#default_value'] = (!empty($config)) ? $config['send_type_setting'] : '';
-    $form['schedule']['send_type_setting']['#description'] = str_replace('generated', 'sent', $form['schedule']['send_type_setting']['#description']);
+    $form['schedule']['send_type_setting']['#description'] = t('This is the day of the week the email will be sent (this cannot be changed once saved).');
   }
   
   for ($i = 0; $i < 24; $i++) {
