@@ -125,14 +125,6 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
   $form['schedule']['schedule_type_setting']['#disabled'] = (!empty($config)) ? TRUE : FALSE;
   $form['schedule']['schedule_type_setting']['#default_value'] = (!empty($config)) ? $config['schedule_type_setting'] : '';
 
-  if ($schedule_type != 'daily') {
-    $form['schedule']['send_type_setting'] = $form['schedule']['schedule_type_setting'];
-    $form['schedule']['send_type_setting']['#suffix'] = '</div>';
-    $form['schedule']['send_type_setting']['#title'] = t('Select the day of the week to send the campaign (this will also represent the date in the subject of the email)');
-    $form['schedule']['send_type_setting']['#default_value'] = (!empty($config)) ? $config['send_type_setting'] : '';
-    $form['schedule']['send_type_setting']['#description'] = t('This is the day of the week the email will be sent (this cannot be changed once saved).');
-  }
-  
   for ($i = 0; $i < 24; $i++) {
     if ($i < 12) {
       $time_slot[$i * 100] = $i . ' am';
@@ -145,7 +137,8 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
         $time_slot[$i * 100] = $i . ' pm';
       }
     }
-  }  
+  }
+  
   $form['schedule']['schedule_time'] = array(
     '#type' => 'select',
     '#title' => 'Select the time of the day to generate the campaign.',
@@ -153,6 +146,14 @@ function mailchimp_dc_configuration_form($form, &$form_state, $config = array())
     '#options' => $time_slot,
     '#default_value' => (isset($config['schedule_time'])) ? $config['schedule_time'] : 0,
   );
+
+  if ($schedule_type != 'daily') {
+    $form['schedule']['send_type_setting'] = $form['schedule']['schedule_type_setting'];
+    $form['schedule']['send_type_setting']['#suffix'] = '</div>';
+    $form['schedule']['send_type_setting']['#title'] = t('Select the day of the week to send the campaign (this will also represent the date in the subject of the email)');
+    $form['schedule']['send_type_setting']['#default_value'] = (!empty($config)) ? $config['send_type_setting'] : '';
+    $form['schedule']['send_type_setting']['#description'] = t('This is the day of the week the email will be sent (this cannot be changed once saved).');
+  }
 
   $form['schedule']['send_time'] = array(
     '#type' => 'select',
