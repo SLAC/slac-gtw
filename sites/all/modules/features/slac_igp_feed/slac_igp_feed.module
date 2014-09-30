@@ -318,4 +318,64 @@ function slac_igp_feed_form_nodequeue_arrange_subqueue_form_alter(&$form, &$form
     $form['#attached']['css'][] = drupal_get_path('module', 'slac_igp_feed') . '/css/slac_igp_feed.nodequeue.css';
   }
 }
+function _slac_igp_feed_xml_has_attr($element, $attribute) {
+  if($element->hasAttributes()) {
+    foreach ($element->attributes as $attr) {
+      // explode the attributes into an array
+      $attr = explode(' ', $attr->nodeValue);
+      if(!empty($attr)) {
+        foreach ($attr as $element_attr) {
+          if($element_attr === $attribute) {
+            return true;
+          }
+        }
+      }
+    }
+  }
 
+  return false;
+}
+
+function slac_igp_feed_node_presave($node) {
+  if($node->type === 'news_article') {
+    $dom = filter_dom_load($node->body['und'][0]['value']);
+
+/*
+In case of revert
+<div class="field field-type-text field-field-teaser">
+  <div class="field-items">
+    <div class="field-item odd">
+      <p>adding more teaser text to see if this is added to story</p>
+    </div>
+  </div>
+</div>
+*/
+
+    $teaser_value = '';
+
+    // search through divs to find the paragaph with the teaser value
+    foreach ($dom->getElementsByTagName('div') as $element) {
+      if (_slac_igp_feed_xml_has_attr($element, 'field-field-teaser')) {
+        foreach ($element->childNodes as $elm) {
+          if (_slac_igp_feed_xml_has_attr($elm, 'field-items')) {
+            foreach ($elm->childNodes as $el) {
+              if (_slac_igp_feed_xml_has_attr($el, 'field-item')) {
+                foreach ($el->childNodes as $e) {
+                  if($e->nodeName == 'p') {
+                    $teaser_value = $e->nodeValue;
+                    // $e->parentNode->removeChild($e);
+                  }
+                }
+                // $el->parentNode->removeChild($el);
+              }
+            }
+            // $elm->parentNode->removeChild($elm);
+          }
+        }
+        // $element->parentNode->removeChild($element);
+      }
+    }
+
+    $node->body['und'][0]['summary'] = $teaser_value;
+  }
+}
