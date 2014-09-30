@@ -216,7 +216,6 @@ function mailchimp_dc_cron() {
   }
 
   $query = db_select('mailchimp_dc_campaign', 'mdcc');
-  $query->join('mailchimp_date', 'md', 'mdcc.mc_campaign_id = md.mc_campaign_id');
   $query->fields('mdcc', array('mc_campaign_id', 'status'));
   $results = $query->execute()->fetchAll();
 
@@ -227,6 +226,10 @@ function mailchimp_dc_cron() {
       // be sure to check all the saves
       if($record->status == 'save') {
         $status = (array_key_exists('send_time', $campaign) ? 'sent' : 'save');
+
+        if(is_null($campaign['send_time'])) {
+          $status = 'save';
+        }
 
         db_update('mailchimp_dc_campaign')
           ->fields(array('status' => $status))
