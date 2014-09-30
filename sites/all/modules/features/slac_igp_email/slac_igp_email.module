@@ -722,16 +722,16 @@ function slac_igp_email_filter_info() {
  * may need tweaking after golive.
  */
 function slac_igp_email_img_path_rewrite($text, $filter, $format, $langcode, $cache, $cache_id) {
-  $stage_dest = 'https://www.slac.stanford.edu/slac/www/' . SLAC_IGP_EMAIL_PUBLIC_SITE_DIR_ID_STAGE;
-  $prod_dest = 'https://www.slac.stanford.edu/slac/www/' . SLAC_IGP_EMAIL_PUBLIC_SITE_DIR_ID_PROD;
+  $stage_src = 'https://www.slac.stanford.edu/slac/www/' . SLAC_IGP_EMAIL_PUBLIC_SITE_DIR_ID_STAGE;
+  $prod_src = 'https://www.slac.stanford.edu/slac/www/' . SLAC_IGP_EMAIL_PUBLIC_SITE_DIR_ID_PROD;
   
   $text = str_replace(
+    array($stage_src, $prod_src),
     array(
       'https://intranet-stage.slac.stanford.edu/sites/intranet-stage.slac.stanford.edu/files/styles/mailchimp_news_teaser/public',
       // @todo Will the site directory be used on live? Or just "default" maybe?
       'https://intranet.slac.stanford.edu/sites/intranet.slac.stanford.edu/files/styles/mailchimp_news_teaser/public',
     ),
-    array($stage_dest, $prod_dest),
     $text
   );
   return $text;
