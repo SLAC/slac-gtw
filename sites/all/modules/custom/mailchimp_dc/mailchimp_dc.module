@@ -214,6 +214,35 @@ function mailchimp_dc_cron() {
       break;
     }
   }
+
+  $query = db_select('mailchimp_dc_campaign', 'mdcc');
+  $query->join('mailchimp_date', 'md', 'mdcc.mc_campaign_id = md.mc_campaign_id');
+  $query->fields('mdcc', array('mc_campaign_id', 'status'));
+  $results = $query->execute()->fetchAll();
+
+  foreach ($results as $record) {
+    $campaign = mailchimp_get_campaign_data($record->mc_campaign_id, true);
+
+    if(!empty($campaign)) {
+      // be sure to check all the saves
+      if($record->status == 'save') {
+        $status = (array_key_exists('send_time', $campaign) ? 'sent' : 'save');
+
+        db_update('mailchimp_dc_campaign')
+          ->fields(array('status' => $status))
+          ->condition('mc_campaign_id', $record->mc_campaign_id)
+          ->execute();
+      }
+
+      if($campaign->status !== $record->status && !empty($campaign->status)) {
+        // Update our record with MC's status.
+        db_update('mailchimp_dc_campaign')
+          ->fields(array('status' => $campaign->status))
+          ->condition('mc_campaign_id', $record->mc_campaign_id)
+          ->execute();
+      }
+    }
+  }
 }
 
 /**
