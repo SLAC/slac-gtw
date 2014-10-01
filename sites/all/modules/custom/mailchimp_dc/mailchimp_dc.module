@@ -217,6 +217,7 @@ function mailchimp_dc_cron() {
 
   $query = db_select('mailchimp_dc_campaign', 'mdcc');
   $query->fields('mdcc', array('mc_campaign_id', 'status'));
+  $query->condition('mdcc.status', 'sent', '<>');
   $results = $query->execute()->fetchAll();
 
   foreach ($results as $record) {
