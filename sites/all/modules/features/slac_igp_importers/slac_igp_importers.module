@@ -68,22 +68,16 @@ function slac_igp_importers_import_single_event_validate($form, &$form_state) {
   }
   // XML parsing is easy to fail. I know it's "wrong," but use regex to find
   // our calendar link.
-  if (!preg_match('/\<link rel="icalendar" href="([^"]+)"/', $page->data, $matches)) {
+  if (!preg_match('/\<meta name="slac-event-data" content="([^"]+)"/', $page->data, $matches)) {
     form_set_error('url', t('Event information could not be found on the page.'));
     return;
   }
-  $ical = drupal_http_request($matches[1]);
-  if ($ical->code != 200) {
-    form_set_error('url', t('Loading the event information for this event failed. Error code @code (@error).', array('@code' => $page->code, '@error' => empty($page->error) ? '?' : $page->error)));
-    return;
-  }
-  libraries_load('iCalcreator');
-  $calendar = new vcalendar();
-  if (!$calendar->parse($ical->data)) {
+  $data = drupal_json_decode(decode_entities($matches[1]));
+  if ($data === NULL) {
     form_set_error('url', t('Parsing the event information for this event failed.'));
     return;
   }
-  $form_state['ical'] = $calendar->components[1];
+  $form_state['event'] = $data;
 }
 
 /**
@@ -97,30 +91,27 @@ function slac_igp_importers_import_single_event_submit($form, &$form_state) {
   $node = new stdClass();
   $node->type = 'event';
   node_object_prepare($node);
-  $node->title = empty($form_state['ical']->summary) ? '' : $form_state['ical']->summary['value'];
-  $node->field_event_date[LANGUAGE_NONE][] = array(
-    'value' => $form_state['ical']->dtstart['value']['year'] . '-'
-      . $form_state['ical']->dtstart['value']['month'] . '-'
-      . $form_state['ical']->dtstart['value']['day'] . 'T'
-      . $form_state['ical']->dtstart['value']['hour'] . ':'
-      . $form_state['ical']->dtstart['value']['min'] . ':'
-      . $form_state['ical']->dtstart['value']['sec'],
-    'value2' => $form_state['ical']->dtend['value']['year'] . '-'
-      . $form_state['ical']->dtend['value']['month'] . '-'
-      . $form_state['ical']->dtend['value']['day'] . 'T'
-      . $form_state['ical']->dtend['value']['hour'] . ':'
-      . $form_state['ical']->dtend['value']['min'] . ':'
-      . $form_state['ical']->dtend['value']['sec'],
-    'timezone' => $form_state['ical']->dtstart['params']['TZID'],
-    'timezone_db' => $form_state['ical']->dtstart['params']['TZID'],
-    'date_type' => 'date',
+  $map = array(
+    'title' => 'title',
+    'body' => 'body',
+    'field_slac_event_date' => 'field_event_date',
+    'field_location' => 'field_event_location',
+    'field_slac_event_link' => 'field_link',
   );
-  if (!empty($form_state['ical']->description)) {
-    // Why is this one a numeric array?
-    $node->body[LANGUAGE_NONE][] = array('value' => $form_state['ical']->description[0]['value']);
+  // Let's do special handling for the Location field, since it's a, well,
+  // location field on the external site, but a standard text field here. It
+  // seems that only the "Name" field of the location is used, though…?
+  if (isset($form_state['event']['field_location'])) {
+    foreach ($form_state['event']['field_location'] as &$langgroup) {
+      foreach ($langgroup as &$value) {
+        $value['value'] = $value['name'];
+      }
+    }
   }
-  if (!empty($form_state['ical']->location)) {
-    $node->field_location[LANGUAGE_NONE][] = array('value' => $form_state['ical']->location['value']);
+  foreach ($map as $source => $dest) {
+    if (isset($form_state['event'][$source])) {
+      $node->{$dest} = $form_state['event'][$source];
+    }
   }
   node_save($node);
   // Let's redirect the user to the node edit form for the node we just created.
