@@ -361,3 +361,30 @@ function _slac_igp_importers_feeds_news($result) {
     }
   }  
 }
+
+/*
+  Impliments hook_cron
+
+  Apparently the feeds module tries to queue jobs to import the
+  feeds but is not always sucessful in doing so. Lets ensure the
+  feeds are imported.
+*/
+function slac_igp_importers_cron() {
+  $query = db_select('feeds_source', 'fs');
+  $query->fields('fs', array('id','feed_nid'));
+  $query_or = db_or()
+    ->condition("fs.id","slac_events","=")
+    ->condition("fs.id","slac_news");
+  $query = $query->condition($query_or);
+  $results = $query->execute()->fetchAll();
+
+  foreach ($results as $record) {
+    // try catch to continue after a exception is thrown
+    try {
+      $importer = feeds_source($record->id, $record->feed_nid);
+      $importer->import();
+    }
+    catch(Exception $e) {
+    }
+  }
+}
