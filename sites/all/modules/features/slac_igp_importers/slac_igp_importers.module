@@ -149,7 +149,14 @@ function slac_igp_importers_libraries_info() {
 function slac_igp_importers_feeds_after_parse($source, $result) {
   switch($source->id) {
     case 'slac_news':
+    if($result->title == 'W6 Staging')
+    {
+      var_dump($result);
+      exit();
+    }
+
       _slac_igp_importers_feeds_news($result);
+
     break;
     case 'slac_events':
       _slac_igp_importers_feeds_event($source, $result);
@@ -373,7 +380,7 @@ function slac_igp_importers_cron() {
     // try catch to continue after a exception is thrown
     try {
       $importer = feeds_source($record->id, $record->feed_nid);
-      $importer->import();
+      $importer->startImport();
     }
     catch(Exception $e) {
     }
