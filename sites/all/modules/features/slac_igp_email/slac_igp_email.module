@@ -722,8 +722,8 @@ function slac_igp_email_filter_info() {
  * may need tweaking after golive.
  */
 function slac_igp_email_img_path_rewrite($text, $filter, $format, $langcode, $cache, $cache_id) {
-  $stage_dist = 'https://www.slac.stanford.edu/slac/www/' . SLAC_IGP_EMAIL_PUBLIC_SITE_DIR_ID_STAGE;
-  $prod_dist = 'https://www.slac.stanford.edu/slac/www/' . SLAC_IGP_EMAIL_PUBLIC_SITE_DIR_ID_PROD;
+  $stage_dist = 'https://www.slac.stanford.edu/slac/drupal/' . SLAC_IGP_EMAIL_PUBLIC_SITE_DIR_ID_STAGE;
+  $prod_dist = 'https://www.slac.stanford.edu/slac/drupal/' . SLAC_IGP_EMAIL_PUBLIC_SITE_DIR_ID_PROD;
   
   $text = str_replace(
     array(
