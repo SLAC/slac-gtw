@@ -194,6 +194,9 @@ function slac_igp_config_strongarm() {
       'ical' => array(
         'custom_settings' => FALSE,
       ),
+      'daily_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

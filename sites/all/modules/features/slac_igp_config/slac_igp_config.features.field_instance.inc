@@ -459,6 +459,15 @@ function slac_igp_config_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'daily_teaser' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'type' => 'text_summary_or_trimmed',
+        'weight' => 1,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -509,6 +518,13 @@ function slac_igp_config_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'daily_teaser' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_plain',
+        'weight' => 2,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'link',
@@ -571,6 +587,12 @@ function slac_igp_config_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'daily_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'text',
@@ -616,6 +638,16 @@ function slac_igp_config_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'daily_teaser' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'mailchimp_daily_teaser',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'slac_igp_custom',
@@ -678,6 +710,12 @@ function slac_igp_config_field_default_field_instances() {
     'deleted' => 0,
     'description' => 'Please choose how the news article image would be displayed in the featured sections on the site.',
     'display' => array(
+      'daily_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
@@ -721,14 +759,17 @@ function slac_igp_config_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'daily_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
       'default' => array(
         'label' => 'above',
-        'module' => 'slac_igp_email',
-        'settings' => array(
-          'height' => 'Height',
-          'width' => 'Width',
-        ),
-        'type' => 'link_image',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
         'weight' => 6,
       ),
       'link' => array(
@@ -788,6 +829,12 @@ function slac_igp_config_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'daily_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
@@ -835,6 +882,12 @@ function slac_igp_config_field_default_field_instances() {
     'deleted' => 0,
     'description' => 'Selecting this box will prevent any further automated edits/updates to this item',
     'display' => array(
+      'daily_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
@@ -880,6 +933,12 @@ function slac_igp_config_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'daily_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'taxonomy',
