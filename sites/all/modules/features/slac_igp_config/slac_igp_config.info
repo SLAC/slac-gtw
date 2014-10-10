@@ -87,6 +87,7 @@ features[field_instance][] = taxonomy_term-top_links-field_link
 features[filter][] = filtered_html
 features[filter][] = full_html
 features[filter][] = mailchimp_campaign
+features[image][] = mailchimp_daily_teaser
 features[image][] = mailchimp_news_teaser
 features[node][] = access_information
 features[node][] = event

@@ -62,6 +62,7 @@ function slac_igp_config_image_default_styles() {
     ),
   );
 
+  // Exported image style: mailchimp_daily_teaser.
   $styles['mailchimp_daily_teaser'] = array(
     'name' => 'mailchimp_daily_teaser',
     'effects' => array(
