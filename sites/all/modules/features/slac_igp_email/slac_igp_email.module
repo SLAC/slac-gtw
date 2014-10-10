@@ -10,6 +10,7 @@ define('VIEW_MODE_LINK', 'link');
 define('VIEW_MODE_DAILY_TEASER', 'daily_teaser');
 define('DIRECTOR_COLUMN', 'DIRECTOR\'S COLUMNS');
 define('IMAGE_SOURCE_FIELD', 'field_news_image_source');
+define('SLAC_IGP_DAILY_TEMPLATE_ID', 36541);
 
 /**
  * The "ID" of a publically-accessible directory to which images are copied.
@@ -638,9 +639,10 @@ function slac_igp_email_form_mailchimp_campaign_campaign_form_presubmit(&$form, 
     // First, sort the results
     usort($form_state['values']['content']['field_featured_news'][LANGUAGE_NONE], '_field_sort_items_helper');
     usort($form_state['values']['content']['field_sub_news'][LANGUAGE_NONE], '_field_sort_items_helper');
+    $view_mode = $form_state['values']['template_id'] == SLAC_IGP_DAILY_TEMPLATE_ID ? VIEW_MODE_DAILY_TEASER : VIEW_MODE_TEASER;
     foreach ($form_state['values']['content']['field_featured_news'][LANGUAGE_NONE] as $feat_val) {
       if (!empty($feat_val['target_id'])) {
-        $featured_val .= '<div class="item">[mailchimp_campaign|entity_type=node|entity_id=' . $feat_val['target_id'] . '|view_mode=teaser]</div><br clear="all" />';
+        $featured_val .= '<div class="item">[mailchimp_campaign|entity_type=node|entity_id=' . $feat_val['target_id'] . '|view_mode=' . $view_mode . ']</div><br clear="all" />';
       }
     }
     $featured_val .= '</div>';
