@@ -158,9 +158,6 @@ function slac_igp_importers_feeds_after_parse($source, $result) {
       _slac_igp_importers_feeds_news($result);
 
     break;
-    case 'slac_events':
-      _slac_igp_importers_feeds_event($source, $result);
-    break;
     case 'slac_access_info':
       _slac_igp_importers_feeds_access($source, $result);
     break;
@@ -221,111 +218,6 @@ function _slac_igp_importers_feeds_access($source, $result) {
 
     $result->items[$key]['Blank source 1'] = $start_date;
     $result->items[$key]['Blank source 2'] = $end_date;
-  }
-}
-
-/**
- * Internal Helper 
- * Extracting location and date from calendar rss feeds
- */
-function _slac_igp_importers_feeds_event($source, $result) {
-  // load the title from the feed importer source
-  // we have to apply different parsing logic based on different
-  // calendar RSS feed
-  $title = '';
-  if ($source->feed_nid !=0) {
-    $importer_node = node_load($source->feed_nid);
-    $title = $importer_node->title;
-  }
-  
-  $library = libraries_load('slac_igp_importers');
-  // dpm($result->items);
-
-  foreach ($result->items as $key => $item) {
-    // Try to get the location information from this event
-    // from <category>location|[Location]
-    if (!empty($item['tags'])) {
-      foreach ($item['tags'] as $tag) {
-        if (substr($tag, 0, 9) === 'location|') {
-          $location_array = explode('|', $tag);
-          $result->items[$key]['Blank source 1'] = $location_array[1];
-        }
-      }
-    }
-
-    // try to match location from title
-    if (empty($result->items[$key]['Blank source 1'])) {
-      // try to match event location from title
-      switch($title) {
-        case SLAC_TRAINING_CALENDAR:
-          // i.e. Supervisory and Managerial Skill Development Series: Performance Management (Bldg. 48, Redwood Conf. Room A)
-          $pattern = '/\((.*?)\)/';
-          preg_match($pattern, $item['title'], $match);
-          if (!empty($match)) {
-            if (array_key_exists(1, $match)) {
-              $result->items[$key]['Blank source 1'] = $match[1];
-              $result->items[$key]['title'] = preg_replace($pattern, '', $item['title']);
-            }
-          }
-          break;
-        case SLAC_SCIENCE_CALENDAR:
-          break;
-        case SLAC_STAFF_CALENDAR:
-          break;
-      }
-    }
-
-    // extract and format date for calendar item
-    if (empty($library['loaded'])) {
-      return;
-    }  
-      
-    $html = str_get_html($item['description']);
-    if (!is_object($html)) {
-      return;
-    }
-    $date_find = $html->find('span[class=date-display-single]', 0);
-    $date = is_object($date_find) ? $date_find->plaintext : '';
-    
-    // for single day event
-    if (!empty($date)) {
-      $date_array = explode('-', $date);
-      // only have one date (no end date)
-      if (count($date_array) === 2) {
-        $start_date = $date_array[0] . ', ' . $date_array[1];
-        $result->items[$key]['Blank source 2'] = gmdate('Y-m-d H:i:s', strtotime($start_date));
-        $result->items[$key]['Blank source 3'] = gmdate('Y-m-d H:i:s', strtotime($start_date));
-      }
-      if (count($date_array) === 3) {
-        $start_date =  $date_array[0] . ', ' . $date_array[1];
-        $end_date = $date_array[0] . ', ' . $date_array[2];
-        $result->items[$key]['Blank source 2'] = gmdate('Y-m-d H:i:s', strtotime($start_date));
-        $result->items[$key]['Blank source 3'] = gmdate('Y-m-d H:i:s', strtotime($end_date));
-      }
-      // all day event such as Monday, June 3, 2013 (All day)
-      if (count($date_array) === 1) {
-        $pattern = '/\((.*?)\)/';
-        $date_string = preg_replace($pattern, '', $date_array[0]);
-        $result->items[$key]['Blank source 2'] = gmdate('Y-m-d H:i:s', strtotime($date_string));
-        $result->items[$key]['Blank source 3'] = gmdate('Y-m-d H:i:s', strtotime($date_string));        
-      }        
-    }
-    // for multiday event
-    else {
-      // handles something that looks like Sunday, August 25, 2013 - 8:00a.m.;
-      // can also handle Sunday, August 25, 2013 (All Day);
-      $date_start = $html->find('span[class=date-display-start]', 0)->plaintext;
-      $date_end = $html->find('span[class=date-display-end]', 0)->plaintext;
-      if (!empty($date_start) && !empty($date_end)) {
-        $pattern = '/\((.*?)\)/';
-        $date_start = preg_replace($pattern, '', $date_start);
-        $date_end = preg_replace($pattern, '', $date_end);
-        $date_start = str_replace(array(', ', ' - '), ' ', substr($date_start, strpos($date_start, ', ')));
-        $date_end = str_replace(array(', ', ' - '), ' ', substr($date_end, strpos($date_end, ', ')));
-        $result->items[$key]['Blank source 2'] = gmdate('Y-m-d H:i:s', strtotime($date_start));
-        $result->items[$key]['Blank source 3'] = gmdate('Y-m-d H:i:s', strtotime($date_end));          
-      }
-    }
   }
 }
 
