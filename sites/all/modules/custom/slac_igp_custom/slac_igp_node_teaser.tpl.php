@@ -82,13 +82,14 @@
  * @see zen_preprocess_node()
  * @see template_process()
  */
+$img_wrapper_width = $view_mode === 'daily_teaser' ? '240' : '300';
 ?>
   <?php $link = $node_url; ?>
   <?php if (array_key_exists('field_link', $content)): ?>
     <?php $link = strip_tags(render($content['field_link'])); ?>
   <?php endif; ?>
   <?php if (array_key_exists('field_news_image', $content)): ?>
-    <div class="image-wrapper" style="width: 350px; float: left; margin-right: 20px;">
+    <div class="image-wrapper" style="width: <?php print $img_wrapper_width; ?>px; float: left; margin-right: 20px;">
       <?php
         $rendered = render($content['field_news_image']);
         $rendered = str_replace('<img ', '<img style="display: block; margin: 0 auto;" ', $rendered);

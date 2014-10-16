@@ -10,7 +10,7 @@ define('VIEW_MODE_LINK', 'link');
 define('VIEW_MODE_DAILY_TEASER', 'daily_teaser');
 define('DIRECTOR_COLUMN', 'DIRECTOR\'S COLUMNS');
 define('IMAGE_SOURCE_FIELD', 'field_news_image_source');
-define('SLAC_IGP_DAILY_TEMPLATE_ID', 36541);
+define('SLAC_IGP_DAILY_TEMPLATE_ID', 36609);
 
 /**
  * The "ID" of a publically-accessible directory to which images are copied.

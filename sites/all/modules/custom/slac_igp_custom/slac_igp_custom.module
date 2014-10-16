@@ -41,7 +41,7 @@ function slac_igp_custom_theme() {
  */
 function slac_igp_custom_node_view_alter(&$build) {
   if ($build['#bundle'] === 'news_article') {
-    if ($build['#view_mode'] == 'teaser') {
+    if ($build['#view_mode'] === 'teaser' || $build['#view_mode'] === 'daily_teaser') {
       $build['#theme'] = 'slac_igp_node_teaser';
       unset($build['links']);
       unset($build['#contextual_links']);
