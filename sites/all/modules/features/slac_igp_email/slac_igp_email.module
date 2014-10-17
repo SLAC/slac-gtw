@@ -268,14 +268,14 @@ function slac_igp_email_preprocess_slac_igp_email(&$vars) {
   if (variable_get('mailchimp_dc_' . $config['name'] . '_daily_additional', 0) == 1
     && $config['schedule_type'] === 'daily') {
     // additional filtering based on nodequeue
-    $vars['featured_news'] = _slac_igp_email_generate_items_views('promoted', $last_campaign);
-    $vars['news_with_images'] = _slac_igp_email_generate_items_views('regular_with_images', $last_campaign);
-    $vars['news'] = _slac_igp_email_generate_items_views('regular', $last_campaign);
+    $vars['featured_news'] = _slac_igp_email_generate_items_views('promoted', $last_campaign, $config);
+    $vars['news_with_images'] = _slac_igp_email_generate_items_views('regular_with_images', $last_campaign, $config);
+    $vars['news'] = _slac_igp_email_generate_items_views('regular', $last_campaign, $config);
   }
   else {
-    $vars['featured_news'] = _slac_igp_email_generate_items('promoted', $last_campaign);
-    $vars['news_with_images'] = _slac_igp_email_generate_items('regular_with_images', $last_campaign);
-    $vars['news'] = _slac_igp_email_generate_items('regular', $last_campaign);
+    $vars['featured_news'] = _slac_igp_email_generate_items('promoted', $last_campaign, $config);
+    $vars['news_with_images'] = _slac_igp_email_generate_items('regular_with_images', $last_campaign, $config);
+    $vars['news'] = _slac_igp_email_generate_items('regular', $last_campaign, $config);
   }
 }
 
@@ -361,11 +361,12 @@ function _slac_igp_email_generate_items_additional($type, $last_campaign = array
  * @params
  * $type    type of news item
  */
-function _slac_igp_email_generate_items($type, $last_campaign = array()) {
+function _slac_igp_email_generate_items($type, $last_campaign = array(), $config) {
   $data = array();
   if ($type == 'promoted' || $type == 'regular_with_images') {
-    $mode = VIEW_MODE_TEASER;
-  } else {
+    $mode = $config['template'] == SLAC_IGP_DAILY_TEMPLATE_ID ? VIEW_MODE_DAILY_TEASER : VIEW_MODE_TEASER;
+  }
+  else {
     $mode = VIEW_MODE_LINK;
   }
   $query = new EntityFieldQuery();
@@ -404,12 +405,13 @@ function _slac_igp_email_generate_items($type, $last_campaign = array()) {
   return $data;
 }
 
-function _slac_igp_email_generate_items_views($type, $last_campaign = array()) {
+function _slac_igp_email_generate_items_views($type, $last_campaign = array(), $config) {
 
   $data = array();
   if ($type == 'promoted' || $type == 'regular_with_images') {
-    $mode = VIEW_MODE_TEASER;
-  } else {
+    $mode = $config['template'] == SLAC_IGP_DAILY_TEMPLATE_ID ? VIEW_MODE_DAILY_TEASER : VIEW_MODE_TEASER;
+  }
+  else {
     $mode = VIEW_MODE_LINK;
   }
   $query = new EntityFieldQuery();
@@ -438,7 +440,7 @@ function _slac_igp_email_generate_items_views($type, $last_campaign = array()) {
         }
       }
       else {
-        if ($mode == VIEW_MODE_TEASER) {
+        if ($mode == VIEW_MODE_DAILY_TEASER) {
           continue;
         }
       }
