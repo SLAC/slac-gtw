@@ -147,7 +147,6 @@ function slac_igp_importers_libraries_info() {
  * Implements hook_feeds_after_parse
  */
 function slac_igp_importers_feeds_after_parse($source, $result) {
-  error_log(print_r($source, TRUE));
   switch($source->id) {
     case 'slac_news':
       // @todo Can we remove this? Looks like debug crap…
