@@ -242,7 +242,7 @@ function slac_igp_importers_feeds_importer_default() {
       ),
     ),
     'parser' => array(
-      'plugin_key' => 'DateIcalIcalcreatorParser',
+      'plugin_key' => 'FeedsSyndicationParser',
       'config' => array(),
     ),
     'processor' => array(
@@ -253,33 +253,38 @@ function slac_igp_importers_feeds_importer_default() {
         'authorize' => 1,
         'mappings' => array(
           0 => array(
-            'source' => 'description',
-            'target' => 'body',
+            'source' => 'title',
+            'target' => 'title',
             'unique' => FALSE,
           ),
           1 => array(
+            'source' => 'guid',
+            'target' => 'guid',
+            'unique' => 1,
+          ),
+          2 => array(
+            'source' => 'timestamp',
+            'target' => 'created',
+            'unique' => FALSE,
+          ),
+          3 => array(
             'source' => 'url',
             'target' => 'field_link:url',
             'unique' => FALSE,
           ),
-          2 => array(
-            'source' => 'summary',
-            'target' => 'title',
-            'unique' => FALSE,
-          ),
-          3 => array(
-            'source' => 'dtstart',
-            'target' => 'field_event_date:start',
-            'unique' => FALSE,
-          ),
           4 => array(
-            'source' => 'dtend',
-            'target' => 'field_event_date:end',
+            'source' => 'Blank source 1',
+            'target' => 'field_event_location',
             'unique' => FALSE,
           ),
           5 => array(
-            'source' => 'uid',
-            'target' => 'guid',
+            'source' => 'Blank source 2',
+            'target' => 'field_event_date:start',
+            'unique' => FALSE,
+          ),
+          6 => array(
+            'source' => 'Blank source 3',
+            'target' => 'field_event_date:end',
             'unique' => FALSE,
           ),
         ),
