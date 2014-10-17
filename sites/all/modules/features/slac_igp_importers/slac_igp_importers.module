@@ -147,23 +147,27 @@ function slac_igp_importers_libraries_info() {
  * Implements hook_feeds_after_parse
  */
 function slac_igp_importers_feeds_after_parse($source, $result) {
+  error_log(print_r($source, TRUE));
   switch($source->id) {
     case 'slac_news':
-    if($result->title == 'W6 Staging')
-    {
-      var_dump($result);
-      exit();
-    }
-
+      // @todo Can we remove this? Looks like debug crap…
+      if ($result->title == 'W6 Staging') {
+        var_dump($result);
+        exit();
+      }
       _slac_igp_importers_feeds_news($result);
+      break;
 
-    break;
     case 'slac_events':
-      _slac_igp_importers_feeds_event($source, $result);
-    break;
+      // Only do our adjustments if this is an RSS feed (not iCalendar)
+      if ($source->importer->id === 'slac_events') {
+        _slac_igp_importers_feeds_event($source, $result);
+      }
+      break;
+
     case 'slac_access_info':
       _slac_igp_importers_feeds_access($source, $result);
-    break;
+      break;
   }
 }
 

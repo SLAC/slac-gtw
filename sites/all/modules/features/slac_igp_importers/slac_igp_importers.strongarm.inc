@@ -13,6 +13,13 @@ function slac_igp_importers_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'feeds_source_class';
+  $strongarm->value = 'SlacFeedsSource';
+  $export['feeds_source_class'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__calendar_feed';
   $strongarm->value = array(
     'view_modes' => array(
