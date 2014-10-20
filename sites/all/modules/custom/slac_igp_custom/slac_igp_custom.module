@@ -307,3 +307,11 @@ function slac_igp_custom_file_presave($file) {
     @system_check_directory($element);
   }
 }
+
+/**
+ * Implements hook_cron()
+ */
+function slac_igp_custom_cron() {
+  // log when cron has been ran
+  watchdog('cron', 'Cron ran at %time', array('%time' => format_date(REQUEST_TIME, 'medium')));
+}
