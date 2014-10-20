@@ -280,8 +280,8 @@ function slac_igp_custom_field_formatter_view($entity_type, $entity, $field, $in
  * the only way to fix this is to re-check the folder and file permissions to
  * update the stream.
  */
-function slac_configuration_flush_caches() {
-  slac_configuration_file_presave(NULL);
+function slac_igp_custom_flush_caches() {
+  slac_igp_custom_file_presave(NULL);
 
   // return empty array as we aren't actually clearing caches
   return array();
@@ -290,7 +290,7 @@ function slac_configuration_flush_caches() {
 /**
  * Implements hook_file_presave()
  */
-function slac_configuration_file_presave($file) {
+function slac_igp_custom_file_presave($file) {
   // This function does not actually modify the file object, it simply checks 
   // the folders files may get saved into. 
   $form['file_public_path'] = array(
