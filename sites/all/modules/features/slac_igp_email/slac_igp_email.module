@@ -746,6 +746,11 @@ function slac_igp_email_img_path_rewrite($text, $filter, $format, $langcode, $ca
       'https://intranet-stage.slac.stanford.edu/sites/intranet-stage.slac.stanford.edu/files/styles/mailchimp_news_teaser/public',
       // @todo Will the site directory be used on live? Or just "default" maybe?
       'https://intranet.slac.stanford.edu/sites/intranet.slac.stanford.edu/files/styles/mailchimp_news_teaser/public',
+
+      "http://intranet-stage.slac.stanford.edu/sites/intranet-stage.slac.stanford.edu/files/styles/mailchimp_daily_teaser/public",
+      'http://intranet-stage.slac.stanford.edu/sites/intranet-stage.slac.stanford.edu/files/styles/mailchimp_news_teaser/public',
+      // @todo Will the site directory be used on live? Or just "default" maybe?
+      'http://intranet.slac.stanford.edu/sites/intranet.slac.stanford.edu/files/styles/mailchimp_news_teaser/public',
     ),
     array($stage_dist, $prod_dist),
     $text
