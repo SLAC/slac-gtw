@@ -223,10 +223,15 @@ function slac_igp_feed_node_update($node) {
  * Positions a node into a queue based on certain factors.
  */
 function _slac_igp_feed_queue_mgmt($node) {
-  if ($node->type === 'news_article') {
+  if ($node->type === 'news_article' && $node->status) {
     module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
 
-    $changed = !isset($node->original) || ($node->promote != $node->original->promote);
+    // Be "changed" if it's a new node…
+    $changed = !isset($node->original)
+      // Or if the promote status has toggled…
+      || ($node->promote != $node->original->promote)
+      // Or if the node is published, but previously wasn't.
+      || (!$node->original->status);
 
     $subqueues = array(FEATURED_NEWS, LAB_NEWS, SLAC_SCIENCE);
 
