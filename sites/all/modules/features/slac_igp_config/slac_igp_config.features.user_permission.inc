@@ -10,6 +10,17 @@
 function slac_igp_config_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: administer feeds.
+  $permissions['administer feeds'] = array(
+    'name' => 'administer feeds',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+      'manager' => 'manager',
+    ),
+    'module' => 'feeds',
+  );
+
   // Exported permission: administer nodes.
   $permissions['administer nodes'] = array(
     'name' => 'administer nodes',
