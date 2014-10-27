@@ -568,7 +568,6 @@
 /* line 175, ../sass/blocks.scss */
 .frontpage-calendar .views-row-grouped {
   clear: both;
-  color: #20659A;
 }
 /* line 179, ../sass/blocks.scss */
 .frontpage-calendar h3 {
@@ -611,10 +610,6 @@
 /* line 215, ../sass/blocks.scss */
 .frontpage-calendar .views-row.views-row-first {
   padding-top: 10px;
-}
-/* line 218, ../sass/blocks.scss */
-.frontpage-calendar .views-row:hover {
-  text-decoration: underline;
 }
 /* line 221, ../sass/blocks.scss */
 .frontpage-calendar .views-field-title {
