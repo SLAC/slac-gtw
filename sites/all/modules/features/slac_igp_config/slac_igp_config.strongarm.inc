@@ -445,6 +445,41 @@ function slac_igp_config_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'og_tag_importer_og_description';
+  $strongarm->value = 'body';
+  $export['og_tag_importer_og_description'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'og_tag_importer_og_image';
+  $strongarm->value = 'field_news_image';
+  $export['og_tag_importer_og_image'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'og_tag_importer_og_site_name';
+  $strongarm->value = 'body';
+  $export['og_tag_importer_og_site_name'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'og_tag_importer_og_title';
+  $strongarm->value = 'title';
+  $export['og_tag_importer_og_title'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'og_tag_importer_og_url';
+  $strongarm->value = 'field_link';
+  $export['og_tag_importer_og_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'page_cache_maximum_age';
   $strongarm->value = '0';
   $export['page_cache_maximum_age'] = $strongarm;
