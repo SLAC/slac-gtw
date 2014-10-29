@@ -115,10 +115,10 @@ function slac_igp_importers_import_single_event_submit($form, &$form_state) {
         if (empty($form_state['event'][$source])) {
           // Use the event page URL.
           drupal_set_message(t('The source event page did not have a redirect URL, so the URL of the event page itself is being used instead.'), 'warning');
-          $form_state['event'][$source] = $form_state['values']['url'];
+          $form_state['event'][$source] = array(LANGUAGE_NONE => array(array('url' => $form_state['values']['url'])));
         }
       }
-      $node->{$dest} = array(LANGUAGE_NONE => array(array('url' => $form_state['event'][$source])));
+      $node->{$dest} = $form_state['event'][$source];
     }
   }
   node_save($node);
