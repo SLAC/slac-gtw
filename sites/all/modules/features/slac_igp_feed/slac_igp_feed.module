@@ -226,44 +226,34 @@ function _slac_igp_feed_queue_mgmt($node) {
   if ($node->type === 'news_article' && $node->status) {
     module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
 
-    // Be "changed" if it's a new node…
-    $changed = !isset($node->original)
-      // Or if the promote status has toggled…
-      || ($node->promote != $node->original->promote)
-      // Or if the node is published, but previously wasn't.
-      || (!$node->original->status);
-
     $subqueues = array(FEATURED_NEWS, LAB_NEWS, SLAC_SCIENCE);
 
     $new_types = field_get_items('node', $node, 'field_news_type');
     $new_type = $new_types[0]['value'];
 
-    // We don't think we've changed so far, but see if we switched the news type
-    if (!$changed && isset($node->original)) {
-      $old_types = field_get_items('node', $node->original, 'field_news_type');
-      $old_type = $old_types[0]['value'];
-      $changed = $old_type != $new_type;
-    }
-    
-    // only update if the promoted is changed or if it's a new node, if not then other factors will cause the nodequeues to be shifted
-    if ($changed) {
-      // if the news article is promoted, take it out of other queue and place it into the featured news queue
-      if ($node->promote) {
+    // if the news article is promoted, take it out of other queue and place it into the featured news queue
+    if ($node->promote) {
+      // Don't update if it's already in the desired subqueue
+      if (!nodequeue_get_subqueue_position(FEATURED_NEWS, $node->nid)) {
         slac_igp_feed_node_remove($node->nid, $subqueues);
         slac_igp_feed_node_add($node->nid, FEATURED_NEWS, TRUE);
       }
-      else {
-        // If the type changed…
-        switch ($new_type) {
-          case 'internal':
+    }
+    else {
+      // If the type changed…
+      switch ($new_type) {
+        case 'internal':
+          if (!nodequeue_get_subqueue_position(LAB_NEWS, $node->nid)) {
             slac_igp_feed_node_remove($node->nid, $subqueues);
             slac_igp_feed_node_add($node->nid, LAB_NEWS, TRUE);
-            break;
-          case 'external':
+          }
+          break;
+        case 'external':
+          if (!nodequeue_get_subqueue_position(SLAC_SCIENCE, $node->nid)) {
             slac_igp_feed_node_remove($node->nid, $subqueues);
             slac_igp_feed_node_add($node->nid, SLAC_SCIENCE, FALSE, 2);
-            break;
-        }
+          }
+          break;
       }
     }
   }
