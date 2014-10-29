@@ -118,7 +118,7 @@ function slac_igp_importers_import_single_event_submit($form, &$form_state) {
           $form_state['event'][$source] = $form_state['values']['url'];
         }
       }
-      $node->{$dest} = $form_state['event'][$source];
+      $node->{$dest} = array(LANGUAGE_NONE => array(array('url' => $form_state['event'][$source])));
     }
   }
   node_save($node);
