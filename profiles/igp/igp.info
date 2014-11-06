@@ -101,4 +101,3 @@ dependencies[] = views_tree
 dependencies[] = views_ui
 dependencies[] = weather_block
 dependencies[] = webform
-dependencies[] = slac
