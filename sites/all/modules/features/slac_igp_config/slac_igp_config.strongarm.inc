@@ -84,7 +84,7 @@ function slac_igp_config_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'cron_safe_threshold';
-  $strongarm->value = '0';
+  $strongarm->value = '3600';
   $export['cron_safe_threshold'] = $strongarm;
 
   $strongarm = new stdClass();
