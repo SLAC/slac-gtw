@@ -38,6 +38,22 @@ function slac_igp_feed_cron() {
   }
 }
 
+function slac_igp_feed_action_info() {
+  return array(
+    'slac_igp_feed_publish_action' => array(
+      'type' => 'node',
+      'label' => t('Publish SLAC NODES'),
+      'configurable' => FALSE,
+      'behavior' => array('changes_property'),
+    ),
+  );
+}
+
+function slac_igp_feed_publish_action(&$node, $context = array()) { 
+  $node->status = NODE_PUBLISHED;
+  _slac_igp_feed_queue_mgmt($node, true);
+}
+
 /**
  * Implements hook_form_alter
  * Adding some node queue expiration logic that will keep the queue short
@@ -222,7 +238,7 @@ function slac_igp_feed_node_update($node) {
 /**
  * Positions a node into a queue based on certain factors.
  */
-function _slac_igp_feed_queue_mgmt($node) {
+function _slac_igp_feed_queue_mgmt($node, $changed = FALSE) {
   if ($node->type === 'news_article' && $node->status) {
     module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
     // Be "changed" if it's a new node…
@@ -230,10 +246,8 @@ function _slac_igp_feed_queue_mgmt($node) {
       // Or if the promote status has toggled…
       || ($node->promote != $node->original->promote)
       // Or if the node is published, but previously wasn't.
-      || (!$node->original->status)
-      // While not a change, it should trigger additional logic
-      || ($node->original->status == $node->status);
-
+      || (!$node->original->status);
+      
     $subqueues = array(FEATURED_NEWS, LAB_NEWS, SLAC_SCIENCE);
 
     $new_types = field_get_items('node', $node, 'field_news_type');
@@ -245,17 +259,8 @@ function _slac_igp_feed_queue_mgmt($node) {
       $old_type = $old_types[0]['value'];
       $changed = $old_type != $new_type;
     }
-    
-    // only update if the promoted is changed or if it's a new node, if not then other factors will cause the nodequeues to be shifted
+
     if ($changed) {
-      foreach ($subqueues as $queue) {
-        $sqid = slac_igp_feed_get_subqueue($queue);
-        if(nodequeue_get_subqueue_position($sqid->sqid, $node->nid) != 0) {
-          // if it's already in the queue then don't go forward as it will shift the location in the queues
-          return;
-        }
-      }
-      
       // if the news article is promoted, take it out of other queue and place it into the featured news queue
       if ($node->promote) {
         slac_igp_feed_node_remove($node->nid, $subqueues);
