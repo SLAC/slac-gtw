@@ -224,6 +224,13 @@ function slac_igp_workflow_views_default_views() {
       'label' => 'Promote to front page',
     ),
     'action::node_publish_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 1,
+      'override_label' => 1,
+      'label' => 'Publish',
+    ),
+    'action::slac_igp_feed_publish_action' => array(
       'selected' => 1,
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
