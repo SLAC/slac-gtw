@@ -381,11 +381,6 @@ function _slac_igp_importers_feeds_news($result) {
 function slac_igp_importers_cron() {
   $query = db_select('feeds_source', 'fs');
   $query->fields('fs', array('id','feed_nid'));
-  $query_or = db_or()
-    ->condition("fs.id","slac_events")
-    ->condition("fs.id","slac_events_ical")
-    ->condition("fs.id","slac_news");
-  $query = $query->condition($query_or);
   $results = $query->execute()->fetchAll();
 
   foreach ($results as $record) {
