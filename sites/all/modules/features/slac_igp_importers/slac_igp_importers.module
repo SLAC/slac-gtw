@@ -57,7 +57,9 @@ function slac_igp_importers_import_single_event($form, $form_state) {
  */
 function slac_igp_importers_import_single_event_validate($form, &$form_state) {
   // Load the page.
-  $page = drupal_http_request($form_state['values']['url']);
+  
+  $url = preg_replace("/^https:/i", "http:", $form_state['values']['url']);
+  $page = drupal_http_request($url);
   if ($page->code <= 0) {
     form_set_error('url', t('This does not appear to be a valid URL.'));
   }
