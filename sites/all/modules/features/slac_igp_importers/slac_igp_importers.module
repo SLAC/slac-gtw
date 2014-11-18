@@ -229,8 +229,8 @@ function _slac_igp_importers_feeds_access($source, $result) {
       $end_date_time = strtotime($end_date);
     }
 
-    $start_date = (!empty($start_date)) ? gmdate('Y-m-d H:i:s', $start_date_time) : '';
-    $end_date = (!empty($end_date)) ? gmdate('Y-m-d H:i:s', $end_date_time) : '';
+    $start_date = (!empty($start_date)) ? date('Y-m-d H:i:s', $start_date_time) : '';
+    $end_date = (!empty($end_date)) ? date('Y-m-d H:i:s', $end_date_time) : '';
 
     $result->items[$key]['Blank source 1'] = $start_date;
     $result->items[$key]['Blank source 2'] = $end_date;
