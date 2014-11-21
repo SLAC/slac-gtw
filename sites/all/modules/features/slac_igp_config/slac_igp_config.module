@@ -5,3 +5,8 @@
  */
 
 include_once 'slac_igp_config.features.inc';
+
+
+function slac_igp_config_cron() {
+  watchdog('deployment', 'Previous commit: e6e2d6d841702fbf26cb81c99cd5b5a6d27f4412');
+}
