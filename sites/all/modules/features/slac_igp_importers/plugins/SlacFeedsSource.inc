@@ -16,15 +16,13 @@ class SlacFeedsSource extends FeedsSource {
     parent::__construct($importer_id, $feed_nid);
     // If it looks like the feed is an iCalendar feed (has an ".ics" extension),
     // clobber our importer with the slac_events_cal importer instead.
-    if ($feed_nid) {
-      if ($importer_id === 'slac_events' && preg_match('/\.ics$/', $this->config['FeedsHTTPFetcher']['source'])) {
-        // Use the iCalendar importer instead.
-        $this->importer = feeds_importer('slac_events_ical');
-      }
-      elseif ($importer_id === 'slac_events_ical') {
-        // Use the RSS importer if it's not already being used.
-        $this->importer = feeds_importer('slac_events');
-      }
+    if ($importer_id === 'slac_events' && preg_match('/\.ics$/', $this->config['FeedsHTTPFetcher']['source'])) {
+      // Use the iCalendar importer instead.
+      $this->importer = feeds_importer('slac_events_ical');
+    }
+    elseif ($importer_id === 'slac_events_ical') {
+      // Use the RSS importer if it's not already being used.
+      $this->importer = feeds_importer('slac_events');
     }
   }
 }
