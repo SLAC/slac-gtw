@@ -255,7 +255,7 @@ function slac_igp_importers_feeds_importer_default() {
           0 => array(
             'source' => 'title',
             'target' => 'title',
-            'unique' => FALSE,
+            'unique' => 1,
           ),
           1 => array(
             'source' => 'guid',
