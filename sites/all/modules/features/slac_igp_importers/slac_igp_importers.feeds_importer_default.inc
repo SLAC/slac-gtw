@@ -255,7 +255,7 @@ function slac_igp_importers_feeds_importer_default() {
           0 => array(
             'source' => 'title',
             'target' => 'title',
-            'unique' => 1,
+            'unique' => FALSE,
           ),
           1 => array(
             'source' => 'guid',
@@ -320,8 +320,13 @@ function slac_igp_importers_feeds_importer_default() {
       ),
     ),
     'parser' => array(
-      'plugin_key' => 'DateIcalIcalcreatorParser',
-      'config' => array(),
+      'plugin_key' => 'DateiCalFeedsParser',
+      'config' => array(
+        'indefinite_count' => '52',
+        'indefinite_message_display' => TRUE,
+        'until_not_utc' => FALSE,
+        'skip_days' => NULL,
+      ),
     ),
     'processor' => array(
       'plugin_key' => 'FeedsNodeProcessor',
@@ -331,37 +336,37 @@ function slac_igp_importers_feeds_importer_default() {
         'authorize' => 1,
         'mappings' => array(
           0 => array(
-            'source' => 'summary',
+            'source' => 'SUMMARY',
             'target' => 'title',
             'unique' => FALSE,
           ),
           1 => array(
-            'source' => 'uid',
+            'source' => 'UID',
             'target' => 'guid',
             'unique' => 1,
           ),
           2 => array(
-            'source' => 'dtstart',
+            'source' => 'DTSTART',
             'target' => 'field_event_date:start',
             'unique' => FALSE,
           ),
           3 => array(
-            'source' => 'dtend',
+            'source' => 'DTEND',
             'target' => 'field_event_date:end',
             'unique' => FALSE,
           ),
           4 => array(
-            'source' => 'description',
+            'source' => 'DESCRIPTION',
             'target' => 'body',
             'unique' => FALSE,
           ),
           5 => array(
-            'source' => 'location',
+            'source' => 'LOCATION',
             'target' => 'field_event_location',
             'unique' => FALSE,
           ),
           6 => array(
-            'source' => 'url',
+            'source' => 'URL',
             'target' => 'field_link:url',
             'unique' => FALSE,
           ),
