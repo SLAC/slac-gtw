@@ -14,15 +14,45 @@ class SlacFeedsSource extends FeedsSource {
   protected function __construct($importer_id, $feed_nid) {
     // First, construct ourself as normal.
     parent::__construct($importer_id, $feed_nid);
-    // If it looks like the feed is an iCalendar feed (has an ".ics" extension),
-    // clobber our importer with the slac_events_cal importer instead.
-    if ($importer_id === 'slac_events' && preg_match('/\.ics$/', $this->config['FeedsHTTPFetcher']['source'])) {
-      // Use the iCalendar importer instead.
+    // $importer_id is useless for figuring out which source we have
+    // So lets use what we know about the source
+
+    $this->importer = feeds_importer('slac_events');
+
+    // Cheap; known source
+    if (preg_match('/\.ics$/', $this->config['FeedsHTTPFetcher']['source'])) {
+      // Use the iCalendar
       $this->importer = feeds_importer('slac_events_ical');
     }
-    elseif ($importer_id === 'slac_events_ical') {
-      // Use the RSS importer if it's not already being used.
+    // doubtful that the rss feeds will end in xml or rss but still check so we don't have to guess
+    elseif (preg_match('/\.xml$/', $this->config['FeedsHTTPFetcher']['source'])
+          || preg_match('/\.rss$/', $this->config['FeedsHTTPFetcher']['source'])) {
       $this->importer = feeds_importer('slac_events');
+    }
+    else {
+      // fine, we'll just request the data and check content headers
+      try {
+        $result = drupal_http_request($this->config['FeedsHTTPFetcher']['source']);
+      }
+      catch (Exception $e) {
+      }
+
+      if(isset($result)) {
+        foreach ($result->headers as $header => $info) {
+          if (strtolower($header) === 'content-type') {
+            if (!strpos($info, 'calendar') === FALSE) {
+              $this->importer = feeds_importer('slac_events_ical');
+            }
+            elseif (!strpos($info, 'rss+xml') === FALSE) {
+              $this->importer = feeds_importer('slac_events');
+            }
+            else {
+              // All else fails... it's RSS
+              $this->importer = feeds_importer('slac_events');
+            }
+          }
+        }
+      }
     }
   }
 }
