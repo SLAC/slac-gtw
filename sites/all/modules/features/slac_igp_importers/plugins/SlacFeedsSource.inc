@@ -17,6 +17,10 @@ class SlacFeedsSource extends FeedsSource {
     // $importer_id is useless for figuring out which source we have
     // So lets use what we know about the source
 
+    if ($importer_id === 'slac_news') {
+      return;
+    }
+
     $this->importer = feeds_importer('slac_events');
 
     // Cheap; known source
