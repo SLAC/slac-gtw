@@ -17,10 +17,12 @@ class SlacFeedsSource extends FeedsSource {
     // $importer_id is useless for figuring out which source we have
     // So lets use what we know about the source
 
-    if ($importer_id === 'slac_news') {
+    if ($importer_id === 'slac_news' ||
+        $importer_id === 'slac_flea_market' ||
+        $importer_id === 'slac_access_info') {
       return;
     }
-
+    
     $this->importer = feeds_importer('slac_events');
 
     // Cheap; known source
@@ -47,8 +49,8 @@ class SlacFeedsSource extends FeedsSource {
             if (!strpos($info, 'calendar') === FALSE) {
               $this->importer = feeds_importer('slac_events_ical');
             }
-            elseif (!strpos($info, 'rss+xml') === FALSE) {
-              $this->importer = feeds_importer('slac_events');
+            elseif (!strpos($info, 'rss+xml') === FALSE  || !strpos($info, 'html') === FALSE) {
+              
             }
             else {
               // All else fails... it's RSS
