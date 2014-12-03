@@ -167,7 +167,7 @@ function slac_igp_importers_feeds_after_parse($source, $result) {
       _slac_igp_importers_feeds_news($result);
       break;
 
-    case 'slac_events':
+    case 'slac_events_ical':
       // Only do our adjustments if this is an RSS feed (not iCalendar)
       if ($source->importer->id === 'slac_events') {
         _slac_igp_importers_feeds_event($source, $result);
