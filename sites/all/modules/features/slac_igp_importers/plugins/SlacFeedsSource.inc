@@ -22,7 +22,7 @@ class SlacFeedsSource extends FeedsSource {
         $importer_id === 'slac_access_info') {
       return;
     }
-    
+
     $this->importer = feeds_importer('slac_events');
 
     // Cheap; known source
@@ -50,7 +50,7 @@ class SlacFeedsSource extends FeedsSource {
               $this->importer = feeds_importer('slac_events_ical');
             }
             elseif (!strpos($info, 'rss+xml') === FALSE  || !strpos($info, 'html') === FALSE) {
-              
+              $this->importer = feeds_importer('slac_events');
             }
             else {
               // All else fails... it's RSS
