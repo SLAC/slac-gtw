@@ -112,6 +112,17 @@ function slac_igp_importers_import_single_event_submit($form, &$form_state) {
   }
   foreach ($map as $source => $dest) {
     if (isset($form_state['event'][$source])) {
+      if($dest === 'field_event_date') {
+        $event_date_start = $form_state['event'][$source][LANGUAGE_NONE][0]['value'];
+        $event_date_end = $form_state['event'][$source][LANGUAGE_NONE][0]['value2'];
+
+        $event_date_start = date('Y-m-d H:i:s', strtotime($event_date_start));
+        $event_date_end = date('Y-m-d H:i:s', strtotime($event_date_end));
+
+        $form_state['event'][$source][LANGUAGE_NONE][0]['value'] = $event_date_start;
+        $form_state['event'][$source][LANGUAGE_NONE][0]['value2'] = $event_date_end;
+      }
+
       if ($dest === 'field_link') {
         // Special handling for this.
         if (empty($form_state['event'][$source])) {
@@ -229,8 +240,8 @@ function _slac_igp_importers_feeds_access($source, $result) {
       $end_date_time = strtotime($end_date);
     }
 
-    $start_date = (!empty($start_date)) ? date('Y-m-d H:i:s', $start_date_time) : '';
-    $end_date = (!empty($end_date)) ? date('Y-m-d H:i:s', $end_date_time) : '';
+    $start_date = (!empty($start_date)) ? gmdate('Y-m-d H:i:s', $start_date_time) : '';
+    $end_date = (!empty($end_date)) ? gmdate('Y-m-d H:i:s', $end_date_time) : '';
 
     $result->items[$key]['Blank source 1'] = $start_date;
     $result->items[$key]['Blank source 2'] = $end_date;
