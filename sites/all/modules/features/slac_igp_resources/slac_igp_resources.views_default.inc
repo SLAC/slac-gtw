@@ -72,6 +72,11 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['filters']['name']['field'] = 'name';
   $handler->display->display_options['filters']['name']['relationship'] = 'parent';
   $handler->display->display_options['filters']['name']['operator'] = 'empty';
+  /* Filter criterion: Field: Link (field_link:url) */
+  $handler->display->display_options['filters']['field_link_url']['id'] = 'field_link_url';
+  $handler->display->display_options['filters']['field_link_url']['table'] = 'field_data_field_link';
+  $handler->display->display_options['filters']['field_link_url']['field'] = 'field_link_url';
+  $handler->display->display_options['filters']['field_link_url']['operator'] = 'not empty';
 
   /* Display: Directorate links */
   $handler = $view->new_display('block', 'Directorate links', 'block');
