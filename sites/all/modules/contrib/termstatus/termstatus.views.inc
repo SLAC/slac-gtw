@@ -1,22 +1,13 @@
 <?php
 /**
  * @file
- * Provide views data and handlers for termstatus.module
+ * Provide views data and handlers for taxonomy term status module.
  */
 
 /**
- * @defgroup views_termstatus_module termstatus.module handlers
- *
- * @{
- */
-
-/**
- * Implements hook_views_data()
+ * Implements hook_views_data().
  */
 function termstatus_views_data() {
-  // ----------------------------------------------------------------------
-  // termstatus table
-
   $data['termstatus']['table']['group']  = t('Taxonomy term');
   $data['termstatus']['table']['join'] = array(
     'taxonomy_term_data' => array(
@@ -39,7 +30,8 @@ function termstatus_views_data() {
       'handler' => 'views_handler_filter_boolean_operator',
       'label' => t('Published'),
       'type' => 'yes-no',
-      'use equal' => TRUE, // Use status = 1 instead of status <> 0 in WHERE statment
+      // Use status = 1 instead of status <> 0 in WHERE statment.
+      'use equal' => TRUE,
     ),
     'sort' => array(
       'handler' => 'views_handler_sort',
@@ -48,7 +40,3 @@ function termstatus_views_data() {
 
   return $data;
 }
-
-/**
- * @}
- */
