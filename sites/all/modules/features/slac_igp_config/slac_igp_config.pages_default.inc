@@ -225,7 +225,7 @@ function slac_igp_config_default_page_manager_pages() {
       'url' => '',
       'display' => 'block',
       'override_title' => 1,
-      'override_title_text' => 'Directorate Links',
+      'override_title_text' => 'Organization Index',
     );
     $pane->cache = array();
     $pane->style = array(
