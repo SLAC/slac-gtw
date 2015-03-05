@@ -253,14 +253,14 @@ function slac_igp_importers_feeds_importer_default() {
         'authorize' => 1,
         'mappings' => array(
           0 => array(
-            'source' => 'title',
-            'target' => 'title',
-            'unique' => FALSE,
-          ),
-          1 => array(
             'source' => 'guid',
             'target' => 'guid',
             'unique' => 1,
+          ),
+          1 => array(
+            'source' => 'title',
+            'target' => 'title',
+            'unique' => FALSE,
           ),
           2 => array(
             'source' => 'timestamp',
