@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * Customizes the search form and submit functions.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function slac_search_form_search_block_form_alter(&$form, &$form_state, $form_id) {
+  // Add a search type select element to the beginning of the form.
+  $search_type_element = array(
+    'search_type' => array(
+      '#type' => 'select',
+      '#title' => t('Search Type'),
+      '#title_display' => 'invisible',
+      '#options' => array(
+        'people' => t('People'),
+        'default' => t('SLAC Today'),
+        'enterprise' => t('SLAC Web'),
+      ),
+      '#default_value' => 'default',
+    ),
+  );
+  $form = $search_type_element + $form;
+
+  // Replace the form_submit with a version that redirects to the appropriate
+  // search system based on the Search Type chosen.
+  $form['#orig_submit'] = $form['#submit'];
+  $form['#submit'] = array('slac_search_block_form_submit');
+
+  // Alter search form display.
+  $form['search_block_form']['#attributes']['placeholder'] = t('Search SLAC');
+  $form['actions']['submit']['#value'] = t('Go');
+}
+
+/**
+ * Submit handler for block search form just sets the redirect for the form
+ * based on the search query.
+ *
+ * @see slac_search_form_search_block_form_alter().
+ */
+function slac_search_block_form_submit($form, &$form_state) {
+  $search_type = $form_state['values']['search_type'];
+  if ($search_type !== 'default') {
+    // Remove dynamic destinations, the results page is always the destination.
+    if (isset($_GET['destination'])) {
+      unset($_GET['destination']);
+    }
+
+    // Set the form redirect to either the people search or enterprise search if
+    // the search type was changed from "SLAC Today" ('default').
+    $search_query = urlencode($form_state['values']['search_block_form']);
+    if ($search_type == 'people') {
+      $url = 'https://www-public.slac.stanford.edu/phonebook/dirsearch.aspx?name=' . $search_query . '&gone=active&lf=1&url=&submit=go';
+    }
+    else {
+      // 'enterprise'
+      $url = 'http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite&qt=' . $search_query;
+    }
+    $form_state['redirect'] = url($url, array('absolute' => TRUE));
+  }
+  else {
+    // 'default' uses the core search functionality, call the default form
+    // submit handler(s).
+    foreach ($form['#orig_submit'] as $func) {
+      $func($form, $form_state);
+    }
+  }
+}
