@@ -1,22 +1,34 @@
 <?php
+
 /**
  * @file
- * Install, update, and uninstall functions for the slac_igp_deployment module.
+ * Update functions for the SLAC Today deployment updates module.
  */
 
 /**
- * Enable the ct_news feature.
+ * Implements hook_install().
  */
-function slac_igp_deployment_update_7001() {
-  $result = module_enable(array(
-    'ct_news',
-  ));
-  if ($result == FALSE) {
-    throw new DrupalUpdateException('An error occurred while enabling the
-     ct_news module. It might need to be enabled manually.');
-  }
-  else {
-    return t('The ct_news module was successfully enabled.');
-  }
-}
+function slac_igp_deployment_install() {
+  // Remove existing search boxes from the header region.
+  db_update('block')
+    ->fields(array(
+      'status' => 0,
+      'region' => '-1',
+    ))
+    ->condition('module', 'boxes', '=')
+    ->condition('delta', array('search_people', 'web_search'), 'IN')
+    ->condition('theme', 'slac', '=')
+    ->execute();
 
+  // Place the core search block into the header region.
+  db_update('block')
+    ->fields(array(
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'header',
+    ))
+    ->condition('module', 'search', '=')
+    ->condition('delta', 'form', '=')
+    ->condition('theme', 'slac', '=')
+    ->execute();
+}

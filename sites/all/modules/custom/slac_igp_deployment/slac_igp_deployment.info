@@ -1,6 +1,6 @@
-name = slac_igp_deployment
-description = Provides deployment of hook_updates for slac_igp.
+name = SLAC Today deployment updates
+description = Update code to ready the site for deployment of new features, enhancements.
+package = SLAC
 core = 7.x
-package = Deployment
-version = 7.x-1.0-alpha1
-project = slac_igp_deployment
+version = 7.x-1.0-dev
+dependencies[] = slac_search
