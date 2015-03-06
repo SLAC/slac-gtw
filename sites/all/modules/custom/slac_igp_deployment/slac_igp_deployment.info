@@ -1,0 +1,6 @@
+name = SLAC Today deployment updates
+description = Update code to ready the site for deployment of new features, enhancements.
+package = SLAC
+core = 7.x
+version = 7.x-1.0-dev
+dependencies[] = slac_search
