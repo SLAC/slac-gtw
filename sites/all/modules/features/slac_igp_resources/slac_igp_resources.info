@@ -2,7 +2,6 @@ name = SLAC IGP Resources
 description = Provide related elements for staff and research resources
 core = 7.x
 package = SLAC
-php = 5.2.4
 version = 7.x-1.0
 project = slac_igp_resources
 dependencies[] = quicktabs
