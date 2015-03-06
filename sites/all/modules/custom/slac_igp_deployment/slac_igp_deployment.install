@@ -1,0 +1,22 @@
+<?php
+/**
+ * @file
+ * Install, update, and uninstall functions for the slac_igp_deployment module.
+ */
+
+/**
+ * Enable the ct_news feature.
+ */
+function slac_igp_deployment_update_7001() {
+  $result = module_enable(array(
+    'ct_news',
+  ));
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling the
+     ct_news module. It might need to be enabled manually.');
+  }
+  else {
+    return t('The ct_news module was successfully enabled.');
+  }
+}
+
