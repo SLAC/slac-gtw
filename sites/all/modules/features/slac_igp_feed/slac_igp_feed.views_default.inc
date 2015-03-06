@@ -29,7 +29,7 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '7';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -292,7 +292,7 @@ URL: [field_link] \\n';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/calendar/all">View All Upcoming Events</a><br />
-<a href="https://oraweb.slac.stanford.edu/apex/slac/f?p=147:1:755477384478:::::">View SLAC Training Calendar</a><br />
+<a href="http://training.slac.stanford.edu/calendar.asp">View SLAC Training Calendar</a><br />
 <a href="https://news.slac.stanford.edu/create/announcement ">Submit Event</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
 
@@ -303,8 +303,7 @@ URL: [field_link] \\n';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'date_ical';
   $handler->display->display_options['style_options']['cal_name'] = 'SLAC Events';
-  $handler->display->display_options['style_options']['no_calname'] = 1;
-  $handler->display->display_options['style_options']['disable_webcal'] = 0;
+  $handler->display->display_options['style_options']['no_calname'] = TRUE;
   $handler->display->display_options['row_plugin'] = 'date_ical_fields';
   $handler->display->display_options['row_options']['date_field'] = 'field_event_date_1';
   $handler->display->display_options['row_options']['title_field'] = 'title';
@@ -346,7 +345,7 @@ URL: [field_link] \\n';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -400,6 +399,12 @@ URL: [field_link] \\n';
 
   /* Display: Flea Market */
   $handler = $view->new_display('block', 'Flea Market', 'block');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Flea Market';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $export['flea_market'] = $view;
 
   $view = new view();
@@ -539,6 +544,10 @@ URL: [field_link] \\n';
   /* Display: Featured news slideshow */
   $handler = $view->new_display('block', 'Featured news slideshow', 'block');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
@@ -894,7 +903,7 @@ URL: [field_link] \\n';
   $handler->display->display_options['title'] = 'SLAC Science';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
   $handler->display->display_options['pager']['options']['offset'] = '1';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
@@ -913,7 +922,7 @@ URL: [field_link] \\n';
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="https://www6.slac.stanford.edu/blog-tags/science">View SLAC Science Archive</a><br />
+  $handler->display->display_options['footer']['area']['content'] = '<a href="https://www6.slac.stanford.edu/blog-tags/slac-science">View SLAC Science Archives</a><br />
 <a href="/suggest-a-story">Suggest a SLAC Science Story</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;

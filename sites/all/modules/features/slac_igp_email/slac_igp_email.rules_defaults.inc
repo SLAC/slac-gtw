@@ -12,6 +12,7 @@ function slac_igp_email_default_rules_configuration() {
   $items['rules_slac_igp_email_resubscription'] = entity_import('rules_config', '{ "rules_slac_igp_email_resubscription" : {
       "LABEL" : "Weekly email re-subscription",
       "PLUGIN" : "rule",
+      "OWNER" : "rules",
       "TAGS" : [ "email", "mailchimp", "weekly email" ],
       "REQUIRES" : [ "rules" ],
       "USES VARIABLES" : { "email" : { "label" : "email", "type" : "text" } },
