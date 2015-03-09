@@ -10,6 +10,39 @@
 function ct_news_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'comment-comment_node_news-comment_body'
+  $field_instances['comment-comment_node_news-comment_body'] = array(
+    'bundle' => 'comment_node_news',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'comment',
+    'field_name' => 'comment_body',
+    'label' => 'Comment',
+    'required' => TRUE,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 0,
+    ),
+  );
+
   // Exported field_instance: 'node-news-body'
   $field_instances['node-news-body'] = array(
     'bundle' => 'news',
@@ -63,7 +96,7 @@ function ct_news_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 1,
+      'weight' => 5,
     ),
   );
 
@@ -123,7 +156,7 @@ function ct_news_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 5,
+      'weight' => 3,
     ),
   );
 
@@ -187,7 +220,7 @@ function ct_news_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 11,
+      'weight' => 10,
     ),
   );
 
@@ -233,7 +266,7 @@ function ct_news_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 1,
     ),
   );
 
@@ -279,7 +312,7 @@ function ct_news_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 6,
+      'weight' => 4,
     ),
   );
 
@@ -325,7 +358,7 @@ function ct_news_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
+      'weight' => 2,
     ),
   );
 
@@ -381,7 +414,7 @@ function ct_news_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 7,
+      'weight' => 6,
     ),
   );
 
@@ -427,7 +460,7 @@ function ct_news_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 9,
+      'weight' => 8,
     ),
   );
 
@@ -473,7 +506,7 @@ function ct_news_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 10,
+      'weight' => 9,
     ),
   );
 
@@ -516,7 +549,7 @@ function ct_news_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -617,6 +650,7 @@ function ct_news_field_default_field_instances() {
 </ol>');
   t('Body');
   t('Byline');
+  t('Comment');
   t('Desired Publish Date');
   t('Enter the date on which you would like this item to be published.');
   t('Image');
