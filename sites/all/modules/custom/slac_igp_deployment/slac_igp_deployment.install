@@ -36,6 +36,7 @@ function slac_igp_deployment_install() {
   module_enable(array(
     'ct_news',
     'slac_ip_config_search',
+    'slac_ip_menus',
     'slac_search',
   ));
 }
@@ -70,4 +71,31 @@ function slac_igp_deployment_update_7002() {
 
   $feature = features_get_features('slac_ip_config_search');
   features_revert(array('slac_ip_config_search' => $feature->components));
+}
+/**
+ * Enable the slac_ip_menus feature and place the new menu block.
+ */
+function slac_igp_deployment_update_7003() {
+  $result = module_enable(array(
+    'slac_ip_menus',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling slac_ip_menus.');
+  }
+
+  $feature = features_get_features('slac_ip_menus');
+  features_revert(array('slac_ip_menus' => $feature->components));
+
+  // Place the core search block into the header region.
+  db_update('block')
+    ->fields(array(
+      'status' => 1,
+      'weight' => -32,
+      'region' => 'header',
+    ))
+    ->condition('module', 'menu', '=')
+    ->condition('delta', 'menu-top-menu', '=')
+    ->condition('theme', 'slac', '=')
+    ->execute();
 }
