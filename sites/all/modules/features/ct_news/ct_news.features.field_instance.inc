@@ -46,13 +46,7 @@ function ct_news_field_default_field_instances() {
   // Exported field_instance: 'node-news-body'
   $field_instances['node-news-body'] = array(
     'bundle' => 'news',
-    'default_value' => array(
-      0 => array(
-        'summary' => '',
-        'value' => '<p>Enter Details</p>',
-        'format' => 'full_html',
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -85,6 +79,11 @@ function ct_news_field_default_field_instances() {
     'required' => 1,
     'settings' => array(
       'display_summary' => 1,
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),

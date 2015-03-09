@@ -84,6 +84,7 @@ function slac_igp_deployment_update_7002() {
 
 /**
  * Enable the modules for news and media.
+ * Rebuild permissions after workbench install.
  */
 function slac_igp_deployment_update_7003() {
   $result = module_enable(array(
@@ -103,6 +104,6 @@ function slac_igp_deployment_update_7003() {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
 
-  $feature = features_get_features('slac_ip_config_search');
-  features_revert(array('slac_ip_config_search' => $feature->components));
+  // Rebuild permissions after workbench install.
+  node_access_rebuild();
 }
