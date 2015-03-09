@@ -71,7 +71,13 @@ function ct_news_strongarm() {
           'weight' => '0',
         ),
         'redirect' => array(
-          'weight' => '11',
+          'weight' => '13',
+        ),
+        'metatags' => array(
+          'weight' => '15',
+        ),
+        'path' => array(
+          'weight' => '14',
         ),
       ),
       'display' => array(),

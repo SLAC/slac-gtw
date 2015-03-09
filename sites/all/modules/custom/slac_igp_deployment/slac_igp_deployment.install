@@ -37,6 +37,15 @@ function slac_igp_deployment_install() {
     'ct_news',
     'slac_ip_config_search',
     'slac_search',
+    'pathauto',
+    'scheduler',
+    'metatag',
+    'token',
+    'file_entity',
+    'media',
+    'media_vimeo',
+    'media_youtube',
+    'slac_ip_media',
   ));
 }
 
@@ -62,6 +71,30 @@ function slac_igp_deployment_update_7001() {
 function slac_igp_deployment_update_7002() {
   $result = module_enable(array(
     'slac_ip_config_search',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling slac_ip_config_search.');
+  }
+
+  $feature = features_get_features('slac_ip_config_search');
+  features_revert(array('slac_ip_config_search' => $feature->components));
+}
+
+/**
+ * Enable the modules for news and media.
+ */
+function slac_igp_deployment_update_7003() {
+  $result = module_enable(array(
+    'pathauto',
+    'scheduler',
+    'metatag',
+    'token',
+    'file_entity',
+    'media',
+    'media_vimeo',
+    'media_youtube',
+    'slac_ip_media',
   ));
 
   if ($result == FALSE) {
