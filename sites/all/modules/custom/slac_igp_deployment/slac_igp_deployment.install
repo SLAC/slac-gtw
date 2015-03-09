@@ -46,6 +46,7 @@ function slac_igp_deployment_install() {
     'media_vimeo',
     'media_youtube',
     'slac_ip_media',
+    'linkit',
   ));
 }
 
@@ -95,10 +96,11 @@ function slac_igp_deployment_update_7003() {
     'media_vimeo',
     'media_youtube',
     'slac_ip_media',
+    'linkit',
   ));
 
   if ($result == FALSE) {
-    throw new DrupalUpdateException('An error occurred while enabling slac_ip_config_search.');
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
 
   $feature = features_get_features('slac_ip_config_search');
