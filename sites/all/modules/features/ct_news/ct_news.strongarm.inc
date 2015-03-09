@@ -68,10 +68,16 @@ function ct_news_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '0',
+          'weight' => '1',
         ),
         'redirect' => array(
-          'weight' => '11',
+          'weight' => '17',
+        ),
+        'metatags' => array(
+          'weight' => '19',
+        ),
+        'path' => array(
+          'weight' => '18',
         ),
       ),
       'display' => array(),

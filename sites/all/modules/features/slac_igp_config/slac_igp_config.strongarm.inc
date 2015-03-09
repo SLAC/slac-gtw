@@ -717,6 +717,7 @@ function slac_igp_config_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'path_alias_whitelist';
   $strongarm->value = array(
+    'file' => TRUE,
     'node' => TRUE,
   );
   $export['path_alias_whitelist'] = $strongarm;
