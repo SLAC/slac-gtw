@@ -3,4 +3,7 @@ description = Update code to ready the site for deployment of new features, enha
 package = SLAC
 core = 7.x
 version = 7.x-1.0-dev
+
+dependencies[] = ct_news
+dependencies[] = slac_ip_config_search
 dependencies[] = slac_search

@@ -33,7 +33,11 @@ function slac_igp_deployment_install() {
     ->execute();
 
   // Enable new modules.
-  module_enable(array('ct_news',));
+  module_enable(array(
+    'ct_news',
+    'slac_ip_config_search',
+    'slac_search',
+  ));
 }
 
 /**
@@ -52,3 +56,18 @@ function slac_igp_deployment_update_7001() {
   }
 }
 
+/**
+ * Enable the slac_ip_config_search feature.
+ */
+function slac_igp_deployment_update_7002() {
+  $result = module_enable(array(
+    'slac_ip_config_search',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling slac_ip_config_search.');
+  }
+
+  $feature = features_get_features('slac_ip_config_search');
+  features_revert(array('slac_ip_config_search' => $feature->components));
+}

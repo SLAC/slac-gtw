@@ -3,3 +3,5 @@ description = Customizes the search form and submit functions.
 package = SLAC
 core = 7.x
 version = 7.x-1.0-dev
+
+dependencies[] = slac_search
