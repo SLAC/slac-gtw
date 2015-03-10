@@ -38,7 +38,20 @@ function slac_igp_deployment_install() {
     'slac_ip_config_search',
     'slac_ip_menus',
     'slac_search',
+    'pathauto',
+    'scheduler',
+    'metatag',
+    'token',
+    'file_entity',
+    'media',
+    'media_vimeo',
+    'media_youtube',
+    'slac_ip_media',
+    'linkit',
   ));
+
+  // Rebuild permissions after workbench install.
+  node_access_rebuild();
 }
 
 /**
@@ -72,6 +85,7 @@ function slac_igp_deployment_update_7002() {
   $feature = features_get_features('slac_ip_config_search');
   features_revert(array('slac_ip_config_search' => $feature->components));
 }
+
 /**
  * Enable the slac_ip_menus feature and place the new menu block.
  */
@@ -99,3 +113,30 @@ function slac_igp_deployment_update_7003() {
     ->condition('theme', 'slac', '=')
     ->execute();
 }
+
+/**
+ * Enable the modules for news and media.
+ * Rebuild permissions after workbench install.
+ */
+function slac_igp_deployment_update_7004() {
+  $result = module_enable(array(
+    'pathauto',
+    'scheduler',
+    'metatag',
+    'token',
+    'file_entity',
+    'media',
+    'media_vimeo',
+    'media_youtube',
+    'slac_ip_media',
+    'linkit',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+
+  // Rebuild permissions after workbench install.
+  node_access_rebuild();
+}
+
