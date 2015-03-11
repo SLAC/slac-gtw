@@ -26,12 +26,19 @@
     padding-top: 12px;
   }
   #block-menu-menu-top-menu {
-    @include zen-grid-item(3, 1);
+    width: 50%;
+    @media screen and (min-width: 1120px) {
+      @include zen-grid-item(2, 2);
+    }
     text-align: right;
     padding-right: 0;
+    padding-left: 0;
   }
   #block-search-form {
-    @include zen-grid-item(2,4);
+    width: 50%;
+    @media screen and (min-width: 1120px) {
+      @include zen-grid-item(2, 4);
+    }
     text-align: right;
     padding-right: 0;
     padding-left: 0;
@@ -98,9 +105,12 @@
   input[type="text"] {
     @include font-size(10px);
     padding: 6px 10px;
-    width: 200px;
+    width: 40%;
     border: 1px solid $blue;
     text-transform: uppercase;
+    @media screen and (min-width: 1280px) {
+      width: 50%;
+    }
     &:focus {
       [placeholder] {
         display: none;
