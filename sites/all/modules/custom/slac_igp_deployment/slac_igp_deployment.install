@@ -34,6 +34,7 @@ function slac_igp_deployment_install() {
 
   // Enable new modules.
   module_enable(array(
+    'ct_event',
     'ct_news',
     'slac_ip_config_search',
     'slac_ip_menus',
@@ -140,3 +141,19 @@ function slac_igp_deployment_update_7004() {
   node_access_rebuild();
 }
 
+/**
+ * Enable the ct_event feature and revert the slac_igp_config feature which
+ * previously contained the Event config.
+ */
+function slac_igp_deployment_update_7005() {
+  $result = module_enable(array(
+    'ct_event',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+
+  $feature = features_get_features('slac_igp_config');
+  features_revert(array('slac_igp_config' => $feature->components));
+}
