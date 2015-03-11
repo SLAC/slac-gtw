@@ -24,6 +24,12 @@ function slac_search_form_search_block_form_alter(&$form, &$form_state, $form_id
     ),
   );
   $form = $search_type_element + $form;
+  $form['#attached']['js'] = array(
+    libraries_get_path('selectize') . '/selectize.js',
+  );
+  $form['#attached']['css'] = array(
+    libraries_get_path('selectize') . '/selectize.css',
+  );
 
   // Replace the form_submit with a version that redirects to the appropriate
   // search system based on the Search Type chosen.
