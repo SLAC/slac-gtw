@@ -676,8 +676,6 @@ a:hover, a:active {
   padding-bottom: 14px;
   overflow: hidden;
   background: transparent;
-  float: left;
-  width: 70%;
 }
 
 .footer-info {
@@ -689,11 +687,6 @@ a:hover, a:active {
   padding: 14px 0 6px;
 }
 
-.footer-logos {
-  width: 30%;
-  max-width: 279px;
-  float: right;
-}
 .footer-logos a {
   float: right;
   width: 27%;
