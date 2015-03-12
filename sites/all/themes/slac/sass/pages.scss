@@ -18,7 +18,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #e9e9e9;
+  background: #e8e8e8;
   font-size: 14px;
 }
 
@@ -90,15 +90,7 @@ a {
 /*
  * Header
  */
-
-header {
-  background: url('../images/header-bg.jpg') repeat-x;
-  height: 74px;
-}
-
 .logo {
-  width: 23%;
-  float: left;
   a {
     display: block;
     max-width: 148px;
@@ -129,37 +121,6 @@ header {
     margin-top: 20px;
   }
 }
-
-
-/* Header Main Menu, Search*/
-
-#block-system-main-menu{
-  float: right;
-  .menu li {
-    height: 25px;
-    line-height: 25px;
-    text-transform: uppercase;
-    font-size: 11px;
-    list-style-type: none;
-    list-style-image: none;
-    float: left;
-    padding: 0 13px;
-    background: transparent url('../images/delimitator.jpg') no-repeat right center;
-    &.last{
-      padding-right: 0;
-      background: transparent;
-    }
-    a {
-      color: #fff;
-      text-decoration: none;
-    }
-  }
-}
-
-#block-boxes-web-search{
-  margin-left: 2%;
-}
-
 #block-boxes-web-search,
 #block-boxes-search-people{
   width: 48.5%;
