@@ -39,6 +39,7 @@ function slac_igp_deployment_install() {
     'slac_ip_config_search',
     'slac_ip_menus',
     'slac_search',
+    'jquery_update',
     'pathauto',
     'scheduler',
     'metatag',
@@ -156,4 +157,17 @@ function slac_igp_deployment_update_7005() {
 
   $feature = features_get_features('slac_igp_config');
   features_revert(array('slac_igp_config' => $feature->components));
+}
+
+/**
+ * Enable the jquery_update module.
+ */
+function slac_igp_deployment_update_7006() {
+  $result = module_enable(array(
+      'jquery_update',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
 }
