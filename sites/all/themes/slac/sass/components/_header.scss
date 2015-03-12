@@ -1,8 +1,3 @@
-// import zen grid partial
-@import "layout/grid";
-
-// import custom variables and mixins
-@import "utilities";
 
 #page {
   @include zen-grid-container;
