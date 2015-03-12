@@ -45,14 +45,6 @@ function slac_igp_config_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
-    'event' => array(
-      'name' => t('Event'),
-      'base' => 'node_content',
-      'description' => t('Imported from scientific, training and staff calendars'),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
     'flea_market_post' => array(
       'name' => t('Flea market post'),
       'base' => 'node_content',
