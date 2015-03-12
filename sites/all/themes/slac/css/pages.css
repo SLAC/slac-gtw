@@ -677,6 +677,9 @@ a:hover, a:active {
   overflow: hidden;
   background: transparent;
 }
+.region-footer a {
+  color: #285385;
+}
 
 .footer-info {
   width: 57%;
