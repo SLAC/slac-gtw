@@ -1,27 +1,22 @@
-/* line 46, ../sass/layouts/_grid.scss */
 #page:before, #page:after {
   content: "";
   display: table;
 }
-/* line 51, ../sass/layouts/_grid.scss */
 #page:after {
   clear: both;
 }
 
-/* line 5, ../sass/components/_header.scss */
 #header {
   background: url("../images/header-bg.png") 0 52px repeat-x;
   height: 82px;
   margin: 0 auto;
   margin-bottom: 78px;
 }
-/* line 6, ../sass/components/_header.scss */
 #header .header-wrapper {
   clear: both;
   display: table;
   content: "";
 }
-/* line 15, ../sass/components/_header.scss */
 #header .logo {
   float: left;
   width: 20%;
@@ -35,7 +30,6 @@
   box-sizing: border-box;
   word-wrap: break-word;
 }
-/* line 18, ../sass/components/_header.scss */
 #header .header__region {
   float: left;
   width: 80%;
@@ -52,7 +46,6 @@
   padding-right: 0;
   padding-top: 12px;
 }
-/* line 23, ../sass/components/_header.scss */
 #header #block-menu-menu-top-menu {
   width: 50%;
   text-align: right;
@@ -60,7 +53,6 @@
   padding-left: 0;
 }
 @media screen and (min-width: 1120px) {
-  /* line 23, ../sass/components/_header.scss */
   #header #block-menu-menu-top-menu {
     float: left;
     width: 40%;
@@ -75,7 +67,6 @@
     word-wrap: break-word;
   }
 }
-/* line 32, ../sass/components/_header.scss */
 #header #block-search-form {
   width: 50%;
   text-align: right;
@@ -83,7 +74,6 @@
   padding-left: 0;
 }
 @media screen and (min-width: 1120px) {
-  /* line 32, ../sass/components/_header.scss */
   #header #block-search-form {
     float: left;
     width: 40%;
@@ -98,30 +88,24 @@
     word-wrap: break-word;
   }
 }
-/* line 41, ../sass/components/_header.scss */
 #header #block-system-main-menu {
   margin-top: 8px;
 }
 
 /* Header Top Menu, Main Menu, Search*/
-/* line 46, ../sass/components/_header.scss */
 #block-menu-menu-top-menu {
   text-align: right;
   margin-bottom: 16px;
 }
-/* line 49, ../sass/components/_header.scss */
 #block-menu-menu-top-menu .menu {
   margin-right: 2em;
 }
-/* line 51, ../sass/components/_header.scss */
 #block-menu-menu-top-menu .menu li {
   display: inline;
 }
-/* line 53, ../sass/components/_header.scss */
 #block-menu-menu-top-menu .menu li.first {
   border-right: 1px solid #316dae;
 }
-/* line 56, ../sass/components/_header.scss */
 #block-menu-menu-top-menu .menu li a {
   font-size: 11px;
   font-size: 0.6875rem;
@@ -129,16 +113,13 @@
   color: #316dae;
   text-transform: uppercase;
 }
-/* line 61, ../sass/components/_header.scss */
 #block-menu-menu-top-menu .menu li a:hover, #block-menu-menu-top-menu .menu li a:focus {
   outline: none;
 }
 
-/* line 69, ../sass/components/_header.scss */
 #block-system-main-menu {
   clear: both;
 }
-/* line 72, ../sass/components/_header.scss */
 #block-system-main-menu .menu li {
   display: inline-block;
   margin-right: -4px;
@@ -146,12 +127,10 @@
   list-style-image: none;
   display: inline-block;
 }
-/* line 78, ../sass/components/_header.scss */
 #block-system-main-menu .menu li.last {
   padding-right: 0;
   background: transparent;
 }
-/* line 82, ../sass/components/_header.scss */
 #block-system-main-menu .menu li a {
   font-size: 15px;
   font-size: 0.9375rem;
@@ -162,14 +141,12 @@
   background: #316dae;
   text-decoration: none;
 }
-/* line 90, ../sass/components/_header.scss */
 #block-system-main-menu .menu li a:hover, #block-system-main-menu .menu li a:focus {
   background: #ffffff;
   color: #316dae;
   outline: none;
 }
 
-/* line 100, ../sass/components/_header.scss */
 .header__region input[type="text"] {
   font-size: 10px;
   font-size: 0.625rem;
@@ -179,20 +156,16 @@
   text-transform: uppercase;
 }
 @media screen and (min-width: 1280px) {
-  /* line 100, ../sass/components/_header.scss */
   .header__region input[type="text"] {
     width: 50%;
   }
 }
-/* line 110, ../sass/components/_header.scss */
 .header__region input[type="text"]:focus [placeholder] {
   display: none;
 }
-/* line 115, ../sass/components/_header.scss */
 .header__region input:focus::-webkit-input-placeholder {
   opacity: 0;
 }
-/* line 118, ../sass/components/_header.scss */
 .header__region input[type="submit"] {
   font-size: 12px;
   font-size: 0.75rem;
@@ -202,7 +175,6 @@
   padding: 5px 10px;
   text-transform: uppercase;
 }
-/* line 126, ../sass/components/_header.scss */
 .header__region select {
   font-size: 10px;
   font-size: 0.625rem;
@@ -218,9 +190,83 @@
   appearance: none;
   background: #ffffff url(../images/dropdown-bg.png) right -3px no-repeat;
 }
-/* line 140, ../sass/components/_header.scss */
 .header__region select option {
   border: 1px solid #316dae;
   color: #316dae;
   font-weight: normal;
+}
+
+.footer-wrapper {
+  background: #DADADA;
+  margin: 0;
+  overflow: hidden;
+}
+@media (max-width: 900px) {
+  .footer-wrapper {
+    background: #9A9A9A;
+  }
+}
+.footer-wrapper .footer-inner:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.region-footer {
+  float: left;
+  width: 60%;
+  margin-left: 0%;
+  margin-right: -60%;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+@media screen and (min-width: 1100px) {
+  .region-footer {
+    float: left;
+    width: 80%;
+    margin-left: 0%;
+    margin-right: -80%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+}
+
+.footer-logos {
+  float: left;
+  width: 40%;
+  margin-left: 60%;
+  margin-right: -100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  text-align: right;
+}
+@media screen and (min-width: 1100px) {
+  .footer-logos {
+    float: left;
+    width: 20%;
+    margin-left: 80%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
 }
