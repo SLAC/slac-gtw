@@ -1,5 +1,6 @@
 
 @import "mixins";
+@import "utilities";
 
 
 /*
@@ -354,6 +355,9 @@ a {
   padding-bottom: 14px;
   overflow: hidden;
   background: transparent;
+  a {
+    color: $footer-links;
+  }
 }
 .footer-info {
   width: 57%;
