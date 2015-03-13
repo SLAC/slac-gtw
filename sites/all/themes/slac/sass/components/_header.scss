@@ -9,7 +9,7 @@
     content: "";
   }
   background: url('../images/header-bg.png') 0 52px repeat-x;
-  height: 82px;
+  height: 84px;
   margin: 0 auto;
   margin-bottom: 78px;
   .logo {
@@ -31,6 +31,7 @@
   }
   #block-search-form {
     width: 50%;
+    position: relative;
     @media screen and (min-width: 1120px) {
       @include zen-grid-item(2, 4);
     }
@@ -131,15 +132,81 @@
     border-radius: 0;
     border-image: none;
     color: lighten($grey, 20%);
-    padding: 6px 5em 6px 1em;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: $white url(../images/dropdown-bg.png) right -3px no-repeat;
   }
   select option {
     border: 1px solid $blue;
     color: $blue;
     font-weight: normal;
   }
+}
+// /selectize styles
+.container-inline .selectize-control {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 5%;
+  .selectize-input {
+    @include font-size(10px);
+background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
+    text-transform: uppercase;
+    border: 1px solid $blue;
+    background: $white;
+    width: 100%;
+    border-radius: 0;
+    border-image: none;
+    color: lighten($grey, 20%);
+    padding: 3px 5em 6px 1em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    overflow: hidden;
+    max-height: 25px;
+    > .item {
+      display: inline-block;
+    }
+  }
+  .selectize-dropdown .selectize-dropdown-content {
+    border: 1px solid $blue;
+    @include font-size(10px);
+    color: lighten($grey, 20%);
+    text-transform: uppercase;
+    background: transparent;
+    box-shadow: none;
+    .option {
+      border-bottom: 1px solid $blue;
+      background: transparent;
+      text-align: left;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    .selected,
+    :hover {
+      background: lighten($grey, 50%);
+      color: $blue;
+    }
+  }
+  div {
+    display: block;
+  }
+}
+.selectize-dropdown {
+  border: none;
+}
+.selectize-control.single .selectize-input {
+  background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
+  width: 135px;
+  &.dropdown-active {
+      background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
+      width: 135px;
+  }
+}
+.selectize-control.plugin-drag_drop .ui-sortable-placeholder::after,
+.selectize-input::after,
+.selectize-input.dropdown-active::before,
+.selectize-control.single .selectize-input:after {
+  content: none;
 }

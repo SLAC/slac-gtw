@@ -8,7 +8,7 @@
 
 #header {
   background: url("../images/header-bg.png") 0 52px repeat-x;
-  height: 82px;
+  height: 84px;
   margin: 0 auto;
   margin-bottom: 78px;
 }
@@ -69,6 +69,7 @@
 }
 #header #block-search-form {
   width: 50%;
+  position: relative;
   text-align: right;
   padding-right: 0;
   padding-left: 0;
@@ -184,16 +185,87 @@
   border-radius: 0;
   border-image: none;
   color: #9d9d9d;
-  padding: 6px 5em 6px 1em;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: #ffffff url(../images/dropdown-bg.png) right -3px no-repeat;
 }
 .header__region select option {
   border: 1px solid #316dae;
   color: #316dae;
   font-weight: normal;
+}
+
+.container-inline .selectize-control {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 5%;
+}
+.container-inline .selectize-control .selectize-input {
+  font-size: 10px;
+  font-size: 0.625rem;
+  background: #ffffff url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
+  text-transform: uppercase;
+  border: 1px solid #316dae;
+  background: #ffffff;
+  width: 100%;
+  border-radius: 0;
+  border-image: none;
+  color: #9d9d9d;
+  padding: 3px 5em 6px 1em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  overflow: hidden;
+  max-height: 25px;
+}
+.container-inline .selectize-control .selectize-input > .item {
+  display: inline-block;
+}
+.container-inline .selectize-control .selectize-dropdown .selectize-dropdown-content {
+  border: 1px solid #316dae;
+  font-size: 10px;
+  font-size: 0.625rem;
+  color: #9d9d9d;
+  text-transform: uppercase;
+  background: transparent;
+  box-shadow: none;
+}
+.container-inline .selectize-control .selectize-dropdown .selectize-dropdown-content .option {
+  border-bottom: 1px solid #316dae;
+  background: transparent;
+  text-align: left;
+}
+.container-inline .selectize-control .selectize-dropdown .selectize-dropdown-content .option:last-child {
+  border-bottom: none;
+}
+.container-inline .selectize-control .selectize-dropdown .selectize-dropdown-content .selected,
+.container-inline .selectize-control .selectize-dropdown .selectize-dropdown-content :hover {
+  background: #eaeaea;
+  color: #316dae;
+}
+.container-inline .selectize-control div {
+  display: block;
+}
+
+.selectize-dropdown {
+  border: none;
+}
+
+.selectize-control.single .selectize-input {
+  background: #ffffff url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
+  width: 135px;
+}
+.selectize-control.single .selectize-input.dropdown-active {
+  background: #ffffff url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
+  width: 135px;
+}
+
+.selectize-control.plugin-drag_drop .ui-sortable-placeholder::after,
+.selectize-input::after,
+.selectize-input.dropdown-active::before,
+.selectize-control.single .selectize-input:after {
+  content: none;
 }
 
 .footer-wrapper {
