@@ -1,7 +1,6 @@
 name = SLAC Today search customizations
 description = Customizes the search form and submit functions.
 core = 7.x
-scripts[] = js/slac_search.js
 dependencies[] = slac_search
 package = SLAC
 version = 7.x-1.0-dev
