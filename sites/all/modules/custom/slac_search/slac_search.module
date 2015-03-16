@@ -34,7 +34,6 @@ function slac_search_form_search_block_form_alter(&$form, &$form_state, $form_id
   unset($form['search_block_form']);
 
   $form = $elements + $form;
-  dpm($form);
 
   // Apply Selectize to the search type field.
   $form['#attached']['js'] = array(
