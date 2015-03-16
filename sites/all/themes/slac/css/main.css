@@ -47,12 +47,28 @@
   padding-top: 12px;
 }
 #header #block-menu-menu-top-menu {
-  width: 50%;
-  text-align: right;
-  padding-right: 0;
+  display: block;
+  float: left;
+  width: 46%;
   padding-left: 0;
+  padding-right: 0;
 }
-@media screen and (min-width: 1120px) {
+@media all and (min-width: 980px) {
+  #header #block-menu-menu-top-menu {
+    float: left;
+    width: 40%;
+    margin-left: 0%;
+    margin-right: -40%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+}
+@media all and (min-width: 1240px) {
   #header #block-menu-menu-top-menu {
     float: left;
     width: 40%;
@@ -65,31 +81,14 @@
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     word-wrap: break-word;
+    padding-right: 0;
   }
 }
 #header #block-search-form {
-  width: 50%;
+  display: block;
+  float: right;
   position: relative;
-  text-align: right;
-  padding-right: 0;
-  padding-left: 0;
-}
-@media screen and (min-width: 1120px) {
-  #header #block-search-form {
-    float: left;
-    width: 40%;
-    margin-left: 60%;
-    margin-right: -100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    padding-right: 0;
-    padding-left: 0;
-  }
+  right: 0;
 }
 #header #block-system-main-menu {
   margin-top: 8px;
@@ -98,10 +97,10 @@
 /* Header Top Menu, Main Menu, Search*/
 #block-menu-menu-top-menu {
   text-align: right;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 #block-menu-menu-top-menu .menu {
-  margin-right: 2em;
+  text-align: right;
 }
 #block-menu-menu-top-menu .menu li {
   display: inline;
@@ -153,23 +152,46 @@
 .header__region input[type="text"] {
   font-size: 10px;
   font-size: 0.625rem;
+  display: block;
+  float: left;
+  margin: 0;
+  margin-left: 10px;
   padding: 6px 10px;
-  width: 35%;
+  width: 250px;
   border: 1px solid #316dae;
   text-transform: uppercase;
 }
-@media screen and (min-width: 960px) {
+@media all and (min-width: 800px) {
   .header__region input[type="text"] {
-    width: 40%;
+    width: 100px;
   }
 }
-@media screen and (min-width: 1280px) {
+@media all and (min-width: 900px) {
   .header__region input[type="text"] {
-    width: 45%;
+    width: 150px;
+  }
+}
+@media all and (min-width: 980px) {
+  .header__region input[type="text"] {
+    width: 200px;
+  }
+}
+@media all and (min-width: 1040px) {
+  .header__region input[type="text"] {
+    width: 250px;
+  }
+}
+@media all and (min-width: 1240px) {
+  .header__region input[type="text"] {
+    width: 180px;
   }
 }
 .header__region input[type="text"]:focus [placeholder] {
   display: none;
+}
+.header__region input[type="submit"] {
+  float: left;
+  margin-left: 2px;
 }
 .header__region input:focus::-webkit-input-placeholder {
   opacity: 0;
@@ -203,20 +225,8 @@
 }
 
 .container-inline .selectize-control {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 5px;
-}
-@media screen and (min-width: 960px) {
-  .container-inline .selectize-control {
-    left: 5%;
-  }
-}
-@media screen and (min-width: 1119px) {
-  .container-inline .selectize-control {
-    left: 1%;
-  }
+  display: block;
+  float: left;
 }
 .container-inline .selectize-control .selectize-input {
   font-size: 10px;
