@@ -195,70 +195,6 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_news_publish_date'
-  $field_instances['node-news-field_news_publish_date'] = array(
-    'bundle' => 'news',
-    'deleted' => 0,
-    'description' => '<ol>
-	<li>This is the date the Editor wants to show in this News Story as its published date – appears on views where this news story is listed (home page, archives, events, RSS, etc.).</li>
-       <li>The Publish Date does not drive or impact publishing workflow – rather the workflow can impact the value in this field.</li>
-      <li>The Publish Data field should be hidden from Authors.</li>
-</ol>',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
-        'type' => 'date_default',
-        'weight' => 0,
-      ),
-      'link' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_news_publish_date',
-    'label' => 'Publish Date',
-    'required' => 0,
-    'settings' => array(
-      'default_value' => 'now',
-      'default_value2' => 'same',
-      'default_value_code' => '',
-      'default_value_code2' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'date',
-      'settings' => array(
-        'display_all_day' => 0,
-        'increment' => 15,
-        'input_format' => 'm/d/Y - H:i:s',
-        'input_format_custom' => '',
-        'label_position' => 'above',
-        'text_parts' => array(),
-        'year_range' => '-3:+3',
-      ),
-      'type' => 'date_popup',
-      'weight' => 16,
-    ),
-  );
-
   // Exported field_instance: 'node-news-field_news_subtitle'
   $field_instances['node-news-field_news_subtitle'] = array(
     'bundle' => 'news',
@@ -1113,11 +1049,6 @@ function ct_news_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('<ol>
-	<li>This is the date the Editor wants to show in this News Story as its published date – appears on views where this news story is listed (home page, archives, events, RSS, etc.).</li>
-       <li>The Publish Date does not drive or impact publishing workflow – rather the workflow can impact the value in this field.</li>
-      <li>The Publish Data field should be hidden from Authors.</li>
-</ol>');
   t('Body');
   t('Byline');
   t('Comment');
@@ -1133,7 +1064,6 @@ function ct_news_field_default_field_instances() {
   t('News Type');
   t('Note to the Editors');
   t('Please provide a one-sentence summary of this announcement.');
-  t('Publish Date');
   t('Related Files');
   t('Related Links');
   t('Select ‘Enter Details’ option to create a new web page. Select ‘Link to Existing URL’ to redirect users to an already existing web page instead.');
