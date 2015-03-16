@@ -8,7 +8,7 @@
 
 #header {
   background: url("../images/header-bg.png") 0 52px repeat-x;
-  height: 84px;
+  height: 82px;
   margin: 0 auto;
   margin-bottom: 78px;
 }
@@ -87,6 +87,8 @@
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     word-wrap: break-word;
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 #header #block-system-main-menu {
@@ -152,13 +154,18 @@
   font-size: 10px;
   font-size: 0.625rem;
   padding: 6px 10px;
-  width: 40%;
+  width: 35%;
   border: 1px solid #316dae;
   text-transform: uppercase;
 }
+@media screen and (min-width: 960px) {
+  .header__region input[type="text"] {
+    width: 40%;
+  }
+}
 @media screen and (min-width: 1280px) {
   .header__region input[type="text"] {
-    width: 50%;
+    width: 45%;
   }
 }
 .header__region input[type="text"]:focus [placeholder] {
@@ -199,7 +206,17 @@
   display: inline-block;
   position: absolute;
   top: 0;
-  left: 5%;
+  left: 5px;
+}
+@media screen and (min-width: 960px) {
+  .container-inline .selectize-control {
+    left: 5%;
+  }
+}
+@media screen and (min-width: 1119px) {
+  .container-inline .selectize-control {
+    left: 1%;
+  }
 }
 .container-inline .selectize-control .selectize-input {
   font-size: 10px;
