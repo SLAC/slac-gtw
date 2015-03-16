@@ -21,25 +21,24 @@
     padding-top: 12px;
   }
   #block-menu-menu-top-menu {
-    width: 50%;
-    @media screen and (min-width: 1120px) {
-      @include zen-grid-item(2, 2);
-    }
-    text-align: right;
-    padding-right: 0;
+    display: block;
+    float: left;
+    width: 46%;
     padding-left: 0;
+    padding-right: 0;
+    @media all and (min-width: 980px) {
+      @include zen-grid-item(2, 1);
+    }
+    @media all and (min-width: 1240px) {
+    @include zen-grid-item(2, 2);
+    padding-right: 0;
+  }
   }
   #block-search-form {
-    width: 50%;
+    display: block;
+    float: right;
     position: relative;
-    @media screen and (min-width: 1120px) {
-      @include zen-grid-item(2, 4);
-      padding-right: 0;
-      padding-left: 0;
-    }
-    text-align: right;
-    padding-right: 0;
-    padding-left: 0;
+    right: 0;
   }
   #block-system-main-menu {
     margin-top: 8px;
@@ -48,9 +47,9 @@
 /* Header Top Menu, Main Menu, Search*/
 #block-menu-menu-top-menu {
   text-align: right;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   .menu {
-    margin-right: 2em;
+    text-align: right;
     li {
       display: inline;
       &.first {
@@ -102,21 +101,38 @@
 .header__region {
   input[type="text"] {
     @include font-size(10px);
+    display: block;
+    float: left;
+    margin: 0;
+    margin-left: 10px;
     padding: 6px 10px;
-    width: 35%;
+    width: 250px;
     border: 1px solid $blue;
     text-transform: uppercase;
-    @media screen and (min-width: 960px) {
-      width: 40%;
+    @media all and (min-width: 800px) {
+      width: 100px;
     }
-    @media screen and (min-width: 1280px) {
-      width: 45%;
+    @media all and (min-width: 900px) {
+      width: 150px;
+    }
+    @media all and (min-width: 980px) {
+      width: 200px;
+    }
+    @media all and (min-width: 1040px) {
+      width: 250px;
+    }
+    @media all and (min-width: 1240px) {
+      width: 180px;
     }
     &:focus {
       [placeholder] {
         display: none;
       }
     }
+  }
+  input[type="submit"] {
+    float: left;
+    margin-left: 2px;
   }
   input:focus::-webkit-input-placeholder {
     opacity: 0;
@@ -149,16 +165,8 @@
 }
 // /selectize styles
 .container-inline .selectize-control {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 5px;
-  @media screen and (min-width: 960px) {
-    left: 5%;
-  }
-  @media screen and (min-width: 1119px) {
-    left: 1%;
-  }
+  display: block;
+  float: left;
   .selectize-input {
     @include font-size(10px);
 background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;

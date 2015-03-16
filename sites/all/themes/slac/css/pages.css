@@ -423,13 +423,6 @@ a:hover, a:active {
   display: none;
 }
 
-.region-header {
-  float: right;
-}
-.region-header .block {
-  float: left;
-}
-
 .front #page-title {
   display: none;
 }
