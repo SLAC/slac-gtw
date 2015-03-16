@@ -1,0 +1,56 @@
+<?php
+
+/**
+* @file
+* Update functions for the SLAC Event content type.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function ct_event_install() {
+  _ct_event_copy_location_data();
+  _ct_event_delete_field_event_location();
+}
+
+/**
+ * Copies location data from field_event_location to field_shared location.
+ */
+function _ct_event_copy_location_data() {
+  $query = new EntityFieldQuery();
+
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'event')
+    ->fieldCondition('field_event_location', 'value', 'NULL', '!=')
+    ->addMetaData('account', user_load(1)); // Run the query as user 1.
+
+  $result = $query->execute();
+
+  if (isset($result['node'])) {
+    foreach ($result['node'] as $node_stub) {
+      $node = node_load($node_stub->nid);
+
+      $node->field_shared_location = $node->field_event_location;
+      node_save($node);
+    }
+  }
+}
+
+/**
+ * Removes the event location field.
+ */
+function _ct_event_delete_field_event_location() {
+  $instance = field_info_instance('node', 'field_event_location', 'event');
+  if ($instance !== NULL) {
+    field_delete_instance($instance);
+  }
+}
+
+/**
+ * Copy location data from field_event_location to field_shared location and
+ * remove the old field.
+ */
+function ct_event_update_7001() {
+  _ct_event_copy_location_data();
+  _ct_event_delete_field_event_location();
+}
