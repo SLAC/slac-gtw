@@ -9,21 +9,34 @@
  * Implements hook_form_FORM_ID_alter().
  */
 function slac_search_form_search_block_form_alter(&$form, &$form_state, $form_id) {
-  // Add a search type select element to the beginning of the form.
-  $search_type_element = array(
-    'search_type' => array(
-      '#type' => 'select',
-      '#title' => t('Search Type'),
-      '#title_display' => 'invisible',
-      '#options' => array(
-        'people' => t('People'),
-        'default' => t('SLAC Today'),
-        'enterprise' => t('SLAC Web'),
+  // Add a search type select element to the beginning of the form. Wrapped in a
+  // div with the normal search text element.
+  $elements = array(
+    'search_elements' => array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => array('search-elements'),
       ),
-      '#default_value' => 'default',
     ),
   );
-  $form = $search_type_element + $form;
+  $elements['search_elements']['search_type'] = array(
+    '#type' => 'select',
+    '#title' => t('Search Type'),
+    '#title_display' => 'invisible',
+    '#options' => array(
+      'people' => t('People'),
+      'default' => t('SLAC Today'),
+      'enterprise' => t('SLAC Web'),
+    ),
+    '#default_value' => 'default',
+  );
+  $elements['search_elements']['search_block_form'] = $form['search_block_form'];
+  unset($form['search_block_form']);
+
+  $form = $elements + $form;
+  dpm($form);
+
+  // Apply Selectize to the search type field.
   $form['#attached']['js'] = array(
     libraries_get_path('selectize') . '/selectize.js',
     drupal_get_path('module', 'slac_search') . '/js/slac_search.js',
