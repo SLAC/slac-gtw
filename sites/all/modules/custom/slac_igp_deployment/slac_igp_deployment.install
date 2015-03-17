@@ -32,13 +32,15 @@ function slac_igp_deployment_install() {
     ->condition('theme', 'slac', '=')
     ->execute();
 
-  // Enable new modules.
+  // Enable new modules/features.
   module_enable(array(
     'ct_event',
     'ct_news',
     'slac_ip_config_search',
     'slac_ip_menus',
+    'slac_ip_media',
     'slac_search',
+    'conditional_fields',
     'jquery_update',
     'pathauto',
     'scheduler',
@@ -48,7 +50,6 @@ function slac_igp_deployment_install() {
     'media',
     'media_vimeo',
     'media_youtube',
-    'slac_ip_media',
     'linkit',
   ));
 
@@ -165,6 +166,19 @@ function slac_igp_deployment_update_7005() {
 function slac_igp_deployment_update_7006() {
   $result = module_enable(array(
       'jquery_update',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the conditional_fields module.
+ */
+function slac_igp_deployment_update_7007() {
+  $result = module_enable(array(
+    'conditional_fields',
   ));
 
   if ($result == FALSE) {
