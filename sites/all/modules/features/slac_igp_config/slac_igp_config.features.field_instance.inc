@@ -224,6 +224,12 @@ function slac_igp_config_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'link' => array(
         'label' => 'above',
         'settings' => array(),
@@ -272,6 +278,12 @@ function slac_igp_config_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
+        'weight' => 2,
+      ),
+      'headline' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 2,
       ),
       'link' => array(
@@ -338,6 +350,12 @@ function slac_igp_config_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 1,
       ),
+      'headline' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
       'link' => array(
         'label' => 'above',
         'settings' => array(),
@@ -381,6 +399,12 @@ function slac_igp_config_field_default_field_instances() {
         'module' => 'slac_igp_custom',
         'settings' => array(),
         'type' => 'image_igp',
+        'weight' => 4,
+      ),
+      'headline' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 4,
       ),
       'link' => array(
@@ -441,6 +465,12 @@ function slac_igp_config_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 7,
       ),
+      'headline' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
       'link' => array(
         'label' => 'above',
         'settings' => array(),
@@ -485,6 +515,12 @@ function slac_igp_config_field_default_field_instances() {
           'width' => 'Width',
         ),
         'type' => 'link_image',
+        'weight' => 6,
+      ),
+      'headline' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 6,
       ),
       'link' => array(
@@ -553,6 +589,12 @@ function slac_igp_config_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 3,
       ),
+      'headline' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
       'link' => array(
         'label' => 'above',
         'settings' => array(),
@@ -594,6 +636,12 @@ function slac_igp_config_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
+        'weight' => 5,
+      ),
+      'headline' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 5,
       ),
       'link' => array(
