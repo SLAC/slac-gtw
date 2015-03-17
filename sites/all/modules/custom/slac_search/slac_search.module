@@ -9,6 +9,10 @@
  * Implements hook_form_FORM_ID_alter().
  */
 function slac_search_form_search_block_form_alter(&$form, &$form_state, $form_id) {
+  // Alter search form display.
+  $form['search_block_form']['#attributes']['placeholder'] = t('Search SLAC');
+  $form['actions']['submit']['#value'] = t('Go');
+
   // Add a search type select element to the beginning of the form. Wrapped in a
   // div with the normal search text element.
   $elements = array(
@@ -48,10 +52,6 @@ function slac_search_form_search_block_form_alter(&$form, &$form_state, $form_id
   // search system based on the Search Type chosen.
   $form['#orig_submit'] = $form['#submit'];
   $form['#submit'] = array('slac_search_block_form_submit');
-
-  // Alter search form display.
-  $form['search_block_form']['#attributes']['placeholder'] = t('Search SLAC');
-  $form['actions']['submit']['#value'] = t('Go');
 }
 
 /**
