@@ -9,6 +9,40 @@
  * Implements hook_install().
  */
 function slac_igp_deployment_install() {
+  // Enable new modules/features.
+  module_enable(array(
+    'conditional_fields',
+    'jquery_update',
+    'pathauto',
+    'scheduler',
+    'metatag',
+    'token',
+    'file_entity',
+    'media',
+    'media_vimeo',
+    'media_youtube',
+    'linkit',
+    'slac_ip_media',
+    'slac_ip_config_search',
+    'slac_ip_menus',
+    'slac_ip_media',
+    'slac_search',
+    'ct_event',
+    'ct_news',
+  ));
+
+  // Update blocks placement.
+  _slac_igp_deployment_place_search_block();
+  _slac_igp_deployment_place_top_menu_block();
+
+  // Rebuild permissions after workbench install.
+  node_access_rebuild();
+}
+
+/**
+ * Updates block placement for search blocks.
+ */
+function _slac_igp_deployment_place_search_block() {
   // Remove existing search boxes from the header region.
   db_update('block')
     ->fields(array(
@@ -31,30 +65,6 @@ function slac_igp_deployment_install() {
     ->condition('delta', 'form', '=')
     ->condition('theme', 'slac', '=')
     ->execute();
-
-  // Enable new modules/features.
-  module_enable(array(
-    'ct_event',
-    'ct_news',
-    'slac_ip_config_search',
-    'slac_ip_menus',
-    'slac_ip_media',
-    'slac_search',
-    'conditional_fields',
-    'jquery_update',
-    'pathauto',
-    'scheduler',
-    'metatag',
-    'token',
-    'file_entity',
-    'media',
-    'media_vimeo',
-    'media_youtube',
-    'linkit',
-  ));
-
-  // Rebuild permissions after workbench install.
-  node_access_rebuild();
 }
 
 /**
@@ -104,7 +114,13 @@ function slac_igp_deployment_update_7003() {
   $feature = features_get_features('slac_ip_menus');
   features_revert(array('slac_ip_menus' => $feature->components));
 
-  // Place the core search block into the header region.
+  _slac_igp_deployment_place_top_menu_block();
+}
+
+/**
+ * Places the Top Menu block into the header region.
+ */
+function _slac_igp_deployment_place_top_menu_block() {
   db_update('block')
     ->fields(array(
       'status' => 1,
@@ -115,6 +131,7 @@ function slac_igp_deployment_update_7003() {
     ->condition('delta', 'menu-top-menu', '=')
     ->condition('theme', 'slac', '=')
     ->execute();
+
 }
 
 /**
@@ -131,8 +148,8 @@ function slac_igp_deployment_update_7004() {
     'media',
     'media_vimeo',
     'media_youtube',
-    'slac_ip_media',
     'linkit',
+    'slac_ip_media',
   ));
 
   if ($result == FALSE) {
