@@ -339,7 +339,7 @@
 }
 
 .frontpage-left-col {
-  margin-top: 74px;
+  margin-top: 12px;
 }
 
 .brown-bodered-white {
@@ -437,10 +437,6 @@
 .blue-dashed-list ul.menu li.odd, .blue-dashed-list .views-row-odd {
   margin-right: 6%;
   clear: both;
-}
-
-.frontpage-news-list .blue-bodered-white {
-  margin-top: 20px;
 }
 
 .frontpage-slac-science .blue-bodered-white {
