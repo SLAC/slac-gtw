@@ -9,3 +9,4 @@ dependencies[] = ct_news
 dependencies[] = slac_ip_config_search
 dependencies[] = slac_ip_menus
 dependencies[] = slac_search
+dependencies[] = conditional_fields
