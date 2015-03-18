@@ -9,6 +9,10 @@
  * Implements hook_install().
  */
 function slac_igp_deployment_install() {
+  // Revert slac_igp_config for shared field bases.
+  $feature = features_get_features('slac_igp_config');
+  features_revert(array('slac_igp_config' => $feature->components));
+
   // Enable Workbench moderation. This is done seperate from other modules in
   // order to avoid the error:
   //   "EntityMalformedException: Missing bundle property on entity of type
