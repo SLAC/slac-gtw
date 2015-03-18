@@ -373,7 +373,7 @@ function ct_news_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'email_textfield',
-      'weight' => 18,
+      'weight' => 17,
     ),
   );
 
@@ -424,7 +424,7 @@ function ct_news_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 17,
+      'weight' => 16,
     ),
   );
 
@@ -469,7 +469,7 @@ function ct_news_field_default_field_instances() {
         'placeholder' => '',
       ),
       'type' => 'telephone_default',
-      'weight' => 19,
+      'weight' => 18,
     ),
   );
 
@@ -808,10 +808,10 @@ function ct_news_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
+        'module' => 'link',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 13,
+        'type' => 'link_default',
+        'weight' => 19,
       ),
       'link' => array(
         'label' => 'above',
@@ -831,21 +831,38 @@ function ct_news_field_default_field_instances() {
     'label' => 'Related Links',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => '',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 0,
       'linkit' => array(
         'button_text' => 'Search',
-        'enable' => 1,
-        'profile' => 'link_fields',
+        'enable' => 0,
+        'profile' => '',
       ),
-      'text_processing' => 0,
+      'rel_remove' => 'default',
+      'title' => 'optional',
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
       'user_register_form' => FALSE,
+      'validate_url' => 1,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
       'weight' => 11,
     ),
   );
