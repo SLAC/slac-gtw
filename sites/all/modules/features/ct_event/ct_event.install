@@ -9,8 +9,13 @@
  * Implements hook_install().
  */
 function ct_event_install() {
+  // Copy existing location fields to new shared field.
   _ct_event_copy_location_data();
   _ct_event_delete_field_event_location();
+
+  // Copy existing link fields to new shared field.
+  _ct_event_copy_link_data();
+  _ct_event_delete_field_link();
 }
 
 /**
@@ -53,4 +58,46 @@ function _ct_event_delete_field_event_location() {
 function ct_event_update_7001() {
   _ct_event_copy_location_data();
   _ct_event_delete_field_event_location();
+}
+
+/**
+ * Copies link data from field_link to field_shared_related_links.
+ */
+function _ct_event_copy_link_data() {
+  $query = new EntityFieldQuery();
+
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'event')
+    ->fieldCondition('field_link', 'url', 'NULL', '!=')
+    ->addMetaData('account', user_load(1)); // Run the query as user 1.
+
+  $result = $query->execute();
+
+  if (isset($result['node'])) {
+    foreach ($result['node'] as $node_stub) {
+      $node = node_load($node_stub->nid);
+
+      $node->field_shared_related_links = $node->field_link;
+      node_save($node);
+    }
+  }
+}
+
+/**
+ * Removes the event link field.
+ */
+function _ct_event_delete_field_link() {
+  $instance = field_info_instance('node', 'field_link', 'event');
+  if ($instance !== NULL) {
+    field_delete_instance($instance);
+  }
+}
+
+/**
+ * Copy links data from field_link to field_shared_related_links
+ * remove the old field.
+ */
+function ct_event_update_7002() {
+  _ct_event_copy_link_data();
+  _ct_event_delete_field_link();
 }
