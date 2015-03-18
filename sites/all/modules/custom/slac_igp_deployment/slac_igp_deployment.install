@@ -9,6 +9,18 @@
  * Implements hook_install().
  */
 function slac_igp_deployment_install() {
+  // Enable Workbench moderation. This is done seperate from other modules in
+  // order to avoid the error:
+  //   "EntityMalformedException: Missing bundle property on entity of type
+  //   file. in entity_extract_ids()"
+  // when node_access_rebuild is run.
+  module_enable(array(
+    'workbench_moderation',
+  ));
+
+  // Rebuild permissions after workbench install.
+  node_access_rebuild();
+
   // Enable new modules/features.
   module_enable(array(
     'conditional_fields',
@@ -34,9 +46,6 @@ function slac_igp_deployment_install() {
   // Update blocks placement.
   _slac_igp_deployment_place_search_block();
   _slac_igp_deployment_place_top_menu_block();
-
-  // Rebuild permissions after workbench install.
-  node_access_rebuild();
 }
 
 /**
