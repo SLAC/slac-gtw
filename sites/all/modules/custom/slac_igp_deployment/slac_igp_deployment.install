@@ -10,8 +10,7 @@
  */
 function slac_igp_deployment_install() {
   // Revert slac_igp_config for shared field bases.
-  $feature = features_get_features('slac_igp_config');
-  features_revert(array('slac_igp_config' => $feature->components));
+  _slac_igp_deployment_revert('slac_igp_config');
 
   // Enable Workbench moderation. This is done seperate from other modules in
   // order to avoid the error:
@@ -47,9 +46,27 @@ function slac_igp_deployment_install() {
     'ct_news',
   ));
 
+  // Revert slac_ip_menus so that the new menu block will have a DB record.
+  _slac_igp_deployment_revert('slac_ip_menus');
+  _slac_igp_deployment_remove_legacy_menu_items();
+
   // Update blocks placement.
   _slac_igp_deployment_place_search_block();
   _slac_igp_deployment_place_top_menu_block();
+
+  // Revert ct_event so the pre-existing Event node type will be updated.
+  _slac_igp_deployment_revert('ct_event');
+}
+
+/**
+ * Reverts a feature.
+ *
+ * @param string $feature_name
+ *   The machine name of the feature to revert.
+ */
+function _slac_igp_deployment_revert($feature_name) {
+  $feature = features_get_features($feature_name);
+  features_revert(array($feature_name => $feature->components));
 }
 
 /**
@@ -131,6 +148,15 @@ function slac_igp_deployment_update_7003() {
 }
 
 /**
+ * Removes legacy menu items from the Main menu.
+ */
+function _slac_igp_deployment_remove_legacy_menu_items() {
+  menu_link_delete(498);
+  menu_link_delete(499);
+  menu_link_delete(500);
+}
+
+/**
  * Places the Top Menu block into the header region.
  */
 function _slac_igp_deployment_place_top_menu_block() {
@@ -144,7 +170,6 @@ function _slac_igp_deployment_place_top_menu_block() {
     ->condition('delta', 'menu-top-menu', '=')
     ->condition('theme', 'slac', '=')
     ->execute();
-
 }
 
 /**
