@@ -42,6 +42,7 @@ function slac_igp_deployment_install() {
     'slac_ip_config_search',
     'slac_ip_menus',
     'slac_ip_media',
+    'slac_ip_panes',
     'slac_search',
     'ct_event',
     'ct_news',
@@ -248,6 +249,19 @@ function slac_igp_deployment_update_7007() {
 function slac_igp_deployment_update_7008() {
   $result = module_enable(array(
     'slac_ip_core',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the slac_ip_panes module.
+ */
+function slac_igp_deployment_update_7009() {
+  $result = module_enable(array(
+    'slac_ip_panes',
   ));
 
   if ($result == FALSE) {
