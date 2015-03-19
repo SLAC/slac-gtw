@@ -369,7 +369,30 @@ function ct_event_default_page_manager_handlers() {
     $pane->uuid = '5b4630cf-1685-44ca-8678-e123336de9cc';
     $display->content['new-5b4630cf-1685-44ca-8678-e123336de9cc'] = $pane;
     $display->panels['right'][0] = 'new-5b4630cf-1685-44ca-8678-e123336de9cc';
-  $display->hide_title = PANELS_TITLE_FIXED;
+    $pane = new stdClass();
+    $pane->pid = 'new-16285bef-4df6-44f2-915a-af048e5e7af7';
+    $pane->panel = 'right';
+    $pane->type = 'block';
+    $pane->subtype = 'menu-menu-maps-and-directions';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '16285bef-4df6-44f2-915a-af048e5e7af7';
+    $display->content['new-16285bef-4df6-44f2-915a-af048e5e7af7'] = $pane;
+    $display->panels['right'][1] = 'new-16285bef-4df6-44f2-915a-af048e5e7af7';
+  $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $export['node_view__panel_context_d263af94-9c7f-495e-bc1d-645dfc499ca9'] = $handler;
