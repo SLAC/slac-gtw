@@ -37,6 +37,7 @@ function slac_igp_deployment_install() {
     'media_vimeo',
     'media_youtube',
     'linkit',
+    'slac_ip_core',
     'slac_ip_media',
     'slac_ip_config_search',
     'slac_ip_menus',
@@ -234,6 +235,19 @@ function slac_igp_deployment_update_7006() {
 function slac_igp_deployment_update_7007() {
   $result = module_enable(array(
     'conditional_fields',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the slac_ip_core module.
+ */
+function slac_igp_deployment_update_7008() {
+  $result = module_enable(array(
+    'slac_ip_core',
   ));
 
   if ($result == FALSE) {

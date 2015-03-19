@@ -1,0 +1,15 @@
+<?php
+/**
+ * @file
+ * Code for the SLAC IP core feature.
+ */
+
+/**
+ * Implements hook_entity_info().
+ */
+function slac_ip_core_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['headline'] = array(
+    'label' => t('Headline'),
+    'custom settings' => FALSE,
+  );
+}
