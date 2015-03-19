@@ -113,6 +113,9 @@ function ct_event_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'headline' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
