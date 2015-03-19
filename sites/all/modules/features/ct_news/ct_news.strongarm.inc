@@ -99,13 +99,13 @@ function ct_news_strongarm() {
           'weight' => '1',
         ),
         'redirect' => array(
-          'weight' => '20',
+          'weight' => '19',
         ),
         'metatags' => array(
-          'weight' => '22',
+          'weight' => '21',
         ),
         'path' => array(
-          'weight' => '21',
+          'weight' => '20',
         ),
       ),
       'display' => array(),
