@@ -9,6 +9,11 @@
  * Implements hook_install().
  */
 function ct_event_install() {
+  // The feature has to revert itself here, or the new shared fields will not
+  // be available to copy data into.
+  $feature = features_get_features('ct_event');
+  features_revert(array('ct_event' => $feature->components));
+
   // Copy existing location fields to new shared field.
   _ct_event_copy_location_data();
   _ct_event_delete_field_event_location();
