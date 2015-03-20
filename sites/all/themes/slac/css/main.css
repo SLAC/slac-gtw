@@ -51,6 +51,32 @@
   font-weight: bold;
   margin-bottom: 12px;
 }
+.node-type-event .general-left .email-button,
+.node-type-event .general-left .js-print-button {
+  display: block;
+  float: left;
+}
+.node-type-event .general-left .email-button a,
+.node-type-event .general-left .js-print-button a {
+  font-size: 12px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #a8a8a8;
+  font-weight: lighter;
+  display: block;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-right: 1em;
+  height: 16px;
+  border-right: 1px solid #a8a8a8;
+}
+.node-type-event .general-left .email-button a {
+  background: url("../images/envelope.svg") 0 0 no-repeat;
+}
+.node-type-event .general-left .js-print-button a {
+  border: none;
+  background: url("../images/printer.svg") 0 0 no-repeat;
+}
 .node-type-event .general-left .field-name-field-shared-contact-name,
 .node-type-event .general-left .field-name-field-shared-contact-email,
 .node-type-event .general-left .field-name-field-shared-contact-phone,
@@ -430,9 +456,9 @@
 
 .region-footer {
   float: left;
-  width: 25%;
+  width: 50%;
   margin-left: 0%;
-  margin-right: -25%;
+  margin-right: -50%;
   padding-left: 20px;
   padding-right: 20px;
   -moz-box-sizing: border-box;
@@ -441,12 +467,12 @@
   box-sizing: border-box;
   word-wrap: break-word;
 }
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1200px) {
   .region-footer {
     float: left;
-    width: 33.33333%;
+    width: 50%;
     margin-left: 0%;
-    margin-right: -33.33333%;
+    margin-right: -50%;
     padding-left: 20px;
     padding-right: 20px;
     -moz-box-sizing: border-box;
@@ -459,9 +485,9 @@
 
 .footer-logos {
   float: left;
-  width: 16.66667%;
-  margin-left: 25%;
-  margin-right: -41.66667%;
+  width: 41.66667%;
+  margin-left: 58.33333%;
+  margin-right: -100%;
   padding-left: 20px;
   padding-right: 20px;
   -moz-box-sizing: border-box;
@@ -471,12 +497,27 @@
   word-wrap: break-word;
   text-align: right;
 }
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1040px) {
   .footer-logos {
     float: left;
-    width: 8.33333%;
-    margin-left: 33.33333%;
-    margin-right: -41.66667%;
+    width: 33.33333%;
+    margin-left: 66.66667%;
+    margin-right: -100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .footer-logos {
+    float: left;
+    width: 25%;
+    margin-left: 75%;
+    margin-right: -100%;
     padding-left: 20px;
     padding-right: 20px;
     -moz-box-sizing: border-box;
