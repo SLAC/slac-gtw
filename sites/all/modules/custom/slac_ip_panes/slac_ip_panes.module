@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Provides custom panes.
+ */
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function slac_ip_panes_ctools_plugin_directory($owner, $plugin) {
+  if ($owner == 'ctools' && !empty($plugin)) {
+    return "plugins/$plugin";
+  }
+}
