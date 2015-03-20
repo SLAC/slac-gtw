@@ -1,3 +1,120 @@
+/* used on events dates */
+.node-type-event #content {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #2b2b2b;
+  line-height: 1.4;
+}
+.node-type-event #content:before, .node-type-event #content:after {
+  content: "";
+  display: table;
+}
+.node-type-event #content:after {
+  clear: both;
+}
+.node-type-event #content .contextual-links-region {
+  padding: 0;
+}
+.node-type-event #header {
+  margin-bottom: 0;
+}
+.node-type-event .general-left {
+  float: left;
+  width: 58.33333%;
+  margin-left: 8.33333%;
+  margin-right: -66.66667%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+.node-type-event .general-left h1 {
+  margin-bottom: .5em;
+  margin-top: 0;
+  line-height: 1.2;
+}
+.node-type-event .general-left h2 {
+  font-size: 14px;
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+.node-type-event .general-left .date-display-start,
+.node-type-event .general-left .date-display-end,
+.node-type-event .general-left .field-name-field-shared-location {
+  font-size: 16px;
+  font-size: 1rem;
+  display: inline-block;
+  color: #4f4f4f;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.node-type-event .general-left .field-name-field-shared-contact-name,
+.node-type-event .general-left .field-name-field-shared-contact-email,
+.node-type-event .general-left .field-name-field-shared-contact-phone,
+.node-type-event .general-left .field-name-field-shared-tags .field-label {
+  margin-bottom: .2em;
+}
+.node-type-event .general-left .field-name-field-shared-tags {
+  font-size: 14px;
+  font-size: 0.875rem;
+  margin-top: 2em;
+}
+.node-type-event .general-left .field-name-field-shared-tags a {
+  font-size: 12px;
+  font-size: 0.75rem;
+  display: block;
+  float: left;
+  background: #dee4e7;
+  padding: 8px 12px;
+  margin-right: 1em;
+}
+.node-type-event .general-left .pane-node-body {
+  border-top: solid 3px #b1c0c7;
+  margin-top: 20px;
+}
+.node-type-event .general-right {
+  float: left;
+  width: 25%;
+  margin-left: 66.66667%;
+  margin-right: -91.66667%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  margin-top: .5em;
+}
+.node-type-event .general-right .inside {
+  padding: 0;
+}
+.node-type-event .general-right h2 {
+  font-size: 14px;
+  font-size: 0.875rem;
+  border-bottom: 3px solid #b1c0c7;
+  text-transform: uppercase;
+  color: #4f4f4f;
+  margin-bottom: 1em;
+}
+.node-type-event .general-right ul {
+  color: #4f4f4f;
+  padding-left: 2em;
+  list-style-type: disc;
+}
+.node-type-event .general-right ul a {
+  font-size: 14px;
+  font-size: 0.875rem;
+  display: block;
+  padding: .4em 0;
+}
+.node-type-event .general-right .inside {
+  border-left: none;
+}
+
 #page:before, #page:after {
   content: "";
   display: table;
@@ -19,11 +136,11 @@
 }
 #header .logo {
   float: left;
-  width: 20%;
+  width: 16.66667%;
   margin-left: 0%;
-  margin-right: -20%;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-right: -16.66667%;
+  padding-left: 20px;
+  padding-right: 20px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -32,11 +149,11 @@
 }
 #header .header__region {
   float: left;
-  width: 80%;
-  margin-left: 20%;
+  width: 83.33333%;
+  margin-left: 16.66667%;
   margin-right: -100%;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -56,11 +173,11 @@
 @media all and (min-width: 980px) {
   #header #block-menu-menu-top-menu {
     float: left;
-    width: 40%;
+    width: 50%;
     margin-left: 0%;
-    margin-right: -40%;
-    padding-left: 10px;
-    padding-right: 10px;
+    margin-right: -50%;
+    padding-left: 20px;
+    padding-right: 20px;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -71,11 +188,11 @@
 @media all and (min-width: 1240px) {
   #header #block-menu-menu-top-menu {
     float: left;
-    width: 40%;
-    margin-left: 20%;
-    margin-right: -60%;
-    padding-left: 10px;
-    padding-right: 10px;
+    width: 50%;
+    margin-left: 8.33333%;
+    margin-right: -58.33333%;
+    padding-left: 20px;
+    padding-right: 20px;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -313,11 +430,11 @@
 
 .region-footer {
   float: left;
-  width: 60%;
+  width: 25%;
   margin-left: 0%;
-  margin-right: -60%;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-right: -25%;
+  padding-left: 20px;
+  padding-right: 20px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -327,11 +444,11 @@
 @media screen and (min-width: 1100px) {
   .region-footer {
     float: left;
-    width: 80%;
+    width: 33.33333%;
     margin-left: 0%;
-    margin-right: -80%;
-    padding-left: 10px;
-    padding-right: 10px;
+    margin-right: -33.33333%;
+    padding-left: 20px;
+    padding-right: 20px;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -342,11 +459,11 @@
 
 .footer-logos {
   float: left;
-  width: 40%;
-  margin-left: 60%;
-  margin-right: -100%;
-  padding-left: 10px;
-  padding-right: 10px;
+  width: 16.66667%;
+  margin-left: 25%;
+  margin-right: -41.66667%;
+  padding-left: 20px;
+  padding-right: 20px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -357,11 +474,11 @@
 @media screen and (min-width: 1100px) {
   .footer-logos {
     float: left;
-    width: 20%;
-    margin-left: 80%;
-    margin-right: -100%;
-    padding-left: 10px;
-    padding-right: 10px;
+    width: 8.33333%;
+    margin-left: 33.33333%;
+    margin-right: -41.66667%;
+    padding-left: 20px;
+    padding-right: 20px;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;

@@ -1,6 +1,9 @@
+@import "zen";
 
+$zen-gutter-width: 40px;
+$zen-column-count: 12;
 #page {
-  @include zen-grid-container;
+  @include zen-grid-container();
 }
 #header {
   .header-wrapper {
@@ -13,10 +16,10 @@
   margin: 0 auto;
   margin-bottom: 78px;
   .logo {
-    @include zen-grid-item(1, 1);
+    @include zen-grid-item(2, 1);
   }
   .header__region {
-    @include zen-grid-item(4, 2);
+    @include zen-grid-item(10, 3);
     @include zen-nested-container();
     padding-top: 12px;
   }
@@ -27,10 +30,10 @@
     padding-left: 0;
     padding-right: 0;
     @media all and (min-width: 980px) {
-      @include zen-grid-item(2, 1);
+      @include zen-grid-item(6, 1);
     }
     @media all and (min-width: 1240px) {
-    @include zen-grid-item(2, 2);
+    @include zen-grid-item(6, 2);
     padding-right: 0;
   }
   }

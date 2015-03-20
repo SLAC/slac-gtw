@@ -1,0 +1,90 @@
+// Styles here address theming of event, news and access notice
+@import "zen";
+
+$zen-gutter-width: 40px;
+$zen-column-count: 12;
+
+.node-type-event {
+  #content {
+    @include zen-grid-container();
+    @include font-size(16px);
+    color: $event-body;
+    line-height: 1.4;
+    .contextual-links-region {
+      padding: 0;
+    }
+  }
+  #header {
+    margin-bottom: 0;
+  }
+  .general-left {
+    @include zen-grid-item(7, 2);
+    h1 {
+      margin-bottom: .5em;
+      margin-top: 0;
+      line-height: 1.2;
+    }
+    h2 {
+      @include font-size(14px);
+      margin-bottom: 0;
+    }
+    .date-display-start,
+    .date-display-end,
+    .field-name-field-shared-location {
+      @include font-size(16px);
+      display: inline-block;
+      color: $dim-grey;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+    .field-name-field-shared-contact-name,
+    .field-name-field-shared-contact-email,
+    .field-name-field-shared-contact-phone,
+    .field-name-field-shared-tags .field-label {
+      margin-bottom: .2em;
+    }
+    .field-name-field-shared-tags {
+      @include font-size(14px);
+      margin-top: 2em;
+    }
+    .field-name-field-shared-tags a {
+      @include font-size(12px);
+      display: block;
+      float: left;
+      background: lighten($event-border, 15%);
+      padding: 8px 12px;
+      margin-right: 1em;
+    }
+    .pane-node-body {
+      border-top: solid 3px $event-border;
+      margin-top: 20px;
+    }
+  }
+  .general-right {
+    @include zen-grid-item(3, 9);
+    margin-top: .5em;
+    .inside {
+      padding: 0;
+    }
+    h2 {
+      @include font-size(14px);
+      border-bottom: 3px solid $event-border;
+      text-transform: uppercase;
+      color: $dim-grey;
+      margin-bottom: 1em;
+    }
+    ul {
+      color: $dim-grey;
+      padding-left: 2em;
+      list-style-type: disc;
+    }
+    ul a {
+      @include font-size(14px);
+      display: block;
+      padding: .4em 0;
+    }
+  }
+  .general-right .inside {
+    border-left: none;
+  }
+}
