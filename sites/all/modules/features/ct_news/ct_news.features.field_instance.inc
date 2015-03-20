@@ -1049,7 +1049,7 @@ function ct_news_field_default_field_instances() {
     'label' => 'Video',
     'required' => 0,
     'settings' => array(
-      'description_field' => 1,
+      'description_field' => 0,
       'file_directory' => '',
       'file_extensions' => 'mov mp4 mpv',
       'max_filesize' => '',
