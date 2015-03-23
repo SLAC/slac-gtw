@@ -1,24 +1,32 @@
 /* used on events dates */
-.node-type-event #content {
+.node-type-event #content,
+.node-type-news #content {
   font-size: 16px;
   font-size: 1rem;
+  background: #ffffff !important;
   color: #2b2b2b;
   line-height: 1.4;
 }
-.node-type-event #content:before, .node-type-event #content:after {
+.node-type-event #content:before, .node-type-event #content:after,
+.node-type-news #content:before,
+.node-type-news #content:after {
   content: "";
   display: table;
 }
-.node-type-event #content:after {
+.node-type-event #content:after,
+.node-type-news #content:after {
   clear: both;
 }
-.node-type-event #content .contextual-links-region {
+.node-type-event #content .contextual-links-region,
+.node-type-news #content .contextual-links-region {
   padding: 0;
 }
-.node-type-event #header {
+.node-type-event #header,
+.node-type-news #header {
   margin-bottom: 0;
 }
-.node-type-event .general-left {
+.node-type-event .general-left,
+.node-type-news .general-left {
   float: left;
   width: 58.33333%;
   margin-left: 8.33333%;
@@ -31,12 +39,14 @@
   box-sizing: border-box;
   word-wrap: break-word;
 }
-.node-type-event .general-left h1 {
+.node-type-event .general-left h1,
+.node-type-news .general-left h1 {
   margin-bottom: .5em;
   margin-top: 0;
   line-height: 1.2;
 }
-.node-type-event .general-left h2 {
+.node-type-event .general-left h2,
+.node-type-news .general-left h2 {
   font-size: 14px;
   font-size: 0.875rem;
   margin-bottom: 0;
@@ -44,7 +54,13 @@
 .node-type-event .general-left .date-display-start,
 .node-type-event .general-left .date-display-end,
 .node-type-event .general-left .date-display-single,
-.node-type-event .general-left .field-name-field-shared-location {
+.node-type-event .general-left .field-name-field-shared-location,
+.node-type-event .general-left .field-name-field-shared-byline,
+.node-type-news .general-left .date-display-start,
+.node-type-news .general-left .date-display-end,
+.node-type-news .general-left .date-display-single,
+.node-type-news .general-left .field-name-field-shared-location,
+.node-type-news .general-left .field-name-field-shared-byline {
   font-size: 16px;
   font-size: 1rem;
   display: inline-block;
@@ -52,21 +68,29 @@
   font-weight: bold;
   margin-bottom: 12px;
 }
-.node-type-event .general-left .date-display-single {
+.node-type-event .general-left .date-display-single,
+.node-type-news .general-left .date-display-single {
   margin-bottom: 4px;
 }
-.node-type-event .general-left .field-name-field-shared-location {
+.node-type-event .general-left .field-name-field-shared-location,
+.node-type-news .general-left .field-name-field-shared-location {
   margin-bottom: 16px;
 }
 .node-type-event .general-left .calendar-button,
 .node-type-event .general-left .email-button,
-.node-type-event .general-left .js-print-button {
+.node-type-event .general-left .js-print-button,
+.node-type-news .general-left .calendar-button,
+.node-type-news .general-left .email-button,
+.node-type-news .general-left .js-print-button {
   display: block;
   float: left;
 }
 .node-type-event .general-left .calendar-button a,
 .node-type-event .general-left .email-button a,
-.node-type-event .general-left .js-print-button a {
+.node-type-event .general-left .js-print-button a,
+.node-type-news .general-left .calendar-button a,
+.node-type-news .general-left .email-button a,
+.node-type-news .general-left .js-print-button a {
   font-size: 12px;
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -79,28 +103,37 @@
   height: 16px;
   border-right: 1px solid #a8a8a8;
 }
-.node-type-event .general-left .calendar-button a {
+.node-type-event .general-left .calendar-button a,
+.node-type-news .general-left .calendar-button a {
   background: url("../images/calendar.svg") 0 0 no-repeat;
 }
-.node-type-event .general-left .email-button a {
+.node-type-event .general-left .email-button a,
+.node-type-news .general-left .email-button a {
   background: url("../images/envelope.svg") 0 0 no-repeat;
 }
-.node-type-event .general-left .js-print-button a {
+.node-type-event .general-left .js-print-button a,
+.node-type-news .general-left .js-print-button a {
   border: none;
   background: url("../images/printer.svg") 0 0 no-repeat;
 }
 .node-type-event .general-left .field-name-field-shared-contact-name,
 .node-type-event .general-left .field-name-field-shared-contact-email,
 .node-type-event .general-left .field-name-field-shared-contact-phone,
-.node-type-event .general-left .field-name-field-shared-tags .field-label {
+.node-type-event .general-left .field-name-field-shared-tags .field-label,
+.node-type-news .general-left .field-name-field-shared-contact-name,
+.node-type-news .general-left .field-name-field-shared-contact-email,
+.node-type-news .general-left .field-name-field-shared-contact-phone,
+.node-type-news .general-left .field-name-field-shared-tags .field-label {
   margin-bottom: .2em;
 }
-.node-type-event .general-left .field-name-field-shared-tags {
+.node-type-event .general-left .field-name-field-shared-tags,
+.node-type-news .general-left .field-name-field-shared-tags {
   font-size: 14px;
   font-size: 0.875rem;
   margin-top: 2em;
 }
-.node-type-event .general-left .field-name-field-shared-tags a {
+.node-type-event .general-left .field-name-field-shared-tags a,
+.node-type-news .general-left .field-name-field-shared-tags a {
   font-size: 12px;
   font-size: 0.75rem;
   display: block;
@@ -109,11 +142,13 @@
   padding: 8px 12px;
   margin-right: 1em;
 }
-.node-type-event .general-left .pane-node-body {
+.node-type-event .general-left .pane-node-body,
+.node-type-news .general-left .pane-node-body {
   border-top: solid 3px #b1c0c7;
   margin-top: 40px;
 }
-.node-type-event .general-right {
+.node-type-event .general-right,
+.node-type-news .general-right {
   float: left;
   width: 25%;
   margin-left: 66.66667%;
@@ -127,10 +162,12 @@
   word-wrap: break-word;
   margin-top: .5em;
 }
-.node-type-event .general-right .inside {
+.node-type-event .general-right .inside,
+.node-type-news .general-right .inside {
   padding: 0;
 }
-.node-type-event .general-right h2 {
+.node-type-event .general-right h2,
+.node-type-news .general-right h2 {
   font-size: 14px;
   font-size: 0.875rem;
   border-bottom: 3px solid #b1c0c7;
@@ -138,19 +175,67 @@
   color: #4f4f4f;
   margin-bottom: 1em;
 }
-.node-type-event .general-right ul {
+.node-type-event .general-right ul,
+.node-type-news .general-right ul {
   color: #4f4f4f;
   padding-left: 2em;
   list-style-type: disc;
 }
-.node-type-event .general-right ul a {
+.node-type-event .general-right ul a,
+.node-type-news .general-right ul a {
   font-size: 14px;
   font-size: 0.875rem;
   display: block;
   padding: .4em 0;
 }
-.node-type-event .general-right .inside {
+.node-type-event .general-right .inside,
+.node-type-news .general-right .inside {
   border-left: none;
+}
+
+.node-type-news #content .field-name-field-shared-location {
+  font-weight: normal;
+}
+.node-type-news #content .field-name-field-news-subtitle {
+  font-size: 20px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5em;
+}
+.node-type-news #content .field-name-field-file-shared-caption {
+  font-size: 12px;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+.node-type-news .general-left .panel-pane.pane-slac-ip-panes-email {
+  position: relative;
+  top: -30px;
+  float: right;
+  margin-right: 100px;
+}
+.node-type-news .general-left .field-name-field-shared-image {
+  margin-top: 4px;
+  width: 370px;
+  float: left;
+  margin-right: 30px;
+}
+.node-type-news .general-left .pane-node-body {
+  border-top: none;
+  margin-top: 0;
+}
+.node-type-news .general-left .pane-node-body p:first-child {
+  margin-top: 0;
+}
+.node-type-news .general-left .field-name-field-shared-byline,
+.node-type-news .general-left .panel-pane.pane-node-created {
+  margin-bottom: 10px;
+}
+.node-type-news .general-right .panel-pane {
+  margin-bottom: 2em;
+}
+.node-type-news .general-right .panel-pane:first-child {
+  padding-bottom: 2em;
+  border-bottom: dashed 3px #b1c0c7;
 }
 
 #page:before, #page:after {
