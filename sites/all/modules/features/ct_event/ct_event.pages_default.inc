@@ -387,13 +387,14 @@ function ct_event_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'hidden',
-      'formatter' => 'image',
+      'formatter' => 'file_rendered',
       'delta_limit' => '1',
       'delta_offset' => '0',
       'delta_reversed' => 0,
       'formatter_settings' => array(
         'image_style' => '',
         'image_link' => '',
+        'file_view_mode' => 'default',
       ),
       'context' => 'argument_entity_id:node_1',
       'override_title' => 0,
