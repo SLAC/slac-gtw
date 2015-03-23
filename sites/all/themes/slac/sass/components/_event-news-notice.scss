@@ -4,10 +4,12 @@
 $zen-gutter-width: 40px;
 $zen-column-count: 12;
 
-.node-type-event {
+.node-type-event,
+.node-type-news {
   #content {
     @include zen-grid-container();
     @include font-size(16px);
+    background: $white !important;
     color: $event-body;
     line-height: 1.4;
     .contextual-links-region {
@@ -31,7 +33,8 @@ $zen-column-count: 12;
     .date-display-start,
     .date-display-end,
     .date-display-single,
-    .field-name-field-shared-location {
+    .field-name-field-shared-location,
+    .field-name-field-shared-byline {
       @include font-size(16px);
       display: inline-block;
       color: $dim-grey;
@@ -121,5 +124,57 @@ $zen-column-count: 12;
   }
   .general-right .inside {
     border-left: none;
+  }
+}
+
+// news overrides
+.node-type-news {
+  #content {
+    .field-name-field-shared-location {
+      font-weight: normal;
+    }
+    .field-name-field-news-subtitle {
+      @include font-size(20px);
+      font-weight: bold;
+      margin-bottom: 1.5em;
+    }
+    .field-name-field-file-shared-caption {
+      @include font-size(12px);
+      font-style: italic;
+    }
+  }
+  .general-left {
+    .panel-pane.pane-slac-ip-panes-email {
+      position: relative;
+      top: -30px;
+      float: right;
+      margin-right: 100px;
+    }
+    .field-name-field-shared-image {
+      margin-top: 4px;
+      width: 370px;
+      float: left;
+      margin-right: 30px;
+    }
+    .pane-node-body {
+      border-top: none;
+      margin-top: 0;
+      p:first-child {
+        margin-top: 0;
+      }
+    }
+    .field-name-field-shared-byline,
+    .panel-pane.pane-node-created {
+      margin-bottom: 10px;
+    }
+  }
+  .general-right {
+    .panel-pane {
+      margin-bottom: 2em;
+    }
+    .panel-pane:first-child {
+      padding-bottom: 2em;
+      border-bottom: dashed 3px $event-border;
+    }
   }
 }
