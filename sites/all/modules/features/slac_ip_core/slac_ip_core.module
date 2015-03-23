@@ -21,7 +21,12 @@ function slac_ip_core_date_formats() {
   return array(
     array(
       'type' => 'slac_ip_news_event_date',
-      'format' => 'l, F j, Y - g:ia',
+      'format' => 'l, F j, Y, g:i a',
+      'locales' => array(),
+    ),
+    array(
+      'type' => 'slac_ip_published_date',
+      'format' => 'F j, Y',
       'locales' => array(),
     ),
   );
@@ -32,6 +37,7 @@ function slac_ip_core_date_formats() {
  */
 function slac_ip_core_date_format_types() {
   return array(
-    'slac_ip_news_event_date' => t('SLAC News/Event'),
+    'slac_ip_news_event_date' => t('SLAC News/Event: l, F j, Y, g:i a'),
+    'slac_ip_published_date' => t('SLAC published date: F j, Y'),
   );
 }

@@ -61,6 +61,7 @@ features[variable][] = comment_event
 features[variable][] = comment_form_location_event
 features[variable][] = comment_preview_event
 features[variable][] = comment_subject_field_event
+features[variable][] = date_format_slac_ip_news_event_date
 features[variable][] = diff_enable_revisions_page_node_event
 features[variable][] = diff_show_preview_changes_node_event
 features[variable][] = diff_view_mode_preview_node_event

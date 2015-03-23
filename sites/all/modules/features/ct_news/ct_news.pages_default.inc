@@ -96,7 +96,7 @@ function ct_news_default_page_manager_handlers() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'format' => 'long',
+      'format' => 'slac_ip_published_date',
       'context' => 'argument_entity_id:node_1',
       'override_title' => 1,
       'override_title_text' => '',
@@ -540,6 +540,68 @@ function ct_news_default_page_manager_handlers() {
     $pane->uuid = '786520ba-25b9-4742-b1ec-a0f098063787';
     $display->content['new-786520ba-25b9-4742-b1ec-a0f098063787'] = $pane;
     $display->panels['right'][2] = 'new-786520ba-25b9-4742-b1ec-a0f098063787';
+    $pane = new stdClass();
+    $pane->pid = 'new-371956e6-5dc8-48b4-92c1-86232d6783d0';
+    $pane->panel = 'right';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_shared_related_files';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'file_download_link',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'text' => 'Download [file:name]',
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => 'Related Links',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '371956e6-5dc8-48b4-92c1-86232d6783d0';
+    $display->content['new-371956e6-5dc8-48b4-92c1-86232d6783d0'] = $pane;
+    $display->panels['right'][3] = 'new-371956e6-5dc8-48b4-92c1-86232d6783d0';
+    $pane = new stdClass();
+    $pane->pid = 'new-b187eb93-c7a6-437a-b6c0-ff5174313cdb';
+    $pane->panel = 'right';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_shared_related_links';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'link_default',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = 'b187eb93-c7a6-437a-b6c0-ff5174313cdb';
+    $display->content['new-b187eb93-c7a6-437a-b6c0-ff5174313cdb'] = $pane;
+    $display->panels['right'][4] = 'new-b187eb93-c7a6-437a-b6c0-ff5174313cdb';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-1860c7cb-7965-4d5a-be2c-422d9bd2abea';
   $handler->conf['display'] = $display;
