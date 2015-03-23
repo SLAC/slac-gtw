@@ -12,8 +12,8 @@ function slac_igp_deployment_install() {
   // Revert slac_igp_config for shared field bases.
   _slac_igp_deployment_revert('slac_igp_config');
 
-  // Enable Workbench moderation. This is done seperate from other modules in
-  // order to avoid the error:
+  // Enable Workbench moderation separately from other modules in order to avoid
+  // causing the error:
   //   "EntityMalformedException: Missing bundle property on entity of type
   //   file. in entity_extract_ids()"
   // when node_access_rebuild is run.
@@ -51,6 +51,7 @@ function slac_igp_deployment_install() {
   // Revert slac_ip_menus so that the new menu block will have a DB record.
   _slac_igp_deployment_revert('slac_ip_menus');
   _slac_igp_deployment_remove_legacy_menu_items();
+  drupal_flush_all_caches();
 
   // Update blocks placement.
   _slac_igp_deployment_place_search_block();
@@ -90,7 +91,7 @@ function _slac_igp_deployment_place_search_block() {
   db_update('block')
     ->fields(array(
       'status' => 1,
-      'weight' => 0,
+      'weight' => -33,
       'region' => 'header',
     ))
     ->condition('module', 'search', '=')

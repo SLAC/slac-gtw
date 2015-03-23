@@ -1,6 +1,6 @@
 /**
  * @file
- * For Butler Degrees jump menu functionality.
+ * Javascript behaviors for the SLAC IP Custom Panel Panes module.
  */
 
 (function ($) {
