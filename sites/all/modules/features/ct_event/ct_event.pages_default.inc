@@ -134,7 +134,7 @@ function ct_event_default_page_manager_handlers() {
       'delta_offset' => '0',
       'delta_reversed' => FALSE,
       'formatter_settings' => array(
-        'format_type' => 'event',
+        'format_type' => 'slac_ip_news_event_date',
         'multiple_number' => '',
         'multiple_from' => '',
         'multiple_to' => '',
@@ -287,7 +287,7 @@ function ct_event_default_page_manager_handlers() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'above',
+      'label' => 'hidden',
       'formatter' => 'text_plain',
       'delta_limit' => 0,
       'delta_offset' => '0',
@@ -377,15 +377,15 @@ function ct_event_default_page_manager_handlers() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'above',
+      'label' => 'hidden',
       'formatter' => 'taxonomy_term_reference_link',
       'delta_limit' => '0',
       'delta_offset' => '0',
       'delta_reversed' => 0,
       'formatter_settings' => array(),
       'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => 'Tags',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
