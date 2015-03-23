@@ -43,6 +43,7 @@
 }
 .node-type-event .general-left .date-display-start,
 .node-type-event .general-left .date-display-end,
+.node-type-event .general-left .date-display-single,
 .node-type-event .general-left .field-name-field-shared-location {
   font-size: 16px;
   font-size: 1rem;
@@ -51,11 +52,19 @@
   font-weight: bold;
   margin-bottom: 12px;
 }
+.node-type-event .general-left .date-display-single {
+  margin-bottom: 4px;
+}
+.node-type-event .general-left .field-name-field-shared-location {
+  margin-bottom: 16px;
+}
+.node-type-event .general-left .calendar-button,
 .node-type-event .general-left .email-button,
 .node-type-event .general-left .js-print-button {
   display: block;
   float: left;
 }
+.node-type-event .general-left .calendar-button a,
 .node-type-event .general-left .email-button a,
 .node-type-event .general-left .js-print-button a {
   font-size: 12px;
@@ -65,10 +74,13 @@
   font-weight: lighter;
   display: block;
   padding-left: 2em;
-  padding-right: 2em;
-  margin-right: 1em;
+  padding-right: 1.5em;
+  margin-right: 1.5em;
   height: 16px;
   border-right: 1px solid #a8a8a8;
+}
+.node-type-event .general-left .calendar-button a {
+  background: url("../images/calendar.svg") 0 0 no-repeat;
 }
 .node-type-event .general-left .email-button a {
   background: url("../images/envelope.svg") 0 0 no-repeat;
@@ -99,7 +111,7 @@
 }
 .node-type-event .general-left .pane-node-body {
   border-top: solid 3px #b1c0c7;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 .node-type-event .general-right {
   float: left;

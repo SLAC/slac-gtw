@@ -30,6 +30,7 @@ $zen-column-count: 12;
     }
     .date-display-start,
     .date-display-end,
+    .date-display-single,
     .field-name-field-shared-location {
       @include font-size(16px);
       display: inline-block;
@@ -37,6 +38,13 @@ $zen-column-count: 12;
       font-weight: bold;
       margin-bottom: 12px;
     }
+    .date-display-single {
+      margin-bottom: 4px;
+    }
+    .field-name-field-shared-location {
+      margin-bottom: 16px;
+    }
+    .calendar-button,
     .email-button,
     .js-print-button {
       display: block;
@@ -48,11 +56,14 @@ $zen-column-count: 12;
         font-weight: lighter;
         display: block;
         padding-left: 2em;
-        padding-right: 2em;
-        margin-right: 1em;
+        padding-right: 1.5em;
+        margin-right: 1.5em;
         height: 16px;
         border-right: 1px solid lighten($dim-grey, 35%);
       }
+    }
+    .calendar-button a {
+      background: url('../images/calendar.svg') 0 0 no-repeat;
     }
     .email-button a {
       background: url('../images/envelope.svg') 0 0 no-repeat;
@@ -81,7 +92,7 @@ $zen-column-count: 12;
     }
     .pane-node-body {
       border-top: solid 3px $event-border;
-      margin-top: 20px;
+      margin-top: 40px;
     }
   }
   .general-right {
