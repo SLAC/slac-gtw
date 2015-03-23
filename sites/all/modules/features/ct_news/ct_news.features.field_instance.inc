@@ -1174,11 +1174,6 @@ function ct_news_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('<ol>
-	<li>This is the date the Editor wants to show in this News Story as its published date – appears on views where this news story is listed (home page, archives, events, RSS, etc.).</li>
-       <li>The Publish Date does not drive or impact publishing workflow – rather the workflow can impact the value in this field.</li>
-      <li>The Publish Data field should be hidden from Authors.</li>
-</ol>');
   t('Body');
   t('Byline');
   t('Comment');
@@ -1194,7 +1189,6 @@ function ct_news_field_default_field_instances() {
   t('News Type');
   t('Note to the Editors');
   t('Please provide a one-sentence summary of this announcement.');
-  t('Publish Date');
   t('Related Files');
   t('Related Links');
   t('Select ‘Enter Details’ option to create a new web page. Select ‘Link to Existing URL’ to redirect users to an already existing web page instead.');
