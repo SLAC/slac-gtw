@@ -233,7 +233,7 @@ function slac_preprocess_qt_quicktabs(&$variables) {
   $element = $variables['element'];
   if ($element['#options']['attributes']['id'] === 'quicktabs-staff_resources') {
     foreach ($element['tabs']['tablinks'] as $key => $data) {
-      $element['container']['divs'][$key]['#prefix'] .= '<h3>' . $data['#title'] . '</h3>'; 
+      $element['container']['divs'][$key]['#prefix'] .= '<h3>' . $data['#title'] . '</h3>';
     }
   }
   $variables['element'] = $element;
@@ -257,4 +257,37 @@ function slac_menu_link(array $variables) {
   $variables['element']['#attributes']['class'][] = $menu_name;
 
   return theme_menu_link($variables);
+}
+
+/**
+ * Override file entity download link.
+ *
+ * Removes the file size and moves the icon to the end of the link.
+ *
+ * @see theme_file_file_link()
+ */
+function slac_file_entity_download_link($variables) {
+  $file = $variables['file'];
+  $icon_directory = $variables['icon_directory'];
+
+  $uri = file_entity_download_uri($file);
+  $icon = theme('file_icon', array('file' => $file, 'icon_directory' => $icon_directory));
+
+  // Set options as per anchor format described at
+  // http://microformats.org/wiki/file-format-examples
+  $uri['options']['attributes']['type'] = $file->filemime . '; length=' . $file->filesize;
+
+  // Provide the default link text.
+  if (!isset($variables['text'])) {
+    $variables['text'] = t('Download [file:name]');
+  }
+
+  // Peform unsanitized token replacement if $uri['options']['html'] is empty
+  // since then l() will escape the link text.
+  $variables['text'] = token_replace($variables['text'], array('file' => $file), array('clear' => TRUE, 'sanitize' => empty($uri['options']['html'])));
+
+  $output = '<span class="file">' . l($variables['text'], $uri['path'], $uri['options']) . ' ' . $icon;
+  $output .= '</span>';
+
+  return $output;
 }

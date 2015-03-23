@@ -9,11 +9,13 @@
   Drupal.behaviors.slacIpPanesPrint = {
      attach: function(context) {
        if (context === document) {
+        $('.js-print-button').once('slacIpPanesPrint', function() {
           var $link = $('<a/>')
-            .attr('href', 'javascript:window.print();')
-            .text('Print');
-         $('.js-print-button').append($link).once();
-      }
+              .attr('href', 'javascript:window.print();')
+              .text('Print');
+           $(this).append($link);
+         }
+       }
      }
    };
 })(jQuery);
