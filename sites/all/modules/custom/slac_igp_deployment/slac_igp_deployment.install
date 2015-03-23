@@ -44,6 +44,7 @@ function slac_igp_deployment_install() {
     'slac_ip_media',
     'slac_ip_panes',
     'slac_search',
+    'ct_access_information',
     'ct_event',
     'ct_news',
   ));
@@ -57,7 +58,8 @@ function slac_igp_deployment_install() {
   _slac_igp_deployment_place_search_block();
   _slac_igp_deployment_place_top_menu_block();
 
-  // Revert ct_event so the pre-existing Event node type will be updated.
+  // Revert features for pre-existing node types.
+  _slac_igp_deployment_revert('ct_access_information');
   _slac_igp_deployment_revert('ct_event');
 }
 
@@ -263,6 +265,19 @@ function slac_igp_deployment_update_7008() {
 function slac_igp_deployment_update_7009() {
   $result = module_enable(array(
     'slac_ip_panes',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the ct_access_information feature.
+ */
+function slac_igp_deployment_update_7010() {
+  $result = module_enable(array(
+    'ct_access_information',
   ));
 
   if ($result == FALSE) {
