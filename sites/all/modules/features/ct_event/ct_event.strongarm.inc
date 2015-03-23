@@ -63,7 +63,7 @@ function ct_event_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'date_format_slac_ip_news_event_date';
-  $strongarm->value = 'l, F j, Y - g:i a';
+  $strongarm->value = 'l, F j, Y, g:i a';
   $export['date_format_slac_ip_news_event_date'] = $strongarm;
 
   $strongarm = new stdClass();
