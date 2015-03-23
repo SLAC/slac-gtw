@@ -13,3 +13,25 @@ function slac_ip_core_entity_info_alter(&$entity_info) {
     'custom settings' => FALSE,
   );
 }
+
+/**
+ * Implements hook_date_formats().
+ */
+function slac_ip_core_date_formats() {
+  return array(
+    array(
+      'type' => 'slac_ip_news_event_date',
+      'format' => 'l, F j, Y - g:ia',
+      'locales' => array(),
+    ),
+  );
+}
+
+/**
+ * Implements hook_date_format_types().
+ */
+function slac_ip_core_date_format_types() {
+  return array(
+    'slac_ip_news_event_date' => t('SLAC News/Event'),
+  );
+}
