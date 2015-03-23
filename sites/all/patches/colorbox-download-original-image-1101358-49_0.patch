@@ -1,0 +1,90 @@
+diff --git a/colorbox.admin.inc b/colorbox.admin.inc
+index 002c50b..a5d0733 100644
+--- a/colorbox.admin.inc
++++ b/colorbox.admin.inc
+@@ -202,6 +202,12 @@ function colorbox_admin_settings() {
+     '#default_value' => variable_get('colorbox_scrolling', 1),
+     '#description' => t('If false, Colorbox will hide scrollbars for overflowing content. This could be used on conjunction with the resize method for a smoother transition if you are appending content to an already open instance of Colorbox.'),
+   );
++  $form['colorbox_custom_settings']['colorbox_original_image'] = array(
++    '#type' => 'checkbox',
++    '#title' => t('Add original image link'),
++    '#default_value' => variable_get('colorbox_original_image', 0),
++    '#description' => t('If this is checked, a icon will be added to the colorbox, that will link the user to the original image in a new tab.CAUTION: This only works with the default drupal colorbox theme.'),
++  );
+ 
+   $js_hide = variable_get('colorbox_slideshow', 0) ? '' : ' js-hide';
+   $form['colorbox_custom_settings']['colorbox_slideshow_settings']['wrapper_start'] = array(
+diff --git a/colorbox.module b/colorbox.module
+index e3d94d2..3528fef 100644
+--- a/colorbox.module
++++ b/colorbox.module
+@@ -241,6 +241,10 @@ function _colorbox_doheader() {
+       drupal_add_css($style . '/colorbox.css');
+   }
+ 
++  // Add the original image variable to the js
++  $colorbox_original_image = variable_get('colorbox_original_image');
++  drupal_add_js(array('colorbox' => array ('colorbox_original_image' => $colorbox_original_image)), 'setting');
++  
+   if (variable_get('colorbox_load', 0)) {
+     drupal_add_js($path . '/js/colorbox_load.js');
+   }
+diff --git a/styles/default/colorbox_style.css b/styles/default/colorbox_style.css
+index 2517c7f..22beac5 100644
+--- a/styles/default/colorbox_style.css
++++ b/styles/default/colorbox_style.css
+@@ -214,3 +214,17 @@
+       #cboxClose:hover {
+         background-position: -25px -25px;
+       }
++      #cboxDownload {
++        display: block;
++        width: 23px;
++        height: 23px;
++        background: url(images/full_screen.png) no-repeat;
++        position: absolute;
++        bottom: 0;
++        right: 27px;
++      }
++      #cboxDownload a {
++        height: 23px;
++        width: 23px;
++        display: block;
++      }
+\ No newline at end of file
+diff --git a/styles/default/colorbox_style.js b/styles/default/colorbox_style.js
+index 47875ff..68fddbe 100644
+--- a/styles/default/colorbox_style.js
++++ b/styles/default/colorbox_style.js
+@@ -15,6 +15,30 @@ Drupal.behaviors.initColorboxDefaultStyle = {
+       else {
+         $('#cboxTitle', context).hide();
+       }
++      var colorbox_original_image = Drupal.settings.colorbox.colorbox_original_image;
++      if(colorbox_original_image == '1') {
++        function addLink() {
++          if ($('#cboxDownload').length) {
++            $('#cboxDownload').remove();
++          }
++          var fullHref = $('#cboxLoadedContent > img').attr('src').replace(/styles\/large\/public\//,'');
++          var fullLink = $('<a/>');
++          fullLink.attr('href', fullHref);
++          fullLink.attr('target', 'new');
++          fullLink.attr('title', 'Right click to download');
++          fullLink.addClass("download_link");
++          $('#cboxClose').before(fullLink);
++          $('.download_link').wrap('<div id="cboxDownload"></div>');
++        }
++
++        if ($('#cboxLoadedContent > img').attr('src')) {
++          addLink();
++        } else {
++          if ($('#cboxDownload').length) {
++            $('#cboxDownload').remove();
++          }
++        }
++      }
+     });
+   }
+ };
