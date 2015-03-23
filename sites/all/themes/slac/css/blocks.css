@@ -330,6 +330,7 @@
     padding-right: 0;
   }
 }
+/* used on events dates */
 .collapse-block {
   display: none;
 }
