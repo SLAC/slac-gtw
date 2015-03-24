@@ -291,3 +291,23 @@ function slac_file_entity_download_link($variables) {
 
   return $output;
 }
+
+/**
+* @implements hook_preprocess_node()
+*/
+function slac_preprocess_node(&$variables, $hook) {
+  $view_mode = $variables['view_mode'];
+  $content_type = $variables['type'];
+  $variables['theme_hook_suggestions'][] = 'node__' . $view_mode;
+  $variables['theme_hook_suggestions'][] = 'node__' . $content_type . '_' . $view_mode;
+
+  $view_mode_preprocess = 'slac_preprocess_node_' . $content_type . '_' . $view_mode;
+  if (function_exists($view_mode_preprocess)) {
+    $view_mode_preprocess($variables, $hook);
+  }
+
+  $view_mode_preprocess = 'slac_preprocess_node_' . $view_mode;
+  if (function_exists($view_mode_preprocess)) {
+    $view_mode_preprocess($variables, $hook);
+  }
+}
