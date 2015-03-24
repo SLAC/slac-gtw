@@ -126,6 +126,12 @@
 .node-type-news .general-left .field-name-field-shared-tags .field-label {
   margin-bottom: .2em;
 }
+.node-type-event .general-left .field-name-field-shared-contact-phone a,
+.node-type-event .general-left .field-name-field-shared-contact-name,
+.node-type-news .general-left .field-name-field-shared-contact-phone a,
+.node-type-news .general-left .field-name-field-shared-contact-name {
+  color: #6a6a6a;
+}
 .node-type-event .general-left .field-name-field-shared-tags,
 .node-type-news .general-left .field-name-field-shared-tags {
   font-size: 14px;
@@ -188,13 +194,29 @@
   display: block;
   padding: .4em 0;
 }
+.node-type-event .general-right .field-name-field-shared-related-files ul a,
+.node-type-news .general-right .field-name-field-shared-related-files ul a {
+  display: inline-block;
+}
+.node-type-event .general-right .file-document .file a,
+.node-type-news .general-right .file-document .file a {
+  display: inline-block;
+  padding: .4em 0;
+}
 .node-type-event .general-right .inside,
 .node-type-news .general-right .inside {
   border-left: none;
 }
 
-.node-type-news #content .field-name-field-shared-location {
+.node-type-news #content .field-name-field-shared-location,
+.node-type-news #content .panel-pane.pane-node-created {
+  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: normal;
+}
+.node-type-news #content .field-name-field-shared-byline,
+.node-type-news #content .panel-pane.pane-node-created {
+  margin-bottom: 10px;
 }
 .node-type-news #content .field-name-field-news-subtitle {
   font-size: 20px;
@@ -205,6 +227,8 @@
 .node-type-news #content .field-name-field-file-shared-caption {
   font-size: 12px;
   font-size: 0.75rem;
+  color: #848484;
+  font-weight: lighter;
   font-style: italic;
 }
 .node-type-news .general-left .panel-pane.pane-slac-ip-panes-email {
@@ -218,6 +242,7 @@
   width: 370px;
   float: left;
   margin-right: 30px;
+  margin-bottom: 3em;
 }
 .node-type-news .general-left .pane-node-body {
   border-top: none;
@@ -225,10 +250,6 @@
 }
 .node-type-news .general-left .pane-node-body p:first-child {
   margin-top: 0;
-}
-.node-type-news .general-left .field-name-field-shared-byline,
-.node-type-news .general-left .panel-pane.pane-node-created {
-  margin-bottom: 10px;
 }
 .node-type-news .general-right .panel-pane {
   margin-bottom: 2em;
