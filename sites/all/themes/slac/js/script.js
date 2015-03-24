@@ -20,7 +20,11 @@
       $('<ul class="mobile-menu">'+ $menu.html() +'</ul>').appendTo('#mobile-menu-wrap');
       $('<div class="mobile-search">'+ $searchbox.find('form').parent().html() +'</div>').appendTo('#mobile-menu-wrap');
       $('.mobile-search form').append('<input id="people" type="radio" name="searchType" checked="true" value="people" /><label for="search-people">People</label><input id="slac" type="radio" name="searchType" value="slac" /><label for="search-slac">SLAC</label>');
-      $('.mobile-search #search-button').attr('src',$('.mobile-search #search-button').attr('src').replace('.jpg','')+'-mobile.jpg');
+      var $mobileSearchButton = $('.mobile-search #search-button');
+      var mobileSearchButtonSrc = $mobileSearchButton.attr('src');
+      if (mobileSearchButtonSrc !== undefined) {
+        $mobileSearchButton.attr('src', mobileSearchButtonSrc.replace('.jpg','-mobile.jpg'));
+      }
 
       //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Firefox/i.test(navigator.userAgent) ) {
         // touch device
