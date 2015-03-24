@@ -19,6 +19,7 @@ stylesheets[all][] = css/staff-page.css
 stylesheets[all][] = css/feedback-page.css
 stylesheets[all][] = css/media-600.css
 stylesheets[all][] = css/media-900.css
+stylesheets[all][] = css/main.css
 
 scripts[] = js/jquery.placeholder.js
 scripts[] = js/script.js

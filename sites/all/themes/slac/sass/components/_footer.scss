@@ -1,0 +1,27 @@
+.footer-wrapper {
+  background: #DADADA;
+  margin: 0;
+  overflow: hidden;
+@media (max-width: 900px) {
+  background: #9A9A9A;
+}
+  .footer-inner {
+    @include clearfix;
+  }
+}
+.region-footer {
+  @include zen-grid-item(6, 1);
+  @media screen and (min-width: 1200px) {
+    @include zen-grid-item(6, 1);
+  }
+}
+.footer-logos {
+  @include zen-grid-item(5, 8);
+  @media screen and (min-width: 1040px) {
+    @include zen-grid-item(4, 9);
+  }
+  @media screen and (min-width: 1200px) {
+    @include zen-grid-item(3, 10);
+  }
+  text-align: right;
+}

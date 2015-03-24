@@ -14,6 +14,9 @@ function slac_igp_config_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
+  if ($module == "linkit" && $api == "linkit_profiles") {
+    return array("version" => "1");
+  }
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");
   }
@@ -34,22 +37,6 @@ function slac_igp_config_views_api($module = NULL, $api = NULL) {
  */
 function slac_igp_config_node_info() {
   $items = array(
-    'access_information' => array(
-      'name' => t('Access Information'),
-      'base' => 'node_content',
-      'description' => t('Information regarding to access, constructions and closure around the lab'),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
-    'event' => array(
-      'name' => t('Event'),
-      'base' => 'node_content',
-      'description' => t('Imported from scientific, training and staff calendars'),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
     'flea_market_post' => array(
       'name' => t('Flea market post'),
       'base' => 'node_content',

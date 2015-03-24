@@ -1,4 +1,5 @@
 @import "mixins";
+@import "utilities";
 
 .collapse-block{display: none;}
 .frontpage-right{
@@ -6,7 +7,7 @@
 }
 
 .frontpage-left-col{
-  margin-top: 74px;
+  margin-top: 12px;
 }
 
 .brown-bodered-white {
@@ -25,7 +26,7 @@
     margin: -13px 0 0 0;
     font-size: 0.85em;
     text-transform: uppercase;
-    color: #94753F;
+    color: $gold;
     line-height: normal;
   }
 }
@@ -100,10 +101,6 @@
     clear: both;
   }
 }
-
-.frontpage-news-list .blue-bodered-white{
-  margin-top: 20px;
-}
 .frontpage-slac-science .blue-bodered-white{
   margin-bottom: 24px;
 }
@@ -146,7 +143,7 @@
     width: 28px;
     height: 23px;
     border: none;
-    background: #276cbd;
+    background: $blue;
     text-transform: uppercase;
     color: #fff;
     font-size: 11px;
@@ -453,7 +450,7 @@
 }
 
 a.submit-feedback {
-  background: #2482c9;
+  background: $blue;
   width: 110px;
   height: 17px;
   line-height: 17px;
@@ -599,7 +596,7 @@ a.submit-feedback {
     width: 100%;
     max-width: 588px;
     height: auto;
-    background: url('../images/transparent-blue-bg.png') repeat;
+    background: $overlay-blue;
     color: #fff;
     line-height: 18px;
     line-height: normal;
@@ -1064,7 +1061,7 @@ a.submit-feedback {
       right: -5%;
       width: 110%;
       height: auto;
-      background: url('../images/transparent-blue-bg.png') repeat;
+      background: $overlay-blue;
       color: #fff;
       line-height: 18px;
       &:hover{
@@ -1170,7 +1167,7 @@ a.submit-feedback {
     width: 100%;
     padding: 0 5%;
     margin: 0;
-    background: url('../images/transparent-blue-bg.png') repeat;
+    background: $overlay-blue;
     color: #fff;
     line-height: 18px;
     &:hover{

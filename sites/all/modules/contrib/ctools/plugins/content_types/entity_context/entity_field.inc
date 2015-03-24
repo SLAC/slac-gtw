@@ -141,7 +141,7 @@ function ctools_entity_field_content_type_render($subtype, $conf, $panel_args, $
   if (isset($conf['delta_limit'])) {
     $offset = intval($conf['delta_offset']);
     $limit = !empty($conf['delta_limit']) ? $conf['delta_limit'] : NULL;
-    $all_values = array_slice($all_values, $offset, $limit, TRUE);
+    $all_values = array_slice($all_values, $offset, $limit);
   }
 
   $clone = clone $entity;

@@ -16,7 +16,10 @@ function slac_igp_config_default_page_manager_pages() {
   $page->admin_title = 'Front Page';
   $page->admin_description = '';
   $page->path = 'front';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
@@ -622,31 +625,6 @@ function slac_igp_config_default_page_manager_pages() {
     $display->content['new-3a98c25b-f230-4840-ae8a-d14df30a9fa5'] = $pane;
     $display->panels['coltworowthree'][0] = 'new-3a98c25b-f230-4840-ae8a-d14df30a9fa5';
     $pane = new stdClass();
-    $pane->pid = 'new-dd8a6d23-dccb-4d43-be2e-c8b370ec77fa';
-    $pane->panel = 'coltworowtwo';
-    $pane->type = 'block';
-    $pane->subtype = 'system-main-menu';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'brown-bodered-white blue-dashed-list',
-    );
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'dd8a6d23-dccb-4d43-be2e-c8b370ec77fa';
-    $display->content['new-dd8a6d23-dccb-4d43-be2e-c8b370ec77fa'] = $pane;
-    $display->panels['coltworowtwo'][0] = 'new-dd8a6d23-dccb-4d43-be2e-c8b370ec77fa';
-    $pane = new stdClass();
     $pane->pid = 'new-76508b3a-8a77-44dc-992b-e22b78e5d9bf';
     $pane->panel = 'coltworowtwo';
     $pane->type = 'block';
@@ -666,11 +644,11 @@ function slac_igp_config_default_page_manager_pages() {
       'css_class' => 'brown-bodered-white blue-dashed-list',
     );
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '76508b3a-8a77-44dc-992b-e22b78e5d9bf';
     $display->content['new-76508b3a-8a77-44dc-992b-e22b78e5d9bf'] = $pane;
-    $display->panels['coltworowtwo'][1] = 'new-76508b3a-8a77-44dc-992b-e22b78e5d9bf';
+    $display->panels['coltworowtwo'][0] = 'new-76508b3a-8a77-44dc-992b-e22b78e5d9bf';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

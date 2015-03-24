@@ -25,3 +25,11 @@
 .frontpage-right-col{
   float: right;
 }*/
+
+/* Fix jcarousel initialization in panels content admin. */
+.page-manager-wrapper .jcarousel-list li,
+.page-manager-wrapper .jcarousel-item {
+  width: 200px;
+  width: 100px;
+  margin: 1px;
+}

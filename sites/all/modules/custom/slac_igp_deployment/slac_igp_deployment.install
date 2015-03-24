@@ -1,0 +1,300 @@
+<?php
+
+/**
+ * @file
+ * Update functions for the SLAC Today deployment updates module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function slac_igp_deployment_install() {
+  // Revert slac_igp_config for shared field bases.
+  _slac_igp_deployment_revert('slac_igp_config');
+
+  // Enable Workbench moderation separately from other modules in order to avoid
+  // causing the error:
+  //   "EntityMalformedException: Missing bundle property on entity of type
+  //   file. in entity_extract_ids()"
+  // when node_access_rebuild is run.
+  module_enable(array(
+    'workbench_moderation',
+  ));
+
+  // Rebuild permissions after workbench install.
+  node_access_rebuild();
+
+  // Enable new modules/features.
+  module_enable(array(
+    'conditional_fields',
+    'jquery_update',
+    'pathauto',
+    'scheduler',
+    'metatag',
+    'token',
+    'file_entity',
+    'media',
+    'media_vimeo',
+    'media_youtube',
+    'linkit',
+    'slac_ip_core',
+    'slac_ip_media',
+    'slac_ip_config_search',
+    'slac_ip_menus',
+    'slac_ip_media',
+    'slac_ip_panes',
+    'slac_search',
+    'ct_access_information',
+    'ct_event',
+    'ct_news',
+    'v_featured_news_pane',
+  ));
+
+  // Revert slac_ip_menus so that the new menu block will have a DB record.
+  _slac_igp_deployment_revert('slac_ip_menus');
+  _slac_igp_deployment_remove_legacy_menu_items();
+  drupal_flush_all_caches();
+
+  // Update blocks placement.
+  _slac_igp_deployment_place_search_block();
+  _slac_igp_deployment_place_top_menu_block();
+
+  // Revert features for pre-existing node types.
+  _slac_igp_deployment_revert('ct_access_information');
+  _slac_igp_deployment_revert('ct_event');
+}
+
+/**
+ * Reverts a feature.
+ *
+ * @param string $feature_name
+ *   The machine name of the feature to revert.
+ */
+function _slac_igp_deployment_revert($feature_name) {
+  $feature = features_get_features($feature_name);
+  features_revert(array($feature_name => $feature->components));
+}
+
+/**
+ * Updates block placement for search blocks.
+ */
+function _slac_igp_deployment_place_search_block() {
+  // Remove existing search boxes from the header region.
+  db_update('block')
+    ->fields(array(
+      'status' => 0,
+      'region' => '-1',
+    ))
+    ->condition('module', 'boxes', '=')
+    ->condition('delta', array('search_people', 'web_search'), 'IN')
+    ->condition('theme', 'slac', '=')
+    ->execute();
+
+  // Place the core search block into the header region.
+  db_update('block')
+    ->fields(array(
+      'status' => 1,
+      'weight' => -33,
+      'region' => 'header',
+    ))
+    ->condition('module', 'search', '=')
+    ->condition('delta', 'form', '=')
+    ->condition('theme', 'slac', '=')
+    ->execute();
+}
+
+/**
+ * Enable the ct_news feature.
+ */
+function slac_igp_deployment_update_7001() {
+  $result = module_enable(array(
+    'ct_news',
+  ));
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling the
+     ct_news module. It might need to be enabled manually.');
+  }
+  else {
+    return t('The ct_news module was successfully enabled.');
+  }
+}
+
+/**
+ * Enable the slac_ip_config_search feature.
+ */
+function slac_igp_deployment_update_7002() {
+  $result = module_enable(array(
+    'slac_ip_config_search',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling slac_ip_config_search.');
+  }
+
+  $feature = features_get_features('slac_ip_config_search');
+  features_revert(array('slac_ip_config_search' => $feature->components));
+}
+
+/**
+ * Enable the slac_ip_menus feature and place the new menu block.
+ */
+function slac_igp_deployment_update_7003() {
+  $result = module_enable(array(
+    'slac_ip_menus',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling slac_ip_menus.');
+  }
+
+  $feature = features_get_features('slac_ip_menus');
+  features_revert(array('slac_ip_menus' => $feature->components));
+
+  _slac_igp_deployment_place_top_menu_block();
+}
+
+/**
+ * Removes legacy menu items from the Main menu.
+ */
+function _slac_igp_deployment_remove_legacy_menu_items() {
+  menu_link_delete(498);
+  menu_link_delete(499);
+  menu_link_delete(500);
+}
+
+/**
+ * Places the Top Menu block into the header region.
+ */
+function _slac_igp_deployment_place_top_menu_block() {
+  db_update('block')
+    ->fields(array(
+      'status' => 1,
+      'weight' => -32,
+      'region' => 'header',
+    ))
+    ->condition('module', 'menu', '=')
+    ->condition('delta', 'menu-top-menu', '=')
+    ->condition('theme', 'slac', '=')
+    ->execute();
+}
+
+/**
+ * Enable the modules for news and media.
+ * Rebuild permissions after workbench install.
+ */
+function slac_igp_deployment_update_7004() {
+  $result = module_enable(array(
+    'pathauto',
+    'scheduler',
+    'metatag',
+    'token',
+    'file_entity',
+    'media',
+    'media_vimeo',
+    'media_youtube',
+    'linkit',
+    'slac_ip_media',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+
+  // Rebuild permissions after workbench install.
+  node_access_rebuild();
+}
+
+/**
+ * Enable the ct_event feature and revert the slac_igp_config feature which
+ * previously contained the Event config.
+ */
+function slac_igp_deployment_update_7005() {
+  $result = module_enable(array(
+    'ct_event',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+
+  $feature = features_get_features('slac_igp_config');
+  features_revert(array('slac_igp_config' => $feature->components));
+}
+
+/**
+ * Enable the jquery_update module.
+ */
+function slac_igp_deployment_update_7006() {
+  $result = module_enable(array(
+      'jquery_update',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the conditional_fields module.
+ */
+function slac_igp_deployment_update_7007() {
+  $result = module_enable(array(
+    'conditional_fields',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the slac_ip_core module.
+ */
+function slac_igp_deployment_update_7008() {
+  $result = module_enable(array(
+    'slac_ip_core',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the slac_ip_panes module.
+ */
+function slac_igp_deployment_update_7009() {
+  $result = module_enable(array(
+    'slac_ip_panes',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the ct_access_information feature.
+ */
+function slac_igp_deployment_update_7010() {
+  $result = module_enable(array(
+    'ct_access_information',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the v_featured_news_pane feature.
+ */
+function slac_igp_deployment_update_7011() {
+  $result = module_enable(array(
+    'v_featured_news_pane',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
