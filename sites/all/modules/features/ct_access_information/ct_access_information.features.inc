@@ -21,7 +21,7 @@ function ct_access_information_node_info() {
     'access_information' => array(
       'name' => t('Access Information'),
       'base' => 'node_content',
-      'description' => t('Information regarding to access, constructions and closure around the lab'),
+      'description' => t('Information regarding to access, constructions and closure around the lab.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
