@@ -1,6 +1,7 @@
 /* used on events dates */
 .node-type-event #content,
-.node-type-news #content {
+.node-type-news #content,
+.node-type-access-information #content {
   font-size: 16px;
   font-size: 1rem;
   background: #ffffff !important;
@@ -9,24 +10,30 @@
 }
 .node-type-event #content:before, .node-type-event #content:after,
 .node-type-news #content:before,
-.node-type-news #content:after {
+.node-type-news #content:after,
+.node-type-access-information #content:before,
+.node-type-access-information #content:after {
   content: "";
   display: table;
 }
 .node-type-event #content:after,
-.node-type-news #content:after {
+.node-type-news #content:after,
+.node-type-access-information #content:after {
   clear: both;
 }
 .node-type-event #content .contextual-links-region,
-.node-type-news #content .contextual-links-region {
+.node-type-news #content .contextual-links-region,
+.node-type-access-information #content .contextual-links-region {
   padding: 0;
 }
 .node-type-event #header,
-.node-type-news #header {
+.node-type-news #header,
+.node-type-access-information #header {
   margin-bottom: 0;
 }
 .node-type-event .general-left,
-.node-type-news .general-left {
+.node-type-news .general-left,
+.node-type-access-information .general-left {
   float: left;
   width: 58.33333%;
   margin-left: 8.33333%;
@@ -40,13 +47,15 @@
   word-wrap: break-word;
 }
 .node-type-event .general-left h1,
-.node-type-news .general-left h1 {
+.node-type-news .general-left h1,
+.node-type-access-information .general-left h1 {
   margin-bottom: .5em;
   margin-top: 0;
   line-height: 1.2;
 }
 .node-type-event .general-left h2,
-.node-type-news .general-left h2 {
+.node-type-news .general-left h2,
+.node-type-access-information .general-left h2 {
   font-size: 14px;
   font-size: 0.875rem;
   margin-bottom: 0;
@@ -60,7 +69,12 @@
 .node-type-news .general-left .date-display-end,
 .node-type-news .general-left .date-display-single,
 .node-type-news .general-left .field-name-field-shared-location,
-.node-type-news .general-left .field-name-field-shared-byline {
+.node-type-news .general-left .field-name-field-shared-byline,
+.node-type-access-information .general-left .date-display-start,
+.node-type-access-information .general-left .date-display-end,
+.node-type-access-information .general-left .date-display-single,
+.node-type-access-information .general-left .field-name-field-shared-location,
+.node-type-access-information .general-left .field-name-field-shared-byline {
   font-size: 16px;
   font-size: 1rem;
   display: inline-block;
@@ -69,11 +83,13 @@
   margin-bottom: 12px;
 }
 .node-type-event .general-left .date-display-single,
-.node-type-news .general-left .date-display-single {
+.node-type-news .general-left .date-display-single,
+.node-type-access-information .general-left .date-display-single {
   margin-bottom: 4px;
 }
 .node-type-event .general-left .field-name-field-shared-location,
-.node-type-news .general-left .field-name-field-shared-location {
+.node-type-news .general-left .field-name-field-shared-location,
+.node-type-access-information .general-left .field-name-field-shared-location {
   margin-bottom: 16px;
 }
 .node-type-event .general-left .calendar-button,
@@ -81,7 +97,10 @@
 .node-type-event .general-left .js-print-button,
 .node-type-news .general-left .calendar-button,
 .node-type-news .general-left .email-button,
-.node-type-news .general-left .js-print-button {
+.node-type-news .general-left .js-print-button,
+.node-type-access-information .general-left .calendar-button,
+.node-type-access-information .general-left .email-button,
+.node-type-access-information .general-left .js-print-button {
   display: block;
   float: left;
 }
@@ -90,7 +109,10 @@
 .node-type-event .general-left .js-print-button a,
 .node-type-news .general-left .calendar-button a,
 .node-type-news .general-left .email-button a,
-.node-type-news .general-left .js-print-button a {
+.node-type-news .general-left .js-print-button a,
+.node-type-access-information .general-left .calendar-button a,
+.node-type-access-information .general-left .email-button a,
+.node-type-access-information .general-left .js-print-button a {
   font-size: 12px;
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -104,15 +126,18 @@
   border-right: 1px solid #a8a8a8;
 }
 .node-type-event .general-left .calendar-button a,
-.node-type-news .general-left .calendar-button a {
+.node-type-news .general-left .calendar-button a,
+.node-type-access-information .general-left .calendar-button a {
   background: url("../images/calendar.svg") 0 0 no-repeat;
 }
 .node-type-event .general-left .email-button a,
-.node-type-news .general-left .email-button a {
+.node-type-news .general-left .email-button a,
+.node-type-access-information .general-left .email-button a {
   background: url("../images/envelope.svg") 0 0 no-repeat;
 }
 .node-type-event .general-left .js-print-button a,
-.node-type-news .general-left .js-print-button a {
+.node-type-news .general-left .js-print-button a,
+.node-type-access-information .general-left .js-print-button a {
   border: none;
   background: url("../images/printer.svg") 0 0 no-repeat;
 }
@@ -123,7 +148,11 @@
 .node-type-news .general-left .field-name-field-shared-contact-name,
 .node-type-news .general-left .field-name-field-shared-contact-email,
 .node-type-news .general-left .field-name-field-shared-contact-phone,
-.node-type-news .general-left .field-name-field-shared-tags .field-label {
+.node-type-news .general-left .field-name-field-shared-tags .field-label,
+.node-type-access-information .general-left .field-name-field-shared-contact-name,
+.node-type-access-information .general-left .field-name-field-shared-contact-email,
+.node-type-access-information .general-left .field-name-field-shared-contact-phone,
+.node-type-access-information .general-left .field-name-field-shared-tags .field-label {
   margin-bottom: .2em;
 }
 .node-type-event .general-left .field-name-field-shared-contact-phone a,
@@ -133,13 +162,15 @@
   color: #6a6a6a;
 }
 .node-type-event .general-left .field-name-field-shared-tags,
-.node-type-news .general-left .field-name-field-shared-tags {
+.node-type-news .general-left .field-name-field-shared-tags,
+.node-type-access-information .general-left .field-name-field-shared-tags {
   font-size: 14px;
   font-size: 0.875rem;
   margin-top: 2em;
 }
 .node-type-event .general-left .field-name-field-shared-tags a,
-.node-type-news .general-left .field-name-field-shared-tags a {
+.node-type-news .general-left .field-name-field-shared-tags a,
+.node-type-access-information .general-left .field-name-field-shared-tags a {
   font-size: 12px;
   font-size: 0.75rem;
   display: block;
@@ -149,12 +180,14 @@
   margin-right: 1em;
 }
 .node-type-event .general-left .pane-node-body,
-.node-type-news .general-left .pane-node-body {
+.node-type-news .general-left .pane-node-body,
+.node-type-access-information .general-left .pane-node-body {
   border-top: solid 3px #b1c0c7;
   margin-top: 40px;
 }
 .node-type-event .general-right,
-.node-type-news .general-right {
+.node-type-news .general-right,
+.node-type-access-information .general-right {
   float: left;
   width: 25%;
   margin-left: 66.66667%;
@@ -169,11 +202,13 @@
   margin-top: .5em;
 }
 .node-type-event .general-right .inside,
-.node-type-news .general-right .inside {
+.node-type-news .general-right .inside,
+.node-type-access-information .general-right .inside {
   padding: 0;
 }
 .node-type-event .general-right h2,
-.node-type-news .general-right h2 {
+.node-type-news .general-right h2,
+.node-type-access-information .general-right h2 {
   font-size: 14px;
   font-size: 0.875rem;
   border-bottom: 3px solid #b1c0c7;
@@ -182,13 +217,15 @@
   margin-bottom: 1em;
 }
 .node-type-event .general-right ul,
-.node-type-news .general-right ul {
+.node-type-news .general-right ul,
+.node-type-access-information .general-right ul {
   color: #4f4f4f;
   padding-left: 2em;
   list-style-type: disc;
 }
 .node-type-event .general-right ul a,
-.node-type-news .general-right ul a {
+.node-type-news .general-right ul a,
+.node-type-access-information .general-right ul a {
   font-size: 14px;
   font-size: 0.875rem;
   display: block;
@@ -204,7 +241,8 @@
   padding: .4em 0;
 }
 .node-type-event .general-right .inside,
-.node-type-news .general-right .inside {
+.node-type-news .general-right .inside,
+.node-type-access-information .general-right .inside {
   border-left: none;
 }
 
@@ -257,6 +295,56 @@
 .node-type-news .general-right .panel-pane:first-child {
   padding-bottom: 2em;
   border-bottom: dashed 3px #b1c0c7;
+}
+
+.node-type-access-information .general-left {
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+.node-type-access-information .general-left h2 {
+  font-size: 14px;
+  font-size: 0.875rem;
+  display: block;
+  width: 80px;
+  text-align: right;
+  float: left;
+  padding: 0;
+  margin-top: 0;
+  padding-right: 10px;
+  font-weight: normal;
+  border-right: 3px solid #ffffff;
+  padding: 10px 10px 10px 0;
+}
+.node-type-access-information .general-left .panel-pane:nth-child(5n) {
+  margin-top: 4em;
+  margin-bottom: 3px;
+}
+.node-type-access-information .general-left .pane-node-field-event-date .field-items,
+.node-type-access-information .general-left .field-name-field-event-date .field-items {
+  background: #ecf0f2;
+  width: 78.6%;
+}
+.node-type-access-information .general-left .field-name-field-shared-location {
+  margin-bottom: 0;
+}
+.node-type-access-information .general-left .date-display-single,
+.node-type-access-information .general-left .pane-node-field-shared-location {
+  width: 78%;
+  margin-bottom: 0;
+  background: #ecf0f2;
+}
+.node-type-access-information .general-left .pane-node-field-shared-location {
+  margin-top: 3px;
+}
+.node-type-access-information .general-left .panel-pane:nth-child(n+5):nth-child(-n+7) {
+  border-left: 5px solid rgba(92, 154, 201, 0.85);
+}
+.node-type-access-information .general-left .panel-pane div.field-item {
+  display: block;
+  padding: 12px 0 12px 14px;
+}
+.node-type-access-information .general-left .panel-pane span {
+  padding-left: 14px;
 }
 
 #page:before, #page:after {
