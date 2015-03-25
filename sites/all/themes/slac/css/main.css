@@ -669,6 +669,20 @@
   content: none;
 }
 
+.node-type-news .pane-featured-news-featured-news-panel-pane h2 {
+  margin-bottom: 0;
+}
+.node-type-news .view-featured-news ul {
+  padding: 0;
+}
+.node-type-news .view-featured-news ul li {
+  margin-bottom: 2px;
+  background: #ecf0f2;
+}
+.node-type-news .view-featured-news ul li a {
+  padding: 1em;
+}
+
 .footer-wrapper {
   background: #DADADA;
   margin: 0;
