@@ -5,7 +5,8 @@ $zen-gutter-width: 40px;
 $zen-column-count: 12;
 
 .node-type-event,
-.node-type-news {
+.node-type-news,
+.node-type-access-information {
   #content {
     @include zen-grid-container();
     @include font-size(16px);
@@ -21,6 +22,10 @@ $zen-column-count: 12;
   }
   .general-left {
     @include zen-grid-item(7, 2);
+    .pane-node-body {
+      border-top: solid 3px $event-border;
+      margin-top: 40px;
+    }
     h1 {
       margin-bottom: .5em;
       margin-top: 0;
@@ -81,10 +86,6 @@ $zen-column-count: 12;
     .field-name-field-shared-tags .field-label {
       margin-bottom: .2em;
     }
-    .field-name-field-shared-contact-phone a,
-    .field-name-field-shared-contact-name {
-      color: $grey;
-    }
     .field-name-field-shared-tags {
       @include font-size(14px);
       margin-top: 2em;
@@ -125,17 +126,6 @@ $zen-column-count: 12;
       display: block;
       padding: .4em 0;
     }
-    .field-name-field-shared-related-files {
-      ul {
-        a {
-          display: inline-block;
-        }
-      }
-    }
-    .file-document .file a {
-      display: inline-block;
-      padding: .4em 0;
-    }
   }
   .general-right .inside {
     border-left: none;
@@ -145,14 +135,8 @@ $zen-column-count: 12;
 // news overrides
 .node-type-news {
   #content {
-    .field-name-field-shared-location,
-    .panel-pane.pane-node-created {
-      @include font-size(14px);
+    .field-name-field-shared-location {
       font-weight: normal;
-    }
-    .field-name-field-shared-byline,
-    .panel-pane.pane-node-created {
-      margin-bottom: 10px;
     }
     .field-name-field-news-subtitle {
       @include font-size(20px);
@@ -160,10 +144,7 @@ $zen-column-count: 12;
       margin-bottom: 1.5em;
     }
     .field-name-field-file-shared-caption {
-      @include font-size(12px);
-      color: lighten($grey, 10%);
-      font-weight: lighter;
-      font-style: italic;
+      @include caption;
     }
   }
   .general-left {
@@ -178,7 +159,6 @@ $zen-column-count: 12;
       width: 370px;
       float: left;
       margin-right: 30px;
-      margin-bottom: 3em;
     }
     .pane-node-body {
       border-top: none;
@@ -186,6 +166,10 @@ $zen-column-count: 12;
       p:first-child {
         margin-top: 0;
       }
+    }
+    .field-name-field-shared-byline,
+    .panel-pane.pane-node-created {
+      margin-bottom: 10px;
     }
   }
   .general-right {
@@ -195,6 +179,90 @@ $zen-column-count: 12;
     .panel-pane:first-child {
       padding-bottom: 2em;
       border-bottom: dashed 3px $event-border;
+    }
+  }
+}
+
+// access notice overrides
+.node-type-access-information {
+  .general-left {
+    @include font-size(14px);
+    .pane-node-body {
+      border-top: none;
+    }
+    h2 {
+      @include font-size(14px);
+      display: block;
+      width: 80px;
+      text-align: right;
+      float: left;
+      padding: 0;
+      margin-top: 0;
+      padding-right: 10px;
+      font-weight: normal;
+      border-right: 3px solid $white;
+      padding: 10px 10px 10px 0;
+    }
+    .panel-pane:nth-child(5n) {
+      margin-top: 4em;
+      margin-bottom: 3px;
+    }
+    .pane-node-field-event-date,
+    .field-name-field-event-date {
+      .field-items {
+        background: lighten($event-border, 20%);
+        width: 78.6%;
+      }
+    }
+    .field-name-field-shared-location {
+      margin-bottom: 0;
+    }
+    .date-display-single,
+    .pane-node-field-shared-location {
+      width: 78%;
+      margin-bottom: 0;
+      background: lighten($event-border, 20%);
+    }
+    .pane-node-field-shared-location {
+      margin-top: 3px;
+    }
+    .panel-pane:nth-child(n+5):nth-child(-n+7) {
+      border-left: 5px solid lighten($overlay-blue, 15%);
+    }
+    .panel-pane {
+      div.field-item {
+        display: block;
+        padding: 12px 0 12px 14px;
+      }
+      span {
+        padding-left: 14px;
+      }
+      &.pane-node-body .field-item {
+        padding: 0;
+      }
+    }
+    .pane-node-field-shared-tags {
+      h2 {
+        display: block;
+        float: none;
+        padding: 0;
+        text-align: left;
+      }
+      div.field-item {
+        display: inline-block;
+        padding: 0;
+      }
+    }
+    .field-name-field-shared-tags {
+      margin-top: 0;
+    }
+  }
+  .general-right {
+    .field-name-field-file-shared-caption {
+      @include caption;
+    }
+    .panel-pane {
+      margin-bottom: 2em;
     }
   }
 }

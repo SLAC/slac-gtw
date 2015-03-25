@@ -33,3 +33,8 @@ $h6-font-size: 0.75 * $base-font-size;
     clear: both;
   }
 }
+
+@mixin caption {
+  @include font-size(12px);
+  font-style: italic;
+}
