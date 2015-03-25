@@ -39,7 +39,7 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
   $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/access">View All Access Items</a><br />
-<a href="https://news.slac.stanford.edu/create/announcement ">Submit Access Item</a>';
+<a href="/node/add/access-information/slac ">Submit Access Notice</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -293,7 +293,7 @@ URL: [field_link] \\n';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/calendar/all">View All Upcoming Events</a><br />
 <a href="http://training.slac.stanford.edu/calendar.asp">View SLAC Training Calendar</a><br />
-<a href="https://news.slac.stanford.edu/create/announcement ">Submit Event</a>';
+<a href="/node/add/event/slac ">Submit Event</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
 
   /* Display: Feed */
@@ -807,7 +807,7 @@ URL: [field_link] \\n';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/tags/staff-benefits-resources/lab-news">View Lab News Archive</a><br />
-<a href="https://news.slac.stanford.edu/create/announcement ">Submit Lab News</a>';
+<a href="/node/add/news">Submit Lab News</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Field: Link */
