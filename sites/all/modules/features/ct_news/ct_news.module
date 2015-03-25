@@ -5,3 +5,21 @@
  */
 
 include_once 'ct_news.features.inc';
+
+/**
+ * Implements hook_form_FORMID_alter().
+ */
+function ct_news_form_news_node_form_alter(&$form, &$form_state) {
+  // Add a help-like message to link users to the Event creation if they wanted
+  // that instead.
+  $event_help = array(
+    '#type' => 'markup',
+    '#markup' => '<span class="event_help">' .
+      t("Did you want to !create_event_link instead? An Event can still appear in the news list, but also has a start and end date, a location, and can be added to a user's calendar.",
+          array(
+            '!create_event_link' => l(t('create an event'), 'node/add/event/slac'),
+          )
+        ) . '</span>',
+  );
+  array_unshift($form, $event_help);
+}
