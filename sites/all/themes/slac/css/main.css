@@ -251,11 +251,16 @@
   font-size: 0.75rem;
   font-style: italic;
 }
-.node-type-news .general-left .panel-pane.pane-slac-ip-panes-email {
+.node-type-news .general-left .panel-pane.pane-slac-ip-panes-email,
+.node-type-news .general-left .pane-slac-ip-panes-print {
   position: relative;
   top: -30px;
   float: right;
-  margin-right: 100px;
+  margin-right: 95px;
+}
+.node-type-news .general-left .pane-slac-ip-panes-print {
+  top: -95px;
+  margin-right: 0;
 }
 .node-type-news .general-left .field-name-field-shared-image {
   margin-top: 4px;
@@ -357,6 +362,14 @@
 }
 .node-type-access-information .general-right .panel-pane {
   margin-bottom: 2em;
+}
+
+.node-type-event #cboxTitle,
+.node-type-news #cboxTitle,
+.node-type-access-information #cboxTitle {
+  line-height: 1.4;
+  background: #ffffff;
+  padding: .5em 6px 2em;
 }
 
 #page:before, #page:after {
