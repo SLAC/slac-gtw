@@ -37,6 +37,7 @@ function slac_igp_deployment_install() {
     'media_vimeo',
     'media_youtube',
     'linkit',
+    'prepopulate',
     'slac_ip_core',
     'slac_ip_media',
     'slac_ip_config_search',
@@ -292,6 +293,19 @@ function slac_igp_deployment_update_7010() {
 function slac_igp_deployment_update_7011() {
   $result = module_enable(array(
     'v_featured_news_pane',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the prepopulate module.
+ */
+function slac_igp_deployment_update_7012() {
+  $result = module_enable(array(
+    'prepopulate',
   ));
 
   if ($result == FALSE) {
