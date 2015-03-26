@@ -50,6 +50,7 @@ function slac_igp_deployment_install() {
     'ct_event',
     'ct_news',
     'pm_news',
+    'v_event',
     'v_featured_news_pane',
   ));
 
@@ -325,6 +326,19 @@ function slac_igp_deployment_update_7013() {
   $result = module_enable(array(
     'menu_trail_by_path',
     'pm_news',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the v_event feature.
+ */
+function slac_igp_deployment_update_7014() {
+  $result = module_enable(array(
+    'v_event',
   ));
 
   if ($result == FALSE) {
