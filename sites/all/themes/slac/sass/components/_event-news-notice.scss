@@ -116,16 +116,6 @@ $zen-column-count: 12;
       color: $dim-grey;
       margin-bottom: 1em;
     }
-    ul {
-      color: $dim-grey;
-      padding-left: 2em;
-      list-style-type: disc;
-    }
-    ul a {
-      @include font-size(14px);
-      display: block;
-      padding: .4em 0;
-    }
   }
   .general-right .inside {
     border-left: none;
