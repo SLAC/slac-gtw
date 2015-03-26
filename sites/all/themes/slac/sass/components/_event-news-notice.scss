@@ -82,21 +82,8 @@ $zen-column-count: 12;
     }
     .field-name-field-shared-contact-name,
     .field-name-field-shared-contact-email,
-    .field-name-field-shared-contact-phone,
-    .field-name-field-shared-tags .field-label {
+    .field-name-field-shared-contact-phone {
       margin-bottom: .2em;
-    }
-    .field-name-field-shared-tags {
-      @include font-size(14px);
-      margin-top: 2em;
-    }
-    .field-name-field-shared-tags a {
-      @include font-size(12px);
-      display: block;
-      float: left;
-      background: lighten($event-border, 15%);
-      padding: 8px 12px;
-      margin-right: 1em;
     }
     .pane-node-body {
       border-top: solid 3px $event-border;
@@ -247,21 +234,6 @@ $zen-column-count: 12;
       &.pane-node-body .field-item {
         padding: 0;
       }
-    }
-    .pane-node-field-shared-tags {
-      h2 {
-        display: block;
-        float: none;
-        padding: 0;
-        text-align: left;
-      }
-      div.field-item {
-        display: inline-block;
-        padding: 0;
-      }
-    }
-    .field-name-field-shared-tags {
-      margin-top: 0;
     }
   }
   .general-right {
