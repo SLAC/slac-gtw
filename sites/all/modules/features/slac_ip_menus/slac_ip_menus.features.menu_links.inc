@@ -50,24 +50,25 @@ function slac_ip_menus_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_news:<front>
-  $menu_links['main-menu_news:<front>'] = array(
+  // Exported menu link: main-menu_news:news
+  $menu_links['main-menu_news:news'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => '<front>',
-    'router_path' => '',
+    'link_path' => 'news',
+    'router_path' => 'news',
     'link_title' => 'News',
     'options' => array(
+      'identifier' => 'main-menu_news:news',
+      'alter' => TRUE,
       'attributes' => array(),
       'item_attributes' => array(
         'id' => '',
         'class' => '',
         'style' => '',
       ),
-      'identifier' => 'main-menu_news:<front>',
     ),
     'module' => 'menu',
     'hidden' => 0,
-    'external' => 1,
+    'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
     'weight' => -49,
