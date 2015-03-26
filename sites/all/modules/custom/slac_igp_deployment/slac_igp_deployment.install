@@ -37,6 +37,7 @@ function slac_igp_deployment_install() {
     'media_vimeo',
     'media_youtube',
     'linkit',
+    'menu_trail_by_path',
     'prepopulate',
     'slac_ip_core',
     'slac_ip_media',
@@ -48,6 +49,7 @@ function slac_igp_deployment_install() {
     'ct_access_information',
     'ct_event',
     'ct_news',
+    'pm_news',
     'v_featured_news_pane',
   ));
 
@@ -306,6 +308,20 @@ function slac_igp_deployment_update_7011() {
 function slac_igp_deployment_update_7012() {
   $result = module_enable(array(
     'prepopulate',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the menu_trail_by_path module and pm_news feature.
+ */
+function slac_igp_deployment_update_7013() {
+  $result = module_enable(array(
+    'menu_trail_by_path',
+    'pm_news',
   ));
 
   if ($result == FALSE) {
