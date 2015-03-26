@@ -63,6 +63,9 @@ function slac_igp_deployment_install() {
   // Revert features for pre-existing node types.
   _slac_igp_deployment_revert('ct_access_information');
   _slac_igp_deployment_revert('ct_event');
+
+  // Revert other pre-existing, updated features.
+  _slac_igp_deployment_revert('slac_igp_feed');
 }
 
 /**
