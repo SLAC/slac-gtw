@@ -272,6 +272,19 @@
   border-bottom: dashed 3px #b1c0c7;
 }
 
+.node-type-access-information #content:before {
+  font-size: 18px;
+  font-size: 1.125rem;
+  display: block;
+  content: "Access Notice";
+  color: #316dae;
+  text-indent: 25px;
+  margin-left: 10.05%;
+  background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
+  background-size: 21px 21px;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
 .node-type-access-information .general-left {
   font-size: 14px;
   font-size: 0.875rem;

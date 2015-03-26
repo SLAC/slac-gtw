@@ -180,6 +180,18 @@ $zen-column-count: 12;
 
 // access notice overrides
 .node-type-access-information {
+  #content:before {
+    @include font-size(18px);
+    display: block;
+    content: "Access Notice";
+    color: $blue;
+    text-indent: 25px;
+    margin-left: 10.05%;
+    background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
+    background-size: 21px 21px;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
   .general-left {
     @include font-size(14px);
     .pane-node-body {
