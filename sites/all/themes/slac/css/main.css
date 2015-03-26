@@ -150,34 +150,13 @@
 .node-type-event .general-left .field-name-field-shared-contact-name,
 .node-type-event .general-left .field-name-field-shared-contact-email,
 .node-type-event .general-left .field-name-field-shared-contact-phone,
-.node-type-event .general-left .field-name-field-shared-tags .field-label,
 .node-type-news .general-left .field-name-field-shared-contact-name,
 .node-type-news .general-left .field-name-field-shared-contact-email,
 .node-type-news .general-left .field-name-field-shared-contact-phone,
-.node-type-news .general-left .field-name-field-shared-tags .field-label,
 .node-type-access-information .general-left .field-name-field-shared-contact-name,
 .node-type-access-information .general-left .field-name-field-shared-contact-email,
-.node-type-access-information .general-left .field-name-field-shared-contact-phone,
-.node-type-access-information .general-left .field-name-field-shared-tags .field-label {
+.node-type-access-information .general-left .field-name-field-shared-contact-phone {
   margin-bottom: .2em;
-}
-.node-type-event .general-left .field-name-field-shared-tags,
-.node-type-news .general-left .field-name-field-shared-tags,
-.node-type-access-information .general-left .field-name-field-shared-tags {
-  font-size: 14px;
-  font-size: 0.875rem;
-  margin-top: 2em;
-}
-.node-type-event .general-left .field-name-field-shared-tags a,
-.node-type-news .general-left .field-name-field-shared-tags a,
-.node-type-access-information .general-left .field-name-field-shared-tags a {
-  font-size: 12px;
-  font-size: 0.75rem;
-  display: block;
-  float: left;
-  background: #dee4e7;
-  padding: 8px 12px;
-  margin-right: 1em;
 }
 .node-type-event .general-left .pane-node-body,
 .node-type-news .general-left .pane-node-body,
@@ -339,19 +318,6 @@
 }
 .node-type-access-information .general-left .panel-pane.pane-node-body .field-item {
   padding: 0;
-}
-.node-type-access-information .general-left .pane-node-field-shared-tags h2 {
-  display: block;
-  float: none;
-  padding: 0;
-  text-align: left;
-}
-.node-type-access-information .general-left .pane-node-field-shared-tags div.field-item {
-  display: inline-block;
-  padding: 0;
-}
-.node-type-access-information .general-left .field-name-field-shared-tags {
-  margin-top: 0;
 }
 .node-type-access-information .general-right .field-name-field-file-shared-caption {
   font-size: 12px;
@@ -801,4 +767,61 @@
   font-size: 0.875rem;
   display: block;
   padding: .2em 0;
+}
+
+.node-type-event .pane-node-field-shared-tags,
+.node-type-news .pane-node-field-shared-tags,
+.node-type-access-information .pane-node-field-shared-tags {
+  margin-top: 0;
+}
+.node-type-event .pane-node-field-shared-tags div.field-item,
+.node-type-news .pane-node-field-shared-tags div.field-item,
+.node-type-access-information .pane-node-field-shared-tags div.field-item {
+  display: inline-block;
+  padding: 0;
+}
+.node-type-event .pane-node-field-shared-tags h2,
+.node-type-news .pane-node-field-shared-tags h2,
+.node-type-access-information .pane-node-field-shared-tags h2 {
+  display: block;
+  float: none;
+  padding: 0;
+  text-align: left;
+  font-weight: bold;
+}
+.node-type-event .field-name-field-shared-tags,
+.node-type-news .field-name-field-shared-tags,
+.node-type-access-information .field-name-field-shared-tags {
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+.node-type-event .field-name-field-shared-tags a,
+.node-type-news .field-name-field-shared-tags a,
+.node-type-access-information .field-name-field-shared-tags a {
+  font-size: 12px;
+  font-size: 0.75rem;
+  display: block;
+  float: left;
+  background: #dee4e7;
+  padding: 8px 12px;
+  margin-right: 1em;
+}
+.node-type-event .field-name-field-shared-tags h2,
+.node-type-event .field-name-field-shared-tags .field-label,
+.node-type-news .field-name-field-shared-tags h2,
+.node-type-news .field-name-field-shared-tags .field-label,
+.node-type-access-information .field-name-field-shared-tags h2,
+.node-type-access-information .field-name-field-shared-tags .field-label {
+  margin-top: 2em;
+  margin-bottom: .2em;
+}
+.node-type-event .field-name-field-shared-tags .field-item,
+.node-type-news .field-name-field-shared-tags .field-item,
+.node-type-access-information .field-name-field-shared-tags .field-item {
+  display: inline !important;
+}
+.node-type-event .field-name-field-shared-tags .field-item a,
+.node-type-news .field-name-field-shared-tags .field-item a,
+.node-type-access-information .field-name-field-shared-tags .field-item a {
+  margin-bottom: 1em;
 }
