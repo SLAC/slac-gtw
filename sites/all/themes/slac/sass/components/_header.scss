@@ -47,60 +47,7 @@ $zen-column-count: 12;
     margin-top: 8px;
   }
 }
-/* Header Top Menu, Main Menu, Search*/
-#block-menu-menu-top-menu {
-  text-align: right;
-  margin-bottom: 24px;
-  .menu {
-    text-align: right;
-    li {
-      display: inline;
-      &.first {
-        border-right: 1px solid $blue;
-      }
-      a {
-        @include font-size(11px);
-        padding: .5em 1em;
-        color: $blue;
-        text-transform: uppercase;
-        &:hover,
-        &:focus {
-          outline: none;
-        }
-      }
-    }
-  }
-}
-#block-system-main-menu {
-  clear: both;
 
-  .menu li {
-    display: inline-block;
-    margin-right: -4px;
-    list-style-type: none;
-    list-style-image: none;
-    display: inline-block;
-    &.last{
-      padding-right: 0;
-      background: transparent;
-    }
-    a {
-      @include font-size(15px);
-      display: inline-block;
-      padding: 6px 2em 7px 2em;
-      text-transform: uppercase;
-      color: #fff;
-      background: $blue;
-      text-decoration: none;
-      &:hover,
-      &:focus {
-        background: $white;
-        color: $blue;
-        outline: none;
-      }
-    }
-  }
-}
 .header__region {
   input[type="text"] {
     @include font-size(10px);
