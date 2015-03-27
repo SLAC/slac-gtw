@@ -536,61 +536,6 @@
   margin-top: 8px;
 }
 
-/* Header Top Menu, Main Menu, Search*/
-#block-menu-menu-top-menu {
-  text-align: right;
-  margin-bottom: 24px;
-}
-#block-menu-menu-top-menu .menu {
-  text-align: right;
-}
-#block-menu-menu-top-menu .menu li {
-  display: inline;
-}
-#block-menu-menu-top-menu .menu li.first {
-  border-right: 1px solid #316dae;
-}
-#block-menu-menu-top-menu .menu li a {
-  font-size: 11px;
-  font-size: 0.6875rem;
-  padding: .5em 1em;
-  color: #316dae;
-  text-transform: uppercase;
-}
-#block-menu-menu-top-menu .menu li a:hover, #block-menu-menu-top-menu .menu li a:focus {
-  outline: none;
-}
-
-#block-system-main-menu {
-  clear: both;
-}
-#block-system-main-menu .menu li {
-  display: inline-block;
-  margin-right: -4px;
-  list-style-type: none;
-  list-style-image: none;
-  display: inline-block;
-}
-#block-system-main-menu .menu li.last {
-  padding-right: 0;
-  background: transparent;
-}
-#block-system-main-menu .menu li a {
-  font-size: 15px;
-  font-size: 0.9375rem;
-  display: inline-block;
-  padding: 6px 2em 7px 2em;
-  text-transform: uppercase;
-  color: #fff;
-  background: #316dae;
-  text-decoration: none;
-}
-#block-system-main-menu .menu li a:hover, #block-system-main-menu .menu li a:focus {
-  background: #ffffff;
-  color: #316dae;
-  outline: none;
-}
-
 .header__region input[type="text"] {
   font-size: 10px;
   font-size: 0.625rem;
@@ -767,6 +712,65 @@
   font-size: 0.875rem;
   display: block;
   padding: .2em 0;
+}
+
+/* Header Top Menu, Main Menu, Search*/
+#block-menu-menu-top-menu {
+  text-align: right;
+  margin-bottom: 24px;
+}
+#block-menu-menu-top-menu .menu {
+  text-align: right;
+}
+#block-menu-menu-top-menu .menu li {
+  display: inline;
+}
+#block-menu-menu-top-menu .menu li.first {
+  border-right: 1px solid #316dae;
+}
+#block-menu-menu-top-menu .menu li a {
+  font-size: 11px;
+  font-size: 0.6875rem;
+  padding: .5em 1em;
+  color: #316dae;
+  text-transform: uppercase;
+}
+#block-menu-menu-top-menu .menu li a:hover, #block-menu-menu-top-menu .menu li a:focus {
+  outline: none;
+}
+
+#block-system-main-menu {
+  clear: both;
+}
+#block-system-main-menu .menu li {
+  display: inline-block;
+  margin-right: -4px;
+  list-style-type: none;
+  list-style-image: none;
+  display: inline-block;
+}
+#block-system-main-menu .menu li.last {
+  padding-right: 0;
+  background: transparent;
+}
+#block-system-main-menu .menu li a {
+  font-size: 15px;
+  font-size: 0.9375rem;
+  display: inline-block;
+  padding: 6px 2em 7px 2em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #316dae;
+  text-decoration: none;
+}
+#block-system-main-menu .menu li a:hover, #block-system-main-menu .menu li a:focus {
+  background: #ffffff;
+  color: #316dae;
+  outline: none;
+}
+#block-system-main-menu .menu li.is-active-trail a {
+  background: #ffffff;
+  color: #316dae;
 }
 
 .node-type-event .pane-node-field-shared-tags,
