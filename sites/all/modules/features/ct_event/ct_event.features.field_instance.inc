@@ -841,10 +841,12 @@ function ct_event_field_default_field_instances() {
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
+      'active' => 0,
+      'module' => 'fieldset_tags',
+      'settings' => array(
+        'type' => 60,
+      ),
+      'type' => 'fieldset_tags',
       'weight' => 12,
     ),
   );

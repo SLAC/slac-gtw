@@ -8,6 +8,7 @@ dependencies[] = ct_event
 dependencies[] = ctools
 dependencies[] = date
 dependencies[] = features
+dependencies[] = fieldset_tags
 dependencies[] = file
 dependencies[] = image
 dependencies[] = link
