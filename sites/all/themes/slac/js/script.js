@@ -12,6 +12,24 @@
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 (function ($, Drupal, window, document, undefined) {
 
+  /**
+   * Adds the current Date to the header element.
+   */
+  Drupal.behaviors.headerDate = {
+    attach: function (context, settings) {
+      $('.region-header').once(function () {
+        var monthNames = ['January', 'February', 'March', 'April', 'May',
+          'June', 'July', 'August', 'September', 'October', 'November',
+          'December'];
+        var currentDate = new Date();
+        var dateStr = monthNames[currentDate.getMonth()] + ' ' +
+            currentDate.getDate() + ', ' +
+            currentDate.getFullYear();
+        $(this).prepend('<div class="date">' + dateStr + '</div>');
+      });
+    }
+  };
+
   Drupal.behaviors.mobileHeader = {
     attach: function (context, settings) {
       var $menu = $('.region-header #block-system-main-menu .menu:first'),
