@@ -32,6 +32,7 @@ function slac_igp_deployment_install() {
     'scheduler',
     'metatag',
     'token',
+    'fe_nodequeue',
     'file_entity',
     'media',
     'media_vimeo',
@@ -52,6 +53,7 @@ function slac_igp_deployment_install() {
     'pm_news',
     'v_event',
     'v_featured_news_pane',
+    'v_news',
   ));
 
   // Revert slac_ip_menus so that the new menu block will have a DB record.
@@ -339,6 +341,20 @@ function slac_igp_deployment_update_7013() {
 function slac_igp_deployment_update_7014() {
   $result = module_enable(array(
     'v_event',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the fe_nodequeue module and v_news feature.
+ */
+function slac_igp_deployment_update_7015() {
+  $result = module_enable(array(
+    'fe_nodequeue',
+    'v_news',
   ));
 
   if ($result == FALSE) {
