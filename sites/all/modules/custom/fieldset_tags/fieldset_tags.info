@@ -1,0 +1,7 @@
+name = Fielset Tags
+description = Tag widget to show vocabulary as fieldsets.
+dependencies[] = taxonomy
+dependencies[] = field
+package = User interface
+core = 7.x
+

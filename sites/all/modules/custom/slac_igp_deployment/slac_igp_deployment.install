@@ -361,3 +361,16 @@ function slac_igp_deployment_update_7015() {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
 }
+
+/**
+ * Enable the fieldset_tags module.
+ */
+function slac_igp_deployment_update_7016() {
+  $result = module_enable(array(
+    'fieldset_tags',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}

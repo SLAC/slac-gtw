@@ -9,6 +9,7 @@ dependencies[] = ctools
 dependencies[] = date
 dependencies[] = email
 dependencies[] = features
+dependencies[] = fieldset_tags
 dependencies[] = file
 dependencies[] = image
 dependencies[] = link
