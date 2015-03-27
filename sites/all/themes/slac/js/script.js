@@ -17,7 +17,7 @@
    */
   Drupal.behaviors.headerDate = {
     attach: function (context, settings) {
-      $('.region-header').once(function () {
+      $('.region-header').once('headerDate', function () {
         var monthNames = ['January', 'February', 'March', 'April', 'May',
           'June', 'July', 'August', 'September', 'October', 'November',
           'December'];
