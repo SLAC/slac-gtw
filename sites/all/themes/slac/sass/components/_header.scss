@@ -168,6 +168,7 @@ background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat
 .selectize-control.single .selectize-input {
   background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
   width: 135px;
+  min-height: 26px !important;
   &.dropdown-active {
       background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
       width: 135px;

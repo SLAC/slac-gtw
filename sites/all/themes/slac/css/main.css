@@ -669,6 +669,7 @@
 .selectize-control.single .selectize-input {
   background: #ffffff url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
   width: 135px;
+  min-height: 26px !important;
 }
 .selectize-control.single .selectize-input.dropdown-active {
   background: #ffffff url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
