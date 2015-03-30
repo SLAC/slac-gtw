@@ -459,6 +459,13 @@
   display: table;
   content: "";
 }
+#header .date {
+  font-size: 11px;
+  font-size: 0.6875rem;
+  font-weight: bold;
+  color: #4f4f4f;
+  position: absolute;
+}
 #header .logo {
   float: left;
   width: 16.66667%;
