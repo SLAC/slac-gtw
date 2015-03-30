@@ -374,3 +374,21 @@ function slac_igp_deployment_update_7016() {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
 }
+
+/**
+ * Remove news link from the Main menu.
+ */
+function slac_igp_deployment_update_7017() {
+  $mlid = 1404;
+  $menu_link = menu_link_load($mlid);
+  if ($menu_link) {
+    if ($menu_link['link_title'] == 'News') {
+      menu_link_delete($mlid);
+      drupal_set_message("The extra News link was deleted");
+    }
+  }
+  else {
+    drupal_set_message("The extra News link does not exist so no action is required");
+  }
+}
+
