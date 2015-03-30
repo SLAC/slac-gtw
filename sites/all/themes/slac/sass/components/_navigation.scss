@@ -36,14 +36,14 @@
       background: transparent;
     }
     a {
-      @include font-size(15px);
+      @include font-size(14px);
+      line-height: 1;
       display: inline-block;
-      padding: 7px 2em;
+      padding: 8px 2em;
       text-transform: uppercase;
       color: #fff;
       background: $blue;
       text-decoration: none;
-      height: 16px;
       &:hover,
       &:focus {
         background: $white;
