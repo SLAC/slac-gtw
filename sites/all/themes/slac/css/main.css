@@ -544,13 +544,13 @@
 }
 
 .header__region input[type="text"] {
-  font-size: 10px;
-  font-size: 0.625rem;
+  font-size: 9px;
+  font-size: 0.5625rem;
   display: block;
   float: left;
   margin: 0;
   margin-left: 10px;
-  padding: 6px 10px;
+  padding: 7px 10px;
   width: 250px;
   border: 1px solid #316dae;
   text-transform: uppercase;
@@ -596,7 +596,7 @@
   background: #316dae;
   border: none;
   color: #ffffff;
-  padding: 5px 10px;
+  padding: 6px 10px;
   text-transform: uppercase;
 }
 .header__region select {
@@ -623,8 +623,8 @@
   float: left;
 }
 .container-inline .selectize-control .selectize-input {
-  font-size: 10px;
-  font-size: 0.625rem;
+  font-size: 9px;
+  font-size: 0.5625rem;
   background: #ffffff url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
   text-transform: uppercase;
   border: 1px solid #316dae;
@@ -633,12 +633,9 @@
   border-radius: 0;
   border-image: none;
   color: #9d9d9d;
-  padding: 3px 5em 6px 1em;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  padding: 5px 5em 6px 1em;
   overflow: hidden;
-  max-height: 25px;
+  height: 27px;
 }
 .container-inline .selectize-control .selectize-input > .item {
   display: inline-block;
@@ -676,7 +673,7 @@
 .selectize-control.single .selectize-input {
   background: #ffffff url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
   width: 135px;
-  min-height: 26px !important;
+  height: !important;
 }
 .selectize-control.single .selectize-input.dropdown-active {
   background: #ffffff url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
