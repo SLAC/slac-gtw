@@ -127,6 +127,41 @@ function slac_igp_config_default_page_manager_pages() {
     $display->content['new-f2351ada-fcca-4e09-b9c7-c3060e9650c3'] = $pane;
     $display->panels['colonerowthree'][0] = 'new-f2351ada-fcca-4e09-b9c7-c3060e9650c3';
     $pane = new stdClass();
+    $pane->pid = 'new-37ad32d3-085c-43b0-9fe4-e65a379b4370';
+    $pane->panel = 'colonerowtwo';
+    $pane->type = 'views';
+    $pane->subtype = 'slac_news';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '10',
+      'pager_id' => '0',
+      'offset' => '',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '37ad32d3-085c-43b0-9fe4-e65a379b4370';
+    $display->content['new-37ad32d3-085c-43b0-9fe4-e65a379b4370'] = $pane;
+    $display->panels['colonerowtwo'][0] = 'new-37ad32d3-085c-43b0-9fe4-e65a379b4370';
+    $pane = new stdClass();
     $pane->pid = 'new-25830832-5472-4916-a0a3-81843df40ed9';
     $pane->panel = 'colonerowtwo';
     $pane->type = 'views';
@@ -158,11 +193,11 @@ function slac_igp_config_default_page_manager_pages() {
       'css_class' => 'blue-bodered-white no-bg',
     );
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '25830832-5472-4916-a0a3-81843df40ed9';
     $display->content['new-25830832-5472-4916-a0a3-81843df40ed9'] = $pane;
-    $display->panels['colonerowtwo'][0] = 'new-25830832-5472-4916-a0a3-81843df40ed9';
+    $display->panels['colonerowtwo'][1] = 'new-25830832-5472-4916-a0a3-81843df40ed9';
     $pane = new stdClass();
     $pane->pid = 'new-ec1dc49a-827e-4685-821b-c6e760af2ca9';
     $pane->panel = 'colthreerowfive';

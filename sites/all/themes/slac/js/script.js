@@ -12,6 +12,24 @@
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 (function ($, Drupal, window, document, undefined) {
 
+  /**
+   * Adds the current Date to the header element.
+   */
+  Drupal.behaviors.headerDate = {
+    attach: function (context, settings) {
+      $('.region-header').once('headerDate', function () {
+        var monthNames = ['January', 'February', 'March', 'April', 'May',
+          'June', 'July', 'August', 'September', 'October', 'November',
+          'December'];
+        var currentDate = new Date();
+        var dateStr = monthNames[currentDate.getMonth()] + ' ' +
+            currentDate.getDate() + ', ' +
+            currentDate.getFullYear();
+        $(this).prepend('<div class="date">' + dateStr + '</div>');
+      });
+    }
+  };
+
   Drupal.behaviors.mobileHeader = {
     attach: function (context, settings) {
       var $menu = $('.region-header #block-system-main-menu .menu:first'),
@@ -20,7 +38,11 @@
       $('<ul class="mobile-menu">'+ $menu.html() +'</ul>').appendTo('#mobile-menu-wrap');
       $('<div class="mobile-search">'+ $searchbox.find('form').parent().html() +'</div>').appendTo('#mobile-menu-wrap');
       $('.mobile-search form').append('<input id="people" type="radio" name="searchType" checked="true" value="people" /><label for="search-people">People</label><input id="slac" type="radio" name="searchType" value="slac" /><label for="search-slac">SLAC</label>');
-      $('.mobile-search #search-button').attr('src',$('.mobile-search #search-button').attr('src').replace('.jpg','')+'-mobile.jpg');
+      var $mobileSearchButton = $('.mobile-search #search-button');
+      var mobileSearchButtonSrc = $mobileSearchButton.attr('src');
+      if (mobileSearchButtonSrc !== undefined) {
+        $mobileSearchButton.attr('src', mobileSearchButtonSrc.replace('.jpg','-mobile.jpg'));
+      }
 
       //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile|Firefox/i.test(navigator.userAgent) ) {
         // touch device

@@ -1,0 +1,40 @@
+.node-type-event,
+.node-type-news,
+.node-type-access-information {
+  .pane-node-field-shared-tags {
+    margin-top: 0;
+    div.field-item {
+      display: inline-block;
+      padding: 0;
+    }
+    h2 {
+      display: block;
+      float: none;
+      padding: 0;
+      text-align: left;
+      font-weight: bold;
+    }
+  }
+  .field-name-field-shared-tags {
+    @include font-size(14px);
+    a {
+      @include font-size(12px);
+      display: block;
+      float: left;
+      background: lighten($event-border, 15%);
+      padding: 8px 12px;
+      margin-right: 1em;
+    }
+    h2,
+    .field-label {
+      margin-top: 2em;
+      margin-bottom: .2em;
+    }
+    .field-item {
+      display: inline !important;
+      a {
+        margin-bottom: 1em;
+      }
+    }
+  }
+}

@@ -8,10 +8,5 @@
  */
 ?>
 <?php if (!$page && $title): ?>
-    <?php print render($title_prefix); ?>
-      <h3<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>
-    <?php print render($title_suffix); ?>
-    <?php if ($unpublished): ?>
-      <mark class="unpublished"><?php print t('Unpublished'); ?></mark>
-    <?php endif; ?>
+      <a href="<?php print $node_url; ?>" class="<?php print $title_attributes; ?>"><?php print $title; ?></a>
 <?php endif; ?>

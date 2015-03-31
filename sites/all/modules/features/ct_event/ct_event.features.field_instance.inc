@@ -482,7 +482,7 @@ function ct_event_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -627,6 +627,49 @@ function ct_event_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 16,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_shared_promote_news'
+  $field_instances['node-event-field_shared_promote_news'] = array(
+    'bundle' => 'event',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'If this option is checked, this item will appear along with other News in news listings.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 16,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_shared_promote_news',
+    'label' => 'Promote As News',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 1,
     ),
   );
 
@@ -798,10 +841,12 @@ function ct_event_field_default_field_instances() {
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
+      'active' => 0,
+      'module' => 'fieldset_tags',
+      'settings' => array(
+        'type' => 60,
+      ),
+      'type' => 'fieldset_tags',
       'weight' => 12,
     ),
   );
@@ -817,9 +862,11 @@ function ct_event_field_default_field_instances() {
   t('Event Series');
   t('Existing / New');
   t('Existing URL');
+  t('If this option is checked, this item will appear along with other News in news listings.');
   t('Image');
   t('Location');
   t('Note to the Editors');
+  t('Promote As News');
   t('Related Files');
   t('Related Links');
   t('Select ‘Enter Details’ option to create a new web page. Select ‘Link to Existing URL’ to redirect users to an already existing web page instead.');

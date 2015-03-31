@@ -1,0 +1,28 @@
+.node-type-event,
+.node-type-news,
+.node-type-access-information {
+  .general-right {
+    .field-name-field-shared-related-files {
+      li a {
+        display: inline-block;
+    }
+  }
+    .field-type-file span.file {
+      display: inline-block;
+      padding: .2em 0;
+    }
+    ul {
+      color: $dim-grey;
+      padding-left: 2em;
+      list-style-type: disc;
+    }
+    .view-featured-news ul {
+      padding-left: 0;
+    }
+    ul a {
+      @include font-size(14px);
+      display: block;
+      padding: .2em 0;
+    }
+  }
+}

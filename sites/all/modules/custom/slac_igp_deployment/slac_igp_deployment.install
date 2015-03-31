@@ -32,11 +32,14 @@ function slac_igp_deployment_install() {
     'scheduler',
     'metatag',
     'token',
+    'fe_nodequeue',
     'file_entity',
     'media',
     'media_vimeo',
     'media_youtube',
     'linkit',
+    'menu_trail_by_path',
+    'prepopulate',
     'slac_ip_core',
     'slac_ip_media',
     'slac_ip_config_search',
@@ -47,7 +50,10 @@ function slac_igp_deployment_install() {
     'ct_access_information',
     'ct_event',
     'ct_news',
+    'pm_news',
+    'v_event',
     'v_featured_news_pane',
+    'v_news',
   ));
 
   // Revert slac_ip_menus so that the new menu block will have a DB record.
@@ -62,6 +68,9 @@ function slac_igp_deployment_install() {
   // Revert features for pre-existing node types.
   _slac_igp_deployment_revert('ct_access_information');
   _slac_igp_deployment_revert('ct_event');
+
+  // Revert other pre-existing, updated features.
+  _slac_igp_deployment_revert('slac_igp_feed');
 }
 
 /**
@@ -298,3 +307,88 @@ function slac_igp_deployment_update_7011() {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
 }
+
+/**
+ * Enable the prepopulate module.
+ */
+function slac_igp_deployment_update_7012() {
+  $result = module_enable(array(
+    'prepopulate',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the menu_trail_by_path module and pm_news feature.
+ */
+function slac_igp_deployment_update_7013() {
+  $result = module_enable(array(
+    'menu_trail_by_path',
+    'pm_news',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the v_event feature.
+ */
+function slac_igp_deployment_update_7014() {
+  $result = module_enable(array(
+    'v_event',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the fe_nodequeue module and v_news feature.
+ */
+function slac_igp_deployment_update_7015() {
+  $result = module_enable(array(
+    'fe_nodequeue',
+    'v_news',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the fieldset_tags module.
+ */
+function slac_igp_deployment_update_7016() {
+  $result = module_enable(array(
+    'fieldset_tags',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Remove news link from the Main menu.
+ */
+function slac_igp_deployment_update_7017() {
+  $mlid = 1404;
+  $menu_link = menu_link_load($mlid);
+  if ($menu_link) {
+    if ($menu_link['link_title'] == 'News') {
+      menu_link_delete($mlid);
+      drupal_set_message("The extra News link was deleted");
+    }
+  }
+  else {
+    drupal_set_message("The extra News link does not exist so no action is required");
+  }
+}
+
