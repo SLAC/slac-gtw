@@ -718,6 +718,11 @@
   display: block;
   padding: .2em 0;
 }
+.node-type-event .general-right .panel-pane.pane-node-field-shared-related-files,
+.node-type-news .general-right .panel-pane.pane-node-field-shared-related-files,
+.node-type-access-information .general-right .panel-pane.pane-node-field-shared-related-files {
+  margin-bottom: 0;
+}
 
 /* Top Menu and Main Menu */
 #block-menu-menu-top-menu {
