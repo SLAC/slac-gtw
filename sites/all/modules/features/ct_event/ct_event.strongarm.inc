@@ -130,13 +130,13 @@ function ct_event_strongarm() {
           'weight' => '0',
         ),
         'metatags' => array(
-          'weight' => '19',
+          'weight' => '20',
         ),
         'path' => array(
-          'weight' => '18',
+          'weight' => '19',
         ),
         'redirect' => array(
-          'weight' => '17',
+          'weight' => '18',
         ),
       ),
       'display' => array(),

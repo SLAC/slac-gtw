@@ -422,3 +422,18 @@ function slac_igp_deployment_update_7019() {
     drupal_set_message("The SLAC Public Site link does not exist so no action is required");
   }
 }
+
+/**
+ * Enable the t_event_type & v_terms_on_node features.
+ */
+function slac_igp_deployment_update_7020() {
+  $result = module_enable(array(
+    't_event_type',
+    'v_terms_on_node',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+

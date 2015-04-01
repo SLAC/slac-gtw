@@ -74,18 +74,18 @@ function ct_event_custom_add() {
  * Add term name as a CSS class to term link field.
  */
 function ct_event_preprocess_field(&$vars) {
-  if ($vars['element']['#field_name'] == 'field_event_series') {
-    $event_series = strtolower($vars['items'][0]['#title']);
+  if ($vars['element']['#field_name'] == 'field_event_type') {
+    $event_type = strtolower($vars['items'][0]['#title']);
 
     // Make alphanumeric (removes all other characters)
-    $event_series = preg_replace("/[^a-z0-9_\s-]/", "", $event_series);
+    $event_type = preg_replace("/[^a-z0-9_\s-]/", "", $event_type);
 
     // Clean up multiple dashes or whitespaces
-    $event_series = preg_replace("/[\s-]+/", " ", $event_series);
+    $event_type = preg_replace("/[\s-]+/", " ", $event_type);
 
     // Convert whitespaces and underscore to dash
-    $event_series = preg_replace("/[\s_]/", "-", $event_series);
+    $event_type = preg_replace("/[\s_]/", "-", $event_type);
 
-    $vars['items'][0]['#attributes'] = array('class' => array($event_series,));
+    $vars['items'][0]['#attributes'] = array('class' => array($event_type,));
   }
 }
