@@ -86,6 +86,6 @@ function ct_event_preprocess_field(&$vars) {
     // Convert whitespaces and underscore to dash
     $event_type = preg_replace("/[\s_]/", "-", $event_type);
 
-    $vars['items'][0]['#attributes'] = array('class' => array($event_type,));
+    $vars['items'][0]['#attributes'] = array('class' => array($event_type, 'page-icon',));
   }
 }
