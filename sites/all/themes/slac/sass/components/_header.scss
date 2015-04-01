@@ -56,12 +56,12 @@ $zen-column-count: 12;
 
 .header__region {
   input[type="text"] {
-    @include font-size(10px);
+    @include font-size(9px);
     display: block;
     float: left;
     margin: 0;
     margin-left: 10px;
-    padding: 6px 10px;
+    padding: 7px 10px;
     width: 250px;
     border: 1px solid $blue;
     text-transform: uppercase;
@@ -98,7 +98,7 @@ $zen-column-count: 12;
     background: $blue;
     border: none;
     color: $white;
-    padding: 5px 10px;
+    padding: 6px 10px;
     text-transform: uppercase;
   }
   select {
@@ -124,8 +124,8 @@ $zen-column-count: 12;
   display: block;
   float: left;
   .selectize-input {
-    @include font-size(10px);
-background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
+    @include font-size(9px);
+    background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
     text-transform: uppercase;
     border: 1px solid $blue;
     background: $white;
@@ -133,12 +133,9 @@ background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat
     border-radius: 0;
     border-image: none;
     color: lighten($grey, 20%);
-    padding: 3px 5em 6px 1em;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+    padding: 4px 5em 6px 1em;
     overflow: hidden;
-    max-height: 25px;
+    height: 27px;
     > .item {
       display: inline-block;
     }
@@ -174,7 +171,7 @@ background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat
 .selectize-control.single .selectize-input {
   background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
   width: 135px;
-  min-height: 26px !important;
+  height: !important;
   &.dropdown-active {
       background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
       width: 135px;
