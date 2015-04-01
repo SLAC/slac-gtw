@@ -20,6 +20,7 @@ dependencies[] = menu
 dependencies[] = options
 dependencies[] = page_manager
 dependencies[] = strongarm
+dependencies[] = t_slac_ip_tags
 dependencies[] = taxonomy
 dependencies[] = telephone
 dependencies[] = text
