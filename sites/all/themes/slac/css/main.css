@@ -46,6 +46,19 @@
   box-sizing: border-box;
   word-wrap: break-word;
 }
+.node-type-event .general-left a.page-icon,
+.node-type-news .general-left a.page-icon,
+.node-type-access-information .general-left a.page-icon {
+  font-size: 18px;
+  font-size: 1.125rem;
+  display: inline-block;
+  color: #316dae;
+  padding-left: 25px;
+  font-weight: bold;
+  width: 16px;
+  height: 16px;
+  background: url("../images/icon-yellow.png") 0 0 no-repeat;
+}
 .node-type-event .general-left .pane-node-body,
 .node-type-news .general-left .pane-node-body,
 .node-type-access-information .general-left .pane-node-body {
@@ -195,6 +208,18 @@
   color: #4f4f4f;
   margin-bottom: 1em;
 }
+.node-type-event .general-right .field-name-field-file-shared-caption,
+.node-type-news .general-right .field-name-field-file-shared-caption,
+.node-type-access-information .general-right .field-name-field-file-shared-caption {
+  font-size: 12px;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+.node-type-event .general-right .panel-pane,
+.node-type-news .general-right .panel-pane,
+.node-type-access-information .general-right .panel-pane {
+  margin-bottom: 2em;
+}
 .node-type-event .general-right .inside,
 .node-type-news .general-right .inside,
 .node-type-access-information .general-right .inside {
@@ -243,12 +268,16 @@
 .node-type-news .general-left .panel-pane.pane-node-created {
   margin-bottom: 10px;
 }
-.node-type-news .general-right .panel-pane {
-  margin-bottom: 2em;
-}
 .node-type-news .general-right .panel-pane:first-child {
   padding-bottom: 2em;
   border-bottom: dashed 3px #b1c0c7;
+}
+
+.node-type-event .pane-node-field-event-series {
+  margin-bottom: 2em;
+}
+.node-type-event .pane-node-field-event-series a {
+  background: url("../images/icon-yellow.png") 0 0 no-repeat;
 }
 
 .node-type-access-information #content:before {
@@ -343,9 +372,6 @@
   font-size: 12px;
   font-size: 0.75rem;
   font-style: italic;
-}
-.node-type-access-information .general-right .panel-pane {
-  margin-bottom: 2em;
 }
 
 .node-type-event #cboxTitle,

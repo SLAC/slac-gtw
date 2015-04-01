@@ -22,6 +22,16 @@ $zen-column-count: 12;
   }
   .general-left {
     @include zen-grid-item(7, 2);
+    a.page-icon {
+      @include font-size(18px);
+      display: inline-block;
+      color: $blue;
+      padding-left: 25px;
+      font-weight: bold;
+      width: 16px;
+      height: 16px;
+      background: url('../images/icon-yellow.png') 0 0 no-repeat;
+    }
     .pane-node-body {
       border-top: solid 3px $event-border;
       margin-top: 40px;
@@ -103,6 +113,12 @@ $zen-column-count: 12;
       color: $dim-grey;
       margin-bottom: 1em;
     }
+    .field-name-field-file-shared-caption {
+      @include caption;
+    }
+    .panel-pane {
+      margin-bottom: 2em;
+    }
   }
   .general-right .inside {
     border-left: none;
@@ -155,9 +171,6 @@ $zen-column-count: 12;
     }
   }
   .general-right {
-    .panel-pane {
-      margin-bottom: 2em;
-    }
     .panel-pane:first-child {
       padding-bottom: 2em;
       border-bottom: dashed 3px $event-border;
@@ -165,6 +178,14 @@ $zen-column-count: 12;
   }
 }
 
+.node-type-event {
+  .pane-node-field-event-series {
+    margin-bottom: 2em;
+    a {
+      background: url('../images/icon-yellow.png') 0 0 no-repeat;
+    }
+  }
+}
 // access notice overrides
 .node-type-access-information {
   #content:before {
@@ -260,9 +281,6 @@ $zen-column-count: 12;
   .general-right {
     .field-name-field-file-shared-caption {
       @include caption;
-    }
-    .panel-pane {
-      margin-bottom: 2em;
     }
   }
 }
