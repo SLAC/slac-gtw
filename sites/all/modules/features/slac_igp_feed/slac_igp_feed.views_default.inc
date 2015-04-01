@@ -596,7 +596,7 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/tags/staff-benefits-resources/lab-news">View Lab News Archive</a><br />
-<a href="/node/add/news">Submit Lab News</a>';
+<a href="/node/add/news?edit[field_news_news_type][und]=Lab%20News">Submit Lab News</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Field: Link */

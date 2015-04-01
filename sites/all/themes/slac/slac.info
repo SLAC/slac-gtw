@@ -20,10 +20,13 @@ stylesheets[all][] = css/feedback-page.css
 stylesheets[all][] = css/media-600.css
 stylesheets[all][] = css/media-900.css
 stylesheets[all][] = css/main.css
+stylesheets[all][] = slac_colorbox/colorbox_slac_colorbox.css
+
 
 scripts[] = js/jquery.placeholder.js
 scripts[] = js/script.js
 scripts[] = js/modernizr.js
+scripts[] = slac_colorbox/colorbox_slac_colorbox.js
 
 plugins[panels][styles] = plugins/styles
 plugins[panels][layouts] = plugins/layouts

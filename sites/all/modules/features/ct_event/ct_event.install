@@ -21,6 +21,30 @@ function ct_event_install() {
   // Copy existing link fields to new shared field.
   _ct_event_copy_link_data();
   _ct_event_delete_field_link();
+
+  // Populate the event_series vocabulary with terms.
+  $term_names = array(
+    'Accelerator Division Colloquium, Other Accelerator-Related',
+    'Advanced Instrumentation Seminar',
+    'Astrophysics Colloquium',
+    'Cosmology Seminar',
+    'Departmental Colloquia',
+    'Experimental Seminar',
+    'KIPAC Tea Talk',
+    'LCLS-PULSE Seminar',
+    'Photon Science Seminar',
+    'SIMES Seminar',
+    'SLAC Association for Students Seminars',
+    'SLAC Colloquia',
+    'SLAC Public Lecture',
+    'SSRL Presents',
+    'Stanford Physics / Applied Physics',
+    'Theory Seminar',
+    'Women’s Interchange at SLAC',
+    'Other',
+  );
+  _ct_event_populate_vocabulary('event_series', $term_names);
+
 }
 
 /**
@@ -105,4 +129,49 @@ function _ct_event_delete_field_link() {
 function ct_event_update_7002() {
   _ct_event_copy_link_data();
   _ct_event_delete_field_link();
+}
+
+/**
+ * Populates a given taxonomy vocabulary with an array of term names.
+ */
+function _ct_event_populate_vocabulary($vocab_name, $term_names) {
+  $vocabulary = taxonomy_vocabulary_machine_name_load($vocab_name);
+  $weight = 0;
+  foreach($term_names as $term_name) {
+    $term = (object) array(
+      'name' => $term_name,
+      'vid' => $vocabulary->vid,
+      'weight' => $weight,
+    );
+    taxonomy_term_save($term);
+    $weight += 5;
+    $terms[$term_name] = $term->tid;
+  }
+}
+
+/**
+ * Populate the event_series vocabulary with terms.
+ */
+function ct_event_update_7003() {
+  $term_names = array(
+    'Accelerator Division Colloquium, Other Accelerator-Related',
+    'Advanced Instrumentation Seminar',
+    'Astrophysics Colloquium',
+    'Cosmology Seminar',
+    'Departmental Colloquia',
+    'Experimental Seminar',
+    'KIPAC Tea Talk',
+    'LCLS-PULSE Seminar',
+    'Photon Science Seminar',
+    'SIMES Seminar',
+    'SLAC Association for Students Seminars',
+    'SLAC Colloquia',
+    'SLAC Public Lecture',
+    'SSRL Presents',
+    'Stanford Physics / Applied Physics',
+    'Theory Seminar',
+    'Women’s Interchange at SLAC',
+    'Other',
+  );
+  _ct_event_populate_vocabulary('event_series', $term_names);
 }

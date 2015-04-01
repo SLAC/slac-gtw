@@ -440,29 +440,6 @@ function ct_access_information_default_page_manager_handlers() {
     $display->content['new-5b4630cf-1685-44ca-8678-e123336de9cc'] = $pane;
     $display->panels['right'][0] = 'new-5b4630cf-1685-44ca-8678-e123336de9cc';
     $pane = new stdClass();
-    $pane->pid = 'new-16285bef-4df6-44f2-915a-af048e5e7af7';
-    $pane->panel = 'right';
-    $pane->type = 'block';
-    $pane->subtype = 'menu-menu-maps-and-directions';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '16285bef-4df6-44f2-915a-af048e5e7af7';
-    $display->content['new-16285bef-4df6-44f2-915a-af048e5e7af7'] = $pane;
-    $display->panels['right'][1] = 'new-16285bef-4df6-44f2-915a-af048e5e7af7';
-    $pane = new stdClass();
     $pane->pid = 'new-b1fe1112-ccd4-45f8-9445-851e0b5d0759';
     $pane->panel = 'right';
     $pane->type = 'entity_field';
@@ -489,11 +466,11 @@ function ct_access_information_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = 'b1fe1112-ccd4-45f8-9445-851e0b5d0759';
     $display->content['new-b1fe1112-ccd4-45f8-9445-851e0b5d0759'] = $pane;
-    $display->panels['right'][2] = 'new-b1fe1112-ccd4-45f8-9445-851e0b5d0759';
+    $display->panels['right'][1] = 'new-b1fe1112-ccd4-45f8-9445-851e0b5d0759';
     $pane = new stdClass();
     $pane->pid = 'new-461f7b0a-0942-416e-85b3-60d6d06a682d';
     $pane->panel = 'right';
@@ -519,11 +496,34 @@ function ct_access_information_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '461f7b0a-0942-416e-85b3-60d6d06a682d';
     $display->content['new-461f7b0a-0942-416e-85b3-60d6d06a682d'] = $pane;
-    $display->panels['right'][3] = 'new-461f7b0a-0942-416e-85b3-60d6d06a682d';
+    $display->panels['right'][2] = 'new-461f7b0a-0942-416e-85b3-60d6d06a682d';
+    $pane = new stdClass();
+    $pane->pid = 'new-16285bef-4df6-44f2-915a-af048e5e7af7';
+    $pane->panel = 'right';
+    $pane->type = 'block';
+    $pane->subtype = 'menu-menu-maps-and-directions';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '16285bef-4df6-44f2-915a-af048e5e7af7';
+    $display->content['new-16285bef-4df6-44f2-915a-af048e5e7af7'] = $pane;
+    $display->panels['right'][3] = 'new-16285bef-4df6-44f2-915a-af048e5e7af7';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
