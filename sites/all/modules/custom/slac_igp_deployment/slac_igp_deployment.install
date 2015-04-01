@@ -406,3 +406,19 @@ function slac_igp_deployment_update_7018() {
   }
 }
 
+/**
+ * Rename SLAC PUBLIC SITE menu link
+ */
+function slac_igp_deployment_update_7019() {
+  $mlid = 1400;
+  $menu_link = menu_link_load($mlid);
+  if ($menu_link) {
+    if ($menu_link['link_title'] == 'SLAC Public Site') {
+      menu_link_delete($mlid);
+      drupal_set_message("The SLAC Public Site link has been removed and replaced.");
+    }
+  }
+  else {
+    drupal_set_message("The SLAC Public Site link does not exist so no action is required");
+  }
+}
