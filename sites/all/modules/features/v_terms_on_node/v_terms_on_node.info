@@ -1,0 +1,13 @@
+name = Terms on Node
+description = Provides the Terms on Node view which lists the taxonomy terms that are on the current node.
+core = 7.x
+package = VIews
+version = 7.x-1.0-dev
+project = v_terms_on_node
+dependencies[] = views
+dependencies[] = views_content
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = terms_on_node
+features_exclude[dependencies][ctools] = ctools
+project path = sites/all/modules/features
