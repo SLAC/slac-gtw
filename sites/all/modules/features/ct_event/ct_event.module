@@ -67,3 +67,25 @@ function ct_event_custom_add() {
 
   return $content;
 }
+
+/**
+ * Implements hook_preprocess_field()
+ *
+ * Add term name as a CSS class to term link field.
+ */
+function ct_event_preprocess_field(&$vars) {
+  if ($vars['element']['#field_name'] == 'field_event_series') {
+    $event_series = strtolower($vars['items'][0]['#title']);
+
+    // Make alphanumeric (removes all other characters)
+    $event_series = preg_replace("/[^a-z0-9_\s-]/", "", $event_series);
+
+    // Clean up multiple dashes or whitespaces
+    $event_series = preg_replace("/[\s-]+/", " ", $event_series);
+
+    // Convert whitespaces and underscore to dash
+    $event_series = preg_replace("/[\s_]/", "-", $event_series);
+
+    $vars['items'][0]['#attributes'] = array('class' => array($event_series,));
+  }
+}
