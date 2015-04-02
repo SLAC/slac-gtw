@@ -55,6 +55,11 @@ function slac_igp_deployment_install() {
     'v_featured_news_pane',
     'v_news',
     't_slac_ip_tags',
+    'workbench',
+    'slac_ip_config_moderation',
+    'date_popup_authored',
+    't_event_type',
+    'v_terms_on_node',
   ));
 
   // Revert slac_ip_menus so that the new menu block will have a DB record.
@@ -437,3 +442,17 @@ function slac_igp_deployment_update_7020() {
   }
 }
 
+/**
+ * Enable the slac_ip_config_moderation feature.
+ */
+function slac_igp_deployment_update_7021() {
+  $result = module_enable(array(
+    'workbench',
+    'slac_ip_config_moderation',
+    'date_popup_authored',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}

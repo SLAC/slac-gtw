@@ -15,6 +15,7 @@ function ct_news_user_default_permissions() {
     'name' => 'create news content',
     'roles' => array(
       'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'node',
   );
@@ -57,6 +58,7 @@ function ct_news_user_default_permissions() {
     'name' => 'edit own news content',
     'roles' => array(
       'authenticated user' => 'authenticated user',
+      'author' => 'author',
     ),
     'module' => 'node',
   );

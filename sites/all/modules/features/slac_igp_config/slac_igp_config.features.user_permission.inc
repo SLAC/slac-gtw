@@ -42,6 +42,7 @@ function slac_igp_config_user_default_permissions() {
     'name' => 'schedule (un)publishing of nodes',
     'roles' => array(
       'administrator' => 'administrator',
+      'editor' => 'editor',
     ),
     'module' => 'scheduler',
   );
@@ -51,6 +52,7 @@ function slac_igp_config_user_default_permissions() {
     'name' => 'view scheduled content',
     'roles' => array(
       'administrator' => 'administrator',
+      'editor' => 'editor',
     ),
     'module' => 'scheduler',
   );
