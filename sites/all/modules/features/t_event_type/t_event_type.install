@@ -1,0 +1,49 @@
+<?php
+
+/**
+* @file
+* Update functions for the event type vocabulary.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function t_event_type_install() {
+
+  $vocab = new stdClass();
+  $vocab->name = 'Event Type';
+  $vocab->machine_name = 'event_type';
+  taxonomy_vocabulary_save($vocab);
+
+  // Populate the event_type vocabulary with terms.
+  $term_names = array(
+    'Conferences & Workshops',
+    'Public Events & Tours',
+    'Staff Celebrations ',
+    'Summer School Programs ',
+    'Talks, Seminars & Colloquia',
+    'Training & Development',
+    'None',
+  );
+  _t_event_type_populate_vocabulary('event_type', $term_names);
+
+}
+
+/**
+ * Populates a given taxonomy vocabulary with an array of term names.
+ */
+function _t_event_type_populate_vocabulary($vocab_name, $term_names) {
+  $vocabulary = taxonomy_vocabulary_machine_name_load($vocab_name);
+  $weight = 0;
+  foreach($term_names as $term_name) {
+    $term = (object) array(
+      'name' => $term_name,
+      'vid' => $vocabulary->vid,
+      'weight' => $weight,
+    );
+    taxonomy_term_save($term);
+    $weight += 5;
+    $terms[$term_name] = $term->tid;
+  }
+}
+

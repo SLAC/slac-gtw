@@ -46,6 +46,11 @@
   box-sizing: border-box;
   word-wrap: break-word;
 }
+.node-type-event .general-left .pane-node-field-event-type,
+.node-type-news .general-left .pane-node-field-event-type,
+.node-type-access-information .general-left .pane-node-field-event-type {
+  margin-bottom: 2em;
+}
 .node-type-event .general-left .pane-node-body,
 .node-type-news .general-left .pane-node-body,
 .node-type-access-information .general-left .pane-node-body {
@@ -55,7 +60,7 @@
 .node-type-event .general-left h1,
 .node-type-news .general-left h1,
 .node-type-access-information .general-left h1 {
-  margin-bottom: .5em;
+  margin-bottom: .6em;
   margin-top: 0;
   line-height: 1.2;
 }
@@ -122,7 +127,7 @@
   font-size: 12px;
   font-size: 0.75rem;
   text-transform: uppercase;
-  color: #a8a8a8;
+  color: #9c9c9c;
   font-weight: lighter;
   display: block;
   padding-left: 2em;
@@ -195,12 +200,28 @@
   color: #4f4f4f;
   margin-bottom: 1em;
 }
+.node-type-event .general-right .field-name-field-file-shared-caption,
+.node-type-news .general-right .field-name-field-file-shared-caption,
+.node-type-access-information .general-right .field-name-field-file-shared-caption {
+  font-size: 12px;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+.node-type-event .general-right .panel-pane,
+.node-type-news .general-right .panel-pane,
+.node-type-access-information .general-right .panel-pane {
+  margin-bottom: 2em;
+}
 .node-type-event .general-right .inside,
 .node-type-news .general-right .inside,
 .node-type-access-information .general-right .inside {
   border-left: none;
 }
 
+.node-type-news #content {
+  font-size: 16px;
+  font-size: 1rem;
+}
 .node-type-news #content .field-name-field-shared-location {
   font-weight: normal;
 }
@@ -223,8 +244,8 @@
   margin-right: 95px;
 }
 .node-type-news .general-left .pane-slac-ip-panes-print {
-  top: -100px;
-  margin-right: 0;
+  top: -30px;
+  margin-right: -200px;
 }
 .node-type-news .general-left .field-name-field-shared-image {
   margin-top: 4px;
@@ -243,31 +264,11 @@
 .node-type-news .general-left .panel-pane.pane-node-created {
   margin-bottom: 10px;
 }
-.node-type-news .general-right .panel-pane {
-  margin-bottom: 2em;
-}
 .node-type-news .general-right .panel-pane:first-child {
   padding-bottom: 2em;
   border-bottom: dashed 3px #b1c0c7;
 }
 
-.node-type-access-information #content:before {
-  font-size: 18px;
-  font-size: 1.125rem;
-  display: block;
-  content: "Access Notice";
-  color: #316dae;
-  text-indent: 25px;
-  margin-left: 10.05%;
-  background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
-  background-size: 21px 21px;
-  font-weight: bold;
-  margin-bottom: 1em;
-}
-.node-type-access-information .general-left {
-  font-size: 14px;
-  font-size: 0.875rem;
-}
 .node-type-access-information .general-left .pane-node-body {
   border-top: none;
 }
@@ -285,9 +286,17 @@
   border-right: 3px solid #ffffff;
   padding: 10px 10px 10px 0;
 }
-.node-type-access-information .general-left .panel-pane:nth-child(5n) {
+.node-type-access-information .general-left .panel-pane:nth-child(6n) {
   margin-top: 4em;
   margin-bottom: 3px;
+}
+.node-type-access-information .general-left .pane-node-field-shared-contact-name h2 {
+  float: none;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
+  padding: 0;
+  margin-top: 2em;
 }
 .node-type-access-information .general-left .pane-node-field-event-date .field-items,
 .node-type-access-information .general-left .field-name-field-event-date .field-items {
@@ -306,7 +315,7 @@
 .node-type-access-information .general-left .pane-node-field-shared-location {
   margin-top: 3px;
 }
-.node-type-access-information .general-left .panel-pane:nth-child(n+5):nth-child(-n+7) {
+.node-type-access-information .general-left .panel-pane:nth-child(n+6):nth-child(-n+8) {
   border-left: 5px solid rgba(92, 154, 201, 0.85);
 }
 .node-type-access-information .general-left .panel-pane div.field-item {
@@ -319,21 +328,26 @@
 .node-type-access-information .general-left .panel-pane.pane-node-body .field-item {
   padding: 0;
 }
+.node-type-access-information .general-left .panel-pane.pane-node-field-shared-contact-name div.field-item {
+  padding: 0;
+}
+.node-type-access-information .general-left .panel-pane.pane-node-field-shared-contact-email {
+  margin-top: 0;
+}
+.node-type-access-information .general-left .panel-pane.pane-node-field-shared-contact-email .field-item {
+  padding: 0;
+}
+.node-type-access-information .general-left .panel-pane.pane-node-field-shared-contact-phone .field-item {
+  padding: 0;
+}
 .node-type-access-information .general-right .field-name-field-file-shared-caption {
   font-size: 12px;
   font-size: 0.75rem;
   font-style: italic;
 }
-.node-type-access-information .general-right .panel-pane {
-  margin-bottom: 2em;
-}
 
-.node-type-event #cboxTitle,
-.node-type-news #cboxTitle,
-.node-type-access-information #cboxTitle {
-  line-height: 1.4;
-  background: #ffffff;
-  padding: .5em 6px 2em;
+.node-type-event .pane-node-body .field-name-body {
+  padding-top: 1em;
 }
 
 .node-type-news .pane-featured-news-featured-news-panel-pane h2 {
@@ -544,13 +558,13 @@
 }
 
 .header__region input[type="text"] {
-  font-size: 10px;
-  font-size: 0.625rem;
+  font-size: 9px;
+  font-size: 0.5625rem;
   display: block;
   float: left;
   margin: 0;
   margin-left: 10px;
-  padding: 6px 10px;
+  padding: 7px 10px;
   width: 250px;
   border: 1px solid #316dae;
   text-transform: uppercase;
@@ -596,7 +610,7 @@
   background: #316dae;
   border: none;
   color: #ffffff;
-  padding: 5px 10px;
+  padding: 6px 10px;
   text-transform: uppercase;
 }
 .header__region select {
@@ -623,8 +637,8 @@
   float: left;
 }
 .container-inline .selectize-control .selectize-input {
-  font-size: 10px;
-  font-size: 0.625rem;
+  font-size: 9px;
+  font-size: 0.5625rem;
   background: #ffffff url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
   text-transform: uppercase;
   border: 1px solid #316dae;
@@ -633,12 +647,9 @@
   border-radius: 0;
   border-image: none;
   color: #9d9d9d;
-  padding: 3px 5em 6px 1em;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  padding: 4px 5em 6px 1em;
   overflow: hidden;
-  max-height: 25px;
+  height: 27px;
 }
 .container-inline .selectize-control .selectize-input > .item {
   display: inline-block;
@@ -676,7 +687,7 @@
 .selectize-control.single .selectize-input {
   background: #ffffff url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
   width: 135px;
-  min-height: 26px !important;
+  height: !important;
 }
 .selectize-control.single .selectize-input.dropdown-active {
   background: #ffffff url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
@@ -720,6 +731,11 @@
   font-size: 0.875rem;
   display: block;
   padding: .2em 0;
+}
+.node-type-event .general-right .panel-pane.pane-node-field-shared-related-files,
+.node-type-news .general-right .panel-pane.pane-node-field-shared-related-files,
+.node-type-access-information .general-right .panel-pane.pane-node-field-shared-related-files {
+  margin-bottom: 0;
 }
 
 /* Top Menu and Main Menu */
@@ -782,6 +798,77 @@
   color: #316dae;
 }
 
+.node-type-event .general-left,
+.node-type-news .general-left,
+.node-type-access-information .general-left {
+  float: left;
+  width: 58.33333%;
+  margin-left: 8.33333%;
+  margin-right: -66.66667%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+.node-type-event .general-left a.page-icon,
+.node-type-news .general-left a.page-icon,
+.node-type-access-information .general-left a.page-icon {
+  font-size: 18px;
+  font-size: 1.125rem;
+  display: inline;
+  color: #316dae;
+  padding-left: 25px;
+  padding-bottom: 2px;
+  font-weight: bold;
+  width: 16px;
+  height: 16px;
+}
+.node-type-event .general-left a.page-icon.conferences-workshops,
+.node-type-news .general-left a.page-icon.conferences-workshops,
+.node-type-access-information .general-left a.page-icon.conferences-workshops {
+  background: url("../images/icon-blue.png") 0 2px no-repeat;
+}
+.node-type-event .general-left a.page-icon.public-events-tours,
+.node-type-news .general-left a.page-icon.public-events-tours,
+.node-type-access-information .general-left a.page-icon.public-events-tours {
+  background: url("../images/icon-green.png") 0 2px no-repeat;
+}
+.node-type-event .general-left a.page-icon.staff-celebrations,
+.node-type-news .general-left a.page-icon.staff-celebrations,
+.node-type-access-information .general-left a.page-icon.staff-celebrations {
+  background: url("../images/icon-purple.png") 0 2px no-repeat;
+}
+.node-type-event .general-left a.page-icon.summer-school-programs,
+.node-type-news .general-left a.page-icon.summer-school-programs,
+.node-type-access-information .general-left a.page-icon.summer-school-programs {
+  background: url("../images/icon-pink.png") 0 2px no-repeat;
+}
+.node-type-event .general-left a.page-icon.talks-seminars-colloquia,
+.node-type-news .general-left a.page-icon.talks-seminars-colloquia,
+.node-type-access-information .general-left a.page-icon.talks-seminars-colloquia {
+  background: url("../images/icon-yellow.png") 0 2px no-repeat;
+}
+.node-type-event .general-left a.page-icon.training-development,
+.node-type-news .general-left a.page-icon.training-development,
+.node-type-access-information .general-left a.page-icon.training-development {
+  background: url("../images/icon-orange.png") 0 2px no-repeat;
+}
+.node-type-event .general-left a.page-icon.none,
+.node-type-news .general-left a.page-icon.none,
+.node-type-access-information .general-left a.page-icon.none {
+  background: url("../images/icon-grey.png") 0 2px no-repeat;
+}
+
+.node-type-access-information .general-left a.page-icon {
+  background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
+}
+.node-type-access-information .pane-slac-ip-panes-access-notice-link {
+  margin-bottom: 2em;
+}
+
 .node-type-event .pane-node-field-shared-tags,
 .node-type-news .pane-node-field-shared-tags,
 .node-type-access-information .pane-node-field-shared-tags {
@@ -801,6 +888,7 @@
   padding: 0;
   text-align: left;
   font-weight: bold;
+  margin-top: 2em;
 }
 .node-type-event .field-name-field-shared-tags,
 .node-type-news .field-name-field-shared-tags,
@@ -837,4 +925,46 @@
 .node-type-news .field-name-field-shared-tags .field-item a,
 .node-type-access-information .field-name-field-shared-tags .field-item a {
   margin-bottom: 1em;
+}
+.node-type-event ul.event-tags,
+.node-type-news ul.event-tags,
+.node-type-access-information ul.event-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.node-type-event ul.event-tags li,
+.node-type-news ul.event-tags li,
+.node-type-access-information ul.event-tags li {
+  display: inline-block;
+  padding-left: 0;
+  list-style: none;
+  background: none;
+}
+.node-type-event ul.event-tags a,
+.node-type-news ul.event-tags a,
+.node-type-access-information ul.event-tags a {
+  font-size: 12px;
+  font-size: 0.75rem;
+  display: block;
+  float: left;
+  background: #dee4e7;
+  padding: 8px 12px;
+  margin-right: 1em;
+}
+
+.node-type-access-information .general-left .pane-node-field-shared-tags:after,
+.node-type-access-information .general-left .field-type-taxonomy-term-reference:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.node-type-access-information .general-left .pane-node-field-shared-tags div.field-item,
+.node-type-access-information .general-left .field-type-taxonomy-term-reference div.field-item {
+  display: block;
+  float: left;
+  padding: 0;
+}
+.node-type-access-information .general-left .panel-pane.pane-node-field-shared-contact-phone {
+  margin-top: 0 !important;
 }

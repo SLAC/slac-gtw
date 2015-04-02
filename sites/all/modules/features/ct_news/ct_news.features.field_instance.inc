@@ -153,7 +153,7 @@ function ct_news_field_default_field_instances() {
       'settings' => array(
         'display_all_day' => 0,
         'increment' => 15,
-        'input_format' => 'm/d/Y - H:i:s',
+        'input_format' => 'm/d/Y - g:i:sa',
         'input_format_custom' => '',
         'label_position' => 'above',
         'text_parts' => array(),
@@ -415,7 +415,7 @@ function ct_news_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'email_textfield',
-      'weight' => 17,
+      'weight' => 15,
     ),
   );
 
@@ -472,7 +472,7 @@ function ct_news_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 16,
+      'weight' => 14,
     ),
   );
 
@@ -523,7 +523,7 @@ function ct_news_field_default_field_instances() {
         'placeholder' => '',
       ),
       'type' => 'telephone_default',
-      'weight' => 18,
+      'weight' => 16,
     ),
   );
 
@@ -710,7 +710,7 @@ function ct_news_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 14,
+      'weight' => 18,
     ),
   );
 
@@ -813,7 +813,7 @@ function ct_news_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 15,
+      'weight' => 13,
     ),
   );
 
@@ -854,7 +854,7 @@ function ct_news_field_default_field_instances() {
     'label' => 'Related Files',
     'required' => 0,
     'settings' => array(
-      'description_field' => 1,
+      'description_field' => 0,
       'file_directory' => '',
       'file_extensions' => 'doc docx pdf txt ppt pptx xls xlsx jpg jpeg gif png',
       'max_filesize' => '25 MB',
@@ -1010,7 +1010,7 @@ function ct_news_field_default_field_instances() {
         'type' => 60,
       ),
       'type' => 'fieldset_tags',
-      'weight' => 13,
+      'weight' => 17,
     ),
   );
 

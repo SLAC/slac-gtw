@@ -77,7 +77,7 @@ function ct_access_information_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'date_format_slac_ip_access_date';
-  $strongarm->value = 'g:i a, l, F j, Y';
+  $strongarm->value = 'g:i a, l, M j, Y';
   $export['date_format_slac_ip_access_date'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -144,13 +144,13 @@ function ct_access_information_strongarm() {
           'weight' => '0',
         ),
         'metatags' => array(
-          'weight' => '16',
+          'weight' => '19',
         ),
         'path' => array(
-          'weight' => '14',
+          'weight' => '17',
         ),
         'redirect' => array(
-          'weight' => '15',
+          'weight' => '18',
         ),
       ),
       'display' => array(),

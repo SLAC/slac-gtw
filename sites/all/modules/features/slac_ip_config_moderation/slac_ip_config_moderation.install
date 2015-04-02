@@ -1,0 +1,108 @@
+<?php
+
+/**
+* @file
+* Update functions for the slac ip config moderation module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function slac_ip_config_moderation_install() {
+  $message_one = <<<MESSAGE_ONE
+You can view the submitted version at:
+[node:url].
+
+To make changes to your submission please contact SLAC’s internal communications coordinator by email at mjhorton@slac.stanford.edu or by phone at ext. 4289.\n\nAll announcements are reviewed and edited for clarity and news style before publication. See About SLAC Today for submission guidelines.
+
+Thank you,
+
+SLAC Communications
+MESSAGE_ONE;
+  $message_two = <<<MESSAGE_TWO
+You can view the submitted version at:
+[node:url].
+
+Thank you,
+
+SLAC Communications
+MESSAGE_TWO;
+  $message_three = <<<MESSAGE_THREE
+You can view the published version at:
+[node:url].
+
+To make changes to your submission please contact SLAC’s internal communications coordinator by email at mjhorton@slac.stanford.edu or by phone at ext. 4289.\n\nAll announcements are reviewed and edited for clarity and news style before publication. See About SLAC Today for submission guidelines.
+
+Thank you,
+
+SLAC Communications
+
+MESSAGE_THREE;
+  $message_four = <<<MESSAGE_FOUR
+You can view the published version at:
+[node:url].
+
+Thank you,
+
+SLAC Communications ',
+MESSAGE_FOUR;
+
+  $values = array(
+    array(
+      'wid' => 1,
+      'from_name' => 'draft',
+      'to_name' => 'needs_review',
+      'rid' => 0,
+      'subject' => 'Your submission, "[node:title]," has been submitted for publication.',
+      'message' => $message_one,
+      'author' => 1,
+      'automatic' => 1,
+    ),
+    array(
+      'wid' => 2,
+      'from_name' => 'draft',
+      'to_name' => 'needs_review',
+      'rid' => 6,
+      'subject' => '"[node:title]," has been submitted for publication.',
+      'message' => $message_two,
+      'author' => 0,
+      'automatic' => 1,
+    ),
+    array(
+      'wid' => 3,
+      'from_name' => 'needs_review',
+      'to_name' => 'published',
+      'rid' => 0,
+      'subject' => 'Your submission, "[node:title],” has been reviewed and approved for publication.',
+      'message' => $message_three,
+      'author' => 1,
+      'automatic' => 1,
+    ),
+    array(
+      'wid' => 4,
+      'from_name' => 'needs_review',
+      'to_name' => 'published',
+      'rid' => 6,
+      'subject' => '"[node:title],” has been reviewed and approved for publication.',
+      'message' => $message_four,
+      'author' => 0,
+      'automatic' => 1,
+    ),
+  );
+  $query = db_insert('workbench_emails')->fields(
+    array(
+      'wid',
+      'from_name',
+      'to_name',
+      'rid',
+      'subject',
+      'message',
+      'author',
+      'automatic'
+    )
+  );
+  foreach ($values as $record) {
+    $query->values($record);
+  }
+  $query->execute();
+}
