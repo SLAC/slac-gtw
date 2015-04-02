@@ -22,16 +22,10 @@ $zen-column-count: 12;
   }
   .general-left {
     @include zen-grid-item(7, 2);
-    a.page-icon {
-      @include font-size(18px);
-      display: inline-block;
-      color: $blue;
-      padding-left: 25px;
-      font-weight: bold;
-      width: 16px;
-      height: 16px;
-      background: url('../images/icon-yellow.png') 0 0 no-repeat;
+    .pane-node-field-event-type {
+      margin-bottom: 2em;
     }
+
     .pane-node-body {
       border-top: solid 3px $event-border;
       margin-top: 40px;
@@ -178,28 +172,8 @@ $zen-column-count: 12;
   }
 }
 
-.node-type-event {
-  .pane-node-field-event-series {
-    margin-bottom: 2em;
-    a {
-      background: url('../images/icon-yellow.png') 0 0 no-repeat;
-    }
-  }
-}
 // access notice overrides
 .node-type-access-information {
-  #content:before {
-    @include font-size(18px);
-    display: block;
-    content: "Access Notice";
-    color: $blue;
-    text-indent: 25px;
-    margin-left: 9%;
-    background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
-    background-size: 21px 21px;
-    font-weight: bold;
-    margin-bottom: 1em;
-  }
   .general-left {
     @include font-size(14px);
     .pane-node-body {
@@ -285,12 +259,9 @@ $zen-column-count: 12;
   }
 }
 
-.node-type-event,
-.node-type-news,
-.node-type-access-information {
-  #cboxTitle {
-    line-height: 1.4;
-    background: $white;
-    padding: .5em 6px 2em;
+// event overrides
+.node-type-event {
+  .pane-node-body .field-name-body {
+    padding-top: 1em;
   }
 }
