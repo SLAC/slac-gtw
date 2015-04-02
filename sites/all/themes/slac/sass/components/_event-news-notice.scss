@@ -22,6 +22,10 @@ $zen-column-count: 12;
   }
   .general-left {
     @include zen-grid-item(7, 2);
+    .pane-node-field-event-type {
+      margin-bottom: 2em;
+    }
+
     .pane-node-body {
       border-top: solid 3px $event-border;
       margin-top: 40px;
@@ -103,6 +107,12 @@ $zen-column-count: 12;
       color: $dim-grey;
       margin-bottom: 1em;
     }
+    .field-name-field-file-shared-caption {
+      @include caption;
+    }
+    .panel-pane {
+      margin-bottom: 2em;
+    }
   }
   .general-right .inside {
     border-left: none;
@@ -155,9 +165,6 @@ $zen-column-count: 12;
     }
   }
   .general-right {
-    .panel-pane {
-      margin-bottom: 2em;
-    }
     .panel-pane:first-child {
       padding-bottom: 2em;
       border-bottom: dashed 3px $event-border;
@@ -167,18 +174,6 @@ $zen-column-count: 12;
 
 // access notice overrides
 .node-type-access-information {
-  #content:before {
-    @include font-size(18px);
-    display: block;
-    content: "Access Notice";
-    color: $blue;
-    text-indent: 25px;
-    margin-left: 9%;
-    background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
-    background-size: 21px 21px;
-    font-weight: bold;
-    margin-bottom: 1em;
-  }
   .general-left {
     @include font-size(14px);
     .pane-node-body {
@@ -261,18 +256,12 @@ $zen-column-count: 12;
     .field-name-field-file-shared-caption {
       @include caption;
     }
-    .panel-pane {
-      margin-bottom: 2em;
-    }
   }
 }
 
-.node-type-event,
-.node-type-news,
-.node-type-access-information {
-  #cboxTitle {
-    line-height: 1.4;
-    background: $white;
-    padding: .5em 6px 2em;
+// event overrides
+.node-type-event {
+  .pane-node-body .field-name-body {
+    padding-top: 1em;
   }
 }

@@ -46,6 +46,11 @@
   box-sizing: border-box;
   word-wrap: break-word;
 }
+.node-type-event .general-left .pane-node-field-event-type,
+.node-type-news .general-left .pane-node-field-event-type,
+.node-type-access-information .general-left .pane-node-field-event-type {
+  margin-bottom: 2em;
+}
 .node-type-event .general-left .pane-node-body,
 .node-type-news .general-left .pane-node-body,
 .node-type-access-information .general-left .pane-node-body {
@@ -195,6 +200,18 @@
   color: #4f4f4f;
   margin-bottom: 1em;
 }
+.node-type-event .general-right .field-name-field-file-shared-caption,
+.node-type-news .general-right .field-name-field-file-shared-caption,
+.node-type-access-information .general-right .field-name-field-file-shared-caption {
+  font-size: 12px;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+.node-type-event .general-right .panel-pane,
+.node-type-news .general-right .panel-pane,
+.node-type-access-information .general-right .panel-pane {
+  margin-bottom: 2em;
+}
 .node-type-event .general-right .inside,
 .node-type-news .general-right .inside,
 .node-type-access-information .general-right .inside {
@@ -243,27 +260,11 @@
 .node-type-news .general-left .panel-pane.pane-node-created {
   margin-bottom: 10px;
 }
-.node-type-news .general-right .panel-pane {
-  margin-bottom: 2em;
-}
 .node-type-news .general-right .panel-pane:first-child {
   padding-bottom: 2em;
   border-bottom: dashed 3px #b1c0c7;
 }
 
-.node-type-access-information #content:before {
-  font-size: 18px;
-  font-size: 1.125rem;
-  display: block;
-  content: "Access Notice";
-  color: #316dae;
-  text-indent: 25px;
-  margin-left: 9%;
-  background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
-  background-size: 21px 21px;
-  font-weight: bold;
-  margin-bottom: 1em;
-}
 .node-type-access-information .general-left {
   font-size: 14px;
   font-size: 0.875rem;
@@ -344,16 +345,9 @@
   font-size: 0.75rem;
   font-style: italic;
 }
-.node-type-access-information .general-right .panel-pane {
-  margin-bottom: 2em;
-}
 
-.node-type-event #cboxTitle,
-.node-type-news #cboxTitle,
-.node-type-access-information #cboxTitle {
-  line-height: 1.4;
-  background: #ffffff;
-  padding: .5em 6px 2em;
+.node-type-event .pane-node-body .field-name-body {
+  padding-top: 1em;
 }
 
 .node-type-news .pane-featured-news-featured-news-panel-pane h2 {
@@ -804,6 +798,77 @@
   color: #316dae;
 }
 
+.node-type-event .general-left,
+.node-type-news .general-left,
+.node-type-access-information .general-left {
+  float: left;
+  width: 58.33333%;
+  margin-left: 8.33333%;
+  margin-right: -66.66667%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+.node-type-event .general-left a.page-icon,
+.node-type-news .general-left a.page-icon,
+.node-type-access-information .general-left a.page-icon {
+  font-size: 18px;
+  font-size: 1.125rem;
+  display: inline;
+  color: #316dae;
+  padding-left: 25px;
+  padding-bottom: 2px;
+  font-weight: bold;
+  width: 16px;
+  height: 16px;
+}
+.node-type-event .general-left a.page-icon.conferences-workshops,
+.node-type-news .general-left a.page-icon.conferences-workshops,
+.node-type-access-information .general-left a.page-icon.conferences-workshops {
+  background: url("../images/icon-blue.png") 0 2px no-repeat;
+}
+.node-type-event .general-left a.page-icon.public-events-tours,
+.node-type-news .general-left a.page-icon.public-events-tours,
+.node-type-access-information .general-left a.page-icon.public-events-tours {
+  background: url("../images/icon-green.png") 0 2px no-repeat;
+}
+.node-type-event .general-left a.page-icon.staff-celebrations,
+.node-type-news .general-left a.page-icon.staff-celebrations,
+.node-type-access-information .general-left a.page-icon.staff-celebrations {
+  background: url("../images/icon-purple.png") 0 2px no-repeat;
+}
+.node-type-event .general-left a.page-icon.summer-school-programs,
+.node-type-news .general-left a.page-icon.summer-school-programs,
+.node-type-access-information .general-left a.page-icon.summer-school-programs {
+  background: url("../images/icon-pink.png") 0 2px no-repeat;
+}
+.node-type-event .general-left a.page-icon.talks-seminars-colloquia,
+.node-type-news .general-left a.page-icon.talks-seminars-colloquia,
+.node-type-access-information .general-left a.page-icon.talks-seminars-colloquia {
+  background: url("../images/icon-yellow.png") 0 2px no-repeat;
+}
+.node-type-event .general-left a.page-icon.training-development,
+.node-type-news .general-left a.page-icon.training-development,
+.node-type-access-information .general-left a.page-icon.training-development {
+  background: url("../images/icon-orange.png") 0 2px no-repeat;
+}
+.node-type-event .general-left a.page-icon.none,
+.node-type-news .general-left a.page-icon.none,
+.node-type-access-information .general-left a.page-icon.none {
+  background: url("../images/icon-grey.png") 0 2px no-repeat;
+}
+
+.node-type-access-information .general-left a.page-icon {
+  background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
+}
+.node-type-access-information .pane-slac-ip-panes-access-notice-link {
+  margin-bottom: 2em;
+}
+
 .node-type-event .pane-node-field-shared-tags,
 .node-type-news .pane-node-field-shared-tags,
 .node-type-access-information .pane-node-field-shared-tags {
@@ -860,4 +925,30 @@
 .node-type-news .field-name-field-shared-tags .field-item a,
 .node-type-access-information .field-name-field-shared-tags .field-item a {
   margin-bottom: 1em;
+}
+.node-type-event ul.event-tags,
+.node-type-news ul.event-tags,
+.node-type-access-information ul.event-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.node-type-event ul.event-tags li,
+.node-type-news ul.event-tags li,
+.node-type-access-information ul.event-tags li {
+  display: inline-block;
+  padding-left: 0;
+  list-style: none;
+  background: none;
+}
+.node-type-event ul.event-tags a,
+.node-type-news ul.event-tags a,
+.node-type-access-information ul.event-tags a {
+  font-size: 12px;
+  font-size: 0.75rem;
+  display: block;
+  float: left;
+  background: #dee4e7;
+  padding: 8px 12px;
+  margin-right: 1em;
 }

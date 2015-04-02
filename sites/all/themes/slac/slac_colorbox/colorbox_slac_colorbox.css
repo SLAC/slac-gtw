@@ -227,3 +227,13 @@
         display: block;
         padding-top: 5px;
       }
+
+.node-type-event,
+.node-type-news,
+.node-type-access-information {
+  #cboxTitle {
+    line-height: 1.4;
+    background: $white;
+    padding: .5em 6px 2em;
+  }
+}

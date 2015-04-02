@@ -38,4 +38,23 @@
       }
     }
   }
+  ul.event-tags {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+        display: inline-block;
+        padding-left: 0;
+        list-style: none;
+        background: none;
+    }
+    a {
+      @include font-size(12px);
+      display: block;
+      float: left;
+      background: lighten($event-border, 15%);
+      padding: 8px 12px;
+      margin-right: 1em;
+    }
+  }
 }
