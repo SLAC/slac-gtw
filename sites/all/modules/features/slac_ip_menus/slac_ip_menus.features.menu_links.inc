@@ -166,7 +166,7 @@ function slac_ip_menus_menu_default_menu_links() {
     'menu_name' => 'menu-top-menu',
     'link_path' => 'http://slac.stanford.edu',
     'router_path' => '',
-    'link_title' => 'SLAC Public Site',
+    'link_title' => 'SLAC Public Home',
     'options' => array(
       'attributes' => array(
         'target' => '_blank',

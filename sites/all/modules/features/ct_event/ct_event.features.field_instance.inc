@@ -117,7 +117,7 @@ function ct_event_field_default_field_instances() {
       'settings' => array(
         'display_all_day' => 1,
         'increment' => 15,
-        'input_format' => 'm/d/Y - H:i:s',
+        'input_format' => 'm/d/Y - g:i:sa',
         'input_format_custom' => '',
         'label_position' => 'above',
         'text_parts' => array(),
@@ -159,6 +159,47 @@ function ct_event_field_default_field_instances() {
     'field_name' => 'field_event_series',
     'label' => 'Event Series',
     'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 16,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_event_type'
+  $field_instances['node-event-field_event_type'] = array(
+    'bundle' => 'event',
+    'default_value' => array(
+      0 => array(
+        'tid' => 2567,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 17,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_event_type',
+    'label' => 'Event Type',
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -482,7 +523,7 @@ function ct_event_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 7,
+      'weight' => 6,
     ),
   );
 
@@ -626,7 +667,7 @@ function ct_event_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -801,7 +842,7 @@ function ct_event_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -860,6 +901,7 @@ function ct_event_field_default_field_instances() {
   t('Contact Phone');
   t('Date');
   t('Event Series');
+  t('Event Type');
   t('Existing / New');
   t('Existing URL');
   t('If this option is checked, this item will appear along with other News in news listings.');

@@ -17,5 +17,12 @@ function slac_ip_media_strongarm() {
   $strongarm->value = 1;
   $export['colorbox_original_image'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'colorbox_style';
+  $strongarm->value = 'none';
+  $export['colorbox_style'] = $strongarm;
+
   return $export;
 }

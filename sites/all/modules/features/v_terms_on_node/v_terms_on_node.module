@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Terms on Node feature.
+ */
+
+include_once 'v_terms_on_node.features.inc';

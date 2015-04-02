@@ -1,6 +1,12 @@
 <?php
 /**
  * @file
+ * Code for the SLAC IP Core feature.
+ */
+
+include_once 'slac_ip_core.features.inc';
+/**
+ * @file
  * Code for the SLAC IP core feature.
  */
 
@@ -26,7 +32,7 @@ function slac_ip_core_date_formats() {
     ),
     array(
       'type' => 'slac_ip_access_date',
-      'format' => 'g:i a, l, F j, Y',
+      'format' => 'g:i a, l, M j, Y',
       'locales' => array(),
     ),
     array(
@@ -43,7 +49,7 @@ function slac_ip_core_date_formats() {
 function slac_ip_core_date_format_types() {
   return array(
     'slac_ip_news_event_date' => t('SLAC News/Event: l, F j, Y, g:i a'),
-    'slac_ip_access_date' => t('SLAC Access Info.: g:i a, l, F j, Y'),
+    'slac_ip_access_date' => t('SLAC Access Info.: g:i a, l, M j, Y'),
     'slac_ip_published_date' => t('SLAC published date: F j, Y'),
   );
 }

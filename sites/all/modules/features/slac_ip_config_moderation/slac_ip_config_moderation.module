@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SLAC IP Config Moderation feature.
+ */
+
+include_once 'slac_ip_config_moderation.features.inc';
