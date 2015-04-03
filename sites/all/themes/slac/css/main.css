@@ -127,7 +127,7 @@
   font-size: 12px;
   font-size: 0.75rem;
   text-transform: uppercase;
-  color: #9c9c9c;
+  color: dimgray;
   font-weight: lighter;
   display: block;
   padding-left: 2em;
@@ -139,18 +139,21 @@
 .node-type-event .general-left .calendar-button a,
 .node-type-news .general-left .calendar-button a,
 .node-type-access-information .general-left .calendar-button a {
-  background: url("../images/calendar.svg") 0 0 no-repeat;
+  background: url("../images/icons-cal-mail-print.png") 0 -16px no-repeat;
+  background-size: 16px 48px;
 }
 .node-type-event .general-left .email-button a,
 .node-type-news .general-left .email-button a,
 .node-type-access-information .general-left .email-button a {
-  background: url("../images/envelope.svg") 0 0 no-repeat;
+  background: url("../images/icons-cal-mail-print.png") 0 2px no-repeat;
+  background-size: 16px 48px;
 }
 .node-type-event .general-left .js-print-button a,
 .node-type-news .general-left .js-print-button a,
 .node-type-access-information .general-left .js-print-button a {
   border: none;
-  background: url("../images/printer.svg") 0 0 no-repeat;
+  background: url("../images/icons-cal-mail-print.png") 0 -32px no-repeat;
+  background-size: 16px 48px;
 }
 .node-type-event .general-left .field-name-field-shared-contact-name,
 .node-type-event .general-left .field-name-field-shared-contact-email,
