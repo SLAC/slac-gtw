@@ -77,16 +77,7 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['empty'] = '[path]';
-  /* Field: Field: Link */
-  $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
-  $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
-  $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
-  $handler->display->display_options['fields']['field_link']['label'] = '';
-  $handler->display->display_options['fields']['field_link']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_link']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
-  /* Field: Content: Access Restrictions Dates */
+  /* Field: Content: Date */
   $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
   $handler->display->display_options['fields']['field_event_date']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
@@ -112,7 +103,7 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Sort criterion: Content: Access Restrictions Dates -  start date (field_event_date) */
+  /* Sort criterion: Content: Date -  start date (field_event_date) */
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
   $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
@@ -131,7 +122,7 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'access_information' => 'access_information',
   );
-  /* Filter criterion: Content: Access Restrictions Dates - end date (field_event_date:value2) */
+  /* Filter criterion: Content: Date - end date (field_event_date:value2) */
   $handler->display->display_options['filters']['field_event_date_value2']['id'] = 'field_event_date_value2';
   $handler->display->display_options['filters']['field_event_date_value2']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['filters']['field_event_date_value2']['field'] = 'field_event_date_value2';
