@@ -127,7 +127,7 @@
   font-size: 12px;
   font-size: 0.75rem;
   text-transform: uppercase;
-  color: #9c9c9c;
+  color: dimgray;
   font-weight: lighter;
   display: block;
   padding-left: 2em;
@@ -139,18 +139,21 @@
 .node-type-event .general-left .calendar-button a,
 .node-type-news .general-left .calendar-button a,
 .node-type-access-information .general-left .calendar-button a {
-  background: url("../images/calendar.svg") 0 0 no-repeat;
+  background: url("../images/icons-cal-mail-print.png") 0 -16px no-repeat;
+  background-size: 16px 48px;
 }
 .node-type-event .general-left .email-button a,
 .node-type-news .general-left .email-button a,
 .node-type-access-information .general-left .email-button a {
-  background: url("../images/envelope.svg") 0 0 no-repeat;
+  background: url("../images/icons-cal-mail-print.png") 0 2px no-repeat;
+  background-size: 16px 48px;
 }
 .node-type-event .general-left .js-print-button a,
 .node-type-news .general-left .js-print-button a,
 .node-type-access-information .general-left .js-print-button a {
   border: none;
-  background: url("../images/printer.svg") 0 0 no-repeat;
+  background: url("../images/icons-cal-mail-print.png") 0 -32px no-repeat;
+  background-size: 16px 48px;
 }
 .node-type-event .general-left .field-name-field-shared-contact-name,
 .node-type-event .general-left .field-name-field-shared-contact-email,
@@ -516,12 +519,12 @@
   padding-left: 0;
   padding-right: 0;
 }
-@media all and (min-width: 980px) {
+@media all and (min-width: 860px) {
   #header #block-menu-menu-top-menu {
     float: left;
-    width: 50%;
+    width: 58.33333%;
     margin-left: 0%;
-    margin-right: -50%;
+    margin-right: -58.33333%;
     padding-left: 20px;
     padding-right: 20px;
     -moz-box-sizing: border-box;
@@ -531,11 +534,11 @@
     word-wrap: break-word;
   }
 }
-@media all and (min-width: 1240px) {
+@media all and (min-width: 960px) {
   #header #block-menu-menu-top-menu {
     float: left;
-    width: 50%;
-    margin-left: 8.33333%;
+    width: 58.33333%;
+    margin-left: 0%;
     margin-right: -58.33333%;
     padding-left: 20px;
     padding-right: 20px;
@@ -574,19 +577,14 @@
     width: 100px;
   }
 }
-@media all and (min-width: 900px) {
+@media all and (min-width: 960px) {
   .header__region input[type="text"] {
-    width: 150px;
+    width: 100px;
   }
 }
-@media all and (min-width: 980px) {
+@media all and (min-width: 1100px) {
   .header__region input[type="text"] {
-    width: 200px;
-  }
-}
-@media all and (min-width: 1040px) {
-  .header__region input[type="text"] {
-    width: 250px;
+    width: 140px;
   }
 }
 @media all and (min-width: 1240px) {
@@ -753,11 +751,18 @@
   border-right: 1px solid #316dae;
 }
 #block-menu-menu-top-menu .menu li a {
-  font-size: 11px;
-  font-size: 0.6875rem;
-  padding: .5em 1em;
+  font-size: 9px;
+  font-size: 0.5625rem;
+  padding: .5em;
   color: #316dae;
   text-transform: uppercase;
+}
+@media all and (min-width: 960px) {
+  #block-menu-menu-top-menu .menu li a {
+    font-size: 11px;
+    font-size: 0.6875rem;
+    padding: .5em 1em;
+  }
 }
 #block-menu-menu-top-menu .menu li a:hover, #block-menu-menu-top-menu .menu li a:focus {
   outline: none;

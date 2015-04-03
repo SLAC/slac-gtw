@@ -458,3 +458,35 @@ function slac_igp_deployment_update_7021() {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
 }
+
+/**
+ * Rename remove old map links.
+ */
+function slac_igp_deployment_update_7022() {
+  $links = array(
+    array(
+      'mlid' => 1403,
+      'title' => 'SLAC Campus Map',
+      'path' => '<front',
+    ),
+    array(
+      'mlid' => 1402,
+      'title' => 'SLAC Meeting Rooms Map',
+      'path' => '<front>',
+    ),
+    array(
+      'mlid' => 1399,
+      'title' => 'Stanford University Campus Map',
+      'path' => '<front>',
+    ),
+  );
+  foreach ($links as $key => $link) {
+    $menu_link = menu_link_load($link['mlid']);
+    if ($menu_link) {
+      if ($menu_link['link_title'] == $link['title']) {
+        menu_link_delete($menu_link['mlid']);
+        drupal_set_message("A link has been removed.");
+      }
+    }
+  }
+}

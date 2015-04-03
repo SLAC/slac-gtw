@@ -64,7 +64,7 @@ $zen-column-count: 12;
       a {
         @include font-size(12px);
         text-transform: uppercase;
-        color: lighten($dim-grey, 30%);
+        color: lighten($dim-grey, 10%);
         font-weight: lighter;
         display: block;
         padding-left: 2em;
@@ -75,14 +75,17 @@ $zen-column-count: 12;
       }
     }
     .calendar-button a {
-      background: url('../images/calendar.svg') 0 0 no-repeat;
+      background: url('../images/icons-cal-mail-print.png') 0 -16px no-repeat;
+      background-size: 16px 48px;
     }
     .email-button a {
-      background: url('../images/envelope.svg') 0 0 no-repeat;
+      background: url('../images/icons-cal-mail-print.png') 0 2px no-repeat;
+      background-size: 16px 48px;
     }
      .js-print-button a {
       border: none;
-      background: url('../images/printer.svg') 0 0 no-repeat;
+      background: url('../images/icons-cal-mail-print.png') 0 -32px no-repeat;
+      background-size: 16px 48px;
     }
     .field-name-field-shared-contact-name,
     .field-name-field-shared-contact-email,

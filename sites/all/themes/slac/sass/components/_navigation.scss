@@ -10,8 +10,12 @@
         border-right: 1px solid $blue;
       }
       a {
-        @include font-size(11px);
-        padding: .5em 1em;
+        @include font-size(9px);
+        padding: .5em;
+        @media all and (min-width: 960px) {
+          @include font-size(11px);
+          padding: .5em 1em;
+        }
         color: $blue;
         text-transform: uppercase;
         &:hover,
