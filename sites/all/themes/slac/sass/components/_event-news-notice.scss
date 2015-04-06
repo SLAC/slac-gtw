@@ -169,9 +169,12 @@ $zen-column-count: 12;
     }
   }
   .general-right {
-    .panel-pane:first-child {
-      padding-bottom: 2em;
-      border-bottom: dashed 3px $event-border;
+    .panel-pane .file-image {
+      .field-name-field-file-shared-caption {
+        padding-bottom: 2.5em;
+        margin-bottom: 2.5em;
+        border-bottom: dashed 3px $event-border;
+      }
     }
   }
 }
