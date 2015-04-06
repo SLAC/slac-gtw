@@ -20,9 +20,13 @@ $zen-column-count: 12;
   background: url('../images/header-bg.png') 0 52px repeat-x;
   height: 82px;
   margin: 0 auto;
-  margin-bottom: 78px;
+  margin-bottom: 44px;
   .logo {
     @include zen-grid-item(2, 1);
+    a {
+      width: 118px;
+      float: right;
+    }
   }
   .header__region {
     @include zen-grid-item(10, 3);
