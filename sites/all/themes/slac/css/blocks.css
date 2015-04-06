@@ -1321,6 +1321,7 @@ a.submit-feedback {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  margin-bottom: 36px;
 }
 .frontpage-news-slider:hover .views_slideshow_slide .views-field-nothing,
 .frontpage-slider-mobile:hover .views_slideshow_slide .views-field-nothing {
