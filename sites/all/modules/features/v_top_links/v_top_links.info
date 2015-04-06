@@ -1,0 +1,11 @@
+name = Top Links
+description = Views configuration for the Top Links display.
+core = 7.x
+package = Views
+version = 7.x-1.0-dev
+project = v_top_links
+dependencies[] = slac_igp_config
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features_exclude[dependencies][ctools] = ctools
