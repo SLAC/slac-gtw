@@ -674,6 +674,11 @@
 .pane-top-links .item-list ul {
   width: 100%;
 }
+.pane-top-links .item-list ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 .pane-top-links .item-list ul .views-row {
   float: left;
   width: 48%;

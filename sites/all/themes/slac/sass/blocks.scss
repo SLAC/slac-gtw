@@ -119,8 +119,6 @@
   padding-left: 15px;
 }
 
-
-
 .frontpage-people-finder {
   input {
     margin: 0;
@@ -345,7 +343,6 @@
 
 /* Front page top links block*/
 
-
 .frontpage-top-links{
   .mobile{
     display:none;
@@ -353,9 +350,11 @@
 }
 
 .pane-top-links{
-  .item-list ul{
+  .item-list ul {
     width: 100%;
-    .views-row{
+    @include clearfix();
+
+    .views-row {
       float: left;
       width: 48%;
       margin: 0 0 7px;
