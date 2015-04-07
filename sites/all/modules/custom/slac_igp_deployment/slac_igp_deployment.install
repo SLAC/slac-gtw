@@ -507,3 +507,11 @@ function slac_igp_deployment_update_7023() {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
 }
+
+/**
+ * Remove the incorrect Maps and Directions menu items replaced by the feature.
+ */
+function slac_igp_deployment_update_7024() {
+  menu_link_delete(1334);
+  menu_link_delete(1337);
+}
