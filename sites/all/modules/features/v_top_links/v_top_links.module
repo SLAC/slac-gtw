@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Top Links feature.
+ */
+
+include_once 'v_top_links.features.inc';

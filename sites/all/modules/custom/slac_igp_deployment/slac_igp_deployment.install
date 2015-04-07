@@ -61,6 +61,7 @@ function slac_igp_deployment_install() {
     'date_popup_authored',
     't_event_type',
     'v_terms_on_node',
+    'v_top_links',
   ));
 
   // Revert slac_ip_menus so that the new menu block will have a DB record.
@@ -75,6 +76,9 @@ function slac_igp_deployment_install() {
   // Revert features for pre-existing node types.
   _slac_igp_deployment_revert('ct_access_information');
   _slac_igp_deployment_revert('ct_event');
+
+  // Revert features for pre-existing views.
+  _slac_igp_deployment_revert('v_top_links');
 
   // Revert other pre-existing, updated features.
   _slac_igp_deployment_revert('slac_igp_feed');
@@ -488,5 +492,18 @@ function slac_igp_deployment_update_7022() {
         drupal_set_message("A link has been removed.");
       }
     }
+  }
+}
+
+/**
+ * Enable the v_top_links feature.
+ */
+function slac_igp_deployment_update_7023() {
+  $result = module_enable(array(
+    'v_top_links',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
 }
