@@ -55,6 +55,15 @@ function slac_ip_core_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'administer pathauto'.
+  $permissions['administer pathauto'] = array(
+    'name' => 'administer pathauto',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'pathauto',
+  );
+
   // Exported permission: 'administer redirects'.
   $permissions['administer redirects'] = array(
     'name' => 'administer redirects',
@@ -63,6 +72,16 @@ function slac_ip_core_user_default_permissions() {
       'editor' => 'editor',
     ),
     'module' => 'redirect',
+  );
+
+  // Exported permission: 'administer url aliases'.
+  $permissions['administer url aliases'] = array(
+    'name' => 'administer url aliases',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'manager' => 'manager',
+    ),
+    'module' => 'path',
   );
 
   // Exported permission: 'bypass node access'.
@@ -76,6 +95,17 @@ function slac_ip_core_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create url aliases'.
+  $permissions['create url aliases'] = array(
+    'name' => 'create url aliases',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+      'manager' => 'manager',
+    ),
+    'module' => 'path',
+  );
+
   // Exported permission: 'delete revisions'.
   $permissions['delete revisions'] = array(
     'name' => 'delete revisions',
@@ -85,6 +115,15 @@ function slac_ip_core_user_default_permissions() {
       'manager' => 'manager',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'notify of path changes'.
+  $permissions['notify of path changes'] = array(
+    'name' => 'notify of path changes',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'pathauto',
   );
 
   // Exported permission: 'revert revisions'.
