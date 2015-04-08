@@ -77,7 +77,7 @@
       
     <?php if ($logo): ?>
       <div class="logo">
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"></a>
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><span>Slac Today</span></a>
       </div>
     <?php endif; ?>
 

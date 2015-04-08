@@ -484,6 +484,12 @@
   background: url(../logo.png) 0 0 no-repeat;
   background-image: url(../logo.svg), none;
 }
+#header .logo a span {
+  display: block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
 #header .date {
   font-size: 11px;
   font-size: 0.6875rem;
