@@ -476,6 +476,13 @@
   display: table;
   content: "";
 }
+#header .logo a {
+  display: block;
+  width: 118px;
+  height: 102px;
+  background: url(../logo.png) 0 0 no-repeat;
+  background-image: url(../logo.svg), none;
+}
 #header .date {
   font-size: 11px;
   font-size: 0.6875rem;
@@ -495,10 +502,6 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   word-wrap: break-word;
-}
-#header .logo a {
-  width: 118px;
-  float: right;
 }
 #header .header__region {
   float: left;
