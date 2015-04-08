@@ -62,6 +62,9 @@ function slac_igp_deployment_install() {
     't_event_type',
     'v_terms_on_node',
     'v_top_links',
+    'migrate',
+    'migrate_ui',
+    'migrate_extras',
   ));
 
   // Revert slac_ip_menus so that the new menu block will have a DB record.
@@ -501,6 +504,21 @@ function slac_igp_deployment_update_7022() {
 function slac_igp_deployment_update_7023() {
   $result = module_enable(array(
     'v_top_links',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the v_top_links feature.
+ */
+function slac_igp_deployment_update_7024() {
+  $result = module_enable(array(
+    'migrate',
+    'migrate_ui',
+    'migrate_extras',
   ));
 
   if ($result == FALSE) {
