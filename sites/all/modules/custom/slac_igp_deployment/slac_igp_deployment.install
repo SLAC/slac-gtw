@@ -65,6 +65,7 @@ function slac_igp_deployment_install() {
     'migrate',
     'migrate_ui',
     'migrate_extras',
+    'slac_migrate',
   ));
 
   // Revert slac_ip_menus so that the new menu block will have a DB record.
@@ -519,6 +520,7 @@ function slac_igp_deployment_update_7024() {
     'migrate',
     'migrate_ui',
     'migrate_extras',
+    'slac_migrate',
   ));
 
   if ($result == FALSE) {

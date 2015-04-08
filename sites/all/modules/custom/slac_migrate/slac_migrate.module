@@ -1,0 +1,6 @@
+<?php
+
+/**
+ * @file
+ * Migrates data from SLAC Today Drupal 6 site.
+ */
