@@ -17,6 +17,12 @@ $zen-column-count: 12;
     height: 102px;
     background: url(../logo.png) 0 0 no-repeat;
     background-image: url(../logo.svg), none;
+    span {
+      display: block;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
   }
   .date {
     @include font-size(11px);
