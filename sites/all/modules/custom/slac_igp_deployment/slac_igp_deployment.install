@@ -62,6 +62,10 @@ function slac_igp_deployment_install() {
     't_event_type',
     'v_terms_on_node',
     'v_top_links',
+    'migrate',
+    'migrate_ui',
+    'migrate_extras',
+    'slac_migrate',
   ));
 
   // Revert slac_ip_menus so that the new menu block will have a DB record.
@@ -514,4 +518,20 @@ function slac_igp_deployment_update_7023() {
 function slac_igp_deployment_update_7024() {
   menu_link_delete(1334);
   menu_link_delete(1337);
+}
+
+/**
+ * Enable migrate modules.
+ */
+function slac_igp_deployment_update_7025() {
+  $result = module_enable(array(
+    'migrate',
+    'migrate_ui',
+    'migrate_extras',
+    'slac_migrate',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
 }
