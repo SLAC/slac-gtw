@@ -26,13 +26,14 @@ function slac_ip_media_image_default_styles() {
   $styles['lightbox_expanded'] = array(
     'label' => 'Lightbox Expanded (975px wide)',
     'effects' => array(
-      7 => array(
-        'name' => 'image_scale_and_crop',
+      4 => array(
+        'name' => 'image_scale',
         'data' => array(
           'width' => 975,
-          'height' => 495,
+          'height' => '',
+          'upscale' => 0,
         ),
-        'weight' => 1,
+        'weight' => 2,
       ),
     ),
   );

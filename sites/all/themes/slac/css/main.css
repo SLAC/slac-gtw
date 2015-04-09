@@ -267,8 +267,9 @@
 .node-type-news .general-left .panel-pane.pane-node-created {
   margin-bottom: 10px;
 }
-.node-type-news .general-right .panel-pane:first-child {
-  padding-bottom: 2em;
+.node-type-news .general-right .panel-pane .file-image .field-name-field-file-shared-caption {
+  padding-bottom: 2.5em;
+  margin-bottom: 2.5em;
   border-bottom: dashed 3px #b1c0c7;
 }
 

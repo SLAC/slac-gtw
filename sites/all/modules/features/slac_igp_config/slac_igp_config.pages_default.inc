@@ -386,31 +386,6 @@ function slac_igp_config_default_page_manager_pages() {
     $display->content['new-9672c131-3e48-4e4f-9e94-af57b159ff3b'] = $pane;
     $display->panels['colthreerowsix'][2] = 'new-9672c131-3e48-4e4f-9e94-af57b159ff3b';
     $pane = new stdClass();
-    $pane->pid = 'new-8d421dda-aab1-4274-b77d-82005f85bec5';
-    $pane->panel = 'colthreerowsix';
-    $pane->type = 'block';
-    $pane->subtype = 'boxes-feedback';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => '',
-    );
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = '8d421dda-aab1-4274-b77d-82005f85bec5';
-    $display->content['new-8d421dda-aab1-4274-b77d-82005f85bec5'] = $pane;
-    $display->panels['colthreerowsix'][3] = 'new-8d421dda-aab1-4274-b77d-82005f85bec5';
-    $pane = new stdClass();
     $pane->pid = 'new-c0566837-ec4a-41dd-afae-060a6b4a249d';
     $pane->panel = 'colthreerowthree';
     $pane->type = 'block';
