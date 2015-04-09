@@ -513,9 +513,17 @@ function slac_igp_deployment_update_7023() {
 }
 
 /**
- * Enable the v_top_links feature.
+ * Remove the incorrect Maps and Directions menu items replaced by the feature.
  */
 function slac_igp_deployment_update_7024() {
+  menu_link_delete(1334);
+  menu_link_delete(1337);
+}
+
+/**
+ * Enable migrate modules.
+ */
+function slac_igp_deployment_update_7025() {
   $result = module_enable(array(
     'migrate',
     'migrate_ui',
