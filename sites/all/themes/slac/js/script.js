@@ -29,12 +29,14 @@
 
   /**
    * Adds a class to external links and causes them to open in a new window.
+   * Note: slac.stanford.edu should not be considered external, nor open in a
+   * new window.
    */
   Drupal.behaviors.externalLinks = {
     attach: function (context, settings) {
-      var a = new RegExp('/' + window.location.host + '/');
+      var re = new RegExp('/' + window.location.host + '|slac.stanford.edu/');
       $('a', context).each(function () {
-        if (!a.test(this.href)) {
+        if (!re.test(this.href)) {
           $(this).click(function (e) {
             e.preventDefault();
             e.stopPropagation();
