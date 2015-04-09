@@ -81,34 +81,6 @@
     }
   }
 
-  // search
-  // this is a work-around because we can't have a true search form since the public search
-  // is not https
-  Drupal.behaviors.search = {
-     attach: function (context, settings) {
-       $('.mobile-search form').submit(function(e) {
-          e.preventDefault();
-         var search_type = $('.mobile-search form input[name="searchType"]:checked').val();
-         var keyword = $('.mobile-search form #searchbox').val();
-         // people search
-         if (search_type == 'people') {
-           var url = "https://www-public.slac.stanford.edu/phonebook/dirsearch.aspx?lf=1&url=&gone=active&NAME=" + keyword;
-         } else {
-           var url = "http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite&qt=" + keyword;
-         }
-         document.location = url;
-       });
-
-       $('form#websearch').submit(function(e) {
-          e.preventDefault();
-          var keyword = $(this).children('input[type=text]').val();
-          var url = "http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite&qt=" + keyword;
-          document.location = url;
-       });
-     }
-   }
-
-  // alpha pager
   Drupal.behaviors.alphapager = {
      attach: function (context, settings) {
         $('.alpha-link').each(function() {
