@@ -470,12 +470,25 @@
   background: url("../images/header-bg.png") 0 52px repeat-x;
   height: 82px;
   margin: 0 auto;
-  margin-bottom: 78px;
+  margin-bottom: 44px;
 }
 #header .header-wrapper {
   clear: both;
   display: table;
   content: "";
+}
+#header .logo a {
+  display: block;
+  width: 118px;
+  height: 102px;
+  background: url(../logo.png) 0 0 no-repeat;
+  background-image: url(../logo.svg), none;
+}
+#header .logo a span {
+  display: block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 #header .date {
   font-size: 11px;
