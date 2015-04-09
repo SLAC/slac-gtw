@@ -27,6 +27,24 @@
     }
   };
 
+  /**
+   * Adds a class to external links and causes them to open in a new window.
+   */
+  Drupal.behaviors.externalLinks = {
+    attach: function (context, settings) {
+      var a = new RegExp('/' + window.location.host + '/');
+      $('a', context).each(function () {
+        if (!a.test(this.href)) {
+          $(this).click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.open(this.href, '_blank');
+          }).addClass('external');
+        }
+      });
+    }
+  };
+
   Drupal.behaviors.mobileHeader = {
     attach: function (context, settings) {
       var $menu = $('.region-header #block-system-main-menu .menu:first'),
