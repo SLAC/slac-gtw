@@ -40,6 +40,6 @@ function slac_ip_panes_email_render($subtype, $conf, $args, $context) {
   $pane = new stdClass();
   $pane->title = t('');
   $pane->content = '<div class="email-button"><a href="mailto:?subject=' . $title;
-  $pane->content .= '&body=' . $title . ' ' . $url . '">Email</a></div>';
+  $pane->content .= '&body=' . $url . '">Email</a></div>';
   return $pane;
 }
