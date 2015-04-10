@@ -97,3 +97,6 @@ features[user_permission][] = view own private files
 features[user_permission][] = view private files
 features[variable][] = colorbox_original_image
 features[variable][] = colorbox_style
+features[variable][] = file_entity_file_upload_wizard_skip_fields
+features[variable][] = file_entity_file_upload_wizard_skip_file_type
+features[variable][] = file_entity_file_upload_wizard_skip_scheme
