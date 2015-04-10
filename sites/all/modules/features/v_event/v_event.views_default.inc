@@ -120,6 +120,7 @@ function v_event_views_default_views() {
   $handler->display->display_options['fields']['field_shared_location']['table'] = 'field_data_field_shared_location';
   $handler->display->display_options['fields']['field_shared_location']['field'] = 'field_shared_location';
   $handler->display->display_options['fields']['field_shared_location']['label'] = '';
+  $handler->display->display_options['fields']['field_shared_location']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_shared_location']['element_label_colon'] = FALSE;
   /* Field: Time and Location */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
