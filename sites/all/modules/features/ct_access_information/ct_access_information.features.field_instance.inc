@@ -631,7 +631,7 @@ function ct_access_information_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          'private' => 'private',
+          'private' => 0,
           'public' => 'public',
           'vimeo' => 0,
           'youtube' => 0,
