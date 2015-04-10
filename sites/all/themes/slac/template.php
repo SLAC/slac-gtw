@@ -277,16 +277,16 @@ function slac_file_entity_download_link($variables) {
   // http://microformats.org/wiki/file-format-examples
   $uri['options']['attributes']['type'] = $file->filemime . '; length=' . $file->filesize;
 
-  // Provide the default link text.
-  if (!isset($variables['text'])) {
-    $variables['text'] = t('Download [file:name]');
-  }
+  // Provide the default link text. Remove the 'Download ' string that is in the
+  // default output.
+  $variables['text'] = '[file:name]';
 
-  // Peform unsanitized token replacement if $uri['options']['html'] is empty
+  // Perform un-sanitized token replacement if $uri['options']['html'] is empty
   // since then l() will escape the link text.
   $variables['text'] = token_replace($variables['text'], array('file' => $file), array('clear' => TRUE, 'sanitize' => empty($uri['options']['html'])));
 
-  $output = '<span class="file">' . l($variables['text'], $uri['path'], $uri['options']) . ' ' . $icon;
+  $output = '<span class="file">';
+  $output .= l($variables['text'], $uri['path'], $uri['options']) . ' ' . $icon;
   $output .= '</span>';
 
   return $output;
