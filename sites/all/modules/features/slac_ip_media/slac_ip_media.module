@@ -10,3 +10,55 @@ include_once 'slac_ip_media.features.inc';
  * Code for the SLAC IP Media feature.
  */
 
+/**
+ * Implements hook_menu().
+ */
+function slac_ip_media_menu() {
+  $items['slac/media-download'] = array(
+    'page callback' => 'slac_ip_media_download',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Page callback.
+ *
+ * Provides a custom download solution for browsers that do not support the
+ * download attribute of the A element.
+ *
+ * @see sites/all/themes/slac/slac_colorbox/colorbox_slac_colorbox.js
+ */
+function slac_ip_media_download($url) {
+  global $base_url;
+  $params = drupal_get_query_parameters();
+
+  if (empty($params['url'])) {
+    return MENU_NOT_FOUND;
+  }
+
+  $url = $params['url'];
+
+  if (strpos($url, 'files/styles/lightbox_expanded/public/') === FALSE) {
+    // If the image is not in the public files dir, return access denied; this
+    // callback should not allow download of anything else.
+    return MENU_ACCESS_DENIED;
+  }
+
+  $components = parse_url($url);
+
+  if ($components == FALSE) {
+    // If the URL cannot be read, give up.
+    return MENU_NOT_FOUND;
+  }
+
+  // Set content attachment headers and output the file.
+  header('Content-Type: application/octet-stream');
+  header('Content-Transfer-Encoding: Binary');
+  header('Content-disposition: attachment; filename="' . basename($components['path']) . '"');
+  readfile($base_url . $components['path']);
+
+  // Don't return a page, or cache anything.
+  drupal_exit();
+}
