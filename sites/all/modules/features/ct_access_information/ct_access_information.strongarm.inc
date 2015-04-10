@@ -70,7 +70,7 @@ function ct_access_information_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'date_format_access_information';
-  $strongarm->value = 'D, F j';
+  $strongarm->value = 'D, M j';
   $export['date_format_access_information'] = $strongarm;
 
   $strongarm = new stdClass();
