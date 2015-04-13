@@ -744,7 +744,7 @@ function ct_event_field_default_field_instances() {
     'label' => 'Related Files',
     'required' => 0,
     'settings' => array(
-      'description_field' => 0,
+      'description_field' => 1,
       'file_directory' => 'event',
       'file_extensions' => 'doc docx pdf txt ppt pptx xls xlsx jpg jpeg gif png',
       'max_filesize' => '',
