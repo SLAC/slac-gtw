@@ -818,6 +818,7 @@
   color: #fff;
   background: #316dae;
   text-decoration: none;
+  font-weight: bold;
 }
 #block-system-main-menu .menu li a:hover, #block-system-main-menu .menu li a:focus {
   background: #ffffff;
