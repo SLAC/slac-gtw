@@ -26,11 +26,6 @@ function slac_ip_core_entity_info_alter(&$entity_info) {
 function slac_ip_core_date_formats() {
   return array(
     array(
-      'type' => 'slac_ip_news_event_date',
-      'format' => 'l, F j, Y, g:i a',
-      'locales' => array(),
-    ),
-    array(
       'type' => 'slac_ip_access_date',
       'format' => 'g:i a, l, M j, Y',
       'locales' => array(),
@@ -48,8 +43,87 @@ function slac_ip_core_date_formats() {
  */
 function slac_ip_core_date_format_types() {
   return array(
-    'slac_ip_news_event_date' => t('SLAC News/Event: l, F j, Y, g:i a'),
     'slac_ip_access_date' => t('SLAC Access Info.: g:i a, l, M j, Y'),
     'slac_ip_published_date' => t('SLAC published date: F j, Y'),
   );
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function slac_ip_core_field_formatter_info() {
+  return array(
+    'slac_event_date_formatter' => array(
+      'label' => t('SLAC Custom Event Date Format'),
+      'field types' => array('datetime'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  switch ($display['type']) {
+    case 'slac_event_date_formatter':
+      foreach ($items as $delta => $item) {
+        $tz_db = new DateTimeZone($item['timezone_db']);
+        $tz = new DateTimeZone($item['timezone']);
+        $value1 = new DateTime($item['value'], $tz_db);
+        $value1->setTimezone($tz);
+        $value2 = new DateTime($item['value2'], $tz_db);
+        $value2->setTimezone($tz);
+        $interval = $value1->diff($value2);
+
+        if ($interval->days == 0) {
+          // Single day event.
+          if (empty($item['value2']) || $item['value'] == $item['value2']) {
+            // Single day, all day.
+            // Format is `Wednesday, August 10, 2016, 7 (All Day)`
+            $markup = t(
+                '!date (All Day)',
+                array(
+                  '!date' => $value1->format('l, F d, Y'),
+                ));
+          }
+          else {
+            if ($value1->format('a') == $value2->format('a')) {
+              // Times are both 'am' or both 'pm'.
+              // Format is `Wednesday, August 10, 2016, 3-7 pm`
+              $start_str = $value1->format('l, F d, Y, g');
+              $end_str = $value2->format('g a');
+            }
+            else {
+              // Times span am/pm.
+              // Format is `Wednesday, August 10, 2016, 3 am-7 pm`
+              $start_str = $value1->format('l, F d, Y, g a');
+              $end_str = $value2->format('g a');
+            }
+            $markup = t(
+              '!start-date-!end-date',
+              array(
+                '!start-date' => $start_str,
+                '!end-date' => $end_str,
+              ));
+          }
+        }
+        else {
+          // Multi-day event.
+          // Format is `Wednesday, Aug. 10, 2016, 6 pm - Thursday, Aug. 11, 2016, 9 pm`
+          $markup = t(
+              '!start-date - !end-date',
+              array(
+                '!start-date' => $value1->format('l, M. d, Y, g a'),
+                '!end-date' => $value2->format('l, M. d, Y, g a'),
+              ));
+        }
+
+        $element[$delta] = array('#markup' => $markup);
+      }
+      break;
+  }
+
+  return $element;
 }

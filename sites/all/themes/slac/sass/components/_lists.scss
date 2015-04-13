@@ -5,10 +5,10 @@
     .field-name-field-shared-related-files {
       li a {
         display: inline-block;
+      }
     }
-  }
     .field-type-file span.file {
-      display: inline-block;
+      display: block;
       padding: .2em 0;
     }
     ul {
@@ -27,6 +27,18 @@
     // removes gap in related links lists
     .panel-pane.pane-node-field-shared-related-files {
       margin-bottom: 0;
+    }
+    .pane-combined-related-items {
+      ul {
+        li {
+          list-style-type: disc;
+          list-style-position: outside;
+          padding: .2em 0;
+        }
+        a {
+          display: inline;
+        }
+      }
     }
   }
 }

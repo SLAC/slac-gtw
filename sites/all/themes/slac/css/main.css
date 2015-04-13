@@ -319,7 +319,7 @@
 .node-type-access-information .general-left .pane-node-field-shared-location {
   margin-top: 3px;
 }
-.node-type-access-information .general-left .panel-pane:nth-child(n+6):nth-child(-n+8) {
+.node-type-access-information .general-left .panel-pane.pane-node-field-shared-location, .node-type-access-information .general-left .panel-pane.field-name-field-event-date, .node-type-access-information .general-left .panel-pane.pane-node-field-event-date {
   border-left: 5px solid rgba(92, 154, 201, 0.85);
 }
 .node-type-access-information .general-left .panel-pane div.field-item {
@@ -470,12 +470,25 @@
   background: url("../images/header-bg.png") 0 52px repeat-x;
   height: 82px;
   margin: 0 auto;
-  margin-bottom: 78px;
+  margin-bottom: 44px;
 }
 #header .header-wrapper {
   clear: both;
   display: table;
   content: "";
+}
+#header .logo a {
+  display: block;
+  width: 118px;
+  height: 102px;
+  background: url(../logo.png) 0 0 no-repeat;
+  background-image: url(../logo.svg), none;
+}
+#header .logo a span {
+  display: block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 #header .date {
   font-size: 11px;
@@ -571,7 +584,6 @@
   padding: 7px 10px;
   width: 250px;
   border: 1px solid #316dae;
-  text-transform: uppercase;
 }
 @media all and (min-width: 800px) {
   .header__region input[type="text"] {
@@ -593,19 +605,35 @@
     width: 180px;
   }
 }
-.header__region input[type="text"]:focus [placeholder] {
-  display: none;
+.header__region input::-webkit-input-placeholder {
+  text-transform: uppercase;
 }
-.header__region input[type="submit"] {
-  float: left;
-  margin-left: 2px;
+.header__region input:-moz-placeholder {
+  text-transform: uppercase;
+}
+.header__region input::-moz-placeholder {
+  text-transform: uppercase;
+}
+.header__region input:-ms-input-placeholder {
+  text-transform: uppercase;
 }
 .header__region input:focus::-webkit-input-placeholder {
-  opacity: 0;
+  color: transparent;
+}
+.header__region input:focus:-moz-placeholder {
+  color: transparent;
+}
+.header__region input:focus::-moz-placeholder {
+  color: transparent;
+}
+.header__region input:focus:-ms-input-placeholder {
+  color: transparent;
 }
 .header__region input[type="submit"] {
   font-size: 12px;
   font-size: 0.75rem;
+  float: left;
+  margin-left: 2px;
   background: #316dae;
   border: none;
   color: #ffffff;
@@ -708,7 +736,7 @@
 .node-type-event .general-right .field-type-file span.file,
 .node-type-news .general-right .field-type-file span.file,
 .node-type-access-information .general-right .field-type-file span.file {
-  display: inline-block;
+  display: block;
   padding: .2em 0;
 }
 .node-type-event .general-right ul,
@@ -735,6 +763,18 @@
 .node-type-news .general-right .panel-pane.pane-node-field-shared-related-files,
 .node-type-access-information .general-right .panel-pane.pane-node-field-shared-related-files {
   margin-bottom: 0;
+}
+.node-type-event .general-right .pane-combined-related-items ul li,
+.node-type-news .general-right .pane-combined-related-items ul li,
+.node-type-access-information .general-right .pane-combined-related-items ul li {
+  list-style-type: disc;
+  list-style-position: outside;
+  padding: .2em 0;
+}
+.node-type-event .general-right .pane-combined-related-items ul a,
+.node-type-news .general-right .pane-combined-related-items ul a,
+.node-type-access-information .general-right .pane-combined-related-items ul a {
+  display: inline;
 }
 
 /* Top Menu and Main Menu */
@@ -793,6 +833,7 @@
   color: #fff;
   background: #316dae;
   text-decoration: none;
+  font-weight: bold;
 }
 #block-system-main-menu .menu li a:hover, #block-system-main-menu .menu li a:focus {
   background: #ffffff;

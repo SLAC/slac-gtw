@@ -92,7 +92,7 @@ function slac_ip_menus_menu_default_menu_links() {
     'weight' => -47,
     'customized' => 1,
   );
-  // Exported menu link: menu-maps-and-directions_slac-campus-map:<front>
+  // Exported menu link: menu-maps-and-directions_slac-campus-map:https://www6.slac.stanford.edu/visiting-slac/maps-directions-visitormap.aspx
   $menu_links['menu-maps-and-directions_slac-campus-map:https://www6.slac.stanford.edu/visiting-slac/maps-directions-visitormap.aspx'] = array(
     'menu_name' => 'menu-maps-and-directions',
     'link_path' => 'https://www6.slac.stanford.edu/visiting-slac/maps-directions-visitormap.aspx',
@@ -115,20 +115,20 @@ function slac_ip_menus_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
-  // Exported menu link: menu-maps-and-directions_slac-meeting-rooms-map:<front>
-  $menu_links['menu-maps-and-directions_slac-meeting-rooms-map:https://www6.slac.stanford.edu/sites/www6.slac.stanford.edu/files/stanford_visitor_map.pdf'] = array(
+  // Exported menu link: menu-maps-and-directions_slac-meeting-rooms-map:https://www6.slac.stanford.edu/visiting-slac/maps-directions-meetingrooms.aspx
+  $menu_links['menu-maps-and-directions_slac-meeting-rooms-map:https://www6.slac.stanford.edu/visiting-slac/maps-directions-meetingrooms.aspx'] = array(
     'menu_name' => 'menu-maps-and-directions',
-    'link_path' => 'https://www6.slac.stanford.edu/sites/www6.slac.stanford.edu/files/stanford_visitor_map.pdf',
+    'link_path' => 'https://www6.slac.stanford.edu/visiting-slac/maps-directions-meetingrooms.aspx',
     'router_path' => '',
     'link_title' => 'SLAC Meeting Rooms Map',
     'options' => array(
+      'identifier' => 'menu-maps-and-directions_slac-meeting-rooms-map:https://www6.slac.stanford.edu/visiting-slac/maps-directions-meetingrooms.aspx',
       'attributes' => array(),
       'item_attributes' => array(
         'id' => '',
         'class' => '',
         'style' => '',
       ),
-      'identifier' => 'menu-maps-and-directions_slac-meeting-rooms-map:https://www6.slac.stanford.edu/sites/www6.slac.stanford.edu/files/stanford_visitor_map.pdf',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -138,20 +138,20 @@ function slac_ip_menus_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
-  // Exported menu link: menu-maps-and-directions_stanford-university-campus-map:https://www6.slac.stanford.edu/visiting-slac/maps-directions-visitormap.aspx
-  $menu_links['menu-maps-and-directions_stanford-university-campus-map:https://www6.slac.stanford.edu/visiting-slac/maps-directions-visitormap.aspx'] = array(
+  // Exported menu link: menu-maps-and-directions_stanford-university-campus-map:https://www6.slac.stanford.edu/sites/www6.slac.stanford.edu/files/stanford_visitor_map.pdf
+  $menu_links['menu-maps-and-directions_stanford-university-campus-map:https://www6.slac.stanford.edu/sites/www6.slac.stanford.edu/files/stanford_visitor_map.pdf'] = array(
     'menu_name' => 'menu-maps-and-directions',
-    'link_path' => 'https://www6.slac.stanford.edu/visiting-slac/maps-directions-visitormap.aspx',
+    'link_path' => 'https://www6.slac.stanford.edu/sites/www6.slac.stanford.edu/files/stanford_visitor_map.pdf',
     'router_path' => '',
     'link_title' => 'Stanford University Campus Map',
     'options' => array(
+      'identifier' => 'menu-maps-and-directions_stanford-university-campus-map:https://www6.slac.stanford.edu/sites/www6.slac.stanford.edu/files/stanford_visitor_map.pdf',
       'attributes' => array(),
       'item_attributes' => array(
         'id' => '',
         'class' => '',
         'style' => '',
       ),
-      'identifier' => 'menu-maps-and-directions_stanford-university-campus-map:https://www6.slac.stanford.edu/visiting-slac/maps-directions-visitormap.aspx',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -161,8 +161,8 @@ function slac_ip_menus_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
-  // Exported menu link: menu-top-menu_slac-public-site:http://slac.stanford.edu
-  $menu_links['menu-top-menu_slac-public-site:http://slac.stanford.edu'] = array(
+  // Exported menu link: menu-top-menu_slac-public-home:http://slac.stanford.edu
+  $menu_links['menu-top-menu_slac-public-home:http://slac.stanford.edu'] = array(
     'menu_name' => 'menu-top-menu',
     'link_path' => 'http://slac.stanford.edu',
     'router_path' => '',
@@ -176,7 +176,7 @@ function slac_ip_menus_menu_default_menu_links() {
         'class' => '',
         'style' => '',
       ),
-      'identifier' => 'menu-top-menu_slac-public-site:http://slac.stanford.edu',
+      'identifier' => 'menu-top-menu_slac-public-home:http://slac.stanford.edu',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -218,7 +218,7 @@ function slac_ip_menus_menu_default_menu_links() {
   t('News');
   t('SLAC Campus Map');
   t('SLAC Meeting Rooms Map');
-  t('SLAC Public Site');
+  t('SLAC Public Home');
   t('Staff Resources');
   t('Stanford University');
   t('Stanford University Campus Map');

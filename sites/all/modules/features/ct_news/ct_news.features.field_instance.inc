@@ -141,8 +141,8 @@ function ct_news_field_default_field_instances() {
     'label' => 'Desired Publish Date',
     'required' => 0,
     'settings' => array(
-      'default_value' => 'now',
-      'default_value2' => 'same',
+      'default_value' => 'blank',
+      'default_value2' => 'blank',
       'default_value_code' => '',
       'default_value_code2' => '',
       'user_register_form' => FALSE,
@@ -854,7 +854,7 @@ function ct_news_field_default_field_instances() {
     'label' => 'Related Files',
     'required' => 0,
     'settings' => array(
-      'description_field' => 0,
+      'description_field' => 1,
       'file_directory' => '',
       'file_extensions' => 'doc docx pdf txt ppt pptx xls xlsx jpg jpeg gif png',
       'max_filesize' => '25 MB',
@@ -865,7 +865,7 @@ function ct_news_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          'private' => 'private',
+          'private' => 0,
           'public' => 'public',
           'vimeo' => 0,
           'youtube' => 0,

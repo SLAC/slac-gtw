@@ -82,7 +82,6 @@ function v_event_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['path'] = '[nothing_3]';
-  $handler->display->display_options['fields']['title']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
@@ -121,6 +120,7 @@ function v_event_views_default_views() {
   $handler->display->display_options['fields']['field_shared_location']['table'] = 'field_data_field_shared_location';
   $handler->display->display_options['fields']['field_shared_location']['field'] = 'field_shared_location';
   $handler->display->display_options['fields']['field_shared_location']['label'] = '';
+  $handler->display->display_options['fields']['field_shared_location']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_shared_location']['element_label_colon'] = FALSE;
   /* Field: Time and Location */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';

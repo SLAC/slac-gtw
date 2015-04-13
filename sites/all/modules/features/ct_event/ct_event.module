@@ -26,7 +26,7 @@ function ct_event_menu() {
  * creating an Event node.
  */
 function ct_event_custom_add() {
-  $content = '<p>' . t('This page provides links for various configurations for creating an Event node. If you need to create an Access Notice instead, please use the appropriate link under "Other Options".') . '</p>';
+  $content = '<p>' . t('This page provides links for creating Events. If you need to create an Access Notice instead, please use the appropriate link under "Other Options."') . '</p>';
 
   $event_items = array(
     l(t('Create an Event'), 'node/add/event'),

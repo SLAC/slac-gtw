@@ -62,6 +62,10 @@ function slac_igp_deployment_install() {
     't_event_type',
     'v_terms_on_node',
     'v_top_links',
+    'migrate',
+    'migrate_ui',
+    'migrate_extras',
+    'slac_migrate',
   ));
 
   // Revert slac_ip_menus so that the new menu block will have a DB record.
@@ -78,6 +82,7 @@ function slac_igp_deployment_install() {
   _slac_igp_deployment_revert('ct_event');
 
   // Revert features for pre-existing views.
+  _slac_igp_deployment_revert('v_event');
   _slac_igp_deployment_revert('v_top_links');
 
   // Revert other pre-existing, updated features.
@@ -501,6 +506,30 @@ function slac_igp_deployment_update_7022() {
 function slac_igp_deployment_update_7023() {
   $result = module_enable(array(
     'v_top_links',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Remove the incorrect Maps and Directions menu items replaced by the feature.
+ */
+function slac_igp_deployment_update_7024() {
+  menu_link_delete(1334);
+  menu_link_delete(1337);
+}
+
+/**
+ * Enable migrate modules.
+ */
+function slac_igp_deployment_update_7025() {
+  $result = module_enable(array(
+    'migrate',
+    'migrate_ui',
+    'migrate_extras',
+    'slac_migrate',
   ));
 
   if ($result == FALSE) {
