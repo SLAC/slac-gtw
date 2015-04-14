@@ -51,10 +51,6 @@ class SlacFileCopyMigration extends Migration {
   }
 }
 
-
-
-
-
 /**
  * Migration class for media_youtube entities.
  */
@@ -63,25 +59,17 @@ class SlacVideoMigration extends Migration {
     parent::__construct($arguments);
     $this->description = t('Migrationvideos');
 
-
-
-
     $query = Database::getConnection('default', 'legacy')
          ->select('node', 'n');
     $query->join('content_type_video', 'v', 'n.vid = v.vid');
     $query->join('node_revisions', 'nr', 'n.vid = nr.vid');
-    $query->fields('n', array('nid', 'vid', 'type', 'title', 'uid', 'status', 'created', 'changed', 'promote', 'sticky'));
-    $query->fields('v', array('vid', 'field_media_field_video_embed', 'field_media_field_video_value', 'field_media_field_video_provider', 'field_media_field_video_data'));
-    $query->fields('nr', array('vid', 'body', 'teaser', 'format'));
+    $query->fields('n', array('nid', 'vid', 'type', 'title', 'uid', 'created'));
+    $query->fields('v', array('vid', 'field_media_field_video_value', 'field_media_field_video_provider'));
+    $query->fields('nr', array('vid', 'body', 'format'));
     $query->condition('n.type', 'video', '=');
     $query->condition('v.field_media_field_video_provider', 'youtube', '=');
     $this->source = new MigrateSourceSQL($query, array(), NULL, array('map_joinable' => FALSE));
     $this->destination = new MigrateDestinationFile();
-
-
-
-
-
 
     $this->map = new MigrateSQLMap($this->machineName,
       array(
@@ -95,42 +83,67 @@ class SlacVideoMigration extends Migration {
       MigrateDestinationMedia::getKeySchema()
     );
 
-
     // In this case, we need to specify the file_class in the second paramter -
     // this class understands how to translate a http://www.youtube.com/ URI
     // into Drupal's Youtube file scheme (youtube://).
     $this->destination = new MigrateDestinationMedia('video',
       'MigrateExtrasFileYoutube');
 
-    // We just need to map the 'value' in the media destination to the Youtube
-    // URI.
+    // Field mappings.
     $this->addFieldMapping('value', 'field_media_field_video_value');
     $this->addFieldMapping('field_file_shared_caption', 'body');
-    //$this->addFieldMapping('title', 'title');
+    $this->addFieldMapping('field_file_shared_caption:format', 'format');
+    $this->addFieldMapping('timestamp', 'created');
+    $this->addFieldMapping(NULL, 'title');
 
+    // Unmigrated destination fields.
+    $this->addUnmigratedDestinations(array('field_file_shared_caption:language', 'path'));
 
+    // Unmapped destination metatag fields.
+    $this->addUnmigratedDestinations(array(
+      'metatag_title', 'metatag_description', 'metatag_abstract', 'metatag_keywords', 'metatag_robots',
+      'metatag_news_keywords', 'metatag_standout', 'metatag_generator', 'metatag_rights', 'metatag_image_src',
+      'metatag_canonical', 'metatag_shortlink', 'metatag_publisher', 'metatag_author', 'metatag_original-source',
+      'metatag_revisit-after', 'metatag_content-language',
+    ));
 
-/*
-    $this->addUnmigratedDestinations(array('field_video_description:format',
-      'field_video_description:language', 'timestamp'));
-    if (module_exists('path')) {
-      $this->addUnmigratedDestinations(array('path'));
-    }
-*/
+    // Unmigrated source fields.
+    $this->addUnmigratedSources(array('vid', 'type', 'v_vid', 'field_media_field_video_provider', 'nr_vid', 'title'));
   }
 
+  /**
+   * Implements prepareRow method.
+   */
   public function prepareRow($row) {
     if (parent::prepareRow($row) === FALSE) {
       return FALSE;
     }
+    // Adjust YouTube url.  Database only contains id.
     $row->field_media_field_video_value = 'https://www.youtube.com/watch?v=' . $row->field_media_field_video_value;
-    https://www.youtube.com/watch?v=GZgQjN0aNHM
-    //dsm($row, 'row');
+
+    // Convert filter formats.
+    if ($row->format == 2) {
+      $row->format = 'full_html';
+    }
+    elseif ($row->format == 1) {
+      $row->format = 'filtered_html';
+    }
+    else {
+      $row->format = 'full_html';
+    }
   }
 
-  public function prepare($entity, $row) {
+  /**
+   * Implements complete method.
+   */
+  public function complete($entity, stdClass $row) {
 
-    //dsm($entity, 'entity');
+    // Import custom file fields and overwrite title field.
+    // Youtube module automatically sets Youtube title.
+    $entity->field_file_shared_caption[LANGUAGE_NONE][0]['value'] = $row->body;
+    $entity->field_file_shared_caption[LANGUAGE_NONE][0]['format'] = $row->format;
+    $entity->filename = $row->title;
+    entity_save('file', $entity);
   }
 }
 
