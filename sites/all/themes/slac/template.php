@@ -233,3 +233,20 @@ function slac_process_field(&$vars) {
     }
   }
 }
+
+/**
+ * Override or insert variables for theme_views_view().
+ */
+function slac_preprocess_views_view(&$vars) {
+  $view = &$vars['view'];
+  if ($view->name == 'news_archive') {
+    // Update the title based on the News type filter.
+    if (isset($view->exposed_data['field_news_news_type_value'])) {
+      $type = $view->exposed_data['field_news_news_type_value'];
+      if ($type !== 'All') {
+        // Update the title.
+        $view->build_info['title'] = $type;
+      }
+    }
+  }
+}
