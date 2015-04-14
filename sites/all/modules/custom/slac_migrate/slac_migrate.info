@@ -5,3 +5,6 @@ dependencies[] = migrate
 dependencies[] = migrate_extras
 package = SLAC
 
+files[] = slac_migrate.migrate.inc
+files[] = includes/node.inc
+files[] = includes/file.inc
