@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the News Archive feature.
+ */
+
+include_once 'v_news_archive.features.inc';
