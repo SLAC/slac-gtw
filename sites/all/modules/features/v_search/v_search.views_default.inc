@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * slac_ip_config_search.views_default.inc
+ * v_search.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function slac_ip_config_search_views_default_views() {
+function v_search_views_default_views() {
   $export = array();
 
   $view = new view();

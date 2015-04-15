@@ -48,13 +48,16 @@ function slac_igp_deployment_install() {
     'slac_ip_panes',
     'slac_search',
     'ct_access_information',
+    'ct_basic_page',
     'ct_event',
     'ct_news',
+    'ct_webform',
     'pm_news',
     'v_event',
     'v_featured_news_pane',
     'v_news',
     'v_news_archive',
+    'v_search',
     't_slac_ip_tags',
     'workbench',
     'workbench_email',
@@ -544,6 +547,24 @@ function slac_igp_deployment_update_7025() {
 function slac_igp_deployment_update_7026() {
   $result = module_enable(array(
     'v_news_archive',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable basic page webform features and search api modules.
+ */
+function slac_igp_deployment_update_7027() {
+  $result = module_enable(array(
+    'search_api',
+    'search_api_db',
+    'search_api_views',
+    'ct_basic_page',
+    'ct_webform',
+    'v_search',
   ));
 
   if ($result == FALSE) {

@@ -88,7 +88,7 @@ function ct_news_strongarm() {
         'custom_settings' => FALSE,
       ),
       'search_result' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'ical' => array(
         'custom_settings' => FALSE,

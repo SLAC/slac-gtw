@@ -31,6 +31,15 @@ function ct_event_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 3,
       ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'type' => 'text_summary_or_trimmed',
+        'weight' => 1,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -93,6 +102,12 @@ function ct_event_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 0,
       ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -148,6 +163,12 @@ function ct_event_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 8,
       ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -188,6 +209,12 @@ function ct_event_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 17,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -230,6 +257,12 @@ function ct_event_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 9,
+      ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -283,6 +316,12 @@ function ct_event_field_default_field_instances() {
         'type' => 'email_default',
         'weight' => 5,
       ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -328,6 +367,12 @@ function ct_event_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 4,
+      ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -381,6 +426,12 @@ function ct_event_field_default_field_instances() {
         'type' => 'text_plain',
         'weight' => 6,
       ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -426,6 +477,12 @@ function ct_event_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 2,
+      ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -475,6 +532,16 @@ function ct_event_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 10,
+      ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -548,6 +615,12 @@ function ct_event_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 1,
       ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -598,6 +671,12 @@ function ct_event_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 13,
       ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -639,6 +718,12 @@ function ct_event_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 14,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -689,6 +774,12 @@ function ct_event_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 16,
       ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -731,6 +822,12 @@ function ct_event_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 12,
+      ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -797,6 +894,12 @@ function ct_event_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 11,
+      ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -866,6 +969,12 @@ function ct_event_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 7,
+      ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
