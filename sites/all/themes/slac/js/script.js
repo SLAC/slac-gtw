@@ -36,7 +36,7 @@
     attach: function (context, settings) {
       var re = new RegExp('/' + window.location.host + '|slac.stanford.edu/');
       $('a', context).each(function () {
-        if (!re.test(this.href)) {
+        if (this.href.substring(0, 4) === 'http' && !re.test(this.href)) {
           $(this).click(function (e) {
             e.preventDefault();
             e.stopPropagation();
