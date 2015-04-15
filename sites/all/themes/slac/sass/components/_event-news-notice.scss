@@ -155,6 +155,7 @@ $zen-column-count: 12;
       width: 370px;
       float: left;
       margin-right: 30px;
+      margin-bottom: 2em;
     }
     .pane-node-body {
       border-top: none;
@@ -175,6 +176,10 @@ $zen-column-count: 12;
         margin-bottom: 2.5em;
         border-bottom: dashed 3px $event-border;
       }
+    }
+    .pane-node-field-shared-video .file-video {
+      margin-bottom: 2em;
+      border-bottom: dashed 3px $event-border;
     }
   }
 }

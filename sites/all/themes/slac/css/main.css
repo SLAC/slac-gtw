@@ -210,6 +210,12 @@
   font-size: 0.75rem;
   font-style: italic;
 }
+.node-type-event .general-right .field-name-field-file-shared-caption p,
+.node-type-news .general-right .field-name-field-file-shared-caption p,
+.node-type-access-information .general-right .field-name-field-file-shared-caption p {
+  margin-top: 0;
+  margin-bottom: 2.5em;
+}
 .node-type-event .general-right .panel-pane,
 .node-type-news .general-right .panel-pane,
 .node-type-access-information .general-right .panel-pane {
@@ -239,6 +245,10 @@
   font-size: 0.75rem;
   font-style: italic;
 }
+.node-type-news #content .field-name-field-file-shared-caption p {
+  margin-top: 0;
+  margin-bottom: 2.5em;
+}
 .node-type-news .general-left .panel-pane.pane-slac-ip-panes-email,
 .node-type-news .general-left .pane-slac-ip-panes-print {
   position: relative;
@@ -255,6 +265,7 @@
   width: 370px;
   float: left;
   margin-right: 30px;
+  margin-bottom: 2em;
 }
 .node-type-news .general-left .pane-node-body {
   border-top: none;
@@ -270,6 +281,10 @@
 .node-type-news .general-right .panel-pane .file-image .field-name-field-file-shared-caption {
   padding-bottom: 2.5em;
   margin-bottom: 2.5em;
+  border-bottom: dashed 3px #b1c0c7;
+}
+.node-type-news .general-right .pane-node-field-shared-video .file-video {
+  margin-bottom: 2em;
   border-bottom: dashed 3px #b1c0c7;
 }
 
@@ -348,6 +363,10 @@
   font-size: 12px;
   font-size: 0.75rem;
   font-style: italic;
+}
+.node-type-access-information .general-right .field-name-field-file-shared-caption p {
+  margin-top: 0;
+  margin-bottom: 2.5em;
 }
 
 .node-type-event .pane-node-body .field-name-body {
