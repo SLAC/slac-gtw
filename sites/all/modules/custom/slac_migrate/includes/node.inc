@@ -30,7 +30,6 @@ class SlacStoryMigration extends SlacNodeMigration {
     $this->addFieldMapping('field_shared_video:file_class')
      ->defaultValue('MigrateFileFid');
 
-
     // Unmapped destination fields. Indented for grouping subfields.
     $this->addUnmigratedDestinations(array(
       'field_news_desired_publish_date', 'field_news_desired_publish_date:timezone',
@@ -71,7 +70,7 @@ class SlacStoryMigration extends SlacNodeMigration {
     // Unmigrated source fields.
     $this->addUnmigratedSources(array('revision', 'log', 'revision_uid',
       'field_issue_reference', 'field_title_short', 'field_image', 'field_content_links',
-      'field_media_coverage', 'field_audio_reference', 'field_story_type',
+      'field_media_coverage', 'field_audio_reference', 'field_story_type', 'uid', 'name',
       // Node counter fields:
       'daycount', 'timestamp', 'totalcount'));
   }
@@ -80,5 +79,32 @@ class SlacStoryMigration extends SlacNodeMigration {
     if (parent::prepareRow($row) === FALSE) {
       return FALSE;
     }
+  }
+
+  public function prepare($entity, $row) {
+
+    // Check if user exists on D7 site.  If so, load the user by name and assign.
+    // (Uids are not the same on both sites.)
+    $d7_user = user_load_by_name($row->name);
+    if (isset($d7_user->uid)) {
+      $entity->uid = $d7_user->uid;
+    }
+  }
+
+
+  /**
+   * Extend basic query to include node author's username so we can map to username
+   * on D7 site.
+   */
+  protected function query() {
+
+    // Get the default query (all rows in the users table other than uid 1)
+    $query = parent::query();
+
+    // Get the username of the node author.
+    $query->LeftJoin('users', 'u', 'n.uid = u.uid');
+    $query->fields('u', array('name'));
+
+    return $query;
   }
 }
