@@ -69,12 +69,12 @@ $zen-column-count: 12;
 
 .header__region {
   input[type="text"] {
-    @include font-size(9px);
+    @include font-size(14px);
     display: block;
     float: left;
     margin: 0;
     margin-left: 10px;
-    padding: 7px 10px;
+    padding: 4px 10px;
     width: 250px;
     border: 1px solid $blue;
     @media all and (min-width: 800px) {
@@ -90,15 +90,38 @@ $zen-column-count: 12;
       width: 180px;
     }
   }
-  input::-webkit-input-placeholder {text-transform: uppercase;}
-  input:-moz-placeholder {text-transform: uppercase;}/*FF 18- */
-  input::-moz-placeholder {text-transform: uppercase;}/* FF 19+ */
-  input:-ms-input-placeholder {text-transform: uppercase;}
-  input:focus::-webkit-input-placeholder { color:transparent; }
-  input:focus:-moz-placeholder { color:transparent; }/* FF 4-18 */
-  input:focus::-moz-placeholder { color:transparent; }/* FF 19+ */
-  input:focus:-ms-input-placeholder { color:transparent; }/*IE 10+ */
-
+  input::-webkit-input-placeholder {
+    text-transform: uppercase;
+    @include font-size(9px);
+    padding-top: 4px;
+  }
+  input:-moz-placeholder {
+    text-transform: uppercase;
+    @include font-size(9px);
+    padding-top: 4px;
+  }/*FF 18- */
+  input::-moz-placeholder {
+    text-transform: uppercase;
+    @include font-size(9px);
+    padding-top: 4px;
+  }/* FF 19+ */
+  input:-ms-input-placeholder {
+    text-transform: uppercase;
+    @include font-size(9px);
+    padding-top: 4px;
+  }
+  input:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+  input:focus:-moz-placeholder {
+    color: transparent;
+  }/* FF 4-18 */
+  input:focus::-moz-placeholder {
+    color: transparent;
+  }/* FF 19+ */
+  input:focus:-ms-input-placeholder {
+    color: transparent;
+  }/*IE 10+ */
   input[type="submit"] {
     @include font-size(12px);
     float: left;

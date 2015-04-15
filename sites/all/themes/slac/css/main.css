@@ -575,13 +575,13 @@
 }
 
 .header__region input[type="text"] {
-  font-size: 9px;
-  font-size: 0.5625rem;
+  font-size: 14px;
+  font-size: 0.875rem;
   display: block;
   float: left;
   margin: 0;
   margin-left: 10px;
-  padding: 7px 10px;
+  padding: 4px 10px;
   width: 250px;
   border: 1px solid #316dae;
 }
@@ -607,15 +607,27 @@
 }
 .header__region input::-webkit-input-placeholder {
   text-transform: uppercase;
+  font-size: 9px;
+  font-size: 0.5625rem;
+  padding-top: 4px;
 }
 .header__region input:-moz-placeholder {
   text-transform: uppercase;
+  font-size: 9px;
+  font-size: 0.5625rem;
+  padding-top: 4px;
 }
 .header__region input::-moz-placeholder {
   text-transform: uppercase;
+  font-size: 9px;
+  font-size: 0.5625rem;
+  padding-top: 4px;
 }
 .header__region input:-ms-input-placeholder {
   text-transform: uppercase;
+  font-size: 9px;
+  font-size: 0.5625rem;
+  padding-top: 4px;
 }
 .header__region input:focus::-webkit-input-placeholder {
   color: transparent;
