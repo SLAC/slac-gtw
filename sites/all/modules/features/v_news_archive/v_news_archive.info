@@ -10,3 +10,4 @@ features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[views_view][] = news_archive
 features_exclude[dependencies][ctools] = ctools
+stylesheets[all][] = v_news_archive.css
