@@ -6,12 +6,58 @@
  */
 
 /**
- * Implements hook_form_FORM_ID_alter().
+ * Implements hook_block_info().
  */
-function slac_search_form_search_block_form_alter(&$form, &$form_state, $form_id) {
-  // Alter search form display.
-  $form['search_block_form']['#attributes']['placeholder'] = t('Search SLAC Today');
-  $form['actions']['submit']['#value'] = t('Go');
+function slac_search_block_info() {
+  $blocks['form']['info'] = t('SLAC Search form');
+  $blocks['form']['cache'] = DRUPAL_NO_CACHE;
+  $blocks['form']['properties']['administrative'] = TRUE;
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function slac_search_block_view($delta = '') {
+  $block['content'] = drupal_get_form('slac_search_block_form');
+  return $block;
+}
+
+/**
+ * Implements hook_forms().
+ */
+function slac_search_forms() {
+  $forms['slac_search_block_form']= array(
+    'callback' => 'slac_search_box',
+    'callback arguments' => array('slac_search_block_form'),
+  );
+  return $forms;
+}
+
+/**
+ * Form builder; Output a search form for the search block's search box.
+ *
+ * @ingroup forms
+ * @see search_box_form_submit()
+ * @see search-block-form.tpl.php
+ */
+function slac_search_box($form, &$form_state, $form_id) {
+
+  $form[$form_id] = array(
+    '#type' => 'textfield',
+    '#title' => t('Search'),
+    '#title_display' => 'invisible',
+    '#size' => 15,
+    '#default_value' => '',
+    '#attributes' => array(
+      'title' => t('Enter the terms you wish to search for.'),
+      'placeholder' => t('Search SLAC Today'),
+    ),
+  );
+
+  $form['actions'] = array('#type' => 'actions');
+  $form['actions']['submit'] = array('#type' => 'submit', '#value' => t('Go'));
+  $form['#submit'][] = 'slac_search_box_form_submit';
 
   // Add a search type select element to the beginning of the form. Wrapped in a
   // div with the normal search text element.
@@ -34,8 +80,8 @@ function slac_search_form_search_block_form_alter(&$form, &$form_state, $form_id
     ),
     '#default_value' => 'default',
   );
-  $elements['search_elements']['search_block_form'] = $form['search_block_form'];
-  unset($form['search_block_form']);
+  $elements['search_elements'][$form_id] = $form[$form_id];
+  unset($form[$form_id]);
 
   $form = $elements + $form;
 
@@ -47,44 +93,85 @@ function slac_search_form_search_block_form_alter(&$form, &$form_state, $form_id
   $form['#attached']['css'] = array(
     libraries_get_path('selectize') . '/selectize.css',
   );
-
-  // Replace the form_submit with a version that redirects to the appropriate
-  // search system based on the Search Type chosen.
-  $form['#orig_submit'] = $form['#submit'];
-  $form['#submit'] = array('slac_search_block_form_submit');
+  return $form;
 }
 
 /**
- * Submit handler for block search form just sets the redirect for the form
- * based on the search query.
- *
- * @see slac_search_form_search_block_form_alter().
+ * Process a block search form submission.
  */
-function slac_search_block_form_submit($form, &$form_state) {
+function slac_search_box_form_submit($form, &$form_state) {
+
+  // Remove dynamic destinations, the results page is always the destination.
+  if (isset($_GET['destination'])) {
+    unset($_GET['destination']);
+  }
+
+  $form_id = $form['form_id']['#value'];
   $search_type = $form_state['values']['search_type'];
+  $search_query = urlencode($form_state['values'][$form_id]);
   if ($search_type !== 'default') {
-    // Remove dynamic destinations, the results page is always the destination.
-    if (isset($_GET['destination'])) {
-      unset($_GET['destination']);
-    }
 
     // Set the form redirect to either the people search or enterprise search if
     // the search type was changed from "SLAC Today" ('default').
-    $search_query = urlencode($form_state['values']['search_block_form']);
     if ($search_type == 'people') {
       $url = 'https://www-public.slac.stanford.edu/phonebook/dirsearch.aspx?name=' . $search_query . '&gone=active&lf=1&url=&submit=go';
     }
     else {
+
       // 'enterprise'
       $url = 'http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite&qt=' . $search_query;
     }
     $form_state['redirect'] = url($url, array('absolute' => TRUE));
   }
   else {
-    // 'default' uses the core search functionality, call the default form
-    // submit handler(s).
-    foreach ($form['#orig_submit'] as $func) {
-      $func($form, $form_state);
+
+    // Direct to search_api_views page.
+    $form_state['redirect'] =  array(
+      'search',
+      array(
+        'query' => array(
+          'search_api_views_fulltext' => $search_query,
+        ),
+      ),
+    );
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function slac_search_theme() {
+  return array(
+    'slac_search_block_form' => array(
+      'render element' => 'form',
+      'template' => 'slac-search-block-form',
+    ),
+  );
+}
+
+/**
+ * Process variables for slac-search-block-form.tpl.php.
+ *
+ * The $variables array contains the following arguments:
+ * - $form
+ *
+ * @see slac-search-block-form.tpl.php
+ */
+function template_preprocess_slac_search_block_form(&$variables) {
+  $variables['search'] = array();
+  $hidden = array();
+  // Provide variables named after form keys so themers can print each element independently.
+  foreach (element_children($variables['form']) as $key) {
+    $type = isset($variables['form'][$key]['#type']) ? $variables['form'][$key]['#type'] : '';
+    if ($type == 'hidden' || $type == 'token') {
+      $hidden[] = drupal_render($variables['form'][$key]);
+    }
+    else {
+      $variables['search'][$key] = drupal_render($variables['form'][$key]);
     }
   }
+  // Hidden form elements have no value to themers. No need for separation.
+  $variables['search']['hidden'] = implode($hidden);
+  // Collect all form elements to make it easier to print the whole form.
+  $variables['slac_search_form'] = implode($variables['search']);
 }
