@@ -214,7 +214,7 @@
 .node-type-news .general-right .field-name-field-file-shared-caption p,
 .node-type-access-information .general-right .field-name-field-file-shared-caption p {
   margin-top: 0;
-  margin-bottom: 2.5em;
+  margin-bottom: 2.5rem;
 }
 .node-type-event .general-right .panel-pane,
 .node-type-news .general-right .panel-pane,
@@ -247,7 +247,7 @@
 }
 .node-type-news #content .field-name-field-file-shared-caption p {
   margin-top: 0;
-  margin-bottom: 2.5em;
+  margin-bottom: 2.5rem;
 }
 .node-type-news .general-left .panel-pane.pane-slac-ip-panes-email,
 .node-type-news .general-left .pane-slac-ip-panes-print {
@@ -284,7 +284,7 @@
   border-bottom: dashed 3px #b1c0c7;
 }
 .node-type-news .general-right .pane-node-field-shared-video .file-video {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
   border-bottom: dashed 3px #b1c0c7;
 }
 
@@ -366,7 +366,7 @@
 }
 .node-type-access-information .general-right .field-name-field-file-shared-caption p {
   margin-top: 0;
-  margin-bottom: 2.5em;
+  margin-bottom: 2.5rem;
 }
 
 .node-type-event .pane-node-body .field-name-body {
