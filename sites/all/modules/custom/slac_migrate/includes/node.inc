@@ -30,6 +30,11 @@ class SlacStoryMigration extends SlacNodeMigration {
     $this->addFieldMapping('field_shared_video:file_class')
      ->defaultValue('MigrateFileFid');
 
+    $this->addFieldMapping('field_shared_image', 'field_image_reference')
+      ->sourceMigration('Images');
+    $this->addFieldMapping('field_shared_image:file_class')
+     ->defaultValue('MigrateFileFid');
+
     // Unmapped destination fields. Indented for grouping subfields.
     $this->addUnmigratedDestinations(array(
       'field_news_desired_publish_date', 'field_news_desired_publish_date:timezone',
@@ -75,24 +80,7 @@ class SlacStoryMigration extends SlacNodeMigration {
       'daycount', 'timestamp', 'totalcount'));
   }
 
-  public function prepareRow($row) {
-    if (parent::prepareRow($row) === FALSE) {
-      return FALSE;
-    }
-  }
-
-  public function prepare($entity, $row) {
-
-    // Check if user exists on D7 site.  If so, load the user by name and assign.
-    // (Uids are not the same on both sites.)
-    $d7_user = user_load_by_name($row->name);
-    if (isset($d7_user->uid)) {
-      $entity->uid = $d7_user->uid;
-    }
-  }
-
-
-  /**
+    /**
    * Extend basic query to include node author's username so we can map to username
    * on D7 site.
    */
@@ -106,5 +94,41 @@ class SlacStoryMigration extends SlacNodeMigration {
     $query->fields('u', array('name'));
 
     return $query;
+  }
+
+  public function prepareRow($row) {
+
+    // Get the query from the parent so we can add to it.
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+
+    // Image references point to the image node that contain the image.
+    // We need to point it to the actual fid of the image.
+    if (isset($row->field_image_reference)) {
+      foreach($row->field_image_reference as $key => $image_node_nid) {
+
+        $image_query = Database::getConnection('default', $this->sourceConnection)
+          ->select('node', 'n')
+          ->fields('n', array('nid', 'vid'))
+          ->condition('n.nid', $image_node_nid, '=');
+        $image_query->LeftJoin('content_field_image', 'cfi', 'n.vid = cfi.vid');
+        $image_query->fields('cfi', array('field_image_fid'));
+
+        $image = $image_query->execute()->fetchAssoc();
+
+        $row->field_image_reference[$key] = $image['field_image_fid'];
+      }
+    }
+  }
+
+  public function prepare($entity, $row) {
+
+    // Check if user exists on D7 site.  If so, load the user by name and assign.
+    // (Uids are not the same on both sites.)
+    $d7_user = user_load_by_name($row->name);
+    if (isset($d7_user->uid)) {
+      $entity->uid = $d7_user->uid;
+    }
   }
 }

@@ -21,7 +21,6 @@ class SlacFileCopyMigration extends Migration {
              ->fields('f', array('fid', 'filename', 'filepath', 'filemime', 'timestamp', 'status', 'origname'))
              ->condition('f.filemime', 'image%', 'LIKE');
     $this->source = new MigrateSourceSQL($query, array(), NULL, array('map_joinable' => FALSE));
-    $this->destination = new MigrateDestinationFile();
     $this->map = new MigrateSQLMap($this->machineName,
         array('fid' => array(
               'type' => 'int',
@@ -69,7 +68,6 @@ class SlacVideoMigration extends Migration {
     $query->condition('n.type', 'video', '=');
     $query->condition('v.field_media_field_video_provider', 'youtube', '=');
     $this->source = new MigrateSourceSQL($query, array(), NULL, array('map_joinable' => FALSE));
-    $this->destination = new MigrateDestinationFile();
 
     $this->map = new MigrateSQLMap($this->machineName,
       array(
