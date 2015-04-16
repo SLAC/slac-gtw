@@ -48,13 +48,16 @@ function slac_igp_deployment_install() {
     'slac_ip_panes',
     'slac_search',
     'ct_access_information',
+    'ct_basic_page',
     'ct_event',
     'ct_news',
+    'ct_webform',
     'pm_news',
     'v_event',
     'v_featured_news_pane',
     'v_news',
     'v_news_archive',
+    'v_search',
     't_slac_ip_tags',
     'workbench',
     'workbench_email',
@@ -88,6 +91,9 @@ function slac_igp_deployment_install() {
 
   // Revert other pre-existing, updated features.
   _slac_igp_deployment_revert('slac_igp_feed');
+
+  // Disable search module.
+  module_disable(array('search'));
 }
 
 /**
@@ -116,14 +122,14 @@ function _slac_igp_deployment_place_search_block() {
     ->condition('theme', 'slac', '=')
     ->execute();
 
-  // Place the core search block into the header region.
+  // Place the slac search block into the header region.
   db_update('block')
     ->fields(array(
       'status' => 1,
-      'weight' => -33,
+      'weight' => -38,
       'region' => 'header',
     ))
-    ->condition('module', 'search', '=')
+    ->condition('module', 'search_search', '=')
     ->condition('delta', 'form', '=')
     ->condition('theme', 'slac', '=')
     ->execute();
@@ -549,4 +555,51 @@ function slac_igp_deployment_update_7026() {
   if ($result == FALSE) {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
+}
+
+/**
+ * Enable basic page webform features and search api modules.
+ */
+function slac_igp_deployment_update_7027() {
+
+  // Remove core search block.
+  db_update('block')
+    ->fields(array(
+      'status' => 0,
+      'weight' => 0,
+      'region' => -1,
+    ))
+    ->condition('module', 'search', '=')
+    ->condition('delta', 'form', '=')
+    ->condition('theme', 'slac', '=')
+    ->execute();
+
+  // Disable search module.
+  module_disable(array('search'));
+
+  $result = module_enable(array(
+    'search_api',
+    'search_api_db',
+    'search_api_views',
+    'ct_basic_page',
+    'ct_webform',
+    'v_search',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+  drupal_flush_all_caches();
+
+  // Place the slac search block into the header region.
+  db_update('block')
+    ->fields(array(
+      'status' => 1,
+      'weight' => -38,
+      'region' => 'header',
+    ))
+    ->condition('module', 'slac_search', '=')
+    ->condition('delta', 'form', '=')
+    ->condition('theme', 'slac', '=')
+    ->execute();
 }
