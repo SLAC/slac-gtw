@@ -141,16 +141,16 @@ function ct_flea_market_item_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '2',
+          'weight' => '1',
         ),
         'metatags' => array(
-          'weight' => '7',
+          'weight' => '9',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '7',
         ),
         'redirect' => array(
-          'weight' => '6',
+          'weight' => '8',
         ),
       ),
       'display' => array(
