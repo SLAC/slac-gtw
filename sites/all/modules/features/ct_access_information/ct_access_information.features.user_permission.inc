@@ -15,6 +15,7 @@ function ct_access_information_user_default_permissions() {
     'name' => 'create access_information content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -38,6 +39,7 @@ function ct_access_information_user_default_permissions() {
     'name' => 'delete own access_information content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -61,6 +63,7 @@ function ct_access_information_user_default_permissions() {
     'name' => 'edit own access_information content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
