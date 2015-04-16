@@ -60,61 +60,6 @@ function ct_flea_market_item_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-flea_market_post-field_flea_maket_item_type'
-  $field_instances['node-flea_market_post-field_flea_maket_item_type'] = array(
-    'bundle' => 'flea_market_post',
-    'default_value' => array(
-      0 => array(
-        'value' => 'For Sale',
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_plain',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_flea_maket_item_type',
-    'label' => 'My Item Is',
-    'required' => 1,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'select_or_other',
-      'settings' => array(
-        'available_options' => 'For Sale|For Sale
-For Rent|For Rent
-Wanted|Wanted
-Rideshare|Rideshare
-Event|Event',
-        'available_options_php' => '',
-        'markup_available_options_php' => '&lt;none&gt;',
-        'other' => 'Other',
-        'other_size' => 60,
-        'other_title' => '',
-        'other_unknown_defaults' => 'ignore',
-        'sort_options' => 0,
-      ),
-      'type' => 'select_or_other',
-      'weight' => 1,
-    ),
-  );
-
   // Exported field_instance: 'node-flea_market_post-field_flea_market_image'
   $field_instances['node-flea_market_post-field_flea_market_image'] = array(
     'bundle' => 'flea_market_post',
@@ -179,6 +124,61 @@ Event|Event',
       ),
       'type' => 'media_generic',
       'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-flea_market_post-field_flea_market_item_type'
+  $field_instances['node-flea_market_post-field_flea_market_item_type'] = array(
+    'bundle' => 'flea_market_post',
+    'default_value' => array(
+      0 => array(
+        'value' => 'For Sale',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_flea_market_item_type',
+    'label' => 'My Item Is',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'select_or_other',
+      'settings' => array(
+        'available_options' => 'For Sale|For Sale
+For Rent|For Rent
+Wanted|Wanted
+Rideshare|Rideshare
+Event|Event',
+        'available_options_php' => '',
+        'markup_available_options_php' => '&lt;none&gt;',
+        'other' => 'Other',
+        'other_size' => 60,
+        'other_title' => '',
+        'other_unknown_defaults' => 'ignore',
+        'sort_options' => 0,
+      ),
+      'type' => 'select_or_other',
+      'weight' => 1,
     ),
   );
 

@@ -71,5 +71,26 @@ function ct_flea_market_item_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'moderate flea_market_post state from draft to needs_review'.
+  $permissions['moderate flea_market_post state from draft to needs_review'] = array(
+    'name' => 'moderate flea_market_post state from draft to needs_review',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate flea_market_post state from needs_review to draft'.
+  $permissions['moderate flea_market_post state from needs_review to draft'] = array(
+    'name' => 'moderate flea_market_post state from needs_review to draft',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate flea_market_post state from needs_review to published'.
+  $permissions['moderate flea_market_post state from needs_review to published'] = array(
+    'name' => 'moderate flea_market_post state from needs_review to published',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
   return $permissions;
 }
