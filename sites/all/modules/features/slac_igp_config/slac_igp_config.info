@@ -100,7 +100,6 @@ features[node][] = news_article
 features[page_manager_pages][] = front_page
 features[taxonomy][] = alphabets
 features[taxonomy][] = organization
-features[taxonomy][] = organization_directorate
 features[taxonomy][] = related_links
 features[taxonomy][] = research_resource
 features[taxonomy][] = staff_resource

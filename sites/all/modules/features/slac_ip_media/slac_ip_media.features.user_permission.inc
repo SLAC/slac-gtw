@@ -15,6 +15,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'access media browser',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -27,6 +28,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'add media from remote sources',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -75,6 +77,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'create files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -131,6 +134,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'delete own audio files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -143,6 +147,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'delete own document files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -155,6 +160,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'delete own image files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -167,6 +173,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'delete own video files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -179,6 +186,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'download any audio files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -191,6 +199,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'download any document files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -203,6 +212,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'download any image files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -215,6 +225,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'download any video files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -227,6 +238,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'download own audio files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -239,6 +251,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'download own document files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -251,6 +264,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'download own image files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -263,6 +277,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'download own video files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -319,6 +334,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'edit own audio files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -331,6 +347,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'edit own document files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -343,6 +360,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'edit own image files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -355,6 +373,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'edit own video files',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -402,7 +421,6 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'view private files',
     'roles' => array(
       'administrator' => 'administrator',
-      'author' => 'author',
     ),
     'module' => 'file_entity',
   );
