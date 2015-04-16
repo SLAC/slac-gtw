@@ -705,6 +705,7 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'view the administration theme',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'editor' => 'editor',
       'manager' => 'manager',
     ),
