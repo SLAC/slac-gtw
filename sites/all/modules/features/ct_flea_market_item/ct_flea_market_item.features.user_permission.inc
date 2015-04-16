@@ -15,6 +15,7 @@ function ct_flea_market_item_user_default_permissions() {
     'name' => 'create flea_market_post content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -39,6 +40,7 @@ function ct_flea_market_item_user_default_permissions() {
     'name' => 'delete own flea_market_post content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -63,6 +65,7 @@ function ct_flea_market_item_user_default_permissions() {
     'name' => 'edit own flea_market_post content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
