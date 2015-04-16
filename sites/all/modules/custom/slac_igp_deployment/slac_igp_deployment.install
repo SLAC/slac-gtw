@@ -20,6 +20,7 @@ function slac_igp_deployment_install() {
   module_enable(array(
     'workbench_moderation',
   ));
+  variable_set('workbench_moderation_per_node_type', 1);
 
   // Rebuild permissions after workbench install.
   node_access_rebuild();
@@ -566,4 +567,11 @@ function slac_igp_deployment_update_7027() {
   if ($result == FALSE) {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
+}
+
+/**
+ * Turn on Workbench Moderation per node type.
+ */
+function slac_igp_deployment_update_7028() {
+  variable_set('workbench_moderation_per_node_type', 1);
 }

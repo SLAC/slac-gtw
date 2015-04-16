@@ -219,7 +219,7 @@ function ct_flea_market_item_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'workbench_moderation_default_state_flea_market_post';
-  $strongarm->value = 'draft_flea_market_post';
+  $strongarm->value = 'published';
   $export['workbench_moderation_default_state_flea_market_post'] = $strongarm;
 
   return $export;
