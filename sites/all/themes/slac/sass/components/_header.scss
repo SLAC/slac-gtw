@@ -17,6 +17,7 @@ $zen-column-count: 12;
     height: 102px;
     background: url(../logo.png) 0 0 no-repeat;
     background-image: url(../logo.svg), none;
+    float: right;
     span {
       display: block;
       width: 0;
@@ -30,10 +31,9 @@ $zen-column-count: 12;
     color: $dim-grey;
     position: absolute;
   }
-  background: url('../images/header-bg.png') 0 52px repeat-x;
-  height: 82px;
+  height: 52px;
   margin: 0 auto;
-  margin-bottom: 44px;
+  margin-bottom: 0;
   .logo {
     @include zen-grid-item(2, 1);
   }
@@ -66,7 +66,6 @@ $zen-column-count: 12;
     margin-top: 8px;
   }
 }
-
 .header__region {
   input[type="text"] {
     @include font-size(14px);
