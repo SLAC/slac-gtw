@@ -15,7 +15,6 @@ function ct_basic_page_user_default_permissions() {
     'name' => 'create page content',
     'roles' => array(
       'administrator' => 'administrator',
-      'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
     ),
@@ -38,7 +37,6 @@ function ct_basic_page_user_default_permissions() {
     'name' => 'delete own page content',
     'roles' => array(
       'administrator' => 'administrator',
-      'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
     ),
@@ -61,7 +59,6 @@ function ct_basic_page_user_default_permissions() {
     'name' => 'edit own page content',
     'roles' => array(
       'administrator' => 'administrator',
-      'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
     ),
