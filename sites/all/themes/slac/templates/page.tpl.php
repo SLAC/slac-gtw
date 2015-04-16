@@ -100,6 +100,14 @@
     </div>
   </header>
 
+  <?php if($page['navigation']): ?>
+    <nav class="main-navigation">
+      <div class="inner-wrapper">
+        <?php print render($page['navigation']); ?>
+      </div>
+    </nav>
+  <?php endif; ?>
+
   <div id="main">
 
     <div class="content-wrapper" class="column" role="main">
