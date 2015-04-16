@@ -88,6 +88,7 @@ function slac_igp_deployment_install() {
 
   // Revert features for pre-existing views.
   _slac_igp_deployment_revert('v_event');
+  _slac_igp_deployment_revert('v_news');
   _slac_igp_deployment_revert('v_top_links');
 
   // Revert other pre-existing, updated features.
