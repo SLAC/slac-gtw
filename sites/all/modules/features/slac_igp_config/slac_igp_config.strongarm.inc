@@ -189,13 +189,6 @@ function slac_igp_config_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_options_flea_market_post';
-  $strongarm->value = array();
-  $export['menu_options_flea_market_post'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_news_article';
   $strongarm->value = array();
   $export['menu_options_news_article'] = $strongarm;
@@ -213,13 +206,6 @@ function slac_igp_config_strongarm() {
   $strongarm->name = 'menu_options_staff_resource';
   $strongarm->value = array();
   $export['menu_options_staff_resource'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'menu_parent_flea_market_post';
-  $strongarm->value = 'main-menu:0';
-  $export['menu_parent_flea_market_post'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -259,15 +245,6 @@ function slac_igp_config_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_flea_market_post';
-  $strongarm->value = array(
-    0 => 'status',
-  );
-  $export['node_options_flea_market_post'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'node_options_news_article';
   $strongarm->value = array(
     0 => 'status',
@@ -296,13 +273,6 @@ function slac_igp_config_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_flea_market_post';
-  $strongarm->value = '1';
-  $export['node_preview_flea_market_post'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_news_article';
   $strongarm->value = '1';
   $export['node_preview_news_article'] = $strongarm;
@@ -313,13 +283,6 @@ function slac_igp_config_strongarm() {
   $strongarm->name = 'node_preview_staff_resource';
   $strongarm->value = '1';
   $export['node_preview_staff_resource'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_flea_market_post';
-  $strongarm->value = 0;
-  $export['node_submitted_flea_market_post'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

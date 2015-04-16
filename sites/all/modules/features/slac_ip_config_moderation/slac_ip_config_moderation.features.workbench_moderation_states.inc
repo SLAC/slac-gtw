@@ -13,19 +13,19 @@ function slac_ip_config_moderation_workbench_moderation_export_states() {
       'name' => 'draft',
       'label' => 'Draft',
       'description' => 'Work in progress',
-      'weight' => -99,
+      'weight' => -10,
     ),
     'needs_review' => array(
       'name' => 'needs_review',
       'label' => 'Needs Review',
       'description' => 'Ready for moderation',
-      'weight' => 0,
+      'weight' => -7,
     ),
     'published' => array(
       'name' => 'published',
       'label' => 'Published',
       'description' => 'Make this version live',
-      'weight' => 99,
+      'weight' => -8,
     ),
   );
   return $items;

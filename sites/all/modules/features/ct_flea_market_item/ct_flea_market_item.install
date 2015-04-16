@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Update functions for the SLAC Flea Market Item content type.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function ct_flea_market_item_install() {
+  _ct_flea_market_item_delete_field_link();
+}
+
+/**
+ * Removes the Flea Market Item link field.
+ */
+function _ct_flea_market_item_delete_field_link() {
+  $instance = field_info_instance('node', 'field_link', 'flea_market_post');
+  if ($instance !== NULL) {
+    field_delete_instance($instance);
+  }
+}
+
+/**
+ * Copy links data from field_link to field_shared_related_links
+ * remove the old field.
+ */
+function ct_flea_market_item_update_7001() {
+  _ct_access_information_delete_field_link();
+}

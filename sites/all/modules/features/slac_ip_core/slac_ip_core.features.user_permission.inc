@@ -683,6 +683,7 @@ function slac_ip_core_user_default_permissions() {
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
+      'site_member' => 'site_member',
     ),
     'module' => 'node',
   );
@@ -696,6 +697,7 @@ function slac_ip_core_user_default_permissions() {
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
+      'site_member' => 'site_member',
     ),
     'module' => 'node',
   );
