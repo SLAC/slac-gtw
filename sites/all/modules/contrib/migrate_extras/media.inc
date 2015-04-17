@@ -139,60 +139,6 @@ class MigrateExtrasFileYoutube implements MigrateFileInterface {
   }
 }
 
-/**
- * Class for creating Vimeo file entities.
- */
-class MigrateExtrasFileVimeo implements MigrateFileInterface {
-  /**
-   * Implementation of MigrateFileInterface::fields().
-   *
-   * @return array
-   */
-  static public function fields() {
-    return array();
-  }
-
-  /**
-   * Implementation of MigrateFileInterface::processFiles().
-   *
-   * @param $value
-   *  The URI or local filespec of a file to be imported.
-   * @param $owner
-   *  User ID (uid) to be the owner of the file.
-   * @return object
-   *  The file entity being created or referenced.
-   */
-  public function processFile($value, $owner) {
-    // Convert the Vimeo URI into a local stream wrapper.
-    if (class_exists('MediaInternetVimeoHandler')) {
-      $handler = new MediaInternetVimeoHandler($value);
-      $destination = $handler->parse($value);
-      $file = file_uri_to_object($destination, TRUE);
-    }
-    elseif (class_exists('MediaInternetOEmbedHandler')) {
-      $handler = new MediaInternetOEmbedHandler($value);
-      $file = $handler->getFileObject();
-    }
-    else {
-      MigrationBase::displayMessage(t('Could not find a handler for Vimeo videos'));
-      return FALSE;
-    }
-
-    // Create a file entity object for this Vimeo reference, and see if we
-    // can get the video title.
-    if (empty($file->fid) && $info = $handler->getOEmbed()) {
-      $file->filename = truncate_utf8($info['title'], 255);
-    }
-    $file = file_save($file);
-    if (is_object($file)) {
-      return $file;
-    }
-    else {
-      return FALSE;
-    }
-  }
-}
-
 // Basic support for the deprecated media field type.
 class MigrateMediaFieldHandler extends MigrateFileFieldHandler {
   public function __construct() {
