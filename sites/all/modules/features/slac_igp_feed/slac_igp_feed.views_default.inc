@@ -163,7 +163,7 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/flea-market" target="_blank">Visit Flea Market</a>
 <br />
-<a href="https://news.slac.stanford.edu/node/add/flea-market-item" target="_blank">Submit Flea Market item</a>';
+<a href="/node/add/flea-market-post">Submit Flea Market Item</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';

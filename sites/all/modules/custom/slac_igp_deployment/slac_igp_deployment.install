@@ -20,6 +20,7 @@ function slac_igp_deployment_install() {
   module_enable(array(
     'workbench_moderation',
   ));
+  variable_set('workbench_moderation_per_node_type', 1);
 
   // Rebuild permissions after workbench install.
   node_access_rebuild();
@@ -29,6 +30,7 @@ function slac_igp_deployment_install() {
     'conditional_fields',
     'jquery_update',
     'pathauto',
+    'select_or_other',
     'scheduler',
     'metatag',
     'token',
@@ -50,6 +52,7 @@ function slac_igp_deployment_install() {
     'ct_access_information',
     'ct_basic_page',
     'ct_event',
+    'ct_flea_market_item',
     'ct_news',
     'ct_webform',
     'pm_news',
@@ -85,9 +88,11 @@ function slac_igp_deployment_install() {
   // Revert features for pre-existing node types.
   _slac_igp_deployment_revert('ct_access_information');
   _slac_igp_deployment_revert('ct_event');
+  _slac_igp_deployment_revert('ct_flea_market_item');
 
   // Revert features for pre-existing views.
   _slac_igp_deployment_revert('v_event');
+  _slac_igp_deployment_revert('v_news');
   _slac_igp_deployment_revert('v_top_links');
 
   // Revert other pre-existing, updated features.
@@ -607,6 +612,7 @@ function slac_igp_deployment_update_7027() {
   if ($result == FALSE) {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
+
   drupal_flush_all_caches();
 
   // Place the slac search block into the header region.
@@ -623,8 +629,29 @@ function slac_igp_deployment_update_7027() {
 }
 
 /**
- * Place the Main menu block into the Navigation bar region.
+ * Enable the select_or_other module and ct_flea_market_item feature.
  */
 function slac_igp_deployment_update_7028() {
+  $result = module_enable(array(
+    'select_or_other',
+    'ct_flea_market_item',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Turn on Workbench Moderation per node type.
+ */
+function slac_igp_deployment_update_7029() {
+  variable_set('workbench_moderation_per_node_type', 1);
+}
+
+/**
+ * Place the Main menu block into the Navigation bar region.
+ */
+function slac_igp_deployment_update_7030() {
   _slac_igp_deployment_place_main_menu_block();
 }

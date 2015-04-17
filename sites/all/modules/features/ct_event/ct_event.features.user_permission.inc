@@ -15,6 +15,7 @@ function ct_event_user_default_permissions() {
     'name' => 'create event content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -38,6 +39,7 @@ function ct_event_user_default_permissions() {
     'name' => 'delete own event content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
@@ -72,6 +74,7 @@ function ct_event_user_default_permissions() {
     'name' => 'edit own event content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
       'manager' => 'manager',
