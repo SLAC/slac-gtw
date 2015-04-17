@@ -18,6 +18,10 @@ function slac_ip_core_entity_info_alter(&$entity_info) {
     'label' => t('Headline'),
     'custom settings' => FALSE,
   );
+  $entity_info['node']['view modes']['news_archive'] = array(
+    'label' => t('News Archive'),
+    'custom settings' => FALSE,
+  );
 }
 
 /**

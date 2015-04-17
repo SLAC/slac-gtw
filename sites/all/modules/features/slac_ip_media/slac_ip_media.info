@@ -59,6 +59,7 @@ features[file_display][] = video__teaser__media_youtube_image
 features[file_display][] = video__teaser__media_youtube_video
 features[image][] = lightbox_expanded
 features[image][] = news_and_events_sidebar_image
+features[image][] = news_archive_list_item
 features[image][] = news_large_body_image
 features[user_permission][] = access media browser
 features[user_permission][] = add media from remote sources

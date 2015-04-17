@@ -32,6 +32,7 @@ function v_news_archive_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['view_mode'] = 'news_archive';
   $handler->display->display_options['row_options']['links'] = FALSE;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -64,12 +65,16 @@ function v_news_archive_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
+    'access_information' => 'access_information',
+    'event' => 'event',
     'news' => 'news',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: News Type (field_news_news_type) */
   $handler->display->display_options['filters']['field_news_news_type_value']['id'] = 'field_news_news_type_value';
   $handler->display->display_options['filters']['field_news_news_type_value']['table'] = 'field_data_field_news_news_type';
   $handler->display->display_options['filters']['field_news_news_type_value']['field'] = 'field_news_news_type_value';
+  $handler->display->display_options['filters']['field_news_news_type_value']['group'] = 1;
   $handler->display->display_options['filters']['field_news_news_type_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_news_news_type_value']['expose']['operator_id'] = 'field_news_news_type_value_op';
   $handler->display->display_options['filters']['field_news_news_type_value']['expose']['operator'] = 'field_news_news_type_value_op';
@@ -88,6 +93,7 @@ function v_news_archive_views_default_views() {
   $handler->display->display_options['filters']['created']['table'] = 'node';
   $handler->display->display_options['filters']['created']['field'] = 'created';
   $handler->display->display_options['filters']['created']['operator'] = 'between';
+  $handler->display->display_options['filters']['created']['group'] = 1;
   $handler->display->display_options['filters']['created']['exposed'] = TRUE;
   $handler->display->display_options['filters']['created']['expose']['operator_id'] = 'created_op';
   $handler->display->display_options['filters']['created']['expose']['operator'] = 'created_op';
@@ -101,6 +107,14 @@ function v_news_archive_views_default_views() {
     7 => 0,
     3 => 0,
   );
+  /* Filter criterion: Content: Promote As News (field_shared_promote_news) */
+  $handler->display->display_options['filters']['field_shared_promote_news_value']['id'] = 'field_shared_promote_news_value';
+  $handler->display->display_options['filters']['field_shared_promote_news_value']['table'] = 'field_data_field_shared_promote_news';
+  $handler->display->display_options['filters']['field_shared_promote_news_value']['field'] = 'field_shared_promote_news_value';
+  $handler->display->display_options['filters']['field_shared_promote_news_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_shared_promote_news_value']['group'] = 1;
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
