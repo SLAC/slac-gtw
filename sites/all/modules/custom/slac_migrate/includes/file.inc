@@ -11,7 +11,7 @@
  * TODO:
  * NOTE: PATH WILL NEED TO BE CHANGED
  */
-class SlacFileCopyMigration extends Migration {
+class SlacImageMigration extends Migration {
 
   public function __construct($arguments) {
     parent::__construct($arguments);
@@ -56,7 +56,7 @@ class SlacFileCopyMigration extends Migration {
 class SlacVideoMigration extends Migration {
   public function __construct($arguments) {
     parent::__construct($arguments);
-    $this->description = t('Migrationvideos');
+    $this->description = t('Slac Video Migration');
 
     $query = Database::getConnection('default', 'legacy')
          ->select('node', 'n');
@@ -66,7 +66,10 @@ class SlacVideoMigration extends Migration {
     $query->fields('v', array('vid', 'field_media_field_video_value', 'field_media_field_video_provider'));
     $query->fields('nr', array('vid', 'body', 'format'));
     $query->condition('n.type', 'video', '=');
-    $query->condition('v.field_media_field_video_provider', 'youtube', '=');
+    $or = db_or();
+    $or->condition('v.field_media_field_video_provider', 'youtube', '=');
+    $or->condition('v.field_media_field_video_provider', 'vimeo', '=');
+    $query->condition($or);
     $this->source = new MigrateSourceSQL($query, array(), NULL, array('map_joinable' => FALSE));
 
     $this->map = new MigrateSQLMap($this->machineName,
@@ -81,11 +84,11 @@ class SlacVideoMigration extends Migration {
       MigrateDestinationMedia::getKeySchema()
     );
 
-    // In this case, we need to specify the file_class in the second paramter -
+    // In this case, we need to specify the file_class in the second parameter -
     // this class understands how to translate a http://www.youtube.com/ URI
     // into Drupal's Youtube file scheme (youtube://).
     $this->destination = new MigrateDestinationMedia('video',
-      'MigrateExtrasFileYoutube');
+      'SlacMigrateAllVideos');
 
     // Field mappings.
     $this->addFieldMapping('value', 'field_media_field_video_value');
@@ -116,8 +119,6 @@ class SlacVideoMigration extends Migration {
     if (parent::prepareRow($row) === FALSE) {
       return FALSE;
     }
-    // Adjust YouTube url.  Database only contains id.
-    $row->field_media_field_video_value = 'https://www.youtube.com/watch?v=' . $row->field_media_field_video_value;
 
     // Convert filter formats.
     if ($row->format == 2) {
@@ -146,3 +147,80 @@ class SlacVideoMigration extends Migration {
 }
 
 
+/**
+ * Class for creating Youtube file entities.
+ */
+class SlacMigrateAllVideos implements MigrateFileInterface {
+  /**
+   * Implementation of MigrateFileInterface::fields().
+   *
+   * @return array
+   */
+  static public function fields() {
+    return array();
+  }
+
+  /**
+   * Implementation of MigrateFileInterface::processFiles().
+   *
+   * @param $value
+   *  The URI or local filespec of a file to be imported.
+   * @param $owner
+   *  User ID (uid) to be the owner of the file.
+   * @return object
+   *  The file entity being created or referenced.
+   */
+  public function processFile($value, $owner) {
+
+    dsm($value, 'value');
+    dsm($owner, 'owner');
+
+    $settings = array();
+
+    // Video is a Vimeo video.
+    if (is_numeric($value)) {
+      $settings['handler'] = 'MediaInternetVimeoHandler';
+      $settings['video_type'] = 'Vimeo';
+      $value = 'http://vimeo.com/' . $value;
+    }
+    // Video is a Flash video.
+    elseif (substr($value, 0, 4) === "http") {
+      $settings['video_type'] = 'Flash';
+    }
+    // Video is a YouTube video.
+    else {
+      $settings['handler'] = 'MediaInternetYouTubeHandler';
+      $settings['video_type'] = 'Youtube';
+      $value = 'https://www.youtube.com/watch?v=' . $value;
+    }
+    dsm($settings, 'settings');
+    // Convert the Youtube URI into a local stream wrapper.
+    if (class_exists($settings['handler'])) {
+      $handler = new $settings['handler']($value);
+      dsm($handler, 'handler');
+      $destination = $handler->parse($value);
+      $file = file_uri_to_object($destination, TRUE);
+    }
+    elseif (class_exists('MediaInternetOEmbedHandler')) {
+      $handler = new MediaInternetOEmbedHandler($value);
+      $file = $handler->getFileObject();
+    }
+    else {
+      MigrationBase::displayMessage(t('Could not find a handler for @video_type videos', array('@video_type' => $settings['video_type'])));
+      return FALSE;
+    }
+
+    // Create a file entity object for this Youtube reference, and see if we
+    // can get the video title.
+    if (empty($file->fid) && $info = $handler->getOEmbed()) {
+      $file->filename = truncate_utf8($info['title'], 255);
+    }
+    $file = file_save($file);
+    if (is_object($file)) {
+      return $file;
+    }
+    else {
+      return FALSE;
+    }
+  }
+}

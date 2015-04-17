@@ -20,7 +20,7 @@ function slac_migrate_migrate_api() {
     ),
     'migrations' => array(
       'Images' => array(
-        'class_name' => 'SlacFileCopyMigration',
+        'class_name' => 'SlacImageMigration',
         'group_name' => 'slac',
       ),
       'Videos' => array(
