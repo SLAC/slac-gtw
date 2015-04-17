@@ -83,6 +83,7 @@ function slac_igp_deployment_install() {
   // Update blocks placement.
   _slac_igp_deployment_place_search_block();
   _slac_igp_deployment_place_top_menu_block();
+  _slac_igp_deployment_place_main_menu_block();
 
   // Revert features for pre-existing node types.
   _slac_igp_deployment_revert('ct_access_information');
@@ -200,7 +201,7 @@ function _slac_igp_deployment_remove_legacy_menu_items() {
 }
 
 /**
- * Places the Top Menu block into the header region.
+ * Places the Top Menu block into the Header region.
  */
 function _slac_igp_deployment_place_top_menu_block() {
   db_update('block')
@@ -211,6 +212,23 @@ function _slac_igp_deployment_place_top_menu_block() {
     ))
     ->condition('module', 'menu', '=')
     ->condition('delta', 'menu-top-menu', '=')
+    ->condition('theme', 'slac', '=')
+    ->execute();
+}
+
+/**
+ * Places the Main menu block into the Navigation bar region.
+ */
+function _slac_igp_deployment_place_main_menu_block() {
+  db_update('block')
+    ->fields(array(
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'navigation',
+      'title' => '<none>',
+    ))
+    ->condition('module', 'system', '=')
+    ->condition('delta', 'main-menu', '=')
     ->condition('theme', 'slac', '=')
     ->execute();
 }
@@ -629,4 +647,11 @@ function slac_igp_deployment_update_7028() {
  */
 function slac_igp_deployment_update_7029() {
   variable_set('workbench_moderation_per_node_type', 1);
+}
+
+/**
+ * Place the Main menu block into the Navigation bar region.
+ */
+function slac_igp_deployment_update_7030() {
+  _slac_igp_deployment_place_main_menu_block();
 }
