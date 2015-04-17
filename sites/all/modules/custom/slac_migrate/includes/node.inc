@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * SLAC Today node migration classes.
+ */
+
+/**
  * Common mappings for the D6 node migrations.
  */
 abstract class SlacNodeMigration extends DrupalNode6Migration {
@@ -106,7 +111,7 @@ class SlacStoryMigration extends SlacNodeMigration {
     // Image references point to the image node that contain the image.
     // We need to point it to the actual fid of the image.
     if (isset($row->field_image_reference)) {
-      foreach($row->field_image_reference as $key => $image_node_nid) {
+      foreach ($row->field_image_reference as $key => $image_node_nid) {
 
         $image_query = Database::getConnection('default', $this->sourceConnection)
           ->select('node', 'n')
