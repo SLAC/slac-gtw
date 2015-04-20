@@ -73,7 +73,7 @@ function slac_migrate_migrate_api() {
           News nodes in D7.'),
       'source_type' => 'announcement',
       'destination_type' => 'news',
-      //'dependencies' => array('Images', 'Tags', 'Videos'),
+      'dependencies' => array('Images', 'Tags', 'Videos'),
     ),
     'Calendars' => array(
       'class_name' => 'SlacCalendarsMigration',
@@ -81,6 +81,7 @@ function slac_migrate_migrate_api() {
           in D6 to Event nodes in D7'),
       'source_type' => 'announcement',
       'destination_type' => 'event',
+      'dependencies' => array('Images', 'Tags', 'Videos'),
     ),
   );
 

@@ -173,9 +173,6 @@ class SlacMigrateAllVideos implements MigrateFileInterface {
    */
   public function processFile($value, $owner) {
 
-    dsm($value, 'value');
-    dsm($owner, 'owner');
-
     $settings = array();
 
     // Video is a Vimeo video.
@@ -194,11 +191,10 @@ class SlacMigrateAllVideos implements MigrateFileInterface {
       $settings['video_type'] = 'Youtube';
       $value = 'https://www.youtube.com/watch?v=' . $value;
     }
-    dsm($settings, 'settings');
+
     // Convert the Youtube URI into a local stream wrapper.
     if (class_exists($settings['handler'])) {
       $handler = new $settings['handler']($value);
-      dsm($handler, 'handler');
       $destination = $handler->parse($value);
       $file = file_uri_to_object($destination, TRUE);
     }
