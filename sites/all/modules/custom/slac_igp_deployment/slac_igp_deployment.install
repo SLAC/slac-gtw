@@ -119,6 +119,8 @@ function _slac_igp_deployment_revert($feature_name) {
  * Updates block placement for search blocks.
  */
 function _slac_igp_deployment_place_search_block() {
+  drupal_flush_all_caches();
+
   // Remove existing search boxes from the header region.
   db_update('block')
     ->fields(array(
@@ -137,7 +139,7 @@ function _slac_igp_deployment_place_search_block() {
       'weight' => -38,
       'region' => 'header',
     ))
-    ->condition('module', 'search_search', '=')
+    ->condition('module', 'slac_search', '=')
     ->condition('delta', 'form', '=')
     ->condition('theme', 'slac', '=')
     ->execute();
