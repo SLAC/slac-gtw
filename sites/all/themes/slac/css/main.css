@@ -278,14 +278,15 @@
 .node-type-news .general-left .panel-pane.pane-node-created {
   margin-bottom: 10px;
 }
-.node-type-news .general-right .panel-pane .file-image .field-name-field-file-shared-caption {
-  padding-bottom: 2.5em;
-  margin-bottom: 2.5em;
-  border-bottom: dashed 3px #b1c0c7;
+.node-type-news .general-right .pane-node-field-shared-image .field-item + .field-item,
+.node-type-news .general-right .pane-node-field-shared-video .field-item + .field-item {
+  border-top: dashed 3px #b1c0c7;
+  margin-top: 2rem;
+  padding-top: 2rem;
 }
-.node-type-news .general-right .pane-node-field-shared-video .file-video {
-  margin-bottom: 2rem;
-  border-bottom: dashed 3px #b1c0c7;
+.node-type-news .general-right .pane-node-field-shared-image + .pane-node-field-shared-video {
+  border-top: dashed 3px #b1c0c7;
+  padding-top: 2rem;
 }
 
 .node-type-access-information .general-left .pane-node-body {

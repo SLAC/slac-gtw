@@ -170,16 +170,17 @@ $zen-column-count: 12;
     }
   }
   .general-right {
-    .panel-pane .file-image {
-      .field-name-field-file-shared-caption {
-        padding-bottom: 2.5em;
-        margin-bottom: 2.5em;
-        border-bottom: dashed 3px $event-border;
+    .pane-node-field-shared-image,
+    .pane-node-field-shared-video {
+      .field-item + .field-item {
+        border-top: dashed 3px $event-border;
+        margin-top: 2rem;
+        padding-top: 2rem;
       }
     }
-    .pane-node-field-shared-video .file-video {
-      margin-bottom: 2rem;
-      border-bottom: dashed 3px $event-border;
+    .pane-node-field-shared-image + .pane-node-field-shared-video {
+      border-top: dashed 3px $event-border;
+      padding-top: 2rem;
     }
   }
 }
