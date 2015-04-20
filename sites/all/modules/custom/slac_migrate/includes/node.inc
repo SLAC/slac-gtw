@@ -297,7 +297,7 @@ class SlacLabAnnouncementMigration extends SlacNodeMigration {
 }
 
 
-class SlacScientificCalendarMigration extends SlacNodeMigration {
+class SlacCalendarsMigration extends SlacNodeMigration {
 
   public function __construct(array $arguments) {
 
@@ -307,9 +307,8 @@ class SlacScientificCalendarMigration extends SlacNodeMigration {
 
     // Miscellaneous field mappings.
     $this->addFieldMapping('field_shared_location', 'field_announcement_loc');
-    $this->addFieldMapping('field_date');
+    $this->addFieldMapping('field_event_date', 'field_date');
     $this->addFieldMapping('field_event_date:to', 'field_date:value2');
-    //$this->addFieldMapping('field_event_series', 'field_event_series');
     $this->addFieldMapping('field_shared_byline', 'field_byline');
     $this->addFieldMapping('field_shared_new_existing', 'field_announcement_content');
     $this->addFieldMapping('field_shared_existing_url', 'field_announcement_redirect');
@@ -365,9 +364,7 @@ class SlacScientificCalendarMigration extends SlacNodeMigration {
       'field_shared_tags:create_term', 'field_shared_tags:ignore_case',
       'field_event_type', 'field_event_type:source_type', 'field_event_type:create_term',
         'field_event_type:ignore_case',
-
     ));
-
 
     // Unmapped destination metatag fields.
     $this->addUnmigratedDestinations(array(
@@ -383,9 +380,6 @@ class SlacScientificCalendarMigration extends SlacNodeMigration {
       'field_event_science_area', 'field_event_org', '19', '20', 'name', 't_name',
       // Node counter fields:
       'daycount', 'timestamp', 'totalcount'));
-
-
-
   }
 
    /**
@@ -405,8 +399,11 @@ class SlacScientificCalendarMigration extends SlacNodeMigration {
     $query->LeftJoin('term_data', 't', 'f.field_event_series_value = t.tid');
     $query->fields('t', array('name'));
 
-    // Filter by announcement type of Scientific Calendar.
-    $query->condition('f.field_announcement_type_value', 'Scientific Calendar', '=');
+    // Filter by announcement type of Scientific Calendar and Staff Calendar.
+    $or = db_or();
+    $or->condition('f.field_announcement_type_value', 'Staff Calendar', '=');
+    $or->condition('f.field_announcement_type_value', 'Scientific Calendar', '=');
+    $query->condition($or);
 
     return $query;
   }

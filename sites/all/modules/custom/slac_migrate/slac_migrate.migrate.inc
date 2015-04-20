@@ -75,10 +75,10 @@ function slac_migrate_migrate_api() {
       'destination_type' => 'news',
       //'dependencies' => array('Images', 'Tags', 'Videos'),
     ),
-    'Scientific_Calendar' => array(
-      'class_name' => 'SlacScientificCalendarMigration',
-      'description' => t('Migration of Announcement -> Scientific Calendar in D6 to
-          Event nodes in D7'),
+    'Calendars' => array(
+      'class_name' => 'SlacCalendarsMigration',
+      'description' => t('Migration of Announcement -> Scientific Calendar and Announcement -> Staff Calendar
+          in D6 to Event nodes in D7'),
       'source_type' => 'announcement',
       'destination_type' => 'event',
     ),
