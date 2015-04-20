@@ -247,7 +247,7 @@ function ct_access_information_conditional_fields_default_fields() {
   $items[] = array(
     'entity' => 'node',
     'bundle' => 'access_information',
-    'dependent' => 'field_shared_news_title',
+    'dependent' => 'field_news_news_type',
     'dependee' => 'field_shared_promote_news',
     'options' => array(
       'state' => 'visible',
@@ -364,7 +364,7 @@ function ct_access_information_conditional_fields_default_fields() {
   $items[] = array(
     'entity' => 'node',
     'bundle' => 'access_information',
-    'dependent' => 'field_news_news_type',
+    'dependent' => 'field_shared_news_title',
     'dependee' => 'field_shared_promote_news',
     'options' => array(
       'state' => 'visible',
