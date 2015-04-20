@@ -62,10 +62,25 @@ function slac_migrate_migrate_api() {
   $node_arguments = array(
     'Story' => array(
       'class_name' => 'SlacStoryMigration',
-      'description' => t('Migration of story nodes in D6 to news nodes in D7.'),
+      'description' => t('Migration of Story nodes in D6 to News nodes in D7.'),
       'source_type' => 'story',
       'destination_type' => 'news',
       'dependencies' => array('Images', 'Tags', 'Videos'),
+    ),
+    'Lab_Announcement' => array(
+      'class_name' => 'SlacLabAnnouncementMigration',
+      'description' => t('Migration of Announcement -> Lab Announcement nodes in D6 to
+          News nodes in D7.'),
+      'source_type' => 'announcement',
+      'destination_type' => 'news',
+      //'dependencies' => array('Images', 'Tags', 'Videos'),
+    ),
+    'Scientific_Calendar' => array(
+      'class_name' => 'SlacScientificCalendarMigration',
+      'description' => t('Migration of Announcement -> Scientific Calendar in D6 to
+          Event nodes in D7'),
+      'source_type' => 'announcement',
+      'destination_type' => 'event',
     ),
   );
 

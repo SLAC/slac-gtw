@@ -43,6 +43,7 @@ class SlacImageMigration extends Migration {
 
   // Make adjustments to the data.
   function prepare($entity, $row) {
+
     // Old version of some image module stored image paths differently.
     // Adjusting the path here.
     $entity->source_dir = '/Users/mickey/websites/slac-d6.local/' . str_replace($row->filename, '', $entity->source_dir);
