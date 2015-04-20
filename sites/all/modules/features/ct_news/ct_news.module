@@ -10,6 +10,12 @@ include_once 'ct_news.features.inc';
  * Implements hook_form_FORMID_alter().
  */
 function ct_news_form_news_node_form_alter(&$form, &$form_state) {
+  // field_shared_promote_news will always be turned on for News nodes,
+  // this is to support views like News Archive which list News, Event, Access
+  // nodes and need to filter out items that do not have 'Promote...' set to On.
+  $form['field_shared_promote_news']['#value'] = 1;
+  $form['field_shared_promote_news']['#access'] = FALSE;
+
   // Add a help-like message to link users to the Event creation if they wanted
   // that instead.
   $event_help = array(

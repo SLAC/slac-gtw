@@ -73,7 +73,7 @@ function ct_news_strongarm() {
   $strongarm->value = array(
     'view_modes' => array(
       'teaser' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'link' => array(
         'custom_settings' => TRUE,
@@ -102,6 +102,9 @@ function ct_news_strongarm() {
       'headline' => array(
         'custom_settings' => TRUE,
       ),
+      'news_archive' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -126,6 +129,10 @@ function ct_news_strongarm() {
           ),
           'teaser' => array(
             'weight' => '1',
+            'visible' => FALSE,
+          ),
+          'news_archive' => array(
+            'weight' => '1',
             'visible' => TRUE,
           ),
         ),
@@ -138,6 +145,10 @@ function ct_news_strongarm() {
             'weight' => '4',
             'visible' => FALSE,
           ),
+          'news_archive' => array(
+            'weight' => '3',
+            'visible' => FALSE,
+          ),
         ),
         'title' => array(
           'default' => array(
@@ -145,6 +156,10 @@ function ct_news_strongarm() {
             'visible' => FALSE,
           ),
           'teaser' => array(
+            'weight' => '2',
+            'visible' => FALSE,
+          ),
+          'news_archive' => array(
             'weight' => '2',
             'visible' => TRUE,
           ),

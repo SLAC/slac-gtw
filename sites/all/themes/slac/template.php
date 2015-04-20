@@ -226,8 +226,8 @@ function slac_process_field(&$vars) {
   $element = $vars['element'];
   // Field type image
   if ($element['#field_type'] == 'image') {
-    // Reduce number of images in teaser view mode to single image
-    if ($element['#view_mode'] == 'teaser') {
+    // Reduce the number of images displayed in certain view modes to one.
+    if ($element['#view_mode'] == 'news_archive') {
       $item = reset($vars['items']);
       $vars['items'] = array($item);
     }

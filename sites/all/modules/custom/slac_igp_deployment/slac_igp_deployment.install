@@ -87,8 +87,10 @@ function slac_igp_deployment_install() {
 
   // Revert features for pre-existing node types.
   _slac_igp_deployment_revert('ct_access_information');
+  _slac_igp_deployment_revert('ct_basic_page');
   _slac_igp_deployment_revert('ct_event');
   _slac_igp_deployment_revert('ct_flea_market_item');
+  _slac_igp_deployment_revert('ct_webform');
 
   // Revert features for pre-existing views.
   _slac_igp_deployment_revert('v_event');
