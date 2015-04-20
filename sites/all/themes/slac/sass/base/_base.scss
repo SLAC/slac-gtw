@@ -1,0 +1,9 @@
+body {
+  font-family: $arial;
+  @include font-size($base-font-size);
+  line-height: 1.5;
+  font-weight: normal;
+}
+.not-front #content {
+  background: $white;
+}
