@@ -28,6 +28,7 @@ function slac_igp_deployment_install() {
   // Enable new modules/features.
   module_enable(array(
     'conditional_fields',
+    'flag',
     'jquery_update',
     'pathauto',
     'select_or_other',
@@ -658,4 +659,17 @@ function slac_igp_deployment_update_7029() {
  */
 function slac_igp_deployment_update_7030() {
   _slac_igp_deployment_place_main_menu_block();
+}
+
+/**
+ * Enable the flag module.
+ */
+function slac_igp_deployment_update_7031() {
+  $result = module_enable(array(
+    'flag',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
 }
