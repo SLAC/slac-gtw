@@ -12,6 +12,11 @@ include_once 'v_news_archive.features.inc';
 function v_news_archive_form_alter(&$form, &$form_state, $form_id) {
   $view_id = 'views-exposed-form-news-archive-panel-pane-1';
   if ($form_id == 'views_exposed_form' && $form['#id'] == $view_id) {
+    // Update the default option of the News type select from '- Any -'.
+    $form['field_news_news_type_value']['#options']['All'] = t('All News');
+
+    // Find the position of the Submit element in the array so the new items
+    // can be inserted above it.
     $submit_position = array_search('submit', array_keys($form));
 
     $year_list = _v_news_archive_get_year_range();
