@@ -36,7 +36,6 @@
     hide($content['links']);
     print render($content);
   ?>
-<?php print 'test test test'; ?>
   <?php print render($content['links']); ?>
 
   <?php print render($content['comments']); ?>
