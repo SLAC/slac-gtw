@@ -1,10 +1,9 @@
 /**
  * @file
- * Search form custom behaviors.
+ * Search view custom behaviors.
  */
 
 (function ($) {
-  'use strict';
 
   /**
    * Wraps each instance of the search keyword in strong tags.
