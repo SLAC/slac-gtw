@@ -1,4 +1,23 @@
 /* used on events dates */
+input[type="submit"],
+.button {
+  font-size: 12px;
+  font-size: 0.75rem;
+  display: block;
+  padding: 4px 20px;
+  background: #316dae;
+  color: #ffffff;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: .06rem;
+}
+input[type="submit"]:hover, input[type="submit"]:focus,
+.button:hover,
+.button:focus {
+  background: #4786cb;
+  outline: none;
+}
+
 .node-type-event #content,
 .node-type-news #content,
 .node-type-access-information #content {
@@ -386,6 +405,25 @@
 }
 .node-type-news .view-featured-news ul li a {
   padding: 1em;
+}
+
+select {
+  font-size: 10px;
+  font-size: 0.625rem;
+  padding: 5px 40px 5px 14px;
+  text-transform: uppercase;
+  border: 1px solid #316dae;
+  background: #ffffff;
+  border-radius: 0;
+  border-image: none;
+  color: #9d9d9d;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #ffffff url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
+}
+select:hover, select:focus {
+  outline: none;
 }
 
 .footer-wrapper {
@@ -1083,4 +1121,56 @@
 }
 .node-type-access-information .general-left .panel-pane.pane-node-field-shared-contact-phone {
   margin-top: 0 !important;
+}
+
+.page-news .views-exposed-form .views-exposed-widget {
+  float: none;
+  padding-top: 0;
+}
+.page-news #main .general-left .views-row {
+  background: none;
+  padding-left: 0;
+}
+.page-news #main .general-left .pane-title {
+  font-size: 32px;
+  font-size: 2rem;
+  margin-top: 0;
+  line-height: 1;
+}
+.page-news #main .general-left .view-news-archive {
+  margin-bottom: 2rem;
+}
+.page-news #main .general-left .view-news-archive article {
+  margin-bottom: 3rem;
+}
+.page-news #main .general-left .view-news-archive article .field-type-image {
+  float: left;
+  margin-right: 2rem;
+}
+.page-news #main .general-left .view-news-archive article .node-created {
+  font-weight: bold;
+}
+.page-news #main .general-left .view-news-archive .field-name-body {
+  margin-top: 1rem;
+}
+.page-news #main .general-right .inside {
+  border-left: none;
+}
+.page-news #main .general-right .pane-title {
+  line-height: 1;
+  margin-top: 0;
+}
+.page-news #main .general-right select {
+  width: 126px;
+  float: none !important;
+  margin-bottom: 1rem;
+}
+.page-news #main .general-right select:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.page-news #main .general-right input[type="submit"].form-submit {
+  margin-top: 0;
+  width: 126px;
 }
