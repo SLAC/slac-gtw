@@ -254,8 +254,9 @@ class SlacLabAnnouncementMigration extends SlacNodeMigration {
     $query->LeftJoin('users', 'u', 'n.uid = u.uid');
     $query->fields('u', array('name'));
 
-    // // Filter by announcement type of Lab Announcement.
+    // Filter by announcement type of Lab Announcement.
     $query->condition('f.field_announcement_type_value', 'Lab Announcement', '=');
+
     return $query;
   }
 
@@ -466,6 +467,154 @@ class SlacCalendarsMigration extends SlacNodeMigration {
       foreach ($terms as $tid => $term) {
         $entity->field_event_series[LANGUAGE_NONE][0] = array('tid' => (string)$tid);
       }
+    }
+  }
+}
+
+class SlacAccessNoticeMigration extends SlacNodeMigration {
+
+  public function __construct(array $arguments) {
+
+    parent::__construct($arguments);
+
+    $this->addFieldMapping(NULL, 'field_announcement_type');
+
+    // Miscellaneous field mappings.
+    $this->addFieldMapping('field_shared_location', 'field_announcement_loc');
+    $this->addFieldMapping('field_event_date', 'field_publish_dates');
+    $this->addFieldMapping('field_event_date:to', 'field_publish_dates:value2');
+    $this->addFieldMapping('field_shared_new_existing', 'field_announcement_content');
+    $this->addFieldMapping('field_shared_existing_url', 'field_announcement_redirect');
+    $this->addFieldMapping('field_shared_note_editors', 'field_announcement_note');
+
+    // The default body field mappings need to be removed first so we can
+    // map to different fields.
+    $this->removeFieldMapping('body');
+    $this->removeFieldMapping('body:format');
+    $this->addFieldMapping('body', 'field_announcement_body');
+    $this->addFieldMapping('body:format', 'field_announcement_body:format');
+
+    // Image mappings.
+    $this->addFieldMapping('field_shared_image', 'field_image')
+        ->sourceMigration('Images');
+    $this->addFieldMapping('field_shared_image:file_class')
+        ->defaultValue('MigrateFileFid');
+    $this->addFieldMapping('field_shared_image:preserve_files')
+         ->defaultValue(TRUE);
+    $this->addFieldMapping('field_shared_image:file_replace')
+         ->defaultValue(FILE_EXISTS_REUSE);
+
+    // Related links mappings.
+    $this->addFieldMapping('field_shared_related_links', 'field_announcement_links');
+    $this->addFieldMapping('field_shared_related_links:title', 'field_announcement_links:title');
+    $this->addFieldMapping('field_shared_related_links:attributes', 'field_announcement_links:attributes');
+
+    // Tags mappings.
+    $this->addFieldMapping('field_shared_tags', '7')
+      ->sourceMigration('Tags');
+    $this->addFieldMapping('field_shared_tags:source_type')
+     ->defaultValue('tid');
+
+    // Unmapped destination fields. Indented for grouping subfields.
+    $this->addUnmigratedDestinations(array(
+      'field_event_date:timezone', 'field_event_date:rrule',
+      'field_shared_byline', 'field_shared_byline:language',
+      'field_shared_contact_email',
+      'field_shared_contact_name', 'field_shared_contact_name:language',
+      'field_shared_contact_phone',
+      'field_shared_existing_url:language',
+      'field_shared_image:language', 'field_shared_image:alt', 'field_shared_image:title',
+      'field_shared_location:language',
+      'field_shared_note_editors:language',
+      'field_shared_promote_news',
+      'field_shared_related_files', 'field_shared_related_files:file_class', 'field_shared_related_files:language',
+        'field_shared_related_files:preserve_files', 'field_shared_related_files:destination_dir',
+        'field_shared_related_files:destination_file', 'field_shared_related_files:file_replace',
+        'field_shared_related_files:source_dir', 'field_shared_related_files:urlencode',
+        'field_shared_related_files:description', 'field_shared_related_files:display',
+      'field_shared_related_links:language',
+      'field_shared_tags:create_term', 'field_shared_tags:ignore_case',
+      'field_access_start_publishing',
+    ));
+
+    // Unmapped destination metatag fields.
+    $this->addUnmigratedDestinations(array(
+      'metatag_title', 'metatag_description', 'metatag_abstract', 'metatag_keywords', 'metatag_robots',
+      'metatag_news_keywords', 'metatag_standout', 'metatag_generator', 'metatag_rights', 'metatag_image_src',
+      'metatag_canonical', 'metatag_shortlink', 'metatag_publisher', 'metatag_author', 'metatag_original-source',
+      'metatag_revisit-after', 'metatag_content-language',
+    ));
+
+    // Unmigrated source fields.
+    $this->addUnmigratedSources(array('body', 'format', 'uid', 'revision', 'log', 'revision_uid', 'field_pre_announce',
+      'field_byline', 'field_image:list', 'field_image:alt', 'field_image:title', 'field_date', 'field_date:value2',
+      'field_event_series', 'field_event_science_area', 'field_event_org', '19', '20', 'name',
+      // Node counter fields:
+      'daycount', 'timestamp', 'totalcount'));
+  }
+
+   /**
+   * Extend basic query to include node author's username so we can map to username
+   * on D7 site.
+   */
+  protected function query() {
+
+    // Get the default query (all rows in the users table other than uid 1)
+    $query = parent::query();
+
+    // Get the username of the node author.
+    $query->LeftJoin('users', 'u', 'n.uid = u.uid');
+    $query->fields('u', array('name'));
+
+    // Filter by announcement type of Lab Announcement.
+    $query->condition('f.field_announcement_type_value', 'Access Notice', '=');
+
+    return $query;
+  }
+
+  public function prepareRow($row) {
+
+    // Get the query from the parent so we can add to it.
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+
+    if ($row->field_announcement_content == 'Link') {
+      $row->field_announcement_content = 'Link to Existing URL';
+    }
+    elseif ($row->field_announcement_content == 'Body') {
+      $row->field_announcement_content = 'Enter Details';
+    }
+
+    // Convert filter formats.
+    if ($row->{'field_announcement_body:format'} == '2') {
+      $row->{'field_announcement_body:format'} = 'full_html';
+    }
+    elseif ($row->{'field_announcement_body:format'} == '1') {
+      $row->{'field_announcement_body:format'} = 'filtered_html';
+    }
+    else {
+      $row->{'field_announcement_body:format'} = 'full_html';
+    }
+
+    // There appears to be an odd bug in the D6 site that causes dates to incorrectly
+    // stored in the database - 7 hours off.
+    $from_date = new DateTime($row->field_date);
+    $from_date->sub(new DateInterval("PT7H"));
+    $row->field_date = $from_date->format('Y-m-d H:i:s');
+
+    $to_date = new DateTime($row->{'field_date:value2'});
+    $to_date->sub(new DateInterval("PT7H"));
+    $row->{'field_date:value2'} = $to_date->format('Y-m-d H:i:s');
+  }
+
+  public function prepare($entity, $row) {
+
+    // Check if user exists on D7 site.  If so, load the user by name and assign.
+    // (Uids are not the same on both sites.)
+    $d7_user = user_load_by_name($row->name);
+    if (isset($d7_user->uid)) {
+      $entity->uid = $d7_user->uid;
     }
   }
 }

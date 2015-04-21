@@ -83,6 +83,13 @@ function slac_migrate_migrate_api() {
       'destination_type' => 'event',
       'dependencies' => array('Images', 'Tags', 'Videos'),
     ),
+    'Access_Notice' => array(
+      'class_name' => 'SlacAccessNoticeMigration',
+      'description' => t('Migration of Announcement -> Access Notice in D6 to Access Information nodes in D7'),
+      'source_type' => 'announcement',
+      'destination_type' => 'access_information',
+      'dependencies' => array('Images', 'Tags', 'Videos'),
+    ),
   );
 
   $common_node_arguments = $common_arguments + array();
