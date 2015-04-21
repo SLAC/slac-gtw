@@ -10,6 +10,13 @@ include_once 'ct_news.features.inc';
  * Implements hook_form_FORMID_alter().
  */
 function ct_news_form_news_node_form_alter(&$form, &$form_state) {
+  // field_shared_promote_news will always be turned on for News nodes,
+  // this is done to support views like "News Archive" which list News, Event,
+  // and Access Notice nodes and needs to filter out items that do not have
+  // 'Promote as News' set to On.
+  // see ct_news_node_presave().
+  $form['field_shared_promote_news']['#access'] = FALSE;
+
   // Add a help-like message to link users to the Event creation if they wanted
   // that instead.
   $event_help = array(
@@ -22,4 +29,16 @@ function ct_news_form_news_node_form_alter(&$form, &$form_state) {
         ) . '</span>',
   );
   array_unshift($form, $event_help);
+}
+
+/**
+ * Implements hook_node_presave().
+ */
+function ct_news_node_presave($node) {
+  if ($node->type == 'news') {
+    // Force the 'Promote as News' flag to be set for News nodes, this is
+    // done here so that it will be set for nodes created by code such as
+    // during drush genc.
+    $node->field_shared_promote_news[$node->language][0]['value'] = 1;
+  }
 }

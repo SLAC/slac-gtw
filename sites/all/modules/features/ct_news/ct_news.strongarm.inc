@@ -73,7 +73,7 @@ function ct_news_strongarm() {
   $strongarm->value = array(
     'view_modes' => array(
       'teaser' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'link' => array(
         'custom_settings' => TRUE,
@@ -88,7 +88,7 @@ function ct_news_strongarm() {
         'custom_settings' => FALSE,
       ),
       'search_result' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'ical' => array(
         'custom_settings' => FALSE,
@@ -100,6 +100,9 @@ function ct_news_strongarm() {
         'custom_settings' => FALSE,
       ),
       'headline' => array(
+        'custom_settings' => TRUE,
+      ),
+      'news_archive' => array(
         'custom_settings' => TRUE,
       ),
     ),
@@ -118,7 +121,50 @@ function ct_news_strongarm() {
           'weight' => '20',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'created' => array(
+          'default' => array(
+            'weight' => '-5',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '1',
+            'visible' => FALSE,
+          ),
+          'news_archive' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+        'author' => array(
+          'default' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '4',
+            'visible' => FALSE,
+          ),
+          'news_archive' => array(
+            'weight' => '3',
+            'visible' => FALSE,
+          ),
+        ),
+        'title' => array(
+          'default' => array(
+            'weight' => '-4',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '2',
+            'visible' => FALSE,
+          ),
+          'news_archive' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__news'] = $strongarm;

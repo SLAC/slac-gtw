@@ -123,7 +123,7 @@ function ct_access_information_strongarm() {
         'custom_settings' => FALSE,
       ),
       'search_result' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'ical' => array(
         'custom_settings' => FALSE,
@@ -137,6 +137,9 @@ function ct_access_information_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'news_archive' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -144,16 +147,47 @@ function ct_access_information_strongarm() {
           'weight' => '0',
         ),
         'metatags' => array(
-          'weight' => '19',
+          'weight' => '20',
         ),
         'path' => array(
-          'weight' => '17',
-        ),
-        'redirect' => array(
           'weight' => '18',
         ),
+        'redirect' => array(
+          'weight' => '19',
+        ),
       ),
-      'display' => array(),
+      'display' => array(
+        'created' => array(
+          'default' => array(
+            'weight' => '-5',
+            'visible' => TRUE,
+          ),
+          'news_archive' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+        'author' => array(
+          'default' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'news_archive' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
+        ),
+        'title' => array(
+          'default' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
+          ),
+          'news_archive' => array(
+            'weight' => '4',
+            'visible' => FALSE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__access_information'] = $strongarm;
