@@ -1,0 +1,13 @@
+name = Flea Market
+description = Views for the Flea Market listing displays.
+core = 7.x
+package = Views
+version = 7.x-1.0-dev
+project = v_flea_market
+dependencies[] = views
+dependencies[] = views_content
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = flea_market
+features[views_view][] = flea_market_listing
+features_exclude[dependencies][ctools] = ctools

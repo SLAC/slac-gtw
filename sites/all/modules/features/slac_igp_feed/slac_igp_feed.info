@@ -18,7 +18,6 @@ features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[image][] = featured_news
 features[views_view][] = access_information
-features[views_view][] = flea_market
 features[views_view][] = news
 features_exclude[box][feedback] = feedback
 features_exclude[dependencies][ctools] = ctools
