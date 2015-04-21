@@ -11,7 +11,6 @@
 abstract class SlacNodeMigration extends DrupalNode6Migration {
   public function __construct(array $arguments) {
     parent::__construct($arguments);
-
   }
 }
 
@@ -62,7 +61,7 @@ class SlacStoryMigration extends SlacNodeMigration {
       'field_shared_contact_name:language',
       'field_shared_contact_phone',
       'field_shared_existing_url', 'field_shared_existing_url:language',
-      'field_shared_image:language', 'field_shared_image:preserve_files',
+      'field_shared_image:language',
       'field_shared_location', 'field_shared_location:language',
       'field_shared_new_existing',
       'field_shared_note_editors', 'field_shared_note_editors:language',
