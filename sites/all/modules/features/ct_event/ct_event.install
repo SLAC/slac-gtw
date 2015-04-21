@@ -33,9 +33,11 @@ function ct_event_install() {
     'KIPAC Tea Talk',
     'LCLS-PULSE Seminar',
     'Photon Science Seminar',
+    'PULSE Seminar',
     'SIMES Seminar',
     'SLAC Association for Students Seminars',
     'SLAC Colloquia',
+    'SLAC Engineering Seminar',
     'SLAC Public Lecture',
     'SSRL Presents',
     'Stanford Physics / Applied Physics',
@@ -174,4 +176,25 @@ function ct_event_update_7003() {
     'Other',
   );
   _ct_event_populate_vocabulary('event_series', $term_names);
+}
+
+/**
+ * Add terms to the event_series vocabulary.
+ */
+function ct_event_update_7004() {
+  $term_names = array(
+    'PULSE Seminar',
+    'SLAC Engineering Seminar',
+  );
+  $vocabulary = taxonomy_vocabulary_machine_name_load('event_series');
+
+  foreach($term_names as $term_name) {
+    $term = (object) array(
+      'name' => $term_name,
+      'vid' => $vocabulary->vid,
+      'weight' => -20,
+    );
+    taxonomy_term_save($term);
+    $terms[$term_name] = $term->tid;
+  }
 }
