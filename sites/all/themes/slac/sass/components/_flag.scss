@@ -3,7 +3,7 @@
   line-height: 1;
   
   .flag {
-    display: block;
+    display: inline-block;
     text-indent: 14px;
     background: url(../images/blue-flag.png) 0 4px no-repeat;
     &.unflag-action {
