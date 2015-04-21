@@ -145,6 +145,14 @@ function ct_event_strongarm() {
             'weight' => '1',
             'visible' => TRUE,
           ),
+          'search_result' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-5',
+            'visible' => TRUE,
+          ),
         ),
         'author' => array(
           'default' => array(
@@ -155,6 +163,14 @@ function ct_event_strongarm() {
             'weight' => '6',
             'visible' => FALSE,
           ),
+          'search_result' => array(
+            'weight' => '3',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-3',
+            'visible' => TRUE,
+          ),
         ),
         'title' => array(
           'default' => array(
@@ -163,6 +179,32 @@ function ct_event_strongarm() {
           ),
           'news_archive' => array(
             'weight' => '3',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
+          ),
+        ),
+        'content_type' => array(
+          'search_result' => array(
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '-5',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '-5',
+            'visible' => FALSE,
+          ),
+          'news_archive' => array(
+            'weight' => '-5',
             'visible' => FALSE,
           ),
         ),
