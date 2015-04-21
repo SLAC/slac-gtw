@@ -1,0 +1,17 @@
+@import "zen";
+
+$zen-gutter-width: 40px;
+$zen-column-count: 12;
+
+#content {
+  @include zen-grid-container();
+  .general-left {
+    @include zen-grid-item(7, 2);
+  }
+  .general-right {
+    @include zen-grid-item(3, 9);
+    .inside {
+      border-left: none;
+    }
+  }
+}
