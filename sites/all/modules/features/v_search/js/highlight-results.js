@@ -5,7 +5,7 @@
 
 (function ($) {
   'use strict';
-  
+
   /**
    * Wraps each instance of the search keyword in strong tags.
    */
@@ -22,7 +22,7 @@
       var viewContentDiv = $('div.view-content');
       var viewContent =  viewContentDiv.html();
       viewContent = viewContent.replace(re, function (match) {
-        return '<strong>' + match + '</strong>'
+        return '<strong>' + match + '</strong>';
       });
       viewContentDiv.html(viewContent);
     }
