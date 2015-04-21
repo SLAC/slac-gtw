@@ -195,6 +195,5 @@ function ct_event_update_7004() {
       'weight' => -20,
     );
     taxonomy_term_save($term);
-    $terms[$term_name] = $term->tid;
   }
 }
