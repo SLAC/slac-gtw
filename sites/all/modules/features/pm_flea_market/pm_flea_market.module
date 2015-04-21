@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Flea Market feature.
+ */
+
+include_once 'pm_flea_market.features.inc';

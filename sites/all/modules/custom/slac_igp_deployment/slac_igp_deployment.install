@@ -56,9 +56,11 @@ function slac_igp_deployment_install() {
     'ct_flea_market_item',
     'ct_news',
     'ct_webform',
+    'pm_flea_market',
     'pm_news',
     'v_event',
     'v_featured_news_pane',
+    'v_flea_market',
     'v_news',
     'v_news_archive',
     'v_search',
@@ -95,6 +97,7 @@ function slac_igp_deployment_install() {
 
   // Revert features for pre-existing views.
   _slac_igp_deployment_revert('v_event');
+  _slac_igp_deployment_revert('v_flea_market');
   _slac_igp_deployment_revert('v_news');
   _slac_igp_deployment_revert('v_top_links');
 
@@ -667,6 +670,20 @@ function slac_igp_deployment_update_7030() {
 function slac_igp_deployment_update_7031() {
   $result = module_enable(array(
     'flag',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the pm_flea_market, v_flea_market features.
+ */
+function slac_igp_deployment_update_7032() {
+  $result = module_enable(array(
+    'pm_flea_market',
+    'v_flea_market',
   ));
 
   if ($result == FALSE) {
