@@ -39,7 +39,6 @@
     margin: auto;
     @include clearfix;
     .region-navigation {
-      @include zen-grid-item(10, 3);
       padding-left: 0;
     }
   }

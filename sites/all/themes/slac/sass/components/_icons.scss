@@ -1,0 +1,36 @@
+.general-left {
+  .calendar-button,
+  .email-button,
+  .js-print-button {
+    display: block;
+    float: left;
+    a {
+      @include font-size(12px);
+      text-transform: uppercase;
+      color: lighten($dim-grey, 10%);
+      font-weight: lighter;
+      display: block;
+      padding-left: 2em;
+      padding-right: 1.5em;
+      margin-right: 1.5em;
+      height: 16px;
+      border-right: 1px solid lighten($dim-grey, 35%);
+    }
+  }
+
+  .calendar-button a {
+    background: url('../images/icons-cal-mail-print.png') 0 -16px no-repeat;
+    background-size: 16px 48px;
+  }
+
+  .email-button a {
+    background: url('../images/icons-cal-mail-print.png') 0 2px no-repeat;
+    background-size: 16px 48px;
+  }
+
+   .js-print-button a {
+    border: none;
+    background: url('../images/icons-cal-mail-print.png') 0 -32px no-repeat;
+    background-size: 16px 48px;
+  }
+}

@@ -80,7 +80,10 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'page-breadcrumb',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
@@ -127,8 +130,8 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $pane->configuration = array(
       'flag_name' => 'flea_market_inappropriate',
       'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => '<none>',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
