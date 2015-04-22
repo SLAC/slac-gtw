@@ -120,6 +120,16 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   outline: none;
 }
 
+.field-name-field-file-shared-caption {
+  font-size: 12px;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+.field-name-field-file-shared-caption p {
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+}
+
 .node-type-event #content,
 .node-type-news #content,
 .node-type-access-information #content {
@@ -272,19 +282,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   color: #4f4f4f;
   margin-bottom: 1em;
 }
-.node-type-event .general-right .field-name-field-file-shared-caption,
-.node-type-news .general-right .field-name-field-file-shared-caption,
-.node-type-access-information .general-right .field-name-field-file-shared-caption {
-  font-size: 12px;
-  font-size: 0.75rem;
-  font-style: italic;
-}
-.node-type-event .general-right .field-name-field-file-shared-caption p,
-.node-type-news .general-right .field-name-field-file-shared-caption p,
-.node-type-access-information .general-right .field-name-field-file-shared-caption p {
-  margin-top: 0;
-  margin-bottom: 2.5rem;
-}
 .node-type-event .general-right .panel-pane,
 .node-type-news .general-right .panel-pane,
 .node-type-access-information .general-right .panel-pane {
@@ -308,15 +305,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 1.5em;
-}
-.node-type-news #content .field-name-field-file-shared-caption {
-  font-size: 12px;
-  font-size: 0.75rem;
-  font-style: italic;
-}
-.node-type-news #content .field-name-field-file-shared-caption p {
-  margin-top: 0;
-  margin-bottom: 2.5rem;
 }
 .node-type-news .general-left .panel-pane.pane-slac-ip-panes-email,
 .node-type-news .general-left .pane-slac-ip-panes-print {
@@ -428,15 +416,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 }
 .node-type-access-information .general-left .panel-pane.pane-node-field-shared-contact-phone .field-item {
   padding: 0;
-}
-.node-type-access-information .general-right .field-name-field-file-shared-caption {
-  font-size: 12px;
-  font-size: 0.75rem;
-  font-style: italic;
-}
-.node-type-access-information .general-right .field-name-field-file-shared-caption p {
-  margin-top: 0;
-  margin-bottom: 2.5rem;
 }
 
 .node-type-event .pane-node-body .field-name-body {

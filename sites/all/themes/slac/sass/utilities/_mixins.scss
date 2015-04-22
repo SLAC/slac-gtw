@@ -6,3 +6,12 @@
     clear: both;    
   }
 }
+
+@mixin caption {
+  @include font-size(12px);
+  font-style: italic;
+  p {
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+  }
+}
