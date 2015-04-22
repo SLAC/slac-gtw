@@ -10,7 +10,12 @@ include_once 'v_search.features.inc';
  * Implements hook_form_FORM_ID_alter().
  */
 function v_search_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
-  if ($form['#id'] == 'views-exposed-form-search-page') {
+  if ($form['#id'] == 'views-exposed-form-search-page' && $_GET['q'] == 'search') {
+
+    // We need to limit the exposed content types filters to specific types but
+    // this means that all of the options will be selected by default. We are
+    // overriding it here.
+    $form['secondary']['type']['#default_value'] = false;
     $form['#attached']['js'] = array(
       drupal_get_path('module', 'v_search') . '/js/highlight-results.js' => array(
         'type' => 'file',
