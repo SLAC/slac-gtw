@@ -4,6 +4,7 @@ core = 7.x
 package = Views
 version = 7.x-1.0-dev
 project = v_search
+dependencies[] = better_exposed_filters
 dependencies[] = entity
 dependencies[] = views
 features[ctools][] = views:views_default:3.0
