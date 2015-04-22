@@ -72,7 +72,7 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $pane->configuration = array(
       'admin_title' => 'Flea Market breadcrumb link',
       'title' => '',
-      'body' => '<a href="#">Flea Market</a> >',
+      'body' => '<a href="/flea-market">Flea Market</a> &gt;',
       'format' => 'full_html',
       'substitute' => 0,
     );
