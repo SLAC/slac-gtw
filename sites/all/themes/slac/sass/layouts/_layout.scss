@@ -20,3 +20,6 @@ $zen-column-count: 12;
     }
   }
 }
+.view-search {
+  @include zen-grid-item(8, 2);
+}
