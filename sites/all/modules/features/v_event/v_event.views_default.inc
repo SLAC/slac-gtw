@@ -46,6 +46,13 @@ function v_event_views_default_views() {
   $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/calendar/all">View All Upcoming Events</a><br />
 <a href="https://news.slac.stanford.edu/create/announcement ">Submit An Event</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Existing URL */
   $handler->display->display_options['fields']['field_shared_existing_url']['id'] = 'field_shared_existing_url';
   $handler->display->display_options['fields']['field_shared_existing_url']['table'] = 'field_data_field_shared_existing_url';
