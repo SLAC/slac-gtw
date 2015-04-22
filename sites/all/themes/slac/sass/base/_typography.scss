@@ -1,5 +1,7 @@
 $arial: Arial, Helvetica, "Nimbus Sans L", sans-serif;
-$base-font-size: 16px;
+
+$base-font-size:   16px; // The font size set on the root html element.
+$base-line-height: 1.5; // This line-height determines the basic unit of vertical rhythm.
 
 $h1-font-size: 2    * $base-font-size;
 $h2-font-size: 1.5  * $base-font-size;
@@ -7,3 +9,18 @@ $h3-font-size: 1.17 * $base-font-size;
 $h4-font-size: 1    * $base-font-size;
 $h5-font-size: 0.83 * $base-font-size;
 $h6-font-size: 0.75 * $base-font-size;
+
+// Use REMs with a pixel fallback for font sizing.
+@mixin font-size($font-size){
+  font-size: $font-size;
+  font-size: ($font-size / $base-font-size)*1rem;
+}
+
+@mixin caption {
+  @include font-size(12px);
+  font-style: italic;
+  p {
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+  }
+}

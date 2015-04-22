@@ -1,4 +1,93 @@
 /* used on events dates */
+body {
+  font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: normal;
+}
+
+a:hover, a:focus,
+a:link:hover,
+a:link:focus {
+  outline: none;
+}
+
+.not-front #content {
+  background: #ffffff;
+}
+
+.main-navigation .region-navigation {
+  float: left;
+  width: 83.33333%;
+  margin-left: 16.66667%;
+  margin-right: -100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+#content:before, #content:after {
+  content: "";
+  display: table;
+}
+#content:after {
+  clear: both;
+}
+#content .general-left {
+  float: left;
+  width: 58.33333%;
+  margin-left: 8.33333%;
+  margin-right: -66.66667%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+#content .general-right {
+  float: left;
+  width: 25%;
+  margin-left: 66.66667%;
+  margin-right: -91.66667%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+#content .general-right .inside {
+  border-left: none;
+}
+
+.pane-node-author {
+  margin-top: .5rem;
+  margin-bottom: 2rem;
+}
+.pane-node-author:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.pane-node-author .pane-title {
+  font-size: 16px;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+  float: left;
+}
+.pane-node-author .username {
+  margin-left: .3rem;
+}
+
 input[type="submit"],
 .button {
   font-size: 12px;
@@ -121,58 +210,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 .node-type-news .general-left .field-name-field-shared-location,
 .node-type-access-information .general-left .field-name-field-shared-location {
   margin-bottom: 16px;
-}
-.node-type-event .general-left .calendar-button,
-.node-type-event .general-left .email-button,
-.node-type-event .general-left .js-print-button,
-.node-type-news .general-left .calendar-button,
-.node-type-news .general-left .email-button,
-.node-type-news .general-left .js-print-button,
-.node-type-access-information .general-left .calendar-button,
-.node-type-access-information .general-left .email-button,
-.node-type-access-information .general-left .js-print-button {
-  display: block;
-  float: left;
-}
-.node-type-event .general-left .calendar-button a,
-.node-type-event .general-left .email-button a,
-.node-type-event .general-left .js-print-button a,
-.node-type-news .general-left .calendar-button a,
-.node-type-news .general-left .email-button a,
-.node-type-news .general-left .js-print-button a,
-.node-type-access-information .general-left .calendar-button a,
-.node-type-access-information .general-left .email-button a,
-.node-type-access-information .general-left .js-print-button a {
-  font-size: 12px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: dimgray;
-  font-weight: lighter;
-  display: block;
-  padding-left: 2em;
-  padding-right: 1.5em;
-  margin-right: 1.5em;
-  height: 16px;
-  border-right: 1px solid #a8a8a8;
-}
-.node-type-event .general-left .calendar-button a,
-.node-type-news .general-left .calendar-button a,
-.node-type-access-information .general-left .calendar-button a {
-  background: url("../images/icons-cal-mail-print.png") 0 -16px no-repeat;
-  background-size: 16px 48px;
-}
-.node-type-event .general-left .email-button a,
-.node-type-news .general-left .email-button a,
-.node-type-access-information .general-left .email-button a {
-  background: url("../images/icons-cal-mail-print.png") 0 2px no-repeat;
-  background-size: 16px 48px;
-}
-.node-type-event .general-left .js-print-button a,
-.node-type-news .general-left .js-print-button a,
-.node-type-access-information .general-left .js-print-button a {
-  border: none;
-  background: url("../images/icons-cal-mail-print.png") 0 -32px no-repeat;
-  background-size: 16px 48px;
 }
 .node-type-event .general-left .field-name-field-shared-contact-name,
 .node-type-event .general-left .field-name-field-shared-contact-email,
@@ -405,6 +442,54 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 }
 .node-type-news .view-featured-news ul li a {
   padding: 1em;
+}
+
+.pane-flag-link {
+  margin-top: 1.5rem;
+  line-height: 1;
+}
+.pane-flag-link .flag {
+  display: inline-block;
+  text-indent: 14px;
+  background: url(../images/blue-flag.png) 0 4px no-repeat;
+}
+.pane-flag-link .flag.unflag-action {
+  background: url(../images/red-flag.png) 0 4px no-repeat;
+  color: red;
+}
+
+.pane-node-created {
+  font-weight: bold;
+}
+.pane-node-created:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.node-type-flea-market-post h1 {
+  margin-bottom: 0;
+  margin-top: 1.5rem;
+}
+.node-type-flea-market-post .page-breadcrumb {
+  float: left;
+  margin-right: 6px;
+}
+.node-type-flea-market-post .panel-pane.pane-slac-ip-panes-email,
+.node-type-flea-market-post .pane-slac-ip-panes-print {
+  position: relative;
+  top: 48px;
+  float: right;
+  margin-right: 95px;
+}
+.node-type-flea-market-post .pane-slac-ip-panes-print {
+  top: 48px;
+  margin-right: -200px;
+}
+.node-type-flea-market-post .pane-node-field-shared-contact-name .pane-title {
+  font-size: 16px;
+  font-size: 1rem;
+  margin-bottom: 0;
 }
 
 select {
@@ -798,6 +883,41 @@ select:hover, select:focus {
   content: none;
 }
 
+.general-left .calendar-button,
+.general-left .email-button,
+.general-left .js-print-button {
+  display: block;
+  float: left;
+}
+.general-left .calendar-button a,
+.general-left .email-button a,
+.general-left .js-print-button a {
+  font-size: 12px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: dimgray;
+  font-weight: lighter;
+  display: block;
+  padding-left: 2em;
+  padding-right: 1.5em;
+  margin-right: 1.5em;
+  height: 16px;
+  border-right: 1px solid #a8a8a8;
+}
+.general-left .calendar-button a {
+  background: url("../images/icons-cal-mail-print.png") 0 -16px no-repeat;
+  background-size: 16px 48px;
+}
+.general-left .email-button a {
+  background: url("../images/icons-cal-mail-print.png") 0 2px no-repeat;
+  background-size: 16px 48px;
+}
+.general-left .js-print-button a {
+  border: none;
+  background: url("../images/icons-cal-mail-print.png") 0 -32px no-repeat;
+  background-size: 16px 48px;
+}
+
 .node-type-event .general-right .field-name-field-shared-related-files li a,
 .node-type-news .general-right .field-name-field-shared-related-files li a,
 .node-type-access-information .general-right .field-name-field-shared-related-files li a {
@@ -902,17 +1022,6 @@ select:hover, select:focus {
   clear: both;
 }
 .main-navigation .inner-wrapper .region-navigation {
-  float: left;
-  width: 83.33333%;
-  margin-left: 16.66667%;
-  margin-right: -100%;
-  padding-left: 20px;
-  padding-right: 20px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
   padding-left: 0;
 }
 

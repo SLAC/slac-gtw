@@ -72,7 +72,7 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $pane->configuration = array(
       'admin_title' => 'Flea Market breadcrumb link',
       'title' => '',
-      'body' => '<a href="#">Flea Market</a> >',
+      'body' => '<a href="/flea-market">Flea Market</a> &gt;',
       'format' => 'full_html',
       'substitute' => 0,
     );
@@ -80,7 +80,10 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'page-breadcrumb',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
@@ -127,8 +130,8 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $pane->configuration = array(
       'flag_name' => 'flea_market_inappropriate',
       'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => '<none>',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
@@ -391,7 +394,7 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'hidden',
-      'formatter' => 'colorbox',
+      'formatter' => 'file_rendered',
       'delta_limit' => '1',
       'delta_offset' => '0',
       'delta_reversed' => 0,
@@ -403,6 +406,7 @@ function ct_flea_market_item_default_page_manager_handlers() {
         'colorbox_gallery_custom' => '',
         'colorbox_caption' => 'auto',
         'colorbox_caption_custom' => '',
+        'file_view_mode' => 'full',
       ),
       'context' => 'argument_entity_id:node_1',
       'override_title' => 0,

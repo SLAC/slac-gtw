@@ -5,3 +5,17 @@
  */
 
 include_once 'v_search.features.inc';
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function v_search_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  if ($form['#id'] == 'views-exposed-form-search-page') {
+    $form['#attached']['js'] = array(
+      drupal_get_path('module', 'v_search') . '/js/highlight-results.js' => array(
+        'type' => 'file',
+      ),
+    );
+  }
+
+}

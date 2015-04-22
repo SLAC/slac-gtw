@@ -4,6 +4,13 @@ body {
   line-height: 1.5;
   font-weight: normal;
 }
+a,
+a:link {
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
 .not-front #content {
   background: $white;
 }

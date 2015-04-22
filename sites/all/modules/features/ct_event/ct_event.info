@@ -38,6 +38,7 @@ features[field_instance][] = node-event-field_event_date
 features[field_instance][] = node-event-field_event_series
 features[field_instance][] = node-event-field_event_type
 features[field_instance][] = node-event-field_news_news_type
+features[field_instance][] = node-event-field_shared_byline
 features[field_instance][] = node-event-field_shared_contact_email
 features[field_instance][] = node-event-field_shared_contact_name
 features[field_instance][] = node-event-field_shared_contact_phone
