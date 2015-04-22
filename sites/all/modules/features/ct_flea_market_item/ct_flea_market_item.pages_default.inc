@@ -394,7 +394,7 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'hidden',
-      'formatter' => 'colorbox',
+      'formatter' => 'file_rendered',
       'delta_limit' => '1',
       'delta_offset' => '0',
       'delta_reversed' => 0,
@@ -406,6 +406,7 @@ function ct_flea_market_item_default_page_manager_handlers() {
         'colorbox_gallery_custom' => '',
         'colorbox_caption' => 'auto',
         'colorbox_caption_custom' => '',
+        'file_view_mode' => 'full',
       ),
       'context' => 'argument_entity_id:node_1',
       'override_title' => 0,
