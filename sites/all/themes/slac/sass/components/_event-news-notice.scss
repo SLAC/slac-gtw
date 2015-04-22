@@ -1,14 +1,9 @@
 // Styles here address theming of event, news and access notice
-@import "zen";
-
-$zen-gutter-width: 40px;
-$zen-column-count: 12;
 
 .node-type-event,
 .node-type-news,
 .node-type-access-information {
   #content {
-    @include zen-grid-container();
     @include font-size(16px);
     background: $white !important;
     color: $event-body;
@@ -21,7 +16,6 @@ $zen-column-count: 12;
     margin-bottom: 0;
   }
   .general-left {
-    @include zen-grid-item(7, 2);
     .pane-node-field-event-type {
       margin-bottom: 2em;
     }
@@ -67,7 +61,6 @@ $zen-column-count: 12;
     }
   }
   .general-right {
-    @include zen-grid-item(3, 9);
     margin-top: .5em;
     .inside {
       padding: 0;
