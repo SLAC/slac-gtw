@@ -1,4 +1,3 @@
-/* used on events dates */
 body {
   font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
   font-size: 16px;
@@ -1075,24 +1074,24 @@ select:hover, select:focus {
   color: #316dae;
 }
 
-#content .pager {
+.pager {
   margin-top: 3rem;
   margin-bottom: 2rem;
   text-align: left;
 }
-#content .pager li {
+.pager li {
   font-weight: normal;
   padding-right: .2rem;
   padding-left: .2rem;
 }
-#content .pager li a {
+.pager li a {
   display: inline-block;
   padding: .4rem .6rem;
   color: #5b93d1;
   font-weight: normal;
   background: #f2f2f2;
 }
-#content .pager li.pager-current {
+.pager li.pager-current {
   padding: .6rem .6rem;
   background: #6fa0d6;
   color: #ffffff;
@@ -1169,44 +1168,44 @@ select:hover, select:focus {
   margin-bottom: 2em;
 }
 
-.page-search .view-search {
+.view-search {
   color: #848484;
 }
-.page-search .view-search .views-row {
+.view-search .views-row {
   margin-bottom: 3rem;
 }
-.page-search .view-search .view-header {
+.view-search .view-header {
   padding: .5rem 1rem;
   background: #f2f2f2;
 }
-.page-search .view-search .view-footer {
+.view-search .view-footer {
   font-size: 14px;
   font-size: 0.875rem;
 }
-.page-search .view-search .node-title {
+.view-search .node-title {
   margin-bottom: .2rem;
   margin-top: .3rem;
 }
-.page-search .view-search .field-name-body br {
+.view-search .field-name-body br {
   display: none;
 }
-.page-search .view-search .field-name-body .field-item > p {
+.view-search .field-name-body .field-item > p {
   margin-top: 0;
 }
-.page-search .view-search .field-name-body .field-item p:last-child {
+.view-search .field-name-body .field-item p:last-child {
   margin-bottom: .2rem;
 }
-.page-search .view-search .field-name-field-shared-image {
+.view-search .field-name-field-shared-image {
   float: left;
   margin-right: 2rem;
   margin-bottom: .5rem;
 }
-.page-search .view-search .node-created {
+.view-search .node-created {
   font-size: 12px;
   font-size: 0.75rem;
   font-weight: bold;
 }
-.page-search .view-search .node-content-type {
+.view-search .node-content-type {
   font-size: 12px;
   font-size: 0.75rem;
   font-weight: normal;

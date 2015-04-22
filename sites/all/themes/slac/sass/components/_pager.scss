@@ -1,29 +1,25 @@
-#content {
+.pager {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  text-align: left;
 
-  .pager {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    text-align: left;
+  li {
+    font-weight: normal;
+    padding-right: .2rem;
+    padding-left: .2rem;
 
-    li {
+    a {
+      display: inline-block;
+      padding: .4rem .6rem;;
+      color: lighten($blue, 15%);
       font-weight: normal;
-      padding-right: .2rem;
-      padding-left: .2rem;
+      background: $light-grey;
+    }
 
-      a {
-        display: inline-block;
-        padding: .4rem .6rem;;
-        color: lighten($blue, 15%);
-        font-weight: normal;
-        background: lighten($dim-grey, 64%);
-      }
-
-      &.pager-current {
-        padding: .6rem .6rem;
-        background: lighten($blue, 20%);
-        color: $white;
-      }
-
-    } 
+    &.pager-current {
+      padding: .6rem .6rem;
+      background: lighten($blue, 20%);
+      color: $white;
+    }
   }
 }

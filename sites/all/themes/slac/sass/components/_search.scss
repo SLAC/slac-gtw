@@ -1,55 +1,52 @@
-.page-search {
-  
-  .view-search {
-    color: lighten($grey, 10%);
+.view-search {
+  color: lighten($grey, 10%);
 
-    .views-row {
-      margin-bottom: 3rem;
+  .views-row {
+    margin-bottom: 3rem;
+  }
+
+  .view-header {
+    padding: .5rem 1rem;
+    background: $light-grey;
+  }
+
+  .view-footer {
+    @include font-size($base-font-size - 2px);
+  }
+
+  .node-title {
+    margin-bottom: .2rem;
+    margin-top: .3rem;
+  }
+
+  .field-name-body {
+
+    br {
+      display: none;
     }
 
-    .view-header {
-      padding: .5rem 1rem;
-      background: lighten($dim-grey, 64%);
+    .field-item > p {
+      margin-top: 0;
     }
 
-    .view-footer {
-      @include font-size($base-font-size - 2px);
-    }
-
-    .node-title {
+    .field-item p:last-child {
       margin-bottom: .2rem;
-      margin-top: .3rem;
     }
+  }
 
-    .field-name-body {
+  .field-name-field-shared-image {
+    float: left;
+    margin-right: 2rem;
+    margin-bottom: .5rem;
+  }
 
-      br {
-        display: none;
-      }
+  .node-created {
+    @include font-size($base-font-size - 4px);
+    font-weight: bold;
+  }
 
-      .field-item > p {
-        margin-top: 0;
-      }
-
-      .field-item p:last-child {
-        margin-bottom: .2rem;
-      }
-    }
-
-    .field-name-field-shared-image {
-      float: left;
-      margin-right: 2rem;
-      margin-bottom: .5rem;
-    }
-
-    .node-created {
-      @include font-size($base-font-size - 4px);
-      font-weight: bold;
-    }
-
-    .node-content-type {
-      @include font-size($base-font-size - 4px);
-      font-weight: normal;
-    }
+  .node-content-type {
+    @include font-size($base-font-size - 4px);
+    font-weight: normal;
   }
 }
