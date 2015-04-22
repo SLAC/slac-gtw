@@ -690,3 +690,16 @@ function slac_igp_deployment_update_7032() {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
 }
+
+/**
+ * Enable the better_exposed_filters module.
+ */
+function slac_igp_deployment_update_7033() {
+  $result = module_enable(array(
+    'better_exposed_filters',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
