@@ -3,52 +3,67 @@
     float: none;
     padding-top: 0;
   }
-  #main {
-    .general-left{
-      .views-row {
-        background: none;
-        padding-left: 0;
-      }
-      .pane-title {
-        @include font-size(32px);
-        margin-top: 0;
-        line-height: 1;
-      }
-      .view-news-archive {
-        margin-bottom: 2rem;
-        article {
-          margin-bottom: 3rem;
-          .field-type-image {
-            float: left;
-            margin-right: 2rem;
-          }
-          .node-created {
-            font-weight: bold;
-          }
-        }
-        .field-name-body {
-          margin-top: 1rem;
-        }
-      }
+  .general-left {
+
+    .views-row {
+      @include font-size($base-font-size);
+      background: none;
+      padding-left: 0;
+      margin-bottom: 2.5rem;
     }
-    .general-right {
-      .inside {
-        border-left: none;
-      }
-      .pane-title {
-        line-height: 1;
-        margin-top: 0;
-      }
-      select {
-        width: 126px;
-        @include clearfix;
-        float: none !important;
-        margin-bottom: 1rem;
-      }
-      input[type="submit"].form-submit {
-        margin-top: 0;
-        width: 126px;
-      } 
-    }    
+
+    .pane-title {
+      @include font-size($h1-font-size);
+      margin-top: 0;
+      line-height: 1;
+    }
+
+    .view-news-archive {
+      margin-bottom: 2rem;
+    }
+
+    .node-title {
+      @include font-size($h3-font-size);
+      margin: .2rem 0;
+    }
+
+    margin-bottom: 3rem;
+    .field-type-image {
+      float: left;
+      margin-right: 2rem;
+    }
+
+    .node-created {
+      @include font-size($base-font-size - 2px);
+      font-weight: bold;
+    }
+
+    .field-item > p {
+      margin-top: 0;
+    }
+
+    .field-name-field-news-teaser .field-item {
+      margin-top: .5rem;
+    }
+  }
+
+  .general-right {
+
+    .pane-title {
+      line-height: 1;
+      margin-top: 0;
+    }
+
+    select {
+      width: 126px;
+      @include clearfix;
+      float: none !important;
+      margin-bottom: 1rem;
+    }
+
+    input[type="submit"].form-submit {
+      margin-top: 0;
+      width: 126px;
+    }
   }
 }
