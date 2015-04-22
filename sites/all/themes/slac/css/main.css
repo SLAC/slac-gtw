@@ -67,7 +67,7 @@ a:link:focus {
   border-left: none;
 }
 
-.page-search #content .view-search {
+.view-search {
   float: left;
   width: 66.66667%;
   margin-left: 8.33333%;
