@@ -1,0 +1,18 @@
+select {
+  @include font-size(10px);
+  padding: 5px 40px 5px 14px;
+  text-transform: uppercase;
+  border: 1px solid $blue;
+  background: $white;
+  border-radius: 0;
+  border-image: none;
+  color: lighten($grey, 20%);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}

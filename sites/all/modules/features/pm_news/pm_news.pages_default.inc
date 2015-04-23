@@ -16,7 +16,10 @@ function pm_news_default_page_manager_pages() {
   $page->admin_title = 'News';
   $page->admin_description = 'temporary placeholder page for /news';
   $page->path = 'news';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
@@ -43,12 +46,14 @@ function pm_news_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'flexible';
+  $display->layout = 'two_col';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'center' => NULL,
+      'left' => NULL,
+      'right' => NULL,
     ),
   );
   $display->cache = array();
@@ -56,7 +61,60 @@ function pm_news_default_page_manager_pages() {
   $display->uuid = '40980e20-7d86-402b-b4c4-c6e45e9fcf77';
   $display->content = array();
   $display->panels = array();
-  $display->hide_title = PANELS_TITLE_FIXED;
+    $pane = new stdClass();
+    $pane->pid = 'new-30e087a9-f39c-4a72-b976-6dae3a733999';
+    $pane->panel = 'left';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'news_archive-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'exposed' => array(
+        'field_news_news_type_value' => 'All',
+        'date_filter' => array(
+          'value' => NULL,
+        ),
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '30e087a9-f39c-4a72-b976-6dae3a733999';
+    $display->content['new-30e087a9-f39c-4a72-b976-6dae3a733999'] = $pane;
+    $display->panels['left'][0] = 'new-30e087a9-f39c-4a72-b976-6dae3a733999';
+    $pane = new stdClass();
+    $pane->pid = 'new-e90ee0c5-df2e-4ae4-952c-41dce883c0a5';
+    $pane->panel = 'right';
+    $pane->type = 'block';
+    $pane->subtype = 'views--exp-news_archive-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'inherit_path' => 1,
+      'override_title' => 1,
+      'override_title_text' => 'News Archives',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'e90ee0c5-df2e-4ae4-952c-41dce883c0a5';
+    $display->content['new-e90ee0c5-df2e-4ae4-952c-41dce883c0a5'] = $pane;
+    $display->panels['right'][0] = 'new-e90ee0c5-df2e-4ae4-952c-41dce883c0a5';
+  $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;

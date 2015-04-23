@@ -17,9 +17,9 @@
         'people': Drupal.t('Search People'),
         'enterprise': Drupal.t('Search SLAC Web')
       };
-      var $searchInput = $('#search-block-form .form-item-search-block-form input');
+      var $searchInput = $('#slac-search-block-form .form-item-slac-search-block-form input');
 
-      $('#search-block-form select', context).selectize({
+      $('#slac-search-block-form select', context).selectize({
         onChange: function(value) {
           $searchInput.attr('placeholder', placeholders[value]);
         }

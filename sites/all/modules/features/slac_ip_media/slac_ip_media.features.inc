@@ -54,6 +54,22 @@ function slac_ip_media_image_default_styles() {
     ),
   );
 
+  // Exported image style: news_archive_list_item.
+  $styles['news_archive_list_item'] = array(
+    'label' => 'News Archive List Item',
+    'effects' => array(
+      4 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 170,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: news_large_body_image.
   $styles['news_large_body_image'] = array(
     'label' => 'News Large Body Image (370px wide)',

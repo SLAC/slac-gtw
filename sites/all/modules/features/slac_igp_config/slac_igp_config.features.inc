@@ -37,14 +37,6 @@ function slac_igp_config_views_api($module = NULL, $api = NULL) {
  */
 function slac_igp_config_node_info() {
   $items = array(
-    'flea_market_post' => array(
-      'name' => t('Flea market post'),
-      'base' => 'node_content',
-      'description' => t('A posting from SLAC today\'s Flea market feature'),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
     'news_article' => array(
       'name' => t('News Article'),
       'base' => 'node_content',

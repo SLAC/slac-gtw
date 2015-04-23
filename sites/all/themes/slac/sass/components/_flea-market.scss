@@ -1,0 +1,36 @@
+.pane-node-created {
+  @include clearfix;
+  font-weight: bold;
+}
+
+.node-type-flea-market-post {
+  h1 {
+    margin-bottom: 0;
+    margin-top: 1.5rem;
+  }
+
+  .page-breadcrumb {
+    float: left;
+    margin-right: 6px;
+  }
+
+  .panel-pane.pane-slac-ip-panes-email,
+  .pane-slac-ip-panes-print {
+    position: relative;
+    top: 48px;
+    float: right;
+    margin-right: 95px;
+  }
+
+  .pane-slac-ip-panes-print {
+    top: 48px;
+    margin-right: -200px;
+  }
+
+  .pane-node-field-shared-contact-name {
+    .pane-title {
+      @include font-size(16px);
+      margin-bottom: 0;
+    }
+  }
+}

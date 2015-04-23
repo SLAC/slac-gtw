@@ -26,6 +26,23 @@
     }
   }
 }
+.main-navigation {
+  @include clearfix;
+  background: $blue;
+  margin-bottom: 40px;
+  .not-front & {
+    margin-bottom: 0;
+  }
+  .inner-wrapper {
+    width: 100%;
+    max-width: 1432px;
+    margin: auto;
+    @include clearfix;
+    .region-navigation {
+      padding-left: 0;
+    }
+  }
+}
 #block-system-main-menu {
   clear: both;
 
@@ -46,7 +63,7 @@
       padding: 8px 2em;
       text-transform: uppercase;
       color: #fff;
-      background: $blue;
+      background: transparent;
       text-decoration: none;
       font-weight: bold;
       &:hover,

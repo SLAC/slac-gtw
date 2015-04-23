@@ -15,6 +15,7 @@ function slac_ip_config_moderation_user_default_permissions() {
     'name' => 'access workbench',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
     ),
@@ -63,7 +64,7 @@ function slac_ip_config_moderation_user_default_permissions() {
     'name' => 'moderate content from draft to needs_review',
     'roles' => array(
       'administrator' => 'administrator',
-      'author' => 'author',
+      'authenticated user' => 'authenticated user',
       'editor' => 'editor',
     ),
     'module' => 'workbench_moderation',
@@ -94,6 +95,7 @@ function slac_ip_config_moderation_user_default_permissions() {
     'name' => 'use workbench_moderation my drafts tab',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
     ),
@@ -105,6 +107,7 @@ function slac_ip_config_moderation_user_default_permissions() {
     'name' => 'use workbench_moderation needs review tab',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
     ),
@@ -125,6 +128,7 @@ function slac_ip_config_moderation_user_default_permissions() {
     'name' => 'view moderation history',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
     ),
@@ -136,6 +140,7 @@ function slac_ip_config_moderation_user_default_permissions() {
     'name' => 'view moderation messages',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
     ),
