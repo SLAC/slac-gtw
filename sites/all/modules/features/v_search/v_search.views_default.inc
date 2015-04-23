@@ -366,7 +366,7 @@ function v_search_views_default_views() {
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
   $handler->display->display_options['header']['result']['empty'] = TRUE;
-  $handler->display->display_options['header']['result']['content'] = 'Found <strong>@total results</strong> containing the words: [TODO: Add keyword here]';
+  $handler->display->display_options['header']['result']['content'] = 'Found <strong>@total results</strong>';
   /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';

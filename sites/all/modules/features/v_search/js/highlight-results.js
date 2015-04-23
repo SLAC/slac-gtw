@@ -25,6 +25,7 @@
         return '<strong>' + match + '</strong>';
       });
       viewContentDiv.html(viewContent);
+      $('.view-header').append('containing the words: ' + keyword);
     }
   };
 
