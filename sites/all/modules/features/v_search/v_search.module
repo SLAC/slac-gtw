@@ -33,7 +33,7 @@ function v_search_form_views_exposed_form_alter(&$form, &$form_state, $form_id) 
         ),
       ),
     );
-
+    $form['secondary']['created-from']['#prefix'] = '<div class="exposed-date-label">Select date range:</div>';
     // Reorder the form values and unset the originals.
     $form['search']['search_container']['search_api_views_fulltext'] = $form['search_api_views_fulltext'];
     unset($form['search_api_views_fulltext']);
@@ -47,5 +47,4 @@ function v_search_form_views_exposed_form_alter(&$form, &$form_state, $form_id) 
       ),
     );
   }
-
 }
