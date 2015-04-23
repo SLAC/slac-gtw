@@ -88,11 +88,23 @@ function v_search_views_default_views() {
       'any_label' => NULL,
       'filter_rewrite_values' => NULL,
     ),
-    'field_shared_tags' => array(
+    'field_shared_tags_name' => array(
       'bef_format' => 'default',
+      'slider_options' => array(
+        'bef_slider_min' => '0',
+        'bef_slider_max' => '99999',
+        'bef_slider_step' => '1',
+        'bef_slider_animate' => '',
+        'bef_slider_orientation' => 'horizontal',
+        'secondary_label' => NULL,
+        'collapsible_label' => NULL,
+        'combine_rewrite' => NULL,
+        'reset_label' => NULL,
+        'bef_filter_description' => NULL,
+        'any_label' => NULL,
+        'filter_rewrite_values' => NULL,
+      ),
       'more_options' => array(
-        'bef_select_all_none' => FALSE,
-        'bef_collapsible' => 0,
         'is_secondary' => 1,
         'any_label' => '',
         'bef_filter_description' => '',
@@ -400,18 +412,17 @@ function v_search_views_default_views() {
     'body:value' => 'body:value',
     'title' => 'title',
   );
-  /* Filter criterion: Indexed Node: Tags */
-  $handler->display->display_options['filters']['field_shared_tags']['id'] = 'field_shared_tags';
-  $handler->display->display_options['filters']['field_shared_tags']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['filters']['field_shared_tags']['field'] = 'field_shared_tags';
-  $handler->display->display_options['filters']['field_shared_tags']['value'] = array();
-  $handler->display->display_options['filters']['field_shared_tags']['group'] = 1;
-  $handler->display->display_options['filters']['field_shared_tags']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_shared_tags']['expose']['operator_id'] = 'field_shared_tags_op';
-  $handler->display->display_options['filters']['field_shared_tags']['expose']['label'] = 'Find content tagged as:';
-  $handler->display->display_options['filters']['field_shared_tags']['expose']['operator'] = 'field_shared_tags_op';
-  $handler->display->display_options['filters']['field_shared_tags']['expose']['identifier'] = 'field_shared_tags';
-  $handler->display->display_options['filters']['field_shared_tags']['expose']['remember_roles'] = array(
+  /* Filter criterion: Tags: Name (indexed) */
+  $handler->display->display_options['filters']['field_shared_tags_name']['id'] = 'field_shared_tags_name';
+  $handler->display->display_options['filters']['field_shared_tags_name']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['filters']['field_shared_tags_name']['field'] = 'field_shared_tags_name';
+  $handler->display->display_options['filters']['field_shared_tags_name']['group'] = 1;
+  $handler->display->display_options['filters']['field_shared_tags_name']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_shared_tags_name']['expose']['operator_id'] = 'field_shared_tags_name_op';
+  $handler->display->display_options['filters']['field_shared_tags_name']['expose']['label'] = 'Find content tagged as:';
+  $handler->display->display_options['filters']['field_shared_tags_name']['expose']['operator'] = 'field_shared_tags_name_op';
+  $handler->display->display_options['filters']['field_shared_tags_name']['expose']['identifier'] = 'field_shared_tags_name';
+  $handler->display->display_options['filters']['field_shared_tags_name']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     5 => 0,
@@ -420,7 +431,6 @@ function v_search_views_default_views() {
     7 => 0,
     3 => 0,
   );
-  $handler->display->display_options['filters']['field_shared_tags']['expose']['reduce'] = 0;
   /* Filter criterion: Indexed Node: News Type */
   $handler->display->display_options['filters']['field_news_news_type']['id'] = 'field_news_news_type';
   $handler->display->display_options['filters']['field_news_news_type']['table'] = 'search_api_index_default_node_index';
@@ -476,8 +486,7 @@ function v_search_views_default_views() {
   $handler->display->display_options['filters']['created_1']['group'] = 1;
   $handler->display->display_options['filters']['created_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['created_1']['expose']['operator_id'] = 'created_1_op';
-  $handler->display->display_options['filters']['created_1']['expose']['label'] = 'Select date range:';
-  $handler->display->display_options['filters']['created_1']['expose']['description'] = 'From:';
+  $handler->display->display_options['filters']['created_1']['expose']['label'] = 'From:';
   $handler->display->display_options['filters']['created_1']['expose']['operator'] = 'created_1_op';
   $handler->display->display_options['filters']['created_1']['expose']['identifier'] = 'created-from';
   $handler->display->display_options['filters']['created_1']['expose']['multiple'] = TRUE;
@@ -490,7 +499,6 @@ function v_search_views_default_views() {
     7 => 0,
     3 => 0,
   );
-  $handler->display->display_options['filters']['created_1']['widget_type'] = 'date_popup';
   /* Filter criterion: Indexed Node: Date created */
   $handler->display->display_options['filters']['created']['id'] = 'created';
   $handler->display->display_options['filters']['created']['table'] = 'search_api_index_default_node_index';
@@ -499,6 +507,7 @@ function v_search_views_default_views() {
   $handler->display->display_options['filters']['created']['group'] = 1;
   $handler->display->display_options['filters']['created']['exposed'] = TRUE;
   $handler->display->display_options['filters']['created']['expose']['operator_id'] = 'created_op';
+  $handler->display->display_options['filters']['created']['expose']['label'] = 'To:';
   $handler->display->display_options['filters']['created']['expose']['operator'] = 'created_op';
   $handler->display->display_options['filters']['created']['expose']['identifier'] = 'created-to';
   $handler->display->display_options['filters']['created']['expose']['multiple'] = TRUE;
@@ -525,7 +534,6 @@ function v_search_views_default_views() {
       'value' => '',
     ),
   );
-  $handler->display->display_options['filters']['created']['widget_type'] = 'date_popup';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
