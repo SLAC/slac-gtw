@@ -11,71 +11,20 @@
 abstract class SlacNodeMigration extends DrupalNode6Migration {
   public function __construct(array $arguments) {
     parent::__construct($arguments);
-  }
-}
 
-class SlacStoryMigration extends SlacNodeMigration {
-
-  public function __construct(array $arguments) {
-
-    parent::__construct($arguments);
-
-    // Field mappings.
-    $this->addFieldMapping('field_news_subtitle', 'field_title_sub');
-    $this->addFieldMapping('field_shared_byline', 'field_byline');
-    $this->addFieldMapping('field_news_teaser', 'field_teaser');
-    //$this->addFieldMapping('field_news_teaser:format', 'field_teaser:format');
-    $this->addFieldMapping('field_shared_tags', '7')
-      ->sourceMigration('Tags');
-    $this->addFieldMapping('field_shared_tags:source_type')
-     ->defaultValue('tid');
-
-    $this->addFieldMapping('field_shared_video', 'field_video_reference')
-      ->sourceMigration('Videos');
-    $this->addFieldMapping('field_shared_video:file_class')
-     ->defaultValue('MigrateFileFid');
-    $this->addFieldMapping('field_shared_video:preserve_files')
-         ->defaultValue(TRUE);
-    $this->addFieldMapping('field_shared_video:file_replace')
-         ->defaultValue(FILE_EXISTS_REUSE);
-
-    $this->addFieldMapping('field_shared_image', 'field_image_reference')
-      ->sourceMigration('Images');
+    // Image field mappings.
     $this->addFieldMapping('field_shared_image:file_class')
      ->defaultValue('MigrateFileFid');
     $this->addFieldMapping('field_shared_image:preserve_files')
          ->defaultValue(TRUE);
     $this->addFieldMapping('field_shared_image:file_replace')
-         ->defaultValue(FILE_EXISTS_REUSE);
+         ->defaultValue(MigrateFile::FILE_EXISTS_REUSE);
 
-    // Unmapped destination fields. Indented for grouping subfields.
-    $this->addUnmigratedDestinations(array(
-      'field_news_desired_publish_date', 'field_news_desired_publish_date:timezone',
-        'field_news_desired_publish_date:rrule', 'field_news_desired_publish_date:to',
-      'field_news_news_type',
-      'field_news_subtitle:language',
-      'field_news_teaser:language',
-      'field_shared_byline:language',
-      'field_shared_contact_email',
-      'field_shared_contact_name',
-      'field_shared_contact_name:language',
-      'field_shared_contact_phone',
-      'field_shared_existing_url', 'field_shared_existing_url:language',
-      'field_shared_image:language',
-      'field_shared_location', 'field_shared_location:language',
-      'field_shared_new_existing',
-      'field_shared_note_editors', 'field_shared_note_editors:language',
-      'field_shared_related_files', 'field_shared_related_files:file_class', 'field_shared_related_files:language',
-        'field_shared_related_files:preserve_files', 'field_shared_related_files:destination_dir',
-        'field_shared_related_files:destination_file', 'field_shared_related_files:file_replace',
-        'field_shared_related_files:source_dir', 'field_shared_related_files:urlencode',
-        'field_shared_related_files:description', 'field_shared_related_files:display',
-      'field_shared_related_links', 'field_shared_related_links:title', 'field_shared_related_links:attributes',
-        'field_shared_related_links:language',
-      'field_shared_tags:create_term', 'field_shared_tags:ignore_case',
-      'field_shared_video:language', 'field_shared_video:preserve_files', 'field_shared_video:description',
-        'field_shared_video:display',
-    ));
+    // Tags field mapping.
+    $this->addFieldMapping('field_shared_tags', '7')
+      ->sourceMigration('Tags');
+    $this->addFieldMapping('field_shared_tags:source_type')
+     ->defaultValue('tid');
 
     // Unmapped destination metatag fields.
     $this->addUnmigratedDestinations(array(
@@ -84,16 +33,9 @@ class SlacStoryMigration extends SlacNodeMigration {
       'metatag_canonical', 'metatag_shortlink', 'metatag_publisher', 'metatag_author', 'metatag_original-source',
       'metatag_revisit-after', 'metatag_content-language',
     ));
-
-    // Unmigrated source fields.
-    $this->addUnmigratedSources(array('revision', 'log', 'revision_uid',
-      'field_issue_reference', 'field_title_short', 'field_image', 'field_content_links',
-      'field_media_coverage', 'field_audio_reference', 'field_story_type', 'uid', 'name',
-      // Node counter fields:
-      'daycount', 'timestamp', 'totalcount'));
   }
 
-    /**
+   /**
    * Extend basic query to include node author's username so we can map to username
    * on D7 site.
    */
@@ -109,32 +51,6 @@ class SlacStoryMigration extends SlacNodeMigration {
     return $query;
   }
 
-  public function prepareRow($row) {
-
-    // Get the query from the parent so we can add to it.
-    if (parent::prepareRow($row) === FALSE) {
-      return FALSE;
-    }
-
-    // Image references point to the image node that contain the image.
-    // We need to point it to the actual fid of the image.
-    if (isset($row->field_image_reference)) {
-      foreach ($row->field_image_reference as $key => $image_node_nid) {
-
-        $image_query = Database::getConnection('default', $this->sourceConnection)
-          ->select('node', 'n')
-          ->fields('n', array('nid', 'vid'))
-          ->condition('n.nid', $image_node_nid, '=');
-        $image_query->LeftJoin('content_field_image', 'cfi', 'n.vid = cfi.vid');
-        $image_query->fields('cfi', array('field_image_fid'));
-
-        $image = $image_query->execute()->fetchAssoc();
-
-        $row->field_image_reference[$key] = $image['field_image_fid'];
-      }
-    }
-  }
-
   public function prepare($entity, $row) {
 
     // Check if user exists on D7 site.  If so, load the user by name and assign.
@@ -143,11 +59,126 @@ class SlacStoryMigration extends SlacNodeMigration {
     if (isset($d7_user->uid)) {
       $entity->uid = $d7_user->uid;
     }
-
   }
-
 }
 
+class SlacStoryMigration extends SlacNodeMigration {
+
+  public function __construct(array $arguments) {
+
+    parent::__construct($arguments);
+
+    // Field mappings.
+    $this->addFieldMapping('field_news_subtitle', 'field_title_sub');
+    $this->addFieldMapping('field_shared_byline', 'field_byline');
+    $this->addFieldMapping('field_news_teaser', 'field_teaser');
+
+    // Video field mappings.
+    $this->addFieldMapping('field_shared_video', 'field_video_reference')
+      ->sourceMigration('Videos');
+    $this->addFieldMapping('field_shared_video:file_class')
+     ->defaultValue('MigrateFileFid');
+    $this->addFieldMapping('field_shared_video:preserve_files')
+         ->defaultValue(TRUE);
+    $this->addFieldMapping('field_shared_video:file_replace')
+         ->defaultValue(MigrateFile::FILE_EXISTS_REUSE);
+
+    $this->addFieldMapping('field_shared_image', 'field_image_reference')
+      ->sourceMigration('Images');
+
+    // Unmapped destination fields. Indented for grouping subfields.
+    $this->addUnmigratedDestinations(array(
+      'field_news_desired_publish_date', 'field_news_desired_publish_date:timezone',
+        'field_news_desired_publish_date:rrule', 'field_news_desired_publish_date:to',
+      'field_news_news_type',
+      'field_news_subtitle:language',
+      'field_news_teaser:language',
+      'field_shared_byline:language',
+      'field_shared_contact_email',
+      'field_shared_contact_name',
+      'field_shared_contact_name:language',
+      'field_shared_contact_phone',
+      'field_shared_existing_url', 'field_shared_existing_url:language',
+      'field_shared_image:language', 'field_shared_image:alt', 'field_shared_image:title',
+      'field_shared_location', 'field_shared_location:language',
+      'field_shared_new_existing',
+      'field_shared_note_editors', 'field_shared_note_editors:language',
+      'field_shared_related_files', 'field_shared_related_files:file_class', 'field_shared_related_files:language',
+        'field_shared_related_files:preserve_files', 'field_shared_related_files:destination_dir',
+        'field_shared_related_files:destination_file', 'field_shared_related_files:file_replace',
+        'field_shared_related_files:source_dir', 'field_shared_related_files:urlencode',
+        'field_shared_related_files:description', 'field_shared_related_files:display',
+      'field_shared_related_links', 'field_shared_related_links:title', 'field_shared_related_links:attributes',
+        'field_shared_related_links:language',
+      'field_shared_tags:create_term', 'field_shared_tags:ignore_case',
+      'field_shared_video:language', 'field_shared_video:description',
+        'field_shared_video:display',
+      'field_shared_promote_news',
+    ));
+
+    // Unmigrated source fields.
+    $this->addUnmigratedSources(array('revision', 'log', 'revision_uid',
+      'field_issue_reference', 'field_title_short', 'field_image', 'field_image:list', 'field_image:alt',
+      'field_image:title', 'field_content_links', 'field_teaser:format',
+      'field_media_coverage', 'field_audio_reference', 'field_story_type', 'uid', 'name',
+      // Node counter fields:
+      'daycount', 'timestamp', 'totalcount'));
+  }
+
+
+  public function prepareRow($row) {
+
+    // Get the query from the parent so we can add to it.
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+
+    // Strip html tags from teaser.
+    $row->field_teaser[0] = strip_tags($row->field_teaser[0]);
+
+    // Image references point to the image node that contain the image.
+    // We need to point it to the actual fid of the image.
+    // Then we need to grab all the image metadata and update the destination image file entity.
+    if (isset($row->field_image_reference)) {
+      foreach ($row->field_image_reference as $key => $image_node_nid) {
+
+        // Grab the fields from the legacy database.
+        $image_query = Database::getConnection('default', $this->sourceConnection)
+          ->select('node', 'n')
+          ->fields('n', array('nid', 'vid'))
+          ->condition('n.nid', $image_node_nid, '=');
+        $image_query->LeftJoin('node_revisions', 'nr', 'n.vid = nr.vid');
+        $image_query->fields('nr', array('title', 'body', 'format'));
+        $image_query->LeftJoin('content_field_image', 'cfi', 'n.vid = cfi.vid');
+        $image_query->fields('cfi', array('field_image_fid', 'field_image_data'));
+        $image_query->LeftJoin('content_type_image', 'cti', 'n.vid = cti.vid');
+        $image_query->fields('cti', array('field_photo_credit_value'));
+        $image = $image_query->execute()->fetchAssoc();
+
+        // Set the image reference field to the fid instead of the image nid we originally had.
+        $row->field_image_reference[$key] = $image['field_image_fid'];
+
+        // Update the image's metadata in the destination image file entity.
+        // Seems strange to do it here but there was no way to grab the correct vid when doing
+        // the bulk image import.
+        if ($dest_image_id = $this->handleSourceMigration('Images', $image['field_image_fid'])) {
+          if ($dest_image = entity_load('file', array($dest_image_id))) {
+
+            // Alt and title fields were stored in serialized data field.
+            $source_alt_title = unserialize($image['field_image_data']);
+
+            // Assign images new values and save.
+            $dest_image[$dest_image_id]->field_file_image_alt_text[LANGUAGE_NONE][0]['value'] = substr($source_alt_title['alt'], 0, 254);
+            $dest_image[$dest_image_id]->field_file_image_title_text[LANGUAGE_NONE][0]['value'] = substr($source_alt_title['title'], 0, 254);
+            $dest_image[$dest_image_id]->field_file_shared_caption[LANGUAGE_NONE][0]['value'] = $image['body'] . ' (' . $image['field_photo_credit_value'] . ')';
+            $dest_image[$dest_image_id]->filename = $image['title'];
+            entity_save('file', $dest_image[$dest_image_id]);
+          }
+        }
+      }
+    }
+  }
+}
 
 class SlacLabAnnouncementMigration extends SlacNodeMigration {
 
@@ -174,23 +205,11 @@ class SlacLabAnnouncementMigration extends SlacNodeMigration {
     // Image field mapping.
     $this->addFieldMapping('field_shared_image', 'field_image')
         ->sourceMigration('Images');
-    $this->addFieldMapping('field_shared_image:file_class')
-        ->defaultValue('MigrateFileFid');
-    $this->addFieldMapping('field_shared_image:preserve_files')
-         ->defaultValue(TRUE);
-    $this->addFieldMapping('field_shared_image:file_replace')
-         ->defaultValue(FILE_EXISTS_REUSE);
 
     // Related links mapping.
     $this->addFieldMapping('field_shared_related_links', 'field_announcement_links');
     $this->addFieldMapping('field_shared_related_links:title', 'field_announcement_links:title');
     $this->addFieldMapping('field_shared_related_links:attributes', 'field_announcement_links:attributes');
-
-    // Tags field mapping.
-    $this->addFieldMapping('field_shared_tags', '7')
-      ->sourceMigration('Tags');
-    $this->addFieldMapping('field_shared_tags:source_type')
-     ->defaultValue('tid');
 
     // Unmapped destination fields. Indented for grouping subfields.
     $this->addUnmigratedDestinations(array(
@@ -220,15 +239,8 @@ class SlacLabAnnouncementMigration extends SlacNodeMigration {
         'field_shared_video:preserve_files', 'field_shared_video:destination_dir',
         'field_shared_video:destination_file', 'field_shared_video:file_replace', 'field_shared_video:source_dir',
         'field_shared_video:urlencode', 'field_shared_video:description', 'field_shared_video:display',
+      'field_shared_promote_news',
 
-    ));
-
-    // Unmapped destination metatag fields.
-    $this->addUnmigratedDestinations(array(
-      'metatag_title', 'metatag_description', 'metatag_abstract', 'metatag_keywords', 'metatag_robots',
-      'metatag_news_keywords', 'metatag_standout', 'metatag_generator', 'metatag_rights', 'metatag_image_src',
-      'metatag_canonical', 'metatag_shortlink', 'metatag_publisher', 'metatag_author', 'metatag_original-source',
-      'metatag_revisit-after', 'metatag_content-language',
     ));
 
     // Unmigrated source fields.
@@ -248,10 +260,6 @@ class SlacLabAnnouncementMigration extends SlacNodeMigration {
 
     // Get the default query (all rows in the users table other than uid 1)
     $query = parent::query();
-
-    // Get the username of the node author.
-    $query->LeftJoin('users', 'u', 'n.uid = u.uid');
-    $query->fields('u', array('name'));
 
     // Filter by announcement type of Lab Announcement.
     $query->condition('f.field_announcement_type_value', 'Lab Announcement', '=');
@@ -284,16 +292,6 @@ class SlacLabAnnouncementMigration extends SlacNodeMigration {
       $row->{'field_announcement_body:format'} = 'full_html';
     }
   }
-
-  public function prepare($entity, $row) {
-
-    // Check if user exists on D7 site.  If so, load the user by name and assign.
-    // (Uids are not the same on both sites.)
-    $d7_user = user_load_by_name($row->name);
-    if (isset($d7_user->uid)) {
-      $entity->uid = $d7_user->uid;
-    }
-  }
 }
 
 
@@ -324,23 +322,11 @@ class SlacCalendarsMigration extends SlacNodeMigration {
     // Image mappings.
     $this->addFieldMapping('field_shared_image', 'field_image')
         ->sourceMigration('Images');
-    $this->addFieldMapping('field_shared_image:file_class')
-        ->defaultValue('MigrateFileFid');
-    $this->addFieldMapping('field_shared_image:preserve_files')
-         ->defaultValue(TRUE);
-    $this->addFieldMapping('field_shared_image:file_replace')
-         ->defaultValue(FILE_EXISTS_REUSE);
 
     // Related links mappings.
     $this->addFieldMapping('field_shared_related_links', 'field_announcement_links');
     $this->addFieldMapping('field_shared_related_links:title', 'field_announcement_links:title');
     $this->addFieldMapping('field_shared_related_links:attributes', 'field_announcement_links:attributes');
-
-    // Tags mappings.
-    $this->addFieldMapping('field_shared_tags', '7')
-      ->sourceMigration('Tags');
-    $this->addFieldMapping('field_shared_tags:source_type')
-     ->defaultValue('tid');
 
     // Unmapped destination fields. Indented for grouping subfields.
     $this->addUnmigratedDestinations(array(
@@ -364,20 +350,17 @@ class SlacCalendarsMigration extends SlacNodeMigration {
       'field_shared_tags:create_term', 'field_shared_tags:ignore_case',
       'field_event_type', 'field_event_type:source_type', 'field_event_type:create_term',
         'field_event_type:ignore_case',
-    ));
+      'field_event_series',
+      'field_news_news_type',
+      'field_shared_news_title',
+      'field_shared_news_title:language',
 
-    // Unmapped destination metatag fields.
-    $this->addUnmigratedDestinations(array(
-      'metatag_title', 'metatag_description', 'metatag_abstract', 'metatag_keywords', 'metatag_robots',
-      'metatag_news_keywords', 'metatag_standout', 'metatag_generator', 'metatag_rights', 'metatag_image_src',
-      'metatag_canonical', 'metatag_shortlink', 'metatag_publisher', 'metatag_author', 'metatag_original-source',
-      'metatag_revisit-after', 'metatag_content-language',
     ));
 
     // Unmigrated source fields.
     $this->addUnmigratedSources(array('body', 'format', 'uid', 'revision', 'log', 'revision_uid', 'field_pre_announce',
       'field_publish_dates', 'field_publish_dates:value2', 'field_image:list', 'field_image:alt', 'field_image:title',
-      'field_event_science_area', 'field_event_org', '19', '20', 'name', 't_name',
+      'field_event_science_area', 'field_event_org', '19', '20', 'name', 't_name', 'field_event_series',
       // Node counter fields:
       'daycount', 'timestamp', 'totalcount'));
   }
@@ -390,10 +373,6 @@ class SlacCalendarsMigration extends SlacNodeMigration {
 
     // Get the default query (all rows in the users table other than uid 1)
     $query = parent::query();
-
-    // Get the username of the node author.
-    $query->LeftJoin('users', 'u', 'n.uid = u.uid');
-    $query->fields('u', array('name'));
 
     // Get event series field term.
     $query->LeftJoin('term_data', 't', 'f.field_event_series_value = t.tid');
@@ -446,13 +425,6 @@ class SlacCalendarsMigration extends SlacNodeMigration {
 
   public function prepare($entity, $row) {
 
-    // Check if user exists on D7 site.  If so, load the user by name and assign.
-    // (Uids are not the same on both sites.)
-    $d7_user = user_load_by_name($row->name);
-    if (isset($d7_user->uid)) {
-      $entity->uid = $d7_user->uid;
-    }
-
     // Convert Event Series taxonomy terms from D6 to corresponding term on D7.
     // Terms were not done via migration so no existing mapping to use for conversion.
     // There's an issue with one of the terms because it has a single quote in it.
@@ -496,23 +468,11 @@ class SlacAccessNoticeMigration extends SlacNodeMigration {
     // Image mappings.
     $this->addFieldMapping('field_shared_image', 'field_image')
         ->sourceMigration('Images');
-    $this->addFieldMapping('field_shared_image:file_class')
-        ->defaultValue('MigrateFileFid');
-    $this->addFieldMapping('field_shared_image:preserve_files')
-         ->defaultValue(TRUE);
-    $this->addFieldMapping('field_shared_image:file_replace')
-         ->defaultValue(FILE_EXISTS_REUSE);
 
     // Related links mappings.
     $this->addFieldMapping('field_shared_related_links', 'field_announcement_links');
     $this->addFieldMapping('field_shared_related_links:title', 'field_announcement_links:title');
     $this->addFieldMapping('field_shared_related_links:attributes', 'field_announcement_links:attributes');
-
-    // Tags mappings.
-    $this->addFieldMapping('field_shared_tags', '7')
-      ->sourceMigration('Tags');
-    $this->addFieldMapping('field_shared_tags:source_type')
-     ->defaultValue('tid');
 
     // Unmapped destination fields. Indented for grouping subfields.
     $this->addUnmigratedDestinations(array(
@@ -534,14 +494,8 @@ class SlacAccessNoticeMigration extends SlacNodeMigration {
       'field_shared_related_links:language',
       'field_shared_tags:create_term', 'field_shared_tags:ignore_case',
       'field_access_start_publishing',
-    ));
-
-    // Unmapped destination metatag fields.
-    $this->addUnmigratedDestinations(array(
-      'metatag_title', 'metatag_description', 'metatag_abstract', 'metatag_keywords', 'metatag_robots',
-      'metatag_news_keywords', 'metatag_standout', 'metatag_generator', 'metatag_rights', 'metatag_image_src',
-      'metatag_canonical', 'metatag_shortlink', 'metatag_publisher', 'metatag_author', 'metatag_original-source',
-      'metatag_revisit-after', 'metatag_content-language',
+      'field_news_news_type',
+      'field_shared_news_title', 'field_shared_news_title:language',
     ));
 
     // Unmigrated source fields.
@@ -560,10 +514,6 @@ class SlacAccessNoticeMigration extends SlacNodeMigration {
 
     // Get the default query (all rows in the users table other than uid 1)
     $query = parent::query();
-
-    // Get the username of the node author.
-    $query->LeftJoin('users', 'u', 'n.uid = u.uid');
-    $query->fields('u', array('name'));
 
     // Filter by announcement type of Lab Announcement.
     $query->condition('f.field_announcement_type_value', 'Access Notice', '=');
@@ -605,15 +555,5 @@ class SlacAccessNoticeMigration extends SlacNodeMigration {
     $to_date = new DateTime($row->{'field_date:value2'});
     $to_date->sub(new DateInterval("PT7H"));
     $row->{'field_date:value2'} = $to_date->format('Y-m-d H:i:s');
-  }
-
-  public function prepare($entity, $row) {
-
-    // Check if user exists on D7 site.  If so, load the user by name and assign.
-    // (Uids are not the same on both sites.)
-    $d7_user = user_load_by_name($row->name);
-    if (isset($d7_user->uid)) {
-      $entity->uid = $d7_user->uid;
-    }
   }
 }
