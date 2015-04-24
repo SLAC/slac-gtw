@@ -12,6 +12,8 @@ include_once 'slac_ip_core.features.inc';
 
 /**
  * Implements hook_entity_info().
+ *
+ * Defines new custom view modes for nodes.
  */
 function slac_ip_core_entity_info_alter(&$entity_info) {
   $entity_info['node']['view modes']['headline'] = array(
@@ -20,6 +22,10 @@ function slac_ip_core_entity_info_alter(&$entity_info) {
   );
   $entity_info['node']['view modes']['news_archive'] = array(
     'label' => t('News Archive'),
+    'custom settings' => FALSE,
+  );
+  $entity_info['node']['view modes']['term_listing'] = array(
+    'label' => t('Term Listing'),
     'custom settings' => FALSE,
   );
 
