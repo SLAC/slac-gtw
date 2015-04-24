@@ -703,3 +703,16 @@ function slac_igp_deployment_update_7033() {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
 }
+
+/**
+ * Enable the smart trim module.
+ */
+function slac_igp_deployment_update_7034() {
+  $result = module_enable(array(
+    'smart_trim',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
