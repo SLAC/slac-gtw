@@ -670,13 +670,6 @@ select:hover, select:focus {
   margin-top: 8px;
 }
 
-.header__region {
-  /*FF 18- */
-  /* FF 19+ */
-  /* FF 4-18 */
-  /* FF 19+ */
-  /*IE 10+ */
-}
 .header__region input[type="text"] {
   font-size: 14px;
   font-size: 0.875rem;
