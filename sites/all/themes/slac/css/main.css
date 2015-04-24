@@ -1014,25 +1014,31 @@ select:hover, select:focus {
   color: #316dae;
 }
 
-.pager {
+.general-left .item-list .pager li {
+  background: none;
+  display: inline-block;
+  padding: 0 3px;
+}
+
+.item-list .pager {
   margin-top: 3rem;
   margin-bottom: 2rem;
   text-align: left;
 }
-.pager li {
+.item-list .pager li {
   font-weight: normal;
   padding-right: .2rem;
   padding-left: .2rem;
+  background: none;
 }
-.pager li a {
-  display: inline-block;
-  padding: .4rem .6rem;
+.item-list .pager li a {
+  padding: .5rem .6rem;
   color: #5b93d1;
   font-weight: normal;
   background: #f2f2f2;
 }
-.pager li.pager-current {
-  padding: .6rem .6rem;
+.item-list .pager li.pager-current {
+  padding: .4rem .6rem;
   background: #6fa0d6;
   color: #ffffff;
 }
@@ -1106,6 +1112,16 @@ select:hover, select:focus {
 }
 .node-type-access-information .pane-slac-ip-panes-access-notice-link {
   margin-bottom: 2em;
+}
+
+.general-right .pane-title {
+  font-size: 14px;
+  font-size: 0.875rem;
+  border-bottom: 2px solid #b1c0c7;
+  text-transform: uppercase;
+  color: #4f4f4f;
+  margin-bottom: 1rem;
+  padding-bottom: .1rem;
 }
 
 .view-search {
@@ -1284,8 +1300,8 @@ select:hover, select:focus {
   margin-right: 2rem;
 }
 .page-news .general-left .node-created {
-  font-size: 14px;
-  font-size: 0.875rem;
+  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: bold;
 }
 .page-news .general-left .field-item > p {
