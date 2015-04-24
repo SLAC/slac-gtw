@@ -5,14 +5,3 @@
  */
 
 include_once 'ct_flea_market_item.features.inc';
-
-/**
- * Implements hook_item_panels_pane_content_alter().
- */
-function ct_flea_market_item_panels_pane_content_alter($content, $pane, $args, $contexts) {
-  if ($content->type == 'node_author') {
-    $name = $content->content;
-    $url = 'http://www-public.slac.stanford.edu/phonebook/dirsearch.aspx?mailid=' . $name;
-    $content->content = '<a href="' . $url . '">' . $name . '</a>';
-  }
-}
