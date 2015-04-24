@@ -81,23 +81,23 @@ a:link:focus {
   word-wrap: break-word;
 }
 
-.pane-node-author {
+.pane-slac-ip-node-author {
   margin-top: .5rem;
   margin-bottom: 2rem;
 }
-.pane-node-author:after {
+.pane-slac-ip-node-author:after {
   content: "";
   display: table;
   clear: both;
 }
-.pane-node-author .pane-title {
+.pane-slac-ip-node-author .pane-title {
   font-size: 16px;
   font-size: 1rem;
   margin: 0;
   line-height: 1.5;
   float: left;
 }
-.pane-node-author .username {
+.pane-slac-ip-node-author .username {
   margin-left: .3rem;
 }
 
