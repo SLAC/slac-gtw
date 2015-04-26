@@ -28,3 +28,7 @@ $zen-column-count: 12;
 .view-search {
   @include zen-grid-item(8, 2);
 }
+
+.my-flea-market-nav {
+  @include zen-grid-item(4, 9);
+}
