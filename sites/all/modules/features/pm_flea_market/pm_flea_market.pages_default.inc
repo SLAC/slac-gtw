@@ -65,6 +65,7 @@ function pm_flea_market_default_page_manager_pages() {
       'left' => NULL,
       'right' => NULL,
       'center' => NULL,
+      'main_content_column' => NULL,
     ),
   );
   $display->cache = array();
@@ -119,7 +120,7 @@ function pm_flea_market_default_page_manager_pages() {
     $pane->uuid = '38783314-328b-494f-9fab-18a60b3b0acb';
     $display->content['new-38783314-328b-494f-9fab-18a60b3b0acb'] = $pane;
     $display->panels['main_content_column'][1] = 'new-38783314-328b-494f-9fab-18a60b3b0acb';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-38783314-328b-494f-9fab-18a60b3b0acb';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
@@ -167,7 +168,7 @@ function pm_flea_market_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Flea Market';
+  $display->title = 'My Flea Market Items';
   $display->uuid = '10cc569a-39b8-4ddb-9c82-65476b2563de';
   $display->content = array();
   $display->panels = array();
@@ -218,7 +219,7 @@ function pm_flea_market_default_page_manager_pages() {
     $pane->uuid = 'c1f29952-ce7a-405e-a9ef-9bfe76a86306';
     $display->content['new-c1f29952-ce7a-405e-a9ef-9bfe76a86306'] = $pane;
     $display->panels['center'][1] = 'new-c1f29952-ce7a-405e-a9ef-9bfe76a86306';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
