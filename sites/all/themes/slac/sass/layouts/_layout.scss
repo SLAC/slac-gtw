@@ -25,6 +25,11 @@ $zen-column-count: 12;
     }
   }
 }
+
 .view-search {
   @include zen-grid-item(8, 2);
+}
+
+.l-general-one-col {
+  @include zen-grid-item(10, 2);
 }

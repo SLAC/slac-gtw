@@ -82,7 +82,7 @@ function pm_flea_market_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<ul><li><a href="/flea-market/my-items">My Flea Market Items ></a></li><li><a href="/node/add/flea-market-post">Submit Flea Market Ad ></a></li></ul>',
+      'body' => '<ul><li><a href="/flea-market/my-items">My Flea Market Items &gt;</a></li><li><a href="/node/add/flea-market-post">Submit Flea Market Ad &gt;</a></li></ul>',
       'format' => 'full_html',
       'substitute' => TRUE,
     );
@@ -92,7 +92,7 @@ function pm_flea_market_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => 'flea_market_nav',
-      'css_class' => '',
+      'css_class' => 'my-flea-market-nav',
     );
     $pane->extras = array();
     $pane->position = 0;
