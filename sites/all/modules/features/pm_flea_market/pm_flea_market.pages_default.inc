@@ -57,7 +57,7 @@ function pm_flea_market_default_page_manager_pages() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'flexible';
+  $display->layout = 'one-col';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -65,6 +65,7 @@ function pm_flea_market_default_page_manager_pages() {
       'left' => NULL,
       'right' => NULL,
       'center' => NULL,
+      'main_content_column' => NULL,
     ),
   );
   $display->cache = array();
@@ -74,7 +75,7 @@ function pm_flea_market_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-3958e3f2-ac0a-40df-adc1-ec477355cb51';
-    $pane->panel = 'center';
+    $pane->panel = 'main_content_column';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -99,10 +100,10 @@ function pm_flea_market_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '3958e3f2-ac0a-40df-adc1-ec477355cb51';
     $display->content['new-3958e3f2-ac0a-40df-adc1-ec477355cb51'] = $pane;
-    $display->panels['center'][0] = 'new-3958e3f2-ac0a-40df-adc1-ec477355cb51';
+    $display->panels['main_content_column'][0] = 'new-3958e3f2-ac0a-40df-adc1-ec477355cb51';
     $pane = new stdClass();
     $pane->pid = 'new-38783314-328b-494f-9fab-18a60b3b0acb';
-    $pane->panel = 'center';
+    $pane->panel = 'main_content_column';
     $pane->type = 'views_panes';
     $pane->subtype = 'flea_market_listing-panel_pane_1';
     $pane->shown = TRUE;
@@ -118,7 +119,7 @@ function pm_flea_market_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '38783314-328b-494f-9fab-18a60b3b0acb';
     $display->content['new-38783314-328b-494f-9fab-18a60b3b0acb'] = $pane;
-    $display->panels['center'][1] = 'new-38783314-328b-494f-9fab-18a60b3b0acb';
+    $display->panels['main_content_column'][1] = 'new-38783314-328b-494f-9fab-18a60b3b0acb';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-38783314-328b-494f-9fab-18a60b3b0acb';
   $handler->conf['display'] = $display;
