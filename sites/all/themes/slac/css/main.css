@@ -295,6 +295,9 @@ a:link:focus {
   background: #ffffff;
 }
 
+table tbody {
+  border: none;
+}
 table tr.odd,
 table tr.even {
   background-color: #ffffff;
@@ -302,6 +305,9 @@ table tr.even {
 }
 table tr.odd {
   background-color: #f2f2f2;
+}
+table th {
+  border: none;
 }
 table td,
 table th {
@@ -757,8 +763,11 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 
 .my-flea-market-nav {
   width: 200px;
+  margin-top: 16px;
   text-align: right;
   float: right;
+  position: relative;
+  z-index: 30;
 }
 .my-flea-market-nav a {
   display: block;
@@ -802,9 +811,16 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   min-width: 100px;
   font-weight: bold;
 }
+.section-flea-market .views-field-edit-node {
+  min-width: 90px;
+}
 .section-flea-market .view-header {
   padding-top: 3rem;
   margin-bottom: 2rem;
+}
+.section-flea-market .view-header p {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 select {
@@ -1411,6 +1427,7 @@ fieldset.collapsed {
   padding-right: .2rem;
   padding-left: .2rem;
   background: none;
+  margin-left: 0;
 }
 .item-list .pager li a {
   padding: .5rem .6rem;
