@@ -70,17 +70,17 @@
       p {
         margin: 0;
       }
-
-      &.views-field-changed {
-        min-width: 120px;
-        font-weight: bold;
-      }
-
-      &.views-field-field-flea-market-item-type {
-        min-width: 100px;
-        font-weight: bold;
-      }
     }
+  }
+
+  .views-field-changed {
+    min-width: 120px;
+    font-weight: bold;
+  }
+
+  .views-field-field-flea-market-item-type {
+    min-width: 100px;
+    font-weight: bold;
   }
 
   .view-header {

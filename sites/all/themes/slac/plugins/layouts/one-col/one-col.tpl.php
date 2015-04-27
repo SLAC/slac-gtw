@@ -1,9 +1,9 @@
 <?php
 /**
  * @file
- * Template for the 2 column panel layout.
+ * Template for the 1 column panel layout.
  *
- * This template provides a two column ~75%-25% panel display layout.
+ * This template provides a one column ~85% panel display layout.
  *
  * Variables:
  * - $id: An optional CSS id to use for the layout.

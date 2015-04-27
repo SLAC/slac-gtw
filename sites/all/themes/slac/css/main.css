@@ -504,11 +504,11 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 .section-flea-market table td p {
   margin: 0;
 }
-.section-flea-market table td.views-field-changed {
+.section-flea-market .views-field-changed {
   min-width: 120px;
   font-weight: bold;
 }
-.section-flea-market table td.views-field-field-flea-market-item-type {
+.section-flea-market .views-field-field-flea-market-item-type {
   min-width: 100px;
   font-weight: bold;
 }
