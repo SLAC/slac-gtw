@@ -16,3 +16,24 @@ select {
     outline: none;
   }
 }
+
+input[type="text"],
+input[type="email"],
+input[type="checkbox"],
+input[type="password"],
+textarea {
+  border: 1px solid $blue;
+}
+input[type=checkbox]:not(:checked) {
+  border: 1px solid $blue;
+}
+fieldset {
+  width: 800px;
+  padding: 1rem;
+  border: 3px solid lighten($grey, 50%);
+  background: lighten($grey, 57%);
+  &.collapsed {
+    background: transparent;
+    border: none;
+  }
+}
