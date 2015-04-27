@@ -448,7 +448,7 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 select {
   font-size: 10px;
   font-size: 0.625rem;
-  padding: 5px 40px 5px 14px;
+  padding: 5px 40px 5px 5px;
   text-transform: uppercase;
   border: 1px solid #316dae;
   background: #ffffff;
