@@ -72,7 +72,7 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $pane->configuration = array(
       'admin_title' => 'Flea Market breadcrumb link',
       'title' => '',
-      'body' => '<a href="#">Flea Market</a> >',
+      'body' => '<a href="/flea-market">Flea Market</a> &gt;',
       'format' => 'full_html',
       'substitute' => 0,
     );
@@ -80,7 +80,10 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'page-breadcrumb',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
@@ -127,8 +130,8 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $pane->configuration = array(
       'flag_name' => 'flea_market_inappropriate',
       'context' => 'argument_entity_id:node_1',
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => '<none>',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
@@ -238,14 +241,13 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $display->content['new-9b5c6f0a-dbdd-43ad-895c-8feed80f592b'] = $pane;
     $display->panels['left'][6] = 'new-9b5c6f0a-dbdd-43ad-895c-8feed80f592b';
     $pane = new stdClass();
-    $pane->pid = 'new-6d28e4be-432c-41ea-8ea1-6d546fed700d';
+    $pane->pid = 'new-497fa9cc-c2a4-40a3-a620-9d047b8c681e';
     $pane->panel = 'left';
-    $pane->type = 'node_author';
-    $pane->subtype = 'node_author';
+    $pane->type = 'slac_ip_node_author';
+    $pane->subtype = 'slac_ip_node_author';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'link' => 1,
       'context' => 'argument_entity_id:node_1',
       'override_title' => 1,
       'override_title_text' => 'Posted by:',
@@ -259,9 +261,9 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 7;
     $pane->locks = array();
-    $pane->uuid = '6d28e4be-432c-41ea-8ea1-6d546fed700d';
-    $display->content['new-6d28e4be-432c-41ea-8ea1-6d546fed700d'] = $pane;
-    $display->panels['left'][7] = 'new-6d28e4be-432c-41ea-8ea1-6d546fed700d';
+    $pane->uuid = '497fa9cc-c2a4-40a3-a620-9d047b8c681e';
+    $display->content['new-497fa9cc-c2a4-40a3-a620-9d047b8c681e'] = $pane;
+    $display->panels['left'][7] = 'new-497fa9cc-c2a4-40a3-a620-9d047b8c681e';
     $pane = new stdClass();
     $pane->pid = 'new-6fb84e3d-ad84-44ca-ac93-1e1139f8cc46';
     $pane->panel = 'left';
@@ -391,7 +393,7 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'hidden',
-      'formatter' => 'colorbox',
+      'formatter' => 'file_rendered',
       'delta_limit' => '1',
       'delta_offset' => '0',
       'delta_reversed' => 0,
@@ -403,6 +405,7 @@ function ct_flea_market_item_default_page_manager_handlers() {
         'colorbox_gallery_custom' => '',
         'colorbox_caption' => 'auto',
         'colorbox_caption_custom' => '',
+        'file_view_mode' => 'full',
       ),
       'context' => 'argument_entity_id:node_1',
       'override_title' => 0,

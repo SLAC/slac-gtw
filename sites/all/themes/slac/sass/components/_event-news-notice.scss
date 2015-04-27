@@ -1,14 +1,9 @@
 // Styles here address theming of event, news and access notice
-@import "zen";
-
-$zen-gutter-width: 40px;
-$zen-column-count: 12;
 
 .node-type-event,
 .node-type-news,
 .node-type-access-information {
   #content {
-    @include zen-grid-container();
     @include font-size(16px);
     background: $white !important;
     color: $event-body;
@@ -21,7 +16,6 @@ $zen-column-count: 12;
     margin-bottom: 0;
   }
   .general-left {
-    @include zen-grid-item(7, 2);
     .pane-node-field-event-type {
       margin-bottom: 2em;
     }
@@ -56,37 +50,6 @@ $zen-column-count: 12;
     .field-name-field-shared-location {
       margin-bottom: 16px;
     }
-    .calendar-button,
-    .email-button,
-    .js-print-button {
-      display: block;
-      float: left;
-      a {
-        @include font-size(12px);
-        text-transform: uppercase;
-        color: lighten($dim-grey, 10%);
-        font-weight: lighter;
-        display: block;
-        padding-left: 2em;
-        padding-right: 1.5em;
-        margin-right: 1.5em;
-        height: 16px;
-        border-right: 1px solid lighten($dim-grey, 35%);
-      }
-    }
-    .calendar-button a {
-      background: url('../images/icons-cal-mail-print.png') 0 -16px no-repeat;
-      background-size: 16px 48px;
-    }
-    .email-button a {
-      background: url('../images/icons-cal-mail-print.png') 0 2px no-repeat;
-      background-size: 16px 48px;
-    }
-     .js-print-button a {
-      border: none;
-      background: url('../images/icons-cal-mail-print.png') 0 -32px no-repeat;
-      background-size: 16px 48px;
-    }
     .field-name-field-shared-contact-name,
     .field-name-field-shared-contact-email,
     .field-name-field-shared-contact-phone {
@@ -98,7 +61,6 @@ $zen-column-count: 12;
     }
   }
   .general-right {
-    @include zen-grid-item(3, 9);
     margin-top: .5em;
     .inside {
       padding: 0;
@@ -109,9 +71,6 @@ $zen-column-count: 12;
       text-transform: uppercase;
       color: $dim-grey;
       margin-bottom: 1em;
-    }
-    .field-name-field-file-shared-caption {
-      @include caption;
     }
     .panel-pane {
       margin-bottom: 2em;
@@ -133,9 +92,6 @@ $zen-column-count: 12;
       @include font-size(20px);
       font-weight: bold;
       margin-bottom: 1.5em;
-    }
-    .field-name-field-file-shared-caption {
-      @include caption;
     }
   }
   .general-left {
@@ -267,11 +223,6 @@ $zen-column-count: 12;
       }
     }
 
-  }
-  .general-right {
-    .field-name-field-file-shared-caption {
-      @include caption;
-    }
   }
 }
 

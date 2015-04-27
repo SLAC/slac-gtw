@@ -1,0 +1,89 @@
+.pane-node-created {
+  @include clearfix;
+  font-weight: bold;
+}
+
+.node-type-flea-market-post {
+  h1 {
+    margin-bottom: 0;
+    margin-top: 1.5rem;
+  }
+
+  .page-breadcrumb {
+    float: left;
+    margin-right: 6px;
+  }
+
+  .panel-pane.pane-slac-ip-panes-email,
+  .pane-slac-ip-panes-print {
+    position: relative;
+    top: 48px;
+    float: right;
+    margin-right: 95px;
+  }
+
+  .pane-slac-ip-panes-print {
+    top: 48px;
+    margin-right: -200px;
+  }
+
+  .pane-node-field-shared-contact-name {
+    .pane-title {
+      @include font-size(16px);
+      margin-bottom: 0;
+    }
+  }
+}
+
+// flea market item listing
+.my-flea-market-nav {
+  width: 200px;
+  text-align: right;
+  float: right;
+
+  a {
+    display: block;
+    padding: .2rem .5rem;
+    background: darken($light-grey, 3%);
+    color: $blue;
+    text-decoration: none;
+    margin-bottom: .5rem;
+
+    &:hover,
+    &:focus {
+      background: lighten($grey, 10%);
+      color: $white;
+    }
+  }
+}
+
+.section-flea-market {
+  .pane-title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  table {
+    margin-bottom: 4rem;
+
+    td {
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .views-field-changed {
+    min-width: 120px;
+    font-weight: bold;
+  }
+
+  .views-field-field-flea-market-item-type {
+    min-width: 100px;
+    font-weight: bold;
+  }
+
+  .view-header {
+    margin-bottom: 3rem;
+  }
+}

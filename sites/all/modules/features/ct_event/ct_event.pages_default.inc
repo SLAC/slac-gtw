@@ -478,5 +478,109 @@ function ct_event_default_page_manager_handlers() {
   $handler->conf['display'] = $display;
   $export['node_view__panel_context_d263af94-9c7f-495e-bc1d-645dfc499ca9'] = $handler;
 
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'term_view__panel_context_e6ebc250-5440-4b7f-99a9-3e0b85987202';
+  $handler->task = 'term_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Event Series / Event Type',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'term_vocabulary',
+          'settings' => array(
+            'machine_name' => array(
+              'event_series' => 'event_series',
+              'event_type' => 'event_type',
+            ),
+          ),
+          'context' => 'argument_term_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'flexible';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'center' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '7799a698-2833-4421-bf5f-84164b6dcfa4';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-b8c7982d-2832-4b8f-8770-099608268b83';
+    $pane->panel = 'center';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '',
+      'format' => 'full_html',
+      'substitute' => TRUE,
+      'name' => 'slac_term_rss_link',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'b8c7982d-2832-4b8f-8770-099608268b83';
+    $display->content['new-b8c7982d-2832-4b8f-8770-099608268b83'] = $pane;
+    $display->panels['center'][0] = 'new-b8c7982d-2832-4b8f-8770-099608268b83';
+    $pane = new stdClass();
+    $pane->pid = 'new-c44e7f57-ce21-4084-b11c-39e071008492';
+    $pane->panel = 'center';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'events_by_term-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_term_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'c44e7f57-ce21-4084-b11c-39e071008492';
+    $display->content['new-c44e7f57-ce21-4084-b11c-39e071008492'] = $pane;
+    $display->panels['center'][1] = 'new-c44e7f57-ce21-4084-b11c-39e071008492';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $export['term_view__panel_context_e6ebc250-5440-4b7f-99a9-3e0b85987202'] = $handler;
+
   return $export;
 }

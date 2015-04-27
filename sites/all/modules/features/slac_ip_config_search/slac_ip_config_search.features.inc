@@ -25,7 +25,7 @@ function slac_ip_config_search_default_search_api_index() {
           "settings" : { "default" : "1", "bundles" : [] }
         },
         "search_api_alter_node_access" : { "status" : 1, "weight" : "0", "settings" : [] },
-        "search_api_alter_node_status" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_node_status" : { "status" : 1, "weight" : "0", "settings" : [] },
         "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
         "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
         "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
@@ -85,7 +85,9 @@ function slac_ip_config_search_default_search_api_index() {
         "comment_count" : { "type" : "integer" },
         "created" : { "type" : "date" },
         "field_event_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
+        "field_news_news_type" : { "type" : "string" },
         "field_shared_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_shared_tags:name" : { "type" : "list\\u003Cstring\\u003E" },
         "promote" : { "type" : "boolean" },
         "search_api_language" : { "type" : "string" },
         "sticky" : { "type" : "boolean" },
@@ -182,6 +184,18 @@ function slac_ip_config_search_default_search_api_server() {
             "table" : "search_api_db_default_node_index",
             "column" : "field_event_type",
             "type" : "integer",
+            "boost" : "1.0"
+          },
+          "field_news_news_type" : {
+            "table" : "search_api_db_default_node_index",
+            "column" : "field_news_news_type",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "field_shared_tags:name" : {
+            "table" : "search_api_db_default_node_index_field_shared_tags_name",
+            "column" : "value",
+            "type" : "list\\u003Cstring\\u003E",
             "boost" : "1.0"
           }
         }

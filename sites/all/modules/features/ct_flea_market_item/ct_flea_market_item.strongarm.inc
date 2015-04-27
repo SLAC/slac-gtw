@@ -123,7 +123,7 @@ function ct_flea_market_item_strongarm() {
         'custom_settings' => FALSE,
       ),
       'search_result' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'ical' => array(
         'custom_settings' => FALSE,
@@ -135,6 +135,9 @@ function ct_flea_market_item_strongarm() {
         'custom_settings' => FALSE,
       ),
       'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'news_archive' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -159,17 +162,55 @@ function ct_flea_market_item_strongarm() {
             'weight' => '4',
             'visible' => FALSE,
           ),
+          'search_result' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-5',
+            'visible' => TRUE,
+          ),
         ),
         'author' => array(
           'default' => array(
             'weight' => '5',
             'visible' => FALSE,
           ),
+          'search_result' => array(
+            'weight' => '3',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-3',
+            'visible' => TRUE,
+          ),
         ),
         'title' => array(
           'default' => array(
             'weight' => '1',
             'visible' => TRUE,
+          ),
+          'search_result' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
+          ),
+        ),
+        'content_type' => array(
+          'default' => array(
+            'weight' => '-5',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-5',
+            'visible' => FALSE,
           ),
         ),
       ),
@@ -214,6 +255,13 @@ function ct_flea_market_item_strongarm() {
   $strongarm->name = 'node_submitted_flea_market_post';
   $strongarm->value = 0;
   $export['node_submitted_flea_market_post'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_flea_market_post_pattern';
+  $strongarm->value = 'fleamarket/[current-date:custom:Y]/[current-date:custom:m]/[node:title]';
+  $export['pathauto_node_flea_market_post_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

@@ -123,6 +123,9 @@ function ct_webform_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'news_archive' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -133,8 +136,68 @@ function ct_webform_strongarm() {
             'visible' => FALSE,
           ),
           'search_result' => array(
-            'weight' => '1',
+            'weight' => '5',
             'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+        ),
+        'content_type' => array(
+          'search_result' => array(
+            'weight' => '4',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '-5',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '-5',
+            'visible' => FALSE,
+          ),
+        ),
+        'created' => array(
+          'search_result' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '-5',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-5',
+            'visible' => TRUE,
+          ),
+        ),
+        'author' => array(
+          'search_result' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '-3',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-3',
+            'visible' => TRUE,
+          ),
+        ),
+        'title' => array(
+          'search_result' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
           ),
         ),
       ),

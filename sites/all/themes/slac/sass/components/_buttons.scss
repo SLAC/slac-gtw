@@ -1,0 +1,16 @@
+input[type="submit"],
+.button {
+  @include font-size(12px);
+  display: block;
+  padding: 4px 20px;
+  background: $blue;
+  color: $white;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: .06rem;
+  &:hover,
+  &:focus {
+    background: lighten($blue, 10%);
+    outline: none;
+  }
+}

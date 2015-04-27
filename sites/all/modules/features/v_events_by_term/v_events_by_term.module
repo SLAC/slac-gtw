@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Events by Term feature.
+ */
+
+include_once 'v_events_by_term.features.inc';

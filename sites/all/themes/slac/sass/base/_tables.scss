@@ -1,0 +1,22 @@
+table {
+
+// overrides system styles
+  tr.odd,
+  tr.even {
+    background-color: $white;
+    border: none;
+  }
+
+  tr.odd {
+    background-color: $light-grey;
+  }
+
+  td,
+  th {
+    padding: 1rem;
+
+    &.active {
+      background-color: transparent;
+    }
+  }
+}
