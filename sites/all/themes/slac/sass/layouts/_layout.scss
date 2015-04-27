@@ -30,6 +30,6 @@ $zen-column-count: 12;
   @include zen-grid-item(8, 2);
 }
 
-.general-one-col {
+.l-general-one-col {
   @include zen-grid-item(10, 2);
 }

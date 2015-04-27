@@ -13,7 +13,7 @@
  *   - $content['right']: Content in the right column.
  */
 ?>
-<div class="panel-display general-one-col clearfix" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
+<div class="panel-display l-general-one-col clearfix" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
   <div class="panel-panel main-content">
      <?php if ($content['main_content_column']): ?>
         <div class="inside"><?php print $content['main_content_column']; ?></div>
