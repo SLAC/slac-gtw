@@ -11,7 +11,8 @@ table {
     background-color: $light-grey;
   }
 
-  td {
+  td,
+  th {
     padding: 1rem;
 
     &.active {
