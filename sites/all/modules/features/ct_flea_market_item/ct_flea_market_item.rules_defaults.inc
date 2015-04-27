@@ -19,8 +19,8 @@ function ct_flea_market_item_default_rules_configuration() {
         { "flag_threshold_node" : {
             "flag" : "flea_market_inappropriate",
             "node" : [ "flagged-node" ],
-            "number" : "1",
-            "operator" : "\\u003C="
+            "number" : "2",
+            "operator" : "\\u003C"
           }
         }
       ],
