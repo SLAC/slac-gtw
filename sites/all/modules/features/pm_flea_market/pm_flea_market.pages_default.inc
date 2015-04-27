@@ -165,6 +165,7 @@ function pm_flea_market_default_page_manager_pages() {
       'left' => NULL,
       'right' => NULL,
       'center' => NULL,
+      'main_content_column' => NULL,
     ),
   );
   $display->cache = array();
@@ -192,7 +193,7 @@ function pm_flea_market_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => 'flea_market_nav',
-      'css_class' => '',
+      'css_class' => 'my-flea-market-nav',
     );
     $pane->extras = array();
     $pane->position = 0;
