@@ -41,7 +41,7 @@ abstract class SlacNodeMigration extends DrupalNode6Migration {
    */
   protected function query() {
 
-    // Get the default query (all rows in the users table other than uid 1)
+    // Get the default query so we can add to it.
     $query = parent::query();
 
     // Get the username of the node author.
@@ -51,6 +51,9 @@ abstract class SlacNodeMigration extends DrupalNode6Migration {
     return $query;
   }
 
+  /*
+   * Override the user id if it doesn't exist on the D7 site.
+   */
   public function prepare($entity, $row) {
 
     // Check if user exists on D7 site.  If so, load the user by name and assign.
@@ -59,9 +62,88 @@ abstract class SlacNodeMigration extends DrupalNode6Migration {
     if (isset($d7_user->uid)) {
       $entity->uid = $d7_user->uid;
     }
+    else {
+      $entity->uid = 0;
+    }
+  }
+
+  /*
+   * Utility function to update image metadata.
+   */
+  public function update_image($row) {
+
+    // Image references point to the image node that contain the image.
+    // We need to point it to the actual fid of the image.
+    // Then we need to grab all the image metadata and update the destination image file entity.
+    if (isset($row->field_image)) {
+      foreach ($row->field_image as $key => $image_fid) {
+
+        // Update the image's metadata in the destination image file entity.
+        // Seems strange to do it here but there was no way to grab the correct vid when doing
+        // the bulk image import.
+        if ($dest_image_id = $this->handleSourceMigration('Images', $image_fid)) {
+          if ($dest_image = entity_load('file', array($dest_image_id))) {
+
+            // Assign images new values and save.
+            $dest_image[$dest_image_id]->field_file_image_alt_text[LANGUAGE_NONE][0]['value'] = substr($row->{"field_image:alt"}[$key], 0, 254);
+            $dest_image[$dest_image_id]->field_file_image_title_text[LANGUAGE_NONE][0]['value'] = substr($row->{"field_image:title"}[$key], 0, 254);
+            entity_save('file', $dest_image[$dest_image_id]);
+          }
+        }
+      }
+    }
+  }
+
+  /*
+   * Utility function to convert html filter to D7 values.
+   */
+  public function convert_filter($row) {
+    // Convert filter formats.
+    if ($row->{'field_announcement_body:format'} == '2') {
+      $row->{'field_announcement_body:format'} = 'full_html';
+    }
+    elseif ($row->{'field_announcement_body:format'} == '1') {
+      $row->{'field_announcement_body:format'} = 'filtered_html';
+    }
+    else {
+      $row->{'field_announcement_body:format'} = 'full_html';
+    }
+  }
+
+  /*
+   * Utility function to convert field_announcement_content field to D7 values.
+   */
+  public function convert_announcement($row) {
+    if ($row->field_announcement_content == 'Link') {
+      $row->field_announcement_content = 'Link to Existing URL';
+    }
+    elseif ($row->field_announcement_content == 'Body') {
+      $row->field_announcement_content = 'Enter Details';
+    }
+  }
+
+  /*
+   * There appears to be an odd bug in the D6 site that causes dates to be incorrectly
+   * stored in the database - 7 hours off.  This utility function corrects that.
+   */
+  public function correct_date($row) {
+
+    $from_date = new DateTime($row->field_date);
+    $from_date->sub(new DateInterval("PT7H"));
+    $row->field_date = $from_date->format('Y-m-d H:i:s');
+
+    $to_date = new DateTime($row->{'field_date:value2'});
+    $to_date->sub(new DateInterval("PT7H"));
+    $row->{'field_date:value2'} = $to_date->format('Y-m-d H:i:s');
   }
 }
 
+
+/**
+ * Class SlacStoryMigration
+ *
+ * Migrates D6 Story nodes to D7 News nodes.
+ */
 class SlacStoryMigration extends SlacNodeMigration {
 
   public function __construct(array $arguments) {
@@ -126,6 +208,9 @@ class SlacStoryMigration extends SlacNodeMigration {
   }
 
 
+  /*
+   * Alter D6 record.
+   */
   public function prepareRow($row) {
 
     // Get the query from the parent so we can add to it.
@@ -139,6 +224,7 @@ class SlacStoryMigration extends SlacNodeMigration {
     // Image references point to the image node that contain the image.
     // We need to point it to the actual fid of the image.
     // Then we need to grab all the image metadata and update the destination image file entity.
+    // This is similar to the update_image method in the parent class but different.
     if (isset($row->field_image_reference)) {
       foreach ($row->field_image_reference as $key => $image_node_nid) {
 
@@ -180,6 +266,11 @@ class SlacStoryMigration extends SlacNodeMigration {
   }
 }
 
+/**
+ * Class SlacLabAnnouncementMigration
+ *
+ * Migrates D6 Announcement->Lab Announcement nodes to D7 News nodes.
+ */
 class SlacLabAnnouncementMigration extends SlacNodeMigration {
 
   public function __construct(array $arguments) {
@@ -252,9 +343,8 @@ class SlacLabAnnouncementMigration extends SlacNodeMigration {
       'daycount', 'timestamp', 'totalcount'));
   }
 
-   /**
-   * Extend basic query to include node author's username so we can map to username
-   * on D7 site.
+   /*
+   * Filter to Announcement node type with Announcement type of "Lab Announcement".
    */
   protected function query() {
 
@@ -267,6 +357,9 @@ class SlacLabAnnouncementMigration extends SlacNodeMigration {
     return $query;
   }
 
+  /*
+   * Adjust $row data for D7 equivalent.
+   */
   public function prepareRow($row) {
 
     // Get the query from the parent so we can add to it.
@@ -274,27 +367,22 @@ class SlacLabAnnouncementMigration extends SlacNodeMigration {
       return FALSE;
     }
 
-    if ($row->field_announcement_content == 'Link') {
-      $row->field_announcement_content = 'Link to Existing URL';
-    }
-    elseif ($row->field_announcement_content == 'Body') {
-      $row->field_announcement_content = 'Enter Details';
-    }
+    // Convert filter to D7 values.
+    $this->convert_filter($row);
 
-    // Convert filter formats.
-    if ($row->{'field_announcement_body:format'} == '2') {
-      $row->{'field_announcement_body:format'} = 'full_html';
-    }
-    elseif ($row->{'field_announcement_body:format'} == '1') {
-      $row->{'field_announcement_body:format'} = 'filtered_html';
-    }
-    else {
-      $row->{'field_announcement_body:format'} = 'full_html';
-    }
+    // Update field_announcement_content with D7 equivalent.
+    $this->convert_announcement($row);
+
+    // Update image metadata.
+    $this->update_image($row);
   }
 }
 
-
+/**
+ * Class SlacCalendarsMigration
+ *
+ * Migrates D6 Announcement->Staff and Scientific Calendar nodes to D7 Event nodes.
+ */
 class SlacCalendarsMigration extends SlacNodeMigration {
 
   public function __construct(array $arguments) {
@@ -387,6 +475,9 @@ class SlacCalendarsMigration extends SlacNodeMigration {
     return $query;
   }
 
+  /*
+   * Convert D6 data to D7 values.
+   */
   public function prepareRow($row) {
 
     // Get the query from the parent so we can add to it.
@@ -394,35 +485,22 @@ class SlacCalendarsMigration extends SlacNodeMigration {
       return FALSE;
     }
 
-    if ($row->field_announcement_content == 'Link') {
-      $row->field_announcement_content = 'Link to Existing URL';
-    }
-    elseif ($row->field_announcement_content == 'Body') {
-      $row->field_announcement_content = 'Enter Details';
-    }
+    // Update field_announcement_content with D7 equivalent.
+    $this->convert_announcement($row);
 
-    // Convert filter formats.
-    if ($row->{'field_announcement_body:format'} == '2') {
-      $row->{'field_announcement_body:format'} = 'full_html';
-    }
-    elseif ($row->{'field_announcement_body:format'} == '1') {
-      $row->{'field_announcement_body:format'} = 'filtered_html';
-    }
-    else {
-      $row->{'field_announcement_body:format'} = 'full_html';
-    }
+    // Convert filter to D7 values.
+    $this->convert_filter($row);
 
-    // There appears to be an odd bug in the D6 site that causes dates to incorrectly
-    // stored in the database - 7 hours off.
-    $from_date = new DateTime($row->field_date);
-    $from_date->sub(new DateInterval("PT7H"));
-    $row->field_date = $from_date->format('Y-m-d H:i:s');
+    // Correct D6 date/time. They were 7 hours off in database.
+    $this->correct_date($row);
 
-    $to_date = new DateTime($row->{'field_date:value2'});
-    $to_date->sub(new DateInterval("PT7H"));
-    $row->{'field_date:value2'} = $to_date->format('Y-m-d H:i:s');
+    // Update image metadata.
+    $this->update_image($row);
   }
 
+  /*
+   * Adjust data for d7.
+   */
   public function prepare($entity, $row) {
 
     // Convert Event Series taxonomy terms from D6 to corresponding term on D7.
@@ -442,6 +520,11 @@ class SlacCalendarsMigration extends SlacNodeMigration {
   }
 }
 
+/**
+ * Class SlacAccessNoticeMigration
+ *
+ * Migrates D6 Announcement->Access Notice nodes to D7 Access Information Nodes.
+ */
 class SlacAccessNoticeMigration extends SlacNodeMigration {
 
   public function __construct(array $arguments) {
@@ -506,7 +589,7 @@ class SlacAccessNoticeMigration extends SlacNodeMigration {
       'daycount', 'timestamp', 'totalcount'));
   }
 
-   /**
+   /*
    * Extend basic query to include node author's username so we can map to username
    * on D7 site.
    */
@@ -521,6 +604,9 @@ class SlacAccessNoticeMigration extends SlacNodeMigration {
     return $query;
   }
 
+  /*
+   * Convert data to D7 values.
+   */
   public function prepareRow($row) {
 
     // Get the query from the parent so we can add to it.
@@ -528,32 +614,16 @@ class SlacAccessNoticeMigration extends SlacNodeMigration {
       return FALSE;
     }
 
-    if ($row->field_announcement_content == 'Link') {
-      $row->field_announcement_content = 'Link to Existing URL';
-    }
-    elseif ($row->field_announcement_content == 'Body') {
-      $row->field_announcement_content = 'Enter Details';
-    }
+    // Update field_announcement_content with D7 equivalent.
+    $this->convert_announcement($row);
 
-    // Convert filter formats.
-    if ($row->{'field_announcement_body:format'} == '2') {
-      $row->{'field_announcement_body:format'} = 'full_html';
-    }
-    elseif ($row->{'field_announcement_body:format'} == '1') {
-      $row->{'field_announcement_body:format'} = 'filtered_html';
-    }
-    else {
-      $row->{'field_announcement_body:format'} = 'full_html';
-    }
+    // Convert filter to D7 values.
+    $this->convert_filter($row);
 
-    // There appears to be an odd bug in the D6 site that causes dates to incorrectly
-    // stored in the database - 7 hours off.
-    $from_date = new DateTime($row->field_date);
-    $from_date->sub(new DateInterval("PT7H"));
-    $row->field_date = $from_date->format('Y-m-d H:i:s');
+    // Correct D6 date/time. They were 7 hours off in database.
+    $this->correct_date($row);
 
-    $to_date = new DateTime($row->{'field_date:value2'});
-    $to_date->sub(new DateInterval("PT7H"));
-    $row->{'field_date:value2'} = $to_date->format('Y-m-d H:i:s');
+    // Update image metadata.
+    $this->update_image($row);
   }
 }

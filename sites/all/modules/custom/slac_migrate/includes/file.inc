@@ -39,10 +39,18 @@ class SlacImageMigration extends Migration {
     $this->addFieldMapping('value', 'filename');
     $this->addFieldMapping('source_dir', 'filepath');
     $this->addFieldMapping('destination_file', 'filepath');
+
   }
 
   // Make adjustments to the data.
   function prepare($entity, $row) {
+
+    // Transfer renamed duplicates too.
+    $filepath = explode('/', $row->filepath);
+    $filename = $filepath[count($filepath) - 1];
+    if ($row->filename != $filename) {
+      $row->filename = $filename;
+    }
 
     // Old version of some image module stored image paths differently.
     // Adjusting the path here.
@@ -63,14 +71,13 @@ class SlacVideoMigration extends Migration {
          ->select('node', 'n');
     $query->join('content_type_video', 'v', 'n.vid = v.vid');
     $query->join('node_revisions', 'nr', 'n.vid = nr.vid');
+    $query->join('content_field_byline', 'cfb', 'n.vid = cfb.vid');
     $query->fields('n', array('nid', 'vid', 'type', 'title', 'uid', 'created'));
     $query->fields('v', array('vid', 'field_media_field_video_value', 'field_media_field_video_provider'));
+    $query->fields('cfb', array('field_byline_value'));
     $query->fields('nr', array('vid', 'body', 'format'));
     $query->condition('n.type', 'video', '=');
-    $or = db_or();
-    $or->condition('v.field_media_field_video_provider', 'youtube', '=');
-    $or->condition('v.field_media_field_video_provider', 'vimeo', '=');
-    $query->condition($or);
+
     $this->source = new MigrateSourceSQL($query, array(), NULL, array('map_joinable' => FALSE));
 
     $this->map = new MigrateSQLMap($this->machineName,
@@ -99,7 +106,7 @@ class SlacVideoMigration extends Migration {
     $this->addFieldMapping(NULL, 'title');
 
     // Unmigrated destination fields.
-    $this->addUnmigratedDestinations(array('field_file_shared_caption:language', 'path'));
+    $this->addUnmigratedDestinations(array('field_file_shared_caption:language', 'path', 'uid'));
 
     // Unmapped destination metatag fields.
     $this->addUnmigratedDestinations(array(
@@ -110,7 +117,8 @@ class SlacVideoMigration extends Migration {
     ));
 
     // Unmigrated source fields.
-    $this->addUnmigratedSources(array('vid', 'type', 'v_vid', 'field_media_field_video_provider', 'nr_vid', 'title'));
+    $this->addUnmigratedSources(array('vid', 'type', 'v_vid', 'field_media_field_video_provider', 'nr_vid', 'title',
+      'uid'));
   }
 
   /**
@@ -131,16 +139,24 @@ class SlacVideoMigration extends Migration {
     else {
       $row->format = 'full_html';
     }
+
+    // Flash videos need to be converted to YouTube.  Adding a note to the caption field.
+    if (substr($row->field_media_field_video_value, 0, 4) === "http") {
+
+      // Adding real video info to caption field.
+      $row->body = 'This is a Flash video that needs to be converted to YouTube - ' .
+          $row->field_media_field_video_value . '</br>' . $row->body;
+      $row->field_media_field_video_provider = 'youtube';
+    }
   }
 
   /**
    * Implements complete method.
    */
   public function complete($entity, stdClass $row) {
-
     // Import custom file fields and overwrite title field.
     // Youtube module automatically sets Youtube title.
-    $entity->field_file_shared_caption[LANGUAGE_NONE][0]['value'] = $row->body;
+    $entity->field_file_shared_caption[LANGUAGE_NONE][0]['value'] = $row->body . ' (' . $row->field_byline_value . ')';
     $entity->field_file_shared_caption[LANGUAGE_NONE][0]['format'] = $row->format;
     $entity->filename = $row->title;
     entity_save('file', $entity);
@@ -154,8 +170,6 @@ class SlacVideoMigration extends Migration {
 class SlacMigrateAllVideos implements MigrateFileInterface {
   /**
    * Implementation of MigrateFileInterface::fields().
-   *
-   * @return array
    */
   static public function fields() {
     return array();
@@ -163,13 +177,6 @@ class SlacMigrateAllVideos implements MigrateFileInterface {
 
   /**
    * Implementation of MigrateFileInterface::processFiles().
-   *
-   * @param $value
-   *  The URI or local filespec of a file to be imported.
-   * @param $owner
-   *  User ID (uid) to be the owner of the file.
-   * @return object
-   *  The file entity being created or referenced.
    */
   public function processFile($value, $owner) {
 
@@ -183,13 +190,50 @@ class SlacMigrateAllVideos implements MigrateFileInterface {
     }
     // Video is a Flash video.
     elseif (substr($value, 0, 4) === "http") {
-      $settings['video_type'] = 'Flash';
+      $settings['video_type'] = 'YouTube';
+      $settings['handler'] = 'MediaInternetYouTubeHandler';
     }
     // Video is a YouTube video.
     else {
       $settings['handler'] = 'MediaInternetYouTubeHandler';
       $settings['video_type'] = 'Youtube';
       $value = 'https://www.youtube.com/watch?v=' . $value;
+    }
+
+    // Intercepting Flash videos.
+    // There are 8 Flash videos to be imported.  D7 site doesn't accept Flash videos.  They error out on import.
+    // They are going to be converted to YouTube videos after import by Slac.  So we're doing a hack here:
+    // Import the video as a random YouTube video and putting information about the correct Flash video in the
+    // body field so it can be updated later.
+    if (substr($value, 0, 4) === "http") {
+
+      // Assigning random YouTube video to be updated manually by Slac later.
+      switch ($value) {
+        case 'http://media.slac.stanford.edu/video/2009/synchrotron/wow_synchrotron.swf':
+          $value = 'https://www.youtube.com/watch?v=U9Cl-c-BXhk';
+          break;
+        case 'http://media.slac.stanford.edu/video/2010/lcls-dedication/ThisIsLcls.flv.swf':
+          $value = 'https://www.youtube.com/watch?v=j9i4Eq9_S5Y';
+          break;
+        case 'http://media.slac.stanford.edu/video/2010/a.nilsson_profile/a.nilsson_profile.swf':
+          $value = 'https://www.youtube.com/watch?v=xc64NOETsZg';
+          break;
+        case 'http://media.slac.stanford.edu/vis_lab/galaxy_mergers.swf':
+          $value = 'https://www.youtube.com/watch?v=cyf-17lWkYE';
+          break;
+        case 'http://media.slac.stanford.edu/video/2009/shen_award/shen_awd_360.swf':
+          $value = 'https://www.youtube.com/watch?v=6bFjZq3OM8Y';
+          break;
+        case 'http://media.slac.stanford.edu/video/2009/color_charge/wow_color_charge.swf':
+          $value = 'https://www.youtube.com/watch?v=9bM5jF5rKrc';
+          break;
+        case 'http://media.slac.stanford.edu/video/2009/bakeout/bakeout.swf':
+          $value = 'https://www.youtube.com/watch?v=5Be2mJzP-Uw';
+          break;
+        case 'http://media.slac.stanford.edu/video/2009/c_bostedt_profile/c_bostedt_profile.swf':
+          $value = 'https://www.youtube.com/watch?v=XVrZs-0lfcg';
+          break;
+      }
     }
 
     // Convert the Youtube URI into a local stream wrapper.
@@ -207,11 +251,6 @@ class SlacMigrateAllVideos implements MigrateFileInterface {
       return FALSE;
     }
 
-    // Create a file entity object for this Youtube reference, and see if we
-    // can get the video title.
-    if (empty($file->fid) && $info = $handler->getOEmbed()) {
-      $file->filename = truncate_utf8($info['title'], 255);
-    }
     $file = file_save($file);
     if (is_object($file)) {
       return $file;
