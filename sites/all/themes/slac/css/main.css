@@ -834,10 +834,6 @@ textarea {
   border: 1px solid #316dae;
 }
 
-input[type=checkbox]:not(:checked) {
-  border: 1px solid #316dae;
-}
-
 fieldset {
   width: 800px;
   padding: 1rem;
