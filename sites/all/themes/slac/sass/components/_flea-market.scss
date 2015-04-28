@@ -38,8 +38,11 @@
 // flea market item listing
 .my-flea-market-nav {
   width: 200px;
+  margin-top: 16px;
   text-align: right;
   float: right;
+  position: relative;
+  z-index: 30;
 
   a {
     display: block;
@@ -85,8 +88,17 @@
     font-weight: bold;
   }
 
+  .views-field-edit-node {
+    min-width: 90px;
+  }
+
   .view-header {
     padding-top: 3rem;
     margin-bottom: 2rem;
+
+    p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
   }
 }
