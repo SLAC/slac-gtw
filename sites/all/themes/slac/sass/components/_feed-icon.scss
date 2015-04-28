@@ -1,0 +1,8 @@
+.feed-icon {
+  float: right;
+  margin-top: -25px;
+
+  .logged-in & {
+    margin-top: -60px;
+  }
+}
