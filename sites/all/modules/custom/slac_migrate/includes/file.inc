@@ -154,9 +154,11 @@ class SlacVideoMigration extends Migration {
    * Implements complete method.
    */
   public function complete($entity, stdClass $row) {
+    $byline = isset($row->field_byline_value) ? ' (' . $row->field_byline_value . ')' : '';
+
     // Import custom file fields and overwrite title field.
     // Youtube module automatically sets Youtube title.
-    $entity->field_file_shared_caption[LANGUAGE_NONE][0]['value'] = $row->body . ' (' . $row->field_byline_value . ')';
+    $entity->field_file_shared_caption[LANGUAGE_NONE][0]['value'] = $row->body . $byline;
     $entity->field_file_shared_caption[LANGUAGE_NONE][0]['format'] = $row->format;
     $entity->filename = $row->title;
     entity_save('file', $entity);
