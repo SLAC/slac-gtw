@@ -1679,6 +1679,7 @@ fieldset.collapsed {
   font-size: 12px;
   font-size: 0.75rem;
   font-weight: bold;
+  line-height: 1;
 }
 .view-search .node-content-type {
   font-size: 12px;
@@ -1695,6 +1696,24 @@ fieldset.collapsed {
 .bef-checkboxes .bef-select-as-checkboxes {
   float: left;
   margin-right: 20px;
+}
+.bef-checkboxes label.option {
+  position: relative;
+  left: -10px;
+}
+.bef-checkboxes input[type="checkbox"] + label:before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  left: -9px;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #316dae;
+  background: #ffffff;
+}
+.bef-checkboxes input[type="checkbox"]:checked + label:before {
+  background: url(../images/checkbox.png) 0 0 no-repeat;
 }
 
 .form-item-field-news-news-type {
