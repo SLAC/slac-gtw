@@ -1338,11 +1338,6 @@ fieldset.collapsed {
   box-sizing: border-box;
   word-wrap: break-word;
 }
-.page-taxonomy-term .title:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 .page-taxonomy-term .l-general-one-col {
   margin-top: 4rem;
 }

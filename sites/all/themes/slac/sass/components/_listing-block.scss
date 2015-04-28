@@ -1,7 +1,6 @@
 .page-taxonomy-term {
   .title {
     @include move-page-title;
-    @include clearfix;
   }
 
   .l-general-one-col {
