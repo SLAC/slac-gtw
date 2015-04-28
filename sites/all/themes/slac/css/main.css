@@ -814,11 +814,11 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 .section-flea-market .views-field-edit-node {
   min-width: 90px;
 }
-.section-flea-market .view-header {
+.section-flea-market .view-flea-market-listing {
   padding-top: 3rem;
   margin-bottom: 2rem;
 }
-.section-flea-market .view-header p {
+.section-flea-market .view-flea-market-listing p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
