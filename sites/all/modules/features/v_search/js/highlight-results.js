@@ -32,7 +32,7 @@
           return '<strong>' + match + '</strong>';
         });
       });
-      $('.view-header').append('containing the words: ' + keyword);
+      $('.view-header').append('containing the words: <strong>' + keyword + '</strong>');
     }
   };
 

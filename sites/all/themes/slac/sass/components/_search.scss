@@ -1,12 +1,33 @@
+.section-search .title {
+  @include zen-grid-item(6, 2);
+}
 .view-search {
   color: lighten($grey, 10%);
 
+  .form-text {
+    width: 424px;
+    &.bef-datepicker {
+      width: 120px;
+    }
+  }
+
+  .search-wrapper {
+    @include clearfix;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+
+    .form-type-textfield {
+      float: left;
+      margin-right: 10px;
+    }
+  }
   .views-row {
     margin-bottom: 3rem;
   }
 
   .view-header {
     padding: .5rem 1rem;
+    margin-bottom: 2rem;
     background: $light-grey;
   }
 
@@ -34,6 +55,51 @@
     }
   }
 
+  fieldset.collapsible {
+    margin-bottom: 2rem;
+  }
+  fieldset.collapsed {
+    padding: 0;
+    margin-bottom: 0;
+    height: 0;
+  }
+  legend {
+    display: block;
+    width: 200px;
+    position: absolute;
+    left: -20px;
+    top: -30px;
+    padding: 0;
+  }
+
+  .collapsible,
+  .collapsed {
+    .fieldset-title {
+      display: block;
+      line-height: 1;
+      width: 200px;
+      height: 16px;
+      font-weight: bold;
+      color: $grey;
+      background: url(../images/legend-bg.png) 160px -16px no-repeat;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .collapsed {
+
+    .fieldset-title {
+      background-position: 160px 0;
+    }
+  }
+
+  .collapsible {
+    margin-bottom: 2rem;
+  }
+
   .field-name-field-shared-image {
     float: left;
     margin-right: 2rem;
@@ -48,5 +114,30 @@
   .node-content-type {
     @include font-size($base-font-size - 4px);
     font-weight: normal;
+    font-style: italic;
   }
+}
+
+.form-item-field-news-news-type {
+  margin-top: 14px;
+}
+
+.bef-checkboxes {
+
+  .form-type-bef-checkbox,
+  .bef-select-as-checkboxes {
+    float: left;
+    margin-right: 20px;
+  }
+}
+
+.form-item-field-news-news-type {
+  padding-top: 1rem;
+}
+
+.exposed-date-label {
+  padding-top: 1rem;
+  display: block;
+  clear: both;
+  font-weight: bold;
 }

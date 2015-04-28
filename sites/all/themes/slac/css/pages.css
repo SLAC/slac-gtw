@@ -385,11 +385,6 @@ header, .content-wrapper, .footer-wrapper {
     font-size: 11px;
   }
 }
-@media (min-width: 900px) {
-  .not-front #content > * {
-    padding: 0 32px;
-  }
-}
 .grippie {
   display: none;
 }
