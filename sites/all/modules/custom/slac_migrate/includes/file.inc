@@ -7,9 +7,6 @@
 
 /**
  * Copies image files over.
- *
- * TODO:
- * NOTE: PATH WILL NEED TO BE CHANGED
  */
 class SlacImageMigration extends Migration {
 
@@ -18,7 +15,7 @@ class SlacImageMigration extends Migration {
     $this->description = t('Images');
     $query = Database::getConnection('default', 'legacy')
              ->select('files', 'f')
-             ->fields('f', array('fid', 'filename', 'filepath', 'filemime', 'timestamp', 'status', 'origname'))
+             ->fields('f', array('fid', 'filename', 'filepath', 'filemime', 'timestamp'))
              ->condition('f.filemime', 'image%', 'LIKE');
     $this->source = new MigrateSourceSQL($query, array(), NULL, array('map_joinable' => FALSE));
     $this->map = new MigrateSQLMap($this->machineName,
@@ -32,30 +29,21 @@ class SlacImageMigration extends Migration {
         MigrateDestinationMedia::getKeySchema()
     );
     $this->destination = new MigrateDestinationMedia('image');
+    $this->destination->setFileClass('MigrateFileUriAsIs');
 
-    // Map the filename to the D7 value field.
-    // Filepatch set for both source and destination directories is correct.
-    // They get adjusted in the prepare method.
-    $this->addFieldMapping('value', 'filename');
-    $this->addFieldMapping('source_dir', 'filepath');
-    $this->addFieldMapping('destination_file', 'filepath');
-
+    // Field mappings.
+    $this->addFieldMapping('value', 'filepath')
+      ->callbacks(array($this, 'fixUri'));
+    $this->addFieldMapping('timestamp', 'timestamp');
+    $this->addFieldMapping('preserve_files', TRUE);
   }
 
-  // Make adjustments to the data.
-  function prepare($entity, $row) {
-
-    // Transfer renamed duplicates too.
-    $filepath = explode('/', $row->filepath);
-    $filename = $filepath[count($filepath) - 1];
-    if ($row->filename != $filename) {
-      $row->filename = $filename;
-    }
-
-    // Old version of some image module stored image paths differently.
-    // Adjusting the path here.
-    $entity->source_dir = '/Users/mickey/websites/slac-d6.local/' . str_replace($row->filename, '', $entity->source_dir);
-    $entity->destination_file = str_replace('sites/default/files/', '', $entity->destination_file);
+  /*
+   * Utility function to fix image URIs.
+   */
+  protected function fixUri($uri) {
+    $result = str_replace('sites/default/files/', 'public://', $uri);
+    return $result;
   }
 }
 
