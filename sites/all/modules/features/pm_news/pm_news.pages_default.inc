@@ -115,7 +115,7 @@ function pm_news_default_page_manager_pages() {
     $display->content['new-e90ee0c5-df2e-4ae4-952c-41dce883c0a5'] = $pane;
     $display->panels['right'][0] = 'new-e90ee0c5-df2e-4ae4-952c-41dce883c0a5';
   $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = '0';
+  $display->title_pane = 'new-30e087a9-f39c-4a72-b976-6dae3a733999';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['news'] = $page;

@@ -1,4 +1,12 @@
-.pager {
+// overrides legacy styles
+.general-left .item-list .pager li {
+  background: none;
+  display: inline-block;
+  padding: 0 3px;
+}
+
+// new pager styles
+.item-list .pager {
   margin-top: 3rem;
   margin-bottom: 2rem;
   text-align: left;
@@ -7,17 +15,24 @@
     font-weight: normal;
     padding-right: .2rem;
     padding-left: .2rem;
+    background: none;
 
     a {
-      display: inline-block;
-      padding: .4rem .6rem;;
+      padding: .5rem .6rem;
       color: lighten($blue, 15%);
       font-weight: normal;
       background: $light-grey;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        background: lighten($blue, 20%);
+        color: $white;
+      }
     }
 
     &.pager-current {
-      padding: .6rem .6rem;
+      padding: .4rem .6rem;
       background: lighten($blue, 20%);
       color: $white;
     }

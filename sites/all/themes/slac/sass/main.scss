@@ -1,6 +1,10 @@
+// import system stylesheet to override
+@import "system/system-theme";
+
 @import "base/typography";
 @import "base/colors";
 @import "base/base";
+@import "base/tables";
 
 @import "layouts/grid";
 @import "layouts/layout";
@@ -24,6 +28,7 @@
 @import "components/navigation";
 @import "components/pager";
 @import "components/page-icons";
+@import "components/sidebar";
 @import "components/search";
 @import "components/tags";
 

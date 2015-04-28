@@ -59,6 +59,7 @@ function slac_igp_deployment_install() {
     'pm_flea_market',
     'pm_news',
     'v_event',
+    'v_events_by_term',
     'v_featured_news_pane',
     'v_flea_market',
     'v_news',
@@ -697,6 +698,32 @@ function slac_igp_deployment_update_7032() {
 function slac_igp_deployment_update_7033() {
   $result = module_enable(array(
     'better_exposed_filters',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the smart trim module.
+ */
+function slac_igp_deployment_update_7034() {
+  $result = module_enable(array(
+    'smart_trim',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the v_events_by_term feature.
+ */
+function slac_igp_deployment_update_7035() {
+  $result = module_enable(array(
+    'v_events_by_term',
   ));
 
   if ($result == FALSE) {

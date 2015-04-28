@@ -34,3 +34,59 @@
     }
   }
 }
+
+// flea market item listing
+.my-flea-market-nav {
+  width: 200px;
+  text-align: right;
+  float: right;
+
+  a {
+    display: block;
+    padding: .2rem .5rem;
+    background: darken($light-grey, 3%);
+    color: $blue;
+    text-decoration: none;
+    margin-bottom: .5rem;
+
+    &:hover,
+    &:focus {
+      background: lighten($grey, 10%);
+      color: $white;
+    }
+  }
+}
+
+.section-flea-market {
+
+  .title {
+    @include zen-grid-item(6, 2);
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  table {
+    margin-bottom: 4rem;
+
+    td {
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .views-field-changed {
+    min-width: 120px;
+    font-weight: bold;
+  }
+
+  .views-field-field-flea-market-item-type {
+    min-width: 100px;
+    font-weight: bold;
+  }
+
+  .view-header {
+    padding-top: 3rem;
+    margin-bottom: 2rem;
+  }
+}

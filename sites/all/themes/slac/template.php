@@ -227,7 +227,11 @@ function slac_process_field(&$vars) {
   // Field type image
   if ($element['#field_type'] == 'image') {
     // Reduce the number of images displayed in certain view modes to one.
-    $view_modes = array('news_archive', 'search_result');
+    $view_modes = array(
+      'news_archive',
+      'slac_term_listing',
+      'search_result',
+    );
     if (in_array($element['#view_mode'], $view_modes)) {
       $item = reset($vars['items']);
       $vars['items'] = array($item);

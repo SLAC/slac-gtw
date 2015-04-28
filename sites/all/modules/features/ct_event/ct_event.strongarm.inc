@@ -90,7 +90,7 @@ function ct_event_strongarm() {
         'custom_settings' => FALSE,
       ),
       'teaser' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'full' => array(
         'custom_settings' => FALSE,
@@ -117,6 +117,9 @@ function ct_event_strongarm() {
         'custom_settings' => FALSE,
       ),
       'news_archive' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slac_term_listing' => array(
         'custom_settings' => TRUE,
       ),
     ),
@@ -153,6 +156,10 @@ function ct_event_strongarm() {
             'weight' => '-5',
             'visible' => TRUE,
           ),
+          'slac_term_listing' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
         ),
         'author' => array(
           'default' => array(
@@ -170,6 +177,10 @@ function ct_event_strongarm() {
           'teaser' => array(
             'weight' => '-3',
             'visible' => TRUE,
+          ),
+          'slac_term_listing' => array(
+            'weight' => '4',
+            'visible' => FALSE,
           ),
         ),
         'title' => array(
@@ -189,6 +200,10 @@ function ct_event_strongarm() {
             'weight' => '-4',
             'visible' => TRUE,
           ),
+          'slac_term_listing' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
         ),
         'content_type' => array(
           'search_result' => array(
@@ -205,6 +220,10 @@ function ct_event_strongarm() {
           ),
           'news_archive' => array(
             'weight' => '-5',
+            'visible' => FALSE,
+          ),
+          'slac_term_listing' => array(
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
@@ -262,7 +281,7 @@ function ct_event_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_taxonomy_term_event_series_pattern';
-  $strongarm->value = '';
+  $strongarm->value = 'events/[term:name]';
   $export['pathauto_taxonomy_term_event_series_pattern'] = $strongarm;
 
   $strongarm = new stdClass();

@@ -11,6 +11,12 @@
    */
   Drupal.behaviors.slac_highlight_results = {
     attach: function(context, settings) {
+
+      /**
+       * Get the keyword from the current search path
+       * @param name
+       * @returns {string}
+       */
       function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -19,12 +25,14 @@
       }
       var keyword = getParameterByName('search_api_views_fulltext');
       var re = new RegExp(keyword, 'gi');
-      var viewContentDiv = $('div.view-content');
-      var viewContent =  viewContentDiv.html();
-      viewContent = viewContent.replace(re, function (match) {
-        return '<strong>' + match + '</strong>';
+
+      // Wrap the keyword instances within the body divs with strong tags
+      $('div.field-name-body').html(function (i, text) {
+        return text.replace(re, function (match) {
+          return '<strong>' + match + '</strong>';
+        });
       });
-      viewContentDiv.html(viewContent);
+      $('.view-header').append('containing the words: <strong>' + keyword + '</strong>');
     }
   };
 

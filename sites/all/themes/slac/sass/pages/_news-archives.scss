@@ -34,7 +34,7 @@
     }
 
     .node-created {
-      @include font-size($base-font-size - 2px);
+      @include font-size($base-font-size - 4px);
       font-weight: bold;
     }
 
