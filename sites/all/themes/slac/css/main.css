@@ -1544,6 +1544,12 @@ fieldset.collapsed {
 .view-search {
   color: #848484;
 }
+.view-search .form-text {
+  width: 424px;
+}
+.view-search .form-text.bef-datepicker {
+  width: 120px;
+}
 .view-search .search-wrapper {
   margin-bottom: 3rem;
   margin-top: 3rem;
@@ -1598,15 +1604,25 @@ fieldset.collapsed {
   top: -30px;
   padding: 0;
 }
-.view-search .fieldset-legend {
+.view-search .collapsible .fieldset-title,
+.view-search .collapsed .fieldset-title {
   display: block;
+  line-height: 1;
   width: 200px;
   height: 16px;
-}
-.view-search .fieldset-legend .fieldset-title {
   font-weight: bold;
   color: #6a6a6a;
+  background: url(../images/legend-bg.png) 160px -16px no-repeat;
+}
+.view-search .collapsible .fieldset-title:hover,
+.view-search .collapsed .fieldset-title:hover {
   text-decoration: none;
+}
+.view-search .collapsed .fieldset-title {
+  background-position: 160px 0;
+}
+.view-search .collapsible {
+  margin-bottom: 2rem;
 }
 .view-search .field-name-field-shared-image {
   float: left;
@@ -1623,19 +1639,6 @@ fieldset.collapsed {
   font-size: 0.75rem;
   font-weight: normal;
   font-style: italic;
-}
-
-.collapsible .fieldset-legend {
-  background-image: url(../images/legend-bg.png);
-  background-position: 165px -16px;
-  background-repeat: no-repeat;
-  margin-bottom: 2rem;
-}
-
-.collapsed .fieldset-legend {
-  background-image: url(../images/legend-bg.png);
-  background-position: 165px 0;
-  background-repeat: no-repeat;
 }
 
 .form-item-field-news-news-type {
