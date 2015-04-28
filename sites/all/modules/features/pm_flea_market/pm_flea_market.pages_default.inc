@@ -157,7 +157,7 @@ function pm_flea_market_default_page_manager_pages() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'flexible';
+  $display->layout = 'one-col';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -165,6 +165,7 @@ function pm_flea_market_default_page_manager_pages() {
       'left' => NULL,
       'right' => NULL,
       'center' => NULL,
+      'main_content_column' => NULL,
     ),
   );
   $display->cache = array();
@@ -174,7 +175,7 @@ function pm_flea_market_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-3958e3f2-ac0a-40df-adc1-ec477355cb51';
-    $pane->panel = 'center';
+    $pane->panel = 'main_content_column';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -192,17 +193,17 @@ function pm_flea_market_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => 'flea_market_nav',
-      'css_class' => '',
+      'css_class' => 'my-flea-market-nav',
     );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '3958e3f2-ac0a-40df-adc1-ec477355cb51';
     $display->content['new-3958e3f2-ac0a-40df-adc1-ec477355cb51'] = $pane;
-    $display->panels['center'][0] = 'new-3958e3f2-ac0a-40df-adc1-ec477355cb51';
+    $display->panels['main_content_column'][0] = 'new-3958e3f2-ac0a-40df-adc1-ec477355cb51';
     $pane = new stdClass();
     $pane->pid = 'new-c1f29952-ce7a-405e-a9ef-9bfe76a86306';
-    $pane->panel = 'center';
+    $pane->panel = 'main_content_column';
     $pane->type = 'views_panes';
     $pane->subtype = 'flea_market_listing-panel_pane_2';
     $pane->shown = TRUE;
@@ -218,7 +219,7 @@ function pm_flea_market_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'c1f29952-ce7a-405e-a9ef-9bfe76a86306';
     $display->content['new-c1f29952-ce7a-405e-a9ef-9bfe76a86306'] = $pane;
-    $display->panels['center'][1] = 'new-c1f29952-ce7a-405e-a9ef-9bfe76a86306';
+    $display->panels['main_content_column'][1] = 'new-c1f29952-ce7a-405e-a9ef-9bfe76a86306';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

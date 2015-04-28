@@ -5,3 +5,14 @@
  */
 
 include_once 'ct_flea_market_item.features.inc';
+
+/**
+ * Implements hook_ctools_render_alter().
+ */
+function ct_flea_market_item_ctools_render_alter(&$info, &$page, &$context) {
+  $handler = $context['handler'];
+  if ($handler->task == 'node_view' && $handler->export_module == 'ct_flea_market_item') {
+    $path = drupal_get_path('module', 'ct_flea_market_item');
+    drupal_add_js($path . '/js/ct_flea_market_item.js');
+  }
+}

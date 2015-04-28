@@ -1,5 +1,9 @@
 table {
 
+  tbody {
+    border: none;
+  }
+
 // overrides system styles
   tr.odd,
   tr.even {
@@ -9,6 +13,10 @@ table {
 
   tr.odd {
     background-color: $light-grey;
+  }
+
+  th {
+    border: none;
   }
 
   td,
