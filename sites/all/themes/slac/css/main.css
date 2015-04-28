@@ -699,6 +699,14 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   padding-top: 1em;
 }
 
+.feed-icon {
+  float: right;
+  margin-top: -25px;
+}
+.logged-in .feed-icon {
+  margin-top: -60px;
+}
+
 .node-type-news .pane-featured-news-featured-news-panel-pane h2 {
   margin-bottom: 0;
 }
@@ -1315,6 +1323,44 @@ fieldset.collapsed {
 .node-type-news .general-right .pane-combined-related-items ul a,
 .node-type-access-information .general-right .pane-combined-related-items ul a {
   display: inline;
+}
+
+.page-taxonomy-term .title {
+  float: left;
+  width: 50%;
+  margin-left: 8.33333%;
+  margin-right: -58.33333%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+.page-taxonomy-term .l-general-one-col {
+  margin-top: 4rem;
+}
+
+.view-events-by-term .views-row {
+  margin-bottom: 2rem;
+}
+.view-events-by-term .field-name-field-shared-image {
+  float: left;
+  margin-right: 2rem;
+  margin-bottom: .5rem;
+}
+.view-events-by-term .node-created {
+  font-size: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1;
+}
+.view-events-by-term .node-title {
+  margin-top: .5rem;
+}
+.view-events-by-term .field-type-text .field-item {
+  margin-top: .5rem;
 }
 
 /* Top Menu and Main Menu */
