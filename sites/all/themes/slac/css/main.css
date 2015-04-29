@@ -1836,6 +1836,9 @@ fieldset.collapsed {
   margin-top: 0 !important;
 }
 
+.page-news #page-title {
+  display: none;
+}
 .page-news .views-exposed-form .views-exposed-widget {
   float: none;
   padding-top: 0;
