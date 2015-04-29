@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Access Notices feature.
+ */
+
+include_once 'pm_access_notices.features.inc';
