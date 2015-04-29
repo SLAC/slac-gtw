@@ -1884,6 +1884,16 @@ fieldset.collapsed {
   display: table;
   clear: both;
 }
+.lte-ie9 .page-news .general-right select {
+  padding-right: 4px;
+  background: none;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .page-news .general-right select {
+    padding-right: 4px;
+    background: none;
+  }
+}
 .page-news .general-right input[type="submit"].form-submit {
   margin-top: 0;
   width: 150px;
