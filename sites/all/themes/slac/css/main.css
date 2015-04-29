@@ -403,6 +403,67 @@ table th.active {
   word-wrap: break-word;
 }
 
+.page-access .title {
+  float: left;
+  width: 50%;
+  margin-left: 8.33333%;
+  margin-right: -58.33333%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  padding-left: 30px;
+  background: url(../images/access-notice-icon.svg) 0 6px no-repeat;
+}
+.lt-ie9 .page-access .title {
+  background: url(../images/access-notice-icon.png) 0 6px no-repeat;
+}
+.page-access .general-left {
+  margin-top: 3.5rem;
+}
+.page-access .view-header {
+  margin-bottom: 2rem;
+}
+.page-access .general-right {
+  padding-top: 1.6rem;
+}
+.page-access .general-right .menu {
+  padding-left: 2rem;
+}
+.page-access .general-right .menu li {
+  list-style-type: disc;
+}
+.page-access .general-right .menu a {
+  display: block;
+  padding: .2rem 0;
+}
+.page-access .feed-icon {
+  float: none;
+  margin: 0;
+  margin-bottom: 4.5rem;
+}
+
+.view-access-notice-listing .views-row {
+  margin-bottom: 2rem;
+  background: none;
+}
+.view-access-notice-listing .field-name-field-shared-image {
+  float: left;
+  margin-right: 2rem;
+  margin-bottom: .5rem;
+}
+.view-access-notice-listing .node-title {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+.view-access-notice-listing .field-name-field-event-date {
+  float: left;
+  margin-right: 10px;
+}
+
 .pane-slac-ip-node-author {
   margin-top: .5rem;
   margin-bottom: 2rem;
