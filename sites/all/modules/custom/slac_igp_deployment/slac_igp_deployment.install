@@ -56,8 +56,10 @@ function slac_igp_deployment_install() {
     'ct_flea_market_item',
     'ct_news',
     'ct_webform',
+    'pm_access_notices',
     'pm_flea_market',
     'pm_news',
+    'v_access_notices',
     'v_event',
     'v_events_by_term',
     'v_featured_news_pane',
@@ -724,6 +726,37 @@ function slac_igp_deployment_update_7034() {
 function slac_igp_deployment_update_7035() {
   $result = module_enable(array(
     'v_events_by_term',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the reroute_email module.
+ */
+function slac_igp_deployment_update_7036() {
+  $result = module_enable(array(
+    'reroute_email',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+
+  variable_set('reroute_email_address', "");
+  variable_set('reroute_email_enable_message', 1);
+  variable_set('reroute_email_enable', 1);
+}
+
+/**
+ * Enable new features for Access Notices.
+ */
+function slac_igp_deployment_update_7037() {
+  $result = module_enable(array(
+    'pm_access_notices',
+    'v_access_notices',
   ));
 
   if ($result == FALSE) {

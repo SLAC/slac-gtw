@@ -57,6 +57,7 @@ features[file_display][] = video__teaser__media_vimeo_image
 features[file_display][] = video__teaser__media_vimeo_video
 features[file_display][] = video__teaser__media_youtube_image
 features[file_display][] = video__teaser__media_youtube_video
+features[image][] = access_notice_list_item
 features[image][] = lightbox_expanded
 features[image][] = news_and_events_sidebar_image
 features[image][] = news_archive_list_item

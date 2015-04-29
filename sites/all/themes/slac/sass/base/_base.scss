@@ -4,6 +4,7 @@ body {
   line-height: 1.5;
   font-weight: normal;
 }
+
 a,
 a:link {
   &:hover,
@@ -11,6 +12,12 @@ a:link {
     outline: none;
   }
 }
+
 .not-front #content {
   background: $white;
+}
+
+h1 {
+  @include font-size($h1-font-size);
+  color: $headings-color;
 }
