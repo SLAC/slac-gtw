@@ -1875,7 +1875,7 @@ fieldset.collapsed {
   margin-top: 0;
 }
 .page-news .general-right select {
-  width: 126px;
+  width: 150px;
   float: none !important;
   margin-bottom: 1rem;
 }
@@ -1886,5 +1886,5 @@ fieldset.collapsed {
 }
 .page-news .general-right input[type="submit"].form-submit {
   margin-top: 0;
-  width: 126px;
+  width: 150px;
 }
