@@ -38,7 +38,7 @@ function slac_igp_feed_views_default_views() {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
-  $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/access">View All Access Items</a><br />
+  $handler->display->display_options['footer']['area']['content'] = '<a href="/access">View All Access Items</a><br />
 <a href="/node/add/access-information/slac ">Submit Access Notice</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   /* No results behavior: Global: Text area */

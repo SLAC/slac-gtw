@@ -22,6 +22,22 @@ function slac_ip_media_ctools_plugin_api($module = NULL, $api = NULL) {
 function slac_ip_media_image_default_styles() {
   $styles = array();
 
+  // Exported image style: access_notice_list_item.
+  $styles['access_notice_list_item'] = array(
+    'label' => 'Access Notice List Item',
+    'effects' => array(
+      5 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 170,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: lightbox_expanded.
   $styles['lightbox_expanded'] = array(
     'label' => 'Lightbox Expanded (975px wide)',
