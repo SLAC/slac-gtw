@@ -3,6 +3,7 @@
     float: none;
     padding-top: 0;
   }
+
   .general-left {
 
     .views-row {
@@ -55,15 +56,26 @@
     }
 
     select {
-      width: 126px;
+      width: 150px;
       @include clearfix;
       float: none !important;
       margin-bottom: 1rem;
+
+      .lte-ie9 & {
+        padding-right: 4px;
+        background: none;
+      }
+
+      // ie10 and 11 conditional breakpoint
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        padding-right: 4px;
+        background: none;
+      }
     }
 
     input[type="submit"].form-submit {
       margin-top: 0;
-      width: 126px;
+      width: 150px;
     }
   }
 }

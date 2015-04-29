@@ -295,6 +295,12 @@ a:link:focus {
   background: #ffffff;
 }
 
+h1 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  color: #46494B;
+}
+
 table tbody {
   border: none;
 }
@@ -701,10 +707,10 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 
 .feed-icon {
   float: right;
-  margin-top: -25px;
+  margin-top: -35px;
 }
 .logged-in .feed-icon {
-  margin-top: -60px;
+  margin-top: -40px;
 }
 
 .node-type-news .pane-featured-news-featured-news-panel-pane h2 {
@@ -1338,8 +1344,11 @@ fieldset.collapsed {
   box-sizing: border-box;
   word-wrap: break-word;
 }
+.page-taxonomy-term.logged-in .title {
+  margin-top: 80px;
+}
 .page-taxonomy-term .l-general-one-col {
-  margin-top: 4rem;
+  margin-top: 6rem;
 }
 
 .view-events-by-term .views-row {
@@ -1842,8 +1851,8 @@ fieldset.collapsed {
   margin-bottom: 2.5rem;
 }
 .page-news .general-left .pane-title {
-  font-size: 32px;
-  font-size: 2rem;
+  font-size: 24px;
+  font-size: 1.5rem;
   margin-top: 0;
   line-height: 1;
 }
@@ -1875,7 +1884,7 @@ fieldset.collapsed {
   margin-top: 0;
 }
 .page-news .general-right select {
-  width: 126px;
+  width: 150px;
   float: none !important;
   margin-bottom: 1rem;
 }
@@ -1884,7 +1893,17 @@ fieldset.collapsed {
   display: table;
   clear: both;
 }
+.lte-ie9 .page-news .general-right select {
+  padding-right: 4px;
+  background: none;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .page-news .general-right select {
+    padding-right: 4px;
+    background: none;
+  }
+}
 .page-news .general-right input[type="submit"].form-submit {
   margin-top: 0;
-  width: 126px;
+  width: 150px;
 }
