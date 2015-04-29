@@ -295,6 +295,12 @@ a:link:focus {
   background: #ffffff;
 }
 
+h1 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  color: #46494B;
+}
+
 table tbody {
   border: none;
 }
@@ -697,6 +703,14 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 
 .node-type-event .pane-node-body .field-name-body {
   padding-top: 1em;
+}
+
+.feed-icon {
+  float: right;
+  margin-top: -35px;
+}
+.logged-in .feed-icon {
+  margin-top: -40px;
 }
 
 .node-type-news .pane-featured-news-featured-news-panel-pane h2 {
@@ -1317,6 +1331,47 @@ fieldset.collapsed {
   display: inline;
 }
 
+.page-taxonomy-term .title {
+  float: left;
+  width: 50%;
+  margin-left: 8.33333%;
+  margin-right: -58.33333%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+.page-taxonomy-term.logged-in .title {
+  margin-top: 80px;
+}
+.page-taxonomy-term .l-general-one-col {
+  margin-top: 6rem;
+}
+
+.view-events-by-term .views-row {
+  margin-bottom: 2rem;
+}
+.view-events-by-term .field-name-field-shared-image {
+  float: left;
+  margin-right: 2rem;
+  margin-bottom: .5rem;
+}
+.view-events-by-term .node-created {
+  font-size: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1;
+}
+.view-events-by-term .node-title {
+  margin-top: .5rem;
+}
+.view-events-by-term .field-type-text .field-item {
+  margin-top: .5rem;
+}
+
 /* Top Menu and Main Menu */
 #block-menu-menu-top-menu {
   text-align: right;
@@ -1633,6 +1688,7 @@ fieldset.collapsed {
   font-size: 12px;
   font-size: 0.75rem;
   font-weight: bold;
+  line-height: 1;
 }
 .view-search .node-content-type {
   font-size: 12px;
@@ -1649,6 +1705,24 @@ fieldset.collapsed {
 .bef-checkboxes .bef-select-as-checkboxes {
   float: left;
   margin-right: 20px;
+}
+.bef-checkboxes label.option {
+  position: relative;
+  left: -10px;
+}
+.bef-checkboxes input[type="checkbox"] + label:before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  left: -9px;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #316dae;
+  background: #ffffff;
+}
+.bef-checkboxes input[type="checkbox"]:checked + label:before {
+  background: url(../images/checkbox.png) 0 0 no-repeat;
 }
 
 .form-item-field-news-news-type {
@@ -1777,8 +1851,8 @@ fieldset.collapsed {
   margin-bottom: 2.5rem;
 }
 .page-news .general-left .pane-title {
-  font-size: 32px;
-  font-size: 2rem;
+  font-size: 24px;
+  font-size: 1.5rem;
   margin-top: 0;
   line-height: 1;
 }
@@ -1810,7 +1884,7 @@ fieldset.collapsed {
   margin-top: 0;
 }
 .page-news .general-right select {
-  width: 126px;
+  width: 150px;
   float: none !important;
   margin-bottom: 1rem;
 }
@@ -1819,7 +1893,17 @@ fieldset.collapsed {
   display: table;
   clear: both;
 }
+.lte-ie9 .page-news .general-right select {
+  padding-right: 4px;
+  background: none;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .page-news .general-right select {
+    padding-right: 4px;
+    background: none;
+  }
+}
 .page-news .general-right input[type="submit"].form-submit {
   margin-top: 0;
-  width: 126px;
+  width: 150px;
 }

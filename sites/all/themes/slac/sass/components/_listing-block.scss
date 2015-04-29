@@ -1,0 +1,36 @@
+.page-taxonomy-term {
+  .title {
+    @include move-page-title;
+  }
+
+  &.logged-in .title {
+    margin-top: 80px;
+  }
+
+  .l-general-one-col {
+    margin-top: 6rem;
+  }
+}
+
+.view-events-by-term {
+
+  .views-row {
+    margin-bottom: 2rem;
+  }
+
+  .field-name-field-shared-image {
+    @include float-left;
+  }
+
+  .node-created {
+    @include node-created;
+  }
+
+  .node-title {
+    @include node-title;
+  }
+
+  .field-type-text .field-item {
+    @include body-teaser;
+  }
+}

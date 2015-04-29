@@ -17,6 +17,12 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -91,6 +97,12 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => 'Enter the number of days before the Access Restrictions start that you want to start publishing this notice (it automatically stops publishing on the Access Restriction end date).',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -142,6 +154,19 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 3,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'date',
@@ -209,6 +234,12 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 21,
+      ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -257,6 +288,12 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -313,6 +350,12 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 19,
+      ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -363,6 +406,12 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -419,6 +468,12 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
+      ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -469,6 +524,12 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -525,6 +586,16 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'access_notice_list_item',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -609,11 +680,17 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
-      'default' => array(
+      'access_listing' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
+        'weight' => 6,
+      ),
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 6,
       ),
       'news_archive' => array(
@@ -666,6 +743,12 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => 'Select ‘Enter Details’ option to create a new web page. Select ‘Link to Existing URL’ to redirect users to an already existing web page instead.',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -714,6 +797,12 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => 'If this Item is being promoted as news, this is the title that will display when it appears in News listings.',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 20,
+      ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -770,6 +859,12 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -830,6 +925,12 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => 'If this option is checked, this item will appear along with other News in news listings.',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -879,11 +980,16 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 4,
       ),
       'news_archive' => array(
@@ -952,11 +1058,16 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
+      ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'link',
         'settings' => array(),
-        'type' => 'link_default',
+        'type' => 'hidden',
         'weight' => 3,
       ),
       'news_archive' => array(
@@ -1026,6 +1137,12 @@ function ct_access_information_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'taxonomy',

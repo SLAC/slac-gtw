@@ -111,7 +111,7 @@ function ct_access_information_strongarm() {
         'custom_settings' => FALSE,
       ),
       'teaser' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'full' => array(
         'custom_settings' => FALSE,
@@ -139,6 +139,12 @@ function ct_access_information_strongarm() {
       ),
       'news_archive' => array(
         'custom_settings' => TRUE,
+      ),
+      'access_listing' => array(
+        'custom_settings' => TRUE,
+      ),
+      'slac_term_listing' => array(
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -174,6 +180,10 @@ function ct_access_information_strongarm() {
             'weight' => '-5',
             'visible' => TRUE,
           ),
+          'access_listing' => array(
+            'weight' => '1',
+            'visible' => FALSE,
+          ),
         ),
         'author' => array(
           'default' => array(
@@ -191,6 +201,10 @@ function ct_access_information_strongarm() {
           'teaser' => array(
             'weight' => '-3',
             'visible' => TRUE,
+          ),
+          'access_listing' => array(
+            'weight' => '8',
+            'visible' => FALSE,
           ),
         ),
         'title' => array(
@@ -210,6 +224,10 @@ function ct_access_information_strongarm() {
             'weight' => '-4',
             'visible' => TRUE,
           ),
+          'access_listing' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
         ),
         'content_type' => array(
           'search_result' => array(
@@ -226,6 +244,10 @@ function ct_access_information_strongarm() {
           ),
           'news_archive' => array(
             'weight' => '-5',
+            'visible' => FALSE,
+          ),
+          'access_listing' => array(
+            'weight' => '7',
             'visible' => FALSE,
           ),
         ),

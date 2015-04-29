@@ -24,6 +24,10 @@ function slac_ip_core_entity_info_alter(&$entity_info) {
     'label' => t('News Archive'),
     'custom settings' => FALSE,
   );
+  $entity_info['node']['view modes']['access_listing'] = array(
+    'label' => t('Access Listing'),
+    'custom settings' => FALSE,
+  );
   // Keying the following with just 'term_listing' breaks the Term context
   // in Panels.
   $entity_info['node']['view modes']['slac_term_listing'] = array(

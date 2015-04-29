@@ -505,6 +505,7 @@ function ct_event_default_page_manager_handlers() {
             'machine_name' => array(
               'event_series' => 'event_series',
               'event_type' => 'event_type',
+              'slac_ip_tags' => 'slac_ip_tags',
             ),
           ),
           'context' => 'argument_term_1',
@@ -515,12 +516,13 @@ function ct_event_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'flexible';
+  $display->layout = 'one-col';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'center' => NULL,
+      'main_content_column' => NULL,
     ),
   );
   $display->cache = array();
@@ -529,34 +531,8 @@ function ct_event_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-b8c7982d-2832-4b8f-8770-099608268b83';
-    $pane->panel = 'center';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '',
-      'format' => 'full_html',
-      'substitute' => TRUE,
-      'name' => 'slac_term_rss_link',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'b8c7982d-2832-4b8f-8770-099608268b83';
-    $display->content['new-b8c7982d-2832-4b8f-8770-099608268b83'] = $pane;
-    $display->panels['center'][0] = 'new-b8c7982d-2832-4b8f-8770-099608268b83';
-    $pane = new stdClass();
     $pane->pid = 'new-c44e7f57-ce21-4084-b11c-39e071008492';
-    $pane->panel = 'center';
+    $pane->panel = 'main_content_column';
     $pane->type = 'views_panes';
     $pane->subtype = 'events_by_term-panel_pane_1';
     $pane->shown = TRUE;
@@ -572,11 +548,11 @@ function ct_event_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = 'c44e7f57-ce21-4084-b11c-39e071008492';
     $display->content['new-c44e7f57-ce21-4084-b11c-39e071008492'] = $pane;
-    $display->panels['center'][1] = 'new-c44e7f57-ce21-4084-b11c-39e071008492';
+    $display->panels['main_content_column'][0] = 'new-c44e7f57-ce21-4084-b11c-39e071008492';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

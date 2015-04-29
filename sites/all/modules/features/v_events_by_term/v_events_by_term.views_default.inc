@@ -66,6 +66,7 @@ function v_events_by_term_views_default_views() {
   $handler->display->display_options['arguments']['tid']['validate_options']['vocabularies'] = array(
     'event_series' => 'event_series',
     'event_type' => 'event_type',
+    'slac_ip_tags' => 'slac_ip_tags',
   );
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';

@@ -1,11 +1,13 @@
 .section-search .title {
   @include zen-grid-item(6, 2);
 }
+
 .view-search {
   color: lighten($grey, 10%);
 
   .form-text {
     width: 424px;
+
     &.bef-datepicker {
       width: 120px;
     }
@@ -21,6 +23,7 @@
       margin-right: 10px;
     }
   }
+
   .views-row {
     margin-bottom: 3rem;
   }
@@ -58,11 +61,13 @@
   fieldset.collapsible {
     margin-bottom: 2rem;
   }
+
   fieldset.collapsed {
     padding: 0;
     margin-bottom: 0;
     height: 0;
   }
+
   legend {
     display: block;
     width: 200px;
@@ -107,8 +112,7 @@
   }
 
   .node-created {
-    @include font-size($base-font-size - 4px);
-    font-weight: bold;
+    @include node-created;
   }
 
   .node-content-type {
@@ -128,6 +132,27 @@
   .bef-select-as-checkboxes {
     float: left;
     margin-right: 20px;
+  }
+
+  label.option {
+    position: relative;
+    left: -10px;
+  }
+
+  input[type="checkbox"] + label:before {
+    content:'';
+    display: inline-block;
+    position:relative;
+    top: 2px;
+    left:-9px;
+    width:14px;
+    height:14px;
+    border: 1px solid $blue;
+    background: $white;
+  }
+
+  input[type="checkbox"]:checked + label:before {
+    background: url(../images/checkbox.png) 0 0 no-repeat;
   }
 }
 
