@@ -1,11 +1,23 @@
 (function ($) {
   'use strict';
 
+  /**
+   * Process the flag toggle links to add a confirm dialog.
+   */
   Drupal.behaviors.fleaMarketConfirm = {
     attach: function (context, settings) {
       $('span.flag-wrapper a.flag-link-toggle', context).once('fleaMarketConfirm', function () {
         var confirmDialog;
         var flagLink = $(this);
+
+        if (!flagLink.parents('.flag-wrapper').hasClass('flag-flea-market-inappropriate')) {
+          // Don't modify flags that are not on flea market items.
+          return;
+        }
+        if (flagLink.hasClass('unflag-action')) {
+          // Don't modify unflag toggle behavior.
+          return;
+        }
 
         var href = flagLink.attr('href');
         var nid = /flea_market_inappropriate\/(\d+)/.exec(href)[1];
@@ -18,7 +30,7 @@
             e.preventDefault();
             confirmDialog.toggle();
           })
-          .after(Drupal.theme('FleaMarketConfirm', href, nid));
+          .after(Drupal.theme('fleaMarketConfirm', href, nid));
 
         // Close the confirm dialog if either close button is clicked.
         confirmDialog = $('#flea_market_flag_confirm', context);
@@ -31,13 +43,20 @@
         confirmDialog.find('.submit').addClass('flag flag-action flag-link-toggle');
         Drupal.attachBehaviors(confirmDialog);
       });
+
+      // Re-attach the fleaMarketConfirm behavior after the flag-link changes.
+      $('body').once('fleaMarketConfirm', function () {
+        $(document).bind('flagGlobalAfterLinkUpdate', function(event, data) {
+          Drupal.attachBehaviors('.pane-flag-link');
+        });
+      });
     }
   };
 
   /**
    * Provide the HTML to create the modal dialog.
    */
-  Drupal.theme.FleaMarketConfirm = function (href, nid) {
+  Drupal.theme.fleaMarketConfirm = function (href, nid) {
     var html = '';
 
     html += '<div id="flea_market_flag_confirm" style="display:none;">';
