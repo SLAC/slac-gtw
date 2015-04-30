@@ -34,15 +34,24 @@
     // We hide the comments and links now so that we can render them later.
     hide($content['comments']);
     hide($content['links']);
+
+    // Hide the date and location fields so they can be rendered wrapped along
+    // with our custom calendar link icon.
+    hide($content['field_event_date']);
+    hide($content['field_shared_location']);
     print render($content);
   ?>
+
+  <div class="access-notice-date">
+    <?php print render($content['field_event_date']); ?>
+    <div class="calendar-link">
+      <a href="/node/<?php print $node->nid; ?>/ical"><img src="/sites/all/themes/slac/images/calendar-icon-gray.png"></a>
+    </div>
+  </div>
+
+  <?php print render($content['field_shared_location']); ?>
+
   <?php print render($content['links']); ?>
 
   <?php print render($content['comments']); ?>
-
-  <div class="">
-    <span class="field-content">
-      <a href="/node/<?php print $node->nid; ?>/ical"><img src="/sites/all/themes/slac/images/calendar-icon-gray.png"></a>
-    </span>
-  </div>
 </article>
