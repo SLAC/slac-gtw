@@ -140,8 +140,6 @@ function slac_ip_config_moderation_user_default_permissions() {
     'name' => 'view moderation messages',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
-      'author' => 'author',
       'editor' => 'editor',
     ),
     'module' => 'workbench_moderation',
