@@ -483,6 +483,7 @@
   text-transform: uppercase;
   color: #fff;
   font-size: 11px;
+  padding: 4px;
 }
 .frontpage-people-finder .advanced-search {
   display: block;
