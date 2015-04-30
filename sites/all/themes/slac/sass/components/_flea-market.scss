@@ -35,6 +35,67 @@
   }
 }
 
+// report as inappropriate dialog box
+.report-as-inappropriate {
+  background: $light-grey;
+  padding: 1rem;
+  margin-top: 1rem;
+
+  .report-inappropriate-title {
+    margin: 0;
+  }
+
+  .report-message {
+    @include font-size(14px);
+    line-height: 1.4;
+    margin-top: .2rem;
+  }
+
+  .top-close {
+    float: right;
+    position: relative;
+    top: -35px;
+    border: none;
+    background: transparent;
+  }
+
+  .report-button {
+    display: inline-block;
+    text-align: center;
+    padding: 4px 20px;
+    text-indent: 0;
+    background: $blue;
+    color: $white;
+    margin-right: 2rem;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      background: lighten($blue, 10%);
+    }
+  }
+
+  .bottom-close {
+    @include font-size(14px);
+    padding: 3px 10px;
+    margin-left: 2rem;
+    display: inline-block;
+    background: $white;
+    border: none;
+    color: $blue;
+  }
+
+  .close-x {
+    display: inline-block;
+    color: $grey;
+    margin-right: 12px;
+  }
+
+  .flag-flea-market-inappropriate {
+    margin-bottom: .5rem;
+  }
+}
+
 // flea market item listing
 .my-flea-market-nav {
   width: 200px;

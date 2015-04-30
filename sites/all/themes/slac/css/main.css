@@ -836,6 +836,59 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   margin-bottom: 0;
 }
 
+.report-as-inappropriate {
+  background: #f2f2f2;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.report-as-inappropriate .report-inappropriate-title {
+  margin: 0;
+}
+.report-as-inappropriate .report-message {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  margin-top: .2rem;
+}
+.report-as-inappropriate .top-close {
+  float: right;
+  position: relative;
+  top: -35px;
+  border: none;
+  background: transparent;
+}
+.report-as-inappropriate .report-button {
+  display: inline-block;
+  text-align: center;
+  padding: 4px 20px;
+  text-indent: 0;
+  background: #316dae;
+  color: #ffffff;
+  margin-right: 2rem;
+}
+.report-as-inappropriate .report-button:hover, .report-as-inappropriate .report-button:focus {
+  text-decoration: none;
+  background: #4786cb;
+}
+.report-as-inappropriate .bottom-close {
+  font-size: 14px;
+  font-size: 0.875rem;
+  padding: 3px 10px;
+  margin-left: 2rem;
+  display: inline-block;
+  background: #ffffff;
+  border: none;
+  color: #316dae;
+}
+.report-as-inappropriate .close-x {
+  display: inline-block;
+  color: #6a6a6a;
+  margin-right: 12px;
+}
+.report-as-inappropriate .flag-flea-market-inappropriate {
+  margin-bottom: .5rem;
+}
+
 .my-flea-market-nav {
   width: 200px;
   margin-top: 16px;
