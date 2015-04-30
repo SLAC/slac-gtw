@@ -1039,6 +1039,9 @@ fieldset.collapsed {
   margin: 0 auto;
   margin-bottom: 0;
 }
+#header .block-slac-search .contextual-links-wrapper {
+  display: none;
+}
 #header .header-wrapper {
   clear: both;
   display: table;
