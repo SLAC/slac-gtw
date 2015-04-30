@@ -1557,7 +1557,7 @@ fieldset.collapsed {
   color: #ffffff;
 }
 .item-list .pager li.pager-current {
-  padding: .4rem .6rem;
+  padding: .5rem .6rem;
   background: #6fa0d6;
   color: #ffffff;
 }
