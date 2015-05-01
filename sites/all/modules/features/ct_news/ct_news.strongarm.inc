@@ -105,6 +105,12 @@ function ct_news_strongarm() {
       'news_archive' => array(
         'custom_settings' => TRUE,
       ),
+      'slac_term_listing' => array(
+        'custom_settings' => TRUE,
+      ),
+      'access_listing' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -147,6 +153,10 @@ function ct_news_strongarm() {
             'weight' => '-5',
             'visible' => TRUE,
           ),
+          'slac_term_listing' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
         ),
         'author' => array(
           'default' => array(
@@ -172,6 +182,10 @@ function ct_news_strongarm() {
           'link' => array(
             'weight' => '-3',
             'visible' => TRUE,
+          ),
+          'slac_term_listing' => array(
+            'weight' => '4',
+            'visible' => FALSE,
           ),
         ),
         'title' => array(
@@ -199,6 +213,10 @@ function ct_news_strongarm() {
             'weight' => '-4',
             'visible' => TRUE,
           ),
+          'slac_term_listing' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
         ),
         'content_type' => array(
           'search_result' => array(
@@ -219,6 +237,10 @@ function ct_news_strongarm() {
           ),
           'default' => array(
             'weight' => '-5',
+            'visible' => FALSE,
+          ),
+          'slac_term_listing' => array(
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),

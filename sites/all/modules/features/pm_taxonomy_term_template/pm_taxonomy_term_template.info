@@ -1,0 +1,14 @@
+name = Taxonomy term template
+description = Page manager configuration for the Taxonomy term template Pages configuration.
+core = 7.x
+package = Pages
+version = 7.x-1.0-dev
+project = pm_taxonomy_term_template
+dependencies[] = ctools
+dependencies[] = page_manager
+dependencies[] = strongarm
+features[ctools][] = page_manager:pages_default:1
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[page_manager_handlers][] = term_view__panel_context_d512d93d-ed17-4ae0-9b16-963e4289eb07
+features[variable][] = page_manager_term_view_disabled
