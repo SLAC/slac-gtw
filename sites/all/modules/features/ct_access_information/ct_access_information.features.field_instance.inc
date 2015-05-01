@@ -58,6 +58,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'smart_trim_format',
         'weight' => 4,
       ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -122,6 +128,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 16,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -194,6 +206,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 6,
       ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -260,6 +278,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 7,
       ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 21,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -313,6 +337,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 14,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -376,6 +406,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 21,
       ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 19,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -431,6 +467,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 19,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -494,6 +536,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 20,
       ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -550,6 +598,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 9,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -620,6 +674,16 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(
           'image_link' => 'content',
           'image_style' => 'news_archive_list_item',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'term_listing_thumbnail',
         ),
         'type' => 'image',
         'weight' => 0,
@@ -707,6 +771,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 13,
       ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -769,6 +839,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 15,
       ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -823,6 +899,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 8,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 20,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -885,6 +967,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 17,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -952,6 +1040,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 18,
       ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1006,6 +1100,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 11,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1084,6 +1184,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 10,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1164,6 +1270,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 12,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',

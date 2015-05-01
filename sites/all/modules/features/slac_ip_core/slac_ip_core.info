@@ -110,4 +110,3 @@ features[variable][] = date_format_long
 features[variable][] = date_format_medium
 features[variable][] = date_format_short
 features[variable][] = page_manager_node_view_disabled
-features[variable][] = page_manager_term_view_disabled
