@@ -22,6 +22,7 @@ dependencies[] = number
 dependencies[] = options
 dependencies[] = page_manager
 dependencies[] = slac_igp_config
+dependencies[] = smart_trim
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = telephone
