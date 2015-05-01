@@ -403,6 +403,67 @@ table th.active {
   word-wrap: break-word;
 }
 
+.page-access .title {
+  float: left;
+  width: 50%;
+  margin-left: 8.33333%;
+  margin-right: -58.33333%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  padding-left: 30px;
+  background: url(../images/access-notice-icon.svg) 0 6px no-repeat;
+}
+.lt-ie9 .page-access .title {
+  background: url(../images/access-notice-icon.png) 0 6px no-repeat;
+}
+.page-access .general-left {
+  margin-top: 3.5rem;
+}
+.page-access .view-header {
+  margin-bottom: 2rem;
+}
+.page-access .general-right {
+  padding-top: 1.6rem;
+}
+.page-access .general-right .menu {
+  padding-left: 2rem;
+}
+.page-access .general-right .menu li {
+  list-style-type: disc;
+}
+.page-access .general-right .menu a {
+  display: block;
+  padding: .2rem 0;
+}
+.page-access .feed-icon {
+  float: none;
+  margin: 0;
+  margin-bottom: 4.5rem;
+}
+
+.view-access-notice-listing .views-row {
+  margin-bottom: 2rem;
+  background: none;
+}
+.view-access-notice-listing .field-name-field-shared-image {
+  float: left;
+  margin-right: 2rem;
+  margin-bottom: .5rem;
+}
+.view-access-notice-listing .node-title {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+.view-access-notice-listing .field-name-field-event-date {
+  float: left;
+  margin-right: 10px;
+}
+
 .pane-slac-ip-node-author {
   margin-top: .5rem;
   margin-bottom: 2rem;
@@ -775,6 +836,59 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   margin-bottom: 0;
 }
 
+.report-as-inappropriate {
+  background: #f2f2f2;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.report-as-inappropriate .report-inappropriate-title {
+  margin: 0;
+}
+.report-as-inappropriate .report-message {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  margin-top: .2rem;
+}
+.report-as-inappropriate .top-close {
+  float: right;
+  position: relative;
+  top: -35px;
+  border: none;
+  background: transparent;
+}
+.report-as-inappropriate .report-button {
+  display: inline-block;
+  text-align: center;
+  padding: 4px 20px;
+  text-indent: 0;
+  background: #316dae;
+  color: #ffffff;
+  margin-right: 2rem;
+}
+.report-as-inappropriate .report-button:hover, .report-as-inappropriate .report-button:focus {
+  text-decoration: none;
+  background: #4786cb;
+}
+.report-as-inappropriate .bottom-close {
+  font-size: 14px;
+  font-size: 0.875rem;
+  padding: 3px 10px;
+  margin-left: 2rem;
+  display: inline-block;
+  background: #ffffff;
+  border: none;
+  color: #316dae;
+}
+.report-as-inappropriate .close-x {
+  display: inline-block;
+  color: #6a6a6a;
+  margin-right: 12px;
+}
+.report-as-inappropriate .flag-flea-market-inappropriate {
+  margin-bottom: .5rem;
+}
+
 .my-flea-market-nav {
   width: 200px;
   margin-top: 16px;
@@ -977,6 +1091,9 @@ fieldset.collapsed {
   height: 52px;
   margin: 0 auto;
   margin-bottom: 0;
+}
+#header .block-slac-search .contextual-links-wrapper {
+  display: none;
 }
 #header .header-wrapper {
   clear: both;
@@ -1496,7 +1613,7 @@ fieldset.collapsed {
   color: #ffffff;
 }
 .item-list .pager li.pager-current {
-  padding: .4rem .6rem;
+  padding: .5rem .6rem;
   background: #6fa0d6;
   color: #ffffff;
 }
@@ -1836,6 +1953,9 @@ fieldset.collapsed {
   margin-top: 0 !important;
 }
 
+.page-news #page-title {
+  display: none;
+}
 .page-news .views-exposed-form .views-exposed-widget {
   float: none;
   padding-top: 0;

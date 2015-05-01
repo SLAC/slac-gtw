@@ -1,11 +1,23 @@
 (function ($) {
   'use strict';
 
+  /**
+   * Process the flag toggle links to add a confirm dialog.
+   */
   Drupal.behaviors.fleaMarketConfirm = {
     attach: function (context, settings) {
       $('span.flag-wrapper a.flag-link-toggle', context).once('fleaMarketConfirm', function () {
         var confirmDialog;
         var flagLink = $(this);
+
+        if (!flagLink.parents('.flag-wrapper').hasClass('flag-flea-market-inappropriate')) {
+          // Don't modify flags that are not on flea market items.
+          return;
+        }
+        if (flagLink.hasClass('unflag-action')) {
+          // Don't modify unflag toggle behavior.
+          return;
+        }
 
         var href = flagLink.attr('href');
         var nid = /flea_market_inappropriate\/(\d+)/.exec(href)[1];
@@ -18,7 +30,7 @@
             e.preventDefault();
             confirmDialog.toggle();
           })
-          .after(Drupal.theme('FleaMarketConfirm', href, nid));
+          .after(Drupal.theme('fleaMarketConfirm', href, nid));
 
         // Close the confirm dialog if either close button is clicked.
         confirmDialog = $('#flea_market_flag_confirm', context);
@@ -31,23 +43,30 @@
         confirmDialog.find('.submit').addClass('flag flag-action flag-link-toggle');
         Drupal.attachBehaviors(confirmDialog);
       });
+
+      // Re-attach the fleaMarketConfirm behavior after the flag-link changes.
+      $('body').once('fleaMarketConfirm', function () {
+        $(document).bind('flagGlobalAfterLinkUpdate', function(event, data) {
+          Drupal.attachBehaviors('.pane-flag-link');
+        });
+      });
     }
   };
 
   /**
    * Provide the HTML to create the modal dialog.
    */
-  Drupal.theme.FleaMarketConfirm = function (href, nid) {
+  Drupal.theme.fleaMarketConfirm = function (href, nid) {
     var html = '';
 
-    html += '<div id="flea_market_flag_confirm" style="display:none;">';
-    html += '  <h4>Report Flea Market Ad as Inappropriate</h4>';
-    html += '  <button class="close">X</button>';
-    html += '  <p>Flagged ad content will be reviewed by the Office of Communications to determine whether SLAC\'s appropriate use policy of the web have been violated.</p>';
+    html += '<div id="flea_market_flag_confirm" class="report-as-inappropriate" style="display:none;">';
+    html += '  <h4 class="report-inappropriate-title">Report Flea Market Ad as Inappropriate</h4>';
+    html += '  <button class="close top-close">X</button>';
+    html += '  <p class="report-message">Flagged ad content will be reviewed by the Office of Communications to determine whether SLAC\'s appropriate use policy of the web have been violated.</p>';
     html += '  <p class="flag-wrapper flag-flea-market-inappropriate flag-flea-market-inappropriate-' + nid + '">';
-    html += '    <a href="' + href + '" class="submit">Submit</a>';
+    html += '    <a href="' + href + '" class="submit report-button">Submit</a>';
     html += '    <span>or</span>';
-    html += '    <button class="close">I\'ve changed my mind, close dialog box</button>';
+    html += '    <button class="close bottom-close"><span class="close-x">X</span>I\'ve changed my mind, close dialog box</button>';
     html += '  </p>';
     html += '</div>';
 

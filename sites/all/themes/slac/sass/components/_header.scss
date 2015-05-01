@@ -5,7 +5,12 @@ $zen-column-count: 12;
 #page {
   @include zen-grid-container();
 }
+
 #header {
+  .block-slac-search .contextual-links-wrapper {
+    display: none;
+  }
+
   .header-wrapper {
     clear: both;
     display: table;
