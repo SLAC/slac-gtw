@@ -440,7 +440,7 @@ table th.active {
   display: block;
   padding: .2rem 0;
 }
-.page-access .feed-icon {
+.page-access .general-right .feed-icon {
   float: none;
   margin: 0;
   margin-bottom: 4.5rem;
@@ -662,10 +662,10 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   margin-right: -200px;
 }
 .node-type-news .general-left .field-name-field-shared-image {
-  margin-top: 4px;
-  width: 370px;
   float: left;
-  margin-right: 30px;
+  margin-right: 2rem;
+  margin-bottom: .5rem;
+  margin-top: 4px;
   margin-bottom: 2em;
 }
 .node-type-news .general-left .pane-node-body {

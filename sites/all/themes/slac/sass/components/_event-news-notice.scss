@@ -107,10 +107,8 @@
       margin-right: -200px;
     }
     .field-name-field-shared-image {
+      @include float-left;
       margin-top: 4px;
-      width: 370px;
-      float: left;
-      margin-right: 30px;
       margin-bottom: 2em;
     }
     .pane-node-body {
