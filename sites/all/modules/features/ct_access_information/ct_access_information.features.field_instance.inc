@@ -46,8 +46,8 @@ function ct_access_information_field_default_field_instances() {
           'more_link' => 0,
           'more_text' => 'Read more',
           'summary_handler' => 'full',
-          'trim_length' => 250,
-          'trim_link' => FALSE,
+          'trim_length' => 235,
+          'trim_link' => 0,
           'trim_options' => array(
             'text' => 'text',
           ),
