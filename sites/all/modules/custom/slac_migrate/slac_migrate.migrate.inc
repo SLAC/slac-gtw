@@ -32,8 +32,6 @@ function slac_migrate_migrate_api() {
 
   // Using migrate_d2d for nodes and tags.  Setting common arguments here.
   $common_arguments = array(
-    'source_connection' => 'legacy',
-    'source_version' => 6,
     'group_name' => 'slac',
   );
 
@@ -46,6 +44,8 @@ function slac_migrate_migrate_api() {
       'description' => t('Migration of tag terms from Drupal 6'),
       'source_vocabulary' => '7',  // D6 Vocabulary ID for Tags
       'destination_vocabulary' => 'slac_ip_tags',
+      'source_connection' => 'legacy',
+      'source_version' => 6,
     ),
   );
 
@@ -66,6 +66,8 @@ function slac_migrate_migrate_api() {
       'source_type' => 'story',
       'destination_type' => 'news',
       'dependencies' => array('Images', 'Tags', 'Videos'),
+      'source_connection' => 'legacy',
+      'source_version' => 6,
     ),
     'Lab_Announcement' => array(
       'class_name' => 'SlacLabAnnouncementMigration',
@@ -74,6 +76,8 @@ function slac_migrate_migrate_api() {
       'source_type' => 'announcement',
       'destination_type' => 'news',
       'dependencies' => array('Images', 'Tags', 'Videos'),
+      'source_connection' => 'legacy',
+      'source_version' => 6,
     ),
     'Calendars' => array(
       'class_name' => 'SlacCalendarsMigration',
@@ -82,13 +86,25 @@ function slac_migrate_migrate_api() {
       'source_type' => 'announcement',
       'destination_type' => 'event',
       'dependencies' => array('Images', 'Tags', 'Videos'),
+      'source_connection' => 'legacy',
+      'source_version' => 6,
     ),
     'Access_Notice' => array(
       'class_name' => 'SlacAccessNoticeMigration',
       'description' => t('Migration of Announcement -> Access Notice in D6 to Access Information nodes in D7'),
       'source_type' => 'announcement',
       'destination_type' => 'access_information',
-      'dependencies' => array('Images', 'Tags', 'Videos'),
+      //'dependencies' => array('Images', 'Tags', 'Videos'),
+      'source_connection' => 'legacy',
+      'source_version' => 6,
+    ),
+    'News_Articles' => array(
+      'class_name' => 'SlacNewsArticleMigration',
+      'description' => t('Migration of News Articles in D7 to News nodes in D7'),
+      'source_type' => 'news_article',
+      'destination_type' => 'news',
+      'source_connection' => 'default',
+      'source_version' => 7,
     ),
   );
 

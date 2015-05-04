@@ -627,3 +627,120 @@ class SlacAccessNoticeMigration extends SlacNodeMigration {
     $this->update_image($row);
   }
 }
+
+
+
+
+class SlacNewsArticleMigration extends DrupalNode7Migration {
+  public function __construct(array $arguments) {
+    // Add any other data we're pulling into the source row, before the parent
+    // constructor.
+parent::__construct($arguments);
+
+
+
+
+    $this->addFieldMapping('field_news_news_type', 'field_news_type');
+    $this->addFieldMapping('field_shared_related_links', 'field_link');
+    $this->addFieldMapping('field_shared_tags', 'field_tags');
+    $this->addFieldMapping('field_shared_image', 'field_news_image');
+
+
+
+    //$this->addFieldMapping('field_image', 'field_lead_graphic')
+    //     ->sourceMigration('Image');
+    // Note that we map migrated terms by the vocabulary ID.
+    //$this->addFieldMapping('field_countries', '1')
+   //      ->sourceMigration('Countries');
+    //$this->addFieldMapping('field_countries:source_type')
+    //     ->defaultValue('tid');
+    //$this->addFieldMapping('field_topics', '2')
+    //     ->sourceMigration('Topics');
+    //$this->addFieldMapping('field_topics:source_type')
+    //     ->defaultValue('tid');
+  }
+
+
+  function prepareRow($row) {
+
+     // Get the query from the parent so we can add to it.
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+
+    if ($row->field_news_type[0] == 'internal') {
+      $row->field_news_type[0] = 'Lab News';
+    }
+    elseif ($row->field_news_type[0] == 'external') {
+      $row->field_news_type[0] = 'SLAC Science';
+    }
+  }
+
+  function prepare($entity, $row) {
+
+    if (isset($row->field_news_image)) {
+      $fid = $row->field_news_image[0];
+
+
+      $entity->field_shared_image[LANGUAGE_NONE][0]['fid'] = $fid;
+
+      // Update the alt and title of the image fid only if they're empty on the image entity.
+      if (!empty($row->{'field_news_image:alt'}[0]) || !empty($row->{'field_news_image:title'}[0])) {
+
+        // Only go through the update if the file entity loads.
+        if ($dest_image = entity_load('file', array($row->field_news_image[0]))) {
+
+          // If the image entity's alt text is empty and the attached image's alt test is not empty,
+          // the update the image entity alt text.
+          // We use db_merge because entity_save fails if the image file isn't present on the server
+          // which is a problem for testing.
+          if (empty($dest_image[$fid]->field_file_image_alt_text[LANGUAGE_NONE][0]['value']) &&
+              !empty($row->{'field_news_image:alt'}[0])) {
+            $this->image_update('alt', $fid, substr($row->{'field_news_image:alt'}[0], 0, 254));
+          }
+
+          // If the image entity's title text is empty and the attached image's title test is not empty,
+          // the update the image entity title text.
+          if (empty($dest_image[$fid]->field_file_image_title_text[LANGUAGE_NONE][0]['value']) &&
+              !empty($row->{'field_news_image:title'}[0])) {
+            $this->image_update('title', $fid, substr($row->{'field_news_image:title'}[0], 0, 254));
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   * A utility function used to update an image's alt or title attribute.
+   *
+   * @param $type
+   *   The type of image attribute to update. 'alt' or 'title' expected.
+   *
+   * @param $fid
+   *   The fid of the image to update.
+   *
+   * @param $value
+   *   The value to set the alt or title attribute to.
+   */
+  protected function image_update($type, $fid, $value) {
+
+    // Set the table name.
+    $table = $type == 'alt' ? 'field_data_field_file_image_alt_text' : 'field_data_field_file_image_title_text';
+
+    // Set the column name.
+    $column = $type == 'alt' ? 'field_file_image_alt_text_value' : 'field_file_image_title_text_value';
+
+    // If a record already exists for the image, update it.  If not create a new record.
+    db_merge($table)
+      ->key(array('entity_id' => $fid))
+      ->fields(array(
+        'entity_type' => 'file',
+        'bundle' => 'image',
+        'revision_id' => $fid,
+        'language' => 'und',
+        $column => $value,
+        'delta' => 0,
+      ))
+      ->execute();
+  }
+}

@@ -45,6 +45,11 @@ class SlacImageMigration extends Migration {
     $result = str_replace('sites/default/files/', 'public://', $uri);
     return $result;
   }
+
+  public function prepare($entity, $row) {
+    dsm($row, 'row');
+    dsm($entity, 'entity');
+  }
 }
 
 /**
