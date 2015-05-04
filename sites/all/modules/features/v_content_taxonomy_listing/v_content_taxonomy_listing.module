@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Content Taxonomy Listing feature.
+ */
+
+include_once 'v_content_taxonomy_listing.features.inc';
