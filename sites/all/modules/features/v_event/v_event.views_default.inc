@@ -146,26 +146,16 @@ function v_event_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nothing_1']['alter']['path'] = 'node/[nid]/ical';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
-  /* Field: iCal title */
-  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
-  $handler->display->display_options['fields']['title_1']['table'] = 'node';
-  $handler->display->display_options['fields']['title_1']['field'] = 'title';
-  $handler->display->display_options['fields']['title_1']['ui_name'] = 'iCal title';
-  $handler->display->display_options['fields']['title_1']['label'] = '';
-  $handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title_1']['link_to_node'] = FALSE;
-  /* Field: iCal description */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing_2']['id'] = 'nothing_2';
   $handler->display->display_options['fields']['nothing_2']['table'] = 'views';
   $handler->display->display_options['fields']['nothing_2']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing_2']['ui_name'] = 'iCal description';
   $handler->display->display_options['fields']['nothing_2']['label'] = '';
   $handler->display->display_options['fields']['nothing_2']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nothing_2']['alter']['text'] = 'Announcement title: [title_1] \\n
+  $handler->display->display_options['fields']['nothing_2']['alter']['text'] = 'Announcement title: [title] \\n
 Date: [field_event_date] \\n
 Time: [field_event_date_1] \\n
-URL: [field_shared_existing_url] \\n';
+URL: [nothing_3] \\n';
   $handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Date -  start date (field_event_date) */
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
@@ -218,10 +208,10 @@ URL: [field_shared_existing_url] \\n';
   $handler->display->display_options['style_options']['cal_name'] = 'SLAC Events';
   $handler->display->display_options['style_options']['no_calname'] = TRUE;
   $handler->display->display_options['row_plugin'] = 'date_ical_fields';
-  $handler->display->display_options['row_options']['date_field'] = 'field_event_date_1';
+  $handler->display->display_options['row_options']['date_field'] = 'field_event_date';
   $handler->display->display_options['row_options']['title_field'] = 'title';
   $handler->display->display_options['row_options']['description_field'] = 'nothing_2';
-  $handler->display->display_options['row_options']['location_field'] = 'field_event_location';
+  $handler->display->display_options['row_options']['location_field'] = 'field_shared_location';
   $handler->display->display_options['row_options']['additional_settings'] = array(
     'skip_blank_dates' => 1,
   );
@@ -236,6 +226,34 @@ URL: [field_shared_existing_url] \\n';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'access_information' => 'access_information',
+    'event' => 'event',
+  );
+  /* Filter criterion: Content: Date - end date (field_event_date:value2) */
+  $handler->display->display_options['filters']['field_event_date_value2']['id'] = 'field_event_date_value2';
+  $handler->display->display_options['filters']['field_event_date_value2']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['filters']['field_event_date_value2']['field'] = 'field_event_date_value2';
+  $handler->display->display_options['filters']['field_event_date_value2']['operator'] = '>';
+  $handler->display->display_options['filters']['field_event_date_value2']['expose']['operator_id'] = 'field_event_date_value2_op';
+  $handler->display->display_options['filters']['field_event_date_value2']['expose']['label'] = 'Date - end date (field_event_date:value2)';
+  $handler->display->display_options['filters']['field_event_date_value2']['expose']['operator'] = 'field_event_date_value2_op';
+  $handler->display->display_options['filters']['field_event_date_value2']['expose']['identifier'] = 'field_event_date_value2';
+  $handler->display->display_options['filters']['field_event_date_value2']['granularity'] = 'minute';
+  $handler->display->display_options['filters']['field_event_date_value2']['default_date'] = 'now';
   $handler->display->display_options['path'] = 'node/%/ical';
   $export['calendar'] = $view;
 

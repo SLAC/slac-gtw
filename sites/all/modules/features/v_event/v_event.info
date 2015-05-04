@@ -1,5 +1,5 @@
 name = Event
-description = Views for Event displays, such as the Upcoming Events on the front page.
+description = Views for Event displays, such as the Upcoming Events on the front page also runs the iCal feed view.
 core = 7.x
 package = Views
 version = 7.x-1.0-dev
