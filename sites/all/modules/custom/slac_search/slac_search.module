@@ -160,6 +160,20 @@ function slac_search_theme() {
 }
 
 /**
+ * Implements hook_form_alter().
+ *
+ * Adds taxonomy term autocomplete for the Tags vocabulary to the search form.
+ */
+function slac_search_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'views_exposed_form') {
+    if ($form['#id'] == 'views-exposed-form-search-page') {
+      $tags_elem = &$form['secondary']['field_shared_tags_name'];
+      $tags_elem['#autocomplete_path'] = 'taxonomy/autocomplete/field_shared_tags';
+    }
+  }
+}
+
+/**
  * Process variables for slac-search-block-form.tpl.php.
  *
  * The $variables array contains the following arguments:
