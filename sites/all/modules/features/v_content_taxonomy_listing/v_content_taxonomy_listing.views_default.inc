@@ -83,14 +83,18 @@ function v_content_taxonomy_listing_views_default_views() {
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = '%1 RSS Feed';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['style_options']['description'] = '%1 RSS Feed';
   $handler->display->display_options['row_plugin'] = 'node_rss';
   $handler->display->display_options['path'] = 'term/%/feed';
   $handler->display->display_options['displays'] = array(
     'panel_pane_1' => 'panel_pane_1',
     'default' => 0,
   );
+  $handler->display->display_options['sitename_title'] = 0;
   $export['content_taxonomy_listing'] = $view;
 
   return $export;

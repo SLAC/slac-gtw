@@ -246,7 +246,7 @@ function ct_flea_market_item_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_flea_market_post';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_flea_market_post'] = $strongarm;
 
   $strongarm = new stdClass();

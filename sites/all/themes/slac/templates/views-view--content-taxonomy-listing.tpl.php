@@ -23,6 +23,9 @@
  * - $exposed: Exposed widget form/info to display
  * - $feed_icon: Feed icon to display, if any
  * - $more: A link to view more, if any
+ * - $term_name: Custom variable which provides the term name from the first argument in the view.
+ * - $term_feed_url: Custom: Custom variable that provides the feed url based on the view's argument.
+ *
  *
  * @ingroup views_templates
  */
@@ -33,9 +36,11 @@
     <?php print $title; ?>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
-  <?php if ($feed_icon): ?>
+  <?php if (!empty($term_name) && !empty($term_feed_url)): ?>
     <div class="feed-icon">
-      <?php print $feed_icon; ?>
+      <a class="feed-icon" href="<?php print $term_feed_url; ?>" title="Subscribe to <?php print $term_name; ?>">
+        <img alt="<?php print $term_name; ?> RSS Feed Icon" height="16" src="/misc/feed.png" width="16">
+        <?php print $term_name; ?> RSS Feed</a>
     </div>
   <?php endif; ?>
   <?php if ($header): ?>
