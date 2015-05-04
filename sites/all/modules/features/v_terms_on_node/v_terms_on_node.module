@@ -5,3 +5,19 @@
  */
 
 include_once 'v_terms_on_node.features.inc';
+
+/*
+ * Add Current term feed link and icon to the views tpl.
+ */
+function v_terms_on_node_preprocess_views_view(&$vars) {
+  $view = $vars['view'];
+  if ($view->name == 'content_taxonomy_listing' && isset($view->args)) {
+    $tid = $view->args[0];
+    $term = taxonomy_term_load($tid);
+    if ($term) {
+      $name = $term->name;
+      $vars['term_name'] = $name;
+      $vars['term_feed_url'] = '/term/' . $tid . '/feed';
+    }
+  }
+}
