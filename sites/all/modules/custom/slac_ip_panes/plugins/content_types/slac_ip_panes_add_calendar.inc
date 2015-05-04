@@ -35,10 +35,11 @@ $plugin = array(
  *   Panel render object.
  */
 function slac_ip_panes_add_calendar_render($subtype, $conf, $args, $context) {
+  $node = $context['argument_entity_id:node_1']->data;
   $pane = new stdClass();
   $pane->title = '';
   $pane->content = '<div class="calendar-button">' .
-      l(t('Add to Calendar'), '') . '</div>';
+      l(t('Add to Calendar'), 'node/' . $node->nid . '/ical') . '</div>';
 
   return $pane;
 }
