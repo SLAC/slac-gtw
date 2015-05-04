@@ -660,7 +660,9 @@ parent::__construct($arguments);
     //     ->defaultValue('tid');
   }
 
-
+  /*
+   * Convert values for News nodes.
+   */
   function prepareRow($row) {
 
      // Get the query from the parent so we can add to it.
@@ -676,11 +678,19 @@ parent::__construct($arguments);
     }
   }
 
+  /*
+   * Typically a migration includes migrations for users and images.  We don't need them since we're
+   * just changing node types.  So we map user and image metadata here.
+   */
   function prepare($entity, $row) {
 
+    // There's no user migration as expected by migrate so manually mapping uids.
+    $entity->uid = $row->uid;
+
+    // There is also no image migration needed so we map the fid and then transfer alt and title texts
+    // to the image file entity.
     if (isset($row->field_news_image)) {
       $fid = $row->field_news_image[0];
-
 
       $entity->field_shared_image[LANGUAGE_NONE][0]['fid'] = $fid;
 
