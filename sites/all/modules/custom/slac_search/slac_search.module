@@ -167,8 +167,7 @@ function slac_search_theme() {
 function slac_search_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'views_exposed_form') {
     if ($form['#id'] == 'views-exposed-form-search-page') {
-      $tags_elem = &$form['secondary']['field_shared_tags_name'];
-      $tags_elem['#autocomplete_path'] = 'taxonomy/autocomplete/field_shared_tags';
+      $form['secondary']['field_shared_tags_name']['#autocomplete_path'] = 'taxonomy/autocomplete/field_shared_tags';
     }
   }
 }
