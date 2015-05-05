@@ -25,6 +25,8 @@ abstract class SlacNodeMigration extends DrupalNode6Migration {
       ->sourceMigration('Tags');
     $this->addFieldMapping('field_shared_tags:source_type')
      ->defaultValue('tid');
+    $this->addFieldMapping('field_shared_tags:create_term')
+     ->defaultValue(TRUE);
 
     // Unmapped destination metatag fields.
     $this->addUnmigratedDestinations(array(
@@ -192,7 +194,7 @@ class SlacStoryMigration extends SlacNodeMigration {
         'field_shared_related_files:description', 'field_shared_related_files:display',
       'field_shared_related_links', 'field_shared_related_links:title', 'field_shared_related_links:attributes',
         'field_shared_related_links:language',
-      'field_shared_tags:create_term', 'field_shared_tags:ignore_case',
+      'field_shared_tags:ignore_case',
       'field_shared_video:language', 'field_shared_video:description',
         'field_shared_video:display',
       'field_shared_promote_news',
@@ -325,7 +327,7 @@ class SlacLabAnnouncementMigration extends SlacNodeMigration {
         'field_shared_related_files:source_dir', 'field_shared_related_files:urlencode',
         'field_shared_related_files:description', 'field_shared_related_files:display',
       'field_shared_related_links:language',
-      'field_shared_tags:create_term', 'field_shared_tags:ignore_case',
+      'field_shared_tags:ignore_case',
       'field_shared_video', 'field_shared_video:file_class', 'field_shared_video:language',
         'field_shared_video:preserve_files', 'field_shared_video:destination_dir',
         'field_shared_video:destination_file', 'field_shared_video:file_replace', 'field_shared_video:source_dir',
@@ -435,7 +437,7 @@ class SlacCalendarsMigration extends SlacNodeMigration {
         'field_shared_related_files:source_dir', 'field_shared_related_files:urlencode',
         'field_shared_related_files:description', 'field_shared_related_files:display',
       'field_shared_related_links:language',
-      'field_shared_tags:create_term', 'field_shared_tags:ignore_case',
+      'field_shared_tags:ignore_case',
       'field_event_type', 'field_event_type:source_type', 'field_event_type:create_term',
         'field_event_type:ignore_case',
       'field_event_series',
@@ -575,7 +577,7 @@ class SlacAccessNoticeMigration extends SlacNodeMigration {
         'field_shared_related_files:source_dir', 'field_shared_related_files:urlencode',
         'field_shared_related_files:description', 'field_shared_related_files:display',
       'field_shared_related_links:language',
-      'field_shared_tags:create_term', 'field_shared_tags:ignore_case',
+      'field_shared_tags:ignore_case',
       'field_access_start_publishing',
       'field_news_news_type',
       'field_shared_news_title', 'field_shared_news_title:language',
