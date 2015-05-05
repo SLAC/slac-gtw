@@ -10,24 +10,24 @@
 function slac_ip_menus_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: main-menu_calendar:<front>
-  $menu_links['main-menu_calendar:<front>'] = array(
+  // Exported menu link: main-menu_calendar:calendar
+  $menu_links['main-menu_calendar:calendar'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => '<front>',
-    'router_path' => '',
+    'link_path' => 'calendar',
+    'router_path' => 'calendar',
     'link_title' => 'Calendar',
     'options' => array(
+      'identifier' => 'main-menu_calendar:calendar',
       'attributes' => array(),
       'item_attributes' => array(
         'id' => '',
         'class' => '',
         'style' => '',
       ),
-      'identifier' => 'main-menu_calendar:<front>',
     ),
     'module' => 'menu',
     'hidden' => 0,
-    'external' => 1,
+    'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
     'weight' => -48,

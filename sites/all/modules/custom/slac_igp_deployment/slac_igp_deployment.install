@@ -27,6 +27,7 @@ function slac_igp_deployment_install() {
 
   // Enable new modules/features.
   module_enable(array(
+    'calendar',
     'conditional_fields',
     'flag',
     'jquery_update',
@@ -57,10 +58,12 @@ function slac_igp_deployment_install() {
     'ct_news',
     'ct_webform',
     'pm_access_notices',
+    'pm_calendar',
     'pm_flea_market',
     'pm_news',
     'pm_taxonomy_term_template',
     'v_access_notices',
+    'v_calendar',
     'v_content_taxonomy_listing',
     'v_event',
     'v_featured_news_pane',
@@ -780,5 +783,20 @@ function slac_igp_deployment_update_7038() {
 
   if ($result == FALSE) {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the Calendar module and configuration features.
+ */
+function slac_igp_deployment_update_7039() {
+  $result = module_enable(array(
+    'calendar',
+    'pm_calendar',
+    'v_calendar',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException(__FUNCTION__ . ' An error occurred while enabling modules.');
   }
 }
