@@ -35,7 +35,8 @@ class SlacImageMigration extends Migration {
     $this->addFieldMapping('value', 'filepath')
       ->callbacks(array($this, 'fixUri'));
     $this->addFieldMapping('timestamp', 'timestamp');
-    $this->addFieldMapping('preserve_files', TRUE);
+    $this->addFieldMapping('preserve_files')
+      ->defaultValue(TRUE);
   }
 
   /*
@@ -44,11 +45,6 @@ class SlacImageMigration extends Migration {
   protected function fixUri($uri) {
     $result = str_replace('sites/default/files/', 'public://', $uri);
     return $result;
-  }
-
-  public function prepare($entity, $row) {
-    dsm($row, 'row');
-    dsm($entity, 'entity');
   }
 }
 

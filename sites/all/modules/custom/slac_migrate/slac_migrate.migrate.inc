@@ -33,6 +33,7 @@ function slac_migrate_migrate_api() {
   // Using migrate_d2d for nodes and tags.  Setting common arguments here.
   $common_arguments = array(
     'group_name' => 'slac',
+    'default_uid' => 0,
   );
 
   // For vocabulary migrations, source_vocabulary and destination_vocabulary are
@@ -94,7 +95,7 @@ function slac_migrate_migrate_api() {
       'description' => t('Migration of Announcement -> Access Notice in D6 to Access Information nodes in D7'),
       'source_type' => 'announcement',
       'destination_type' => 'access_information',
-      //'dependencies' => array('Images', 'Tags', 'Videos'),
+      'dependencies' => array('Images', 'Tags', 'Videos'),
       'source_connection' => 'legacy',
       'source_version' => 6,
     ),
@@ -103,6 +104,7 @@ function slac_migrate_migrate_api() {
       'description' => t('Migration of News Articles in D7 to News nodes in D7'),
       'source_type' => 'news_article',
       'destination_type' => 'news',
+      'dependencies' => array('Images', 'Tags', 'Videos', 'Story', 'Lab_Announcement', 'Calendars', 'Access_Notice'),
       'source_connection' => 'default',
       'source_version' => 7,
     ),
