@@ -44,7 +44,7 @@ function slac_migrate_migrate_api() {
       'class_name' => 'DrupalTerm6Migration',
       'description' => t('Migration of tag terms from Drupal 6'),
       'source_vocabulary' => '7',  // D6 Vocabulary ID for Tags
-      'destination_vocabulary' => 'slac_ip_tags',
+      'destination_vocabulary' => 'tags',
       'source_connection' => 'legacy',
       'source_version' => 6,
     ),
