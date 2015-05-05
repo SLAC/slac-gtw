@@ -59,9 +59,10 @@ function slac_igp_deployment_install() {
     'pm_access_notices',
     'pm_flea_market',
     'pm_news',
+    'pm_taxonomy_term_template',
     'v_access_notices',
+    'v_content_taxonomy_listing',
     'v_event',
-    'v_events_by_term',
     'v_featured_news_pane',
     'v_flea_market',
     'v_news',
@@ -757,6 +758,24 @@ function slac_igp_deployment_update_7037() {
   $result = module_enable(array(
     'pm_access_notices',
     'v_access_notices',
+  ));
+
+  if ($result == FALSE) {
+    throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable new features for Term listings.
+ */
+function slac_igp_deployment_update_7038() {
+  module_disable(array(
+    'v_events_by_term',
+  ));
+
+  $result = module_enable(array(
+    'pm_taxonomy_term_template',
+    'v_content_taxonomy_listing',
   ));
 
   if ($result == FALSE) {

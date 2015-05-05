@@ -1,21 +1,21 @@
 <?php
 /**
  * @file
- * v_events_by_term.views_default.inc
+ * v_content_taxonomy_listing.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function v_events_by_term_views_default_views() {
+function v_content_taxonomy_listing_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'events_by_term';
-  $view->description = 'Events listing by Event Series term.';
+  $view->name = 'content_taxonomy_listing';
+  $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Events by Term';
+  $view->human_name = 'Content Taxonomy Listing';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -32,13 +32,6 @@ function v_events_by_term_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'slac_term_listing';
   $handler->display->display_options['row_options']['links'] = FALSE;
-  /* No results behavior: Global: Text area */
-  $handler->display->display_options['empty']['area']['id'] = 'area';
-  $handler->display->display_options['empty']['area']['table'] = 'views';
-  $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'There are currently no upcoming events for this series.';
-  $handler->display->display_options['empty']['area']['format'] = 'full_html';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -57,7 +50,6 @@ function v_events_by_term_views_default_views() {
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
   $handler->display->display_options['arguments']['tid']['default_action'] = 'empty';
   $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['tid']['default_argument_skip_url'] = TRUE;
   $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
@@ -72,44 +64,38 @@ function v_events_by_term_views_default_views() {
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'event' => 'event',
-  );
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $handler->display->display_options['argument_input'] = array(
     'tid' => array(
       'type' => 'context',
-      'context' => 'terms.tid',
+      'context' => 'entity:taxonomy_term.tid',
       'context_optional' => 0,
       'panel' => '0',
       'fixed' => '',
       'label' => 'Content: Has taxonomy term ID',
     ),
   );
-  $handler->display->display_options['inherit_panels_path'] = '1';
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = '%1 RSS Feed';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['style_options']['description'] = '%1 RSS Feed';
   $handler->display->display_options['row_plugin'] = 'node_rss';
-  $handler->display->display_options['defaults']['empty'] = FALSE;
-  $handler->display->display_options['path'] = 'events/%/feed';
+  $handler->display->display_options['path'] = 'term/%/feed';
   $handler->display->display_options['displays'] = array(
     'panel_pane_1' => 'panel_pane_1',
     'default' => 0,
-    'panel_pane_2' => 0,
   );
-  $export['events_by_term'] = $view;
+  $handler->display->display_options['sitename_title'] = 0;
+  $export['content_taxonomy_listing'] = $view;
 
   return $export;
 }

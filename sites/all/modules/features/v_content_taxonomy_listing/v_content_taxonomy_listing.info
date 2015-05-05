@@ -1,12 +1,12 @@
-name = Events by Term
-description = Views configuration for the Events taxonomy listings.
+name = Content Taxonomy Listing
+description = Views configuration for the Taxonomy Listing page (Events, Access, News).
 core = 7.x
 package = Views
 version = 7.x-1.0-dev
-project = v_events_by_term
+project = v_content_taxonomy_listing
 dependencies[] = views
 dependencies[] = views_content
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
-features[views_view][] = events_by_term
+features[views_view][] = content_taxonomy_listing
 features_exclude[dependencies][ctools] = ctools

@@ -37,6 +37,6 @@ $plugin = array(
 function slac_ip_panes_access_notice_render($subtype, $conf, $args, $context) {
   $pane = new stdClass();
   $pane->title = t('');
-  $pane->content = '<a href="#" class="page-icon">Access Notice</a>';
+  $pane->content = '<a href="/access" class="page-icon">Access Notice</a>';
   return $pane;
 }

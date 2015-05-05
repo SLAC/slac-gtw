@@ -144,7 +144,7 @@ function ct_access_information_strongarm() {
         'custom_settings' => TRUE,
       ),
       'slac_term_listing' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -184,6 +184,10 @@ function ct_access_information_strongarm() {
             'weight' => '1',
             'visible' => FALSE,
           ),
+          'slac_term_listing' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
         ),
         'author' => array(
           'default' => array(
@@ -191,7 +195,7 @@ function ct_access_information_strongarm() {
             'visible' => FALSE,
           ),
           'news_archive' => array(
-            'weight' => '6',
+            'weight' => '7',
             'visible' => FALSE,
           ),
           'search_result' => array(
@@ -206,6 +210,10 @@ function ct_access_information_strongarm() {
             'weight' => '8',
             'visible' => FALSE,
           ),
+          'slac_term_listing' => array(
+            'weight' => '4',
+            'visible' => FALSE,
+          ),
         ),
         'title' => array(
           'default' => array(
@@ -213,8 +221,8 @@ function ct_access_information_strongarm() {
             'visible' => TRUE,
           ),
           'news_archive' => array(
-            'weight' => '2',
-            'visible' => TRUE,
+            'weight' => '3',
+            'visible' => FALSE,
           ),
           'search_result' => array(
             'weight' => '2',
@@ -225,6 +233,10 @@ function ct_access_information_strongarm() {
             'visible' => TRUE,
           ),
           'access_listing' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'slac_term_listing' => array(
             'weight' => '2',
             'visible' => TRUE,
           ),
@@ -243,11 +255,15 @@ function ct_access_information_strongarm() {
             'visible' => FALSE,
           ),
           'news_archive' => array(
-            'weight' => '-5',
+            'weight' => '5',
             'visible' => FALSE,
           ),
           'access_listing' => array(
             'weight' => '7',
+            'visible' => FALSE,
+          ),
+          'slac_term_listing' => array(
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
