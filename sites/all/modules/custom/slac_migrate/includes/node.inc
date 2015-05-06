@@ -12,6 +12,8 @@ abstract class SlacNodeMigration extends DrupalNode6Migration {
   public function __construct(array $arguments) {
     parent::__construct($arguments);
 
+
+
     // Image field mappings.
     $this->addFieldMapping('field_shared_image:file_class')
      ->defaultValue('MigrateFileFid');
@@ -637,29 +639,12 @@ class SlacNewsArticleMigration extends DrupalNode7Migration {
   public function __construct(array $arguments) {
     // Add any other data we're pulling into the source row, before the parent
     // constructor.
-parent::__construct($arguments);
-
-
-
+    parent::__construct($arguments);
 
     $this->addFieldMapping('field_news_news_type', 'field_news_type');
     $this->addFieldMapping('field_shared_related_links', 'field_link');
     $this->addFieldMapping('field_shared_tags', 'field_tags');
     $this->addFieldMapping('field_shared_image', 'field_news_image');
-
-
-
-    //$this->addFieldMapping('field_image', 'field_lead_graphic')
-    //     ->sourceMigration('Image');
-    // Note that we map migrated terms by the vocabulary ID.
-    //$this->addFieldMapping('field_countries', '1')
-   //      ->sourceMigration('Countries');
-    //$this->addFieldMapping('field_countries:source_type')
-    //     ->defaultValue('tid');
-    //$this->addFieldMapping('field_topics', '2')
-    //     ->sourceMigration('Topics');
-    //$this->addFieldMapping('field_topics:source_type')
-    //     ->defaultValue('tid');
   }
 
   /*
