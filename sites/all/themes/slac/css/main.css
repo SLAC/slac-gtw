@@ -1689,6 +1689,28 @@ fieldset.collapsed {
   margin-bottom: 2em;
 }
 
+.back-on-top {
+  display: block;
+  width: 90%;
+  padding: 0 5%;
+  overflow: hidden;
+  background: #d5d5d5;
+  height: 40px;
+  line-height: 40px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+@media (min-width: 60em) {
+  .back-on-top {
+    display: none;
+  }
+}
+.back-on-top span {
+  float: right;
+  padding-right: 30px;
+  background: url("../images/go-to-top-arrow.png") no-repeat right center;
+}
+
 .general-right .pane-title {
   font-size: 14px;
   font-size: 0.875rem;
