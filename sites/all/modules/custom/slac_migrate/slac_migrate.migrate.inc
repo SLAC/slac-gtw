@@ -15,26 +15,40 @@ function slac_migrate_migrate_api() {
     'api' => 2,
     'groups' => array(
       'slac' => array(
-        'title' => t('SLAC migration'),
-      ),
-    ),
-    'migrations' => array(
-      'Images' => array(
-        'class_name' => 'SlacImageMigration',
-        'group_name' => 'slac',
-      ),
-      'Videos' => array(
-        'class_name' => 'SlacVideoMigration',
-        'group_name' => 'slac',
+        'title' => t('SLAC D6 to D7 migration'),
       ),
     ),
   );
 
-  // Using migrate_d2d for nodes and tags.  Setting common arguments here.
+  // Using migrate_d2d for nodes, files, and tags.  Setting common arguments here.
   $common_arguments = array(
     'group_name' => 'slac',
     'default_uid' => 0,
   );
+
+  // Create file migrations.
+  $file_arguments = array(
+    'Videos' => array(
+      'class_name' => 'SlacVideoMigration',
+      'description' => t('Migration of Videos urls from D6 to D7 video entities'),
+      'source_version' => 6,
+      'source_connection' => 'legacy',
+
+      ),
+    'Images' => array(
+      'class_name' => 'SlacImageMigration',
+      'description' => t('Migration of Images from D6 to D7 Image entities'),
+      'source_version' => 6,
+      'source_connection' => 'legacy',
+    ),
+  );
+
+  //  File arguments.
+  $common_file_arguments = $common_arguments + array();
+  foreach ($file_arguments as $migration_name => $arguments) {
+    $arguments += $common_file_arguments;
+    $api['migrations'][$migration_name] = $arguments;
+  }
 
   // For vocabulary migrations, source_vocabulary and destination_vocabulary are
   // required arguments. Note that in Drupal 6 vocabularies did not have machine
@@ -45,8 +59,8 @@ function slac_migrate_migrate_api() {
       'description' => t('Migration of tag terms from Drupal 6'),
       'source_vocabulary' => '7',  // D6 Vocabulary ID for Tags
       'destination_vocabulary' => 'tags',
-      'source_connection' => 'legacy',
       'source_version' => 6,
+      'source_connection' => 'legacy',
     ),
   );
 
@@ -67,8 +81,9 @@ function slac_migrate_migrate_api() {
       'source_type' => 'story',
       'destination_type' => 'news',
       'dependencies' => array('Images', 'Tags', 'Videos'),
-      'source_connection' => 'legacy',
       'source_version' => 6,
+      'source_connection' => 'legacy',
+
     ),
     'Lab_Announcement' => array(
       'class_name' => 'SlacLabAnnouncementMigration',
@@ -77,8 +92,9 @@ function slac_migrate_migrate_api() {
       'source_type' => 'announcement',
       'destination_type' => 'news',
       'dependencies' => array('Images', 'Tags', 'Videos'),
-      'source_connection' => 'legacy',
       'source_version' => 6,
+      'source_connection' => 'legacy',
+
     ),
     'Calendars' => array(
       'class_name' => 'SlacCalendarsMigration',
@@ -87,8 +103,9 @@ function slac_migrate_migrate_api() {
       'source_type' => 'announcement',
       'destination_type' => 'event',
       'dependencies' => array('Images', 'Tags', 'Videos'),
-      'source_connection' => 'legacy',
       'source_version' => 6,
+      'source_connection' => 'legacy',
+
     ),
     'Access_Notice' => array(
       'class_name' => 'SlacAccessNoticeMigration',
@@ -96,17 +113,18 @@ function slac_migrate_migrate_api() {
       'source_type' => 'announcement',
       'destination_type' => 'access_information',
       'dependencies' => array('Images', 'Tags', 'Videos'),
-      'source_connection' => 'legacy',
       'source_version' => 6,
+      'source_connection' => 'legacy',
+
     ),
     'News_Articles' => array(
       'class_name' => 'SlacNewsArticleMigration',
       'description' => t('Migration of News Articles in D7 to News nodes in D7'),
       'source_type' => 'news_article',
       'destination_type' => 'news',
-      'dependencies' => array('Images', 'Tags', 'Videos', 'Story', 'Lab_Announcement', 'Calendars', 'Access_Notice'),
-      'source_connection' => 'default',
+       'dependencies' => array('Images', 'Tags', 'Videos', 'Story', 'Lab_Announcement', 'Calendars', 'Access_Notice'),
       'source_version' => 7,
+      'source_connection' => 'default',
     ),
   );
 
