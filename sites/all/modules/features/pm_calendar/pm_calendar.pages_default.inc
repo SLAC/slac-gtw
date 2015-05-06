@@ -104,6 +104,32 @@ function pm_calendar_default_page_manager_pages() {
     $pane->uuid = '45a5bc1e-c379-499f-8c13-e087f2f086d2';
     $display->content['new-45a5bc1e-c379-499f-8c13-e087f2f086d2'] = $pane;
     $display->panels['main_content_column'][0] = 'new-45a5bc1e-c379-499f-8c13-e087f2f086d2';
+    $pane = new stdClass();
+    $pane->pid = 'new-6473bdce-3317-4b34-85de-e9461b692cb5';
+    $pane->panel = 'main_content_column';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '',
+      'format' => 'full_html',
+      'substitute' => TRUE,
+      'name' => 'calendar_event_type_legend',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '6473bdce-3317-4b34-85de-e9461b692cb5';
+    $display->content['new-6473bdce-3317-4b34-85de-e9461b692cb5'] = $pane;
+    $display->panels['main_content_column'][1] = 'new-6473bdce-3317-4b34-85de-e9461b692cb5';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-45a5bc1e-c379-499f-8c13-e087f2f086d2';
   $handler->conf['display'] = $display;
@@ -189,6 +215,31 @@ function pm_calendar_default_page_manager_pages() {
     $pane->uuid = '9d5c42ca-282d-4ea6-901c-e4ffa199aed9';
     $display->content['new-9d5c42ca-282d-4ea6-901c-e4ffa199aed9'] = $pane;
     $display->panels['main_content_column'][0] = 'new-9d5c42ca-282d-4ea6-901c-e4ffa199aed9';
+    $pane = new stdClass();
+    $pane->pid = 'new-e4d00f19-2889-45ba-a561-5492b53944b6';
+    $pane->panel = 'main_content_column';
+    $pane->type = 'custom';
+    $pane->subtype = 'calendar_event_type_legend';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '',
+      'format' => 'full_html',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'e4d00f19-2889-45ba-a561-5492b53944b6';
+    $display->content['new-e4d00f19-2889-45ba-a561-5492b53944b6'] = $pane;
+    $display->panels['main_content_column'][1] = 'new-e4d00f19-2889-45ba-a561-5492b53944b6';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -275,6 +326,31 @@ function pm_calendar_default_page_manager_pages() {
     $pane->uuid = '1eb7c454-696c-463c-ae5f-99db46f5f796';
     $display->content['new-1eb7c454-696c-463c-ae5f-99db46f5f796'] = $pane;
     $display->panels['main_content_column'][0] = 'new-1eb7c454-696c-463c-ae5f-99db46f5f796';
+    $pane = new stdClass();
+    $pane->pid = 'new-2869b83c-a0b4-4641-8f29-433106925054';
+    $pane->panel = 'main_content_column';
+    $pane->type = 'custom';
+    $pane->subtype = 'calendar_event_type_legend';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '',
+      'format' => 'full_html',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '2869b83c-a0b4-4641-8f29-433106925054';
+    $display->content['new-2869b83c-a0b4-4641-8f29-433106925054'] = $pane;
+    $display->panels['main_content_column'][1] = 'new-2869b83c-a0b4-4641-8f29-433106925054';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
