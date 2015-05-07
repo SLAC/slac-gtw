@@ -1,10 +1,9 @@
-$tiny: 20em;
-$small: 30em;
-$medium: 50em;
-$large: 70em;
-$huge: 85em;
+$mobile: 20em; // 320px
+$tablet-small: 40em; // 640px
+$tablet-large: 60em; // 960px
+$desktop: 70em; // 1120px
 
 // ie10 and 11 conditional breakpoint
 // @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    /* IE10+ CSS here */
+    // IE10+ CSS here
 // }
