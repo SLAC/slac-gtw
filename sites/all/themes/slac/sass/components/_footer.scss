@@ -108,6 +108,7 @@
     .footer-logos {
       @include zen-grid-item(4, 9);
       text-align: right;
+      margin-top: 3rem;
     }
 
     .footer-info {
