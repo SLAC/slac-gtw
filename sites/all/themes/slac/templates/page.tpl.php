@@ -135,8 +135,9 @@
     <div class="footer-inner">
       <?php print render($page['footer']); ?>
       <div class="footer-logos">
-        <a class="dept-of-energy" href="http://science.energy.gov/"><span>US Department of Energy</span></a>
-        <a class="stanford-u" href="http://www.stanford.edu/"><span>Stanford University</span></a>
+        <a class="stanford-u" title="Stanford University" href="http://www.stanford.edu/"><span>Stanford University</span></a>
+
+        <a class="dept-of-energy" title="U.S. Department of Energy" href="http://science.energy.gov/"><span>US Department of Energy</span></a>
       </div>
     </div>
   </div>
