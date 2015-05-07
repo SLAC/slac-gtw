@@ -25,6 +25,6 @@ function slac_migrate_migrate_overview() {
   <li>Images in site/[directory]/files are rsynced from the D6 to D7 site.</li>
   <li>Feed items from the two feed imports are deleted: <a href="/node/230/delete-items">WWW6 News Feed</a> and
   <a href="/node/219/delete-items">SLAC Today News Feed</a>.
-  <li>Run the D6 to D7 migrations first, then run the News Article migration.</li>
+  <li>Select all migrations and import.  They are set to run in the needed order.</li>
   </ul></p>');
 }
