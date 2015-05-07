@@ -37,6 +37,21 @@ abstract class SlacNodeMigration extends DrupalNode6Migration {
       'metatag_canonical', 'metatag_shortlink', 'metatag_publisher', 'metatag_author', 'metatag_original-source',
       'metatag_revisit-after', 'metatag_content-language',
     ));
+
+    // Workbench moderation mappings
+    $this->addFieldMapping('workbench_moderation_state_new', 'status')
+      ->callbacks(array($this, 'getWorkbenchModerationStateForNodeStatus'))->defaultValue('published');
+  }
+
+  /**
+   * Translates a node published status 1 or 0 into a Workbench moderation state
+   * value string.
+   *
+   * @param $status
+   * @return string
+   */
+  public function getWorkbenchModerationStateForNodeStatus($status) {
+    return ($status == '1') ? 'published' : 'draft';
   }
 
    /**
@@ -59,6 +74,7 @@ abstract class SlacNodeMigration extends DrupalNode6Migration {
    * Override the user id if it doesn't exist on the D7 site.
    */
   public function prepare($entity, $row) {
+    $entity->revision = isset($entity->nid) ? FALSE : TRUE;
 
     // Check if user exists on D7 site.  If so, load the user by name and assign.
     // (Uids are not the same on both sites.)
