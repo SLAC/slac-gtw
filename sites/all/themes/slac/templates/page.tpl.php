@@ -135,12 +135,8 @@
     <div class="footer-inner">
       <?php print render($page['footer']); ?>
       <div class="footer-logos">
-        <a href="http://science.energy.gov/"><img src="/sites/all/themes/slac/images/footer-logo-energy.jpg" alt=""></a>
-        <a href="http://www.stanford.edu/"><img src="/sites/all/themes/slac/images/footer-logo-stanford.jpg" alt=""></a>
-      </div>
-      <div class="footer-logos mobile">
-        <a href="http://science.energy.gov/"><img src="/sites/all/themes/slac/images/footer-logo-energy-small.jpg" alt=""></a>
-        <a href="http://www.stanford.edu/"><img src="/sites/all/themes/slac/images/footer-logo-stanford-small.jpg" alt=""></a>
+        <a class="dept-of-energy" href="http://science.energy.gov/"><span>US Department of Energy</span></a>
+        <a class="stanford-u" href="http://www.stanford.edu/"><span>Stanford University</span></a>
       </div>
     </div>
   </div>
