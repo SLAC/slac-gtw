@@ -68,7 +68,6 @@ function slac_igp_deployment_install() {
     'v_news',
     'v_news_archive',
     'v_search',
-    't_slac_ip_tags',
     'workbench',
     'workbench_email',
     'slac_ip_config_moderation',
@@ -451,16 +450,9 @@ function slac_igp_deployment_update_7017() {
 }
 
 /**
- * Enable the t_slac_ip_tags feature.
+ * REMOVED: Enable the t_slac_ip_tags feature.
  */
 function slac_igp_deployment_update_7018() {
-  $result = module_enable(array(
-    't_slac_ip_tags',
-  ));
-
-  if ($result == FALSE) {
-    throw new DrupalUpdateException('An error occurred while enabling modules.');
-  }
 }
 
 /**
