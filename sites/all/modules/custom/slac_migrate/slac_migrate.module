@@ -8,9 +8,9 @@
 // Adding database connection info here because we can't touch the settings.php.
 Database::addConnectionInfo('legacy', 'default', array(
   'driver' => 'mysql',
-  'database' => 'slac_d6_local',
-  'username' => 'slac_d6_local',
-  'password' => 'slac_d6_local',
+  'database' => variable_get('slac_migrate_legacy_database', ''),
+  'username' => variable_get('slac_migrate_legacy_user', ''),
+  'password' => variable_get('slac_migrate_legacy_password', ''),
   'host' => 'localhost',
   'prefix' => '',
 ));

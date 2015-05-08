@@ -673,6 +673,21 @@ class SlacNewsArticleMigration extends DrupalNode7Migration {
     $this->addFieldMapping('field_shared_related_links', 'field_link');
     $this->addFieldMapping('field_shared_tags', 'field_tags');
     $this->addFieldMapping('field_shared_image', 'field_news_image');
+
+    // Workbench moderation mappings
+    $this->addFieldMapping('workbench_moderation_state_new', 'status')
+      ->callbacks(array($this, 'getWorkbenchModerationStateForArticleNodeStatus'))->defaultValue('published');
+  }
+
+  /**
+   * Translates a node published status 1 or 0 into a Workbench moderation state
+   * value string.
+   *
+   * @param $status
+   * @return string
+   */
+  public function getWorkbenchModerationStateForArticleNodeStatus($status) {
+    return ($status == '1') ? 'published' : 'draft';
   }
 
   /*
@@ -701,6 +716,7 @@ class SlacNewsArticleMigration extends DrupalNode7Migration {
 
     // There's no user migration as expected by migrate so manually mapping uids.
     $entity->uid = $row->uid;
+    $entity->revision = isset($entity->nid) ? FALSE : TRUE;
 
     // There is also no image migration needed so we map the fid and then transfer alt and title texts
     // to the image file entity.
