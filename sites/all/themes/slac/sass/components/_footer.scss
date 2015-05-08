@@ -16,7 +16,7 @@
   }
 
   .footer-info {
-    border-bottom: 1px solid $white;
+    border-bottom: 2px solid $white;
     margin-top: 1rem;
 
     p {
@@ -34,11 +34,13 @@
     li {
       @include font-size(11px);
       display: block;
-      background: none;
+      background: url('../images/list-white-dot.jpeg') no-repeat left;
+      padding-left: 7px;
 
       @include breakpoint($tablet-small) {
         display: inline-block;
         margin-right: 2rem;
+        background: url('../images/list-dot.png') no-repeat left;
       }
 
       a {

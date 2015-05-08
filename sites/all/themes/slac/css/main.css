@@ -1020,7 +1020,7 @@ fieldset.collapsed {
   color: #ffffff;
 }
 .footer-wrapper .footer-info {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
   margin-top: 1rem;
 }
 .footer-wrapper .footer-info p {
@@ -1036,12 +1036,14 @@ fieldset.collapsed {
   font-size: 11px;
   font-size: 0.6875rem;
   display: block;
-  background: none;
+  background: url("../images/list-white-dot.jpeg") no-repeat left;
+  padding-left: 7px;
 }
 @media (min-width: 40em) {
   .footer-wrapper .block-menu[role="navigation"] li {
     display: inline-block;
     margin-right: 2rem;
+    background: url("../images/list-dot.png") no-repeat left;
   }
 }
 .footer-wrapper .block-menu[role="navigation"] li a {
