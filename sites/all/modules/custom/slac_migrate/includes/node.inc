@@ -264,6 +264,17 @@ class SlacStoryMigration extends SlacNodeMigration {
         // Set the image reference field to the fid instead of the image nid we originally had.
         $row->field_image_reference[$key] = $image['field_image_fid'];
 
+        // Convert image format.
+        if ($image['format'] == '2') {
+          $image['format'] = 'full_html';
+        }
+        elseif ($image['format'] == '1') {
+          $image['format'] = 'filtered_html';
+        }
+        else {
+          $image['format'] = 'full_html';
+        }
+
         // Update the image's metadata in the destination image file entity.
         // Seems strange to do it here but there was no way to grab the correct vid when doing
         // the bulk image import.
@@ -277,6 +288,7 @@ class SlacStoryMigration extends SlacNodeMigration {
             $dest_image[$dest_image_id]->field_file_image_alt_text[LANGUAGE_NONE][0]['value'] = substr($source_alt_title['alt'], 0, 254);
             $dest_image[$dest_image_id]->field_file_image_title_text[LANGUAGE_NONE][0]['value'] = substr($source_alt_title['title'], 0, 254);
             $dest_image[$dest_image_id]->field_file_shared_caption[LANGUAGE_NONE][0]['value'] = $image['body'] . ' (' . $image['field_photo_credit_value'] . ')';
+            $dest_image[$dest_image_id]->field_file_shared_caption[LANGUAGE_NONE][0]['format'] = $image['format'];
             $dest_image[$dest_image_id]->filename = $image['title'];
             entity_save('file', $dest_image[$dest_image_id]);
           }
