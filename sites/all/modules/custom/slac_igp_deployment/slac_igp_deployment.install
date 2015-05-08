@@ -58,7 +58,6 @@ function slac_igp_deployment_install() {
     'ct_news',
     'ct_webform',
     'pm_access_notices',
-    'pm_calendar',
     'pm_flea_market',
     'pm_news',
     'pm_taxonomy_term_template',
@@ -792,7 +791,6 @@ function slac_igp_deployment_update_7038() {
 function slac_igp_deployment_update_7039() {
   $result = module_enable(array(
     'calendar',
-    'pm_calendar',
     'v_calendar',
   ));
 
