@@ -1043,6 +1043,10 @@ fieldset.collapsed {
   .footer-wrapper .block-menu[role="navigation"] li {
     display: inline-block;
     margin-right: 2rem;
+  }
+}
+@media (min-width: 60em) {
+  .footer-wrapper .block-menu[role="navigation"] li {
     background: url("../images/list-dot.png") no-repeat left;
   }
 }

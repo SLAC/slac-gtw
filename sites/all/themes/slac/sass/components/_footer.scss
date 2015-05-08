@@ -40,6 +40,9 @@
       @include breakpoint($tablet-small) {
         display: inline-block;
         margin-right: 2rem;
+      }
+
+      @include breakpoint($tablet-large) {
         background: url('../images/list-dot.png') no-repeat left;
       }
 
