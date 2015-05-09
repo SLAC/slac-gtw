@@ -1,7 +1,13 @@
 name = SLAC Today migration
 description = Migrates content from SLAC Today Drupal 6 site.
 core = 7.x
+package = SLAC
+
 dependencies[] = migrate
 dependencies[] = migrate_extras
-package = SLAC
+dependencies[] = text
+
+features[features_api][] = api:2
+features[field_base][] = field_test
+features[field_instance][] = node-news_article-field_test
 
