@@ -27,6 +27,7 @@ function slac_igp_deployment_install() {
 
   // Enable new modules/features.
   module_enable(array(
+    'calendar',
     'conditional_fields',
     'flag',
     'jquery_update',
@@ -61,6 +62,7 @@ function slac_igp_deployment_install() {
     'pm_news',
     'pm_taxonomy_term_template',
     'v_access_notices',
+    'v_calendar',
     'v_content_taxonomy_listing',
     'v_event',
     'v_featured_news_pane',
@@ -84,6 +86,8 @@ function slac_igp_deployment_install() {
   // Revert slac_ip_menus so that the new menu block will have a DB record.
   _slac_igp_deployment_revert('slac_ip_menus');
   _slac_igp_deployment_remove_legacy_menu_items();
+
+  // Ensure new blocks are available to be placed.
   drupal_flush_all_caches();
 
   // Update blocks placement.
@@ -772,5 +776,20 @@ function slac_igp_deployment_update_7038() {
 
   if ($result == FALSE) {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
+  }
+}
+
+/**
+ * Enable the Calendar module and configuration features.
+ */
+function slac_igp_deployment_update_7039() {
+  $result = module_enable(array(
+    'calendar',
+    'v_calendar',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
   }
 }
