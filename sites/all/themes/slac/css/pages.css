@@ -591,16 +591,6 @@ a:hover, a:active {
   background: url("../images/right-list-icon.png") no-repeat right 2px;
 }
 
-.not-front .general-left {
-  padding-left: 0 !important;
-  padding-right: 2% !important;
-}
-
-.not-front .general-right {
-  padding-left: 2% !important;
-  padding-right: 0 !important;
-}
-
 .general-right .inside {
   border-left: 4px solid #d1d0d0;
   padding: 0 0 0 13%;
@@ -652,14 +642,6 @@ a:hover, a:active {
 }
 .section-thankyou p {
   margin: 0;
-}
-.section-thankyou #content .general-left {
-  padding-bottom: 20px;
-  border-bottom: 1px dashed #b1c2ca;
-}
-.section-thankyou #content .general-right .inside {
-  padding: 0 0 0 13%;
-  margin: 0 !important;
 }
 
 #mobile-menu-wrap {
@@ -726,16 +708,6 @@ a:hover, a:active {
   }
 }
 @media (max-width: 800px) {
-  /*  .section-research-resources .general-two-col,
-    .section-a-z .general-two-col{
-      .general-left{
-        width: 100%;
-        margin-right: 0;
-      }
-      .general-right{
-        display: none;
-      }
-    }*/
   #block-system-main-menu .menu li {
     background: none;
     padding: 0 5px;
@@ -744,16 +716,6 @@ a:hover, a:active {
 
   .section-thankyou #content .general-right {
     display: none;
-  }
-
-  .not-front .general-left {
-    padding-left: 1% !important;
-    padding-right: 1% !important;
-  }
-
-  .not-front .general-right {
-    padding-left: 1% !important;
-    padding-right: 1% !important;
   }
 }
 @media (min-width: 620px) {

@@ -14,14 +14,33 @@ $zen-column-count: 12;
   @include zen-grid-container();
 
   .general-left {
-    @include zen-grid-item(7, 2);
+    @include zen-grid-item(12, 1);
+    float: none;
+
+    @include breakpoint($tablet-large) {
+      @include zen-grid-item(8, 1);
+    }
+
+    @include breakpoint($desktop) {
+      @include zen-grid-item(7, 2);
+    }
   }
   
   .general-right {
-    @include zen-grid-item(3, 9);
+    @include zen-grid-item(12, 1);
+    float: none;
+
+    @include breakpoint($tablet-large) {
+      @include zen-grid-item(4, 9);
+    }
+
+    @include breakpoint($desktop) {
+      @include zen-grid-item(3, 9);
+    }
 
     .inside {
       border-left: none;
+      padding-left: 0;
     }
   }
 }
