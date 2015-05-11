@@ -671,7 +671,11 @@ class SlacNewsArticleMigration extends DrupalNode7Migration {
 
     $this->addFieldMapping('field_news_news_type', 'field_news_type');
     $this->addFieldMapping('field_shared_related_links', 'field_link');
-    $this->addFieldMapping('field_shared_tags', 'field_tags');
+    $this->addFieldMapping('field_shared_tags', 'field_slac_migrate_tag_store');
+    $this->addFieldMapping('field_shared_tags:source_type')
+     ->defaultValue('tid');
+    $this->addFieldMapping('field_shared_tags:create_term')
+     ->defaultValue(TRUE);
     $this->addFieldMapping('field_shared_image', 'field_news_image');
 
     // Workbench moderation mappings
@@ -698,6 +702,20 @@ class SlacNewsArticleMigration extends DrupalNode7Migration {
      // Get the query from the parent so we can add to it.
     if (parent::prepareRow($row) === FALSE) {
       return FALSE;
+    }
+
+    // Grab the tag terms from the temporary tag store field added on install.
+    // Look up the term in the tags vocab.
+    if (!empty($row->field_slac_migrate_tag_store)) {
+      $tags = explode(',', $row->field_slac_migrate_tag_store[0]);
+      $tids = array();
+      foreach ($tags as $tag) {
+        $term = taxonomy_get_term_by_name($tag, 'tags');
+        foreach ($term as $tid => $object) {
+          $tids[] = $tid;
+        }
+      }
+      $row->field_slac_migrate_tag_store = $tids;
     }
 
     if ($row->field_news_type[0] == 'internal') {

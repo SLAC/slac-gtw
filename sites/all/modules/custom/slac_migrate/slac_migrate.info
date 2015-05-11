@@ -5,11 +5,8 @@ package = SLAC
 
 dependencies[] = migrate
 dependencies[] = migrate_extras
-dependencies[] = text
-
-features[features_api][] = api:2
-features[field_base][] = field_test
-features[field_instance][] = node-news_article-field_test
+dependencies[] = migrate_d2d
+dependencies[] = migrate_ui
 
 files[] = slac_migrate.migrate.inc
 files[] = includes/node.inc
