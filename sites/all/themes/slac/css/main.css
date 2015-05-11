@@ -990,54 +990,17 @@ fieldset.collapsed {
 }
 
 .footer-wrapper {
-  background: #DADADA;
+  font-size: 12px;
+  font-size: 0.75rem;
+  color: #ffffff;
+  background: #9A9A9A;
   margin: 0;
   overflow: hidden;
 }
-@media (max-width: 900px) {
-  .footer-wrapper {
-    background: #9A9A9A;
-  }
-}
-.footer-wrapper .footer-inner:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.region-footer {
+.footer-wrapper .footer-inner {
   float: left;
-  width: 50%;
+  width: 100%;
   margin-left: 0%;
-  margin-right: -50%;
-  padding-left: 20px;
-  padding-right: 20px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-@media screen and (min-width: 1200px) {
-  .region-footer {
-    float: left;
-    width: 50%;
-    margin-left: 0%;
-    margin-right: -50%;
-    padding-left: 20px;
-    padding-right: 20px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    word-wrap: break-word;
-  }
-}
-
-.footer-logos {
-  float: left;
-  width: 41.66667%;
-  margin-left: 58.33333%;
   margin-right: -100%;
   padding-left: 20px;
   padding-right: 20px;
@@ -1046,10 +1009,115 @@ fieldset.collapsed {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   word-wrap: break-word;
-  text-align: right;
 }
-@media screen and (min-width: 1040px) {
-  .footer-logos {
+.footer-wrapper .footer-inner:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.footer-wrapper a,
+.footer-wrapper a:link {
+  color: #ffffff;
+}
+.footer-wrapper .footer-info {
+  border-bottom: 1px solid #ffffff;
+  margin-top: 1rem;
+}
+.footer-wrapper .footer-info p {
+  margin-top: 0;
+}
+.footer-wrapper .block-menu[role="navigation"] {
+  padding-top: 1rem;
+}
+.footer-wrapper .block-menu[role="navigation"] h2 {
+  display: none;
+}
+.footer-wrapper .block-menu[role="navigation"] li {
+  font-size: 11px;
+  font-size: 0.6875rem;
+  display: block;
+  background: none;
+}
+@media (min-width: 40em) {
+  .footer-wrapper .block-menu[role="navigation"] li {
+    display: inline-block;
+    margin-right: 2rem;
+  }
+}
+.footer-wrapper .block-menu[role="navigation"] li a {
+  display: block;
+  padding: .35rem 0;
+}
+.footer-wrapper .footer-logos {
+  display: block;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+}
+.footer-wrapper .footer-logos:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.footer-wrapper .footer-logos span {
+  font-size: 0;
+  color: #9A9A9A;
+}
+.footer-wrapper .footer-logos .stanford-u {
+  display: inline-block;
+  margin-right: 1rem;
+  width: 74px;
+  height: 73px;
+  background: url(../images/footer-logo-stanford-small.jpg) 0 0 no-repeat;
+}
+@media (min-width: 60em) {
+  .footer-wrapper .footer-logos .stanford-u {
+    background: url(../images/footer-logo-stanford.jpg) 0 0 no-repeat;
+    width: 70px;
+    height: 69px;
+  }
+}
+.footer-wrapper .footer-logos .dept-of-energy {
+  display: inline-block;
+  width: 169px;
+  height: 73px;
+  background: url(../images/footer-logo-energy-small.jpg) 0 0 no-repeat;
+}
+@media (min-width: 60em) {
+  .footer-wrapper .footer-logos .dept-of-energy {
+    background: url(../images/footer-logo-energy.jpg) 0 0 no-repeat;
+    height: 69px;
+  }
+}
+@media (min-width: 60em) {
+  .footer-wrapper {
+    background: #DADADA;
+    color: #828282;
+  }
+  .footer-wrapper .footer-inner {
+    max-width: 1432px;
+    float: none;
+    margin: 0 auto;
+  }
+  .footer-wrapper .region-footer {
+    float: left;
+    width: 66.66667%;
+    margin-left: 0%;
+    margin-right: -66.66667%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    padding-bottom: 14px;
+    overflow: hidden;
+    background: transparent;
+  }
+  .footer-wrapper .region-footer a {
+    color: #285385;
+  }
+  .footer-wrapper .footer-logos {
     float: left;
     width: 33.33333%;
     margin-left: 66.66667%;
@@ -1061,10 +1129,33 @@ fieldset.collapsed {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     word-wrap: break-word;
+    text-align: right;
+    margin-top: 3rem;
+  }
+  .footer-wrapper .footer-info {
+    border-bottom: 1px solid #b5b5b5;
   }
 }
-@media screen and (min-width: 1200px) {
-  .footer-logos {
+@media (min-width: 80em) {
+  .footer-wrapper .footer-inner {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .footer-wrapper .region-footer {
+    float: left;
+    width: 50%;
+    margin-left: 0%;
+    margin-right: -50%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    padding-left: 0;
+  }
+  .footer-wrapper .footer-logos {
     float: left;
     width: 25%;
     margin-left: 75%;
@@ -1076,6 +1167,7 @@ fieldset.collapsed {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     word-wrap: break-word;
+    padding-right: 0;
   }
 }
 
@@ -1687,6 +1779,28 @@ fieldset.collapsed {
 }
 .node-type-access-information .pane-slac-ip-panes-access-notice-link {
   margin-bottom: 2em;
+}
+
+.back-on-top {
+  display: block;
+  width: 90%;
+  padding: 0 5%;
+  overflow: hidden;
+  background: #d5d5d5;
+  height: 40px;
+  line-height: 40px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+@media (min-width: 60em) {
+  .back-on-top {
+    display: none;
+  }
+}
+.back-on-top span {
+  float: right;
+  padding-right: 30px;
+  background: url("../images/go-to-top-arrow.png") no-repeat right center;
 }
 
 .general-right .pane-title {
