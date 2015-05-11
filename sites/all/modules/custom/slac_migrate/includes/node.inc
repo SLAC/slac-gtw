@@ -670,7 +670,7 @@ class SlacNewsArticleMigration extends DrupalNode7Migration {
     parent::__construct($arguments);
 
     $this->addFieldMapping('field_news_news_type', 'field_news_type');
-    $this->addFieldMapping('field_shared_related_links', 'field_link');
+    $this->addFieldMapping('field_shared_existing_url', 'field_link');
     $this->addFieldMapping('field_shared_tags', 'field_slac_migrate_tag_store');
     $this->addFieldMapping('field_shared_tags:source_type')
      ->defaultValue('tid');
