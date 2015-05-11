@@ -122,7 +122,7 @@ function slac_migrate_migrate_api() {
       'description' => t('Migration of News Articles in D7 to News nodes in D7'),
       'source_type' => 'news_article',
       'destination_type' => 'news',
-       'dependencies' => array('Images', 'Tags', 'Videos', 'Story', 'Lab_Announcement', 'Calendars', 'Access_Notice'),
+      'dependencies' => array('Images', 'Tags', 'Videos', 'Story', 'Lab_Announcement', 'Calendars', 'Access_Notice'),
       'source_version' => 7,
       'source_connection' => 'default',
     ),

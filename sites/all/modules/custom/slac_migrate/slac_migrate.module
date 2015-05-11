@@ -28,3 +28,12 @@ function slac_migrate_migrate_overview() {
   <li>Select all migrations and import.  They are set to run in the needed order.</li>
   </ul></p>');
 }
+
+/**
+ * Implements hook_query_TAGS_alter().
+ *
+ * Adds an inner join to restrict the query to news articles with tags.
+ */
+function slac_migrate_query_news_article_tags_alter($query) {
+  $query->innerJoin('field_data_field_tags', 'tags', 'n.vid = tags.revision_id');
+}
