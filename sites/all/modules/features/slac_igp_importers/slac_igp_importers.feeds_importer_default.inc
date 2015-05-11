@@ -410,7 +410,7 @@ function slac_igp_importers_feeds_importer_default() {
           ),
           3 => array(
             'source' => 'url',
-            'target' => 'field_shared_related_links:url',
+            'target' => 'field_shared_existing_url',
             'unique' => FALSE,
           ),
           4 => array(
