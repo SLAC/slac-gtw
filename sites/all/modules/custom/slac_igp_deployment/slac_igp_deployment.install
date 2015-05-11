@@ -87,17 +87,14 @@ function slac_igp_deployment_install() {
   // Revert slac_ip_menus so that the new menu block will have a DB record.
   _slac_igp_deployment_revert('slac_ip_menus');
   _slac_igp_deployment_remove_legacy_menu_items();
+
+  // Ensure new blocks are available to be placed.
   drupal_flush_all_caches();
 
   // Update blocks placement.
   _slac_igp_deployment_place_search_block();
   _slac_igp_deployment_place_top_menu_block();
   _slac_igp_deployment_place_main_menu_block();
-
-  // Update menu links.
-  _slac_igp_deployment_update_main_menu();
-  menu_rebuild();
-  menu_cache_clear_all();
 
   // Revert features for pre-existing node types.
   _slac_igp_deployment_revert('ct_access_information');
@@ -158,58 +155,6 @@ function _slac_igp_deployment_place_search_block() {
     ->condition('delta', 'form', '=')
     ->condition('theme', 'slac', '=')
     ->execute();
-}
-
-/**
- * Updates the main-menu links from the production state to the new site's Main
- * Menu links.
- *
- * @return bool
- *   False if either menu link save fails, true if successful.
- */
-function _slac_igp_deployment_update_main_menu() {
-  $menu_links = menu_load_links('main-menu');
-  $weight = 0;
-
-  // Delete unwanted links.
-  foreach ($menu_links as $link) {
-    if (!in_array($link['link_title'], array('Home', 'Staff Resources'))) {
-      menu_link_delete($link['mlid']);
-    }
-
-    // Save the weight of Staff Resources. The new links need to be lower.
-    if ($link['link_title'] == 'Staff Resources') {
-      $weight = $link['weight'];
-    }
-  }
-
-  // Add the News and Calendar links.
-  $news_link = array(
-    'link_path' => 'news',
-    'link_title' => 'News',
-    'menu_name' => 'main-menu',
-    'weight' => ($weight - 2),
-    'plid' => 0,
-    'options' => array(),
-  );
-  $result = menu_link_save($news_link);
-
-  if ($result == FALSE) {
-    return $result;
-  }
-
-  $calendar_link = array(
-    'link_path' => 'calendar',
-    'link_title' => 'Calendar',
-    'menu_name' => 'main-menu',
-    'weight' => ($weight - 1),
-    'plid' => 0,
-    'module' => 'menu',
-    'options' => array(),
-  );
-  $result = menu_link_save($calendar_link);
-
-  return (bool) $result;
 }
 
 /**
@@ -855,17 +800,4 @@ function slac_igp_deployment_update_7039() {
     $message = __FUNCTION__ . ' An error occurred while enabling modules.';
     throw new DrupalUpdateException($message);
   }
-}
-
-/**
- * Update the link path for the Calendar main menu link.
- */
-function slac_igp_deployment_update_7040() {
-  $result = _slac_igp_deployment_update_main_menu();
-  if ($result == FALSE) {
-    $message = __FUNCTION__ . ' An error occurred while updating the Main Menu.';
-    throw new DrupalUpdateException($message);
-  }
-  menu_rebuild();
-  menu_cache_clear_all();
 }

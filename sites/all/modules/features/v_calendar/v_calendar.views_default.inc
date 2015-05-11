@@ -22,6 +22,7 @@ function v_calendar_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['link_display'] = 'page_1';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -113,12 +114,94 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Event Type (Content: Has taxonomy term) */
+  $handler->display->display_options['filters']['tid']['id'] = 'tid';
+  $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
+  $handler->display->display_options['filters']['tid']['field'] = 'tid';
+  $handler->display->display_options['filters']['tid']['ui_name'] = 'Event Type (Content: Has taxonomy term)';
+  $handler->display->display_options['filters']['tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['tid']['expose']['operator_id'] = 'tid_op';
+  $handler->display->display_options['filters']['tid']['expose']['label'] = 'Event Type';
+  $handler->display->display_options['filters']['tid']['expose']['operator'] = 'tid_op';
+  $handler->display->display_options['filters']['tid']['expose']['identifier'] = 'tid';
+  $handler->display->display_options['filters']['tid']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['tid']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    5 => 0,
+    4 => 0,
+    6 => 0,
+    7 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['tid']['type'] = 'select';
+  $handler->display->display_options['filters']['tid']['vocabulary'] = 'event_type';
+  /* Filter criterion: Event Tags (Content: Has taxonomy term) */
+  $handler->display->display_options['filters']['tid_1']['id'] = 'tid_1';
+  $handler->display->display_options['filters']['tid_1']['table'] = 'taxonomy_index';
+  $handler->display->display_options['filters']['tid_1']['field'] = 'tid';
+  $handler->display->display_options['filters']['tid_1']['ui_name'] = 'Event Tags (Content: Has taxonomy term)';
+  $handler->display->display_options['filters']['tid_1']['value'] = array(
+    2374 => '2374',
+    2336 => '2336',
+    2328 => '2328',
+    2291 => '2291',
+    2292 => '2292',
+    2323 => '2323',
+    1754 => '1754',
+  );
+  $handler->display->display_options['filters']['tid_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['tid_1']['expose']['operator_id'] = 'tid_1_op';
+  $handler->display->display_options['filters']['tid_1']['expose']['label'] = 'Event Tags';
+  $handler->display->display_options['filters']['tid_1']['expose']['operator'] = 'tid_1_op';
+  $handler->display->display_options['filters']['tid_1']['expose']['identifier'] = 'tid_1';
+  $handler->display->display_options['filters']['tid_1']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['tid_1']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['tid_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    5 => 0,
+    4 => 0,
+    6 => 0,
+    7 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['tid_1']['expose']['reduce'] = TRUE;
+  $handler->display->display_options['filters']['tid_1']['type'] = 'select';
+  $handler->display->display_options['filters']['tid_1']['vocabulary'] = 'tags';
+  /* Filter criterion: Show Access Notices (Content: Type) */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['ui_name'] = 'Show Access Notices (Content: Type)';
+  $handler->display->display_options['filters']['type']['operator'] = 'not in';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'access_information' => 'access_information',
+  );
+  $handler->display->display_options['filters']['type']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['label'] = 'Show Access Notices';
+  $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
+  $handler->display->display_options['filters']['type']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    5 => 0,
+    4 => 0,
+    6 => 0,
+    7 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['type']['expose']['reduce'] = TRUE;
 
   /* Display: Month */
   $handler = $view->new_display('page', 'Month', 'page_1');
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'date_views_pager';
   $handler->display->display_options['pager']['options']['date_id'] = 'month';
+  $handler->display->display_options['pager']['options']['link_format'] = 'clean';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'calendar_style';
   $handler->display->display_options['style_options']['name_size'] = '3';
@@ -144,11 +227,13 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
     'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
   );
-  $handler->display->display_options['path'] = 'calendar-node-field-event-date/month';
-  $handler->display->display_options['menu']['type'] = 'default tab';
-  $handler->display->display_options['menu']['title'] = 'Month';
-  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['path'] = 'calendar';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Calendar';
+  $handler->display->display_options['menu']['weight'] = '-50';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $handler->display->display_options['tab_options']['type'] = 'normal';
   $handler->display->display_options['tab_options']['title'] = 'Calendar';
   $handler->display->display_options['tab_options']['weight'] = '0';
@@ -158,6 +243,7 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'date_views_pager';
   $handler->display->display_options['pager']['options']['date_id'] = 'week';
+  $handler->display->display_options['pager']['options']['link_format'] = 'clean';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'calendar_style';
   $handler->display->display_options['style_options']['calendar_type'] = 'week';
@@ -184,7 +270,7 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
     'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
   );
-  $handler->display->display_options['path'] = 'calendar-node-field-event-date/week';
+  $handler->display->display_options['path'] = 'calendar/week';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Week';
   $handler->display->display_options['menu']['weight'] = '2';
@@ -195,6 +281,7 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'date_views_pager';
   $handler->display->display_options['pager']['options']['date_id'] = 'day';
+  $handler->display->display_options['pager']['options']['link_format'] = 'clean';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'calendar_style';
   $handler->display->display_options['style_options']['calendar_type'] = 'day';
@@ -220,7 +307,7 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
     'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
   );
-  $handler->display->display_options['path'] = 'calendar-node-field-event-date/day';
+  $handler->display->display_options['path'] = 'calendar/day';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Day';
   $handler->display->display_options['menu']['weight'] = '3';
