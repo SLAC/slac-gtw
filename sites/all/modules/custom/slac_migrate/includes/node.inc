@@ -711,6 +711,14 @@ class SlacNewsArticleMigration extends DrupalNode7Migration {
       $tids = array();
       foreach ($tags as $tag) {
         $term = taxonomy_get_term_by_name($tag, 'tags');
+        if (empty($term)) {
+          $vob = taxonomy_vocabulary_machine_name_load('tags');
+          $new_term = new stdClass();
+          $new_term->name = $tag;
+          $new_term->vid = $vob->vid;
+          taxonomy_term_save($new_term);
+          $term[$new_term->tid] = $new_term;
+        }
         foreach ($term as $tid => $object) {
           $tids[] = $tid;
         }
