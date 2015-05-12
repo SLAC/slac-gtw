@@ -2217,6 +2217,10 @@ fieldset.collapsed {
   margin-top: 0 !important;
 }
 
+.page-calendar .selectize-dropdown .selected {
+  background: #CCC;
+}
+
 .page-news #page-title {
   display: none;
 }
