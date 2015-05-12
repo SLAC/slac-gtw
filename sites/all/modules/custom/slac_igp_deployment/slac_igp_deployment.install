@@ -94,6 +94,7 @@ function slac_igp_deployment_install() {
   _slac_igp_deployment_place_search_block();
   _slac_igp_deployment_place_top_menu_block();
   _slac_igp_deployment_place_main_menu_block();
+  _slac_igp_deployment_place_calendar_legend_box();
 
   // Revert features for pre-existing node types.
   _slac_igp_deployment_revert('ct_access_information');
@@ -114,6 +115,10 @@ function slac_igp_deployment_install() {
   // Disable search module.
   module_disable(array('search'));
 }
+
+/**
+ * Helper functions.
+ */
 
 /**
  * Reverts a feature.
@@ -155,6 +160,68 @@ function _slac_igp_deployment_place_search_block() {
     ->condition('theme', 'slac', '=')
     ->execute();
 }
+
+/**
+ * Places the Calendar Legend box into its region.
+ */
+function _slac_igp_deployment_place_calendar_legend_box() {
+  db_update('block')
+    ->fields(array(
+      'status' => 1,
+      'weight' => -38,
+      'region' => 'content_bottom',
+    ))
+    ->condition('module', 'boxes', '=')
+    ->condition('delta', 'calendar_legend', '=')
+    ->condition('theme', 'slac', '=')
+    ->execute();
+}
+
+/**
+ * Removes legacy menu items from the Main menu.
+ */
+function _slac_igp_deployment_remove_legacy_menu_items() {
+  menu_link_delete(498);
+  menu_link_delete(499);
+  menu_link_delete(500);
+}
+
+/**
+ * Places the Top Menu block into the Header region.
+ */
+function _slac_igp_deployment_place_top_menu_block() {
+  db_update('block')
+    ->fields(array(
+      'status' => 1,
+      'weight' => -32,
+      'region' => 'header',
+    ))
+    ->condition('module', 'menu', '=')
+    ->condition('delta', 'menu-top-menu', '=')
+    ->condition('theme', 'slac', '=')
+    ->execute();
+}
+
+/**
+ * Places the Main menu block into the Navigation bar region.
+ */
+function _slac_igp_deployment_place_main_menu_block() {
+  db_update('block')
+    ->fields(array(
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'navigation',
+      'title' => '<none>',
+    ))
+    ->condition('module', 'system', '=')
+    ->condition('delta', 'main-menu', '=')
+    ->condition('theme', 'slac', '=')
+    ->execute();
+}
+
+/**
+ * Update hooks.
+ */
 
 /**
  * Enable the ct_news feature.
@@ -204,48 +271,6 @@ function slac_igp_deployment_update_7003() {
   features_revert(array('slac_ip_menus' => $feature->components));
 
   _slac_igp_deployment_place_top_menu_block();
-}
-
-/**
- * Removes legacy menu items from the Main menu.
- */
-function _slac_igp_deployment_remove_legacy_menu_items() {
-  menu_link_delete(498);
-  menu_link_delete(499);
-  menu_link_delete(500);
-}
-
-/**
- * Places the Top Menu block into the Header region.
- */
-function _slac_igp_deployment_place_top_menu_block() {
-  db_update('block')
-    ->fields(array(
-      'status' => 1,
-      'weight' => -32,
-      'region' => 'header',
-    ))
-    ->condition('module', 'menu', '=')
-    ->condition('delta', 'menu-top-menu', '=')
-    ->condition('theme', 'slac', '=')
-    ->execute();
-}
-
-/**
- * Places the Main menu block into the Navigation bar region.
- */
-function _slac_igp_deployment_place_main_menu_block() {
-  db_update('block')
-    ->fields(array(
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'navigation',
-      'title' => '<none>',
-    ))
-    ->condition('module', 'system', '=')
-    ->condition('delta', 'main-menu', '=')
-    ->condition('theme', 'slac', '=')
-    ->execute();
 }
 
 /**
@@ -445,11 +470,11 @@ function slac_igp_deployment_update_7017() {
   if ($menu_link) {
     if ($menu_link['link_title'] == 'News') {
       menu_link_delete($mlid);
-      drupal_set_message("The extra News link was deleted");
+      drupal_set_message('The extra News link was deleted.');
     }
   }
   else {
-    drupal_set_message("The extra News link does not exist so no action is required");
+    drupal_set_message('The extra News link does not exist so no action is required.');
   }
 }
 
@@ -468,11 +493,11 @@ function slac_igp_deployment_update_7019() {
   if ($menu_link) {
     if ($menu_link['link_title'] == 'SLAC Public Site') {
       menu_link_delete($mlid);
-      drupal_set_message("The SLAC Public Site link has been removed and replaced.");
+      drupal_set_message('The SLAC Public Site link has been removed and replaced.');
     }
   }
   else {
-    drupal_set_message("The SLAC Public Site link does not exist so no action is required");
+    drupal_set_message('The SLAC Public Site link does not exist so no action is required.');
   }
 }
 
@@ -532,7 +557,7 @@ function slac_igp_deployment_update_7022() {
     if ($menu_link) {
       if ($menu_link['link_title'] == $link['title']) {
         menu_link_delete($menu_link['mlid']);
-        drupal_set_message("A link has been removed.");
+        drupal_set_message('A link has been removed.');
       }
     }
   }
@@ -718,16 +743,9 @@ function slac_igp_deployment_update_7034() {
 }
 
 /**
- * Enable the v_events_by_term feature.
+ * REMOVED: Enable the v_events_by_term feature.
  */
 function slac_igp_deployment_update_7035() {
-  $result = module_enable(array(
-    'v_events_by_term',
-  ));
-
-  if ($result == FALSE) {
-    throw new DrupalUpdateException('An error occurred while enabling modules.');
-  }
 }
 
 /**
@@ -742,7 +760,7 @@ function slac_igp_deployment_update_7036() {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
 
-  variable_set('reroute_email_address', "");
+  variable_set('reroute_email_address', '');
   variable_set('reroute_email_enable_message', 1);
   variable_set('reroute_email_enable', 1);
 }
@@ -792,4 +810,12 @@ function slac_igp_deployment_update_7039() {
     $message = __FUNCTION__ . ' An error occurred while enabling modules.';
     throw new DrupalUpdateException($message);
   }
+}
+
+/**
+ * Place the new Calender Legend box.
+ */
+function slac_igp_deployment_update_7040() {
+  drupal_flush_all_caches();
+  _slac_igp_deployment_place_calendar_legend_box();
 }
