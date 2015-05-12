@@ -4,8 +4,6 @@
   Drupal.behaviors.calendarFilters = {
     attach: function (context, settings) {
 
-      console.log('calendarFilters attach', context);
-
       // Don't do anything in the Views UI.
       if ($('#views-ui-edit-form').length !== 0) {
         return;
@@ -76,7 +74,8 @@
 
       // Update the displayed filters text in the selectize UI.
       function updateSelectizeDisplay (values) {
-        var len = values.length || 0;
+        var values = values || [];
+        var len = values.length;
 
         $selectizeInput.find('div').hide();
 
@@ -147,11 +146,14 @@
             return (inTypes || inTags);
           }));
 
+          // If the user opened the filter widget, but didn't actually change
+          // the current selections, don't update anything.
           if (!(selectionLengthsMatch && selectionsAllInValues)) {
-            console.log('set $typeSelect:', values.filter(function (v) {return typeValues.indexOf(v) !== -1}));
             $typeSelect.val(values.filter(function (v) {return typeValues.indexOf(v) !== -1}));
-            console.log('set $tagsSelect:', values.filter(function (v) {return tagsValues.indexOf(v) !== -1}));
             $tagsSelect.val(values.filter(function (v) {return tagsValues.indexOf(v) !== -1}));
+
+            // Submit the filter form to apply the new values.
+            $viewForm.find('.form-submit').click();
           }
         },
         render: {
@@ -172,14 +174,14 @@
         }
       });
 
-      // If the selectize was initialized with multiple selections, remove all
-      // but the first item.
+      // The selectize input element and control object are needed for updating
+      // the display of selected filter state (eg. 'Calendar Filters: 2').
       $selectizeInput = $selectize.parent().find('.selectize-input');
-      $selectizeInput.find('div:not(:last)').hide();
-
-      // Add handlers for clearing selections and updating displayed selection
-      // state.
       selectizeControl = $selectize[0].selectize;
+
+      // Update the display to the initial state, afterwards this will be
+      // handled in the render, or onChange callback functions.
+      updateSelectizeDisplay($selectize.val());
 
       // Add checkbox toggle for the "Show Access Notices" filter.
 
