@@ -129,6 +129,10 @@
         <?php print render($page['content']); ?>
         <?php print $feed_icons; ?>
       </div>
+
+      <?php if ($page['content_bottom']): ?>
+      <?php print render($page['content_bottom']); ?>
+      <?php endif; ?>
     </div><!-- /#content -->
 
   <div class="footer-wrapper">

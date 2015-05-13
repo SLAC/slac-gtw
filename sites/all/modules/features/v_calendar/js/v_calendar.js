@@ -55,9 +55,13 @@
       var $tagsSelect = $viewForm.find('.form-item-tid-1 select');
       var $accessSelect = $viewForm.find('.form-item-type select');
 
-      // Build new select element to use with Selectize based on the views
-      // term filters.
+      // Create a new select element to use for creating a Selectize widget
+      // based on the views term filters.
       var $combinedSelect = $('<select />');
+      // Create a new checkbox element to control the 'Show Access Notices'
+      // filter.
+      var $showAccessElements = $('<p><label><input type="checkbox" /> Show Access Notices</label></p>');
+      var $showAccessInput = $showAccessElements.find('input');
 
       // Set up options and items arrays for Selectize initialization and for
       // using in option value comparissons later.
@@ -183,7 +187,32 @@
       // handled in the render, or onChange callback functions.
       updateSelectizeDisplay($selectize.val());
 
-      // Add checkbox toggle for the "Show Access Notices" filter.
+      // Set the initial state of the custom checkbox based on the state of the
+      // view filter.
+      if ($accessSelect.val() === 'All') {
+        $showAccessInput.prop('checked', true);
+      }
+      else {
+        $showAccessInput.prop('checked', false);
+      }
+
+      // Add checkbox toggle for the "Show Access Notices" filter above the view
+      // header.
+      $viewForm.parents('.view-id-calendar_view')
+          .find('.view-header')
+          .before($showAccessElements);
+
+      // Update the filter when the checkbox is toggled.
+      $showAccessInput.click(function () {
+        var isChecked = $(this).prop('checked');
+        // See the Calendar View filters for the reasoning behind these values.
+        // The filter is set up negated so that when 'access_information' is
+        // selected, they will not show, otherwise the filter is cleared (All).
+        $accessSelect.val((isChecked) ? 'All' : 'access_information');
+
+        // Submit the filter form to apply the new values.
+        $viewForm.find('.form-submit').click();
+      });
 
       // Hide the Views filters.
       //$viewForm.hide();
