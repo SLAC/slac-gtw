@@ -94,7 +94,6 @@ function slac_migrate_migrate_api() {
       'dependencies' => array('Images', 'Tags', 'Videos'),
       'source_version' => 6,
       'source_connection' => 'legacy',
-
     ),
     'Calendars' => array(
       'class_name' => 'SlacCalendarsMigration',

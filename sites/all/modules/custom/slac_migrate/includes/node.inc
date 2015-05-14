@@ -156,6 +156,23 @@ abstract class SlacNodeMigration extends DrupalNode6Migration {
     $to_date->sub(new DateInterval("PT7H"));
     $row->{'field_date:value2'} = $to_date->format('Y-m-d H:i:s');
   }
+
+  /**
+   * Converts D6 Tags of Lab News and SLAC Science to field_news_news_type selection.
+   */
+  public function convert_tag_to_news_type($entity, $row) {
+
+    foreach ($row->{'7'} as $index => $tid) {
+      if ($tid == '527') {
+        $entity->field_news_news_type[LANGUAGE_NONE][0]['value'] = 'Lab News';
+        unset($row->{'7'}[$index]);
+      }
+      elseif ($tid == '528') {
+        $entity->field_news_news_type[LANGUAGE_NONE][0]['value'] = 'SLAC Science';
+        unset($row->{'7'}[$index]);
+      }
+    }
+  }
 }
 
 
@@ -296,6 +313,15 @@ class SlacStoryMigration extends SlacNodeMigration {
       }
     }
   }
+
+  /**
+   * Modify resulting entity.
+   */
+  public function prepare($entity, $row) {
+    if (isset($row->{'7'})) {
+      $this->convert_tag_to_news_type($entity, $row);
+    }
+  }
 }
 
 /**
@@ -407,6 +433,15 @@ class SlacLabAnnouncementMigration extends SlacNodeMigration {
 
     // Update image metadata.
     $this->update_image($row);
+  }
+
+  /**
+   * Modify resulting entity.
+   */
+  public function prepare($entity, $row) {
+    if (isset($row->{'7'})) {
+      $this->convert_tag_to_news_type($entity, $row);
+    }
   }
 }
 
