@@ -23,9 +23,6 @@
  * $max_date_formatted: The maximum date for this calendar in the format YYYY-MM-DD HH:MM:SS.
  * 
  */
-//dsm('Display: '. $display_type .': '. $min_date_formatted .' to '. $max_date_formatted);
-//dsm($rows);
-//dsm($items);
 $index = 0;
 $header_ids = array();
 foreach ($day_names as $key => $value) {
