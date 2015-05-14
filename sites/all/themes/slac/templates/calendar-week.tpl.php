@@ -70,14 +70,21 @@ foreach ($day_names as $key => $value) {
         <?php $cell = (empty($all_day[$j][$i])) ? NULL : $all_day[$j][$i]; ?>
         <?php if($cell != NULL && $cell['filled'] && $cell['wday'] == $j): ?>
           <?php for($k = $colpos; $k < $cell['wday']; $k++) : ?>
-            <?php $cell_class = ($k == 0 || $k == 6) ? ' weekend' : ''; ?>
+            <?php
+              $cell_class = ($k == 0 || $k == 6) ? ' weekend' : '';
+            ?>
           <td class="multi-day no-entry<?php print $cell_class?>"><div class="inner">&nbsp;</div></td>
           <?php endfor;?>
-          <?php $cell_class = ($cell['wday'] == 0 || $cell['wday'] == 6) ? ' weekend' : '';?>
-          <td colspan="<?php print $cell['colspan']?>" class="multi-day<?php print $cell_class?>">
-            <div class="inner">
-            <?php print $cell['entry']?>
-            </div>
+          <?php
+            $cell_class = ($cell['wday'] == 0 || $cell['wday'] == 6) ? ' weekend' : '';
+
+            // Add the Date formatted like 'Thu Apr 16' as a data attribute on
+            // each TD.
+            $cell_date = $cell['item']->calendar_start_date;
+            $cell_title = $cell_date->format('D M j');
+          ?>
+          <td colspan="<?php print $cell['colspan']?>" data-title="<?php print $cell_title ?>" class="multi-day<?php print $cell_class?>">
+            <div class="inner"><?php print $cell['entry']?></div>
           </td>
           <?php $colpos = $cell['wday'] + $cell['colspan']; ?>
         <?php endif; ?>
