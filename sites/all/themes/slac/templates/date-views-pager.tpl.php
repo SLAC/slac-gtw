@@ -39,6 +39,31 @@
         <?php print l('&laquo;' . ($mini ? '' : ' ' . t('Prev', array(), array('context' => 'date_nav'))), $prev_url, $prev_options); ?>
       </li>
     <?php endif; ?>
+    <?php
+    // Set up for 'Today' link.
+    $now = new DateTime('now');
+    $display_date_arg = $plugin->view->args[0];
+
+    if ($plugin->options['date_id'] == 'month') {
+      $is_current = ($now->format('Y-m') == $display_date_arg);
+      $today_link = 'calendar/' . $now->format('Y-m');
+    }
+    elseif ($plugin->options['date_id'] == 'week') {
+      $is_current = ($now->format('Y-\WW') == $display_date_arg);
+      $today_link = 'calendar/week/' . $now->format('Y-\WW');
+    }
+    elseif ($plugin->options['date_id'] == 'day') {
+      $is_current = ($now->format('Y-m-d') == $display_date_arg);
+      $today_link = 'calendar/day/' . $now->format('Y-m-d');
+    }
+    ?>
+    <li class="date-today">
+    <?php if ($is_current): ?>
+      <span>Today</span>
+    <?php else: ?>
+      <?php print l(t('Today'), $today_link) ?>
+    <?php endif; ?>
+    </li>
     <?php if (!empty($next_url)) : ?>
       <li class="date-next">
         <?php print l(($mini ? '' : t('Next', array(), array('context' => 'date_nav')) . ' ') . '&raquo;', $next_url, $next_options); ?>
