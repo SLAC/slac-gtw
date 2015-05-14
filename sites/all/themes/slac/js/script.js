@@ -155,7 +155,8 @@
 
   Drupal.behaviors.backOnTop = {
     attach: function (context, settings) {
-      $('<a href="#" class="back-on-top"><span>Go to top</span></a>').insertBefore('.footer-wrapper');
+      $('.footer-wrapper', context)
+          .before('<a href="#" class="back-on-top"><span>Go to top</span></a>');
     }
   };
 
