@@ -324,6 +324,11 @@ table th.active {
   background-color: transparent;
 }
 
+.content-wrapper {
+  width: 100%;
+  padding: 0;
+}
+
 .main-navigation .region-navigation {
   float: left;
   width: 83.33333%;
@@ -1072,41 +1077,74 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   }
 }
 
-.my-flea-market-nav {
-  width: 200px;
-  margin-top: 16px;
-  text-align: right;
-  float: right;
-  position: relative;
-  z-index: 30;
+@media (min-width: 60em) {
+  .my-flea-market-nav {
+    width: 200px;
+    margin-top: 16px;
+    text-align: right;
+    float: right;
+    position: relative;
+    z-index: 30;
+  }
+}
+.my-flea-market-nav span {
+  display: none;
+}
+@media (min-width: 60em) {
+  .my-flea-market-nav span {
+    display: initial;
+  }
 }
 .my-flea-market-nav a {
   display: block;
-  padding: .2rem .5rem;
-  background: #ebebeb;
+  padding: .4rem .5rem;
+  background: #ebebeb url(../images/right-arrow.png) 98% 0.5rem no-repeat;
   color: #316dae;
   text-decoration: none;
   margin-bottom: .5rem;
 }
+@media (min-width: 60em) {
+  .my-flea-market-nav a {
+    background: #ebebeb;
+  }
+}
 .my-flea-market-nav a:hover, .my-flea-market-nav a:focus {
-  background: #848484;
+  background: #848484 url(../images/right-arrow.png) 98% -1.75rem no-repeat;
   color: #ffffff;
+}
+@media (min-width: 60em) {
+  .my-flea-market-nav a:hover, .my-flea-market-nav a:focus {
+    background: #848484;
+  }
 }
 
 .section-flea-market .title {
-  float: left;
-  width: 50%;
-  margin-left: 8.33333%;
-  margin-right: -58.33333%;
-  padding-left: 20px;
-  padding-right: 20px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  margin-top: 0;
-  margin-bottom: 0;
+  padding-left: 1.25rem;
+}
+@media (min-width: 60em) {
+  .section-flea-market .title {
+    float: left;
+    width: 50%;
+    margin-left: 8.33333%;
+    margin-right: -58.33333%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+.section-flea-market .view-header {
+  display: none;
+}
+@media (min-width: 40em) {
+  .section-flea-market .view-header {
+    display: block;
+  }
 }
 .section-flea-market table {
   margin-bottom: 4rem;
@@ -1126,8 +1164,12 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   min-width: 90px;
 }
 .section-flea-market .view-flea-market-listing {
-  padding-top: 3rem;
   margin-bottom: 2rem;
+}
+@media (min-width: 60em) {
+  .section-flea-market .view-flea-market-listing {
+    padding-top: 3rem;
+  }
 }
 .section-flea-market .view-flea-market-listing p {
   margin-top: 0;

@@ -3,6 +3,11 @@
 $zen-gutter-width: 40px;
 $zen-column-count: 12;
 
+.content-wrapper {
+  width: 100%;
+  padding: 0;
+}
+
 .main-navigation {
 
   .region-navigation {
