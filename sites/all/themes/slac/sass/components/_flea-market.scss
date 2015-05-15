@@ -124,7 +124,12 @@
   margin-top: 1rem;
 
   .report-inappropriate-title {
+    width: 92%;
     margin: 0;
+
+    @include breakpoint($desktop) {
+      width: initial;
+    }
   }
 
   .report-message {
@@ -134,21 +139,29 @@
   }
 
   .top-close {
-    float: right;
-    position: relative;
-    top: -35px;
+    position: absolute;
+    top: 14px;
+    right: 12px;
     border: none;
     background: transparent;
   }
 
   .report-button {
-    display: inline-block;
+    display: block;
     text-align: center;
     padding: 4px 20px;
     text-indent: 0;
     background: $blue;
     color: $white;
-    margin-right: 2rem;
+    width: 180px;
+    margin: 0 auto 1rem auto;
+
+    @include breakpoint($tablet-small) {
+      display: inline-block;
+      margin-right: 2rem;
+      margin-bottom: 0;
+      width: inherit;
+    }
 
     &:hover,
     &:focus {
@@ -160,11 +173,17 @@
   .bottom-close {
     @include font-size(14px);
     padding: 3px 10px;
-    margin-left: 2rem;
-    display: inline-block;
+    display: block;
+    margin: 1rem auto;
+    line-height: 1.4;
     background: $white;
     border: none;
     color: $blue;
+
+    @include breakpoint($tablet-small) {
+      display: inline-block;
+      margin: 0 0 0 2rem;
+    }
   }
 
   .close-x {
@@ -175,6 +194,11 @@
 
   .flag-flea-market-inappropriate {
     margin-bottom: .5rem;
+    text-align: center;
+
+    @include breakpoint($desktop) {
+      text-align: initial;
+    }
   }
 }
 

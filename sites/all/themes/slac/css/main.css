@@ -338,6 +338,17 @@ table th.active {
   word-wrap: break-word;
 }
 
+.not-front #content > .contextual-links-region {
+  width: 100%;
+  margin: 0;
+}
+@media (min-width: 70em) {
+  .not-front #content > .contextual-links-region {
+    width: 94%;
+    margin: 0 3%;
+  }
+}
+
 #content:before, #content:after {
   content: "";
   display: table;
@@ -986,7 +997,13 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   margin-top: 1rem;
 }
 .report-as-inappropriate .report-inappropriate-title {
+  width: 92%;
   margin: 0;
+}
+@media (min-width: 70em) {
+  .report-as-inappropriate .report-inappropriate-title {
+    width: initial;
+  }
 }
 .report-as-inappropriate .report-message {
   font-size: 14px;
@@ -995,20 +1012,29 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   margin-top: .2rem;
 }
 .report-as-inappropriate .top-close {
-  float: right;
-  position: relative;
-  top: -35px;
+  position: absolute;
+  top: 14px;
+  right: 12px;
   border: none;
   background: transparent;
 }
 .report-as-inappropriate .report-button {
-  display: inline-block;
+  display: block;
   text-align: center;
   padding: 4px 20px;
   text-indent: 0;
   background: #316dae;
   color: #ffffff;
-  margin-right: 2rem;
+  width: 180px;
+  margin: 0 auto 1rem auto;
+}
+@media (min-width: 40em) {
+  .report-as-inappropriate .report-button {
+    display: inline-block;
+    margin-right: 2rem;
+    margin-bottom: 0;
+    width: inherit;
+  }
 }
 .report-as-inappropriate .report-button:hover, .report-as-inappropriate .report-button:focus {
   text-decoration: none;
@@ -1018,11 +1044,18 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   font-size: 14px;
   font-size: 0.875rem;
   padding: 3px 10px;
-  margin-left: 2rem;
-  display: inline-block;
+  display: block;
+  margin: 1rem auto;
+  line-height: 1.4;
   background: #ffffff;
   border: none;
   color: #316dae;
+}
+@media (min-width: 40em) {
+  .report-as-inappropriate .bottom-close {
+    display: inline-block;
+    margin: 0 0 0 2rem;
+  }
 }
 .report-as-inappropriate .close-x {
   display: inline-block;
@@ -1031,6 +1064,12 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 }
 .report-as-inappropriate .flag-flea-market-inappropriate {
   margin-bottom: .5rem;
+  text-align: center;
+}
+@media (min-width: 70em) {
+  .report-as-inappropriate .flag-flea-market-inappropriate {
+    text-align: initial;
+  }
 }
 
 .my-flea-market-nav {
