@@ -245,3 +245,22 @@ function _slac_igp_importers_feeds_news($result) {
     }
   }  
 }
+
+/**
+ * Implements hook_feeds_presave().
+ *
+ * WWW6 Importer modifications
+ */
+function slac_igp_importers_feeds_presave($source, $entity, $item) {
+
+  // Set workbench_moderation state to published.
+  $entity->workbench_moderation_state_new = 'published';
+
+  // Set News CT's news type.
+  if (in_array('Lab News', $item['tags'])) {
+    $entity->field_news_news_type[LANGUAGE_NONE][0]['value'] = 'Lab News';
+  }
+  elseif (in_array('SLAC Science', $item['tags'])) {
+    $entity->field_news_news_type[LANGUAGE_NONE][0]['value'] = 'SLAC Science';
+  }
+}
