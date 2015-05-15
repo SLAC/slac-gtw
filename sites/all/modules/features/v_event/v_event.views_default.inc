@@ -199,8 +199,8 @@ URL: [nothing_3] \\n';
 <a href="/node/add/event/slac ">Submit Event</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
 
-  /* Display: Feed */
-  $handler = $view->new_display('feed', 'Feed', 'feed_1');
+  /* Display: iCal Feed */
+  $handler = $view->new_display('feed', 'iCal Feed', 'feed_1');
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -243,17 +243,7 @@ URL: [nothing_3] \\n';
     'access_information' => 'access_information',
     'event' => 'event',
   );
-  /* Filter criterion: Content: Date - end date (field_event_date:value2) */
-  $handler->display->display_options['filters']['field_event_date_value2']['id'] = 'field_event_date_value2';
-  $handler->display->display_options['filters']['field_event_date_value2']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['filters']['field_event_date_value2']['field'] = 'field_event_date_value2';
-  $handler->display->display_options['filters']['field_event_date_value2']['operator'] = '>';
-  $handler->display->display_options['filters']['field_event_date_value2']['expose']['operator_id'] = 'field_event_date_value2_op';
-  $handler->display->display_options['filters']['field_event_date_value2']['expose']['label'] = 'Date - end date (field_event_date:value2)';
-  $handler->display->display_options['filters']['field_event_date_value2']['expose']['operator'] = 'field_event_date_value2_op';
-  $handler->display->display_options['filters']['field_event_date_value2']['expose']['identifier'] = 'field_event_date_value2';
-  $handler->display->display_options['filters']['field_event_date_value2']['granularity'] = 'minute';
-  $handler->display->display_options['filters']['field_event_date_value2']['default_date'] = 'now';
+  $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['path'] = 'node/%/ical';
   $export['calendar'] = $view;
 
