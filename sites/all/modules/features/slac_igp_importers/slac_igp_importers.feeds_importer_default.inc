@@ -428,6 +428,12 @@ function slac_igp_importers_feeds_importer_default() {
             'target' => 'promote',
             'unique' => FALSE,
           ),
+          7 => array(
+            'source' => 'tags',
+            'target' => 'field_shared_tags',
+            'term_search' => '0',
+            'autocreate' => 1,
+          ),
         ),
         'update_existing' => '2',
         'input_format' => 'filtered_html',
