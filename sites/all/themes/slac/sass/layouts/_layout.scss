@@ -3,6 +3,11 @@
 $zen-gutter-width: 40px;
 $zen-column-count: 12;
 
+.content-wrapper {
+  width: 100%;
+  padding: 0;
+}
+
 .main-navigation {
 
   .region-navigation {
@@ -14,11 +19,6 @@ $zen-column-count: 12;
 .not-front #content > .contextual-links-region {
   width: 100%;
   margin: 0;
-
-  @include breakpoint($desktop) {
-    width: 94%;
-    margin: 0 3%;
-  }
 }
 
 #content {
@@ -61,5 +61,9 @@ $zen-column-count: 12;
 }
 
 .l-general-one-col {
-  @include zen-grid-item(10, 2);
+  @include zen-grid-item(12, 1);
+
+  @include breakpoint($tablet-large) {
+    @include zen-grid-item(10, 2);
+  }
 }

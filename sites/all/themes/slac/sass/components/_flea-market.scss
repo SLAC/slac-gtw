@@ -204,34 +204,64 @@
 
 // flea market item listing
 .my-flea-market-nav {
-  width: 200px;
-  margin-top: 16px;
-  text-align: right;
-  float: right;
-  position: relative;
-  z-index: 30;
+  @include breakpoint($tablet-large) {
+    width: 200px;
+    margin-top: 16px;
+    text-align: right;
+    float: right;
+    position: relative;
+    z-index: 30;
+  }
+
+  span {
+    display: none;
+
+    @include breakpoint($tablet-large) {
+      display: initial;
+    }
+  }
 
   a {
     display: block;
-    padding: .2rem .5rem;
-    background: darken($light-grey, 3%);
+    padding: .4rem .5rem;
+    background: darken($light-grey, 3%) url(../images/right-arrow.png) 98% .5rem no-repeat;
     color: $blue;
     text-decoration: none;
     margin-bottom: .5rem;
 
+    @include breakpoint($tablet-large) {
+      background: darken($light-grey, 3%);
+    }
+
     &:hover,
     &:focus {
-      background: lighten($grey, 10%);
+      background: lighten($grey, 10%) url(../images/right-arrow.png) 98% -1.75rem no-repeat;
       color: $white;
+
+      @include breakpoint($tablet-large) {
+        background: lighten($grey, 10%);
+      }
     }
   }
 }
 
 .section-flea-market {
   .title {
-    @include zen-grid-item(6, 2);
-    margin-top: 0;
-    margin-bottom: 0;
+    padding-left: 1.25rem;
+
+    @include breakpoint($tablet-large) {
+      @include zen-grid-item(6, 2);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .view-header {
+    display: none;
+
+    @include breakpoint($tablet-small) {
+      display: block;
+    }
   }
 
   table {
@@ -259,8 +289,11 @@
   }
 
   .view-flea-market-listing {
-    padding-top: 3rem;
     margin-bottom: 2rem;
+
+    @include breakpoint($tablet-large) {
+      padding-top: 4rem;
+    }
 
     p {
       margin-top: 0;
