@@ -10,6 +10,17 @@ $zen-column-count: 12;
   }
 }
 
+// overrides original rule
+.not-front #content > .contextual-links-region {
+  width: 100%;
+  margin: 0;
+
+  @include breakpoint($desktop) {
+    width: 94%;
+    margin: 0 3%;
+  }
+}
+
 #content {
   @include zen-grid-container();
 
