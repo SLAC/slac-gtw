@@ -246,8 +246,8 @@
 }
 
 .section-flea-market {
-    .title {
-      padding-left: 1.25rem;
+  .title {
+    padding-left: 1.25rem;
 
     @include breakpoint($tablet-large) {
       @include zen-grid-item(6, 2);
