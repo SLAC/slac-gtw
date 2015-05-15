@@ -1932,6 +1932,8 @@ fieldset.collapsed {
   padding-left: .2rem;
   background: none;
   margin-left: 0;
+  display: inline-block;
+  margin-bottom: 1rem;
 }
 .item-list .pager li a {
   padding: .5rem .6rem;
@@ -1945,7 +1947,7 @@ fieldset.collapsed {
   color: #ffffff;
 }
 .item-list .pager li.pager-current {
-  padding: .5rem .6rem;
+  padding: .3rem .6rem;
   background: #6fa0d6;
   color: #ffffff;
 }
