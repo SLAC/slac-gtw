@@ -258,7 +258,7 @@ function slac_preprocess_views_view(&$vars) {
 }
 
 /**
- * Theme the calendar title
+ * Themes the calendar title.
  */
 function slac_date_nav_title($params) {
   $granularity = $params['granularity'];
@@ -284,8 +284,24 @@ function slac_date_nav_title($params) {
       $date_arg = $date_info->year . '-' . date_pad($date_info->month) . '-' . date_pad($date_info->day);
       break;
     case 'week':
-      $format = !empty($format) ? $format : (empty($date_info->mini) ? $format_with_year : $format_without_year);
-      $title = t('Week of @date', array('@date' => date_format_date($date_info->min_date, 'custom', $format)));
+      $y1 = $date_info->min_date->format('Y');
+      $m1 = $date_info->min_date->format('M');
+      $y2 = $date_info->max_date->format('Y');
+      $m2 = $date_info->max_date->format('M');
+
+      if ($y1 != $y2) {
+        $fmt1 = 'F d Y';
+        $fmt2 = 'F d Y';
+      }
+      elseif ($m1 != $m2) {
+        $fmt1 = 'F d';
+        $fmt2 = 'F d, Y';
+      }
+      else {
+        $fmt1 = 'F d';
+        $fmt2 = 'd, Y';
+      }
+      $title = $date_info->min_date->format($fmt1) . ' - ' . $title = $date_info->max_date->format($fmt2);
       $date_arg = $date_info->year . '-W' . date_pad($date_info->week);
       break;
   }

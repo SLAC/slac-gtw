@@ -5,10 +5,6 @@
  */
 
 include_once 'slac_ip_core.features.inc';
-/**
- * @file
- * Code for the SLAC IP core feature.
- */
 
 /**
  * Implements hook_entity_info().
