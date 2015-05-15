@@ -977,7 +977,7 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   font-size: 1rem;
   margin-bottom: 0;
 }
-@media (min-width: 40em) {
+@media (min-width: 60em) {
   .node-type-flea-market-post .general-left .pane-node-field-shared-contact-name,
   .node-type-flea-market-post .general-left .pane-node-field-shared-contact-email,
   .node-type-flea-market-post .general-left .pane-node-field-shared-contact-phone {
@@ -997,7 +997,7 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   border: none;
   text-transform: none;
 }
-@media (min-width: 40em) {
+@media (min-width: 60em) {
   .node-type-flea-market-post .general-right .pane-node-field-shared-contact-name,
   .node-type-flea-market-post .general-right .pane-node-field-shared-contact-email,
   .node-type-flea-market-post .general-right .pane-node-field-shared-contact-phone {
