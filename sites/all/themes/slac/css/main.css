@@ -347,12 +347,6 @@ table th.active {
   width: 100%;
   margin: 0;
 }
-@media (min-width: 70em) {
-  .not-front #content > .contextual-links-region {
-    width: 94%;
-    margin: 0 3%;
-  }
-}
 
 #content:before, #content:after {
   content: "";
@@ -470,9 +464,9 @@ table th.active {
 
 .l-general-one-col {
   float: left;
-  width: 83.33333%;
-  margin-left: 8.33333%;
-  margin-right: -91.66667%;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: -100%;
   padding-left: 20px;
   padding-right: 20px;
   -moz-box-sizing: border-box;
@@ -480,6 +474,21 @@ table th.active {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   word-wrap: break-word;
+}
+@media (min-width: 60em) {
+  .l-general-one-col {
+    float: left;
+    width: 83.33333%;
+    margin-left: 8.33333%;
+    margin-right: -91.66667%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
 }
 
 .page-access .title {
@@ -1168,7 +1177,7 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 }
 @media (min-width: 60em) {
   .section-flea-market .view-flea-market-listing {
-    padding-top: 3rem;
+    padding-top: 4rem;
   }
 }
 .section-flea-market .view-flea-market-listing p {
