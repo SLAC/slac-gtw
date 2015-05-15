@@ -84,7 +84,7 @@
   }
 
   .general-left {
-    @include breakpoint($tablet-small) {
+    @include breakpoint($tablet-large) {
       .pane-node-field-shared-contact-name,
       .pane-node-field-shared-contact-email,
       .pane-node-field-shared-contact-phone {
@@ -107,7 +107,7 @@
       text-transform: none;
     }
 
-    @include breakpoint($tablet-small) {
+    @include breakpoint($tablet-large) {
       .pane-node-field-shared-contact-name,
       .pane-node-field-shared-contact-email,
       .pane-node-field-shared-contact-phone {
