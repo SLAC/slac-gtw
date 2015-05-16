@@ -1,0 +1,114 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function slac_migrate_install() {
+
+  field_cache_clear();
+  field_associate_fields('slac_migrate');
+
+  // Create the field base.
+  if (!field_info_field('field_slac_migrate_tag_store')) {
+    $field = array('field_name' => 'field_slac_migrate_tag_store', 'type' => 'text',);
+    $field = field_create_field($field);
+
+    // Create the field instance.
+    $instance = array(
+      'bundle' => 'news_article',
+      'default_value' => NULL,
+      'deleted' => 0,
+      'description' => 'Used in News Article migration',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 8,
+        ),
+        'link' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_slac_migrate_tag_store',
+      'label' => 'Tag Store',
+      'required' => 0,
+      'settings' => array(
+        'linkit' => array(
+          'button_text' => 'Search',
+          'enable' => 0,
+          'profile' => '',
+        ),
+        'text_processing' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => 60,
+        ),
+        'type' => 'text_textfield',
+        'weight' => 41,
+      ),
+
+    );
+
+    field_create_instance($instance);
+    drupal_set_message($field['field_name'].' was created.');
+  }
+
+  cache_clear_all();
+
+  // Get all news_article nodes where tags field is not empty (see hook_query_TAGS_alter() in .module file).
+  $nids = db_select('node', 'n')
+    ->fields('n', array('nid', 'type', 'vid'))
+    ->condition('n.type', 'news_article')
+    ->addTag('news_article_tags')
+    ->execute()
+    ->fetchCol();
+
+  // Load the nodes.
+  $nodes = node_load_multiple($nids);
+
+  // Loop through the node objects.
+  foreach ($nodes as $nid => $node) {
+    $terms = array();
+
+    // Loop through the tags array.
+    foreach ($node->field_tags[LANGUAGE_NONE] as $tid) {
+      $terms[] = taxonomy_term_load($tid['tid'])->name;
+    }
+
+    // Filter out duplicates and change the array to a string.
+    $node->field_slac_migrate_tag_store['und'][0]['value'] = implode(",", array_unique($terms));
+
+    // Save the node.
+    node_save($node);
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function slac_migrate_uninstall() {
+
+  // Remove Tag Store field from news_article.
+  if (!field_info_field('field_slac_migrate_tag_store')) {
+    $instance = field_info_instance('node', 'field_slac_migrate_tag_store', 'news_article');
+      field_delete_instance($instance, TRUE);
+      field_delete_field('field_slac_migrate_tag_store');
+      field_purge_batch(1);
+  }
+}
