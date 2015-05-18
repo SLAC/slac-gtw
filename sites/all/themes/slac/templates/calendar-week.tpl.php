@@ -33,9 +33,6 @@ foreach ($day_names as $key => $value) {
 <table class="full">
   <thead>
     <tr>
-      <?php if($by_hour_count > 0 || !empty($start_times)) :?>
-      <th class="calendar-agenda-hour"><?php print t('Time')?></th>
-      <?php endif;?>
       <?php foreach ($day_names as $cell): ?>
         <?php
         if ($cell['header_id'] == 'Saturday' || $cell['header_id'] == 'Sunday') {
@@ -61,11 +58,6 @@ foreach ($day_names as $key => $value) {
       }
     ?>
     <tr class="<?php print $rowclass?>">
-      <?php if($i == 0 && ($by_hour_count > 0 || !empty($start_times))) :?>
-      <td class="<?php print $agenda_hour_class ?>" rowspan="<?php print $multiday_rows?>">
-        <span class="calendar-hour"><?php print t('All day', array(), array('context' => 'datetime'))?></span>
-      </td>
-      <?php endif; ?>
       <?php for($j = 0; $j < 6; $j++): ?>
         <?php $cell = (empty($all_day[$j][$i])) ? NULL : $all_day[$j][$i]; ?>
         <?php if($cell != NULL && $cell['filled'] && $cell['wday'] == $j): ?>
