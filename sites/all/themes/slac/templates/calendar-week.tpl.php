@@ -28,6 +28,9 @@ $header_ids = array();
 foreach ($day_names as $key => $value) {
   $header_ids[$key] = $value['header_id'];
 }
+$today = new DateTime(date('Y-m-d'));
+$today_day_col = NULL;
+
 ?>
 <div class="calendar-calendar"><div class="week-view">
 <table class="full">
@@ -50,14 +53,22 @@ foreach ($day_names as $key => $value) {
       <?php
         $week_day = new DateTime($view->date_info->min_date);
         $one_day = new DateInterval('P1D');
-        dpm($view->date_info);
       ?>
       <?php for ($i = 0; $i < 7; $i++): ?>
       <?php
         $date_day = $week_day->format('j');
+        $date_diff = $week_day->diff($today);
+
+        if ((int) $date_diff->format('%a') == 0) {
+          $cell_class = 'today';
+          $today_day_col = $i;
+        }
+        else {
+          $cell_class = '';
+        }
         $week_day->add($one_day);
       ?>
-      <td><?php print $date_day; ?></td>
+      <td class="<?php print $cell_class ?>"><?php print $date_day; ?></td>
       <?php endfor; ?>
     </tr>
     <?php for ($i = 0; $i < $multiday_rows; $i++): ?>
@@ -78,6 +89,7 @@ foreach ($day_names as $key => $value) {
           <?php for($k = $colpos; $k < $cell['wday']; $k++) : ?>
             <?php
               $cell_class = ($k == 0 || $k == 6) ? ' weekend' : '';
+              $cell_class .= ($today_day_col == $k) ? ' today' : '';
             ?>
           <td class="multi-day no-entry<?php print $cell_class?>"><div class="inner">&nbsp;</div></td>
           <?php endfor;?>
@@ -88,6 +100,7 @@ foreach ($day_names as $key => $value) {
             // each TD.
             $cell_date = $cell['item']->calendar_start_date;
             $cell_title = $cell_date->format('D M j');
+            $cell_class .= ($today_day_col == $cell['wday']) ? ' today' : '';
           ?>
           <td colspan="<?php print $cell['colspan']?>" data-title="<?php print $cell_title ?>" class="multi-day<?php print $cell_class?>">
             <div class="inner"><?php print $cell['entry']?></div>
@@ -96,7 +109,10 @@ foreach ($day_names as $key => $value) {
         <?php endif; ?>
       <?php endfor; ?>  
       <?php for($j = $colpos; $j < 7; $j++) : ?>
-        <?php $cell_class = ($j == 0 || $j == 6) ? ' weekend' : ''; ?>
+      <?php
+        $cell_class = ($j == 0 || $j == 6) ? ' weekend' : '';
+        $cell_class .= ($today_day_col == $j) ? ' today' : '';
+      ?>
       <td class="multi-day no-entry<?php print $cell_class?>"><div class="inner">&nbsp;</div></td>
       <?php endfor;?>
     </tr>
@@ -107,14 +123,22 @@ foreach ($day_names as $key => $value) {
       <?php foreach ($columns as $index => $column): ?>
         <?php $colpos = (isset($time['values'][$column][0])) ? $time['values'][$column][0]['wday'] : $index; ?>
         <?php for ($i = $curpos; $i < $colpos; $i++): ?>
-        <td class="calendar-agenda-items single-day<?php print $weekend_class; ?>">
+        <?php
+          $cell_class = ($k == 0 || $k == 6) ? ' weekend' : '';
+          $cell_class .= ($today_day_col == $j) ? ' today' : '';
+        ?>
+        <td class="calendar-agenda-items single-day<?php print $cell_class; ?>">
           <div class="calendar">
             <div class="inner">&nbsp</div>
           </div>
         </td>
         <?php endfor; ?>   
-        <?php $curpos = $colpos + 1;?>
-        <td class="calendar-agenda-items single-day<?php print $weekend_class; ?>" headers="<?php print $header_ids[$index] ?>">
+        <?php $curpos = $colpos + 1; ?>
+        <?php
+          $cell_class = ($colpos == 0 || $colpos == 6) ? ' weekend' : '';
+        $cell_class .= ($today_day_col == $colpos) ? ' today' : '';
+        ?>
+        <td class="calendar-agenda-items single-day<?php print $cell_class; ?>" headers="<?php print $header_ids[$index] ?>">
           <div class="calendar">
           <div class="inner">
             <?php if(!empty($time['values'][$column])) :?>
@@ -127,7 +151,11 @@ foreach ($day_names as $key => $value) {
         </td>
       <?php endforeach; ?>   
       <?php for ($i = $curpos; $i < 7; $i++): ?>
-        <td class="calendar-agenda-items single-day">
+        <?php
+          $cell_class = ($k == 0 || $k == 6) ? ' weekend' : '';
+          $cell_class .= ($today_day_col == $j) ? ' today' : '';
+        ?>
+        <td class="calendar-agenda-items single-day<?php print $cell_class; ?>">
           <div class="calendar">
             <div class="inner">&nbsp</div>
           </div>
