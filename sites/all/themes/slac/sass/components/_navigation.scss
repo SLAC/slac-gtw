@@ -1,81 +1,213 @@
-/* Top Menu and Main Menu */
-#block-menu-menu-top-menu {
-  text-align: right;
-  margin-bottom: 24px;
-  .menu {
-    text-align: right;
+// mobile menu
+@media all and (max-width: $tablet-large) {
+  #main {
+    display: block;
+    clear: both;
+  }
+
+  header[role="banner"] {
+    background: $header-blue url(../images/menu-search-toggle-bg.png) 100% 0 repeat-y;
+    height: 40px !important;
+
+    .logo {
+      display: block;
+      position: relative;
+      z-index: 1;
+      padding: 0;
+      margin: 0;
+
+      a {
+        float: none !important;
+      }
+    }
+
+    .date,
+    .header__region {
+      display: none !important;
+    }
+  }
+
+  .mobile-menu-toggle {
+    @include font-size(13px);
+    text-transform: uppercase;
+    letter-spacing: .04rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: block;
+    color: $white;
+    width: 75px;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+    .hamburger-icon {
+      display: block;
+      width: 20px;
+      float: left;
+      margin-right: 5px;
+      margin-top: 3px;
+    }
+    .icon-menu {
+
+      display: block;
+      border: 1px solid #fff;
+      margin-bottom: .2rem;
+    }
+  }
+
+  .main-navigation {
+    background: $white;
+
+    .region-navigation {
+      margin: 0;
+      padding: 0;
+      @include zen-grid-item(12, 1);
+      background: $white;
+      padding: 0;
+    }
+  }
+
+  #block-system-main-menu {
+    .menu {
+      margin-top: 5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 10;
+
+      li {
+        padding: 0;
+      }
+    }
     li {
-      display: inline;
-      &.first {
-        border-right: 1px solid $blue;
+      display: block;
+      margin-bottom: 4px;
+      list-style-type: none;
+      list-style-image: none;
+
+      a {
+        @include font-size(14px);
+        line-height: 1;
+        display: block;
+        padding: .6rem;
+        text-indent: 2rem;
+        text-transform: uppercase;
+        color: $blue;
+        background: $light-blue url(../images/right-arrow.png) 1rem .5rem no-repeat;
+        text-decoration: none;
+        font-weight: bold;
+
+        // &:hover,
+        // &:focus {
+        //   background: $white;
+        //   color: $blue;
+        //   outline: none;
+        // }
+      }
+      &.is-active-trail a {
+        background: $white;
+        color: $blue;
+      }
+    }
+  }
+}
+
+@include breakpoint($tablet-small) {
+  header[role="banner"] {
+    .date {
+      display: block;
+      position: absolute !important;
+      z-index: 10;
+    }
+  }
+}
+/* Top Menu and Main Menu */
+@include breakpoint($tablet-large) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+  #main {
+    margin-top: 6rem;
+  }
+
+  #block-menu-menu-top-menu {
+    text-align: right;
+    margin-bottom: 24px;
+    .menu {
+      text-align: right;
+      li {
+        display: inline;
+        &.first {
+          border-right: 1px solid $blue;
+        }
+        a {
+          @include font-size(9px);
+          padding: .5em;
+          @media all and (min-width: 960px) {
+            @include font-size(11px);
+            padding: .5em 1em;
+          }
+          color: $blue;
+          text-transform: uppercase;
+          &:hover,
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+  .main-navigation {
+    @include clearfix;
+    background: $blue;
+    margin-bottom: 40px;
+    .not-front & {
+      margin-bottom: 0;
+    }
+    .inner-wrapper {
+      width: 100%;
+      max-width: 1432px;
+      margin: auto;
+      @include clearfix;
+      .region-navigation {
+        padding-left: 0;
+      }
+    }
+  }
+  #block-system-main-menu {
+    clear: both;
+
+    .menu li {
+      display: inline-block;
+      margin-right: -4px;
+      list-style-type: none;
+      list-style-image: none;
+      &.last{
+        padding-right: 0;
+        background: transparent;
       }
       a {
-        @include font-size(9px);
-        padding: .5em;
-        @media all and (min-width: 960px) {
-          @include font-size(11px);
-          padding: .5em 1em;
-        }
-        color: $blue;
+        @include font-size(14px);
+        line-height: 1;
+        display: inline-block;
+        padding: 8px 2em;
         text-transform: uppercase;
+        color: #fff;
+        background: transparent;
+        text-decoration: none;
+        font-weight: bold;
         &:hover,
         &:focus {
+          background: $white;
+          color: $blue;
           outline: none;
         }
       }
-    }
-  }
-}
-.main-navigation {
-  @include clearfix;
-  background: $blue;
-  margin-bottom: 40px;
-  .not-front & {
-    margin-bottom: 0;
-  }
-  .inner-wrapper {
-    width: 100%;
-    max-width: 1432px;
-    margin: auto;
-    @include clearfix;
-    .region-navigation {
-      padding-left: 0;
-    }
-  }
-}
-#block-system-main-menu {
-  clear: both;
-
-  .menu li {
-    display: inline-block;
-    margin-right: -4px;
-    list-style-type: none;
-    list-style-image: none;
-    display: inline-block;
-    &.last{
-      padding-right: 0;
-      background: transparent;
-    }
-    a {
-      @include font-size(14px);
-      line-height: 1;
-      display: inline-block;
-      padding: 8px 2em;
-      text-transform: uppercase;
-      color: #fff;
-      background: transparent;
-      text-decoration: none;
-      font-weight: bold;
-      &:hover,
-      &:focus {
+      &.is-active-trail a {
         background: $white;
         color: $blue;
-        outline: none;
       }
-    }
-    &.is-active-trail a {
-      background: $white;
-      color: $blue;
     }
   }
 }
