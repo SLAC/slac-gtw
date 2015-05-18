@@ -1,13 +1,17 @@
 // mobile menu
-@media all and (max-width: $tablet-large) {
+@media all and (max-width: $desktop) {
   #main {
     display: block;
     clear: both;
+    margin-top: 20px;
+
+    .front & {
+      margin-top: 80px;
+    }
   }
 
   header[role="banner"] {
     background: $header-blue url(../images/menu-search-toggle-bg.png) 100% 0 repeat-y;
-    height: 40px !important;
 
     .logo {
       display: block;
@@ -17,13 +21,13 @@
       margin: 0;
 
       a {
-        float: none !important;
+        float: none;
       }
     }
 
     .date,
     .header__region {
-      display: none !important;
+      display: none;
     }
   }
 
@@ -32,7 +36,7 @@
     text-transform: uppercase;
     letter-spacing: .04rem;
     position: absolute;
-    top: 10px;
+    top: 16px;
     right: 10px;
     display: block;
     color: $white;
@@ -42,6 +46,7 @@
     &:focus {
       text-decoration: none;
     }
+
     .hamburger-icon {
       display: block;
       width: 20px;
@@ -49,8 +54,8 @@
       margin-right: 5px;
       margin-top: 3px;
     }
-    .icon-menu {
 
+    .icon-menu {
       display: block;
       border: 1px solid #fff;
       margin-bottom: .2rem;
@@ -61,9 +66,9 @@
     background: $white;
 
     .region-navigation {
+      @include zen-grid-item(12, 1);
       margin: 0;
       padding: 0;
-      @include zen-grid-item(12, 1);
       background: $white;
       padding: 0;
     }
@@ -97,14 +102,8 @@
         background: $light-blue url(../images/right-arrow.png) 1rem .5rem no-repeat;
         text-decoration: none;
         font-weight: bold;
-
-        // &:hover,
-        // &:focus {
-        //   background: $white;
-        //   color: $blue;
-        //   outline: none;
-        // }
       }
+
       &.is-active-trail a {
         background: $white;
         color: $blue;
@@ -113,20 +112,22 @@
   }
 }
 
-@include breakpoint($tablet-small) {
+@include breakpoint($tablet-large) {
   header[role="banner"] {
     .date {
       display: block;
-      position: absolute !important;
+      position: absolute;
       z-index: 10;
     }
   }
 }
-/* Top Menu and Main Menu */
-@include breakpoint($tablet-large) {
+
+// Top Menu and Main Menu for desktop
+@include breakpoint($desktop) {
   .mobile-menu-toggle {
     display: none;
   }
+
   #main {
     margin-top: 6rem;
   }
@@ -136,20 +137,26 @@
     margin-bottom: 24px;
     .menu {
       text-align: right;
+
       li {
         display: inline;
+
         &.first {
           border-right: 1px solid $blue;
         }
+
         a {
           @include font-size(9px);
           padding: .5em;
+
           @media all and (min-width: 960px) {
             @include font-size(11px);
             padding: .5em 1em;
           }
+
           color: $blue;
           text-transform: uppercase;
+
           &:hover,
           &:focus {
             outline: none;
@@ -158,13 +165,16 @@
       }
     }
   }
+
   .main-navigation {
     @include clearfix;
     background: $blue;
     margin-bottom: 40px;
+
     .not-front & {
       margin-bottom: 0;
     }
+
     .inner-wrapper {
       width: 100%;
       max-width: 1432px;
@@ -175,6 +185,7 @@
       }
     }
   }
+
   #block-system-main-menu {
     clear: both;
 
@@ -183,10 +194,12 @@
       margin-right: -4px;
       list-style-type: none;
       list-style-image: none;
+
       &.last{
         padding-right: 0;
         background: transparent;
       }
+
       a {
         @include font-size(14px);
         line-height: 1;
@@ -197,6 +210,7 @@
         background: transparent;
         text-decoration: none;
         font-weight: bold;
+
         &:hover,
         &:focus {
           background: $white;
@@ -204,6 +218,7 @@
           outline: none;
         }
       }
+
       &.is-active-trail a {
         background: $white;
         color: $blue;

@@ -1821,15 +1821,18 @@ fieldset.collapsed {
   margin-top: .5rem;
 }
 
-@media all and (max-width: 60em) {
+@media all and (max-width: 70em) {
   #main {
     display: block;
     clear: both;
+    margin-top: 20px;
+  }
+  .front #main {
+    margin-top: 80px;
   }
 
   header[role="banner"] {
     background: #3475bf url(../images/menu-search-toggle-bg.png) 100% 0 repeat-y;
-    height: 40px !important;
   }
   header[role="banner"] .logo {
     display: block;
@@ -1839,11 +1842,11 @@ fieldset.collapsed {
     margin: 0;
   }
   header[role="banner"] .logo a {
-    float: none !important;
+    float: none;
   }
   header[role="banner"] .date,
   header[role="banner"] .header__region {
-    display: none !important;
+    display: none;
   }
 
   .mobile-menu-toggle {
@@ -1852,7 +1855,7 @@ fieldset.collapsed {
     text-transform: uppercase;
     letter-spacing: .04rem;
     position: absolute;
-    top: 10px;
+    top: 16px;
     right: 10px;
     display: block;
     color: #ffffff;
@@ -1878,8 +1881,6 @@ fieldset.collapsed {
     background: #ffffff;
   }
   .main-navigation .region-navigation {
-    margin: 0;
-    padding: 0;
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -1891,6 +1892,8 @@ fieldset.collapsed {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     word-wrap: break-word;
+    margin: 0;
+    padding: 0;
     background: #ffffff;
     padding: 0;
   }
@@ -1928,15 +1931,14 @@ fieldset.collapsed {
     color: #316dae;
   }
 }
-@media (min-width: 40em) {
+@media (min-width: 60em) {
   header[role="banner"] .date {
     display: block;
-    position: absolute !important;
+    position: absolute;
     z-index: 10;
   }
 }
-/* Top Menu and Main Menu */
-@media (min-width: 60em) {
+@media (min-width: 70em) {
   .mobile-menu-toggle {
     display: none;
   }
@@ -1966,14 +1968,14 @@ fieldset.collapsed {
     text-transform: uppercase;
   }
 }
-@media all and (min-width: 60em) and (min-width: 960px) {
+@media all and (min-width: 70em) and (min-width: 960px) {
   #block-menu-menu-top-menu .menu li a {
     font-size: 11px;
     font-size: 0.6875rem;
     padding: .5em 1em;
   }
 }
-@media (min-width: 60em) {
+@media (min-width: 70em) {
   #block-menu-menu-top-menu .menu li a:hover, #block-menu-menu-top-menu .menu li a:focus {
     outline: none;
   }
