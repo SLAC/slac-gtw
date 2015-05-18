@@ -46,6 +46,20 @@ foreach ($day_names as $key => $value) {
     </tr>
   </thead>
   <tbody>
+    <tr class="date-day">
+      <?php
+        $week_day = new DateTime($view->date_info->min_date);
+        $one_day = new DateInterval('P1D');
+        dpm($view->date_info);
+      ?>
+      <?php for ($i = 0; $i < 7; $i++): ?>
+      <?php
+        $date_day = $week_day->format('j');
+        $week_day->add($one_day);
+      ?>
+      <td><?php print $date_day; ?></td>
+      <?php endfor; ?>
+    </tr>
     <?php for ($i = 0; $i < $multiday_rows; $i++): ?>
     <?php 
       $colpos = 0; 
@@ -89,9 +103,6 @@ foreach ($day_names as $key => $value) {
     <?php endfor; ?>  
     <?php foreach ($items as $time): ?>
     <tr class="not-all-day">
-      <td class="calendar-agenda-hour">
-        <span class="calendar-hour"><?php print $time['hour']; ?></span><span class="calendar-ampm"><?php print $time['ampm']; ?></span>
-      </td>
       <?php $curpos = 0; ?>
       <?php foreach ($columns as $index => $column): ?>
         <?php $colpos = (isset($time['values'][$column][0])) ? $time['values'][$column][0]['wday'] : $index; ?>

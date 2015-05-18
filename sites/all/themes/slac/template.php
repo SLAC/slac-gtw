@@ -286,8 +286,10 @@ function slac_date_nav_title($params) {
     case 'week':
       $y1 = $date_info->min_date->format('Y');
       $m1 = $date_info->min_date->format('M');
-      $y2 = $date_info->max_date->format('Y');
-      $m2 = $date_info->max_date->format('M');
+      $end_date = new DateTime($date_info->max_date);
+      $end_date->sub(new DateInterval('P1D'));
+      $y2 = $end_date->format('Y');
+      $m2 = $end_date->format('M');
 
       if ($y1 != $y2) {
         $fmt1 = 'F d Y';
@@ -301,7 +303,7 @@ function slac_date_nav_title($params) {
         $fmt1 = 'F d';
         $fmt2 = 'd, Y';
       }
-      $title = $date_info->min_date->format($fmt1) . ' - ' . $title = $date_info->max_date->format($fmt2);
+      $title = $date_info->min_date->format($fmt1) . ' - ' . $end_date->format($fmt2);
       $date_arg = $date_info->year . '-W' . date_pad($date_info->week);
       break;
   }
