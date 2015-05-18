@@ -564,24 +564,6 @@ a.submit-feedback {
   }
 }
 
-.back-on-top{
-  display: block;
-  width: 88%;
-  padding: 0 6%;
-  overflow:hidden;
-  background: #d5d5d5;
-  height: 40px;
-  line-height: 40px;
-  font-size: 12px;
-  text-transform:uppercase;
-  display: none;
-}
-.back-on-top span{
-  float: left;
-  padding-right: 30px;
-  background: url('../images/go-to-top-arrow.png') no-repeat right center;
-}
-
 
 
 
@@ -799,8 +781,6 @@ a.submit-feedback {
     margin-right: 0;
     float: none;
   }
-
-  .back-on-top{display: block;}
 }
 
 
@@ -983,8 +963,6 @@ a.submit-feedback {
   .frontpage-calendar h3{
     margin-left: 0;
   }
-
-  .back-on-top{display: block;}
 }
 
 .messages{

@@ -47,60 +47,30 @@
     }
   };
 
-  Drupal.behaviors.mobileHeader = {
+  /**
+   * Add a menu toggle link to be displayed at mobile breakpoint which will
+   * toggle the class "active" on the menu and the link itself and show/hide
+   * the main menu.
+   */
+  Drupal.behaviors.mobileMenu = {
     attach: function (context, settings) {
-      var $menu = $('.region-header #block-system-main-menu .menu:first'),
-        $searchbox = $('.region-header #block-boxes-web-search');
-      $('<div id="mobile-menu-wrap"/>').insertBefore('#main');
-      $('<ul class="mobile-menu">' + $menu.html() + '</ul>')
-          .appendTo('#mobile-menu-wrap');
-      $('<div class="mobile-search">' + $searchbox.find('form').parent().html() + '</div>')
-          .appendTo('#mobile-menu-wrap');
-      $('.mobile-search form').append('<input id="people" type="radio" name="searchType" checked="true" value="people" /><label for="search-people">People</label><input id="slac" type="radio" name="searchType" value="slac" /><label for="search-slac">SLAC</label>');
-      var $mobileSearchButton = $('.mobile-search #search-button');
-      var mobileSearchButtonSrc = $mobileSearchButton.attr('src');
-      if (mobileSearchButtonSrc !== undefined) {
-        $mobileSearchButton.attr('src', mobileSearchButtonSrc.replace('.jpg', '-mobile.jpg'));
-      }
+      var $menu = $('#block-system-main-menu ul.menu');
+      var $wrapper = $menu.wrap('<div class="menu-containter" />').parent();
 
-      var $menuMobile = $('.mobile-menu'),
-        $searchMobile = $('.mobile-search');
+      // Add a menu toggle link for the expandable mobile menu layout.
+      var $menuToggle = $('<a href="#menu" class="menu-link">Menu</a>');
+      $wrapper.before($menuToggle);
 
-      $menuMobile.hide();
-      $searchMobile.hide();
-
-      var menuToggle = function () {
-        if ($(window).width() < 620) {
-          $menu.parent().toggle(function () {
-            if ($searchMobile.is(':visible')) {
-              $searchbox.click();
-            }
-            $menuMobile.stop(true, true).show();
-          }, function () {
-            $menuMobile.stop(true, true).hide();
-          });
-
-          $searchbox.toggle(function () {
-            if ($menuMobile.is(':visible')) {
-              $menu.parent().click();
-            }
-            $searchMobile.stop(true, true).show();
-          }, function () {
-            $searchMobile.stop(true, true).hide();
-          });
+      $menuToggle.click(function (e) {
+        e.preventDefault();
+        $(this).add($wrapper).toggleClass('active');
+        if ($wrapper.is(':visible')) {
+          $wrapper.hide();
         }
         else {
-          $searchbox.unbind('click');
-          $menu.parent().unbind('click');
+          $wrapper.show();
         }
-      };
-
-      menuToggle();
-
-      try {
-        window.addEventListener("orientationchange", menuToggle);
-      } catch (ignore) {}
-      $(window).resize(menuToggle);
+      });
     }
   };
 
@@ -155,7 +125,8 @@
 
   Drupal.behaviors.backOnTop = {
     attach: function (context, settings) {
-      $('<a href="#" class="back-on-top"><span>Go to top</span></a>').insertBefore('.footer-wrapper');
+      $('.footer-wrapper', context)
+          .before('<a href="#" class="back-on-top"><span>Go to top</span></a>');
     }
   };
 

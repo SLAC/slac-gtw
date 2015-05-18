@@ -290,6 +290,48 @@ function ct_news_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'og_tag_importer_bundle';
+  $strongarm->value = 'news';
+  $export['og_tag_importer_bundle'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'og_tag_importer_og_description';
+  $strongarm->value = 'body';
+  $export['og_tag_importer_og_description'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'og_tag_importer_og_image';
+  $strongarm->value = 'field_shared_image';
+  $export['og_tag_importer_og_image'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'og_tag_importer_og_site_name';
+  $strongarm->value = '';
+  $export['og_tag_importer_og_site_name'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'og_tag_importer_og_title';
+  $strongarm->value = 'title';
+  $export['og_tag_importer_og_title'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'og_tag_importer_og_url';
+  $strongarm->value = 'field_shared_related_links';
+  $export['og_tag_importer_og_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_news_pattern';
   $strongarm->value = 'news/[current-date:custom:Y]/[current-date:custom:m]/[node:title]';
   $export['pathauto_node_news_pattern'] = $strongarm;

@@ -527,7 +527,7 @@ function slac_igp_config_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'slac_ip_tags',
+          'vocabulary' => 'tags',
           'parent' => 0,
         ),
       ),

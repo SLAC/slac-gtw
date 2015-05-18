@@ -1663,55 +1663,9 @@ function workbench_moderation_states_next($current_state, $account = NULL, $node
  *   The new moderation state requested.
  */
 function workbench_moderation_moderate($node, $state) {
-  global $user;
-
   $old_revision = $node->workbench_moderation['my_revision'];
 
-  // Get the number of revisions for this node with vids greater than $node->vid
-  $vid_count = db_select('node_revision', 'r')
-    ->condition('r.nid', $node->nid)
-    ->condition('r.vid', $node->vid, '>')
-    ->countQuery()->execute()->fetchField();
-  // If the number of greater vids is 0, then this is the most current revision
-  $current = ($vid_count == 0);
-
-  // Build a history record.
-  $new_revision = (object) array(
-    'from_state' => $old_revision->state,
-    'state' => $state,
-    'nid' => $node->nid,
-    'vid' => $node->vid,
-    'uid' => $user->uid,
-    'is_current' => $current,
-    'published' => ($state == workbench_moderation_state_published()),
-    'stamp' => $_SERVER['REQUEST_TIME'],
-  );
-
-  // If this is the new 'current' moderation record, it should be the only one
-  // flagged 'current' in {workbench_moderation_node_history}.
-  if ($new_revision->is_current) {
-    $query = db_update('workbench_moderation_node_history')
-      ->condition('nid', $node->nid)
-      ->fields(array('is_current' => 0))
-      ->execute();
-  }
-
-  // If this revision is to be published, the new moderation record should be
-  // the only one flagged 'published' in both
-  // {workbench_moderation_node_history} AND {node_revision}
-  if ($new_revision->published) {
-    $query = db_update('workbench_moderation_node_history')
-      ->condition('nid', $node->nid)
-      ->fields(array('published' => 0))
-      ->execute();
-    $query = db_update('node_revision')
-      ->condition('nid', $node->nid)
-      ->fields(array('status' => 0))
-      ->execute();
-  }
-
-  // Save the node history record.
-  drupal_write_record('workbench_moderation_node_history', $new_revision);
+  $new_revision = workbench_moderation_save_history($node, $state, $old_revision->state);
 
   // Update the node's content_moderation information so that we can publish it
   // if necessary.
@@ -1754,6 +1708,73 @@ function workbench_moderation_moderate($node, $state) {
 
   // Notify other modules that the state was changed.
   module_invoke_all('workbench_moderation_transition', $node, $old_revision->state, $state);
+}
+
+/**
+ * Save a history record for a moderated node.
+ *
+ * @param $node
+ *  The node being acted upon.
+ *
+ * @param $new_state
+ *  The new moderation state.
+ *
+ * @param $old_state
+ *  The former moderation state.
+ *
+ * @return object
+ *   The new history record as saved.
+ */
+function workbench_moderation_save_history($node, $new_state, $old_state) {
+  global $user;
+
+  // Get the number of revisions for this node with vids greater than $node->vid
+  $vid_count = db_select('node_revision', 'r')
+    ->condition('r.nid', $node->nid)
+    ->condition('r.vid', $node->vid, '>')
+    ->countQuery()->execute()->fetchField();
+  // If the number of greater vids is 0, then this is the most current revision
+  $current = ($vid_count == 0);
+
+  // Build a history record.
+  $new_revision = (object) array(
+    'from_state' => $old_state,
+    'state' => $new_state,
+    'nid' => $node->nid,
+    'vid' => $node->vid,
+    'uid' => $user->uid,
+    'is_current' => $current,
+    'published' => ($new_state == workbench_moderation_state_published()),
+    'stamp' => $_SERVER['REQUEST_TIME'],
+  );
+
+  // If this is the new 'current' moderation record, it should be the only one
+  // flagged 'current' in {workbench_moderation_node_history}.
+  if ($new_revision->is_current) {
+    db_update('workbench_moderation_node_history')
+      ->condition('nid', $node->nid)
+      ->fields(array('is_current' => 0))
+      ->execute();
+  }
+
+  // If this revision is to be published, the new moderation record should be
+  // the only one flagged 'published' in both
+  // {workbench_moderation_node_history} AND {node_revision}
+  if ($new_revision->published) {
+    db_update('workbench_moderation_node_history')
+      ->condition('nid', $node->nid)
+      ->fields(array('published' => 0))
+      ->execute();
+    db_update('node_revision')
+      ->condition('nid', $node->nid)
+      ->fields(array('status' => 0))
+      ->execute();
+  }
+
+  // Save the node history record.
+  drupal_write_record('workbench_moderation_node_history', $new_revision);
+
+  return $new_revision;
 }
 
 /**
@@ -2364,13 +2385,6 @@ function workbench_moderation_ctools_plugin_api($module, $api) {
   if ($module == 'page_manager' && $api == 'pages_default') {
     return array('version' => 1);
   }
-}
-
-/**
- * Implement hook_migrate_api().
- */
-function workbench_moderation_migrate_api() {
-  return array('api' => 2);
 }
 
 /**

@@ -2,5 +2,38 @@
 
 /**
  * @file
- * Migrates data from SLAC Today Drupal 6 site.
+ * Intentionally left blank.
  */
+
+// Adding database connection info here because we can't touch the settings.php.
+Database::addConnectionInfo('legacy', 'default', array(
+  'driver' => 'mysql',
+  'database' => variable_get('slac_migrate_legacy_database', ''),
+  'username' => variable_get('slac_migrate_legacy_user', ''),
+  'password' => variable_get('slac_migrate_legacy_password', ''),
+  'host' => 'localhost',
+  'prefix' => '',
+));
+
+/**
+ * Implements hook_migrate_overview().
+ */
+function slac_migrate_migrate_overview() {
+  return t('<p>Below are two migration groups - one for the D6 to D7 migration and one for the D7 to D7 News Article migration. Before running the migrations, make sure of the following:
+  <ul>
+  <li>Media: Video and Media: YouTube modules are enabled.</li>
+  <li>Images in site/[directory]/files are rsynced from the D6 to D7 site.</li>
+  <li>Feed items from the two feed imports are deleted: <a href="/node/230/delete-items">WWW6 News Feed</a> and
+  <a href="/node/219/delete-items">SLAC Today News Feed</a>.
+  <li>Select all migrations and import.  They are set to run in the needed order.</li>
+  </ul></p>');
+}
+
+/**
+ * Implements hook_query_TAGS_alter().
+ *
+ * Adds an inner join to restrict the query to news articles with tags.
+ */
+function slac_migrate_query_news_article_tags_alter($query) {
+  $query->innerJoin('field_data_field_tags', 'tags', 'n.vid = tags.revision_id');
+}
