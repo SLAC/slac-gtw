@@ -11,7 +11,8 @@ Database::addConnectionInfo('legacy', 'default', array(
   'database' => variable_get('slac_migrate_legacy_database', ''),
   'username' => variable_get('slac_migrate_legacy_user', ''),
   'password' => variable_get('slac_migrate_legacy_password', ''),
-  'host' => 'localhost',
+  'host' => variable_get('slac_migrate_legacy_host', ''),
+  'port' => variable_get('slac_migrate_legacy_port', ''),
   'prefix' => '',
 ));
 
