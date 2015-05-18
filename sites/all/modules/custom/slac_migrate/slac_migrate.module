@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Migrates data from SLAC Today Drupal 6 site.
+ * Intentionally left blank.
  */
 
 // Adding database connection info here because we can't touch the settings.php.

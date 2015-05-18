@@ -8,3 +8,6 @@ dependencies[] = migrate_extras
 dependencies[] = migrate_d2d
 dependencies[] = migrate_ui
 
+files[] = slac_migrate.migrate.inc
+files[] = includes/node.inc
+files[] = includes/file.inc
