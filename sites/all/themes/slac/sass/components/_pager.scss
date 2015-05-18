@@ -17,6 +17,8 @@
     padding-left: .2rem;
     background: none;
     margin-left: 0;
+    display: inline-block;
+    margin-bottom: 1rem;
 
     a {
       padding: .5rem .6rem;
@@ -33,7 +35,7 @@
     }
 
     &.pager-current {
-      padding: .5rem .6rem;
+      padding: .3rem .6rem;
       background: lighten($blue, 20%);
       color: $white;
     }

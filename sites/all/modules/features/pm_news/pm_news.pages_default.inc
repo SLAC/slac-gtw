@@ -20,7 +20,18 @@ function pm_news_default_page_manager_pages() {
     'type' => 'none',
     'settings' => NULL,
   );
-  $page->menu = array();
+  $page->menu = array(
+    'type' => 'normal',
+    'title' => 'News',
+    'name' => 'main-menu',
+    'weight' => '-51',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
   $page->arguments = array();
   $page->conf = array(
     'admin_paths' => FALSE,

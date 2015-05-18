@@ -114,34 +114,66 @@ function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $insta
                 ));
           }
           else {
-            if ($value1->format('a') == $value2->format('a')) {
-              // Times are both 'am' or both 'pm'.
-              // Format is `Wednesday, August 10, 2016, 3-7 pm`
-              $start_str = $value1->format('l, F d, Y, g');
-              $end_str = $value2->format('g a');
+            // Only minutes past the hour should be displayed.
+            $start_min = $value1->format('i');
+            $end_min = $value2->format('i');
+
+            // If times are both 'am' or both 'pm', only display on end time.
+            // Format examples `Wednesday, August 10, 2016, 3-7 pm`
+            //  `Wednesday, August 10, 2016, 3:15-7:30 pm`
+            $start_fmt = 'l, F d, Y, g';
+            if ($start_min != '00') {
+              $start_fmt .= ':i';
+            }
+
+            if ($value1->format('a') != $value2->format('a')) {
+              // Times span am/pm, add to start time as well.
+              // Format examples: `Wednesday, August 10, 2016, 3 am-7 pm`
+              //  `Wednesday, August 10, 2016, 3:30 am-7:15 pm`
+              $start_fmt .= ' a';
+            }
+
+            if ($end_min == '00') {
+              $end_fmt = 'g a';
             }
             else {
-              // Times span am/pm.
-              // Format is `Wednesday, August 10, 2016, 3 am-7 pm`
-              $start_str = $value1->format('l, F d, Y, g a');
-              $end_str = $value2->format('g a');
+              $end_fmt = 'g:i a';
             }
+
             $markup = t(
               '!start-date-!end-date',
               array(
-                '!start-date' => $start_str,
-                '!end-date' => $end_str,
+                '!start-date' => $value1->format($start_fmt),
+                '!end-date' => $value2->format($end_fmt),
               ));
           }
         }
         else {
+          // Only minutes past the hour should be displayed.
+          $start_min = $value1->format('i');
+          $end_min = $value2->format('i');
+
+          if ($start_min == '00') {
+            $start_fmt = 'l, M. d, Y, g a';
+          }
+          else {
+            $start_fmt = 'l, M. d, Y, g:i a';
+          }
+
+          if ($end_min == '00') {
+            $end_fmt = 'l, M. d, Y, g a';
+          }
+          else {
+            $end_fmt = 'l, M. d, Y, g:i a';
+          }
+
           // Multi-day event.
           // Format is `Wednesday, Aug. 10, 2016, 6 pm - Thursday, Aug. 11, 2016, 9 pm`
           $markup = t(
               '!start-date - !end-date',
               array(
-                '!start-date' => $value1->format('l, M. d, Y, g a'),
-                '!end-date' => $value2->format('l, M. d, Y, g a'),
+                '!start-date' => $value1->format($start_fmt),
+                '!end-date' => $value2->format($end_fmt),
               ));
         }
 

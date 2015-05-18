@@ -149,7 +149,7 @@ function slac_ip_media_field_default_field_instances() {
         'enable' => 0,
         'profile' => '',
       ),
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
       'wysiwyg_override' => 1,
     ),
