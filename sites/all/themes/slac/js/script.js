@@ -58,7 +58,7 @@
       var $wrapper = $menu.wrap('<div class="menu-containter" />').parent();
 
       // Add a menu toggle link for the expandable mobile menu layout.
-      var $menuToggle = $('<a href="#menu" class="menu-link">Menu</a>');
+      var $menuToggle = $('<a href="#menu" class="mobile-menu-toggle"><span class="hamburger-icon"><span class="icon-menu"></span><span class="icon-menu"></span><span class="icon-menu"></span></span>Menu</a>');
       $wrapper.before($menuToggle);
 
       $menuToggle.click(function (e) {

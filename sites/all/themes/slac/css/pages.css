@@ -754,11 +754,6 @@ a:hover, a:active {
     overflow: hidden;
   }
 
-  header {
-    background: #2482c8;
-    height: 30px;
-  }
-
   .general-two-col .general-left, .general-two-col .general-right {
     width: 100%;
     clear: both;
