@@ -23,7 +23,6 @@ function t_event_type_install() {
     'Summer School Programs ',
     'Talks, Seminars & Colloquia',
     'Training & Development',
-    'None',
   );
   _t_event_type_populate_vocabulary('event_type', $term_names);
 
@@ -47,3 +46,13 @@ function _t_event_type_populate_vocabulary($vocab_name, $term_names) {
   }
 }
 
+/**
+ * Remove the 'None' term from the Event Type vocab.
+ */
+function t_event_type_update_7101 () {
+  $terms = taxonomy_get_term_by_name('None', 'event_type');
+  if (!empty($terms)) {
+    $term = reset($terms);
+    taxonomy_term_delete($term->tid);
+  }
+}
