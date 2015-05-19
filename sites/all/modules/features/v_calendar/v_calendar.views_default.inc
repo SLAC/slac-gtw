@@ -64,6 +64,7 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['element_wrapper_class'] = 'type-[type]';
   $handler->display->display_options['fields']['field_event_date']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_event_date']['type'] = 'slac_event_time_formatter';
   $handler->display->display_options['fields']['field_event_date']['settings'] = array(
     'format_type' => 'calendar_item_time',
     'fromto' => 'both',

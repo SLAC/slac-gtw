@@ -256,3 +256,64 @@ function slac_preprocess_views_view(&$vars) {
     }
   }
 }
+
+/**
+ * Themes the calendar title.
+ */
+function slac_date_nav_title($params) {
+  $granularity = $params['granularity'];
+  $view = $params['view'];
+  $date_info = $view->date_info;
+  $link = !empty($params['link']) ? $params['link'] : FALSE;
+  $format = !empty($params['format']) ? $params['format'] : NULL;
+  $format_with_year = variable_get('date_views_' . $granularity . 'format_with_year', 'l, F j, Y');
+  $format_without_year = variable_get('date_views_' . $granularity . 'format_without_year', 'l, F j');
+  switch ($granularity) {
+    case 'year':
+      $title = $date_info->year;
+      $date_arg = $date_info->year;
+      break;
+    case 'month':
+      $format = !empty($format) ? $format : (empty($date_info->mini) ? $format_with_year : $format_without_year);
+      $title = date_format_date($date_info->min_date, 'custom', $format);
+      $date_arg = $date_info->year . '-' . date_pad($date_info->month);
+      break;
+    case 'day':
+      $format = !empty($format) ? $format : (empty($date_info->mini) ? $format_with_year : $format_without_year);
+      $title = date_format_date($date_info->min_date, 'custom', $format);
+      $date_arg = $date_info->year . '-' . date_pad($date_info->month) . '-' . date_pad($date_info->day);
+      break;
+    case 'week':
+      $y1 = $date_info->min_date->format('Y');
+      $m1 = $date_info->min_date->format('M');
+      $end_date = new DateTime($date_info->max_date);
+      $end_date->sub(new DateInterval('P1D'));
+      $y2 = $end_date->format('Y');
+      $m2 = $end_date->format('M');
+
+      if ($y1 != $y2) {
+        $fmt1 = 'F d Y';
+        $fmt2 = 'F d Y';
+      }
+      elseif ($m1 != $m2) {
+        $fmt1 = 'F d';
+        $fmt2 = 'F d, Y';
+      }
+      else {
+        $fmt1 = 'F d';
+        $fmt2 = 'd, Y';
+      }
+      $title = $date_info->min_date->format($fmt1) . ' - ' . $end_date->format($fmt2);
+      $date_arg = $date_info->year . '-W' . date_pad($date_info->week);
+      break;
+  }
+  if (!empty($date_info->mini) || $link) {
+    // Month navigation titles are used as links in the mini view.
+    $attributes = array('title' => t('View full page month'));
+    $url = date_pager_url($view, $granularity, $date_arg, TRUE);
+    return l($title, $url, array('attributes' => $attributes));
+  }
+  else {
+    return $title;
+  }
+}
