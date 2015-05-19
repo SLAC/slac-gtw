@@ -2,11 +2,15 @@
 
 $zen-gutter-width: 40px;
 $zen-column-count: 12;
+
 #page {
   @include zen-grid-container();
 }
 
 #header {
+  height: 52px;
+  margin: 0 auto;
+
   .block-slac-search .contextual-links-wrapper {
     display: none;
   }
@@ -16,6 +20,7 @@ $zen-column-count: 12;
     display: table;
     content: "";
   }
+
   .logo a {
     display: block;
     width: 118px;
@@ -23,6 +28,7 @@ $zen-column-count: 12;
     background: url(../logo.png) 0 0 no-repeat;
     background-image: url(../logo.svg), none;
     float: right;
+
     span {
       display: block;
       width: 0;
@@ -30,23 +36,38 @@ $zen-column-count: 12;
       overflow: hidden;
     }
   }
+
   .date {
-    @include font-size(11px);
-    font-weight: bold;
-    color: $dim-grey;
-    position: absolute;
+    display: none;
+
+    @include breakpoint($tablet-large) {
+      display: block;
+
+      @include font-size(11px);
+      font-weight: bold;
+      color: $white;
+      position: absolute;
+    }
+
+    @include breakpoint($desktop) {
+      color: $dim-grey;
+    }
   }
-  height: 52px;
-  margin: 0 auto;
-  margin-bottom: 0;
-  .logo {
-    @include zen-grid-item(2, 1);
+
+  @include breakpoint($tablet-large) {
+    .logo {
+      @include zen-grid-item(2, 1);
+    }
   }
+
   .header__region {
-    @include zen-grid-item(10, 3);
-    @include zen-nested-container();
-    padding-top: 12px;
+    @include breakpoint($desktop) {
+      @include zen-grid-item(10, 3);
+      @include zen-nested-container();
+      padding-top: 12px;
+    }
   }
+
   #block-menu-menu-top-menu {
     @include breakpoint($mobile) {
       display: block;
@@ -56,24 +77,33 @@ $zen-column-count: 12;
     width: 46%;
     padding-left: 0;
     padding-right: 0;
+
     @media all and (min-width: 860px) {
       @include zen-grid-item(7, 1);
     }
+
     @media all and (min-width: 960px) {
       @include zen-grid-item(7, 1);
       padding-right: 0;
     }
+
+    @include breakpoint($desktop) {
+      display: block;
+    }
   }
+
   #block-slac-search-form {
     display: block;
     float: right;
     position: relative;
     right: 0;
   }
+
   #block-system-main-menu {
     margin-top: 8px;
   }
 }
+
 .header__region {
   input[type="text"] {
     @include font-size(14px);
@@ -84,51 +114,64 @@ $zen-column-count: 12;
     padding: 4px 10px;
     width: 250px;
     border: 1px solid $blue;
+
     @media all and (min-width: 800px) {
       width: 100px;
     }
+
     @media all and (min-width: 960px) {
       width: 100px;
     }
+
     @media all and (min-width: 1100px) {
       width: 140px;
     }
+
     @media all and (min-width: 1240px) {
       width: 180px;
     }
   }
+
   input::-webkit-input-placeholder {
     text-transform: uppercase;
     @include font-size(9px);
     padding-top: 4px;
   }
+
   input:-moz-placeholder {
     text-transform: uppercase;
     @include font-size(9px);
     padding-top: 4px;
   }
+
   input::-moz-placeholder {
     text-transform: uppercase;
     @include font-size(9px);
     padding-top: 4px;
   }
+
   input:-ms-input-placeholder {
     text-transform: uppercase;
     @include font-size(9px);
     padding-top: 4px;
   }
+
   input:focus::-webkit-input-placeholder {
     color: transparent;
   }
+
   input:focus:-moz-placeholder {
     color: transparent;
   }
+
   input:focus::-moz-placeholder {
     color: transparent;
   }
+
   input:focus:-ms-input-placeholder {
     color: transparent;
   }
+
   input[type="submit"] {
     @include font-size(12px);
     float: left;
@@ -139,6 +182,7 @@ $zen-column-count: 12;
     padding: 6px 10px;
     text-transform: uppercase;
   }
+
   select {
     @include font-size(10px);
     text-transform: uppercase;
@@ -151,16 +195,19 @@ $zen-column-count: 12;
     -moz-appearance: none;
     appearance: none;
   }
+
   select option {
     border: 1px solid $blue;
     color: $blue;
     font-weight: normal;
   }
 }
+
 // /selectize styles
 .container-inline .selectize-control {
   display: block;
   float: left;
+
   .selectize-input {
     @include font-size(9px);
     background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
@@ -174,10 +221,12 @@ $zen-column-count: 12;
     padding: 4px 5em 6px 1em;
     overflow: hidden;
     height: 27px;
+
     > .item {
       display: inline-block;
     }
   }
+
   .selectize-dropdown .selectize-dropdown-content {
     border: 1px solid $blue;
     @include font-size(10px);
@@ -185,36 +234,44 @@ $zen-column-count: 12;
     text-transform: uppercase;
     background: transparent;
     box-shadow: none;
+
     .option {
       border-bottom: 1px solid $blue;
       background: transparent;
       text-align: left;
+
       &:last-child {
         border-bottom: none;
       }
     }
+
     .selected,
     :hover {
       background: lighten($grey, 50%);
       color: $blue;
     }
   }
+
   div {
     display: block;
   }
 }
+
 .selectize-dropdown {
   border: none;
 }
+
 .selectize-control.single .selectize-input {
   background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
   width: 135px;
   height: !important;
+
   &.dropdown-active {
       background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
       width: 135px;
   }
 }
+
 .selectize-control.plugin-drag_drop .ui-sortable-placeholder::after,
 .selectize-input::after,
 .selectize-input.dropdown-active::before,

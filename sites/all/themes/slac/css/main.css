@@ -2652,7 +2652,6 @@ fieldset.collapsed {
 #header {
   height: 52px;
   margin: 0 auto;
-  margin-bottom: 0;
 }
 #header .block-slac-search .contextual-links-wrapper {
   display: none;
@@ -2677,40 +2676,55 @@ fieldset.collapsed {
   overflow: hidden;
 }
 #header .date {
-  font-size: 11px;
-  font-size: 0.6875rem;
-  font-weight: bold;
-  color: #4f4f4f;
-  position: absolute;
+  display: none;
 }
-#header .logo {
-  float: left;
-  width: 16.66667%;
-  margin-left: 0%;
-  margin-right: -16.66667%;
-  padding-left: 20px;
-  padding-right: 20px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
+@media (min-width: 60em) {
+  #header .date {
+    display: block;
+    font-size: 11px;
+    font-size: 0.6875rem;
+    font-weight: bold;
+    color: #ffffff;
+    position: absolute;
+  }
 }
-#header .header__region {
-  float: left;
-  width: 83.33333%;
-  margin-left: 16.66667%;
-  margin-right: -100%;
-  padding-left: 20px;
-  padding-right: 20px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 12px;
+@media (min-width: 70em) {
+  #header .date {
+    color: #4f4f4f;
+  }
+}
+@media (min-width: 60em) {
+  #header .logo {
+    float: left;
+    width: 16.66667%;
+    margin-left: 0%;
+    margin-right: -16.66667%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+}
+@media (min-width: 70em) {
+  #header .header__region {
+    float: left;
+    width: 83.33333%;
+    margin-left: 16.66667%;
+    margin-right: -100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 12px;
+  }
 }
 #header #block-menu-menu-top-menu {
   display: none;
@@ -2753,6 +2767,11 @@ fieldset.collapsed {
     box-sizing: border-box;
     word-wrap: break-word;
     padding-right: 0;
+  }
+}
+@media (min-width: 70em) {
+  #header #block-menu-menu-top-menu {
+    display: block;
   }
 }
 #header #block-slac-search-form {
@@ -3078,10 +3097,6 @@ fieldset.collapsed {
   }
   header[role="banner"] .logo a {
     float: none;
-  }
-  header[role="banner"] .date,
-  header[role="banner"] .header__region {
-    display: none;
   }
 
   .mobile-menu-toggle {
@@ -3414,6 +3429,83 @@ fieldset.collapsed {
   color: #4f4f4f;
   margin-bottom: 1rem;
   padding-bottom: .1rem;
+}
+
+@media (min-width: 70em) {
+  .search-link {
+    display: none;
+  }
+}
+@media all and (max-width: 60em) {
+  #block-slac-search-form {
+    position: absolute;
+    top: 0;
+    background: #e9f2f9;
+    width: 100%;
+  }
+
+  a.search-link {
+    display: block;
+    width: 19px;
+    height: 20px;
+    font-size: 0;
+    color: transparent;
+    position: absolute;
+    top: -36px;
+    right: 100px;
+    background: url(../images/search.svg) 0 0 no-repeat;
+  }
+
+  .header__region input[type="text"] {
+    width: 120px;
+    margin-left: 0;
+  }
+
+  .form-item-search-type {
+    position: absolute;
+    top: 30px;
+  }
+}
+@media (min-width: 20em) {
+  #slac-search-block-form {
+    display: block;
+    clear: both;
+    background: #e9f2f9;
+    position: relative;
+    left: 150px;
+    padding: 1rem 0;
+    height: 60px;
+    width: 85%;
+  }
+}
+@media all and (min-width: 479px) {
+  #slac-search-block-form {
+    left: 175px;
+  }
+}
+@media all and (min-width: 569px) {
+  #slac-search-block-form {
+    left: 220px;
+  }
+}
+@media (min-width: 40em) {
+  #slac-search-block-form {
+    left: 300px;
+  }
+}
+@media all and (max-width: 60em) {
+  #slac-search-block-form {
+    right: 370px;
+  }
+}
+@media (min-width: 70em) {
+  #slac-search-block-form {
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 0;
+    background: none;
+  }
 }
 
 .section-search .title {
