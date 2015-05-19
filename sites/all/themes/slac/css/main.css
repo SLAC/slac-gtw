@@ -1489,6 +1489,11 @@ fieldset.collapsed {
   padding-left: 0;
   padding-right: 0;
 }
+@media (min-width: 20em) {
+  #header #block-menu-menu-top-menu {
+    display: block;
+  }
+}
 @media all and (min-width: 860px) {
   #header #block-menu-menu-top-menu {
     float: left;
