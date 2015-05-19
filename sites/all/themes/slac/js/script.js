@@ -54,7 +54,7 @@
    */
   Drupal.behaviors.mobileMenu = {
     attach: function (context, settings) {
-      var $menu = $('#block-system-main-menu ul.menu');
+      var $menu = $('#block-system-main-menu ul.menu', context);
       var $wrapper = $menu.wrap('<div class="menu-containter" />').parent();
 
       // Add a menu toggle link for the expandable mobile menu layout.
@@ -80,7 +80,7 @@
    */
   Drupal.behaviors.mobileSearch = {
     attach: function (context, settings) {
-      var $searchContainer = $('#block-slac-search-form');
+      var $searchContainer = $('#block-slac-search-form', context);
       var $searchForm = $searchContainer.find('form');
 
       // Add a toggle link for the expandable mobile search layout.
