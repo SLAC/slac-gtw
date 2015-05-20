@@ -375,11 +375,13 @@ function ct_access_information_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'hidden',
-      'formatter' => 'text_plain',
+      'formatter' => 'telephone_link',
       'delta_limit' => 0,
       'delta_offset' => '0',
       'delta_reversed' => FALSE,
-      'formatter_settings' => array(),
+      'formatter_settings' => array(
+        'title' => '',
+      ),
       'context' => 'argument_entity_id:node_1',
       'override_title' => 0,
       'override_title_text' => '',
