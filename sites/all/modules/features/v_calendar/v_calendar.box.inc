@@ -19,7 +19,7 @@ function v_calendar_default_box() {
   $box->description = 'Calendar Legend';
   $box->options = array(
     'body' => array(
-      'value' => '<ul><li class="access_notices">Access Notices</li><li class="summer_school_programs">Summer School Programs</li><li class="conference_workshops">Conference &amp; Workshops</li><li class="talks_seminars_colloquia">Talks, Seminars, &amp; Colloquia</li><li class="public_event_tours">Public Event &amp; Tours</li><li class="training_development">Training &amp; Development</li><li class="staff_celebrations">Staff Celebrations</li><li class="none">None</li></ul>',
+      'value' => '<ul class="events-color-legend"><li class="event-access-notices">Access Notices</li><li class="event-summer-school-programs">Summer School Programs</li><li class="event-conference-workshops">Conference &amp; Workshops</li><li class="event-talks-seminars-colloquia">Talks, Seminars, &amp; Colloquia</li><li class="event-public-event-tours">Public Event &amp; Tours</li><li class="event-training-development">Training &amp; Development</li><li class="event-staff-celebrations">Staff Celebrations</li><li class="event-none">None</li></ul>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',

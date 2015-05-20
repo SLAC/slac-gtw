@@ -198,7 +198,9 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['filters']['type']['expose']['reduce'] = TRUE;
 
   /* Display: Month */
-  $handler = $view->new_display('page', 'Month', 'page_1');
+  $handler = $view->new_display('page', 'Month', 'calendar_month_view');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'events-calendar calendar-month-view';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'date_views_pager';
   $handler->display->display_options['pager']['options']['date_id'] = 'month';
@@ -240,7 +242,9 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['tab_options']['weight'] = '0';
 
   /* Display: Week */
-  $handler = $view->new_display('page', 'Week', 'page_2');
+  $handler = $view->new_display('page', 'Week', 'calendar_week_view');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'events-calendar calendar-week-view';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'date_views_pager';
   $handler->display->display_options['pager']['options']['date_id'] = 'week';
@@ -278,7 +282,9 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['menu']['context'] = 0;
 
   /* Display: Day */
-  $handler = $view->new_display('page', 'Day', 'page_3');
+  $handler = $view->new_display('page', 'Day', 'calendar_day_view');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'events-calendar calendar-day-view';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'date_views_pager';
   $handler->display->display_options['pager']['options']['date_id'] = 'day';
@@ -315,8 +321,10 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['menu']['context'] = 0;
 
   /* Display: Year */
-  $handler = $view->new_display('page', 'Year', 'page');
+  $handler = $view->new_display('page', 'Year', 'calendar_year_view');
   $handler->display->display_options['enabled'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'events-calendar calendar-year-view';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'date_views_pager';
   $handler->display->display_options['pager']['options']['date_id'] = 'year';
@@ -381,8 +389,10 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['menu']['context'] = 0;
 
   /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block_1');
+  $handler = $view->new_display('block', 'Block', 'event_calendar_block');
   $handler->display->display_options['enabled'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'events-calendar calendar-block-view';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -414,8 +424,10 @@ function v_calendar_views_default_views() {
   );
 
   /* Display: iCal */
-  $handler = $view->new_display('feed', 'iCal', 'feed_1');
+  $handler = $view->new_display('feed', 'iCal', 'event_ical_view');
   $handler->display->display_options['enabled'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'events-calendar calendar-ical-view';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'date_ical';
   $handler->display->display_options['row_plugin'] = 'date_ical';
@@ -451,8 +463,10 @@ function v_calendar_views_default_views() {
   );
 
   /* Display: Upcoming */
-  $handler = $view->new_display('block', 'Upcoming', 'block_2');
+  $handler = $view->new_display('block', 'Upcoming', 'event_upcoming_view');
   $handler->display->display_options['enabled'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'events-calendar calendar-upcoming-view';
   $handler->display->display_options['display_description'] = 'Upcoming events block';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['use_more'] = TRUE;
