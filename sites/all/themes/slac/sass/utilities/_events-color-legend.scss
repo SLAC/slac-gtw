@@ -1,0 +1,20 @@
+// color map
+$color: (
+  color-blue: #4780d1,
+  color-green: #35b635,
+  color-purple: #7e00aa,
+  color-pink: #ff2eba,
+  color-yellow: #e9ce43,
+  color-orange: #e76d00,
+  color-grey: #838383
+);
+
+// color function
+@function color($key) {
+  @if map-has-key($color, $key) {
+    @return map-get($color, $key);
+  }
+ 
+  @warn "This `#{$key}` is not in the $color map.";
+  @return null;
+}
