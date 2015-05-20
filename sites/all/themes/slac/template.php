@@ -274,8 +274,8 @@ function slac_date_nav_title($params) {
       $date_arg = $date_info->year;
       break;
     case 'month':
-      $format = !empty($format) ? $format : (empty($date_info->mini) ? $format_with_year : $format_without_year);
-      $title = date_format_date($date_info->min_date, 'custom', $format);
+      // Title as full month name and year. eg. "November 2014".
+      $title = $date_info->min_date->format('F Y');
       $date_arg = $date_info->year . '-' . date_pad($date_info->month);
       break;
     case 'day':
