@@ -20,8 +20,12 @@ function  slac_migrate_drush_command() {
     'description' => "Deletes all terms from a vocabulary",
     'callback' => 'drush_slac_migrate_delete_terms',
     'arguments' => array(
-      'type' => 'The vocabulary to whose terms you wish to delete.',
+      'vocabulary' => 'The vocabulary to whose terms you wish to delete.',
     ),
+  );
+  $items['delete-feed-nodes'] = array(
+    'description' => "Deletes all slac_news feed nodes",
+    'callback' => 'drush_slac_migrate_delete_feed_nodes',
   );
 
   return $items;
@@ -67,5 +71,20 @@ function drush_slac_migrate_delete_terms() {
       }
       drush_print('Deleted ' . count($tids) . ' ' . $vocab . ' taxonomy terms.');
     }
+  }
+}
+
+/**
+ * Drush callback for deleting nodes created by slac_news feed importers.
+ */
+function drush_slac_migrate_delete_feed_nodes() {
+  $feed_ids = array(219, 230);
+  foreach($feed_ids as $feed_id) {
+    $results = db_query("SELECT entity_id FROM feeds_item WHERE id = 'slac_news' AND feed_nid = :feed_id", array(':feed_id' => $feed_id));
+    foreach($results as $result) {
+      node_delete($result->entity_id);
+      drush_print('Deleted node ' . $result->entity_id);
+    }
+    feeds_source('slac_news', $feed_id)->delete();
   }
 }
