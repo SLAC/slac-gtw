@@ -2440,6 +2440,9 @@ fieldset.collapsed {
   margin-top: 0 !important;
 }
 
+.page-calendar #page-title {
+  display: none;
+}
 .page-calendar .selectize-dropdown .selected {
   background: #CCC;
 }
