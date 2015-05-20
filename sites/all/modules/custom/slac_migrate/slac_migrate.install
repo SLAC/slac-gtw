@@ -10,7 +10,7 @@ function slac_migrate_install() {
 
   // Create the field base.
   if (!field_info_field('field_slac_migrate_tag_store')) {
-    $field = array('field_name' => 'field_slac_migrate_tag_store', 'type' => 'text',);
+    $field = array('field_name' => 'field_slac_migrate_tag_store', 'type' => 'text_long',);
     $field = field_create_field($field);
 
     // Create the field instance.
@@ -57,9 +57,9 @@ function slac_migrate_install() {
         'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'size' => 60,
+          'rows' => 3,
         ),
-        'type' => 'text_textfield',
+        'type' => 'text_textarea',
         'weight' => 41,
       ),
 
