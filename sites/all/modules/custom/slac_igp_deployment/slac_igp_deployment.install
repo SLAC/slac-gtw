@@ -36,6 +36,7 @@ function slac_igp_deployment_install() {
     'scheduler',
     'metatag',
     'token',
+    'fe_block',
     'fe_nodequeue',
     'file_entity',
     'media',
@@ -94,7 +95,6 @@ function slac_igp_deployment_install() {
   _slac_igp_deployment_place_search_block();
   _slac_igp_deployment_place_top_menu_block();
   _slac_igp_deployment_place_main_menu_block();
-  _slac_igp_deployment_place_calendar_legend_box();
 
   // Revert features for pre-existing node types.
   _slac_igp_deployment_revert('ct_access_information');
@@ -157,22 +157,6 @@ function _slac_igp_deployment_place_search_block() {
     ))
     ->condition('module', 'slac_search', '=')
     ->condition('delta', 'form', '=')
-    ->condition('theme', 'slac', '=')
-    ->execute();
-}
-
-/**
- * Places the Calendar Legend box into its region.
- */
-function _slac_igp_deployment_place_calendar_legend_box() {
-  db_update('block')
-    ->fields(array(
-      'status' => 1,
-      'weight' => -38,
-      'region' => 'content_bottom',
-    ))
-    ->condition('module', 'boxes', '=')
-    ->condition('delta', 'calendar_legend', '=')
     ->condition('theme', 'slac', '=')
     ->execute();
 }
@@ -813,9 +797,21 @@ function slac_igp_deployment_update_7039() {
 }
 
 /**
- * Place the new Calender Legend box.
+ * Removed: Place the new Calender Legend box.
  */
 function slac_igp_deployment_update_7040() {
-  drupal_flush_all_caches();
-  _slac_igp_deployment_place_calendar_legend_box();
+}
+
+/**
+ * Enable the Features Extra: Block module.
+ */
+function slac_igp_deployment_update_7041() {
+  $result = module_enable(array(
+    'fe_block',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
 }
