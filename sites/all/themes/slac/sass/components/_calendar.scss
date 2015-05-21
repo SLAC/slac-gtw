@@ -19,6 +19,7 @@
     }
   }
 }
+
 // overrides position of prev - next links
 .date-nav-wrapper .date-prev {
   right: inherit;
@@ -78,14 +79,14 @@
     }
   }
 }
+
 .events-calendar {
   .view-header {
     margin-top: 4rem;
   }
 }
-/**
- * calendar calendar table styles
- */
+
+// calendar calendar table styles
 .calendar-calendar tr.odd, .calendar-calendar tr.even {
   background-color: #fff;
 }
