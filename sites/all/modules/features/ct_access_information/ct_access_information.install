@@ -60,3 +60,10 @@ function ct_access_information_update_7001() {
   _ct_access_information_copy_link_data();
   _ct_access_information_delete_field_link();
 }
+
+/**
+ * Remove the Start Publishing Date field.
+ */
+function ct_access_information_update_7002() {
+  field_delete_field('field_access_start_publishing');
+}
