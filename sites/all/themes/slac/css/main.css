@@ -868,6 +868,68 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   padding-top: 1em;
 }
 
+#block-boxes-calendar-legend {
+  padding-left: 0;
+  border: 3px solid #d5dde1;
+}
+#block-boxes-calendar-legend .block-title {
+  font-size: 16px;
+  font-size: 1rem;
+  background: #eaeef0;
+  margin: 0;
+  padding: .2rem 1rem;
+  border-bottom: 3px solid #d5dde1;
+}
+
+.events-color-legend {
+  padding: 1rem;
+}
+.events-color-legend li {
+  width: 48%;
+  float: left;
+  padding: .2rem 0;
+}
+.events-color-legend li:before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  margin-left: 3px;
+  margin-right: 7px;
+  background: transparent;
+  float: left;
+}
+.events-color-legend .event-access-notices:before {
+  background: url(../images/access-notice-icon.png) 0 0 no-repeat;
+  width: 20px;
+  height: 20px;
+  margin-left: 0;
+  margin-right: 6px;
+  margin-top: 0;
+}
+.events-color-legend .event-summer-school-programs:before {
+  background: #ff2eba;
+}
+.events-color-legend .event-conference-workshops:before {
+  background: #4780d1;
+}
+.events-color-legend .event-public-event-tours:before {
+  background: #35b635;
+}
+.events-color-legend .event-talks-seminars-colloquia:before {
+  background: #e9ce43;
+}
+.events-color-legend .event-training-development:before {
+  background: #e76d00;
+}
+.events-color-legend .event-staff-celebrations:before {
+  background: #7e00aa;
+}
+.events-color-legend .event-none:before {
+  background: #838383;
+}
+
 .selectize-control .selectize-input {
   border: 3px solid #d5dde1;
   font-weight: bold;
@@ -939,9 +1001,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   margin-top: 4rem;
 }
 
-/**
- * calendar calendar table styles
- */
 .calendar-calendar tr.odd, .calendar-calendar tr.even {
   background-color: #fff;
 }
