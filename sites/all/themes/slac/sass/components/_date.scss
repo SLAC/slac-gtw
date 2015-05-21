@@ -1,0 +1,167 @@
+// Original styles came from date module
+/* Pager plugin css */
+div.date-views-pager {
+  margin-left: auto;
+  margin-right: auto;
+}
+div.date-views-pager li {
+  float: left;
+  text-align: left;
+  width: 20%;
+}
+
+div.date-views-pager div.current-page {
+  font-weight: bold;
+  text-align: center;
+}
+div.date-views-pager div.next-month,
+div.date-views-pager div.next-year {
+  text-align: right;
+}
+
+
+/* Views filter form css */
+.views-group-box div.date-views-filter-fieldset {
+  margin-left: 0;
+}
+.views-group-box fieldset.date-views-filter-fieldset {
+  padding-top: 0;
+}
+.views-group-box fieldset.date-views-filter-fieldset .container-inline-date > .form-item {
+  border-width: 0;
+  margin: 9px 3px 0 3px;
+  display: block;
+}
+.views-group-box fieldset.date-views-filter-fieldset .container-inline-date .date-padding {
+  padding: 0;
+}
+
+.date-views-filter-wrapper {
+  min-width: 250px;
+}
+.date-views-filter input {
+  float: left !important; /* LTR */
+  margin-right: 2px !important; /* LTR */
+  min-width: 12em;
+  padding: 0 !important;
+  width: 12em;
+}
+
+/**
+ * Style Header
+ */
+/* Give the navigation bar a little extra padding below so it will clear the new contextual links overlay of the teasers below it. */
+.date-nav {
+  clear: both;
+  padding-bottom: 1.5em;
+  width: 100%;
+}
+
+.date-heading h3 {
+  background: color(grey-blue-light);
+  @include font-size(18px);
+  padding: .3rem;
+
+  @include breakpoint($tablet-small) {
+    @include font-size(24px);
+    padding: .2rem;
+  }
+}
+
+.date-nav-wrapper .clear-block {
+  margin-bottom: 10px;
+}
+
+.date-nav-wrapper  {
+  position: relative;
+  margin-top: 5px;
+  width: 100%;
+
+  .item-list .pager li.date-today {
+    display: none;
+  }
+
+  .item-list .pager li a {
+    background: none;
+  }
+}
+
+.date-nav-wrapper .date-nav {
+  background-color: transparent;
+  border: 0px;
+  height: 30px;
+  height: auto;
+  min-height: 30px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.date-nav-wrapper .date-prev a,
+.date-nav-wrapper .date-next a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 12px;
+}
+
+.date-nav-wrapper.date-nav a:hover {
+  text-decoration: underline;
+}
+
+.date-nav-wrapper .date-prev {
+  padding: 5px 0;
+  position: absolute;
+  left: 0px;
+  text-align: left;
+  top: 0px;
+  width: auto;
+  z-index: 1;
+  font-size: 12px;
+}
+
+.date-nav-wrapper .date-prev {
+  left: 0;
+  right: auto;
+  border-right: 4px solid $white;
+}
+
+.date-nav-wrapper .item-list .pager li.date-prev a {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+  font-size: 0;
+  color: color(grey-blue-light);
+  background: url(../images/right-arrow.png) 100% -62% no-repeat;
+  transform: rotate(180deg);
+}
+
+.date-nav-wrapper .date-heading {
+  position: relative;
+  width: 100%;
+  top: 0px;
+  text-align: center;
+  z-index: 0;
+}
+
+.date-nav-wrapper .date-next {
+  padding: 5px 0;
+  position: absolute;
+  right: 0px;
+  text-align: right;
+  top: 0px;
+  width: auto;
+  z-index: 1;
+  font-size: 12px;
+  border-left: 4px solid $white;
+}
+
+.date-nav-wrapper .item-list .pager li.date-next a {
+  display: block;
+  width: 16px;
+  height: 16px;
+  font-size: 0;
+  color: color(grey-blue-light);
+  margin-right: .6rem;
+  font-weight: bold;
+  background: url(../images/right-arrow.png) 100% 0 no-repeat;
+}
