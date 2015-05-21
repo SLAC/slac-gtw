@@ -173,6 +173,10 @@ abstract class SlacNodeMigration extends DrupalNode6Migration {
       }
     }
   }
+
+  public function complete($node, stdClass $row) {
+    db_query("UPDATE {node_revision} SET status = 1 WHERE vid = :vid", array(':vid' => $node->vid));
+  }
 }
 
 
