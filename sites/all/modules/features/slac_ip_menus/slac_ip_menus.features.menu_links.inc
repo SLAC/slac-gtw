@@ -86,15 +86,13 @@ function slac_ip_menus_menu_default_menu_links() {
     'router_path' => '',
     'link_title' => 'SLAC Public Home',
     'options' => array(
-      'attributes' => array(
-        'target' => '_blank',
-      ),
+      'identifier' => 'menu-top-menu_slac-public-home:http://slac.stanford.edu',
+      'attributes' => array(),
       'item_attributes' => array(
         'id' => '',
         'class' => '',
         'style' => '',
       ),
-      'identifier' => 'menu-top-menu_slac-public-home:http://slac.stanford.edu',
     ),
     'module' => 'menu',
     'hidden' => 0,

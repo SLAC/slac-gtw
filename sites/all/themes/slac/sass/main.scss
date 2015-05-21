@@ -4,6 +4,8 @@
 
 @import "utilities";
 @import "utilities/breakpoints";
+@import "utilities/mixins";
+@import "utilities/events-color-legend";
 
 @import "base/typography";
 @import "base/colors";
@@ -13,13 +15,13 @@
 @import "layouts/grid";
 @import "layouts/layout";
 
-@import "utilities/mixins";
-
 @import "components/access-notice-listing";
 @import "components/author";
 @import "components/buttons";
 @import "components/captions";
 @import "components/event-news-notice";
+@import "components/calendar";
+@import "components/date";
 @import "components/feed-icon";
 @import "components/featured-news";
 @import "components/flag";

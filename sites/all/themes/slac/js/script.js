@@ -54,21 +54,47 @@
    */
   Drupal.behaviors.mobileMenu = {
     attach: function (context, settings) {
-      var $menu = $('#block-system-main-menu ul.menu');
+      var $menu = $('#block-system-main-menu ul.menu', context);
       var $wrapper = $menu.wrap('<div class="menu-containter" />').parent();
 
       // Add a menu toggle link for the expandable mobile menu layout.
-      var $menuToggle = $('<a href="#menu" class="menu-link">Menu</a>');
+      var $menuToggle = $('<a href="#menu" class="mobile-menu-toggle"><span class="hamburger-icon"><span class="icon-menu"></span><span class="icon-menu"></span><span class="icon-menu"></span></span>Menu</a>');
       $wrapper.before($menuToggle);
 
       $menuToggle.click(function (e) {
         e.preventDefault();
-        $(this).add($wrapper).toggleClass('active');
+        $menuToggle.add($wrapper).toggleClass('active');
         if ($wrapper.is(':visible')) {
           $wrapper.hide();
         }
         else {
           $wrapper.show();
+        }
+      });
+    }
+  };
+
+  /**
+   * Add a toggle link to be displayed at mobile breakpoint which will
+   * toggle the class "active" on the search form container and show/hide it.
+   */
+  Drupal.behaviors.mobileSearch = {
+    attach: function (context, settings) {
+      var $searchContainer = $('#block-slac-search-form', context);
+      var $searchForm = $searchContainer.find('form');
+
+      // Add a toggle link for the expandable mobile search layout.
+      var $toggleLink = $('<a href="#search" class="search-link">Search</a>');
+      $searchForm.before($toggleLink);
+
+      $toggleLink.click(function (e) {
+        e.preventDefault();
+        $toggleLink.add($searchContainer).toggleClass('active');
+        if ($searchForm.is(':visible')) {
+          $searchForm.hide();
+        }
+        else {
+          $searchForm.show();
         }
       });
     }
