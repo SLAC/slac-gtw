@@ -717,9 +717,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   width: 100%;
 }
 
-/**
- * IE needs a little help to get the side by side tables to the right size
- */
 .calendar-calendar .year-view td {
   width: 32%;
   padding: 1px;
@@ -756,16 +753,10 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   padding: 0;
 }
 
-/**
- * simplify the mini calendar by removing borders
- */
 .calendar-calendar .mini {
   border: none;
 }
 
-/**
- * format for the week number in the first cell
- */
 .calendar-calendar td.week {
   width: 1%;
   min-width: 1%;
@@ -778,9 +769,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   font-size: 0.8em;
 }
 
-/**
- * IE6 does not support min-height, using Min-Height fast hack from http://www.dustindiaz.com/min-height-fast-hack
- */
 .calendar-calendar .inner {
   height: auto !important;
   height: 5em;
@@ -793,9 +781,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   margin: 0;
 }
 
-/**
- * Make sure paragraphs buried in calendar cells use padding, not margins, for separation so the background color doesn't come through.
- */
 .calendar-calendar .inner p {
   padding: 0 0 .8em 0;
   margin: 0;
@@ -815,9 +800,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   text-align: center;
 }
 
-/**
- * format days of the week header cells
- */
 .calendar-calendar th.days {
   background-color: #eaeef0;
   color: #ccc;
@@ -826,9 +808,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   margin: 0;
 }
 
-/**
- * floating day number div
- */
 .calendar-calendar div.day {
   float: right;
   text-align: center;
@@ -840,9 +819,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   width: 1.5em;
 }
 
-/**
- * individual node container
- */
 .calendar-calendar div.calendar {
   background-color: #fff;
   border: solid 1px #ddd;
@@ -850,13 +826,9 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   margin: 0 .25em .25em 0;
   width: 96%;
   float: right;
-  /* needed to keep IE from hiding the floating day number */
   clear: both;
 }
 
-/**
- * No floating of day view content because there is no floating day number
- */
 .calendar-calendar .day-view div.calendar {
   float: none;
   width: 98%;
@@ -927,9 +899,6 @@ table .mini-day-on a {
   vertical-align: top;
 }
 
-/**
- * formatting for the legend stripe and block
- */
 .calendar-calendar .stripe {
   height: 5px;
   width: auto;
@@ -965,9 +934,6 @@ table.calendar-legend tr.even .stripe {
   line-height: 1px;
 }
 
-/**
- * formatting for the full day view
- */
 .calendar-calendar td.calendar-agenda-hour {
   text-align: right;
   border: none;
@@ -1008,9 +974,6 @@ table.calendar-legend tr.even .stripe {
   background-color: #fff;
 }
 
-/**
- * the popup date selector for jumping to a new date
- */
 .calendar-date-select form {
   text-align: right;
   float: right;
@@ -1080,10 +1043,6 @@ table.calendar-legend tr.even .stripe {
   margin-bottom: 6px;
 }
 
-/**
- * Set small font size for all items in calendar div, themes can override this.
- * Use x-small instead of em to avoid multiplying effect in nested items.
- */
 .calendar-calendar div.calendar {
   border: none;
   font-size: x-small;
@@ -1120,12 +1079,6 @@ table.calendar-legend tr.even .stripe {
   background-color: #C3D6E4;
 }
 
-/**
- * The following are not used by default but are available for themes
- */
-/**
- * Multi day styles
- */
 .calendar-calendar tbody {
   border-top: none;
 }
@@ -1457,9 +1410,6 @@ table.calendar-legend tr.even .stripe {
   border-bottom: 1px solid #CCCCCC;
 }
 
-/**
- * Restyle Header
- */
 .date-nav-wrapper .clear-block {
   margin-bottom: 10px;
 }
@@ -1521,6 +1471,33 @@ table.calendar-legend tr.even .stripe {
   top: 0px;
   text-align: center;
   z-index: 0;
+}
+.date-nav-wrapper .date-heading h3 {
+  background: #eaeef0;
+  font-size: 18px;
+  font-size: 1.125rem;
+  padding: .3rem;
+}
+@media (min-width: 40em) {
+  .date-nav-wrapper .date-heading h3 {
+    font-size: 24px;
+    font-size: 1.5rem;
+    padding: .2rem;
+  }
+}
+@media (min-width: 70em) {
+  .date-nav-wrapper .date-heading {
+    width: 30%;
+    height: 1px;
+    margin: 0 auto;
+    background: transparent;
+  }
+  .date-nav-wrapper .date-heading h3 {
+    background: none;
+    position: relative;
+    bottom: 3.4rem;
+    margin: 0;
+  }
 }
 
 .date-nav-wrapper .date-next {
@@ -1588,6 +1565,15 @@ ul.calendar-links,
   background: #ffffff;
 }
 
+@media (min-width: 70em) {
+  .section-calendar .tabs-primary {
+    margin-right: 20px;
+  }
+
+  .calendar-month-view .date-today {
+    display: block;
+  }
+}
 .calendar-calendar tr.holder {
   height: 0px;
   display: table-row !important;
@@ -2475,28 +2461,10 @@ div.date-views-pager div.next-year {
   width: 12em;
 }
 
-/**
- * Style Header
- */
-/* Give the navigation bar a little extra padding below so it will clear the new contextual links overlay of the teasers below it. */
 .date-nav {
   clear: both;
   padding-bottom: 1.5em;
   width: 100%;
-}
-
-.date-heading h3 {
-  background: #eaeef0;
-  font-size: 18px;
-  font-size: 1.125rem;
-  padding: .3rem;
-}
-@media (min-width: 40em) {
-  .date-heading h3 {
-    font-size: 24px;
-    font-size: 1.5rem;
-    padding: .2rem;
-  }
 }
 
 .date-nav-wrapper .clear-block {
@@ -2508,11 +2476,31 @@ div.date-views-pager div.next-year {
   margin-top: 5px;
   width: 100%;
 }
+.date-nav-wrapper .item-list .pager {
+  margin: 0;
+}
 .date-nav-wrapper .item-list .pager li.date-today {
   display: none;
 }
+@media (min-width: 70em) {
+  .date-nav-wrapper .item-list .pager li.date-today {
+    display: block;
+    width: 194px;
+    padding-top: .3rem;
+    text-align: center;
+  }
+}
 .date-nav-wrapper .item-list .pager li a {
   background: none;
+}
+@media (min-width: 70em) {
+  .date-nav-wrapper .item-list .pager {
+    width: 200px;
+    height: 34px;
+    background: #eaeef0;
+    position: relative;
+    bottom: 3.4rem;
+  }
 }
 
 .date-nav-wrapper .date-nav {
@@ -2564,14 +2552,6 @@ div.date-views-pager div.next-year {
   transform: rotate(180deg);
 }
 
-.date-nav-wrapper .date-heading {
-  position: relative;
-  width: 100%;
-  top: 0px;
-  text-align: center;
-  z-index: 0;
-}
-
 .date-nav-wrapper .date-next {
   padding: 5px 0;
   position: absolute;
@@ -2582,6 +2562,11 @@ div.date-views-pager div.next-year {
   z-index: 1;
   font-size: 12px;
   border-left: 4px solid #ffffff;
+}
+@media (min-width: 70em) {
+  .date-nav-wrapper .date-next {
+    left: 140px;
+  }
 }
 
 .date-nav-wrapper .item-list .pager li.date-next a {
