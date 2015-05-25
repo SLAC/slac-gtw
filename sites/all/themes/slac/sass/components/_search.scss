@@ -4,12 +4,14 @@
   }
 }
 
-@media all and (max-width: $tablet-large) {
+@media all and (max-width: $desktop) {
   #block-slac-search-form {
-    position: absolute;
-    top: 0;
-    background: $light-blue;
     width: 100%;
+    background: $light-blue;
+    position: relative;
+    top: 0px;
+    display: table;
+    height: 95px;
   }
 
   a.search-link {
@@ -31,35 +33,18 @@
 
   .form-item-search-type {
     position: absolute;
-    top: 30px;
+    top: 20px;
   }
 }
 
 #slac-search-block-form {
-  @include breakpoint($mobile) {
-    display: block;
-    clear: both;
-    background: $light-blue;
-    position: relative;
-    left: 150px;
-    padding: 1rem 0;
-    height: 60px;
-    width: 85%;
-  }
+  width: 185px;
+  position: relative;
+  margin-left: 40%;
+  margin-top: 1rem;
 
-  @media all and (min-width: 479px) {
-    left: 175px;
-  }
-
-  @media all and (min-width: 569px) {
-    left: 220px;
-  }
-  @include breakpoint ($tablet-small) {
-    left: 300px;
-  }
-
-  @media all and (max-width: $tablet-large) {
-      right: 370px;
+  @include breakpoint($tablet-small) {
+    margin: 1rem auto;
   }
 
   @include breakpoint($desktop) {
@@ -67,10 +52,19 @@
     left: 0;
     top: 0;
     padding: 0;
+    margin: 0;
     background: none;
   }
 }
 
+@include breakpoint($desktop) {
+  #block-slac-search-form {
+    display: block;
+    float: right;
+    position: relative;
+    right: 0;
+  }
+}
 
 .section-search .title {
   @include zen-grid-item(6, 2);

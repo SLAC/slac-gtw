@@ -8,8 +8,15 @@ $zen-column-count: 12;
 }
 
 #header {
+  width: 100%;
   height: 52px;
   margin: 0 auto;
+  padding: 0;
+
+  @include breakpoint($desktop) {
+    width: 98%;
+    padding: 0 1%;
+  }
 
   .block-slac-search .contextual-links-wrapper {
     display: none;
@@ -29,6 +36,11 @@ $zen-column-count: 12;
     background-image: url(../logo.svg), none;
     float: right;
 
+    @include breakpoint($tablet-small) {
+      float: left;
+      margin-left: 10px;
+    }
+
     span {
       display: block;
       width: 0;
@@ -47,6 +59,13 @@ $zen-column-count: 12;
       font-weight: bold;
       color: $white;
       position: absolute;
+      left: 150px;
+      top: 14px;
+
+      @include breakpoint($desktop) {
+        left: initial;
+        top: initial;
+      }
     }
 
     @include breakpoint($desktop) {
@@ -54,53 +73,15 @@ $zen-column-count: 12;
     }
   }
 
-  @include breakpoint($tablet-large) {
-    .logo {
-      @include zen-grid-item(2, 1);
-    }
-  }
-
   .header__region {
     @include breakpoint($desktop) {
-      @include zen-grid-item(10, 3);
       @include zen-nested-container();
       padding-top: 12px;
     }
-  }
 
-  #block-menu-menu-top-menu {
-    @include breakpoint($mobile) {
-      display: block;
+    #block-system-main-menu {
+      margin-top: 8px;
     }
-    display: none;
-    float: left;
-    width: 46%;
-    padding-left: 0;
-    padding-right: 0;
-
-    @media all and (min-width: 860px) {
-      @include zen-grid-item(7, 1);
-    }
-
-    @media all and (min-width: 960px) {
-      @include zen-grid-item(7, 1);
-      padding-right: 0;
-    }
-
-    @include breakpoint($desktop) {
-      display: block;
-    }
-  }
-
-  #block-slac-search-form {
-    display: block;
-    float: right;
-    position: relative;
-    right: 0;
-  }
-
-  #block-system-main-menu {
-    margin-top: 8px;
   }
 }
 

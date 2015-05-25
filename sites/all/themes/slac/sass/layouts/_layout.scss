@@ -36,7 +36,7 @@ $zen-column-count: 12;
       @include zen-grid-item(7, 2);
     }
   }
-  
+
   .general-right {
     @include zen-grid-item(12, 1);
     float: none;
@@ -53,6 +53,18 @@ $zen-column-count: 12;
       border-left: none;
       padding-left: 0;
     }
+  }
+}
+
+@include breakpoint($tablet-large) {
+  .logo {
+    @include zen-grid-item(2, 1);
+  }
+}
+
+.header__region {
+  @include breakpoint($desktop) {
+    @include zen-grid-item(10, 3);
   }
 }
 
