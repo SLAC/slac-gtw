@@ -30,12 +30,17 @@
       width: 250px;
     }
   }
+
   .date-today {
     display: none;
   }
 }
 
 .section-calendar {
+
+  .view-filters {
+    display: none;
+  }
   .tabs-primary {
     position: relative;
     top: 160px;
@@ -43,6 +48,7 @@
     width: 236px;
     margin-right: auto;
     margin-left: auto;
+    z-index: 10;
 
     li {
       border-radius: 0;
@@ -99,6 +105,7 @@
 .calendar-calendar tr.odd, .calendar-calendar tr.even {
   background-color: #fff;
 }
+
 .calendar-calendar table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -165,6 +172,13 @@
   vertical-align: top;
   margin: 0;
   padding: 0;
+}
+
+.calendar-calendar .week-view .full {
+  border: 2px solid color(grey-blue);
+}
+.calendar-calendar .week-view .date-day td {
+  border-bottom: none;
 }
 
 // simplify the mini calendar by removing borders
@@ -241,7 +255,7 @@
 
 // individual node container
 .calendar-calendar div.calendar {
-  background-color: #fff;
+  background-color: transparent;
   border: solid 1px #ddd;
   text-align: left;
   margin: 0 .25em .25em 0;
@@ -285,7 +299,8 @@ table th.mini,
 table.mini td.week {
   padding: 0 1px 0 0;
   margin: 0;
-  }
+}
+
 table td.mini a {
   font-weight: normal;
 }
@@ -360,7 +375,7 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar td.calendar-agenda-hour {
   text-align: right;
   border: none;
-  border-top: 1px solid #CCCCCC;
+  border-top: 2px solid color(grey-blue);
   padding-top: .25em;
   width: 1%;
 }
@@ -379,7 +394,9 @@ table.calendar-legend tr.even .stripe {
 }
 
 .calendar-calendar td.calendar-agenda-items {
-  border: 1px solid #CCCCCC;
+  border: 2px solid color(grey-blue);
+  border-top: none;
+  border-bottom: none;
   text-align: left;
 }
 
@@ -609,7 +626,7 @@ table.calendar-legend tr.even .stripe {
 }
 
 .calendar-calendar .week-view .full .first td.multi-day {
-  border-top: 1px solid #CCCCCC;
+  border-bottom: none;
 }
 
 .calendar-calendar .month-view .full td.single-day {
@@ -661,7 +678,13 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .month-view .full td.single-day .inner > div {
   padding-right: 2px;
   border-left: 3px solid orange;
-  margin: 2px 3px;
+  margin: .2rem;
+}
+
+.calendar-calendar .week-view .full td.multi-day .inner > div,
+.calendar-calendar .week-view .full td.single-day .inner > div {
+  border-left: 3px solid orange;
+  margin-left: .2rem;
 }
 
 .calendar-calendar .day-view .full td .inner div.calendar div.stripe {
@@ -707,9 +730,15 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .week-view .full td.single-day div.weekview,
 .calendar-calendar .day-view .full td.single-day div.dayview {
   background: color(event-item-grey);
-  width: auto;
-  padding: 3px 2px 3px 8px;
+  width: 92%;
+  padding: .5rem;
   overflow: hidden;
+}
+
+.calendar-calendar .week-view .full td.single-day div.weekview,
+.calendar-calendar .day-view .full td.single-day div.dayview {
+  width: 89%;
+  margin-left: 0;
 }
 
 .calendar-calendar .month-view .full td.single-day .calendar-more div.monthview {
@@ -814,7 +843,7 @@ table.calendar-legend tr.even .stripe {
   right: -1px;
   width: 10px;
   text-align: left;
-  background: #74a5d7;
+  background: transparent;
   height: 1.9em;
   padding-left: 6px;
   z-index: 1;
@@ -843,7 +872,8 @@ table.calendar-legend tr.even .stripe {
 }
 
 .calendar-calendar .week-view .full tr.last td.multi-day {
-  border-bottom:1px solid #CCCCCC;
+  border-top: none;
+  border-bottom: none;
 }
 
 // Restyle Header
@@ -1003,7 +1033,7 @@ ul.calendar-links,
 // calendar for desktop
 @include breakpoint($desktop) {
   .section-calendar .tabs-primary {
-    margin-right: 20px;
+    margin-right: 9%;
   }
 
   .calendar-month-view {

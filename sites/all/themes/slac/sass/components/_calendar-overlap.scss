@@ -1,6 +1,6 @@
 // Overlapping week items
 // File originated in calendar module
- 
+
 .calendar-calendar tr.holder {
   height: 0px;
   display: table-row !important;
@@ -230,10 +230,10 @@
 
 .calendar-calendar .day-view .full td.multi-day div.dayview,
 .calendar-calendar .week-view .full td.multi-day div.weekview {
-  min-height: 90px;
-  padding: 5px;
-  width: 250px;
-  float: left;
+  padding: .5rem 0;
+  width: 98%;
+  margin: .2rem;
+  margin-left: 0;
 }
 
 .calendar-calendar .day-view .full td.multi-day .calendar.dayview .contents div,
