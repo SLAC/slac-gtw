@@ -36,6 +36,10 @@
 }
 
 .section-calendar {
+
+  .view-filters {
+    display: none;
+  }
   .tabs-primary {
     position: relative;
     top: 160px;
@@ -1003,7 +1007,7 @@ ul.calendar-links,
 // calendar for desktop
 @include breakpoint($desktop) {
   .section-calendar .tabs-primary {
-    margin-right: 20px;
+    margin-right: 9%;
   }
 
   .calendar-month-view {
