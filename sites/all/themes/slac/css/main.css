@@ -524,9 +524,9 @@ table th.active {
 
 .events-calendar {
   float: left;
-  width: 100%;
-  margin-left: 0%;
-  margin-right: -100%;
+  width: 83.33333%;
+  margin-left: 8.33333%;
+  margin-right: -91.66667%;
   padding-left: 20px;
   padding-right: 20px;
   -moz-box-sizing: border-box;
@@ -534,6 +534,13 @@ table th.active {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   word-wrap: break-word;
+}
+
+.region-content-bottom {
+  width: 100%;
+  max-width: 1432px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
 }
 
 .page-access .title {
@@ -663,6 +670,9 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   display: none;
 }
 
+.section-calendar .view-filters {
+  display: none;
+}
 .section-calendar .tabs-primary {
   position: relative;
   top: 160px;
@@ -1602,7 +1612,7 @@ ul.calendar-links,
 
 @media (min-width: 70em) {
   .section-calendar .tabs-primary {
-    margin-right: 20px;
+    margin-right: 9%;
   }
 
   .calendar-month-view .date-today {
@@ -2882,21 +2892,46 @@ div.date-views-pager div.next-year {
   padding-top: 1em;
 }
 
+.region-content-bottom {
+  background: #ffffff;
+}
+
 #block-boxes-calendar-legend {
+  font-size: 14px;
+  font-size: 0.875rem;
+  margin-left: 10%;
   padding-left: 0;
   border: 3px solid #d5dde1;
+  width: 90%;
+  max-width: 300px;
+}
+@media (min-width: 40em) {
+  #block-boxes-calendar-legend {
+    max-width: 500px;
+  }
 }
 #block-boxes-calendar-legend .block-title {
-  font-size: 16px;
-  font-size: 1rem;
+  font-size: 14px;
+  font-size: 0.875rem;
   background: #eaeef0;
   margin: 0;
   padding: .2rem 1rem;
   border-bottom: 3px solid #d5dde1;
 }
 
+#boxes-box-calendar_legend:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .events-color-legend {
   padding: 1rem;
+}
+.events-color-legend:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 .events-color-legend li {
   width: 48%;

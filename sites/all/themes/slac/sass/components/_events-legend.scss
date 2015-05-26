@@ -1,9 +1,20 @@
+.region-content-bottom {
+  background: $white;
+}
 #block-boxes-calendar-legend {
+  @include font-size(14px);
+  margin-left: 10%;
   padding-left: 0;
   border: 3px solid color(grey-blue);
+  width: 90%;
+  max-width: 300px;
+
+  @include breakpoint($tablet-small) {
+    max-width: 500px;
+  }
 
   .block-title {
-    @include font-size(16px);
+    @include font-size(14px);
     background: color(grey-blue-light);
     margin: 0;
     padding: .2rem 1rem;
@@ -11,7 +22,12 @@
   }
 }
 
+#boxes-box-calendar_legend {
+  @include clearfix;
+}
+
 .events-color-legend {
+  @include clearfix;
   padding: 1rem;
 
   li {
