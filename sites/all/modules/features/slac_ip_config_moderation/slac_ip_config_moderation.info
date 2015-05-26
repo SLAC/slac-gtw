@@ -10,6 +10,7 @@ dependencies[] = features
 dependencies[] = rules
 dependencies[] = strongarm
 dependencies[] = token
+dependencies[] = scheduler_workbench
 dependencies[] = workbench
 dependencies[] = workbench_email
 dependencies[] = workbench_moderation
