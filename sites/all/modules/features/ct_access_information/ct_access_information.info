@@ -86,5 +86,3 @@ features[variable][] = scheduler_unpublish_required_access_information
 features[variable][] = scheduler_unpublish_revision_access_information
 features[variable][] = scheduler_use_vertical_tabs_access_information
 features[variable][] = workbench_moderation_default_state_access_information
-features_exclude[field_base][field_access_start_publishing] = field_access_start_publishing
-features_exclude[field_instance][node-access_information-field_access_start_publishing] = node-access_information-field_access_start_publishing
