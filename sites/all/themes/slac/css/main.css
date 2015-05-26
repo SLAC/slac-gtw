@@ -3948,7 +3948,6 @@ fieldset.collapsed {
     margin: 0;
     padding: 0;
     background: #ffffff;
-    padding: 0;
   }
 
   #block-system-main-menu {
@@ -4103,6 +4102,20 @@ fieldset.collapsed {
     color: #316dae;
   }
 }
+@media (min-width: 20em) {
+  #block-system-main-menu .menu {
+    display: none;
+  }
+  #block-system-main-menu .menu.active {
+    display: block;
+  }
+}
+@media (min-width: 70em) {
+  #block-system-main-menu .menu {
+    display: block;
+  }
+}
+
 .general-left .item-list .pager li {
   background: none;
   display: inline-block;
@@ -4286,6 +4299,14 @@ fieldset.collapsed {
   margin-left: 40%;
   margin-top: 1rem;
 }
+@media (min-width: 20em) {
+  #slac-search-block-form {
+    display: none;
+  }
+  #slac-search-block-form.active {
+    display: block;
+  }
+}
 @media (min-width: 40em) {
   #slac-search-block-form {
     margin: 1rem auto;
@@ -4293,6 +4314,7 @@ fieldset.collapsed {
 }
 @media (min-width: 70em) {
   #slac-search-block-form {
+    display: block;
     width: 100%;
     left: 0;
     top: 0;

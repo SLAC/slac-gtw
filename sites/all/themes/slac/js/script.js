@@ -55,20 +55,20 @@
   Drupal.behaviors.mobileMenu = {
     attach: function (context, settings) {
       var $menu = $('#block-system-main-menu ul.menu', context);
-      var $wrapper = $menu.wrap('<div class="menu-containter" />').parent();
+      var $menuWrapper = $menu.wrap('<div class="menu-containter" />').parent();
 
       // Add a menu toggle link for the expandable mobile menu layout.
       var $menuToggle = $('<a href="#menu" class="mobile-menu-toggle"><span class="hamburger-icon"><span class="icon-menu"></span><span class="icon-menu"></span><span class="icon-menu"></span></span>Menu</a>');
-      $wrapper.before($menuToggle);
+      $menuWrapper.before($menuToggle);
 
       $menuToggle.click(function (e) {
         e.preventDefault();
-        $menuToggle.add($wrapper).toggleClass('active');
-        if ($wrapper.is(':visible')) {
-          $wrapper.hide();
+
+        if ($menu.is(':visible')) {
+          $menuToggle.add($menu).removeClass('active');
         }
         else {
-          $wrapper.show();
+          $menuToggle.add($menu).addClass('active');
         }
       });
     }
@@ -89,12 +89,12 @@
 
       $toggleLink.click(function (e) {
         e.preventDefault();
-        $toggleLink.add($searchContainer).toggleClass('active');
+
         if ($searchForm.is(':visible')) {
-          $searchForm.hide();
+          $toggleLink.add($searchForm).removeClass('active');
         }
         else {
-          $searchForm.show();
+          $toggleLink.add($searchForm).addClass('active');
         }
       });
     }
