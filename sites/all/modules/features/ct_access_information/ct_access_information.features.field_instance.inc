@@ -94,74 +94,6 @@ function ct_access_information_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-access_information-field_access_start_publishing'
-  $field_instances['node-access_information-field_access_start_publishing'] = array(
-    'bundle' => 'access_information',
-    'default_value' => array(
-      0 => array(
-        'value' => 5,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => 'Enter the number of days before the Access Restrictions start that you want to start publishing this notice (it automatically stops publishing on the Access Restriction end date).',
-    'display' => array(
-      'access_listing' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 14,
-      ),
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 10,
-      ),
-      'news_archive' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 15,
-      ),
-      'search_result' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 16,
-      ),
-      'slac_term_listing' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 14,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_access_start_publishing',
-    'label' => 'Start Publishing Date',
-    'required' => 1,
-    'settings' => array(
-      'max' => 365,
-      'min' => 0,
-      'prefix' => '',
-      'suffix' => 'days',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 4,
-    ),
-  );
-
   // Exported field_instance: 'node-access_information-field_event_date'
   $field_instances['node-access_information-field_event_date'] = array(
     'bundle' => 'access_information',
@@ -1310,7 +1242,6 @@ function ct_access_information_field_default_field_instances() {
   t('Contact Email');
   t('Contact Name');
   t('Contact Phone');
-  t('Enter the number of days before the Access Restrictions start that you want to start publishing this notice (it automatically stops publishing on the Access Restriction end date).');
   t('Existing / New');
   t('Existing URL');
   t('If this Item is being promoted as news, this is the title that will display when it appears in News listings.');
@@ -1324,7 +1255,6 @@ function ct_access_information_field_default_field_instances() {
   t('Related Files');
   t('Related Links');
   t('Select ‘Enter Details’ option to create a new web page. Select ‘Link to Existing URL’ to redirect users to an already existing web page instead.');
-  t('Start Publishing Date');
   t('Tags');
 
   return $field_instances;
