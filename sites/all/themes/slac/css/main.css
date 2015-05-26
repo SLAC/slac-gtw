@@ -636,25 +636,29 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   outline: none;
 }
 
-.selectize-control .selectize-input {
-  border: 3px solid #d5dde1;
-  font-weight: bold;
-  padding: .3rem;
-  background: url(../images/menu-expanded.png) 95% 14px no-repeat;
-}
-.selectize-control.multi .selectize-input > div {
-  background: none;
-  border: none;
-  margin: 0;
-}
-.selectize-control.multi .selectize-input > div.active {
-  background: none;
-}
-
 .date-nav-wrapper .date-prev {
   right: inherit;
 }
 
+.calendar-month-view .selectize-control .selectize-input {
+  border: 3px solid #d5dde1;
+  font-weight: bold;
+  padding: .3rem;
+  background: url(../images/down-arrow.png) 95% 14px no-repeat;
+}
+.calendar-month-view .selectize-control.multi .selectize-input > div {
+  background: none;
+  border: none;
+  margin: 0;
+}
+.calendar-month-view .selectize-control.multi .selectize-input > div.active {
+  background: none;
+}
+@media (min-width: 40em) {
+  .calendar-month-view .selectize-control {
+    width: 250px;
+  }
+}
 .calendar-month-view .date-today {
   display: none;
 }
@@ -1605,6 +1609,20 @@ ul.calendar-links,
     display: block;
   }
 }
+.page-calendar .selectize-dropdown .option {
+  font-weight: bold;
+  background: #ffffff;
+}
+.page-calendar .selectize-dropdown .option:hover {
+  background: #eeeeee;
+}
+.page-calendar .selectize-dropdown .selected {
+  background: #eeeeee !important;
+}
+.page-calendar .selectize-dropdown:hover {
+  background: #ffffff;
+}
+
 .calendar-calendar tr.holder {
   height: 0px;
   display: table-row !important;
