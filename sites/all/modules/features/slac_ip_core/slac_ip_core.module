@@ -74,6 +74,11 @@ function slac_ip_core_date_format_types() {
  */
 function slac_ip_core_field_formatter_info() {
   return array(
+    'slac_classname_formatter' => array(
+      'label' => t('SLAC CSS Classname'),
+      'description' => t('Format a term name as a CSS classname.'),
+      'field types' => array('taxonomy_term_reference'),
+    ),
     'slac_event_date_formatter' => array(
       'label' => t('SLAC Custom Event Date Format'),
       'field types' => array('datetime'),
@@ -92,6 +97,13 @@ function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $insta
   $element = array();
 
   switch ($display['type']) {
+    case 'slac_classname_formatter':
+      foreach ($items as $delta => $item) {
+        $term = taxonomy_term_load($item['tid']);
+        $element[$delta] = array('#markup' => drupal_html_class($term->name));
+      }
+      break;
+
     case 'slac_event_date_formatter':
       foreach ($items as $delta => $item) {
         list($value1, $value2) = _slac_ip_core_create_datetimes($item);
