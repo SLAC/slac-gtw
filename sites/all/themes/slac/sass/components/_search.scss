@@ -43,11 +43,21 @@
   margin-left: 40%;
   margin-top: 1rem;
 
+  // Hide the search form by default when the toggle is available.
+  @include breakpoint($mobile) {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
   @include breakpoint($tablet-small) {
     margin: 1rem auto;
   }
 
   @include breakpoint($desktop) {
+    display: block;
     width: 100%;
     left: 0;
     top: 0;

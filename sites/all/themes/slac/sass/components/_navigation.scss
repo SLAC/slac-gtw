@@ -65,7 +65,6 @@
       margin: 0;
       padding: 0;
       background: $white;
-      padding: 0;
     }
   }
 
@@ -227,6 +226,22 @@
         background: $white;
         color: $blue;
       }
+    }
+  }
+}
+
+// Hide the menu by default when the toggle is available.
+#block-system-main-menu {
+  .menu {
+    @include breakpoint($mobile) {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+    @include breakpoint($desktop) {
+      display: block;
     }
   }
 }
