@@ -67,3 +67,12 @@ function ct_access_information_custom_add() {
 
   return $content;
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ct_access_information_form_access_information_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['#attached']['js'] = array(
+    drupal_get_path('module', 'ct_access_information') . '/js/ct_access_information.js',
+  );
+}
