@@ -651,7 +651,7 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   border: 3px solid #d5dde1;
   font-weight: bold;
   padding: .3rem;
-  background: url(../images/down-arrow.png) 95% 14px no-repeat;
+  background: url(../images/down-arrow.png) 95% 12px no-repeat;
 }
 .calendar-month-view .selectize-control.multi .selectize-input > div {
   background: none;
@@ -1652,12 +1652,29 @@ ul.calendar-links,
     display: block;
   }
 }
+.page-calendar .selectize-dropdown-content {
+  border: 3px solid #d5dde1;
+  border-top: none;
+}
 .page-calendar .selectize-dropdown .option {
+  color: #849ba6;
   font-weight: bold;
   background: #ffffff;
 }
+.page-calendar .selectize-dropdown .option:before {
+  content: "\25A1";
+  font-size: 26px;
+  font-size: 1.625rem;
+  margin-right: 6px;
+}
 .page-calendar .selectize-dropdown .option:hover {
   background: #eeeeee;
+}
+.page-calendar .selectize-dropdown .option.selected:before {
+  content: "\2611";
+  font-size: 22px;
+  font-size: 1.375rem;
+  margin-right: 4px;
 }
 .page-calendar .selectize-dropdown .selected {
   background: #eeeeee !important;

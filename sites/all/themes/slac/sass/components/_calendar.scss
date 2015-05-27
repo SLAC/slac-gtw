@@ -13,7 +13,7 @@
       border: 3px solid color(grey-blue);
       font-weight: bold;
       padding: .3rem;
-      background: url(../images/down-arrow.png) 95% 14px no-repeat;
+      background: url(../images/down-arrow.png) 95% 12px no-repeat;
     }
 
     &.multi .selectize-input > div {
@@ -1052,22 +1052,41 @@ ul.calendar-links,
   }
 }
 
-.page-calendar .selectize-dropdown {
-  .option {
-    color: color(grey-blue-dark);
-    font-weight: bold;
-    background: $white;
+.page-calendar {
+  .selectize-dropdown-content {
+    border: 3px solid color(grey-blue);
+    border-top: none;
+  }
+
+  .selectize-dropdown {
+    .option {
+      color: color(grey-blue-dark);
+      font-weight: bold;
+      background: $white;
+
+      &:before {
+        content: "\25A1";
+        @include font-size(26px);
+        margin-right: 6px;
+      }
+
+      &:hover {
+        background: color(weekend-grey);
+      }
+
+      &.selected:before {
+        content: "\2611";
+        @include font-size(22px);
+        margin-right: 4px;
+      }
+    }
+
+    .selected {
+      background: color(weekend-grey) !important;
+    }
 
     &:hover {
-      background: color(weekend-grey);
+      background: $white;
     }
-  }
-
-  .selected {
-    background: color(weekend-grey) !important;
-  }
-
-  &:hover {
-    background: $white;
   }
 }
