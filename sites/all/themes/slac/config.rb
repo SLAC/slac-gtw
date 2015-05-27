@@ -56,3 +56,4 @@ line_comments = false
 sass_options = (environment == :development && firesass == true) ? {:debug_info => true} : {}
 
 require 'breakpoint'
+# sourcemap = true

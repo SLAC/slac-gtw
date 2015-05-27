@@ -1,6 +1,10 @@
 (function ($) {
   'use strict';
 
+  // Hide the Views filters for users with JS.
+  // See /sites/all/themes/slac/sass/components/_calendar.scss
+  $('html').addClass('js');
+
   Drupal.behaviors.calendarFilters = {
     attach: function (context, settings) {
 
@@ -213,9 +217,6 @@
         // Submit the filter form to apply the new values.
         $viewForm.find('.form-submit').click();
       });
-
-      // Hide the Views filters.
-      //$viewForm.hide();
     }
   };
 

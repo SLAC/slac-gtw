@@ -670,9 +670,10 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   display: none;
 }
 
-.section-calendar .view-filters {
+.js .section-calendar .view-filters {
   display: none;
 }
+
 .section-calendar .tabs-primary {
   position: relative;
   top: 160px;
