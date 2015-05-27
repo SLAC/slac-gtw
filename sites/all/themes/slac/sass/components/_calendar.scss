@@ -35,11 +35,12 @@
   }
 }
 
+.js .section-calendar .view-filters {
+  display: none;
+}
+
 .section-calendar {
 
-  .view-filters {
-    display: none;
-  }
   .tabs-primary {
     position: relative;
     top: 160px;
