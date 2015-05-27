@@ -173,6 +173,16 @@ function slac_file_entity_download_link($variables) {
 }
 
 /**
+ * Implements template__preprocess_html().
+ */
+function slac_preprocess_html(&$variables) {
+  $user = $variables['user'];
+  if ($user->uid == 1 || in_array('editor', $user->roles)) {
+    $variables['classes_array'][] = 'can-moderate';
+  }
+}
+
+/**
 * @implements hook_preprocess_node()
 */
 function slac_preprocess_node(&$variables, $hook) {

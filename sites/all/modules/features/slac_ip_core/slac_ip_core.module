@@ -7,6 +7,30 @@
 include_once 'slac_ip_core.features.inc';
 
 /**
+ * Implements hook_menu_alter().
+ *
+ * Adds custom access callback to hide the node view tab from non-editor users.
+ */
+function slac_ip_core_menu_alter(&$items) {
+  $items['node/%node/view']['access callback'] = 'slac_ip_core_node_view_access';
+}
+
+/**
+ * Menu access callback.
+ * Don't render a 'View published' tab for normal users.
+ *
+ * @return bool
+ */
+function slac_ip_core_node_view_access() {
+  global $user;
+
+  if ($user->uid != 1 && !in_array('editor', $user->roles)) {
+    return FALSE;
+  }
+  return TRUE;
+}
+
+/**
  * Implements hook_entity_info().
  *
  * Defines new custom view modes for nodes.
