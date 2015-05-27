@@ -114,6 +114,11 @@
   width: 100%; /* Setting at 100% causes problem in Internet Explorer. */
 }
 
+.calendar-calendar .day-view {
+  border-bottom: 2px solid color(grey-blue);
+  border-right: 2px solid color(grey-blue);
+}
+
 .weekend {
   background: color(weekend-grey);
 }
@@ -398,6 +403,10 @@ table.calendar-legend tr.even .stripe {
   border-top: none;
   border-bottom: none;
   text-align: left;
+}
+
+.calendar-calendar .day-view td.calendar-agenda-items {
+  border: 2px solid color(grey-blue);
 }
 
 .calendar-calendar td.calendar-agenda-items div.calendar {
