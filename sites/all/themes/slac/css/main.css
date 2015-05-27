@@ -739,6 +739,11 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   /* Setting at 100% causes problem in Internet Explorer. */
 }
 
+.calendar-calendar .day-view {
+  border-bottom: 2px solid #d5dde1;
+  border-right: 2px solid #d5dde1;
+}
+
 .weekend {
   background: #eeeeee;
 }
@@ -1014,6 +1019,10 @@ table.calendar-legend tr.even .stripe {
   border-top: none;
   border-bottom: none;
   text-align: left;
+}
+
+.calendar-calendar .day-view td.calendar-agenda-items {
+  border: 2px solid #d5dde1;
 }
 
 .calendar-calendar td.calendar-agenda-items div.calendar {
@@ -1697,11 +1706,17 @@ ul.calendar-links,
 .calendar-calendar .day-view .single-day-footer,
 .calendar-calendar .day-view .header-body-divider {
   background: #eeeeee;
-  border-left: 1px solid #CCCCCC;
-  border-right: 1px solid #CCCCCC;
+  border-left: 2px solid #d5dde1;
+  border-right: 2px solid #d5dde1;
   font-size: 1px;
   height: 4px;
   line-height: 1px;
+}
+
+.calendar-calendar .day-view .single-day-footer,
+.calendar-calendar .day-view .header-body-divider {
+  background: transparent;
+  height: 0;
 }
 
 .calendar-calendar .week-view #multi-day-container,
@@ -1712,8 +1727,13 @@ ul.calendar-links,
   background: #ffffff;
   overflow-y: scroll;
   overflow-x: hidden;
-  border-left: 1px solid #CCCCCC;
-  border-bottom: 1px solid #CCCCCC;
+  border-left: 2px solid #d5dde1;
+  border-bottom: 2px solid #d5dde1;
+}
+
+.calendar-calendar .day-view #multi-day-container,
+.calendar-calendar .day-view #single-day-container {
+  border-bottom: none;
 }
 
 .calendar-calendar .week-view #multi-day-container,
@@ -1725,12 +1745,16 @@ ul.calendar-links,
 .calendar-calendar .day-view #day-header-container {
   width: 100%;
   background: #ffffff;
-  border-bottom: 1px solid #CCCCCC;
+  border-bottom: 2px solid #d5dde1;
 }
 
 .calendar-calendar .week-view #multi-day-container,
 .calendar-calendar .day-view #multi-day-container {
   height: 57px;
+}
+
+.calendar-calendar .day-view #multi-day-container {
+  min-height: 100px;
 }
 
 .calendar-calendar .week-view #multi-day-container .expand {
@@ -1756,8 +1780,12 @@ ul.calendar-links,
 
 .calendar-calendar .week-view #single-day-container,
 .calendar-calendar .day-view #single-day-container {
-  border-top: 1px solid #CCCCCC;
+  border-top: 2px solid #d5dde1;
   height: 500px;
+}
+
+.calendar-calendar .day-view #single-day-container {
+  border-top: none;
 }
 
 .calendar-calendar .week-view #single-day-container table td,
@@ -1810,8 +1838,12 @@ ul.calendar-links,
 .calendar-calendar .week-view .full div.calendar-agenda-hour span,
 .calendar-calendar .day-view .full div.calendar-agenda-hour span {
   font-size: .8em;
-  font-weight: normal;
   margin-right: 0px;
+}
+
+.calendar-calendar .day-view .full div.calendar-agenda-hour span,
+.calendar-calendar .day-view .full div.calendar-agenda-hour .calendar-hour {
+  font-weight: bold;
 }
 
 .calendar-calendar .week-view .full div.calendar-agenda-hour,
@@ -1819,7 +1851,12 @@ ul.calendar-links,
 .calendar-calendar .week-view .full div.calendar-agenda-items,
 .calendar-calendar .day-view .full div.calendar-agenda-items {
   height: 47px;
-  border-top: 1px solid #cccccc;
+  border-top: 2px solid #d5dde1;
+}
+
+.calendar-calendar .day-view .full div.calendar-agenda-hour,
+.calendar-calendar .day-view .full div.calendar-agenda-items {
+  min-height: 100px;
 }
 
 .calendar-calendar .week-view .full .calendar-agenda-hour {
@@ -1843,6 +1880,12 @@ ul.calendar-links,
 .calendar-calendar .day-view #multi-day-container td.calendar-day-holder,
 .calendar-calendar .day-view #single-day-container td.calendar-day-holder {
   width: 95%;
+}
+
+.calendar-calendar .day-view .full .calendar-agenda-items .inner > .item {
+  width: 250px;
+  float: left;
+  margin-right: 1rem;
 }
 
 .calendar-calendar .week-view #header-container td.calendar-time-holder,
@@ -1874,6 +1917,11 @@ ul.calendar-links,
   padding: 0px;
 }
 
+.calendar-calendar .day-view .full div.single-day:nth-child(2) {
+  background: #eaeef0;
+  min-height: 100px;
+}
+
 .calendar-calendar .week-view .full div.single-day .inner,
 .calendar-calendar .day-view .full div.single-day .inner {
   position: relative;
@@ -1886,10 +1934,15 @@ ul.calendar-links,
 
 .calendar-calendar .day-view .full td.multi-day div.dayview,
 .calendar-calendar .week-view .full td.multi-day div.weekview {
-  padding: .5rem 0;
   width: 98%;
+  padding: .5rem 0;
   margin: .2rem;
   margin-left: 0;
+}
+
+.calendar-calendar .day-view .full td.multi-day div.dayview,
+.calendar-calendar .week-view .full td.multi-day div.weekview {
+  width: 230px;
 }
 
 .calendar-calendar .week-view .full td.multi-day .inner .weekview .continuation {
@@ -1908,11 +1961,11 @@ ul.calendar-links,
 
 .calendar-calendar .week-view div.single-day .view-item,
 .calendar-calendar .day-view div.single-day .view-item {
-  position: absolute;
   width: 250px;
   background: none;
   text-align: left;
-  z-index: 1;
+  display: block;
+  float: left;
 }
 
 .calendar-calendar .week-view div.single-day .half-hour,
