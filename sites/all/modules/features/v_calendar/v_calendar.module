@@ -45,7 +45,7 @@ function v_calendar_menu() {
     'title' => 'Month',
     'type' => MENU_DEFAULT_LOCAL_TASK,
     'menu_name' => 'main-menu',
-    'weight' => -50,
+    'weight' => 3,
   );
   return $items;
 }
