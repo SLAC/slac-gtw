@@ -4726,6 +4726,21 @@ fieldset.collapsed {
   background: #CCC;
 }
 
+.calendar-calendar .view-item .monthview .contents,
+.calendar-calendar .view-item .monthview .views-field-nothing-1 {
+  margin: 0;
+}
+.calendar-calendar .view-item .monthview .contents div,
+.calendar-calendar .view-item .monthview .views-field-nothing-1 div {
+  margin: 0;
+}
+.calendar-calendar .view-item .monthview .title,
+.calendar-calendar .view-item .monthview .title a {
+  display: inline-block;
+  overflow: hidden;
+  height: 1.5em;
+}
+
 .page-news #page-title {
   display: none;
 }

@@ -103,6 +103,14 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
   /* Field: Item Output (Global: Custom text) */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
@@ -112,7 +120,7 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<div class="type-[type] event-[field_event_type]">
 <span class="time">[field_event_date]</span>
 <span class="link-ical">[nothing]</span>
-<span class="title">[title]</span>
+<span class="title"><a href="[path]" title="[title]">[title]</a></span>
 </div>';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Date -  start date (field_event_date) */
