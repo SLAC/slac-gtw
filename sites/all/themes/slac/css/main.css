@@ -647,25 +647,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   right: inherit;
 }
 
-.calendar-month-view .selectize-control .selectize-input {
-  border: 3px solid #d5dde1;
-  font-weight: bold;
-  padding: .3rem;
-  background: url(../images/down-arrow.png) 95% 14px no-repeat;
-}
-.calendar-month-view .selectize-control.multi .selectize-input > div {
-  background: none;
-  border: none;
-  margin: 0;
-}
-.calendar-month-view .selectize-control.multi .selectize-input > div.active {
-  background: none;
-}
-@media (min-width: 40em) {
-  .calendar-month-view .selectize-control {
-    width: 250px;
-  }
-}
 .calendar-month-view .date-today {
   display: none;
 }
@@ -2578,56 +2559,56 @@ ul.calendar-links,
   height: 3px;
 }
 
-.section-calendar .selectize-control .selectize-input {
+.events-calendar .selectize-control .selectize-input {
   border: 3px solid #d5dde1;
   font-weight: bold;
   padding: .3rem;
   background: url(../images/down-arrow.png) 95% 12px no-repeat;
 }
-.section-calendar .selectize-control.multi .selectize-input > div {
+.events-calendar .selectize-control.multi .selectize-input > div {
   background: none;
   border: none;
   margin: 0;
 }
-.section-calendar .selectize-control.multi .selectize-input > div.active {
+.events-calendar .selectize-control.multi .selectize-input > div.active {
   background: none;
 }
 @media (min-width: 40em) {
-  .section-calendar .selectize-control {
+  .events-calendar .selectize-control {
     width: 250px;
   }
 }
-.section-calendar .selectize-dropdown-content {
+.events-calendar .selectize-dropdown-content {
   border: 3px solid #d5dde1;
   border-top: none;
 }
-.section-calendar .selectize-dropdown {
+.events-calendar .selectize-dropdown {
   font-weight: bold;
 }
-.section-calendar .selectize-dropdown .option {
+.events-calendar .selectize-dropdown .option {
   color: #849ba6;
   font-weight: bold;
   background: #ffffff;
 }
-.section-calendar .selectize-dropdown .option:before {
+.events-calendar .selectize-dropdown .option:before {
   content: "\25A1";
   font-size: 26px;
   font-size: 1.625rem;
   margin-right: 6px;
 }
-.section-calendar .selectize-dropdown .option:hover {
+.events-calendar .selectize-dropdown .option:hover {
   background: #eeeeee;
 }
-.section-calendar .selectize-dropdown .option.selected:before {
+.events-calendar .selectize-dropdown .option.selected:before {
   content: "\2611";
   font-size: 22px;
   font-size: 1.375rem;
   margin-right: 4px;
 }
-.section-calendar .selectize-dropdown .selected {
+.events-calendar .selectize-dropdown .selected {
   background: #eeeeee !important;
 }
-.section-calendar .selectize-dropdown:hover {
+.events-calendar .selectize-dropdown:hover {
   background: #ffffff;
 }
 
