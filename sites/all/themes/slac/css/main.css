@@ -4427,7 +4427,7 @@ fieldset.collapsed {
   font-size: 12px;
   text-transform: uppercase;
 }
-@media (min-width: 60em) {
+@media (min-width: 70em) {
   .back-on-top {
     display: none;
   }
