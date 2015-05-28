@@ -199,6 +199,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'download any document files',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
@@ -212,6 +213,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'download any image files',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
@@ -225,6 +227,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'download any video files',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
@@ -251,6 +254,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'download own document files',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
@@ -264,6 +268,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'download own image files',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',
@@ -277,6 +282,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'download own video files',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'author' => 'author',
       'editor' => 'editor',

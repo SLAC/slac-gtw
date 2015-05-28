@@ -798,9 +798,6 @@ a:hover, a:active {
     margin-right: 10px;
     background: url("../images/small-screen-search.png") no-repeat center 0;
   }
-  .region-header > .block div, .region-header > .block ul {
-    display: none;
-  }
 
   .not-front #content > div,
   .not-front #content > article {

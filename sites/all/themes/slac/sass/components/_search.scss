@@ -1,3 +1,81 @@
+@include breakpoint($desktop) {
+  .search-link {
+    display: none;
+  }
+}
+
+@media all and (max-width: $desktop) {
+  #block-slac-search-form {
+    width: 100%;
+    background: $light-blue;
+    position: relative;
+    top: 0px;
+    display: table;
+    height: 95px;
+  }
+
+  a.search-link {
+    display: block;
+    width: 19px;
+    height: 20px;
+    font-size: 0;
+    color: transparent;
+    position: absolute;
+    top: -36px;
+    right: 100px;
+    background: url(../images/search.svg) 0 0 no-repeat;
+  }
+
+  .header__region input[type="text"] {
+    width: 120px;
+    margin-left: 0;
+  }
+
+  .form-item-search-type {
+    position: absolute;
+    top: 20px;
+  }
+}
+
+#slac-search-block-form {
+  width: 185px;
+  position: relative;
+  margin-left: 40%;
+  margin-top: 1rem;
+
+  // Hide the search form by default when the toggle is available.
+  @include breakpoint($mobile) {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  @include breakpoint($tablet-small) {
+    margin: 1rem auto;
+  }
+
+  @include breakpoint($desktop) {
+    display: block;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    background: none;
+  }
+}
+
+@include breakpoint($desktop) {
+  #block-slac-search-form {
+    display: block;
+    float: right;
+    position: relative;
+    right: 0;
+  }
+}
+
 .section-search .title {
   @include zen-grid-item(6, 2);
 }
@@ -95,7 +173,6 @@
   }
 
   .collapsed {
-
     .fieldset-title {
       background-position: 160px 0;
     }
@@ -127,7 +204,6 @@
 }
 
 .bef-checkboxes {
-
   .form-type-bef-checkbox,
   .bef-select-as-checkboxes {
     float: left;
