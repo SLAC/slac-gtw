@@ -745,10 +745,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   border-right: 2px solid #d5dde1;
 }
 
-.weekend {
-  background: #eeeeee;
-}
-
 .calendar-calendar .month-view table {
   border: none;
   padding: 0;
@@ -790,6 +786,10 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   vertical-align: top;
   margin: 0;
   padding: 0;
+}
+.calendar-calendar td.weekend {
+  width: 8%;
+  background: #eeeeee;
 }
 
 .calendar-calendar .week-view .full {
@@ -865,7 +865,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   background-color: transparent;
   border: solid 1px #ddd;
   text-align: left;
-  margin: 0 .25em .25em 0;
   width: 96%;
   float: right;
   clear: both;
@@ -1142,6 +1141,9 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .week-view .full .days {
   width: 13%;
 }
+.calendar-calendar .week-view .full .days.weekend {
+  width: 8%;
+}
 
 .calendar-calendar .month-view .full div.calendar,
 .calendar-calendar .week-view .full div.calendar,
@@ -1319,6 +1321,7 @@ table.calendar-legend tr.even .stripe {
 
 .calendar-calendar .week-view .full td.multi-day div.weekview {
   height: 3.5em;
+  background: transparent;
 }
 
 .calendar-calendar .month-view .full td.multi-day .inner .view-field,
@@ -1354,7 +1357,7 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .month-view .full td.multi-day .calendar.monthview .contents,
 .calendar-calendar .week-view .full td.multi-day .calendar.weekview .contents {
   position: absolute;
-  width: 3000px;
+  width: 98%;
   left: 5px;
 }
 
@@ -1617,13 +1620,13 @@ ul.calendar-links,
 }
 
 .calendar .type-access_information .time {
-  text-indent: 1.375rem;
+  text-indent: 1.2rem;
 }
 
 .link-ical {
   position: absolute;
   top: 5px;
-  right: 12px;
+  right: 10px;
 }
 
 .weekview .link-ical {
@@ -1633,8 +1636,8 @@ ul.calendar-links,
 .section-calendar .type-access_information,
 .section-calendar .type-event {
   background: #e2e2e2;
-  margin: .2rem .4rem .5rem .4rem;
-  padding: .4rem;
+  margin: .2rem .2rem .5rem .2rem !important;
+  padding: .2rem .4rem;
   border-left: 3px solid #838383;
 }
 .section-calendar .type-access_information {
@@ -1673,25 +1676,30 @@ ul.calendar-links,
 .section-calendar .weekview .type-event {
   border: none;
   padding: 0;
+  padding-bottom: .2rem;
   border: none;
 }
 .section-calendar .weekview .type-access_information .time,
 .section-calendar .weekview .type-event .time {
-  padding: .4rem;
+  padding: .1rem .4rem .4rem .4rem;
   border-top: 3px solid #838383;
   background: #efefef;
 }
 .section-calendar .weekview .type-access_information .title a,
 .section-calendar .weekview .type-event .title a {
+  display: block;
   margin: .4rem;
+}
+.section-calendar .weekview .type-access_information {
+  margin: .2rem 0 .5rem !important;
 }
 .section-calendar .weekview .type-access_information .time {
   border-color: #de0105;
-  background: #ffdfe0 url(../images/access-notice-icon-smaller.png) 5px 6px no-repeat;
+  background: #ffdfe0 url(../images/access-notice-icon-smaller.png) 5px 4px no-repeat;
 }
 .section-calendar .weekview .event-summer-school-programs .time {
   border-color: #ff2eba;
-  background: #ffaee4;
+  background: #ffc7ed;
 }
 .section-calendar .weekview .event-talks-seminars--colloquia .time {
   border-color: #e9ce43;
@@ -1699,7 +1707,7 @@ ul.calendar-links,
 }
 .section-calendar .weekview .event-public-events--tours .time {
   border-color: #35b635;
-  background: #a1e3a1;
+  background: #b4e9b4;
 }
 .section-calendar .weekview .event-conferences--workshops .time {
   border-color: #4780d1;
@@ -1707,11 +1715,11 @@ ul.calendar-links,
 }
 .section-calendar .weekview .event-staff-celebrations .time {
   border-color: #7e00aa;
-  background: #e291ff;
+  background: #f0c3ff;
 }
 .section-calendar .weekview .event-training--development .time {
   border-color: #e76d00;
-  background: #ffca9b;
+  background: #ffd7b4;
 }
 
 .calendar-calendar tr.holder {
@@ -1978,14 +1986,9 @@ ul.calendar-links,
 .calendar-calendar .day-view .full td.multi-day div.dayview,
 .calendar-calendar .week-view .full td.multi-day div.weekview {
   width: 98%;
-  padding: .5rem 0;
-  margin: .2rem;
-  margin-left: 0;
-}
-
-.calendar-calendar .day-view .full td.multi-day div.dayview,
-.calendar-calendar .week-view .full td.multi-day div.weekview {
-  width: 230px;
+  padding: 0;
+  margin: 0;
+  min-height: 100px;
 }
 
 .calendar-calendar .week-view .full td.multi-day .inner .weekview .continuation {
