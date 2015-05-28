@@ -95,8 +95,6 @@
   border-right: 2px solid color(grey-blue);
 }
 
-
-
 .calendar-calendar .month-view table {
   border: none;
   padding: 0;
@@ -372,6 +370,8 @@ table.calendar-legend tr.even .stripe {
 
 .calendar-calendar td.calendar-agenda-items div.calendar {
   width: auto;
+  @include clearfix;
+  margin: 0;
 }
 
 .calendar-calendar div.calendar div.inner .calendar-agenda-empty {
@@ -682,8 +682,7 @@ table.calendar-legend tr.even .stripe {
 }
 
 .calendar-calendar .month-view .full td.multi-day div.monthview,
-.calendar-calendar .week-view .full td.multi-day div.weekview,
-.calendar-calendar .day-view .full td.multi-day div.dayview {
+.calendar-calendar .week-view .full td.multi-day div.weekview {
   background: color(event-item-grey);
   height: 1.9em;
   overflow: hidden;
@@ -1013,114 +1012,7 @@ ul.calendar-links,
   right: 10px;
 }
 
-.weekview .link-ical {
+.weekview .link-ical,
+.dayview .link-ical {
   top: 10px;
-}
-
-.section-calendar {
-  .type-access_information,
-  .type-event {
-    background: color(event-item-grey);
-    margin: .2rem .2rem .5rem .2rem !important;
-    padding: .2rem .4rem;
-    border-left: 3px solid color(grey);
-  }
-
-  .type-access_information {
-    padding-top: .2rem;
-  }
-
-  .monthview {
-    .type-access_information,
-    .type-event {
-      &.event-summer-school-programs {
-        border-color: color(pink);
-      }
-
-      &.event-talks-seminars--colloquia {
-        border-color: color(yellow);
-      }
-
-      &.event-public-events--tours {
-        border-color: color(green);
-      }
-
-      &.event-conferences--workshops {
-        border-color: color(blue);
-      }
-
-      &.event-staff-celebrations {
-        border-color: color(purple);
-      }
-
-      &.event-training--development {
-        border-color: color(orange);
-      }
-
-      &.type-access_information {
-        border-color: color(red);
-        background: color(event-item-grey) url(../images/access-notice-icon-smaller.png) 5px 3px no-repeat;
-      }
-    }
-  }
-
-  .weekview {
-    .type-access_information,
-    .type-event {
-      border: none;
-      padding: 0;
-      padding-bottom: .2rem;
-      border: none;
-
-      .time {
-        padding: .1rem .4rem .4rem .4rem;
-        border-top: 3px solid color(grey);
-        background: lighten(color(event-item-grey), 5%);
-      }
-
-      .title a {
-        display: block;
-        margin: .4rem;
-      }
-    }
-
-    .type-access_information {
-      margin: .2rem 0 .5rem !important;
-    }
-
-    .type-access_information .time {
-      border-color: color(red);
-      background: lighten(color(red), 50%) url(../images/access-notice-icon-smaller.png) 5px 4px no-repeat;
-    }
-
-    .event-summer-school-programs .time {
-      border-color: color(pink);
-      background: lighten(color(pink), 30%);
-    }
-
-    .event-talks-seminars--colloquia .time {
-      border-color: color(yellow);
-      background: lighten(color(yellow), 25%);
-    }
-
-    .event-public-events--tours .time {
-      border-color: color(green);
-      background: lighten(color(green), 35%);
-    }
-
-    .event-conferences--workshops .time {
-      border-color: color(blue);
-      background: lighten(color(blue), 25%);
-    }
-
-    .event-staff-celebrations .time {
-      border-color: color(purple);
-      background: lighten(color(purple), 55%);
-    }
-
-    .event-training--development .time {
-      border-color: color(orange);
-      background: lighten(color(orange), 40%);
-    }
-  }
 }
