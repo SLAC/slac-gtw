@@ -41,20 +41,20 @@
 
         // Attach the flag toggle to the custom submit link.
         confirmDialog.find('.submit').addClass('flag flag-action flag-link-toggle');
-        Drupal.attachBehaviors(confirmDialog);
+        Drupal.attachBehaviors(confirmDialog, settings);
       });
 
       // Re-attach the fleaMarketConfirm behavior after the flag-link changes.
       $('body').once('fleaMarketConfirm', function () {
-        $(document).bind('flagGlobalAfterLinkUpdate', function(event, data) {
-          Drupal.attachBehaviors('.pane-flag-link');
+        $(document).bind('flagGlobalAfterLinkUpdate', function() {
+          Drupal.attachBehaviors('.pane-flag-link', settings);
         });
       });
     }
   };
 
   /**
-   * Provide the HTML to create the modal dialog.
+   * Provides the HTML to create the modal dialog.
    */
   Drupal.theme.fleaMarketConfirm = function (href, nid) {
     var html = '';
