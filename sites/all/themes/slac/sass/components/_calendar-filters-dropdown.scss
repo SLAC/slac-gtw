@@ -5,6 +5,15 @@
       font-weight: bold;
       padding: .3rem;
       background: url(../images/down-arrow.png) 95% 12px no-repeat;
+
+      &:hover,
+      &.focus {
+        border-color: color(grey-blue-dark);
+
+        .selectize-dropdown-content {
+          border: 3px solid color(grey-blue);
+        }
+      }
     }
 
     &.multi .selectize-input > div {
@@ -25,6 +34,11 @@
   .selectize-dropdown-content {
     border: 3px solid color(grey-blue);
     border-top: none;
+    max-height: 620px;
+
+    &:hover {
+      border-color: color(grey-blue-dark);
+    }
   }
 
   .selectize-dropdown {
@@ -42,7 +56,7 @@
       }
 
       &:hover {
-        background: color(weekend-grey);
+        background: darken(color(weekend-grey), 3%);
       }
 
       &.selected:before {
@@ -53,7 +67,7 @@
     }
 
     .selected {
-      background: color(weekend-grey) !important;
+      background: darken(color(weekend-grey), 3%) !important;
     }
 
     &:hover {
