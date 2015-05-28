@@ -1,5 +1,6 @@
 // events color map
 $color: (
+  red: #de0105,
   blue: #4780d1,
   green: #35b635,
   purple: #7e00aa,
@@ -8,7 +9,12 @@ $color: (
   orange: #e76d00,
   grey: #838383,
   grey-blue: #d5dde1,
-  grey-blue-light: #eaeef0
+  grey-blue-light: #eaeef0,
+  grey-blue-dark: #849ba6,
+  light-green: #eff9f5,
+  light-blue: #dfe9f5,
+  weekend-grey: #eeeeee,
+  event-item-grey: #e2e2e2
 );
 
 // color function
@@ -16,7 +22,7 @@ $color: (
   @if map-has-key($color, $key) {
     @return map-get($color, $key);
   }
- 
+
   @warn "This `#{$key}` is not in the $color map.";
   @return null;
 }

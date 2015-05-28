@@ -21,8 +21,12 @@ function v_calendar_form_views_exposed_form_alter(&$form, &$form_state) {
     $form['type']['#default_value'] = 'access_information';
 
     // Add custom Selectize behaviors to combine term filters into one widget.
+    // Also adds the "js" classname to the HTML element so the views form can
+    // be hidden for JS users.
     $form['#attached']['js'] = array(
-      drupal_get_path('module', 'v_calendar') . '/js/v_calendar.js',
+      drupal_get_path('module', 'v_calendar') . '/js/v_calendar.js' => array(
+        'scope' => 'header',
+      ),
     );
   }
 }
@@ -41,7 +45,7 @@ function v_calendar_menu() {
     'title' => 'Month',
     'type' => MENU_DEFAULT_LOCAL_TASK,
     'menu_name' => 'main-menu',
-    'weight' => -50,
+    'weight' => 3,
   );
   return $items;
 }

@@ -36,7 +36,7 @@ $zen-column-count: 12;
       @include zen-grid-item(7, 2);
     }
   }
-  
+
   .general-right {
     @include zen-grid-item(12, 1);
     float: none;
@@ -56,6 +56,18 @@ $zen-column-count: 12;
   }
 }
 
+@include breakpoint($tablet-large) {
+  .logo {
+    @include zen-grid-item(2, 1);
+  }
+}
+
+.header__region {
+  @include breakpoint($desktop) {
+    @include zen-grid-item(10, 3);
+  }
+}
+
 .view-search {
   @include zen-grid-item(8, 2);
 }
@@ -69,5 +81,12 @@ $zen-column-count: 12;
 }
 
 .events-calendar {
-  @include zen-grid-item(12, 1);
+  @include zen-grid-item(10, 2);
+}
+
+.region-content-bottom {
+  width: 100%;
+  max-width: 1432px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
 }
