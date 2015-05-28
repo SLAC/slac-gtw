@@ -62,6 +62,11 @@
 
 .calendar-calendar .day-view #multi-day-container,
 .calendar-calendar .day-view #single-day-container {
+  border-left: none;
+}
+
+.calendar-calendar .day-view #multi-day-container,
+.calendar-calendar .day-view #single-day-container {
   overflow-y: hidden;
 }
 

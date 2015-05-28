@@ -19,7 +19,7 @@
 
   .tabs-primary {
     position: relative;
-    top: 160px;
+    top: 165px;
     border: none;
     width: 236px;
     margin-right: auto;
@@ -68,12 +68,6 @@
         }
       }
     }
-  }
-}
-
-.events-calendar {
-  .view-header {
-    margin-top: 4rem;
   }
 }
 
@@ -891,8 +885,7 @@ table.calendar-legend tr.even .stripe {
     h3 {
       background: none;
       position: relative;
-      bottom: 3.4rem;
-      margin: 0;
+      margin: 1rem;
     }
   }
 }

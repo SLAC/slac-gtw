@@ -657,7 +657,7 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 
 .section-calendar .tabs-primary {
   position: relative;
-  top: 160px;
+  top: 165px;
   border: none;
   width: 236px;
   margin-right: auto;
@@ -702,10 +702,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   background: #6a6a6a;
   border-color: #6a6a6a;
   color: #ffffff;
-}
-
-.events-calendar .view-header {
-  margin-top: 4rem;
 }
 
 .calendar-calendar tr.odd, .calendar-calendar tr.even {
@@ -1503,8 +1499,7 @@ table.calendar-legend tr.even .stripe {
   .date-nav-wrapper .date-heading h3 {
     background: none;
     position: relative;
-    bottom: 3.4rem;
-    margin: 0;
+    margin: 1rem;
   }
 }
 
@@ -1677,6 +1672,11 @@ ul.calendar-links,
   overflow-x: hidden;
   border-left: 2px solid #d5dde1;
   border-bottom: 2px solid #d5dde1;
+}
+
+.calendar-calendar .day-view #multi-day-container,
+.calendar-calendar .day-view #single-day-container {
+  border-left: none;
 }
 
 .calendar-calendar .day-view #multi-day-container,
@@ -2752,11 +2752,12 @@ div.date-views-pager div.next-year {
 }
 @media (min-width: 70em) {
   .date-nav-wrapper .item-list .pager {
+    display: inline-block;
     width: 200px;
     height: 34px;
     background: #eaeef0;
     position: relative;
-    bottom: 3.4rem;
+    bottom: .4rem;
   }
 }
 
@@ -2767,7 +2768,7 @@ div.date-views-pager div.next-year {
   height: auto;
   min-height: 30px;
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .date-nav-wrapper .date-prev a,

@@ -91,11 +91,12 @@ div.date-views-pager div.next-year {
 
   @include breakpoint($desktop) {
     .item-list .pager {
+      display: inline-block;
       width: 200px;
       height: 34px;
       background: color(grey-blue-light);
       position: relative;
-      bottom: 3.4rem;
+      bottom: .4rem;
     }
   }
 }
@@ -107,7 +108,7 @@ div.date-views-pager div.next-year {
   height: auto;
   min-height: 30px;
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .date-nav-wrapper .date-prev a,
