@@ -6,31 +6,6 @@
 }
 
 .calendar-month-view {
-
-  // Calendar filters dropdown
-  .selectize-control {
-    .selectize-input {
-      border: 3px solid color(grey-blue);
-      font-weight: bold;
-      padding: .3rem;
-      background: url(../images/down-arrow.png) 95% 14px no-repeat;
-    }
-
-    &.multi .selectize-input > div {
-      background: none;
-      border: none;
-      margin: 0;
-
-      &.active {
-        background: none;
-      }
-    }
-
-    @include breakpoint($tablet-small) {
-      width: 250px;
-    }
-  }
-
   .date-today {
     display: none;
   }
