@@ -5,7 +5,32 @@
   right: inherit;
 }
 
-.section-calendar {
+.calendar-month-view {
+
+  // Calendar filters dropdown
+  .selectize-control {
+    .selectize-input {
+      border: 3px solid color(grey-blue);
+      font-weight: bold;
+      padding: .3rem;
+      background: url(../images/down-arrow.png) 95% 14px no-repeat;
+    }
+
+    &.multi .selectize-input > div {
+      background: none;
+      border: none;
+      margin: 0;
+
+      &.active {
+        background: none;
+      }
+    }
+
+    @include breakpoint($tablet-small) {
+      width: 250px;
+    }
+  }
+
   .date-today {
     display: none;
   }
@@ -99,18 +124,6 @@
   background: color(weekend-grey);
 }
 
-.calendar .time {
-  @include font-size(11px);
-  display: block;
-  font-weight: bold;
-}
-
-.calendar .link-ical {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-}
-
 .calendar-calendar .month-view table {
   border: none;
   padding: 0;
@@ -184,11 +197,6 @@
 .calendar-calendar .inner {
   height: auto !important;
   height: 5em;
-  padding: 0;
-  margin: 0;
-}
-
-.calendar-calendar .inner div {
   padding: 0;
   margin: 0;
 }
@@ -387,8 +395,6 @@ table.calendar-legend tr.even .stripe {
 
 .calendar-calendar td.calendar-agenda-items div.calendar {
   width: auto;
-  padding: .25em;
-  margin: 0;
 }
 
 .calendar-calendar div.calendar div.inner .calendar-agenda-empty {
@@ -464,23 +470,11 @@ table.calendar-legend tr.even .stripe {
   margin-bottom: 2px;
 }
 
-.calendar-calendar td .inner div,
-.calendar-calendar td .inner div a {
-  margin-bottom: 6px;
-}
-
 // Set small font size for all items in calendar div, themes can override this.
 // Use x-small instead of em to avoid multiplying effect in nested items.
 .calendar-calendar div.calendar {
   border: none;
   font-size: x-small;
-}
-
-.calendar-calendar td .inner div.calendar div,
-.calendar-calendar td .inner div.calendar div a {
-  border: none;
-  background: #ffc;
-  padding: 0;
 }
 
 .calendar-calendar td .inner div.calendar div.calendar-more,
@@ -655,21 +649,8 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .day-view .full td .inner div.view-item,
 .calendar-calendar .day-view .full td .inner div.calendar div,
 .calendar-calendar .day-view .full td .inner div.calendar div a {
-  background: none;
   color: $grey;
   font-weight: normal;
-}
-
-.calendar-calendar .month-view .full td.single-day .inner > div {
-  padding-right: 2px;
-  border-left: 3px solid orange;
-  margin: .2rem;
-}
-
-.calendar-calendar .week-view .full td.multi-day .inner > div,
-.calendar-calendar .week-view .full td.single-day .inner > div {
-  border-left: 3px solid orange;
-  margin-left: .2rem;
 }
 
 .calendar-calendar .day-view .full td .inner div.calendar div.stripe {
@@ -709,21 +690,6 @@ table.calendar-legend tr.even .stripe {
   display: block;
   margin: .25em auto;
   position: relative;
-}
-
-.calendar-calendar .month-view .full td.single-day div.monthview,
-.calendar-calendar .week-view .full td.single-day div.weekview,
-.calendar-calendar .day-view .full td.single-day div.dayview {
-  background: color(event-item-grey);
-  width: 92%;
-  padding: .5rem;
-  overflow: hidden;
-}
-
-.calendar-calendar .week-view .full td.single-day div.weekview,
-.calendar-calendar .day-view .full td.single-day div.dayview {
-  width: 89%;
-  margin-left: 0;
 }
 
 .calendar-calendar .month-view .full td.single-day .calendar-more div.monthview {
@@ -1024,6 +990,149 @@ ul.calendar-links,
   .calendar-month-view {
     .date-today {
       display: block;
+    }
+  }
+}
+
+.page-calendar .selectize-dropdown {
+  .option {
+    color: color(grey-blue-dark);
+    font-weight: bold;
+    background: $white;
+
+    &:hover {
+      background: color(weekend-grey);
+    }
+  }
+
+  .selected {
+    background: color(weekend-grey) !important;
+  }
+
+  &:hover {
+    background: $white;
+  }
+}
+
+.calendar .time {
+  @include font-size(11px);
+  display: block;
+  margin-bottom: .2rem;
+  font-weight: bold;
+}
+
+.calendar .type-access_information .time {
+  text-indent: 1.375rem;
+}
+
+.link-ical {
+  position: absolute;
+  top: 5px;
+  right: 12px;
+}
+
+.weekview .link-ical {
+  top: 10px;
+}
+
+.section-calendar {
+  .type-access_information,
+  .type-event {
+    background: color(event-item-grey);
+    margin: .2rem .4rem .5rem .4rem;
+    padding: .4rem;
+    border-left: 3px solid color(grey);
+  }
+
+  .type-access_information {
+    padding-top: .2rem;
+  }
+
+  .monthview {
+    .type-access_information,
+    .type-event {
+      &.event-summer-school-programs {
+        border-color: color(pink);
+      }
+
+      &.event-talks-seminars--colloquia {
+        border-color: color(yellow);
+      }
+
+      &.event-public-events--tours {
+        border-color: color(green);
+      }
+
+      &.event-conferences--workshops {
+        border-color: color(blue);
+      }
+
+      &.event-staff-celebrations {
+        border-color: color(purple);
+      }
+
+      &.event-training--development {
+        border-color: color(orange);
+      }
+
+      &.type-access_information {
+        border-color: color(red);
+        background: color(event-item-grey) url(../images/access-notice-icon-smaller.png) 5px 3px no-repeat;
+      }
+    }
+  }
+
+  .weekview {
+    .type-access_information,
+    .type-event {
+      border: none;
+      padding: 0;
+      border: none;
+
+      .time {
+        padding: .4rem;
+        border-top: 3px solid color(grey);
+        background: lighten(color(event-item-grey), 5%);
+      }
+
+      .title a {
+        margin: .4rem;
+      }
+    }
+
+    .type-access_information .time {
+      border-color: color(red);
+      background: lighten(color(red), 50%) url(../images/access-notice-icon-smaller.png) 5px 6px no-repeat;
+    }
+
+    .event-summer-school-programs .time {
+      border-color: color(pink);
+      background: lighten(color(pink), 25%);
+    }
+
+    .event-talks-seminars--colloquia .time {
+      border-color: color(yellow);
+      background: lighten(color(yellow), 25%);
+    }
+
+    .event-public-events--tours .time {
+      border-color: color(green);
+      background: lighten(color(green), 30%);
+    }
+
+    .event-conferences--workshops .time {
+      border-color: color(blue);
+      background: lighten(color(blue), 25%);
+    }
+
+    .event-staff-celebrations .time {
+      border-color: color(purple);
+      background: lighten(color(purple), 45%);
+    }
+
+    .event-training--development .time {
+      border-color: color(orange);
+      background: lighten(color(orange), 35%);
     }
   }
 }
