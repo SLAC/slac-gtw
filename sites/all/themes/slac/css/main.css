@@ -655,6 +655,12 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   display: none;
 }
 
+.section-calendar #main {
+  margin-top: 0;
+}
+.section-calendar .title {
+  display: none;
+}
 .section-calendar .tabs-primary {
   position: relative;
   top: 165px;
@@ -1613,6 +1619,14 @@ ul.calendar-links,
 .weekview .link-ical,
 .dayview .link-ical {
   top: 10px;
+}
+
+.events-calendar p:first-of-type label {
+  position: relative;
+  left: 0;
+  font-size: 14px;
+  font-size: 0.875rem;
+  color: dimgray;
 }
 
 .calendar-calendar tr.holder {
@@ -2757,13 +2771,25 @@ div.date-views-pager div.next-year {
     text-align: center;
   }
 }
+.date-nav-wrapper .item-list .pager li {
+  padding-top: 0;
+}
+.date-nav-wrapper .item-list .pager li span {
+  color: #316dae;
+}
 .date-nav-wrapper .item-list .pager li a {
   background: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.date-nav-wrapper .item-list .pager li a:hover, .date-nav-wrapper .item-list .pager li a:focus {
+  color: #316dae;
+  background: transparent;
 }
 @media (min-width: 70em) {
   .date-nav-wrapper .item-list .pager {
     display: inline-block;
-    width: 200px;
+    width: 202px;
     height: 34px;
     background: #eaeef0;
     position: relative;
@@ -2816,7 +2842,7 @@ div.date-views-pager div.next-year {
   margin-left: 10px;
   font-size: 0;
   color: #eaeef0;
-  background: url(../images/right-arrow.png) 100% -62% no-repeat;
+  background: url(../images/right-arrow.png) 82% -34% no-repeat;
   transform: rotate(180deg);
 }
 
@@ -2845,7 +2871,7 @@ div.date-views-pager div.next-year {
   color: #eaeef0;
   margin-right: .6rem;
   font-weight: bold;
-  background: url(../images/right-arrow.png) 100% 0 no-repeat;
+  background: url(../images/right-arrow.png) 56% 7px no-repeat;
 }
 
 .node-type-event #content,
@@ -3780,6 +3806,8 @@ fieldset.collapsed {
   background: url(../logo.png) 0 0 no-repeat;
   background-image: url(../logo.svg), none;
   float: right;
+  position: relative;
+  z-index: 5;
 }
 @media (min-width: 40em) {
   #header .logo a {
