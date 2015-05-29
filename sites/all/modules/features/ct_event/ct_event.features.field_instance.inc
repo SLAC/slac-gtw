@@ -243,11 +243,7 @@ function ct_event_field_default_field_instances() {
   // Exported field_instance: 'node-event-field_event_type'
   $field_instances['node-event-field_event_type'] = array(
     'bundle' => 'event',
-    'default_value' => array(
-      0 => array(
-        'tid' => 2567,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -285,7 +281,7 @@ function ct_event_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_event_type',
     'label' => 'Event Type',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
