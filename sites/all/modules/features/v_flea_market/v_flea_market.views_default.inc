@@ -228,6 +228,16 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'flea_market_post' => 'flea_market_post',
   );
+  /* Filter criterion: Workbench Moderation: Current */
+  $handler->display->display_options['filters']['is_current']['id'] = 'is_current';
+  $handler->display->display_options['filters']['is_current']['table'] = 'workbench_moderation_node_history';
+  $handler->display->display_options['filters']['is_current']['field'] = 'is_current';
+  $handler->display->display_options['filters']['is_current']['value'] = '1';
+  /* Filter criterion: Workbench Moderation: Published */
+  $handler->display->display_options['filters']['published']['id'] = 'published';
+  $handler->display->display_options['filters']['published']['table'] = 'workbench_moderation_node_history';
+  $handler->display->display_options['filters']['published']['field'] = 'published';
+  $handler->display->display_options['filters']['published']['value'] = '1';
 
   /* Display: Main Flea Market List pane */
   $handler = $view->new_display('panel_pane', 'Main Flea Market List pane', 'panel_pane_1');

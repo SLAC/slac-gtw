@@ -1,0 +1,14 @@
+<?php
+/**
+ * @file
+ * Install file for the Unpublish Button module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function unpublish_button_install() {
+  // Rebuild the menu system to revert Workbench Moderations edit tab.
+  variable_set('menu_rebuild_needed', TRUE);
+}
+

@@ -829,3 +829,17 @@ function slac_igp_deployment_update_7042() {
     throw new DrupalUpdateException($message);
   }
 }
+
+/**
+ * Enable unpublish_button module.
+ */
+function slac_igp_deployment_update_7043() {
+  $result = module_enable(array(
+    'unpublish_button',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
+}

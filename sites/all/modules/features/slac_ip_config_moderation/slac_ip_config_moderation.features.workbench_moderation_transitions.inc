@@ -24,6 +24,11 @@ function slac_ip_config_moderation_workbench_moderation_export_transitions() {
       'to_name' => 'published',
       'name' => 'Publish',
     ),
+    'published:draft' => array(
+      'from_name' => 'published',
+      'to_name' => 'draft',
+      'name' => 'Unpublish',
+    ),
   );
   return $items;
 }
