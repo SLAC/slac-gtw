@@ -90,3 +90,46 @@ $zen-column-count: 12;
   margin: 0 auto;
   padding-bottom: 4rem;
 }
+
+.footer-inner {
+  @include clearfix;
+  @include zen-grid-item(12, 1);
+}
+
+@include breakpoint($tablet-large) {
+
+  .footer-inner {
+    max-width: 1432px;
+    float: none;
+    margin: 0 auto;
+  }
+
+  .region-footer {
+    @include zen-grid-item(8, 1);
+    padding-bottom: 14px;
+    overflow: hidden;
+  }
+
+  .footer-logos {
+    @include zen-grid-item(4, 9);
+    text-align: right;
+    margin-top: 3rem;
+  }
+}
+
+@media all and (min-width: 1480px) {
+  .footer-inner {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .region-footer {
+    @include zen-grid-item(6, 1);
+    padding-left: 0;
+  }
+
+  .footer-logos {
+    @include zen-grid-item(3, 10);
+    padding-right: 0;
+  }
+}
