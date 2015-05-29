@@ -601,7 +601,7 @@ table th.active {
     margin-top: 3rem;
   }
 }
-@media all and (min-width: 1480px) {
+@media (min-width: 92.5em) {
   .footer-inner {
     padding-right: 0;
     padding-left: 0;

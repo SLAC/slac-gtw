@@ -117,7 +117,7 @@ $zen-column-count: 12;
   }
 }
 
-@media all and (min-width: 1480px) {
+@include breakpoint($extra-large) {
   .footer-inner {
     padding-right: 0;
     padding-left: 0;
