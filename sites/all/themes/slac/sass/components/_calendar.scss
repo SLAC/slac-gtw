@@ -17,6 +17,14 @@
 
 .section-calendar {
 
+  #main {
+    margin-top: 0;
+  }
+
+  h1.title {
+    display: none;
+  }
+
   .tabs-primary {
     position: relative;
     top: 165px;
@@ -1008,4 +1016,17 @@ ul.calendar-links,
 .weekview .link-ical,
 .dayview .link-ical {
   top: 10px;
+}
+
+// show/hide access notices
+.events-calendar {
+  p:first-of-type {
+
+    label {
+      position: relative;
+      left: 0;
+      @include font-size(14px);
+      color: lighten($dim-grey, 10%);
+    }
+  }
 }
