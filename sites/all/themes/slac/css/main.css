@@ -295,10 +295,44 @@ a:link:focus {
   background: #ffffff;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #46494B;
+  font-weight: bold;
+}
+
 h1 {
   font-size: 24px;
   font-size: 1.5rem;
-  color: #46494B;
+}
+
+h2 {
+  font-size: 19.2px;
+  font-size: 1.2rem;
+}
+
+ul, ol {
+  list-style-image: none;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+hr {
+  border: dotted #b1c0c7;
+  border-width: 3px 0 0;
+  clear: both;
+  height: 0;
+  margin: 1.11111rem 0 1.05556rem;
 }
 
 table tbody {
