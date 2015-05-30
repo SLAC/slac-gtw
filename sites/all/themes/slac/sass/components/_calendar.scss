@@ -885,7 +885,7 @@ table.calendar-legend tr.even .stripe {
   }
 
   @include breakpoint($desktop) {
-    width: 30%;
+    width: 40%;
     height: 1px;
     margin: 0 auto;
     background: transparent;
@@ -1015,7 +1015,7 @@ ul.calendar-links,
 
 .weekview .link-ical,
 .dayview .link-ical {
-  top: 10px;
+  top: 7px;
 }
 
 // show/hide access notices
