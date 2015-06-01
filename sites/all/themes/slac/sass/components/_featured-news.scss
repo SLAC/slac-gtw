@@ -2,12 +2,16 @@
   .pane-featured-news-featured-news-panel-pane h2 {
     margin-bottom: 0;
   }
+
   .view-featured-news {
     ul {
       padding: 0;
+
       li {
         margin-bottom: 2px;
+        margin-left: 0;
         background: lighten($event-border, 20%);
+
         a {
           padding: 1em;
         }
