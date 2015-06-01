@@ -2859,16 +2859,21 @@ ul.calendar-links,
     white-space: normal;
   }
 
-  table tr {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 11px;
-    margin-bottom: 11px;
+  table tr.single-day {
+    margin-bottom: 1rem;
+    border-bottom: 5px solid #e5e5e5;
+  }
+  table tr td[id^="calendar_view-2"] {
+    border-bottom: 5px solid #e5e5e5;
+  }
+  table tr td[id^="calendar_view-2"] .inner {
+    margin-top: 3.5rem;
   }
 
   table th[data-title]:before,
   table td[data-title]:before {
-    font-size: 12px;
-    font-size: 0.75rem;
+    font-size: 18px;
+    font-size: 1.125rem;
     content: attr(data-title) ": ";
     font-weight: bold;
   }
@@ -2878,6 +2883,7 @@ ul.calendar-links,
     float: left;
     width: 35%;
     margin-right: 10px;
+    margin-top: 1rem;
     text-align: left;
   }
 
@@ -2908,21 +2914,57 @@ ul.calendar-links,
     content: '';
   }
 
+  .date-nav-wrapper {
+    margin-top: 75px;
+  }
+  .date-nav-wrapper .date-nav {
+    height: 0;
+    min-height: 0;
+  }
+
+  .link-ical {
+    top: 10px;
+  }
+
   .calendar-calendar td,
   .calendar-calendar td.today,
   .calendar-calendar td.weekend {
     width: 100%;
     border: none;
-    background: transparent !important;
+    background: #ffffff;
   }
   .calendar-calendar .month-view .full tr td.single-day {
     display: table;
   }
+  .calendar-calendar .month-view .full td.single-day.empty,
+  .calendar-calendar .month-view .full tr td.today,
+  .calendar-calendar .month-view .full tr td.weekend {
+    background: #ffffff;
+  }
   .calendar-calendar .time {
-    position: absolute;
-    left: -100px;
-    top: 0;
+    width: 100px;
+    position: relative;
+    left: -120px;
     text-align: right;
+  }
+  .calendar-calendar .title {
+    position: relative;
+    top: -6px;
+  }
+  .calendar-calendar .type-access_information,
+  .calendar-calendar .type-event {
+    padding: 0 1.2rem .2rem .5rem;
+    border-left: none;
+    border-top: 3px solid;
+  }
+
+  .events-calendar .type-access_information.type-access_information {
+    background-image: none;
+  }
+
+  .date-box td[id^="calendar_view-"][id$="-date-box"],
+  .date-box {
+    display: none;
   }
 }
 .field-name-field-file-shared-caption {
@@ -3000,11 +3042,6 @@ div.date-views-pager div.next-year {
   margin-bottom: 10px;
 }
 
-.date-nav-wrapper {
-  position: relative;
-  margin-top: 5px;
-  width: 100%;
-}
 .date-nav-wrapper .item-list .pager {
   margin: 0;
 }
@@ -3043,16 +3080,6 @@ div.date-views-pager div.next-year {
     position: relative;
     bottom: .4rem;
   }
-}
-
-.date-nav-wrapper .date-nav {
-  background-color: transparent;
-  border: 0px;
-  height: 30px;
-  height: auto;
-  min-height: 30px;
-  position: relative;
-  margin-bottom: 0;
 }
 
 .date-nav-wrapper .date-prev a,
