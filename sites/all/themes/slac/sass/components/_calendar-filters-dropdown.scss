@@ -1,6 +1,7 @@
 .events-calendar {
   .selectize-control {
     .selectize-input {
+      cursor: pointer;
       border: 3px solid color(grey-blue);
       font-weight: bold;
       padding: .3rem;
@@ -24,6 +25,9 @@
       &.active {
         background: none;
       }
+    }
+    &.multi .selectize-input > div[data-value] {
+      display: none;
     }
 
     @include breakpoint($tablet-small) {
