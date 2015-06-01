@@ -93,8 +93,8 @@
 }
 
 .calendar-calendar .day-view {
-  border-bottom: 2px solid color(grey-blue);
-  border-right: 2px solid color(grey-blue);
+  border: 3px solid color(grey-blue);
+  border-left: none;
 }
 
 .calendar-calendar .month-view table {
@@ -751,7 +751,8 @@ table.calendar-legend tr.even .stripe {
 
 .calendar-calendar .full td.single-day .continuation,
 .calendar-calendar .full td.single-day .continues,
-.calendar-calendar .full td.single-day .cutoff {
+.calendar-calendar .full td.single-day .cutoff,
+.calendar-calendar .day-view .full td .inner div.calendar div.cutoff {
   display: none;
 }
 

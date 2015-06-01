@@ -75,8 +75,7 @@
   border-bottom: none;
 }
 
-.calendar-calendar .week-view #multi-day-container,
-.calendar-calendar .day-view #multi-day-container {
+.calendar-calendar .week-view #multi-day-container {
     border-top: 3px solid color(grey-blue);
 }
 
@@ -120,7 +119,6 @@
 .calendar-calendar .week-view #single-day-container,
 .calendar-calendar .day-view #single-day-container {
   border-top: 2px solid color(grey-blue);
-  height: 500px;
 }
 
 .calendar-calendar .day-view #single-day-container {
@@ -178,6 +176,7 @@
 .calendar-calendar .day-view .full div.calendar-agenda-hour span {
   font-size: .8em;
   margin-right: 0px;
+  padding-right: .2rem;
 }
 
 .calendar-calendar .day-view .full div.calendar-agenda-hour span,
@@ -265,7 +264,8 @@
   padding-top: 1rem;
 }
 
-.calendar-calendar .day-view .full div.single-day:nth-child(2n+1) {
+.calendar-calendar .day-view .full div.single-day:nth-child(2n+1),
+.calendar-calendar .day-view .full div.calendar-agenda-hour:nth-child(2n+1) {
   background: color(grey-blue-light);
   min-height: 100px;
 }
