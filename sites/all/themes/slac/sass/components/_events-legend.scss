@@ -32,10 +32,14 @@
   padding: 1rem;
 
   li {
-    width: 48%;
-    float: left;
+    width: 100%;
     padding: .2rem 0;
     list-style: none;
+
+    @include breakpoint($tablet-small) {
+      width: 48%;
+      float: left;
+    }
 
     &:before {
       content: "";
