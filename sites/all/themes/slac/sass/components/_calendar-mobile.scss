@@ -18,10 +18,10 @@
   table tr,
   table th,
   table td {
-      display: block;
-      padding: 0;
-      text-align: left;
-      white-space: normal;
+    display: block;
+    padding: 0;
+    text-align: left;
+    white-space: normal;
   }
 
   table tr {
@@ -40,10 +40,10 @@
   }
 
   table th[data-title]:before,
-    table td[data-title]:before {
-      @include font-size(18px);
-      content: attr(data-title) ":\00A0";
-      font-weight: bold;
+  table td[data-title]:before {
+    @include font-size(18px);
+    content: attr(data-title) ":\00A0";
+    font-weight: bold;
   }
 
   td.single-day:before,
@@ -57,9 +57,9 @@
 
   td.single-day .inner,
   td.date-box .inner {
-      float: right;
-      width: 60%;
-    }
+    float: right;
+    width: 60%;
+  }
 
   table td {
     border: none;
