@@ -12,9 +12,11 @@
       padding: 0;
     }
   }
+
   #header {
     margin-bottom: 0;
   }
+
   .general-left {
     .pane-node-field-event-type {
       margin-bottom: 2em;
@@ -24,15 +26,19 @@
       border-top: solid 3px $event-border;
       margin-top: 40px;
     }
+
     h1 {
       margin-bottom: .6em;
       margin-top: 0;
       line-height: 1.2;
     }
-    h2 {
+
+    .pane-terms-on-node-panel-pane-terms-on-node .pane-title,
+    .pane-node-field-shared-contact-name .pane-title {
       @include font-size(14px);
       margin-bottom: 0;
     }
+
     .date-display-start,
     .date-display-end,
     .date-display-single,
@@ -44,27 +50,33 @@
       font-weight: bold;
       margin-bottom: 12px;
     }
+
     .date-display-single {
       margin-bottom: 4px;
     }
+
     .field-name-field-shared-location {
       margin-bottom: 16px;
     }
+
     .field-name-field-shared-contact-name,
     .field-name-field-shared-contact-email,
     .field-name-field-shared-contact-phone {
       margin-bottom: .2em;
     }
+
     .pane-node-body {
       border-top: solid 3px $event-border;
       margin-top: 40px;
     }
   }
+
   .general-right {
     margin-top: .5em;
     .inside {
       padding: 0;
     }
+
     h2 {
       @include font-size(14px);
       border-bottom: 3px solid $event-border;
@@ -72,10 +84,12 @@
       color: $dim-grey;
       margin-bottom: 1em;
     }
+
     .panel-pane {
       margin-bottom: 2em;
     }
   }
+
   .general-right .inside {
     border-left: none;
   }
@@ -88,12 +102,14 @@
     .field-name-field-shared-location {
       font-weight: normal;
     }
+
     .field-name-field-news-subtitle {
       @include font-size(20px);
       font-weight: bold;
       margin-bottom: 1.5em;
     }
   }
+
   .general-left {
     .panel-pane.pane-slac-ip-panes-email,
     .pane-slac-ip-panes-print {
@@ -102,15 +118,18 @@
       float: right;
       margin-right: 95px;
     }
+
     .pane-slac-ip-panes-print {
       top: -30px;
       margin-right: -200px;
     }
+
     .field-name-field-shared-image {
       @include float-left;
       margin-top: .25rem;
       margin-bottom: 2rem;
     }
+
     .pane-node-body {
       border-top: none;
       margin-top: 0;
@@ -118,11 +137,13 @@
         margin-top: 0;
       }
     }
+
     .field-name-field-shared-byline,
     .panel-pane.pane-node-created {
       margin-bottom: 10px;
     }
   }
+
   .general-right {
     .pane-node-field-shared-image,
     .pane-node-field-shared-video {
@@ -132,6 +153,7 @@
         padding-top: 2rem;
       }
     }
+
     .pane-node-field-shared-image + .pane-node-field-shared-video {
       border-top: dashed 3px $event-border;
       padding-top: 2rem;
@@ -145,23 +167,29 @@
     .pane-node-body {
       border-top: none;
     }
-    h2 {
+
+    .pane-node-field-event-date .pane-title,
+    .pane-node-field-shared-location .pane-title {
       @include font-size(14px);
       display: block;
       width: 80px;
       text-align: right;
       float: left;
-      padding: 0;
       margin-top: 0;
-      padding-right: 10px;
       font-weight: normal;
       border-right: 3px solid $white;
       padding: 10px 10px 10px 0;
     }
+
+    .pane-node-field-event-date .pane-title {
+      margin-bottom: 0;
+    }
+
     .panel-pane:nth-child(6n) {
       margin-top: 4em;
       margin-bottom: 3px;
     }
+
     .pane-node-field-shared-contact-name h2 {
       float: none;
       font-weight: bold;
@@ -170,6 +198,7 @@
       padding: 0;
       margin-top: 2em;
     }
+
     .pane-node-field-event-date,
     .field-name-field-event-date {
       .field-items {
@@ -177,18 +206,22 @@
         width: 78.6%;
       }
     }
+
     .field-name-field-shared-location {
       margin-bottom: 0;
     }
+
     .date-display-single,
     .pane-node-field-shared-location {
       width: 78%;
       margin-bottom: 0;
       background: lighten($event-border, 20%);
     }
+
     .pane-node-field-shared-location {
       margin-top: 3px;
     }
+
     .panel-pane {
       &.pane-node-field-shared-location,
       &.field-name-field-event-date,
@@ -196,31 +229,36 @@
         border-left: 5px solid lighten($overlay-blue, 15%);
       }
     }
+
     .panel-pane {
       div.field-item {
         display: block;
         padding: 12px 0 12px 14px;
       }
+
       span {
         padding-left: 14px;
       }
+
       &.pane-node-body .field-item {
         padding: 0;
       }
+
       &.pane-node-field-shared-contact-name div.field-item {
         padding: 0;
       }
+
       &.pane-node-field-shared-contact-email {
         margin-top: 0;
         .field-item {
           padding: 0;
         }
       }
+
       &.pane-node-field-shared-contact-phone .field-item {
         padding: 0;
       }
     }
-
   }
 }
 
