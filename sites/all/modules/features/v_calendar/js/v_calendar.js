@@ -248,6 +248,17 @@
       $selectizeInput = $selectize.parent().find('.selectize-input');
       selectizeControl = $selectize[0].selectize;
 
+      // Add custom click handler to allow de-select of selected options.
+      selectizeControl.$dropdown_content.on('click', function (e) {
+        var itemValue = $(e.target).data('value').toString();
+        var itemSelectedIndex = selectizeControl.items.indexOf(itemValue);
+        if (itemSelectedIndex !== -1) {
+          selectizeControl.items.splice(itemSelectedIndex, 1);
+          selectizeControl.setValue(selectizeControl.items, true);
+          updateSelectizeDisplay(selectizeControl.items);
+        }
+      });
+
       // Update the display to the initial state, afterwards this will be
       // handled in the render, or onChange callback functions.
       updateSelectizeDisplay($selectize.val());

@@ -2654,6 +2654,7 @@ ul.calendar-links,
 }
 
 .events-calendar .selectize-control .selectize-input {
+  cursor: pointer;
   border: 3px solid #d5dde1;
   font-weight: bold;
   padding: .3rem;
@@ -2672,6 +2673,9 @@ ul.calendar-links,
 }
 .events-calendar .selectize-control.multi .selectize-input > div.active {
   background: none;
+}
+.events-calendar .selectize-control.multi .selectize-input > div[data-value] {
+  display: none;
 }
 @media (min-width: 40em) {
   .events-calendar .selectize-control {
