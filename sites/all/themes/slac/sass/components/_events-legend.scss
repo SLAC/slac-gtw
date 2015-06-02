@@ -4,7 +4,7 @@
 
 #block-boxes-calendar-legend {
   @include font-size(14px);
-  margin-left: 10%;
+  margin-left: 20px;
   padding-left: 0;
   border: 3px solid color(grey-blue);
   width: 90%;
@@ -12,6 +12,10 @@
 
   @include breakpoint($tablet-small) {
     max-width: 500px;
+  }
+
+  @include breakpoint($desktop) {
+    margin-left: 10%;
   }
 
   .block-title {

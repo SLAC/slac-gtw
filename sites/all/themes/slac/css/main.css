@@ -2095,6 +2095,10 @@ ul.calendar-links,
   min-height: 105px;
 }
 
+.calendar-calendar .week-view .full td.multi-day div.weekview {
+  min-height: 100px;
+}
+
 .calendar-calendar .week-view .full td.multi-day .inner .weekview .continuation {
   height: 22px;
   padding-top: 0px;
@@ -2868,6 +2872,11 @@ ul.calendar-links,
     width: 100%;
   }
 
+  .week-view table,
+  .week-view tbody {
+    display: table;
+  }
+
   thead,
   td.empty {
     display: none;
@@ -2879,9 +2888,9 @@ ul.calendar-links,
     display: none;
   }
 
-  table tr,
-  table th,
-  table td {
+  .month-view table tr,
+  .month-view table th,
+  .month-view table td {
     display: block;
     padding: 0;
     text-align: left;
@@ -2899,6 +2908,19 @@ ul.calendar-links,
     margin-top: 3.5rem;
   }
 
+  .week-view .multi-day {
+    border-bottom: 5px solid #e5e5e5 !important;
+  }
+
+  .week-view .multi-day.no-entry {
+    display: none !important;
+  }
+
+  .date-nav-wrapper li.date-next,
+  .date-nav-wrapper li.date-prev {
+    width: 45px;
+  }
+
   table th[data-title]:before,
   table td[data-title]:before {
     font-size: 18px;
@@ -2908,7 +2930,9 @@ ul.calendar-links,
   }
 
   td.single-day:before,
-  td.date-box:before {
+  td.date-box:before,
+  .week-view td.multi-day:before,
+  .week-view td.single-day:before {
     float: left;
     width: 35%;
     margin-right: 10px;
@@ -2916,8 +2940,14 @@ ul.calendar-links,
     text-align: left;
   }
 
+  .week-view tr.not-all-day .inner {
+    width: inherit;
+  }
+
   td.single-day .inner,
-  td.date-box .inner {
+  td.date-box .inner,
+  .week-view .type-access_information,
+  .week-view .type-event {
     float: right;
     width: 60%;
   }
@@ -2939,10 +2969,6 @@ ul.calendar-links,
     color: #333;
   }
 
-  table td:first-child:before {
-    content: '';
-  }
-
   .date-nav-wrapper {
     margin-top: 75px;
   }
@@ -2951,7 +2977,9 @@ ul.calendar-links,
     min-height: 0;
   }
 
-  .link-ical {
+  .link-ical,
+  .weekview .type-access_information .link-ical,
+  .weekview .type-event .link-ical {
     top: 10px;
   }
 
@@ -2962,12 +2990,19 @@ ul.calendar-links,
     border: none;
     background: #ffffff;
   }
-  .calendar-calendar .month-view .full tr td.single-day {
+  .calendar-calendar .month-view .full tr td.single-day,
+  .calendar-calendar .week-view .full tr td.single-day,
+  .calendar-calendar .week-view .full tr td.today,
+  .calendar-calendar .week-view .full tr td.weekend,
+  .calendar-calendar .week-view .full tr td.multi-day {
     display: table;
   }
   .calendar-calendar .month-view .full td.single-day.empty,
   .calendar-calendar .month-view .full tr td.today,
-  .calendar-calendar .month-view .full tr td.weekend {
+  .calendar-calendar .month-view .full tr td.weekend,
+  .calendar-calendar .week-view .full td.single-day.empty,
+  .calendar-calendar .week-view .full tr td.today,
+  .calendar-calendar .week-view .full tr td.weekend {
     background: #ffffff;
   }
   .calendar-calendar .time {
@@ -2980,19 +3015,79 @@ ul.calendar-links,
     position: relative;
     top: -6px;
   }
+  .calendar-calendar .weekview .title {
+    top: -10px;
+  }
   .calendar-calendar .type-access_information,
   .calendar-calendar .type-event {
     padding: 0 1.2rem .2rem .5rem;
     border-left: none;
     border-top: 3px solid;
   }
+  .calendar-calendar .weekview .type-access_information,
+  .calendar-calendar .weekview .type-event {
+    border-top: 3px solid;
+  }
+  .calendar-calendar .weekview .type-access_information.event-summer-school-programs,
+  .calendar-calendar .weekview .type-event.event-summer-school-programs {
+    border-color: #ff2eba;
+  }
+  .calendar-calendar .weekview .type-access_information.event-talks-seminars--colloquia,
+  .calendar-calendar .weekview .type-event.event-talks-seminars--colloquia {
+    border-color: #e9ce43;
+  }
+  .calendar-calendar .weekview .type-access_information.event-public-events--tours,
+  .calendar-calendar .weekview .type-event.event-public-events--tours {
+    border-color: #35b635;
+  }
+  .calendar-calendar .weekview .type-access_information.event-conferences--workshops,
+  .calendar-calendar .weekview .type-event.event-conferences--workshops {
+    border-color: #4780d1;
+  }
+  .calendar-calendar .weekview .type-access_information.event-staff-celebrations,
+  .calendar-calendar .weekview .type-event.event-staff-celebrations {
+    border-color: #7e00aa;
+  }
+  .calendar-calendar .weekview .type-access_information.event-training--development,
+  .calendar-calendar .weekview .type-event.event-training--development {
+    border-color: #e76d00;
+  }
+  .calendar-calendar .weekview .type-access_information.type-access_information,
+  .calendar-calendar .weekview .type-event.type-access_information {
+    border-color: #de0105;
+    background: #e2e2e2 url(../images/access-notice-icon-smaller.png) 5px 3px no-repeat;
+  }
+  .calendar-calendar .weekview .type-access_information .time,
+  .calendar-calendar .weekview .type-event .time {
+    border: none;
+    background: transparent;
+  }
 
-  .events-calendar .type-access_information.type-access_information {
+  .calendar-calendar .week-view .full td.multi-day div.weekview {
+    width: inherit;
+    min-height: 100px;
+  }
+
+  .calendar-calendar .week-view .full,
+  .calendar-calendar td.calendar-agenda-items {
+    border: none;
+  }
+
+  .events-calendar .type-access_information.type-access_information,
+  .calendar-calendar .weekview .type-access_information.type-access_information {
     background-image: none;
+  }
+
+  .calendar-calendar .weekview .type-access_information {
+    margin-left: 0;
   }
 
   .date-box td[id^="calendar_view-"][id$="-date-box"],
   .date-box {
+    display: none;
+  }
+
+  .date-day {
     display: none;
   }
 }
@@ -3443,7 +3538,7 @@ div.date-views-pager div.next-year {
 #block-boxes-calendar-legend {
   font-size: 14px;
   font-size: 0.875rem;
-  margin-left: 10%;
+  margin-left: 20px;
   padding-left: 0;
   border: 3px solid #d5dde1;
   width: 90%;
@@ -3452,6 +3547,11 @@ div.date-views-pager div.next-year {
 @media (min-width: 40em) {
   #block-boxes-calendar-legend {
     max-width: 500px;
+  }
+}
+@media (min-width: 70em) {
+  #block-boxes-calendar-legend {
+    margin-left: 10%;
   }
 }
 #block-boxes-calendar-legend .block-title {
