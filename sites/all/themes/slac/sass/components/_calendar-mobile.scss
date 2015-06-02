@@ -22,6 +22,10 @@
     }
   }
 
+  .date-nav-wrapper .date-heading h3 {
+    @include font-size($base-font-size);
+  }
+
   .month-view {
     table tr,
     table th,
@@ -64,7 +68,7 @@
   table th[data-title]:before,
   table td[data-title]:before {
     @include font-size(18px);
-    content: attr(data-title) ":\00A0";
+    content: attr(data-title) "\00A0";
     font-weight: bold;
   }
 
@@ -151,6 +155,44 @@
       background: $white;
     }
 
+    .day-view #single-day-container table td {
+      width: 60%;
+    }
+
+    .day-view .full .calendar-agenda-items .inner > .item:first-child {
+      margin: 0;
+    }
+
+    .day-view .full div.calendar-agenda-items,
+    .day-view .full div.calendar-agenda-hour {
+      border: none;
+    }
+
+    .day-view .full div.single-day {
+      padding-top: 0 !important;
+    }
+
+    .day-view .title {
+      top: -12px;
+    }
+
+    .day-view .full td.multi-day div.dayview,
+    .day-view .full td.single-day div.dayview {
+      width: 100%;
+    }
+
+    .calendar-calendar .day-view #multi-day-container {
+      min-height: 100px;
+      height: initial;
+    }
+    .day-view .full .calendar-agenda-items .inner .item {
+      max-height: inherit;
+    }
+
+    .day-view .full .calendar-agenda-items .inner > .item {
+      margin-right: 0;
+    }
+
     .time {
       width: 100px;
       position: relative;
@@ -175,7 +217,9 @@
     }
 
       .weekview .type-access_information,
-      .weekview .type-event {
+      .weekview .type-event,
+      .dayview .type-access_information,
+      .dayview .type-event {
         border-top: 3px solid;
 
       &.event-summer-school-programs {
@@ -204,11 +248,25 @@
 
       &.type-access_information {
         border-color: color(red);
-        background: color(event-item-grey) url(../images/access-notice-icon-smaller.png) 5px 3px no-repeat;
+        background: color(event-item-grey);
       }
       .time {
         border: none;
         background: transparent;
+      }
+    }
+
+    .day-view,
+    .day-view td.first,
+    .day-view td.calendar-agenda-items {
+      border: none;
+    }
+
+    .day-view {
+      .full div.calendar-agenda-hour:nth-child(2n+1),
+      .full div.single-day:nth-child(2n+1) {
+        background: none;
+        min-height: 57px;
       }
     }
   }
@@ -228,7 +286,6 @@
     background-image: none;
   }
 
-  // .calendar-calendar .day-view .full td.multi-day div.dayview,
   .calendar-calendar .weekview .type-access_information {
     margin-left: 0;
   }
