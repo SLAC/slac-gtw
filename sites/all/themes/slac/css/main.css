@@ -316,11 +316,6 @@ h2 {
   font-size: 1.2rem;
 }
 
-.general-left h2 {
-  font-size: 20px;
-  font-size: 1.25rem;
-}
-
 ul, ol {
   list-style-image: none;
   padding-left: 2rem;
@@ -340,6 +335,16 @@ hr {
   clear: both;
   height: 0;
   margin: 1rem 0 1rem;
+}
+
+.general-left h2 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  margin-bottom: .4rem;
+  line-height: 1.4;
+}
+.general-left p {
+  margin-top: .5rem;
 }
 
 table tbody {
@@ -4394,12 +4399,13 @@ fieldset.collapsed {
 .general-left .js-print-button a {
   border: none;
   background: url("../images/icons-cal-mail-print.png") 0 -32px no-repeat;
-  background-size: 16px 48px;
+  background-size: 16px 46px;
 }
 
 .general-left ul,
 .general-left ol {
-  padding-left: 0;
+  padding-left: 4rem;
+  margin-bottom: 1rem;
 }
 
 .node-type-event .general-right .field-name-field-shared-related-files li a,
