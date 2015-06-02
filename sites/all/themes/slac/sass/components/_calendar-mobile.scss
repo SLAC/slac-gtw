@@ -48,11 +48,17 @@
     }
   }
 
-  .week-view .multi-day .item {
-    border-top: 5px solid darken($light-grey, 5%);
+  .week-view .multi-day {
+    border-bottom: 5px solid darken($light-grey, 5%) !important;
   }
-  .week-view .multi-day > .item {
-    border: none;
+
+  .week-view .multi-day.no-entry {
+    display: none !important;
+  }
+
+  .date-nav-wrapper li.date-next,
+  .date-nav-wrapper li.date-prev {
+    width: 45px;
   }
 
   table th[data-title]:before,
@@ -73,16 +79,7 @@
     text-align: left;
   }
 
-  // .week-view tr.first.last {
-  //   display: block;
-  //   width: 105px;
-  //   float: left;
-  // }
-
   .week-view tr.not-all-day {
-    // width: 60%;
-    // float: right;
-
     .inner {
       width: inherit;
     }
@@ -125,7 +122,9 @@
     }
   }
 
-  .link-ical {
+  .link-ical,
+  .weekview .type-access_information .link-ical,
+  .weekview .type-event .link-ical {
     top: 10px;
   }
 
@@ -215,6 +214,11 @@
         background: transparent;
       }
     }
+  }
+
+  .calendar-calendar .week-view .full td.multi-day div.weekview {
+    width: inherit;
+    min-height: 100px;
   }
 
   .calendar-calendar .week-view .full,
