@@ -47,7 +47,7 @@ function ct_event_custom_add() {
   $content .= theme('item_list', $list);
 
   $other_items = array(
-    l(t('Create an Access Notice.'), 'node/add/access-information'),
+    l(t('Create an Access Notice'), 'node/add/access-information'),
     l(t('Create an Access Notice promoted as News'),
         'node/add/access-information',
         array(
