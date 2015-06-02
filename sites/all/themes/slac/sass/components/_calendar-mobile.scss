@@ -15,13 +15,15 @@
     }
   }
 
-  table tr,
-  table th,
-  table td {
-    display: block;
-    padding: 0;
-    text-align: left;
-    white-space: normal;
+  .month-view {
+    table tr,
+    table th,
+    table td {
+      display: block;
+      padding: 0;
+      text-align: left;
+      white-space: normal;
+    }
   }
 
   table tr {
@@ -53,6 +55,21 @@
     margin-right: 10px;
     margin-top: 1rem;
     text-align: left;
+  }
+
+  // .week-view tr.first.last {
+  //   display: block;
+  //   width: 105px;
+  //   float: left;
+  // }
+
+  .week-view tr.not-all-day {
+    // width: 60%;
+    // float: right;
+
+    .inner {
+      width: inherit;
+    }
   }
 
   td.single-day .inner,
@@ -103,13 +120,20 @@
       background: $white;
     }
 
-    .month-view .full tr td.single-day {
+    .month-view .full tr td.single-day,
+    .week-view .full tr td.single-day,
+    .week-view .full tr td.today,
+    .week-view .full tr td.weekend,
+    .week-view .full tr td.multi-day {
       display: table;
     }
 
     .month-view .full td.single-day.empty,
     .month-view .full tr td.today,
-    .month-view .full tr td.weekend {
+    .month-view .full tr td.weekend,
+    .week-view .full td.single-day.empty,
+    .week-view .full tr td.today,
+    .week-view .full tr td.weekend {
       background: $white;
     }
 
@@ -125,20 +149,72 @@
       top: -6px;
     }
 
+    .weekview .title {
+      top: -10px;
+    }
+
     .type-access_information,
     .type-event {
       padding: 0 1.2rem .2rem .5rem;
       border-left: none;
       border-top: 3px solid;
     }
+
+      .weekview .type-access_information,
+      .weekview .type-event {
+        border-top: 3px solid;
+
+      &.event-summer-school-programs {
+        border-color: color(pink);
+      }
+
+      &.event-talks-seminars--colloquia {
+        border-color: color(yellow);
+      }
+
+      &.event-public-events--tours {
+        border-color: color(green);
+      }
+
+      &.event-conferences--workshops {
+        border-color: color(blue);
+      }
+
+      &.event-staff-celebrations {
+        border-color: color(purple);
+      }
+
+      &.event-training--development {
+        border-color: color(orange);
+      }
+
+      &.type-access_information {
+        border-color: color(red);
+        background: color(event-item-grey) url(../images/access-notice-icon-smaller.png) 5px 3px no-repeat;
+      }
+      .time {
+        border: none;
+        background: transparent;
+      }
+    }
   }
 
-  .events-calendar .type-access_information.type-access_information {
+  .calendar-calendar .week-view .full,
+  .calendar-calendar td.calendar-agenda-items {
+    border: none;
+  }
+
+  .events-calendar .type-access_information.type-access_information,
+  .calendar-calendar .weekview .type-access_information.type-access_information {
     background-image: none;
   }
 
   .date-box td[id^="calendar_view-"][id$="-date-box"],
   .date-box {
+    display: none;
+  }
+
+  .date-day {
     display: none;
   }
 }
