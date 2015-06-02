@@ -35,10 +35,6 @@ h2 {
   @include font-size($h2-font-size);
 }
 
-.general-left h2 {
-  @include font-size(20px);
-}
-
 ul, ol {
   list-style-image: none;
   padding-left: 2rem;
@@ -58,4 +54,16 @@ hr {
   clear: both;
   height: 0;
   margin: 1rem 0 1rem;
+}
+
+.general-left {
+  h2 {
+    @include font-size(20px);
+    margin-bottom: .4rem;
+    line-height: 1.4;
+  }
+
+  p {
+    margin-top: .5rem;
+  }
 }
