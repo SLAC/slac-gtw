@@ -22,7 +22,7 @@ function slac_ip_config_moderation_default_rules_configuration() {
       ],
       "DO" : [
         { "mail" : {
-            "to" : "[node:author]",
+            "to" : [ "node:author:mail" ],
             "subject" : "Your item, \\u0022[node:title],\\u0022 has been saved.",
             "message" : "You can view, edit and submit the item for publishing at:\\r\\n[node:url].\\r\\n\\r\\n\\r\\nThank you,\\r\\n\\r\\nSLAC Communications",
             "language" : [ "" ]
