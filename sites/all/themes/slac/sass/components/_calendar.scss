@@ -233,8 +233,7 @@
 // No floating of day view content because there is no floating day number
 .calendar-calendar .day-view div.calendar {
   float: none;
-  width: 98%;
-  margin: 1% 1% 0 1%;
+  width: 100%;
 }
 
 .calendar-calendar div.title {
@@ -353,6 +352,16 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar td.calendar-agenda-hour .calendar-hour {
   font-size: 1.2em;
   font-weight: bold;
+}
+
+.calendar-calendar .day-view #multi-day-container td.calendar-agenda-hour .calendar-hour {
+  display: block;
+  padding-top: 1rem;
+  padding-right: 1rem;
+}
+
+.calendar-calendar .day-view #multi-day-container td.calendar-agenda-items div.calendar {
+  padding-top: .5rem;
 }
 
 .calendar-calendar td.calendar-agenda-hour .calendar-ampm {
@@ -1014,9 +1023,17 @@ ul.calendar-links,
   right: 10px;
 }
 
-.weekview .link-ical,
-.dayview .link-ical {
+.weekview .link-ical {
   top: 7px;
+}
+
+.dayview .link-ical,
+.day-view .single-day .type-access_information .link-ical {
+  top: 10px;
+}
+
+.dayview .type-access_information .link-ical {
+  top: 18px;
 }
 
 // show/hide access notices
