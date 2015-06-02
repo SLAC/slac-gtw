@@ -3742,6 +3742,12 @@ div.date-views-pager div.next-year {
     position: relative;
     z-index: 30;
   }
+  .my-flea-market-nav ul {
+    padding-left: 0;
+  }
+  .my-flea-market-nav ul li {
+    list-style: none;
+  }
 }
 .my-flea-market-nav span {
   display: none;
