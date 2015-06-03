@@ -606,8 +606,8 @@ class SlacAccessNoticeMigration extends SlacNodeMigration {
 
     // Miscellaneous field mappings.
     $this->addFieldMapping('field_shared_location', 'field_announcement_loc');
-    $this->addFieldMapping('field_event_date', 'field_publish_dates');
-    $this->addFieldMapping('field_event_date:to', 'field_publish_dates:value2');
+    $this->addFieldMapping('field_event_date', 'field_date');
+    $this->addFieldMapping('field_event_date:to', 'field_date:value2');
     $this->addFieldMapping('field_shared_new_existing', 'field_announcement_content');
     $this->addFieldMapping('field_shared_existing_url', 'field_announcement_redirect');
     $this->addFieldMapping('field_shared_note_editors', 'field_announcement_note');
@@ -654,7 +654,7 @@ class SlacAccessNoticeMigration extends SlacNodeMigration {
 
     // Unmigrated source fields.
     $this->addUnmigratedSources(array('body', 'format', 'uid', 'revision', 'log', 'revision_uid', 'field_pre_announce',
-      'field_byline', 'field_image:list', 'field_image:alt', 'field_image:title', 'field_date', 'field_date:value2',
+      'field_byline', 'field_image:list', 'field_image:alt', 'field_image:title', 'field_publish_dates', 'field_publish_dates:value2',
       'field_event_series', 'field_event_science_area', 'field_event_org', '19', '20', 'name',
       // Node counter fields:
       'daycount', 'timestamp', 'totalcount'));
