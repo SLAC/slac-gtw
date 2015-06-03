@@ -4226,13 +4226,15 @@ fieldset.collapsed {
   background: url(../logo.png) 0 0 no-repeat;
   background-image: url(../logo.svg), none;
   float: right;
-  position: relative;
-  z-index: 5;
 }
 @media (min-width: 40em) {
   #header .logo a {
     float: left;
-    margin-left: 10px;
+  }
+}
+@media (min-width: 70em) {
+  #header .logo a {
+    float: right;
   }
 }
 #header .logo a span {
@@ -4579,12 +4581,16 @@ fieldset.collapsed {
 
 @media all and (max-width: 70em) {
   #main {
-    display: block;
+    background: #ffffff;
+  }
+  #main:after {
+    content: "";
+    display: table;
     clear: both;
-    margin-top: 20px;
   }
   .front #main {
-    margin-top: 80px;
+    margin-top: 0;
+    padding-top: 80px;
   }
 
   header[role="banner"] {
@@ -4593,8 +4599,9 @@ fieldset.collapsed {
   header[role="banner"] .logo {
     display: block;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     padding: 0;
+    padding-left: .6rem;
     margin: 0;
   }
   header[role="banner"] .logo a {
@@ -4991,32 +4998,26 @@ fieldset.collapsed {
 @media (min-width: 20em) {
   #block-slac-search-form {
     display: none;
-    top: 52px;
-    padding-top: 0.5rem;
-    margin-top: 52px;
   }
   #block-slac-search-form.active {
-    position: static;
+    position: relative;
+    top: 52px;
+    padding-top: 1rem;
+    z-index: 1;
+    background: #e9f2f9;
     display: block;
-  }
-}
-@media (min-width: 70em) {
-  #block-slac-search-form {
-    top: 10px;
-    padding: 0;
-    margin-top: 32px;
   }
 }
 
 #slac-search-block-form {
   width: 185px;
   position: relative;
-  margin-left: 40%;
+  margin-left: 10rem;
   margin-top: 1rem;
 }
 @media (min-width: 40em) {
   #slac-search-block-form {
-    margin: 1rem auto;
+    margin-left: 12.5rem;
   }
 }
 @media (min-width: 70em) {
