@@ -2893,6 +2893,11 @@ ul.calendar-links,
     display: none;
   }
 
+  .date-nav-wrapper .date-heading h3 {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+
   .month-view table tr,
   .month-view table th,
   .month-view table td {
@@ -2930,7 +2935,7 @@ ul.calendar-links,
   table td[data-title]:before {
     font-size: 18px;
     font-size: 1.125rem;
-    content: attr(data-title) ": ";
+    content: attr(data-title) " ";
     font-weight: bold;
   }
 
@@ -3010,6 +3015,36 @@ ul.calendar-links,
   .calendar-calendar .week-view .full tr td.weekend {
     background: #ffffff;
   }
+  .calendar-calendar .day-view #single-day-container table td {
+    width: 60%;
+  }
+  .calendar-calendar .day-view .full .calendar-agenda-items .inner > .item:first-child {
+    margin: 0;
+  }
+  .calendar-calendar .day-view .full div.calendar-agenda-items,
+  .calendar-calendar .day-view .full div.calendar-agenda-hour {
+    border: none;
+  }
+  .calendar-calendar .day-view .full div.single-day {
+    padding-top: 0 !important;
+  }
+  .calendar-calendar .day-view .title {
+    top: -12px;
+  }
+  .calendar-calendar .day-view .full td.multi-day div.dayview,
+  .calendar-calendar .day-view .full td.single-day div.dayview {
+    width: 100%;
+  }
+  .calendar-calendar .calendar-calendar .day-view #multi-day-container {
+    min-height: 100px;
+    height: initial;
+  }
+  .calendar-calendar .day-view .full .calendar-agenda-items .inner .item {
+    max-height: inherit;
+  }
+  .calendar-calendar .day-view .full .calendar-agenda-items .inner > .item {
+    margin-right: 0;
+  }
   .calendar-calendar .time {
     width: 100px;
     position: relative;
@@ -3030,42 +3065,70 @@ ul.calendar-links,
     border-top: 3px solid;
   }
   .calendar-calendar .weekview .type-access_information,
-  .calendar-calendar .weekview .type-event {
+  .calendar-calendar .weekview .type-event,
+  .calendar-calendar .dayview .type-access_information,
+  .calendar-calendar .dayview .type-event {
     border-top: 3px solid;
   }
   .calendar-calendar .weekview .type-access_information.event-summer-school-programs,
-  .calendar-calendar .weekview .type-event.event-summer-school-programs {
+  .calendar-calendar .weekview .type-event.event-summer-school-programs,
+  .calendar-calendar .dayview .type-access_information.event-summer-school-programs,
+  .calendar-calendar .dayview .type-event.event-summer-school-programs {
     border-color: #ff2eba;
   }
   .calendar-calendar .weekview .type-access_information.event-talks-seminars--colloquia,
-  .calendar-calendar .weekview .type-event.event-talks-seminars--colloquia {
+  .calendar-calendar .weekview .type-event.event-talks-seminars--colloquia,
+  .calendar-calendar .dayview .type-access_information.event-talks-seminars--colloquia,
+  .calendar-calendar .dayview .type-event.event-talks-seminars--colloquia {
     border-color: #e9ce43;
   }
   .calendar-calendar .weekview .type-access_information.event-public-events--tours,
-  .calendar-calendar .weekview .type-event.event-public-events--tours {
+  .calendar-calendar .weekview .type-event.event-public-events--tours,
+  .calendar-calendar .dayview .type-access_information.event-public-events--tours,
+  .calendar-calendar .dayview .type-event.event-public-events--tours {
     border-color: #35b635;
   }
   .calendar-calendar .weekview .type-access_information.event-conferences--workshops,
-  .calendar-calendar .weekview .type-event.event-conferences--workshops {
+  .calendar-calendar .weekview .type-event.event-conferences--workshops,
+  .calendar-calendar .dayview .type-access_information.event-conferences--workshops,
+  .calendar-calendar .dayview .type-event.event-conferences--workshops {
     border-color: #4780d1;
   }
   .calendar-calendar .weekview .type-access_information.event-staff-celebrations,
-  .calendar-calendar .weekview .type-event.event-staff-celebrations {
+  .calendar-calendar .weekview .type-event.event-staff-celebrations,
+  .calendar-calendar .dayview .type-access_information.event-staff-celebrations,
+  .calendar-calendar .dayview .type-event.event-staff-celebrations {
     border-color: #7e00aa;
   }
   .calendar-calendar .weekview .type-access_information.event-training--development,
-  .calendar-calendar .weekview .type-event.event-training--development {
+  .calendar-calendar .weekview .type-event.event-training--development,
+  .calendar-calendar .dayview .type-access_information.event-training--development,
+  .calendar-calendar .dayview .type-event.event-training--development {
     border-color: #e76d00;
   }
   .calendar-calendar .weekview .type-access_information.type-access_information,
-  .calendar-calendar .weekview .type-event.type-access_information {
+  .calendar-calendar .weekview .type-event.type-access_information,
+  .calendar-calendar .dayview .type-access_information.type-access_information,
+  .calendar-calendar .dayview .type-event.type-access_information {
     border-color: #de0105;
-    background: #e2e2e2 url(../images/access-notice-icon-smaller.png) 5px 3px no-repeat;
+    background: #e2e2e2;
   }
   .calendar-calendar .weekview .type-access_information .time,
-  .calendar-calendar .weekview .type-event .time {
+  .calendar-calendar .weekview .type-event .time,
+  .calendar-calendar .dayview .type-access_information .time,
+  .calendar-calendar .dayview .type-event .time {
     border: none;
     background: transparent;
+  }
+  .calendar-calendar .day-view,
+  .calendar-calendar .day-view td.first,
+  .calendar-calendar .day-view td.calendar-agenda-items {
+    border: none;
+  }
+  .calendar-calendar .day-view .full div.calendar-agenda-hour:nth-child(2n+1),
+  .calendar-calendar .day-view .full div.single-day:nth-child(2n+1) {
+    background: none;
+    min-height: 57px;
   }
 
   .calendar-calendar .week-view .full td.multi-day div.weekview {
