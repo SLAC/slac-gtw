@@ -395,6 +395,10 @@ function v_search_views_default_views() {
   $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['order'] = 'DESC';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
   /* Filter criterion: Search: Fulltext search */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_default_node_index';
@@ -404,7 +408,6 @@ function v_search_views_default_views() {
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator_id'] = 'search_api_views_fulltext_op';
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator'] = 'search_api_views_fulltext_op';
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['identifier'] = 'search_api_views_fulltext';
-  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['required'] = TRUE;
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['remember_roles'] = array(
     2 => 0,
     1 => 0,
@@ -422,7 +425,7 @@ function v_search_views_default_views() {
   $handler->display->display_options['filters']['field_shared_tags_name']['id'] = 'field_shared_tags_name';
   $handler->display->display_options['filters']['field_shared_tags_name']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['filters']['field_shared_tags_name']['field'] = 'field_shared_tags_name';
-  $handler->display->display_options['filters']['field_shared_tags_name']['group'] = 1;
+  $handler->display->display_options['filters']['field_shared_tags_name']['group'] = 2;
   $handler->display->display_options['filters']['field_shared_tags_name']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_shared_tags_name']['expose']['operator_id'] = 'field_shared_tags_name_op';
   $handler->display->display_options['filters']['field_shared_tags_name']['expose']['label'] = 'Find content tagged as:';
@@ -442,7 +445,7 @@ function v_search_views_default_views() {
   $handler->display->display_options['filters']['field_news_news_type']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['filters']['field_news_news_type']['field'] = 'field_news_news_type';
   $handler->display->display_options['filters']['field_news_news_type']['value'] = array();
-  $handler->display->display_options['filters']['field_news_news_type']['group'] = 1;
+  $handler->display->display_options['filters']['field_news_news_type']['group'] = 2;
   $handler->display->display_options['filters']['field_news_news_type']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_news_news_type']['expose']['operator_id'] = 'field_news_news_type_op';
   $handler->display->display_options['filters']['field_news_news_type']['expose']['label'] = 'Limit results to type(s):';
@@ -468,7 +471,7 @@ function v_search_views_default_views() {
     'event' => 'event',
     'flea_market_post' => 'flea_market_post',
   );
-  $handler->display->display_options['filters']['type']['group'] = 1;
+  $handler->display->display_options['filters']['type']['group'] = 2;
   $handler->display->display_options['filters']['type']['exposed'] = TRUE;
   $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
   $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
@@ -489,7 +492,7 @@ function v_search_views_default_views() {
   $handler->display->display_options['filters']['created_1']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['filters']['created_1']['field'] = 'created';
   $handler->display->display_options['filters']['created_1']['operator'] = '>=';
-  $handler->display->display_options['filters']['created_1']['group'] = 1;
+  $handler->display->display_options['filters']['created_1']['group'] = 2;
   $handler->display->display_options['filters']['created_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['created_1']['expose']['operator_id'] = 'created_1_op';
   $handler->display->display_options['filters']['created_1']['expose']['label'] = 'From:';
@@ -510,7 +513,7 @@ function v_search_views_default_views() {
   $handler->display->display_options['filters']['created']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['filters']['created']['field'] = 'created';
   $handler->display->display_options['filters']['created']['operator'] = '<=';
-  $handler->display->display_options['filters']['created']['group'] = 1;
+  $handler->display->display_options['filters']['created']['group'] = 2;
   $handler->display->display_options['filters']['created']['exposed'] = TRUE;
   $handler->display->display_options['filters']['created']['expose']['operator_id'] = 'created_op';
   $handler->display->display_options['filters']['created']['expose']['label'] = 'To:';

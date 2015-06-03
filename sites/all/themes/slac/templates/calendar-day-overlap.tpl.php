@@ -28,73 +28,63 @@
  */
 ?>
 <div class="calendar-calendar"><div class="day-view">
-    <div id="multi-day-container">
-      <table class="full">
-        <tbody>
-        <tr class="holder">
-          <td class="calendar-time-holder"></td>
-          <td class="calendar-day-holder"></td>
-        </tr>
-        <tr>
-          <td class="<?php print $agenda_hour_class ?> first">
-            <span class="calendar-hour"><?php print t('All day', array(), array('context' => 'datetime')) ?></span>
-          </td>
-          <td class="calendar-agenda-items multi-day last">
-            <?php foreach ($columns as $column): ?>
-              <div class="calendar">
-                <div class="inner">
-                  <?php print isset($rows['all_day'][$column]) ? implode($rows['all_day'][$column]) : '&nbsp;';?>
-                </div>
+<?php if (empty($view->result)): ?>
+  <div class="view-empty">
+    <?php foreach ($view->empty as $area): ?>
+    <?php print $area->render(); ?>
+    <?php endforeach; ?>
+  </div>
+<?php else: ?>
+  <?php if (!empty($rows['all_day'])): ?>
+  <div id="multi-day-container">
+    <table class="full">
+      <tbody>
+      <tr class="holder">
+        <td class="calendar-time-holder"></td>
+        <td class="calendar-day-holder"></td>
+      </tr>
+      <tr>
+        <td class="<?php print $agenda_hour_class ?> first">
+          <span class="calendar-hour"><?php print t('All day', array(), array('context' => 'datetime')) ?></span>
+        </td>
+        <td class="calendar-agenda-items multi-day last">
+          <?php foreach ($columns as $column): ?>
+            <div class="calendar">
+              <div class="inner">
+                <?php print isset($rows['all_day'][$column]) ? implode($rows['all_day'][$column]) : '&nbsp;';?>
               </div>
-            <?php endforeach; ?>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="header-body-divider">&nbsp;</div>
-    <div id="single-day-container">
-      <?php if (!empty($scroll_content)) : ?>
-        <script>
-          try {
-            // Hide container while it renders...  Degrade w/o javascript support
-            jQuery('#single-day-container').css('visibility','hidden');
-          }catch(e){
-            // swallow
-          }
-        </script>
-      <?php endif; ?>
-      <table class="full">
-        <tbody>
-        <tr class="holder">
-          <td class="calendar-time-holder"></td>
-          <td class="calendar-day-holder"></td>
-        </tr>
-        <tr>
-          <td class="first">
-            <?php $is_first = TRUE; ?>
-            <?php foreach ($rows['items'] as $time_cnt => $hour): ?>
-              <?php
-              // Skip displaying hours without events.
-              if (empty($hour['values'])) {
-                continue;
-              }
-              if ($time_cnt == 0) {
-                $class = 'first ';
-              }
-              elseif ($time_cnt == count($start_times) - 1) {
-                $class = 'last ';
-              }
-              else {
-                $class = '';
-              } ?>
-              <div class="<?php print $class?>calendar-agenda-hour">
-                <span class="calendar-hour"><?php print $hour['hour']; ?></span><span class="calendar-ampm"><?php print $hour['ampm']; ?></span>
-              </div>
-            <?php endforeach; ?>
-          </td>
-          <td class="last">
-            <?php foreach ($rows['items'] as $time_cnt => $hour): ?>
+            </div>
+          <?php endforeach; ?>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <?php else: ?>
+    <?php $column = end($columns); ?>
+  <?php endif; ?>
+  <div class="header-body-divider">&nbsp;</div>
+  <div id="single-day-container">
+    <?php if (!empty($scroll_content)) : ?>
+      <script>
+        try {
+          // Hide container while it renders...  Degrade w/o javascript support
+          jQuery('#single-day-container').css('visibility','hidden');
+        }catch(e){
+          // swallow
+        }
+      </script>
+    <?php endif; ?>
+    <table class="full">
+      <tbody>
+      <tr class="holder">
+        <td class="calendar-time-holder"></td>
+        <td class="calendar-day-holder"></td>
+      </tr>
+      <tr>
+        <td class="first">
+          <?php $is_first = TRUE; ?>
+          <?php foreach ($rows['items'] as $time_cnt => $hour): ?>
             <?php
             // Skip displaying hours without events.
             if (empty($hour['values'])) {
@@ -109,33 +99,52 @@
             else {
               $class = '';
             } ?>
-            <div class="<?php print $class?>calendar-agenda-items single-day">
-              <div class="half-hour">&nbsp;</div>
-              <?php if ($is_first && isset($hour['values'][$column])) :?>
-              <div class="calendar item-wrapper first_item">
-                <?php $is_first = FALSE; ?>
-                <?php else : ?>
-                <div class="calendar item-wrapper">
-                  <?php endif; ?>
-                  <div class="inner">
-                    <?php if (!empty($hour['values']) && is_array($hour['values']) && array_key_exists($column, $hour['values'])): ?>
-                      <?php foreach ($hour['values'][$column] as $item): ?>
-                        <?php print $item; ?>
-                      <?php endforeach; ?>
-                    <?php else: ?>
-                      <?php print '&nbsp;'; ?>
-                    <?php endif; ?>
-                  </div>
-                </div>
+            <div class="<?php print $class?>calendar-agenda-hour">
+              <span class="calendar-hour"><?php print $hour['hour']; ?></span><span class="calendar-ampm"><?php print $hour['ampm']; ?></span>
+            </div>
+          <?php endforeach; ?>
+        </td>
+        <td class="last">
+          <?php foreach ($rows['items'] as $time_cnt => $hour): ?>
+          <?php
+            // Skip displaying hours without events.
+            if (empty($hour['values'])) {
+              continue;
+            }
+            if ($time_cnt == 0) {
+              $class = 'first ';
+            }
+            elseif ($time_cnt == count($start_times) - 1) {
+              $class = 'last ';
+            }
+            else {
+              $class = '';
+            }
+          ?>
+          <div class="<?php print $class?>calendar-agenda-items single-day">
+            <div class="half-hour">&nbsp;</div>
+            <div class="calendar item-wrapper<?php print ($is_first) ? 'first_item' : ''; ?>">
+            <?php $is_first = FALSE; ?>
+              <div class="inner">
+                <?php if (!empty($hour['values']) && is_array($hour['values']) && array_key_exists($column, $hour['values'])): ?>
+                  <?php foreach ($hour['values'][$column] as $item): ?>
+                    <?php print $item; ?>
+                  <?php endforeach; ?>
+                <?php else: ?>
+                  <?php print '&nbsp;'; ?>
+                <?php endif; ?>
               </div>
-              <?php endforeach; ?>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="single-day-footer">&nbsp;</div>
-  </div></div>
+            </div>
+          </div>
+          <?php endforeach; ?>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="single-day-footer">&nbsp;</div>
+<?php endif; ?>
+</div></div>
 <?php if (!empty($scroll_content)) : ?>
   <script>
     try {

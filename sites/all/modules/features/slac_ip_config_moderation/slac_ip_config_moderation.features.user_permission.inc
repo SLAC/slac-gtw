@@ -10,6 +10,16 @@
 function slac_ip_config_moderation_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: 'access unpublish button'.
+  $permissions['access unpublish button'] = array(
+    'name' => 'access unpublish button',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'unpublish_button',
+  );
+
   // Exported permission: 'access workbench'.
   $permissions['access workbench'] = array(
     'name' => 'access workbench',
@@ -59,6 +69,41 @@ function slac_ip_config_moderation_user_default_permissions() {
     'module' => 'workbench_moderation',
   );
 
+  // Exported permission: 'moderate access_information state from draft to needs_review'.
+  $permissions['moderate access_information state from draft to needs_review'] = array(
+    'name' => 'moderate access_information state from draft to needs_review',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate access_information state from draft to published'.
+  $permissions['moderate access_information state from draft to published'] = array(
+    'name' => 'moderate access_information state from draft to published',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate access_information state from needs_review to draft'.
+  $permissions['moderate access_information state from needs_review to draft'] = array(
+    'name' => 'moderate access_information state from needs_review to draft',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate access_information state from needs_review to published'.
+  $permissions['moderate access_information state from needs_review to published'] = array(
+    'name' => 'moderate access_information state from needs_review to published',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate access_information state from published to draft'.
+  $permissions['moderate access_information state from published to draft'] = array(
+    'name' => 'moderate access_information state from published to draft',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
   // Exported permission: 'moderate content from draft to needs_review'.
   $permissions['moderate content from draft to needs_review'] = array(
     'name' => 'moderate content from draft to needs_review',
@@ -70,11 +115,19 @@ function slac_ip_config_moderation_user_default_permissions() {
     'module' => 'workbench_moderation',
   );
 
+  // Exported permission: 'moderate content from draft to published'.
+  $permissions['moderate content from draft to published'] = array(
+    'name' => 'moderate content from draft to published',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
   // Exported permission: 'moderate content from needs_review to draft'.
   $permissions['moderate content from needs_review to draft'] = array(
     'name' => 'moderate content from needs_review to draft',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'editor' => 'editor',
     ),
     'module' => 'workbench_moderation',
@@ -87,6 +140,113 @@ function slac_ip_config_moderation_user_default_permissions() {
       'administrator' => 'administrator',
       'editor' => 'editor',
     ),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate content from published to draft'.
+  $permissions['moderate content from published to draft'] = array(
+    'name' => 'moderate content from published to draft',
+    'roles' => array(
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate event state from draft to needs_review'.
+  $permissions['moderate event state from draft to needs_review'] = array(
+    'name' => 'moderate event state from draft to needs_review',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate event state from draft to published'.
+  $permissions['moderate event state from draft to published'] = array(
+    'name' => 'moderate event state from draft to published',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate event state from needs_review to draft'.
+  $permissions['moderate event state from needs_review to draft'] = array(
+    'name' => 'moderate event state from needs_review to draft',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate event state from needs_review to published'.
+  $permissions['moderate event state from needs_review to published'] = array(
+    'name' => 'moderate event state from needs_review to published',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate event state from published to draft'.
+  $permissions['moderate event state from published to draft'] = array(
+    'name' => 'moderate event state from published to draft',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate flea_market_post state from draft to needs_review'.
+  $permissions['moderate flea_market_post state from draft to needs_review'] = array(
+    'name' => 'moderate flea_market_post state from draft to needs_review',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate flea_market_post state from needs_review to draft'.
+  $permissions['moderate flea_market_post state from needs_review to draft'] = array(
+    'name' => 'moderate flea_market_post state from needs_review to draft',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate flea_market_post state from needs_review to published'.
+  $permissions['moderate flea_market_post state from needs_review to published'] = array(
+    'name' => 'moderate flea_market_post state from needs_review to published',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate flea_market_post state from published to draft'.
+  $permissions['moderate flea_market_post state from published to draft'] = array(
+    'name' => 'moderate flea_market_post state from published to draft',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate news state from draft to needs_review'.
+  $permissions['moderate news state from draft to needs_review'] = array(
+    'name' => 'moderate news state from draft to needs_review',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate news state from draft to published'.
+  $permissions['moderate news state from draft to published'] = array(
+    'name' => 'moderate news state from draft to published',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate news state from needs_review to draft'.
+  $permissions['moderate news state from needs_review to draft'] = array(
+    'name' => 'moderate news state from needs_review to draft',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate news state from needs_review to published'.
+  $permissions['moderate news state from needs_review to published'] = array(
+    'name' => 'moderate news state from needs_review to published',
+    'roles' => array(),
+    'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'moderate news state from published to draft'.
+  $permissions['moderate news state from published to draft'] = array(
+    'name' => 'moderate news state from published to draft',
+    'roles' => array(),
     'module' => 'workbench_moderation',
   );
 

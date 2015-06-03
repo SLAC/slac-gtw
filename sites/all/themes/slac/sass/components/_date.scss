@@ -66,10 +66,6 @@ div.date-views-pager div.next-year {
 }
 
 .date-nav-wrapper  {
-  position: relative;
-  margin-top: 5px;
-  width: 100%;
-
   .item-list .pager {
     margin: 0;
 
@@ -85,29 +81,36 @@ div.date-views-pager div.next-year {
     }
   }
 
-  .item-list .pager li a {
-    background: none;
+  .item-list .pager li {
+    padding-top: 0;
+
+    span {
+      color: $blue;
+    }
+
+    a {
+      background: none;
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      &:hover,
+      &:focus {
+        color: $blue;
+        background: transparent;
+      }
+    }
   }
 
   @include breakpoint($desktop) {
     .item-list .pager {
-      width: 200px;
+      display: inline-block;
+      width: 202px;
       height: 34px;
       background: color(grey-blue-light);
       position: relative;
-      bottom: 3.4rem;
+      bottom: .4rem;
     }
   }
-}
-
-.date-nav-wrapper .date-nav {
-  background-color: transparent;
-  border: 0px;
-  height: 30px;
-  height: auto;
-  min-height: 30px;
-  position: relative;
-  margin-bottom: 10px;
 }
 
 .date-nav-wrapper .date-prev a,
@@ -145,7 +148,7 @@ div.date-views-pager div.next-year {
   margin-left: 10px;
   font-size: 0;
   color: color(grey-blue-light);
-  background: url(../images/right-arrow.png) 100% -62% no-repeat;
+  background: url(../images/right-arrow.png) 82% -34% no-repeat;
   transform: rotate(180deg);
 }
 
@@ -173,5 +176,5 @@ div.date-views-pager div.next-year {
   color: color(grey-blue-light);
   margin-right: .6rem;
   font-weight: bold;
-  background: url(../images/right-arrow.png) 100% 0 no-repeat;
+  background: url(../images/right-arrow.png) 56% 7px no-repeat;
 }

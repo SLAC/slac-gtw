@@ -5,11 +5,6 @@
   margin: 0;
   overflow: hidden;
 
-  .footer-inner {
-    @include clearfix;
-    @include zen-grid-item(12, 1);
-  }
-
   a,
   a:link {
     color: $white;
@@ -94,47 +89,15 @@
     background: $grey-footer-light;
     color: lighten($dim-grey, 20%);
 
-    .footer-inner {
-      max-width: 1432px;
-      float: none;
-      margin: 0 auto;
-    }
-
     .region-footer {
-      @include zen-grid-item(8, 1);
-      padding-bottom: 14px;
-      overflow: hidden;
       background: transparent;
       a {
         color: $footer-links;
       }
     }
 
-    .footer-logos {
-      @include zen-grid-item(4, 9);
-      text-align: right;
-      margin-top: 3rem;
-    }
-
     .footer-info {
       border-bottom: 1px solid lighten($dim-grey, 40%);
-    }
-  }
-
-  @include breakpoint($huge) {
-    .footer-inner {
-      padding-right: 0;
-      padding-left: 0;
-    }
-
-    .region-footer {
-      @include zen-grid-item(6, 1);
-      padding-left: 0;
-    }
-
-    .footer-logos {
-      @include zen-grid-item(3, 10);
-      padding-right: 0;
     }
   }
 }

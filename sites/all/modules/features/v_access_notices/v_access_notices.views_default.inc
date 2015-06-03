@@ -70,7 +70,7 @@ function v_access_notices_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = 'Notices of road closures and service outages are from May 2011 through the present.';
+  $handler->display->display_options['header']['area']['content'] = 'Notices of closures and outages.';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
 
   /* Display: Feed */

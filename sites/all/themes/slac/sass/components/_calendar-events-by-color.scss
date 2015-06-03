@@ -1,0 +1,108 @@
+.events-calendar {
+
+  // global styles for calendar events
+  .type-access_information,
+  .type-event {
+    background: color(event-item-grey);
+    margin: .2rem .2rem .5rem .2rem;
+    padding: .2rem .4rem;
+    border-left: 3px solid color(grey);
+
+  .type-access_information {
+    padding-top: .2rem;
+  }
+
+    // individual styles
+    &.event-summer-school-programs {
+      border-color: color(pink);
+    }
+
+    &.event-talks-seminars--colloquia {
+      border-color: color(yellow);
+    }
+
+    &.event-public-events--tours {
+      border-color: color(green);
+    }
+
+    &.event-conferences--workshops {
+      border-color: color(blue);
+    }
+
+    &.event-staff-celebrations {
+      border-color: color(purple);
+    }
+
+    &.event-training--development {
+      border-color: color(orange);
+    }
+
+    &.type-access_information {
+      border-color: color(red);
+      background: color(event-item-grey) url(../images/access-notice-icon-smaller.png) 5px 3px no-repeat;
+    }
+  }
+
+  // week and day views
+  .weekview,
+  .dayview {
+    .type-access_information,
+    .type-event {
+      border: none;
+      padding: 0;
+      padding-bottom: .2rem;
+      border: none;
+
+      .time {
+        padding: .1rem .4rem .4rem .4rem;
+        border-top: 3px solid color(grey);
+        background: lighten(color(event-item-grey), 5%);
+      }
+
+      .title a {
+        display: block;
+        margin: .4rem;
+      }
+    }
+
+    .type-access_information {
+      margin: .2rem 0 .5rem;
+    }
+
+    .type-access_information .time {
+      border-color: color(red);
+      background: lighten(color(red), 50%) url(../images/access-notice-icon-smaller.png) 5px 4px no-repeat;
+    }
+
+    .event-summer-school-programs .time {
+      border-color: color(pink);
+      background: lighten(color(pink), 30%);
+    }
+
+    .event-talks-seminars--colloquia .time {
+      border-color: color(yellow);
+      background: lighten(color(yellow), 25%);
+    }
+
+    .event-public-events--tours .time {
+      border-color: color(green);
+      background: lighten(color(green), 35%);
+    }
+
+    .event-conferences--workshops .time {
+      border-color: color(blue);
+      background: lighten(color(blue), 25%);
+    }
+
+    .event-staff-celebrations .time {
+      border-color: color(purple);
+      background: lighten(color(purple), 55%);
+    }
+
+    .event-training--development .time {
+      border-color: color(orange);
+      background: lighten(color(orange), 40%);
+    }
+  }
+}
+

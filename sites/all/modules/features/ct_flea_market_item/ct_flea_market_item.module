@@ -16,3 +16,27 @@ function ct_flea_market_item_ctools_render_alter(&$info, &$page, &$context) {
     drupal_add_js($path . '/js/ct_flea_market_item.js');
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ct_flea_market_item_form_flea_market_post_node_form_alter(&$form, &$form_state) {
+  $form['#after_build'][] = 'ct_flea_market_item_form_remove_option';
+}
+
+/**
+ * Form #after_build callback.
+ * Removes the 'Needs review' option from the Moderation state field.
+ *
+ * @see ct_flea_market_item_form_flea_market_post_node_form_alter().
+ */
+function ct_flea_market_item_form_remove_option($form, &$form_state) {
+  if (isset($form['options']['workbench_moderation_state_new']['#options'])) {
+    $options =& $form['options']['workbench_moderation_state_new']['#options'];
+  }
+  else {
+    $options =& $form['revision_information']['workbench_moderation_state_new']['#options'];
+  }
+  unset($options['needs_review']);
+  return $form;
+}
