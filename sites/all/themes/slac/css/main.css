@@ -4952,7 +4952,7 @@ fieldset.collapsed {
     width: 100%;
     background: #e9f2f9;
     position: relative;
-    top: 0px;
+    top: 0;
     display: table;
     height: 95px;
   }
@@ -4964,7 +4964,7 @@ fieldset.collapsed {
     font-size: 0;
     color: transparent;
     position: absolute;
-    top: -36px;
+    top: 16px;
     right: 100px;
     background: url(../images/search.svg) 0 0 no-repeat;
   }
@@ -4979,19 +4979,31 @@ fieldset.collapsed {
     top: 20px;
   }
 }
+@media (min-width: 20em) {
+  #block-slac-search-form {
+    display: none;
+    top: 52px;
+    padding-top: 0.5rem;
+    margin-top: 52px;
+  }
+  #block-slac-search-form.active {
+    position: static;
+    display: block;
+  }
+}
+@media (min-width: 70em) {
+  #block-slac-search-form {
+    top: 10px;
+    padding: 0;
+    margin-top: 32px;
+  }
+}
+
 #slac-search-block-form {
   width: 185px;
   position: relative;
   margin-left: 40%;
   margin-top: 1rem;
-}
-@media (min-width: 20em) {
-  #slac-search-block-form {
-    display: none;
-  }
-  #slac-search-block-form.active {
-    display: block;
-  }
 }
 @media (min-width: 40em) {
   #slac-search-block-form {
