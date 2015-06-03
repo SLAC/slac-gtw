@@ -85,16 +85,16 @@
 
       // Add a toggle link for the expandable mobile search layout.
       var $toggleLink = $('<a href="#search" class="search-link">Search</a>');
-      $searchForm.before($toggleLink);
+      $searchContainer.before($toggleLink);
 
       $toggleLink.click(function (e) {
         e.preventDefault();
 
-        if ($searchForm.is(':visible')) {
-          $toggleLink.add($searchForm).removeClass('active');
+        if ($searchContainer.is(':visible')) {
+          $toggleLink.add($searchContainer).removeClass('active');
         }
         else {
-          $toggleLink.add($searchForm).addClass('active');
+          $toggleLink.add($searchContainer).addClass('active');
         }
       });
     }
