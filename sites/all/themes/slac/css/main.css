@@ -3163,6 +3163,7 @@ ul.calendar-links,
   font-size: 12px;
   font-size: 0.75rem;
   font-style: italic;
+  max-width: 370px;
 }
 .field-name-field-file-shared-caption p {
   margin-top: 0;
@@ -3497,7 +3498,6 @@ div.date-views-pager div.next-year {
   margin-right: 2rem;
   margin-bottom: .5rem;
   margin-top: .25rem;
-  margin-bottom: 2rem;
 }
 .node-type-news .general-left .pane-node-body {
   border-top: none;
