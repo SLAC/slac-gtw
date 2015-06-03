@@ -3163,6 +3163,7 @@ ul.calendar-links,
   font-size: 12px;
   font-size: 0.75rem;
   font-style: italic;
+  max-width: 370px;
 }
 .field-name-field-file-shared-caption p {
   margin-top: 0;
