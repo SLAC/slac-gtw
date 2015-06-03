@@ -1,10 +1,6 @@
 (function ($) {
   'use strict';
 
-  // Hide the Views filters for users with JS.
-  // See /sites/all/themes/slac/sass/components/_calendar.scss
-  $('html').addClass('js');
-
   Drupal.behaviors.calendarFilters = {
     attach: function (context, settings) {
 
@@ -62,8 +58,8 @@
       // Create a new select element to use for creating a Selectize widget
       // based on the views term filters.
       var $combinedSelect = $('<select />');
-      // Create a new checkbox element to control the 'Show Access Notices'
-      // filter.
+
+      // Create a new checkbox to control the 'Show Access Notices' filter.
       var $showAccessElements = $('<p><label><input type="checkbox" /> Show Access Notices</label></p>');
       var $showAccessInput = $showAccessElements.find('input');
 
@@ -77,13 +73,32 @@
       var tagsValues = optionsTags.map(function (i) {return i.value;});
       optionsCombined = optionsCombined.concat(optionsType, optionsTags);
 
+      // Set the 'All Items' value for each group if no other options in the
+      // group are selected.
+      var itemsContainsTypeOption = (optionsItems.some(function (elem) {
+        return (typeValues.indexOf(elem) !== -1);
+      }));
+      if (!itemsContainsTypeOption) {
+        optionsItems.push('all');
+      }
+      var itemsContainsTagsOption = (optionsItems.some(function (elem) {
+        return (tagsValues.indexOf(elem) !== -1);
+      }));
+      if (!itemsContainsTagsOption) {
+        optionsItems.push('all2');
+      }
+
       // Add the combined select element to the document.
       $viewForm.parents('.view-calendar-view').prepend($combinedSelect);
 
       // Update the displayed filters text in the selectize UI.
       function updateSelectizeDisplay (values) {
-        var values = values || [];
-        var len = values.length;
+        values = values || [];
+        // Don't consider "all" values for display update.
+        var currentValues = values.filter(function (v) {
+          return (v !== 'all' && v !== 'all2');
+        });
+        var len = currentValues.length;
 
         $selectizeInput.find('div').hide();
 
@@ -112,6 +127,42 @@
         optgroupValueField: 'value',
         optgroupLabelField: 'label',
         optgroupField: 'group',
+        onItemAdd: function (value, $item) {
+          var inTypes, inTags;
+          var allIndex = -1;
+
+          // If either of the 'View All' options is chosen, remove any selected
+          // filters in that optgroup.
+          if (value === 'all') {
+            // Remove all other values from the type select.
+            this.items = this.items.filter(function (v) {
+              return (v === 'all' || v === 'all2' || tagsValues.indexOf(v) !== -1);
+            });
+          }
+          else if (value === 'all2') {
+            // Remove all values from the tags select.
+            this.items = this.items.filter(function (v) {
+              return (v === 'all' || v === 'all2' || typeValues.indexOf(v) !== -1);
+            });
+          }
+          else {
+            // Otherwise, if any other option was selected, remove that group's
+            // 'View all' selection, if it was active.
+            inTypes = (typeValues.indexOf(value) !== -1);
+            if (inTypes) {
+              allIndex = this.items.indexOf('all');
+            }
+            else {
+              inTags = (tagsValues.indexOf(value) !== -1);
+              if (inTags) {
+                allIndex = this.items.indexOf('all2');
+              }
+            }
+            if (allIndex !== -1) {
+              this.items.splice(allIndex, 1);
+            }
+          }
+        },
         onChange: function (values) {
           var setValues = values;
 
@@ -119,28 +170,34 @@
           // filters in that optgroup.
           if (values) {
             if (values.indexOf('all') !== -1) {
-              // Remove all values from the type select.
+              // Remove all other values from the type select.
               setValues = values.filter(function (v) {
-                return (tagsValues.indexOf(v) !== -1);
+                return (v === 'all' || v === 'all2' || tagsValues.indexOf(v) !== -1);
               });
-              selectizeControl.setValue(setValues, false);
+              selectizeControl.setValue(setValues, true);
             }
             else if (values.indexOf('all2') !== -1) {
               // Remove all values from the tags select.
               setValues = values.filter(function (v) {
-                return (typeValues.indexOf(v) !== -1);
+                return (v === 'all' || v === 'all2' || typeValues.indexOf(v) !== -1);
               });
-              selectizeControl.setValue(setValues, false);
+              selectizeControl.setValue(setValues, true);
             }
 
             selectizeControl.refreshOptions();
             updateSelectizeDisplay(setValues);
           }
         },
-        onDropdownClose: function ($dropdown) {
+        onDropdownClose: function () {
           // Update the values of the actual view filter select elements when the
           // Selectize value changes.
           var values = $selectize.val() || [];
+
+          // Don't consider "all" values.
+          values = values.filter(function (v) {
+            return (v !== 'all' && v !== 'all2');
+          });
+
           var len = values.length;
           var currentTypeValues = $typeSelect.val() || [];
           var lenTypes = currentTypeValues.length;
@@ -157,15 +214,19 @@
           // If the user opened the filter widget, but didn't actually change
           // the current selections, don't update anything.
           if (!(selectionLengthsMatch && selectionsAllInValues)) {
-            $typeSelect.val(values.filter(function (v) {return typeValues.indexOf(v) !== -1}));
-            $tagsSelect.val(values.filter(function (v) {return tagsValues.indexOf(v) !== -1}));
+            $typeSelect.val(values.filter(function (v) {
+              return typeValues.indexOf(v) !== -1;
+            }));
+            $tagsSelect.val(values.filter(function (v) {
+              return tagsValues.indexOf(v) !== -1;
+            }));
 
             // Submit the filter form to apply the new values.
             $viewForm.find('.form-submit').click();
           }
         },
         render: {
-          item: function (data, escape) {
+          item: function () {
             var currentVal = this.getValue() || [];
             var len = currentVal.length;
 
@@ -186,6 +247,17 @@
       // the display of selected filter state (eg. 'Calendar Filters: 2').
       $selectizeInput = $selectize.parent().find('.selectize-input');
       selectizeControl = $selectize[0].selectize;
+
+      // Add custom click handler to allow de-select of selected options.
+      selectizeControl.$dropdown_content.on('click', function (e) {
+        var itemValue = $(e.target).data('value').toString();
+        var itemSelectedIndex = selectizeControl.items.indexOf(itemValue);
+        if (itemSelectedIndex !== -1) {
+          selectizeControl.items.splice(itemSelectedIndex, 1);
+          selectizeControl.setValue(selectizeControl.items, true);
+          updateSelectizeDisplay(selectizeControl.items);
+        }
+      });
 
       // Update the display to the initial state, afterwards this will be
       // handled in the render, or onChange callback functions.

@@ -1,0 +1,157 @@
+<?php
+/**
+ * @file
+ * Code for the Unpublish button.
+ */
+
+include_once 'includes/unpublish_button.core.inc';
+include_once 'includes/unpublish_button.workbench.inc';
+
+/**
+ * Implements hook_permission().
+ */
+function unpublish_button_permission() {
+  return array(
+    'access unpublish button' => array(
+      'title' => t('Access Unpublish Button'),
+      'description' => t('Allow users to access the Unpublish Button for Workbench Moderation or otherwise.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function unpublish_button_module_implements_alter(&$implementations, $hook) {
+  $module = 'unpublish_button';
+  if (($hook == 'form_alter' || $hook == 'menu_alter') && isset($implementations[$module])) {
+    $group = $implementations[$module];
+    unset($implementations[$module]);
+    $implementations[$module] = $group;
+  }
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function unpublish_button_menu_alter(&$items) {
+  if (variable_get('unpublish_button_edit_tab_override', FALSE)) {
+    $items['node/%node/edit']['title callback'] = 'unpublish_button_edit_tab_title';
+    $items['node/%node/edit']['title arguments'] = array(1);
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function unpublish_button_menu() {
+  $items = array();
+  $items['admin/config/workbench/unpublish'] = array(
+    'title' => 'Unpublish Button',
+    'description' => 'Configuration for Unpublish Button',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('unpublish_button_form'),
+    'access arguments' => array('administer content types'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+function unpublish_button_form($form, &$form_state) {
+  $form['unpublish_button_edit_tab_override'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Override the Edit tab text.'),
+    '#default_value' => variable_get('unpublish_button_edit_tab_override', FALSE), 
+    '#description' => t('Defaults to "New Draft" or "Edit Draft" when Workbench Moderation is enabled.'),
+  );
+  $form['unpublish_button_edit_tab_text'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Edit Tab Text'),
+    '#default_value' => variable_get('unpublish_button_edit_tab_text', "Edit"),
+    '#size' => 50,
+    '#maxlength' => 1000,
+    '#description' => t('Text will override the "New Draft" and "Edit Draft" tab rewrites from Workbench Moderation.'),
+    '#states' => array(
+      'disabled' => array(
+        ':input[name="unpublish_button_edit_tab_override"]' => array('checked' => FALSE),
+      ),
+    ),
+  );
+  return system_settings_form($form);
+}
+
+/**
+ * Overrides workbench_moderation_edit_tab_title().
+ */
+function unpublish_button_edit_tab_title($node) {
+  return variable_get('unpublish_button_edit_tab_text', "Edit");
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function unpublish_button_form_node_form_alter(&$form, $state, $form_id) {
+  // Exit if this is a node/add page with an unsaved node object.
+  if (empty($form['#node']->nid)) {
+    return;
+  }
+  // Check if current user has access to the Unpublish Button.
+  if (user_access('access unpublish button')) {
+    // Add validation handler.
+    $form['#validate'][] = 'unpublish_button_node_form_validate';
+    // Check for nodes with Workbench Moderation enabled.
+    if (module_exists('workbench_moderation') && workbench_moderation_node_moderated($form['#node'])) {
+      // Do Workbench Moderation specific node form alterations.
+      _unpublish_button_workbench_node_form($form);
+      return;
+    }
+    // Otherwise use the 'core' node form alterations.
+    _unpublish_button_core_node_form($form);
+  }
+}
+
+/**
+ * Validation function for unpublish_button_form_node_form_alter.
+ */
+function unpublish_button_node_form_validate($form, &$form_state) {
+  // Check for nodes with Workbench Moderation enabled.
+  if (module_exists('workbench_moderation') && workbench_moderation_node_moderated($form['#node'])) {
+    _unpublish_button_workbench_node_form_validate($form, $form_state);
+    return;
+  }
+  // Otherwise use the 'core' form validation.
+  _unpublish_button_core_node_form_validate($form, $form_state);
+}
+
+/**
+ * Submit handler for unpublish_button_form_node_form_alter().
+ */
+function unpublish_button_node_form_submit($form, &$form_state) {
+  // Check for nodes with Workbench Moderation enabled.
+  if (module_exists('workbench_moderation') && workbench_moderation_node_moderated($form['#node'])) {
+    _unpublish_button_workbench_node_form_submit($form, $form_state);
+    return;
+  }
+  // Otherwise use the 'core' form submit handler.
+  _unpublish_button_core_node_form_submit($form, $form_state);
+}
+
+/**
+ * Helper function for adding the Unpublish button to a form.
+ */
+function _unpublish_button_add_button(&$form, $value) {
+  // Set up a machine name based on the provided value.
+  $machine_name = str_replace(' ', '_', strtolower($value));
+  // Add the Unpublish button.
+  $form['actions'][$machine_name] = array(
+    '#access' => 1,
+    '#attributes' => array(
+      'data-value' => $machine_name
+    ),
+    '#submit' => $form['actions']['submit']['#submit'],
+    '#type' => 'submit',
+    '#value' => $value,
+    '#weight' => 22,
+  );
+}
+

@@ -40,6 +40,13 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['style_options']['theme_style'] = '1';
   $handler->display->display_options['style_options']['max_items'] = '0';
   $handler->display->display_options['row_plugin'] = 'calendar_entity';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'There are no events during this time period for the selected filters.';
+  $handler->display->display_options['empty']['area']['format'] = 'full_html';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -141,7 +148,7 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['filters']['tid']['ui_name'] = 'Event Type (Content: Has taxonomy term)';
   $handler->display->display_options['filters']['tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['tid']['expose']['operator_id'] = 'tid_op';
-  $handler->display->display_options['filters']['tid']['expose']['label'] = 'Event Type';
+  $handler->display->display_options['filters']['tid']['expose']['label'] = 'Filter by Event Type';
   $handler->display->display_options['filters']['tid']['expose']['operator'] = 'tid_op';
   $handler->display->display_options['filters']['tid']['expose']['identifier'] = 'tid';
   $handler->display->display_options['filters']['tid']['expose']['remember'] = TRUE;
@@ -173,7 +180,7 @@ function v_calendar_views_default_views() {
   );
   $handler->display->display_options['filters']['tid_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['tid_1']['expose']['operator_id'] = 'tid_1_op';
-  $handler->display->display_options['filters']['tid_1']['expose']['label'] = 'Event Tags';
+  $handler->display->display_options['filters']['tid_1']['expose']['label'] = 'Filter by Event Tags';
   $handler->display->display_options['filters']['tid_1']['expose']['operator'] = 'tid_1_op';
   $handler->display->display_options['filters']['tid_1']['expose']['identifier'] = 'tid_1';
   $handler->display->display_options['filters']['tid_1']['expose']['remember'] = TRUE;

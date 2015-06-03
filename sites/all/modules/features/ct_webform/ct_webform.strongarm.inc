@@ -126,6 +126,12 @@ function ct_webform_strongarm() {
       'news_archive' => array(
         'custom_settings' => FALSE,
       ),
+      'access_listing' => array(
+        'custom_settings' => FALSE,
+      ),
+      'slac_term_listing' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -133,7 +139,7 @@ function ct_webform_strongarm() {
         'webform' => array(
           'default' => array(
             'weight' => '1',
-            'visible' => FALSE,
+            'visible' => TRUE,
           ),
           'search_result' => array(
             'weight' => '5',
@@ -150,7 +156,7 @@ function ct_webform_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
-            'weight' => '-5',
+            'weight' => '5',
             'visible' => FALSE,
           ),
           'teaser' => array(
@@ -164,8 +170,8 @@ function ct_webform_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
-            'weight' => '-5',
-            'visible' => TRUE,
+            'weight' => '3',
+            'visible' => FALSE,
           ),
           'teaser' => array(
             'weight' => '-5',
@@ -178,8 +184,8 @@ function ct_webform_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
-            'weight' => '-3',
-            'visible' => TRUE,
+            'weight' => '2',
+            'visible' => FALSE,
           ),
           'teaser' => array(
             'weight' => '-3',
@@ -192,8 +198,8 @@ function ct_webform_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
-            'weight' => '-4',
-            'visible' => TRUE,
+            'weight' => '4',
+            'visible' => FALSE,
           ),
           'teaser' => array(
             'weight' => '-4',

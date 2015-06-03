@@ -9,7 +9,7 @@
   font-size: 12px;
   text-transform:uppercase;
 
-  @include breakpoint($tablet-large) {
+  @include breakpoint($desktop) {
     display: none;
   }
 

@@ -1,0 +1,244 @@
+@media all and (max-width: $tablet-large) {
+  table,
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .week-view {
+    table,
+    tbody {
+      display: table;
+    }
+  }
+
+  thead,
+  td.empty {
+    display: none;
+
+    &:before,
+    .inner {
+      display: none;
+    }
+  }
+
+  .month-view {
+    table tr,
+    table th,
+    table td {
+      display: block;
+      padding: 0;
+      text-align: left;
+      white-space: normal;
+    }
+  }
+
+  table tr {
+    &.single-day {
+      margin-bottom: 1rem;
+      border-bottom: 5px solid darken($light-grey, 5%);
+    }
+
+    td[id^="calendar_view-2"] {
+      border-bottom: 5px solid darken($light-grey, 5%);
+
+      .inner {
+        margin-top: 3.5rem;
+      }
+    }
+  }
+
+  .week-view .multi-day {
+    border-bottom: 5px solid darken($light-grey, 5%) !important;
+  }
+
+  .week-view .multi-day.no-entry {
+    display: none !important;
+  }
+
+  .date-nav-wrapper li.date-next,
+  .date-nav-wrapper li.date-prev {
+    width: 45px;
+  }
+
+  table th[data-title]:before,
+  table td[data-title]:before {
+    @include font-size(18px);
+    content: attr(data-title) ":\00A0";
+    font-weight: bold;
+  }
+
+  td.single-day:before,
+  td.date-box:before,
+  .week-view td.multi-day:before,
+  .week-view td.single-day:before {
+    float: left;
+    width: 35%;
+    margin-right: 10px;
+    margin-top: 1rem;
+    text-align: left;
+  }
+
+  .week-view tr.not-all-day {
+    .inner {
+      width: inherit;
+    }
+  }
+
+  td.single-day .inner,
+  td.date-box .inner,
+  .week-view .type-access_information,
+  .week-view .type-event {
+    float: right;
+    width: 60%;
+  }
+
+  table td {
+    border: none;
+    margin-bottom: 6px;
+    color: #444;
+  }
+
+  table td:empty {
+    display: none;
+  }
+
+  table td:first-child {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #333;
+  }
+
+  .date-nav-wrapper {
+    margin-top: 75px;
+
+    .date-nav {
+      height: 0;
+      min-height: 0;
+    }
+  }
+
+  .link-ical,
+  .weekview .type-access_information .link-ical,
+  .weekview .type-event .link-ical {
+    top: 10px;
+  }
+
+  .calendar-calendar {
+    td,
+    td.today,
+    td.weekend {
+      width: 100%;
+      border: none;
+      background: $white;
+    }
+
+    .month-view .full tr td.single-day,
+    .week-view .full tr td.single-day,
+    .week-view .full tr td.today,
+    .week-view .full tr td.weekend,
+    .week-view .full tr td.multi-day {
+      display: table;
+    }
+
+    .month-view .full td.single-day.empty,
+    .month-view .full tr td.today,
+    .month-view .full tr td.weekend,
+    .week-view .full td.single-day.empty,
+    .week-view .full tr td.today,
+    .week-view .full tr td.weekend {
+      background: $white;
+    }
+
+    .time {
+      width: 100px;
+      position: relative;
+      left: -120px;
+      text-align: right;
+    }
+
+    .title {
+      position: relative;
+      top: -6px;
+    }
+
+    .weekview .title {
+      top: -10px;
+    }
+
+    .type-access_information,
+    .type-event {
+      padding: 0 1.2rem .2rem .5rem;
+      border-left: none;
+      border-top: 3px solid;
+    }
+
+      .weekview .type-access_information,
+      .weekview .type-event {
+        border-top: 3px solid;
+
+      &.event-summer-school-programs {
+        border-color: color(pink);
+      }
+
+      &.event-talks-seminars--colloquia {
+        border-color: color(yellow);
+      }
+
+      &.event-public-events--tours {
+        border-color: color(green);
+      }
+
+      &.event-conferences--workshops {
+        border-color: color(blue);
+      }
+
+      &.event-staff-celebrations {
+        border-color: color(purple);
+      }
+
+      &.event-training--development {
+        border-color: color(orange);
+      }
+
+      &.type-access_information {
+        border-color: color(red);
+        background: color(event-item-grey) url(../images/access-notice-icon-smaller.png) 5px 3px no-repeat;
+      }
+      .time {
+        border: none;
+        background: transparent;
+      }
+    }
+  }
+
+  .calendar-calendar .week-view .full td.multi-day div.weekview {
+    width: inherit;
+    min-height: 100px;
+  }
+
+  .calendar-calendar .week-view .full,
+  .calendar-calendar td.calendar-agenda-items {
+    border: none;
+  }
+
+  .events-calendar .type-access_information.type-access_information,
+  .calendar-calendar .weekview .type-access_information.type-access_information {
+    background-image: none;
+  }
+
+  // .calendar-calendar .day-view .full td.multi-day div.dayview,
+  .calendar-calendar .weekview .type-access_information {
+    margin-left: 0;
+  }
+
+  .date-box td[id^="calendar_view-"][id$="-date-box"],
+  .date-box {
+    display: none;
+  }
+
+  .date-day {
+    display: none;
+  }
+}

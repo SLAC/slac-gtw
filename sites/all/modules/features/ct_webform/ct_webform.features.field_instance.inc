@@ -22,7 +22,7 @@ function ct_webform_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 2,
       ),
       'search_result' => array(
         'label' => 'hidden',

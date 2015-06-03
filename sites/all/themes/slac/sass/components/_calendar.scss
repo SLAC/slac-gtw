@@ -17,9 +17,17 @@
 
 .section-calendar {
 
+  #main {
+    margin-top: 0;
+  }
+
+  h1.title {
+    display: none;
+  }
+
   .tabs-primary {
     position: relative;
-    top: 160px;
+    top: 165px;
     border: none;
     width: 236px;
     margin-right: auto;
@@ -71,12 +79,6 @@
   }
 }
 
-.events-calendar {
-  .view-header {
-    margin-top: 4rem;
-  }
-}
-
 // calendar calendar table styles
 .calendar-calendar tr.odd, .calendar-calendar tr.even {
   background-color: #fff;
@@ -91,11 +93,9 @@
 }
 
 .calendar-calendar .day-view {
-  border-bottom: 2px solid color(grey-blue);
-  border-right: 2px solid color(grey-blue);
+  border: 3px solid color(grey-blue);
+  border-left: none;
 }
-
-
 
 .calendar-calendar .month-view table {
   border: none;
@@ -233,8 +233,7 @@
 // No floating of day view content because there is no floating day number
 .calendar-calendar .day-view div.calendar {
   float: none;
-  width: 98%;
-  margin: 1% 1% 0 1%;
+  width: 100%;
 }
 
 .calendar-calendar div.title {
@@ -355,6 +354,16 @@ table.calendar-legend tr.even .stripe {
   font-weight: bold;
 }
 
+.calendar-calendar .day-view #multi-day-container td.calendar-agenda-hour .calendar-hour {
+  display: block;
+  padding-top: 1rem;
+  padding-right: 1rem;
+}
+
+.calendar-calendar .day-view #multi-day-container td.calendar-agenda-items div.calendar {
+  padding-top: .5rem;
+}
+
 .calendar-calendar td.calendar-agenda-hour .calendar-ampm {
   font-size: 1em;
 }
@@ -372,6 +381,8 @@ table.calendar-legend tr.even .stripe {
 
 .calendar-calendar td.calendar-agenda-items div.calendar {
   width: auto;
+  @include clearfix;
+  margin: 0;
 }
 
 .calendar-calendar div.calendar div.inner .calendar-agenda-empty {
@@ -682,8 +693,7 @@ table.calendar-legend tr.even .stripe {
 }
 
 .calendar-calendar .month-view .full td.multi-day div.monthview,
-.calendar-calendar .week-view .full td.multi-day div.weekview,
-.calendar-calendar .day-view .full td.multi-day div.dayview {
+.calendar-calendar .week-view .full td.multi-day div.weekview {
   background: color(event-item-grey);
   height: 1.9em;
   overflow: hidden;
@@ -750,7 +760,8 @@ table.calendar-legend tr.even .stripe {
 
 .calendar-calendar .full td.single-day .continuation,
 .calendar-calendar .full td.single-day .continues,
-.calendar-calendar .full td.single-day .cutoff {
+.calendar-calendar .full td.single-day .cutoff,
+.calendar-calendar .day-view .full td .inner div.calendar div.cutoff {
   display: none;
 }
 
@@ -884,7 +895,7 @@ table.calendar-legend tr.even .stripe {
   }
 
   @include breakpoint($desktop) {
-    width: 30%;
+    width: 40%;
     height: 1px;
     margin: 0 auto;
     background: transparent;
@@ -892,8 +903,7 @@ table.calendar-legend tr.even .stripe {
     h3 {
       background: none;
       position: relative;
-      bottom: 3.4rem;
-      margin: 0;
+      margin: 1rem;
     }
   }
 }
@@ -1014,113 +1024,27 @@ ul.calendar-links,
 }
 
 .weekview .link-ical {
+  top: 7px;
+}
+
+.dayview .link-ical,
+.day-view .single-day .type-access_information .link-ical {
   top: 10px;
 }
 
-.section-calendar {
-  .type-access_information,
-  .type-event {
-    background: color(event-item-grey);
-    margin: .2rem .2rem .5rem .2rem !important;
-    padding: .2rem .4rem;
-    border-left: 3px solid color(grey);
-  }
+.dayview .type-access_information .link-ical {
+  top: 18px;
+}
 
-  .type-access_information {
-    padding-top: .2rem;
-  }
+// show/hide access notices
+.events-calendar {
+  p:first-of-type {
 
-  .monthview {
-    .type-access_information,
-    .type-event {
-      &.event-summer-school-programs {
-        border-color: color(pink);
-      }
-
-      &.event-talks-seminars--colloquia {
-        border-color: color(yellow);
-      }
-
-      &.event-public-events--tours {
-        border-color: color(green);
-      }
-
-      &.event-conferences--workshops {
-        border-color: color(blue);
-      }
-
-      &.event-staff-celebrations {
-        border-color: color(purple);
-      }
-
-      &.event-training--development {
-        border-color: color(orange);
-      }
-
-      &.type-access_information {
-        border-color: color(red);
-        background: color(event-item-grey) url(../images/access-notice-icon-smaller.png) 5px 3px no-repeat;
-      }
-    }
-  }
-
-  .weekview {
-    .type-access_information,
-    .type-event {
-      border: none;
-      padding: 0;
-      padding-bottom: .2rem;
-      border: none;
-
-      .time {
-        padding: .1rem .4rem .4rem .4rem;
-        border-top: 3px solid color(grey);
-        background: lighten(color(event-item-grey), 5%);
-      }
-
-      .title a {
-        display: block;
-        margin: .4rem;
-      }
-    }
-
-    .type-access_information {
-      margin: .2rem 0 .5rem !important;
-    }
-
-    .type-access_information .time {
-      border-color: color(red);
-      background: lighten(color(red), 50%) url(../images/access-notice-icon-smaller.png) 5px 4px no-repeat;
-    }
-
-    .event-summer-school-programs .time {
-      border-color: color(pink);
-      background: lighten(color(pink), 30%);
-    }
-
-    .event-talks-seminars--colloquia .time {
-      border-color: color(yellow);
-      background: lighten(color(yellow), 25%);
-    }
-
-    .event-public-events--tours .time {
-      border-color: color(green);
-      background: lighten(color(green), 35%);
-    }
-
-    .event-conferences--workshops .time {
-      border-color: color(blue);
-      background: lighten(color(blue), 25%);
-    }
-
-    .event-staff-celebrations .time {
-      border-color: color(purple);
-      background: lighten(color(purple), 55%);
-    }
-
-    .event-training--development .time {
-      border-color: color(orange);
-      background: lighten(color(orange), 40%);
+    label {
+      position: relative;
+      left: 0;
+      @include font-size(14px);
+      color: lighten($dim-grey, 10%);
     }
   }
 }
