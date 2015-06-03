@@ -609,12 +609,16 @@
   border-bottom: 1px solid #e0e0e0;
   overflow: hidden;
 }
+.frontpage-weather .forecast ul {
+  padding-left: 0;
+}
 .frontpage-weather .forecast ul:after {
   content: "";
   display: table;
   clear: both;
 }
 .frontpage-weather .forecast li {
+  list-style: none;
   float: left;
   width: 32.5%;
   text-align: center;
