@@ -189,7 +189,7 @@
     font-weight: bold;
   }
   .day{
-    font-size: 1em;    
+    font-size: 1em;
     font-weight: normal;
     display: block;
     margin-top: -0.6em;
@@ -286,12 +286,19 @@
     margin-bottom: 12px;
     border-bottom: 1px solid #e0e0e0;
     overflow: hidden;
-    ul:after{
-      content: "";
-      display: table;
-      clear: both;
+
+    ul {
+      padding-left: 0;
+
+      &:after{
+        content: "";
+        display: table;
+        clear: both;
+      }
     }
+
     li {
+      list-style: none;
       float: left;
       width: 32.5%;
       text-align: center;
@@ -411,14 +418,14 @@
   padding-left: 0 !important;
   padding-right: 2% !important;
 }
-.frontpage-security-contacts{  
+.frontpage-security-contacts{
   padding-left: 2% !important;
   padding-right: 0 !important;
   margin-left: 52% !important;
 }
 }
 
-.frontpage-security-contacts p, 
+.frontpage-security-contacts p,
 .pane-boxes-it-help-desk p {
   margin: 0 0 8px 0;
   font-size: 12px;
@@ -550,7 +557,7 @@ a.submit-feedback {
 .section-about .field-type-text-with-summary{
   p{
     padding-bottom: 20px;
-    margin-bottom: 0 0 20px 0;  
+    margin-bottom: 0 0 20px 0;
     border-bottom: 1px dashed #b1c2ca;
     color: #45464C;
   }
@@ -681,7 +688,7 @@ a.submit-feedback {
   .pane-boxes-stanford-compliance{
     margin-top: 44px !important;
   }
-    
+
   .pane-boxes-stanford-compliance h2{
     margin-top: -26px !important;
   }
@@ -844,22 +851,22 @@ a.submit-feedback {
   /* Middle blocks */
   .blue-bodered-white {
     .pane-title {
-      
+
       font-size: 12px;
       height: 32px;
       line-height: 32px;
       margin-bottom: 20px;
-      background: #a8bcc7 url('../images/blue-arrow.jpg') no-repeat right center; 
+      background: #a8bcc7 url('../images/blue-arrow.jpg') no-repeat right center;
       .frontpage-news-list & {
         padding-left: 0;
         background: none;
       }
-      
+
       a {
         display: block;
         .frontpage-news-list & {
           padding-left: 20px;
-          background: #a8bcc7 url('../images/blue-arrow.jpg') no-repeat right center;          
+          background: #a8bcc7 url('../images/blue-arrow.jpg') no-repeat right center;
         }
 
       }
@@ -885,7 +892,7 @@ a.submit-feedback {
     }
     .blue-bodered-white > div > .view-content{
       .views-row{
-        background: #fff url(../images/list-arrow.jpg) no-repeat right center;  
+        background: #fff url(../images/list-arrow.jpg) no-repeat right center;
         min-height: 60px;
         margin-bottom: 20px;
         padding-left: 0;
@@ -896,7 +903,7 @@ a.submit-feedback {
           padding-top: 10px;
           padding-right: 60px;
           padding-left: 12px;
-                  
+
         }
       }
     }
@@ -1027,14 +1034,14 @@ a.submit-feedback {
     img{
       display: block;
       height: 378px;
-     
+
       border: none;
       margin:auto;
     }
     .views-field-field-news-image {
       .field-content {
-        background:white; 
-      } 
+        background:white;
+      }
     }
     .views-field-nothing{
       position: absolute;
