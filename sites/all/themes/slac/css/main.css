@@ -4084,6 +4084,12 @@ fieldset.collapsed {
 .footer-wrapper a,
 .footer-wrapper a:link {
   color: #ffffff;
+  text-decoration: underline;
+}
+.footer-wrapper a:hover, .footer-wrapper a:focus,
+.footer-wrapper a:link:hover,
+.footer-wrapper a:link:focus {
+  text-decoration: none;
 }
 .footer-wrapper .footer-info {
   border-bottom: 2px solid #ffffff;
