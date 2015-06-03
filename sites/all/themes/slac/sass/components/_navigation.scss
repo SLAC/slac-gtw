@@ -164,10 +164,6 @@
     display: none;
   }
 
-  #main {
-    margin-top: 6rem;
-  }
-
   .main-navigation {
     @include clearfix;
     background: $blue;
