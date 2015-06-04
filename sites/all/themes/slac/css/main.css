@@ -4309,6 +4309,7 @@ fieldset.collapsed {
 @media (min-width: 40em) {
   #header .logo a {
     float: left;
+    background-size: 100% auto;
   }
 }
 @media (min-width: 70em) {

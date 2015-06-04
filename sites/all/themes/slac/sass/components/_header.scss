@@ -39,6 +39,7 @@ $zen-column-count: 12;
 
     @include breakpoint($tablet-small) {
       float: left;
+      background-size: 100% auto;
     }
 
     @include breakpoint($desktop) {
