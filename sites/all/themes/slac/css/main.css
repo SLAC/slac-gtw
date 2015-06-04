@@ -2902,9 +2902,42 @@ ul.calendar-links,
     display: none;
   }
 
+  .calendar-calendar .day-view {
+    margin-top: 1rem;
+  }
+
+  .calendar-calendar .month-view tbody > .date-box {
+    display: none;
+  }
+
+  .calendar-calendar .day-view .full .calendar-agenda-items .inner > .item {
+    float: none;
+  }
+
+  .date-nav-wrapper .date-heading {
+    height: 32px;
+    background: #eaeef0;
+  }
+
+  .events-calendar .item-list .pager li {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
   .date-nav-wrapper .date-heading h3 {
-    font-size: 16px;
-    font-size: 1rem;
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+
+  .calendar-calendar .view-empty {
+    font-size: 12px;
+    font-size: 0.75rem;
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+
+  .calendar-calendar .day-view #multi-day-container td.calendar-agenda-hour .calendar-hour {
+    display: none;
   }
 
   .month-view table tr,
@@ -2927,6 +2960,10 @@ ul.calendar-links,
     margin-top: 3.5rem;
   }
 
+  table tr.single-day td[id^="calendar_view-2"] .inner {
+    margin-top: 0;
+  }
+
   .week-view .multi-day {
     border-bottom: 5px solid #e5e5e5 !important;
   }
@@ -2942,10 +2979,16 @@ ul.calendar-links,
 
   table th[data-title]:before,
   table td[data-title]:before {
-    font-size: 18px;
-    font-size: 1.125rem;
+    font-size: 16px;
+    font-size: 1rem;
     content: attr(data-title) " ";
     font-weight: bold;
+    word-wrap: nowrap;
+    color: #4f4f4f;
+  }
+
+  table tbody tr td.weekend[data-title]:before {
+    color: #9c9c9c;
   }
 
   td.single-day:before,
@@ -2953,7 +2996,7 @@ ul.calendar-links,
   .week-view td.multi-day:before,
   .week-view td.single-day:before {
     float: left;
-    width: 35%;
+    width: 40%;
     margin-right: 10px;
     margin-top: 1rem;
     text-align: left;
@@ -3027,6 +3070,9 @@ ul.calendar-links,
   .calendar-calendar .day-view #single-day-container table td {
     width: 60%;
   }
+  .calendar-calendar .day-view #single-day-container table td.last {
+    border: none;
+  }
   .calendar-calendar .day-view .full .calendar-agenda-items .inner > .item:first-child {
     margin: 0;
   }
@@ -3044,9 +3090,8 @@ ul.calendar-links,
   .calendar-calendar .day-view .full td.single-day div.dayview {
     width: 100%;
   }
-  .calendar-calendar .calendar-calendar .day-view #multi-day-container {
-    min-height: 100px;
-    height: initial;
+  .calendar-calendar .day-view #multi-day-container table td {
+    width: 1%;
   }
   .calendar-calendar .day-view .full .calendar-agenda-items .inner .item {
     max-height: inherit;
@@ -3072,6 +3117,11 @@ ul.calendar-links,
     padding: 0 1.2rem .2rem .5rem;
     border-left: none;
     border-top: 3px solid;
+  }
+  .calendar-calendar .type-access_information .title a,
+  .calendar-calendar .type-event .title a {
+    display: block;
+    width: 80%;
   }
   .calendar-calendar .weekview .type-access_information,
   .calendar-calendar .weekview .type-event,
@@ -3948,12 +3998,12 @@ div.date-views-pager div.next-year {
     position: relative;
     z-index: 30;
   }
-  .my-flea-market-nav ul {
-    padding-left: 0;
-  }
-  .my-flea-market-nav ul li {
-    list-style: none;
-  }
+}
+.my-flea-market-nav ul {
+  padding-left: 0;
+}
+.my-flea-market-nav ul li {
+  list-style: none;
 }
 .my-flea-market-nav span {
   display: none;
@@ -4112,6 +4162,9 @@ fieldset.collapsed {
 }
 .footer-wrapper .block-menu[role="navigation"] h2 {
   display: none;
+}
+.footer-wrapper .block-menu[role="navigation"] .menu {
+  padding-left: 0;
 }
 .footer-wrapper .block-menu[role="navigation"] li {
   font-size: 11px;

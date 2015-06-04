@@ -32,6 +32,10 @@
       display: none;
     }
 
+    .menu {
+      padding-left: 0;
+    }
+
     li {
       @include font-size(11px);
       display: block;
