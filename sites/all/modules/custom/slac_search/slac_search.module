@@ -108,23 +108,24 @@ function slac_search_box_form_submit($form, &$form_state) {
 
   $form_id = $form['form_id']['#value'];
   $search_type = $form_state['values']['search_type'];
-  $search_query = urlencode($form_state['values'][$form_id]);
-  if ($search_type !== 'default') {
 
+  // Don't urlencode the query text unless it's going into a URL.
+  $search_query = $form_state['values'][$form_id];
+
+  if ($search_type !== 'default') {
+    $search_query = urlencode($search_query);
     // Set the form redirect to either the people search or enterprise search if
     // the search type was changed from "SLAC Today" ('default').
     if ($search_type == 'people') {
       $url = 'https://www-public.slac.stanford.edu/phonebook/dirsearch.aspx?name=' . $search_query . '&gone=active&lf=1&url=&submit=go';
     }
     else {
-
       // 'enterprise'
       $url = 'http://www-psearch.slac.stanford.edu/SLACSearch/app/slac/index?style=mainSite&qt=' . $search_query;
     }
     $form_state['redirect'] = url($url, array('absolute' => TRUE));
   }
   else {
-
     // Direct to search_api_views page.
     $form_state['redirect'] =  array(
       'search',
