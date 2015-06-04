@@ -4225,6 +4225,7 @@ fieldset.collapsed {
   height: 102px;
   background: url(../logo.png) 0 0 no-repeat;
   background-image: url(../logo.svg), none;
+  background-size: 90px auto;
   float: right;
 }
 @media (min-width: 40em) {
@@ -5012,12 +5013,13 @@ fieldset.collapsed {
 #slac-search-block-form {
   width: 185px;
   position: relative;
-  margin-left: 10rem;
-  margin-top: 1rem;
+  margin-left: 8rem;
+  margin-top: 0;
 }
 @media (min-width: 40em) {
   #slac-search-block-form {
     margin-left: 12.5rem;
+    margin-top: 1rem;
   }
 }
 @media (min-width: 70em) {
