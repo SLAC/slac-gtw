@@ -22,8 +22,42 @@
     }
   }
 
+  .calendar-calendar .day-view{
+    margin-top: 1rem;
+  }
+
+  .calendar-calendar .month-view {
+    tbody > .date-box {
+      display: none;
+    }
+  }
+
+  .calendar-calendar .day-view .full .calendar-agenda-items .inner > .item {
+    float: none;
+  }
+
+  .date-nav-wrapper .date-heading {
+    height: 32px;
+    background: color(grey-blue-light);
+  }
+
+  .events-calendar .item-list .pager li {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
   .date-nav-wrapper .date-heading h3 {
-    @include font-size($base-font-size);
+    @include font-size($base-font-size - 2px);
+  }
+
+  .calendar-calendar .view-empty {
+    @include font-size(12px);
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+
+  .calendar-calendar .day-view #multi-day-container td.calendar-agenda-hour .calendar-hour {
+    display: none;
   }
 
   .month-view {
@@ -52,6 +86,12 @@
     }
   }
 
+  table tr.single-day td[id^="calendar_view-2"] {
+    .inner{
+      margin-top: 0;
+    }
+  }
+
   .week-view .multi-day {
     border-bottom: 5px solid darken($light-grey, 5%) !important;
   }
@@ -67,9 +107,15 @@
 
   table th[data-title]:before,
   table td[data-title]:before {
-    @include font-size(18px);
+    @include font-size(16px);
     content: attr(data-title) "\00A0";
     font-weight: bold;
+    word-wrap: nowrap;
+    color: $dim-grey;
+  }
+
+  table tbody tr td.weekend[data-title]:before {
+    color: lighten($dim-grey, 30%);
   }
 
   td.single-day:before,
@@ -77,7 +123,7 @@
   .week-view td.multi-day:before,
   .week-view td.single-day:before {
     float: left;
-    width: 35%;
+    width: 40%;
     margin-right: 10px;
     margin-top: 1rem;
     text-align: left;
@@ -157,6 +203,10 @@
 
     .day-view #single-day-container table td {
       width: 60%;
+
+      &.last {
+        border: none;
+      }
     }
 
     .day-view .full .calendar-agenda-items .inner > .item:first-child {
@@ -181,10 +231,10 @@
       width: 100%;
     }
 
-    .calendar-calendar .day-view #multi-day-container {
-      min-height: 100px;
-      height: initial;
+    .day-view #multi-day-container table td {
+      width: 1%;
     }
+
     .day-view .full .calendar-agenda-items .inner .item {
       max-height: inherit;
     }
@@ -214,47 +264,52 @@
       padding: 0 1.2rem .2rem .5rem;
       border-left: none;
       border-top: 3px solid;
-    }
 
-      .weekview .type-access_information,
-      .weekview .type-event,
-      .dayview .type-access_information,
-      .dayview .type-event {
-        border-top: 3px solid;
-
-      &.event-summer-school-programs {
-        border-color: color(pink);
-      }
-
-      &.event-talks-seminars--colloquia {
-        border-color: color(yellow);
-      }
-
-      &.event-public-events--tours {
-        border-color: color(green);
-      }
-
-      &.event-conferences--workshops {
-        border-color: color(blue);
-      }
-
-      &.event-staff-celebrations {
-        border-color: color(purple);
-      }
-
-      &.event-training--development {
-        border-color: color(orange);
-      }
-
-      &.type-access_information {
-        border-color: color(red);
-        background: color(event-item-grey);
-      }
-      .time {
-        border: none;
-        background: transparent;
+      .title a {
+        display: block;
+        width: 80%;
       }
     }
+
+    .weekview .type-access_information,
+    .weekview .type-event,
+    .dayview .type-access_information,
+    .dayview .type-event {
+      border-top: 3px solid;
+
+    &.event-summer-school-programs {
+      border-color: color(pink);
+    }
+
+    &.event-talks-seminars--colloquia {
+      border-color: color(yellow);
+    }
+
+    &.event-public-events--tours {
+      border-color: color(green);
+    }
+
+    &.event-conferences--workshops {
+      border-color: color(blue);
+    }
+
+    &.event-staff-celebrations {
+      border-color: color(purple);
+    }
+
+    &.event-training--development {
+      border-color: color(orange);
+    }
+
+    &.type-access_information {
+      border-color: color(red);
+      background: color(event-item-grey);
+    }
+    .time {
+      border: none;
+      background: transparent;
+    }
+  }
 
     .day-view,
     .day-view td.first,
