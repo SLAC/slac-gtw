@@ -10,7 +10,7 @@
    * Wraps each instance of the search keyword in strong tags.
    */
   Drupal.behaviors.slac_highlight_results = {
-    attach: function(context, settings) {
+    attach: function (context, settings) {
 
       /**
        * Get the keyword from the current search path
@@ -24,6 +24,12 @@
         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
       }
       var keyword = getParameterByName('search_api_views_fulltext');
+
+      // Don't do anything for a search with no keywords.
+      if (keyword === '') {
+        return;
+      }
+
       var re = new RegExp(keyword, 'gi');
 
       // Wrap the keyword instances within the body divs with strong tags
@@ -36,4 +42,4 @@
     }
   };
 
-})(jQuery);
+}(jQuery));
