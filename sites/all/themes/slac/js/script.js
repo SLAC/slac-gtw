@@ -6,7 +6,7 @@
  * the README.txt next to this file.
  */
 
-(function ($, Drupal, window, document) {
+(function ($, Drupal) {
   'use strict';
 
   /**
@@ -48,53 +48,63 @@
   };
 
   /**
-   * Add a menu toggle link to be displayed at mobile breakpoint which will
-   * toggle the class "active" on the menu and the link itself and show/hide
-   * the main menu.
+   * Adds a menu toggle link to be displayed at mobile breakpoint which will
+   * toggle the class "active" on the menu and the link itself which will
+   * show/hide the main menu via CSS.
+   *
+   * Adds a toggle link to be displayed at mobile breakpoint which will
+   * toggle the class "active" on the search form container which will show/hide
+   * the search form block via CSS.
    */
-  Drupal.behaviors.mobileMenu = {
+  Drupal.behaviors.mobileDropdowns = {
     attach: function (context, settings) {
-      var $menu = $('#block-system-main-menu ul.menu', context);
-      var $menuWrapper = $menu.wrap('<div class="menu-containter" />').parent();
+      var $mobileMenu, $menuToggle;
+      var $menuWrapper;
+      var $searchContainer, $searchToggle;
+
+      function closeMobileMenu() {
+        $menuToggle.add($mobileMenu).removeClass('active');
+      }
+      function closeMobileSearch() {
+        $searchToggle.add($searchContainer).removeClass('active');
+      }
+
+      // Set up the mobile menu toggle.
+      $mobileMenu = $('#block-system-main-menu ul.menu', context);
+      $menuWrapper = $mobileMenu.wrap('<div class="menu-containter" />').parent();
 
       // Add a menu toggle link for the expandable mobile menu layout.
-      var $menuToggle = $('<a href="#menu" class="mobile-menu-toggle"><span class="hamburger-icon"><span class="icon-menu"></span><span class="icon-menu"></span><span class="icon-menu"></span></span>Menu</a>');
+      $menuToggle = $('<a href="#menu" class="mobile-menu-toggle"><span class="hamburger-icon"><span class="icon-menu"></span><span class="icon-menu"></span><span class="icon-menu"></span></span>Menu</a>');
       $menuWrapper.before($menuToggle);
 
+      // On click, toggle the mobile menu dropdown and hide the search dropdown.
       $menuToggle.click(function (e) {
         e.preventDefault();
-
-        if ($menu.is(':visible')) {
-          $menuToggle.add($menu).removeClass('active');
+        closeMobileSearch();
+        if ($mobileMenu.is(':visible')) {
+          closeMobileMenu();
         }
         else {
-          $menuToggle.add($menu).addClass('active');
+          $menuToggle.add($mobileMenu).addClass('active');
         }
       });
-    }
-  };
 
-  /**
-   * Add a toggle link to be displayed at mobile breakpoint which will
-   * toggle the class "active" on the search form container and show/hide it.
-   */
-  Drupal.behaviors.mobileSearch = {
-    attach: function (context, settings) {
-      var $searchContainer = $('#block-slac-search-form', context);
-      var $searchForm = $searchContainer.find('form');
+      // Set up the Search dropdown toggle.
+      $searchContainer = $('#block-slac-search-form', context);
 
       // Add a toggle link for the expandable mobile search layout.
-      var $toggleLink = $('<a href="#search" class="search-link">Search</a>');
-      $searchForm.before($toggleLink);
+      $searchToggle = $('<a href="#search" class="search-link">Search</a>');
+      $searchContainer.before($searchToggle);
 
-      $toggleLink.click(function (e) {
+      // On click, toggle the search dropdown and hide the mobile menu dropdown .
+      $searchToggle.click(function (e) {
         e.preventDefault();
-
-        if ($searchForm.is(':visible')) {
-          $toggleLink.add($searchForm).removeClass('active');
+        closeMobileMenu();
+        if ($searchContainer.is(':visible')) {
+          closeMobileSearch();
         }
         else {
-          $toggleLink.add($searchForm).addClass('active');
+          $searchToggle.add($searchContainer).addClass('active');
         }
       });
     }
@@ -275,4 +285,4 @@
     }
   };
 
-})(jQuery, Drupal, this, this.document);
+}(jQuery, Drupal));

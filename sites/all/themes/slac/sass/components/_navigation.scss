@@ -1,12 +1,12 @@
 // mobile menu
 @media all and (max-width: $desktop) {
   #main {
-    display: block;
-    clear: both;
-    margin-top: 20px;
+    @include clearfix;
+    background: $white;
 
     .front & {
-      margin-top: 80px;
+      margin-top: 0;
+      padding-top: 80px;
     }
   }
 
@@ -16,8 +16,9 @@
     .logo {
       display: block;
       position: relative;
-      z-index: 1;
+      z-index: 2;
       padding: 0;
+      padding-left: .6rem;
       margin: 0;
 
       a {
@@ -72,6 +73,7 @@
     margin-top: 8px;
 
     .menu {
+      padding-left: 0;
       margin-top: 5rem;
       margin-bottom: 1rem;
       position: relative;
@@ -162,10 +164,6 @@
 @include breakpoint($desktop) {
   .mobile-menu-toggle {
     display: none;
-  }
-
-  #main {
-    margin-top: 6rem;
   }
 
   .main-navigation {
