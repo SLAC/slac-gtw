@@ -34,6 +34,14 @@
     margin-left: auto;
     z-index: 10;
 
+    @include breakpoint($tablet-large) {
+      top: 115px;
+    }
+
+    @include breakpoint($desktop) {
+      top: 165px;
+    }
+
     li {
       border-radius: 0;
       background: $white;
