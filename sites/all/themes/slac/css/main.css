@@ -1661,6 +1661,21 @@ table.calendar-legend tr.even .stripe {
     padding: .2rem;
   }
 }
+@media (min-width: 20em) {
+  .date-nav-wrapper .date-heading h3 .desktop {
+    display: none;
+  }
+}
+@media (min-width: 70em) {
+  .date-nav-wrapper .date-heading h3 .desktop {
+    display: inline;
+  }
+}
+@media (min-width: 70em) {
+  .date-nav-wrapper .date-heading h3 .mobile {
+    display: none;
+  }
+}
 @media (min-width: 70em) {
   .date-nav-wrapper .date-heading {
     width: 40%;

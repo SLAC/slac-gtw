@@ -173,7 +173,7 @@ function slac_file_entity_download_link($variables) {
 }
 
 /**
- * Implements template__preprocess_html().
+ * Implements template_preprocess_html().
  */
 function slac_preprocess_html(&$variables) {
   $user = $variables['user'];
@@ -302,18 +302,23 @@ function slac_date_nav_title($params) {
       $m2 = $end_date->format('M');
 
       if ($y1 != $y2) {
-        $fmt1 = 'F d Y';
-        $fmt2 = 'F d Y';
+        $fmt1 = 'F j Y';
+        $fmt2 = 'F j Y';
       }
       elseif ($m1 != $m2) {
-        $fmt1 = 'F d';
-        $fmt2 = 'F d, Y';
+        $fmt1 = 'F j';
+        $fmt2 = 'F j, Y';
       }
       else {
-        $fmt1 = 'F d';
-        $fmt2 = 'd, Y';
+        $fmt1 = 'F j';
+        $fmt2 = 'j, Y';
       }
-      $title = $date_info->min_date->format($fmt1) . ' - ' . $end_date->format($fmt2);
+      // Week view has a slightly different date display in mobile layouts.
+      $title1 = $date_info->min_date->format($fmt1) . ' - ' . $end_date->format($fmt2);
+      list($fmt1, $fmt2) = str_replace('F', 'M', array($fmt1, $fmt2));
+      $title2 = $date_info->min_date->format($fmt1) . '-' . $end_date->format($fmt2);
+      $title = '<span class="desktop">' . $title1 . '</span>' .
+        '<span class="mobile">' . $title2 . '</span>';
       $date_arg = $date_info->year . '-W' . date_pad($date_info->week);
       break;
   }
