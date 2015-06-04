@@ -893,6 +893,20 @@ table.calendar-legend tr.even .stripe {
       @include font-size(24px);
       padding: .2rem;
     }
+
+    .desktop {
+      @include breakpoint($mobile) {
+        display: none;
+      }
+      @include breakpoint($desktop) {
+        display: inline;
+      }
+    }
+    .mobile {
+      @include breakpoint($desktop) {
+        display: none;
+      }
+    }
   }
 
   @include breakpoint($desktop) {
