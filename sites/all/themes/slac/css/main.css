@@ -825,6 +825,16 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   margin-left: auto;
   z-index: 10;
 }
+@media (min-width: 60em) {
+  .section-calendar .tabs-primary {
+    top: 115px;
+  }
+}
+@media (min-width: 70em) {
+  .section-calendar .tabs-primary {
+    top: 165px;
+  }
+}
 .section-calendar .tabs-primary li {
   border-radius: 0;
   background: #ffffff;
