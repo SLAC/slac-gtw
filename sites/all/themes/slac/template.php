@@ -290,7 +290,11 @@ function slac_date_nav_title($params) {
       break;
     case 'day':
       $format = !empty($format) ? $format : (empty($date_info->mini) ? $format_with_year : $format_without_year);
-      $title = date_format_date($date_info->min_date, 'custom', $format);
+      $desktop_date = date_format_date($date_info->min_date, 'custom', $format);
+      // Day view has a slightly different date display in mobile layouts.
+      $mobile_date = $date_info->min_date->format('D, M j, Y');
+      $title = '<span class="desktop">' . $desktop_date . '</span>' .
+          '<span class="mobile">' . $mobile_date . '</span>';
       $date_arg = $date_info->year . '-' . date_pad($date_info->month) . '-' . date_pad($date_info->day);
       break;
     case 'week':
