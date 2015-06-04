@@ -56,11 +56,12 @@
 #slac-search-block-form {
   width: 185px;
   position: relative;
-  margin-left: 10rem;
-  margin-top: 1rem;
+  margin-left: 8rem;
+  margin-top: 0;
 
   @include breakpoint($tablet-small) {
     margin-left: 12.5rem;
+    margin-top: 1rem;
   }
 
   @include breakpoint($desktop) {
