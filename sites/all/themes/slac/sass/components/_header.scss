@@ -58,23 +58,20 @@ $zen-column-count: 12;
     display: none;
 
     @include breakpoint($tablet-large) {
-      display: block;
-
       @include font-size(11px);
+      display: block;
+      width: 6.875rem;
+      float: left;
       font-weight: bold;
       color: $white;
-      position: absolute;
-      left: 150px;
-      top: 14px;
-
-      @include breakpoint($desktop) {
-        left: initial;
-        top: initial;
-      }
+      position: relative;
+      left: 0;
+      top: 1rem;
     }
 
     @include breakpoint($desktop) {
       color: $dim-grey;
+      top: 0.3rem;
     }
   }
 

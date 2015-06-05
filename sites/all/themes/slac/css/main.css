@@ -4368,26 +4368,22 @@ fieldset.collapsed {
 }
 @media (min-width: 60em) {
   #header .date {
-    display: block;
     font-size: 11px;
     font-size: 0.6875rem;
+    display: block;
+    width: 6.875rem;
+    float: left;
     font-weight: bold;
     color: #ffffff;
-    position: absolute;
-    left: 150px;
-    top: 14px;
+    position: relative;
+    left: 0;
+    top: 1rem;
   }
 }
-@media (min-width: 60em) and (min-width: 70em) {
-  #header .date {
-    left: initial;
-    top: initial;
-  }
-}
-
 @media (min-width: 70em) {
   #header .date {
     color: #4f4f4f;
+    top: 0.3rem;
   }
 }
 @media (min-width: 70em) {
