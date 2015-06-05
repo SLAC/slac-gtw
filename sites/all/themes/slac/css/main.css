@@ -1841,6 +1841,8 @@ ul.calendar-links,
 }
 
 .events-calendar p:first-of-type label {
+  display: block;
+  width: 200px;
   position: relative;
   left: 0;
   font-size: 14px;
@@ -3428,7 +3430,9 @@ div.date-views-pager div.next-year {
   font-size: 0;
   color: #eaeef0;
   background: url(../images/right-arrow.png) 82% -34% no-repeat;
-  transform: rotate(180deg);
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .date-nav-wrapper .date-next {
