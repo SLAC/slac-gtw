@@ -1072,6 +1072,10 @@ ul.calendar-links,
 
 .dayview .type-access_information .link-ical {
   top: 18px;
+
+  @include breakpoint($tablet-large) {
+    top: 14px;
+  }
 }
 
 // show/hide access notices
