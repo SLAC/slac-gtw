@@ -1037,6 +1037,22 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   color: #c00;
 }
 
+@media (min-width: 60em) {
+  .calendar-calendar .monthview .contents,
+  .calendar-calendar .monthview .views-field-nothing-1 {
+    margin: 0;
+  }
+  .calendar-calendar .monthview .contents div,
+  .calendar-calendar .monthview .views-field-nothing-1 div {
+    margin: 0;
+  }
+  .calendar-calendar .monthview .title,
+  .calendar-calendar .monthview .title a {
+    display: inline-block;
+    overflow: hidden;
+    height: 1.5em;
+  }
+}
 .calendar-calendar .content {
   clear: both;
   padding: 3px;
