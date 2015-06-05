@@ -755,6 +755,10 @@ table.calendar-legend tr.even .stripe {
   position: absolute;
   width: 98%;
   left: 5px;
+
+  @include breakpoint($tablet-large) {
+    left: 2px;
+  }
 }
 
 .calendar-calendar .day-view td .stripe,
@@ -1055,6 +1059,12 @@ ul.calendar-links,
   top: 7px;
 }
 
+@include breakpoint($tablet-large) {
+  .week-view .all-day .link-ical {
+    top: 11px;
+  }
+}
+
 .dayview .link-ical,
 .day-view .single-day .type-access_information .link-ical {
   top: 10px;
@@ -1062,6 +1072,10 @@ ul.calendar-links,
 
 .dayview .type-access_information .link-ical {
   top: 18px;
+
+  @include breakpoint($tablet-large) {
+    top: 14px;
+  }
 }
 
 // show/hide access notices

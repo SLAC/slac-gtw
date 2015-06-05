@@ -1523,6 +1523,12 @@ table.calendar-legend tr.even .stripe {
   width: 98%;
   left: 5px;
 }
+@media (min-width: 60em) {
+  .calendar-calendar .month-view .full td.multi-day .calendar.monthview .contents,
+  .calendar-calendar .week-view .full td.multi-day .calendar.weekview .contents {
+    left: 2px;
+  }
+}
 
 .calendar-calendar .day-view td .stripe,
 .calendar-calendar .month-view .full td .stripe,
@@ -1815,6 +1821,11 @@ ul.calendar-links,
   top: 7px;
 }
 
+@media (min-width: 60em) {
+  .week-view .all-day .link-ical {
+    top: 11px;
+  }
+}
 .dayview .link-ical,
 .day-view .single-day .type-access_information .link-ical {
   top: 10px;
@@ -1822,6 +1833,11 @@ ul.calendar-links,
 
 .dayview .type-access_information .link-ical {
   top: 18px;
+}
+@media (min-width: 60em) {
+  .dayview .type-access_information .link-ical {
+    top: 14px;
+  }
 }
 
 .events-calendar p:first-of-type label {
@@ -2906,6 +2922,11 @@ ul.calendar-links,
 .events-calendar .dayview .event-training--development .time {
   border-color: #e76d00;
   background: #ffd7b4;
+}
+@media (min-width: 60em) {
+  .events-calendar .weekview .type-access_information {
+    margin: 0.2rem;
+  }
 }
 
 @media all and (max-width: 60em) {

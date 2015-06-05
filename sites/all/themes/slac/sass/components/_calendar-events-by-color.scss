@@ -105,5 +105,11 @@
       background: lighten(color(orange), 40%);
     }
   }
+
+  @include breakpoint($tablet-large) {
+    .weekview .type-access_information {
+      margin: 0.2rem;
+    }
+  }
 }
 
