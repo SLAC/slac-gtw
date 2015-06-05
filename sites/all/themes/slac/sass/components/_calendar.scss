@@ -1083,6 +1083,8 @@ ul.calendar-links,
   p:first-of-type {
 
     label {
+      display: block;
+      width: 200px;
       position: relative;
       left: 0;
       @include font-size(14px);
