@@ -755,6 +755,10 @@ table.calendar-legend tr.even .stripe {
   position: absolute;
   width: 98%;
   left: 5px;
+
+  @include breakpoint($tablet-large) {
+    left: 2px;
+  }
 }
 
 .calendar-calendar .day-view td .stripe,
@@ -1053,6 +1057,12 @@ ul.calendar-links,
 
 .weekview .link-ical {
   top: 7px;
+}
+
+@include breakpoint($tablet-large) {
+  .week-view .all-day .link-ical {
+    top: 11px;
+  }
 }
 
 .dayview .link-ical,
