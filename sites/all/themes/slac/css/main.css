@@ -3693,6 +3693,7 @@ div.date-views-pager div.next-year {
 
 .region-content-bottom {
   background: #ffffff;
+  padding-top: 2rem;
 }
 
 #block-boxes-calendar-legend {
@@ -3710,6 +3711,11 @@ div.date-views-pager div.next-year {
   }
 }
 @media (min-width: 70em) {
+  #block-boxes-calendar-legend {
+    margin-left: 1.25rem;
+  }
+}
+@media (min-width: 85em) {
   #block-boxes-calendar-legend {
     margin-left: 10%;
   }
