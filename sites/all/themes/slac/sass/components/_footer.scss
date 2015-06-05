@@ -8,6 +8,12 @@
   a,
   a:link {
     color: $white;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
   }
 
   .footer-info {
@@ -24,6 +30,10 @@
 
     h2 {
       display: none;
+    }
+
+    .menu {
+      padding-left: 0;
     }
 
     li {

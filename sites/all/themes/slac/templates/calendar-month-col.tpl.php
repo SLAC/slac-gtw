@@ -15,7 +15,7 @@ if ($item['header_id'] == 'Saturday' || $item['header_id'] == 'Sunday') {
 
 // Add the Date formatted like 'Thu Apr 16' as a data attribute on each TD.
 $dt = new DateTime($item['date']);
-$title = $dt->format('D M j');
+$title = strtoupper($dt->format('D')) . $dt->format(' M j');
 ?>
 <td <?php print $id?>data-title="<?php print $title ?>" class="<?php print $item['class'] ?>" colspan="<?php print $item['colspan'] ?>" rowspan="<?php print $item['rowspan'] ?>"<?php print $date . $headers . $day; ?>>
   <div class="inner">

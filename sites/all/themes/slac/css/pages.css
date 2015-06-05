@@ -695,9 +695,6 @@ a:hover, a:active {
   .not-front.section-feedback #content {
     background-color: #fff;
   }
-  .not-front #content {
-    padding-top: 50px;
-  }
   .not-front #content > article {
     width: 94%;
     margin: 0 3%;

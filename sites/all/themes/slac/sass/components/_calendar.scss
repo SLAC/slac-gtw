@@ -34,6 +34,14 @@
     margin-left: auto;
     z-index: 10;
 
+    @include breakpoint($tablet-large) {
+      top: 115px;
+    }
+
+    @include breakpoint($desktop) {
+      top: 165px;
+    }
+
     li {
       border-radius: 0;
       background: $white;
@@ -95,6 +103,7 @@
 .calendar-calendar .day-view {
   border: 3px solid color(grey-blue);
   border-left: none;
+  border-bottom: none;
 }
 
 .calendar-calendar .month-view table {
@@ -356,12 +365,12 @@ table.calendar-legend tr.even .stripe {
 
 .calendar-calendar .day-view #multi-day-container td.calendar-agenda-hour .calendar-hour {
   display: block;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
   padding-right: 1rem;
 }
 
 .calendar-calendar .day-view #multi-day-container td.calendar-agenda-items div.calendar {
-  padding-top: .5rem;
+  padding-top: 0.2rem;
 }
 
 .calendar-calendar td.calendar-agenda-hour .calendar-ampm {
@@ -891,6 +900,20 @@ table.calendar-legend tr.even .stripe {
     @include breakpoint($tablet-small) {
       @include font-size(24px);
       padding: .2rem;
+    }
+
+    .desktop {
+      @include breakpoint($mobile) {
+        display: none;
+      }
+      @include breakpoint($desktop) {
+        display: inline;
+      }
+    }
+    .mobile {
+      @include breakpoint($desktop) {
+        display: none;
+      }
     }
   }
 

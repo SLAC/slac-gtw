@@ -34,13 +34,16 @@ $zen-column-count: 12;
     height: 102px;
     background: url(../logo.png) 0 0 no-repeat;
     background-image: url(../logo.svg), none;
+    background-size: 90px auto;
     float: right;
-    position: relative;
-    z-index: 5;
 
     @include breakpoint($tablet-small) {
       float: left;
-      margin-left: 10px;
+      background-size: 100% auto;
+    }
+
+    @include breakpoint($desktop) {
+      float: right;
     }
 
     span {

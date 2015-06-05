@@ -9,7 +9,7 @@
     width: 100%;
     background: $light-blue;
     position: relative;
-    top: 0px;
+    top: 0;
     display: table;
     height: 95px;
   }
@@ -21,7 +21,7 @@
     font-size: 0;
     color: transparent;
     position: absolute;
-    top: -36px;
+    top: 16px;
     right: 100px;
     background: url(../images/search.svg) 0 0 no-repeat;
   }
@@ -37,23 +37,31 @@
   }
 }
 
-#slac-search-block-form {
-  width: 185px;
-  position: relative;
-  margin-left: 40%;
-  margin-top: 1rem;
-
+#block-slac-search-form {
   // Hide the search form by default when the toggle is available.
   @include breakpoint($mobile) {
     display: none;
 
     &.active {
+      position: relative;
+      top: 52px;
+      padding-top: 1rem;
+      z-index: 1;
+      background: $light-blue;
       display: block;
     }
   }
+}
+
+#slac-search-block-form {
+  width: 185px;
+  position: relative;
+  margin-left: 8rem;
+  margin-top: 0;
 
   @include breakpoint($tablet-small) {
-    margin: 1rem auto;
+    margin-left: 12.5rem;
+    margin-top: 1rem;
   }
 
   @include breakpoint($desktop) {
@@ -73,6 +81,7 @@
     float: right;
     position: relative;
     right: 0;
+    z-index: 10;
   }
 }
 
