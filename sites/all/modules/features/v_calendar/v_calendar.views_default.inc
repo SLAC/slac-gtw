@@ -169,15 +169,6 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['filters']['tid_1']['table'] = 'taxonomy_index';
   $handler->display->display_options['filters']['tid_1']['field'] = 'tid';
   $handler->display->display_options['filters']['tid_1']['ui_name'] = 'Event Tags (Content: Has taxonomy term)';
-  $handler->display->display_options['filters']['tid_1']['value'] = array(
-    2374 => '2374',
-    2336 => '2336',
-    2328 => '2328',
-    2291 => '2291',
-    2292 => '2292',
-    2323 => '2323',
-    1754 => '1754',
-  );
   $handler->display->display_options['filters']['tid_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['tid_1']['expose']['operator_id'] = 'tid_1_op';
   $handler->display->display_options['filters']['tid_1']['expose']['label'] = 'Filter by Event Tags';
@@ -194,7 +185,6 @@ function v_calendar_views_default_views() {
     7 => 0,
     3 => 0,
   );
-  $handler->display->display_options['filters']['tid_1']['expose']['reduce'] = TRUE;
   $handler->display->display_options['filters']['tid_1']['type'] = 'select';
   $handler->display->display_options['filters']['tid_1']['vocabulary'] = 'tags';
   /* Filter criterion: Show Access Notices (Content: Type) */
