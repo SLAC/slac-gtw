@@ -3949,6 +3949,7 @@ div.date-views-pager div.next-year {
 .report-as-inappropriate .report-inappropriate-title {
   width: 92%;
   margin: 0;
+  line-height: 1;
 }
 @media (min-width: 70em) {
   .report-as-inappropriate .report-inappropriate-title {
@@ -3959,12 +3960,12 @@ div.date-views-pager div.next-year {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.4;
-  margin-top: .2rem;
+  margin-top: -0.5rem;
 }
 .report-as-inappropriate .top-close {
-  position: absolute;
-  top: 14px;
-  right: 12px;
+  position: relative;
+  top: -28px;
+  left: 97%;
   border: none;
   background: transparent;
 }
