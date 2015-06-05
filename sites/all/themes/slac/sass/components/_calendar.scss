@@ -902,19 +902,6 @@ table.calendar-legend tr.even .stripe {
       padding: .2rem;
     }
 
-    .desktop {
-      @include breakpoint($mobile) {
-        display: none;
-      }
-      @include breakpoint($desktop) {
-        display: inline;
-      }
-    }
-    .mobile {
-      @include breakpoint($desktop) {
-        display: none;
-      }
-    }
   }
 
   @include breakpoint($desktop) {
@@ -927,6 +914,24 @@ table.calendar-legend tr.even .stripe {
       background: none;
       position: relative;
       margin: 1rem;
+    }
+  }
+}
+
+// Some elements display a different format in desktop or mobile.
+.date-nav-wrapper .date-heading h3,
+.calendar-calendar .days {
+  .desktop {
+    @include breakpoint($mobile) {
+      display: none;
+    }
+    @include breakpoint($desktop) {
+      display: inline;
+    }
+  }
+  .mobile {
+    @include breakpoint($desktop) {
+      display: none;
     }
   }
 }

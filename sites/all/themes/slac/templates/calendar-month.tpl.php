@@ -29,7 +29,8 @@
           }
         ?>
         <th class="<?php print $cell['class']; ?>" id="<?php print $cell['header_id'] ?>">
-          <?php print $cell['data']; ?>
+          <span class="mobile"><?php print $cell['data']; ?></span>
+          <span class="desktop"><?php print $cell['header_id']; ?></span>
         </th>
       <?php endforeach; ?>
     </tr>
