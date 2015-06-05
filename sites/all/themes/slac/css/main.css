@@ -4346,7 +4346,7 @@ fieldset.collapsed {
   background-size: 90px auto;
   float: right;
 }
-@media (min-width: 40em) {
+@media (min-width: 70em) {
   #header .logo a {
     float: left;
     background-size: 100% auto;
@@ -5084,6 +5084,10 @@ fieldset.collapsed {
     display: none;
   }
 }
+.mobile-search-open #content {
+  margin-top: 6rem;
+}
+
 @media all and (max-width: 70em) {
   #block-slac-search-form {
     width: 100%;
