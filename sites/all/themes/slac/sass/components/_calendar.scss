@@ -1032,13 +1032,20 @@ ul.calendar-links,
 // calendar for desktop
 @include breakpoint($desktop) {
   .section-calendar .tabs-primary {
-    margin-right: 9%;
+    margin-right: 20px;
+    padding-right: 0;
   }
 
   .calendar-month-view {
     .date-today {
       display: block;
     }
+  }
+}
+
+@include breakpoint($calendar-full) {
+  .section-calendar .tabs-primary {
+    margin-right: 9.5%;
   }
 }
 
