@@ -4367,15 +4367,15 @@ fieldset.collapsed {
   background-size: 90px auto;
   float: right;
 }
-@media (min-width: 70em) {
+@media (min-width: 40em) {
   #header .logo a {
     float: left;
-    background-size: 100% auto;
   }
 }
 @media (min-width: 70em) {
   #header .logo a {
     float: right;
+    background-size: 100% auto;
   }
 }
 #header .logo a span {
@@ -4387,7 +4387,7 @@ fieldset.collapsed {
 #header .date {
   display: none;
 }
-@media (min-width: 60em) {
+@media (min-width: 40em) {
   #header .date {
     font-size: 11px;
     font-size: 0.6875rem;

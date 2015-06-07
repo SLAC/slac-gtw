@@ -37,13 +37,13 @@ $zen-column-count: 12;
     background-size: 90px auto;
     float: right;
 
-    @include breakpoint($desktop) {
+    @include breakpoint($tablet-small) {
       float: left;
-      background-size: 100% auto;
     }
 
     @include breakpoint($desktop) {
       float: right;
+      background-size: 100% auto;
     }
 
     span {
@@ -57,7 +57,7 @@ $zen-column-count: 12;
   .date {
     display: none;
 
-    @include breakpoint($tablet-large) {
+    @include breakpoint($tablet-small) {
       @include font-size(11px);
       display: block;
       width: 6.875rem;
