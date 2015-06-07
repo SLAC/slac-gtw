@@ -1793,11 +1793,17 @@ ul.calendar-links,
 
 @media (min-width: 70em) {
   .section-calendar .tabs-primary {
-    margin-right: 9%;
+    margin-right: 20px;
+    padding-right: 0;
   }
 
   .calendar-month-view .date-today {
     display: block;
+  }
+}
+@media (min-width: 85em) {
+  .section-calendar .tabs-primary {
+    margin-right: 9.5%;
   }
 }
 .page-calendar .selectize-dropdown .option {
