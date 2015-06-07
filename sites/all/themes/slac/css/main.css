@@ -3001,8 +3001,8 @@ ul.calendar-links,
   }
 
   .date-nav-wrapper .date-heading h3 {
-    font-size: 14px;
-    font-size: 0.875rem;
+    font-size: 16px;
+    font-size: 1rem;
   }
 
   .calendar-calendar .view-empty {
@@ -3026,14 +3026,23 @@ ul.calendar-links,
   }
 
   table tr.single-day {
-    margin-bottom: 1rem;
-    border-bottom: 5px solid #e5e5e5;
-  }
-  table tr td[id^="calendar_view-2"] {
-    border-bottom: 5px solid #e5e5e5;
+    margin-bottom: 0;
   }
   table tr td[id^="calendar_view-2"] .inner {
     margin-top: 3.5rem;
+  }
+
+  .calendar-calendar .month-view .full tr.single-day .no-entry,
+  .calendar-calendar .month-view .full tr.single-day .weekend,
+  .calendar-calendar .month-view .full tr.single-day .today,
+  .calendar-calendar .month-view .full tr.single-day .single-day {
+    border-bottom: 5px solid #eaeef0;
+  }
+  .calendar-calendar .month-view .full tr.single-day .no-entry .inner,
+  .calendar-calendar .month-view .full tr.single-day .weekend .inner,
+  .calendar-calendar .month-view .full tr.single-day .today .inner,
+  .calendar-calendar .month-view .full tr.single-day .single-day .inner {
+    margin-bottom: 0.5rem;
   }
 
   table tr.single-day td[id^="calendar_view-2"] .inner {
@@ -3074,7 +3083,7 @@ ul.calendar-links,
     float: left;
     width: 40%;
     margin-right: 10px;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     text-align: left;
   }
 
@@ -3274,7 +3283,7 @@ ul.calendar-links,
 
   .calendar-calendar .week-view .full td.multi-day div.weekview {
     width: inherit;
-    min-height: 100px;
+    min-height: 90px;
   }
 
   .calendar-calendar .week-view .full,
