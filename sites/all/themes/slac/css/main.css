@@ -1727,12 +1727,12 @@ table.calendar-legend tr.even .stripe {
 }
 
 @media (min-width: 20em) {
-  .calendar-calendar .single-day .inner {
+  .calendar-calendar .single-day .mobile {
     display: inline;
   }
 }
 @media (min-width: 60em) {
-  .calendar-calendar .single-day .inner {
+  .calendar-calendar .single-day .mobile {
     display: none;
   }
 }

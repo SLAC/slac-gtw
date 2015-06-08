@@ -964,7 +964,7 @@ table.calendar-legend tr.even .stripe {
   }
 }
 .calendar-calendar {
-  .single-day .inner {
+  .single-day .mobile {
     @include breakpoint($mobile) {
       display: inline;
     }
