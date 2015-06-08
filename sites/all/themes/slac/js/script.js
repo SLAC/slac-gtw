@@ -6,7 +6,7 @@
  * the README.txt next to this file.
  */
 
-(function ($, Drupal) {
+(function ($, Drupal, window) {
   'use strict';
 
   /**
@@ -61,12 +61,17 @@
       var $mobileMenu, $menuToggle;
       var $menuWrapper;
       var $searchContainer, $searchToggle;
+      var $body = $('body');
+      var mobileMenuClass = 'mobile-menu-open';
+      var mobileSearchClass= 'mobile-search-open';
 
       function closeMobileMenu() {
         $menuToggle.add($mobileMenu).removeClass('active');
+        $body.removeClass(mobileMenuClass);
       }
       function closeMobileSearch() {
         $searchToggle.add($searchContainer).removeClass('active');
+        $body.removeClass(mobileSearchClass);
       }
 
       // Set up the mobile menu toggle.
@@ -86,6 +91,7 @@
         }
         else {
           $menuToggle.add($mobileMenu).addClass('active');
+          $body.addClass(mobileMenuClass);
         }
       });
 
@@ -105,6 +111,7 @@
         }
         else {
           $searchToggle.add($searchContainer).addClass('active');
+          $body.addClass(mobileSearchClass);
         }
       });
     }
@@ -285,4 +292,4 @@
     }
   };
 
-}(jQuery, Drupal));
+}(jQuery, Drupal, window));

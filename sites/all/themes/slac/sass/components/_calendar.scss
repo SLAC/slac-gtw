@@ -258,6 +258,30 @@
   color: #c00;
 }
 
+// trims calendar events titles to one line on desktop
+@include breakpoint($tablet-large) {
+  .calendar-calendar {
+    .monthview {
+      .contents,
+      .views-field-nothing-1 {
+
+        div {
+          margin: 0;
+        }
+
+        margin: 0;
+      }
+
+      .title,
+      .title a {
+        display: inline-block;
+        overflow: hidden;
+        height: 1.5em;
+      }
+    }
+  }
+}
+
 .calendar-calendar .content {
   clear: both;
   padding: 3px;
@@ -755,6 +779,10 @@ table.calendar-legend tr.even .stripe {
   position: absolute;
   width: 98%;
   left: 5px;
+
+  @include breakpoint($tablet-large) {
+    left: 2px;
+  }
 }
 
 .calendar-calendar .day-view td .stripe,
@@ -902,19 +930,6 @@ table.calendar-legend tr.even .stripe {
       padding: .2rem;
     }
 
-    .desktop {
-      @include breakpoint($mobile) {
-        display: none;
-      }
-      @include breakpoint($desktop) {
-        display: inline;
-      }
-    }
-    .mobile {
-      @include breakpoint($desktop) {
-        display: none;
-      }
-    }
   }
 
   @include breakpoint($desktop) {
@@ -927,6 +942,24 @@ table.calendar-legend tr.even .stripe {
       background: none;
       position: relative;
       margin: 1rem;
+    }
+  }
+}
+
+// Some elements display a different format in desktop or mobile.
+.date-nav-wrapper .date-heading h3,
+.calendar-calendar .days {
+  .desktop {
+    @include breakpoint($mobile) {
+      display: none;
+    }
+    @include breakpoint($desktop) {
+      display: inline;
+    }
+  }
+  .mobile {
+    @include breakpoint($desktop) {
+      display: none;
     }
   }
 }
@@ -999,13 +1032,20 @@ ul.calendar-links,
 // calendar for desktop
 @include breakpoint($desktop) {
   .section-calendar .tabs-primary {
-    margin-right: 9%;
+    margin-right: 20px;
+    padding-right: 0;
   }
 
   .calendar-month-view {
     .date-today {
       display: block;
     }
+  }
+}
+
+@include breakpoint($calendar-full) {
+  .section-calendar .tabs-primary {
+    margin-right: 9.5%;
   }
 }
 
@@ -1050,13 +1090,20 @@ ul.calendar-links,
   top: 7px;
 }
 
-.dayview .link-ical,
-.day-view .single-day .type-access_information .link-ical {
-  top: 10px;
+.day-view .single-day .link-ical,
+.day-view .multi-day .link-ical {
+  top: 14px;
 }
 
-.dayview .type-access_information .link-ical {
-  top: 18px;
+@include breakpoint($tablet-large) {
+  .week-view .all-day .link-ical {
+    top: 11px;
+  }
+
+  .day-view .single-day .type-access_information .link-ical,
+  .day-view .single-day .type-event .link-ical {
+    top: 12px;
+  }
 }
 
 // show/hide access notices
@@ -1064,6 +1111,8 @@ ul.calendar-links,
   p:first-of-type {
 
     label {
+      display: block;
+      width: 200px;
       position: relative;
       left: 0;
       @include font-size(14px);

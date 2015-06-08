@@ -126,6 +126,7 @@
   .report-inappropriate-title {
     width: 92%;
     margin: 0;
+    line-height: 1;
 
     @include breakpoint($desktop) {
       width: initial;
@@ -135,13 +136,13 @@
   .report-message {
     @include font-size(14px);
     line-height: 1.4;
-    margin-top: .2rem;
+    margin-top: -0.5rem;
   }
 
   .top-close {
-    position: absolute;
-    top: 14px;
-    right: 12px;
+    position: relative;
+    top: -28px;
+    left: 97%;
     border: none;
     background: transparent;
   }

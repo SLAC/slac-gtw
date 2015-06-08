@@ -85,7 +85,7 @@ div.date-views-pager div.next-year {
     padding-top: 0;
 
     span {
-      color: $blue;
+      color: darken($light-grey, 20%);
     }
 
     a {
@@ -97,6 +97,7 @@ div.date-views-pager div.next-year {
       &:focus {
         color: $blue;
         background: transparent;
+        text-decoration: none;
       }
     }
   }
@@ -113,26 +114,12 @@ div.date-views-pager div.next-year {
   }
 }
 
-.date-nav-wrapper .date-prev a,
-.date-nav-wrapper .date-next a {
-  text-decoration: none;
-  color: inherit;
-  font-size: 12px;
-}
-
-.date-nav-wrapper.date-nav a:hover {
-  text-decoration: underline;
-}
-
 .date-nav-wrapper .date-prev {
-  padding: 5px 0;
   position: absolute;
   left: 0px;
   text-align: left;
   top: 0px;
-  width: auto;
   z-index: 1;
-  font-size: 12px;
 }
 
 .date-nav-wrapper .date-prev {
@@ -144,23 +131,21 @@ div.date-views-pager div.next-year {
 .date-nav-wrapper .item-list .pager li.date-prev a {
   display: block;
   width: 16px;
-  height: 16px;
-  margin-left: 10px;
+  height: 18px;
   font-size: 0;
-  color: color(grey-blue-light);
-  background: url(../images/right-arrow.png) 82% -34% no-repeat;
-  transform: rotate(180deg);
+  background: url(../images/pager-arrows.png) 4px 7px no-repeat;
+
+  @include breakpoint($tablet-large) {
+    background-position: 10px 8px;
+  }
 }
 
 .date-nav-wrapper .date-next {
-  padding: 5px 0;
   position: absolute;
   right: 0px;
   text-align: right;
   top: 0px;
-  width: auto;
   z-index: 1;
-  font-size: 12px;
   border-left: 4px solid $white;
 
   @include breakpoint($desktop) {
@@ -171,10 +156,11 @@ div.date-views-pager div.next-year {
 .date-nav-wrapper .item-list .pager li.date-next a {
   display: block;
   width: 16px;
-  height: 16px;
+  height: 18px;
   font-size: 0;
-  color: color(grey-blue-light);
-  margin-right: .6rem;
-  font-weight: bold;
-  background: url(../images/right-arrow.png) 56% 7px no-repeat;
+  background: url(../images/pager-arrows.png) -38px 7px no-repeat;
+
+  @include breakpoint($tablet-large) {
+    background-position: -36px 8px;
+  }
 }

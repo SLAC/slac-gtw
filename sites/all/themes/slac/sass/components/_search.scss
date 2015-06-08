@@ -4,6 +4,10 @@
   }
 }
 
+.mobile-search-open #content {
+  margin-top: 6rem;
+}
+
 @media all and (max-width: $desktop) {
   #block-slac-search-form {
     width: 100%;
