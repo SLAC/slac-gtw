@@ -56,7 +56,7 @@
       .time {
         padding: .1rem .4rem .4rem .4rem;
         border-top: 3px solid color(grey);
-        background: lighten(color(event-item-grey), 5%);
+        background: color(grey-light);
       }
 
       .title a {
@@ -72,37 +72,43 @@
 
     .type-access_information .time {
       border-color: color(red);
-      background: lighten(color(red), 50%) url(../images/access-notice-icon-smaller.png) 5px 4px no-repeat;
+      background: color(red-light) url(../images/access-notice-icon-smaller.png) 5px 4px no-repeat;
     }
 
     .event-summer-school-programs .time {
       border-color: color(pink);
-      background: lighten(color(pink), 30%);
+      background: color(pink-light);
     }
 
     .event-talks-seminars--colloquia .time {
       border-color: color(yellow);
-      background: lighten(color(yellow), 25%);
+      background: color(yellow-light);
     }
 
     .event-public-events--tours .time {
       border-color: color(green);
-      background: lighten(color(green), 35%);
+      background: color(green-light);
     }
 
     .event-conferences--workshops .time {
       border-color: color(blue);
-      background: lighten(color(blue), 25%);
+      background: color(blue-light);
     }
 
     .event-staff-celebrations .time {
       border-color: color(purple);
-      background: lighten(color(purple), 55%);
+      background: color(purple-light);
     }
 
     .event-training--development .time {
       border-color: color(orange);
-      background: lighten(color(orange), 40%);
+      background: color(orange-light);
+    }
+  }
+
+  @include breakpoint($tablet-large) {
+    .weekview .type-access_information {
+      margin: 0.2rem;
     }
   }
 }

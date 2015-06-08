@@ -28,6 +28,20 @@ function v_calendar_form_views_exposed_form_alter(&$form, &$form_state) {
         'scope' => 'header',
       ),
     );
+
+    // Limit the 'Filter by Events' select to only the desired terms.
+    // TODO: get these term names from a configuration.
+    $term_options = array(
+      'Accelerators',
+      'Events',
+      'Lab Administration',
+      'Particle Physics & Astrophysics',
+      'Photon Sciences',
+      'PPA events',
+      'science',
+    );
+    $options = $form['tid_1']['#options'];
+    $form['tid_1']['#options'] = array_intersect($options, $term_options);
   }
 }
 

@@ -1,20 +1,36 @@
 // events color map
 $color: (
   red: #de0105,
+  red-light: #fce9e9,
+
   blue: #4780d1,
+  blue-light: #e6eef9,
+
   green: #35b635,
+  green-light: #d0eed0,
+
   purple: #7e00aa,
+  purple-light: #eddaf3,
+
   pink: #ff2eba,
+  pink-light: #f9e1f2,
+
   yellow: #e9ce43,
+  yellow-light: #fff8df,
+
   orange: #e76d00,
+  orange-light: #fae2cc,
+
   grey: #838383,
+  grey-light: #c8cac8,
+
   grey-blue: #d5dde1,
   grey-blue-light: #eaeef0,
   grey-blue-dark: #849ba6,
   light-green: #eff9f5,
   light-blue: #dfe9f5,
   weekend-grey: #eeeeee,
-  event-item-grey: #e2e2e2
+  event-item-grey: #e4e4e4
 );
 
 // color function

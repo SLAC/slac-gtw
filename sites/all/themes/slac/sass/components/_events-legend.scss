@@ -1,5 +1,6 @@
 .region-content-bottom {
   background: $white;
+  padding-top: 2rem;
 }
 
 #block-boxes-calendar-legend {
@@ -15,6 +16,10 @@
   }
 
   @include breakpoint($desktop) {
+    margin-left: 1.25rem;
+  }
+
+  @include breakpoint($calendar-full) {
     margin-left: 10%;
   }
 

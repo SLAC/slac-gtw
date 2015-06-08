@@ -39,11 +39,11 @@ $zen-column-count: 12;
 
     @include breakpoint($tablet-small) {
       float: left;
-      background-size: 100% auto;
     }
 
     @include breakpoint($desktop) {
       float: right;
+      background-size: 100% auto;
     }
 
     span {
@@ -57,24 +57,21 @@ $zen-column-count: 12;
   .date {
     display: none;
 
-    @include breakpoint($tablet-large) {
-      display: block;
-
+    @include breakpoint($tablet-small) {
       @include font-size(11px);
+      display: block;
+      width: 6.875rem;
+      float: left;
       font-weight: bold;
       color: $white;
-      position: absolute;
-      left: 150px;
-      top: 14px;
-
-      @include breakpoint($desktop) {
-        left: initial;
-        top: initial;
-      }
+      position: relative;
+      left: 0;
+      top: 1rem;
     }
 
     @include breakpoint($desktop) {
       color: $dim-grey;
+      top: 0.3rem;
     }
   }
 

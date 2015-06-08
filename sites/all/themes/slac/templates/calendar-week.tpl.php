@@ -43,7 +43,8 @@ $today_day_col = NULL;
         }
         ?>
         <th class="<?php print $cell['class']; ?>" id="<?php print $cell['header_id']; ?>">
-          <?php print $cell['data']; ?>
+          <span class="mobile"><?php print $cell['data']; ?></span>
+          <span class="desktop"><?php print $cell['header_id']; ?></span>
         </th>
       <?php endforeach; ?>
     </tr>
@@ -99,7 +100,7 @@ $today_day_col = NULL;
             // Add the Date formatted like 'Thu Apr 16' as a data attribute on
             // each TD.
             $cell_date = $cell['item']->calendar_start_date;
-            $cell_title = $cell_date->format('D M j');
+            $cell_title = strtoupper($cell_date->format('D')) . $cell_date->format(' M j');
             $cell_class .= ($today_day_col == $cell['wday']) ? ' today' : '';
           ?>
           <td colspan="<?php print $cell['colspan']?>" data-title="<?php print $cell_title ?>" class="multi-day<?php print $cell_class?>">

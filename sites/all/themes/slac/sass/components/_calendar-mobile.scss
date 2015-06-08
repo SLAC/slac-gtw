@@ -5,7 +5,8 @@
     width: 100%;
   }
 
-  .week-view {
+  .week-view,
+  .day-view {
     table,
     tbody {
       display: table;
@@ -47,7 +48,7 @@
   }
 
   .date-nav-wrapper .date-heading h3 {
-    @include font-size($base-font-size - 2px);
+    @include font-size($base-font-size);
   }
 
   .calendar-calendar .view-empty {
@@ -73,16 +74,25 @@
 
   table tr {
     &.single-day {
-      margin-bottom: 1rem;
-      border-bottom: 5px solid darken($light-grey, 5%);
+      margin-bottom: 0;
     }
 
     td[id^="calendar_view-2"] {
-      border-bottom: 5px solid darken($light-grey, 5%);
 
       .inner {
         margin-top: 3.5rem;
       }
+    }
+  }
+
+  .calendar-calendar .month-view .full tr.single-day .no-entry,
+  .calendar-calendar .month-view .full tr.single-day .weekend,
+  .calendar-calendar .month-view .full tr.single-day .today,
+  .calendar-calendar .month-view .full tr.single-day .single-day {
+    border-bottom: 5px solid color(grey-blue-light);
+
+    .inner {
+      margin-bottom: 0.5rem;
     }
   }
 
@@ -125,7 +135,7 @@
     float: left;
     width: 40%;
     margin-right: 10px;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     text-align: left;
   }
 
@@ -201,12 +211,8 @@
       background: $white;
     }
 
-    .day-view #single-day-container table td {
-      width: 60%;
-
-      &.last {
-        border: none;
-      }
+    .day-view div.single-day .view-item {
+      width: 100%;
     }
 
     .day-view .full .calendar-agenda-items .inner > .item:first-child {
@@ -231,8 +237,20 @@
       width: 100%;
     }
 
+    .day-view table.full {
+      width: 100%;
+    }
+
+    .day-view #single-day-container table td {
+      width: 40px;
+
+      &.last {
+        border: none;
+      }
+    }
+
     .day-view #multi-day-container table td {
-      width: 1%;
+      width: 47px;
     }
 
     .day-view .full .calendar-agenda-items .inner .item {
@@ -328,7 +346,7 @@
 
   .calendar-calendar .week-view .full td.multi-day div.weekview {
     width: inherit;
-    min-height: 100px;
+    min-height: 90px;
   }
 
   .calendar-calendar .week-view .full,

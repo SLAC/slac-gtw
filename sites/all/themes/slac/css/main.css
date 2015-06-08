@@ -302,7 +302,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #46494B;
+  color: #000;
   font-weight: bold;
 }
 
@@ -1037,6 +1037,22 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   color: #c00;
 }
 
+@media (min-width: 60em) {
+  .calendar-calendar .monthview .contents,
+  .calendar-calendar .monthview .views-field-nothing-1 {
+    margin: 0;
+  }
+  .calendar-calendar .monthview .contents div,
+  .calendar-calendar .monthview .views-field-nothing-1 div {
+    margin: 0;
+  }
+  .calendar-calendar .monthview .title,
+  .calendar-calendar .monthview .title a {
+    display: inline-block;
+    overflow: hidden;
+    height: 1.5em;
+  }
+}
 .calendar-calendar .content {
   clear: both;
   padding: 3px;
@@ -1474,7 +1490,7 @@ table.calendar-legend tr.even .stripe {
 
 .calendar-calendar .month-view .full td.multi-day div.monthview,
 .calendar-calendar .week-view .full td.multi-day div.weekview {
-  background: #e2e2e2;
+  background: #e4e4e4;
   height: 1.9em;
   overflow: hidden;
   margin: 0px auto;
@@ -1522,6 +1538,12 @@ table.calendar-legend tr.even .stripe {
   position: absolute;
   width: 98%;
   left: 5px;
+}
+@media (min-width: 60em) {
+  .calendar-calendar .month-view .full td.multi-day .calendar.monthview .contents,
+  .calendar-calendar .week-view .full td.multi-day .calendar.weekview .contents {
+    left: 2px;
+  }
 }
 
 .calendar-calendar .day-view td .stripe,
@@ -1671,21 +1693,6 @@ table.calendar-legend tr.even .stripe {
     padding: .2rem;
   }
 }
-@media (min-width: 20em) {
-  .date-nav-wrapper .date-heading h3 .desktop {
-    display: none;
-  }
-}
-@media (min-width: 70em) {
-  .date-nav-wrapper .date-heading h3 .desktop {
-    display: inline;
-  }
-}
-@media (min-width: 70em) {
-  .date-nav-wrapper .date-heading h3 .mobile {
-    display: none;
-  }
-}
 @media (min-width: 70em) {
   .date-nav-wrapper .date-heading {
     width: 40%;
@@ -1697,6 +1704,25 @@ table.calendar-legend tr.even .stripe {
     background: none;
     position: relative;
     margin: 1rem;
+  }
+}
+
+@media (min-width: 20em) {
+  .date-nav-wrapper .date-heading h3 .desktop,
+  .calendar-calendar .days .desktop {
+    display: none;
+  }
+}
+@media (min-width: 70em) {
+  .date-nav-wrapper .date-heading h3 .desktop,
+  .calendar-calendar .days .desktop {
+    display: inline;
+  }
+}
+@media (min-width: 70em) {
+  .date-nav-wrapper .date-heading h3 .mobile,
+  .calendar-calendar .days .mobile {
+    display: none;
   }
 }
 
@@ -1767,11 +1793,17 @@ ul.calendar-links,
 
 @media (min-width: 70em) {
   .section-calendar .tabs-primary {
-    margin-right: 9%;
+    margin-right: 20px;
+    padding-right: 0;
   }
 
   .calendar-month-view .date-today {
     display: block;
+  }
+}
+@media (min-width: 85em) {
+  .section-calendar .tabs-primary {
+    margin-right: 9.5%;
   }
 }
 .page-calendar .selectize-dropdown .option {
@@ -1811,16 +1843,24 @@ ul.calendar-links,
   top: 7px;
 }
 
-.dayview .link-ical,
-.day-view .single-day .type-access_information .link-ical {
-  top: 10px;
+.day-view .single-day .link-ical,
+.day-view .multi-day .link-ical {
+  top: 14px;
 }
 
-.dayview .type-access_information .link-ical {
-  top: 18px;
-}
+@media (min-width: 60em) {
+  .week-view .all-day .link-ical {
+    top: 11px;
+  }
 
+  .day-view .single-day .type-access_information .link-ical,
+  .day-view .single-day .type-event .link-ical {
+    top: 12px;
+  }
+}
 .events-calendar p:first-of-type label {
+  display: block;
+  width: 200px;
   position: relative;
   left: 0;
   font-size: 14px;
@@ -1849,7 +1889,7 @@ ul.calendar-links,
 }
 
 .calendar-calendar .week-view .full div.single-day div.weekview {
-  background: #e2e2e2;
+  background: #e4e4e4;
   width: auto;
   padding: 5px;
   margin: 0 5px 6px 5px;
@@ -2127,7 +2167,7 @@ ul.calendar-links,
 
 .calendar-calendar .day-view .full td.multi-day div.dayview,
 .calendar-calendar .week-view .full td.multi-day div.weekview {
-  width: 98%;
+  width: 100%;
   padding: 0;
   margin: 0;
   min-height: 110px;
@@ -2801,7 +2841,7 @@ ul.calendar-links,
 
 .events-calendar .type-access_information,
 .events-calendar .type-event {
-  background: #e2e2e2;
+  background: #e4e4e4;
   margin: .2rem .2rem .5rem .2rem;
   padding: .2rem .4rem;
   border-left: 3px solid #838383;
@@ -2837,7 +2877,7 @@ ul.calendar-links,
 .events-calendar .type-access_information.type-access_information,
 .events-calendar .type-event.type-access_information {
   border-color: #de0105;
-  background: #e2e2e2 url(../images/access-notice-icon-smaller.png) 5px 3px no-repeat;
+  background: #e4e4e4 url(../images/access-notice-icon-smaller.png) 5px 3px no-repeat;
 }
 .events-calendar .weekview .type-access_information,
 .events-calendar .weekview .type-event,
@@ -2854,7 +2894,7 @@ ul.calendar-links,
 .events-calendar .dayview .type-event .time {
   padding: .1rem .4rem .4rem .4rem;
   border-top: 3px solid #838383;
-  background: #efefef;
+  background: #c8cac8;
 }
 .events-calendar .weekview .type-access_information .title a,
 .events-calendar .weekview .type-event .title a,
@@ -2871,37 +2911,42 @@ ul.calendar-links,
 .events-calendar .weekview .type-access_information .time,
 .events-calendar .dayview .type-access_information .time {
   border-color: #de0105;
-  background: #ffdfe0 url(../images/access-notice-icon-smaller.png) 5px 4px no-repeat;
+  background: #fce9e9 url(../images/access-notice-icon-smaller.png) 5px 4px no-repeat;
 }
 .events-calendar .weekview .event-summer-school-programs .time,
 .events-calendar .dayview .event-summer-school-programs .time {
   border-color: #ff2eba;
-  background: #ffc7ed;
+  background: #f9e1f2;
 }
 .events-calendar .weekview .event-talks-seminars--colloquia .time,
 .events-calendar .dayview .event-talks-seminars--colloquia .time {
   border-color: #e9ce43;
-  background: #f6ecb5;
+  background: #fff8df;
 }
 .events-calendar .weekview .event-public-events--tours .time,
 .events-calendar .dayview .event-public-events--tours .time {
   border-color: #35b635;
-  background: #b4e9b4;
+  background: #d0eed0;
 }
 .events-calendar .weekview .event-conferences--workshops .time,
 .events-calendar .dayview .event-conferences--workshops .time {
   border-color: #4780d1;
-  background: #adc6ea;
+  background: #e6eef9;
 }
 .events-calendar .weekview .event-staff-celebrations .time,
 .events-calendar .dayview .event-staff-celebrations .time {
   border-color: #7e00aa;
-  background: #f0c3ff;
+  background: #eddaf3;
 }
 .events-calendar .weekview .event-training--development .time,
 .events-calendar .dayview .event-training--development .time {
   border-color: #e76d00;
-  background: #ffd7b4;
+  background: #fae2cc;
+}
+@media (min-width: 60em) {
+  .events-calendar .weekview .type-access_information {
+    margin: 0.2rem;
+  }
 }
 
 @media all and (max-width: 60em) {
@@ -2912,7 +2957,9 @@ ul.calendar-links,
   }
 
   .week-view table,
-  .week-view tbody {
+  .week-view tbody,
+  .day-view table,
+  .day-view tbody {
     display: table;
   }
 
@@ -2950,8 +2997,8 @@ ul.calendar-links,
   }
 
   .date-nav-wrapper .date-heading h3 {
-    font-size: 14px;
-    font-size: 0.875rem;
+    font-size: 16px;
+    font-size: 1rem;
   }
 
   .calendar-calendar .view-empty {
@@ -2975,14 +3022,23 @@ ul.calendar-links,
   }
 
   table tr.single-day {
-    margin-bottom: 1rem;
-    border-bottom: 5px solid #e5e5e5;
-  }
-  table tr td[id^="calendar_view-2"] {
-    border-bottom: 5px solid #e5e5e5;
+    margin-bottom: 0;
   }
   table tr td[id^="calendar_view-2"] .inner {
     margin-top: 3.5rem;
+  }
+
+  .calendar-calendar .month-view .full tr.single-day .no-entry,
+  .calendar-calendar .month-view .full tr.single-day .weekend,
+  .calendar-calendar .month-view .full tr.single-day .today,
+  .calendar-calendar .month-view .full tr.single-day .single-day {
+    border-bottom: 5px solid #eaeef0;
+  }
+  .calendar-calendar .month-view .full tr.single-day .no-entry .inner,
+  .calendar-calendar .month-view .full tr.single-day .weekend .inner,
+  .calendar-calendar .month-view .full tr.single-day .today .inner,
+  .calendar-calendar .month-view .full tr.single-day .single-day .inner {
+    margin-bottom: 0.5rem;
   }
 
   table tr.single-day td[id^="calendar_view-2"] .inner {
@@ -3023,7 +3079,7 @@ ul.calendar-links,
     float: left;
     width: 40%;
     margin-right: 10px;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     text-align: left;
   }
 
@@ -3092,11 +3148,8 @@ ul.calendar-links,
   .calendar-calendar .week-view .full tr td.weekend {
     background: #ffffff;
   }
-  .calendar-calendar .day-view #single-day-container table td {
-    width: 60%;
-  }
-  .calendar-calendar .day-view #single-day-container table td.last {
-    border: none;
+  .calendar-calendar .day-view div.single-day .view-item {
+    width: 100%;
   }
   .calendar-calendar .day-view .full .calendar-agenda-items .inner > .item:first-child {
     margin: 0;
@@ -3115,8 +3168,17 @@ ul.calendar-links,
   .calendar-calendar .day-view .full td.single-day div.dayview {
     width: 100%;
   }
+  .calendar-calendar .day-view table.full {
+    width: 100%;
+  }
+  .calendar-calendar .day-view #single-day-container table td {
+    width: 40px;
+  }
+  .calendar-calendar .day-view #single-day-container table td.last {
+    border: none;
+  }
   .calendar-calendar .day-view #multi-day-container table td {
-    width: 1%;
+    width: 47px;
   }
   .calendar-calendar .day-view .full .calendar-agenda-items .inner .item {
     max-height: inherit;
@@ -3195,7 +3257,7 @@ ul.calendar-links,
   .calendar-calendar .dayview .type-access_information.type-access_information,
   .calendar-calendar .dayview .type-event.type-access_information {
     border-color: #de0105;
-    background: #e2e2e2;
+    background: #e4e4e4;
   }
   .calendar-calendar .weekview .type-access_information .time,
   .calendar-calendar .weekview .type-event .time,
@@ -3217,7 +3279,7 @@ ul.calendar-links,
 
   .calendar-calendar .week-view .full td.multi-day div.weekview {
     width: inherit;
-    min-height: 100px;
+    min-height: 90px;
   }
 
   .calendar-calendar .week-view .full,
@@ -3337,7 +3399,7 @@ div.date-views-pager div.next-year {
   padding-top: 0;
 }
 .date-nav-wrapper .item-list .pager li span {
-  color: #316dae;
+  color: #bfbfbf;
 }
 .date-nav-wrapper .item-list .pager li a {
   background: none;
@@ -3347,6 +3409,7 @@ div.date-views-pager div.next-year {
 .date-nav-wrapper .item-list .pager li a:hover, .date-nav-wrapper .item-list .pager li a:focus {
   color: #316dae;
   background: transparent;
+  text-decoration: none;
 }
 @media (min-width: 70em) {
   .date-nav-wrapper .item-list .pager {
@@ -3359,26 +3422,12 @@ div.date-views-pager div.next-year {
   }
 }
 
-.date-nav-wrapper .date-prev a,
-.date-nav-wrapper .date-next a {
-  text-decoration: none;
-  color: inherit;
-  font-size: 12px;
-}
-
-.date-nav-wrapper.date-nav a:hover {
-  text-decoration: underline;
-}
-
 .date-nav-wrapper .date-prev {
-  padding: 5px 0;
   position: absolute;
   left: 0px;
   text-align: left;
   top: 0px;
-  width: auto;
   z-index: 1;
-  font-size: 12px;
 }
 
 .date-nav-wrapper .date-prev {
@@ -3390,23 +3439,22 @@ div.date-views-pager div.next-year {
 .date-nav-wrapper .item-list .pager li.date-prev a {
   display: block;
   width: 16px;
-  height: 16px;
-  margin-left: 10px;
+  height: 18px;
   font-size: 0;
-  color: #eaeef0;
-  background: url(../images/right-arrow.png) 82% -34% no-repeat;
-  transform: rotate(180deg);
+  background: url(../images/pager-arrows.png) 4px 7px no-repeat;
+}
+@media (min-width: 60em) {
+  .date-nav-wrapper .item-list .pager li.date-prev a {
+    background-position: 10px 8px;
+  }
 }
 
 .date-nav-wrapper .date-next {
-  padding: 5px 0;
   position: absolute;
   right: 0px;
   text-align: right;
   top: 0px;
-  width: auto;
   z-index: 1;
-  font-size: 12px;
   border-left: 4px solid #ffffff;
 }
 @media (min-width: 70em) {
@@ -3418,12 +3466,14 @@ div.date-views-pager div.next-year {
 .date-nav-wrapper .item-list .pager li.date-next a {
   display: block;
   width: 16px;
-  height: 16px;
+  height: 18px;
   font-size: 0;
-  color: #eaeef0;
-  margin-right: .6rem;
-  font-weight: bold;
-  background: url(../images/right-arrow.png) 56% 7px no-repeat;
+  background: url(../images/pager-arrows.png) -38px 7px no-repeat;
+}
+@media (min-width: 60em) {
+  .date-nav-wrapper .item-list .pager li.date-next a {
+    background-position: -36px 8px;
+  }
 }
 
 .node-type-event #content,
@@ -3685,6 +3735,7 @@ div.date-views-pager div.next-year {
 
 .region-content-bottom {
   background: #ffffff;
+  padding-top: 2rem;
 }
 
 #block-boxes-calendar-legend {
@@ -3702,6 +3753,11 @@ div.date-views-pager div.next-year {
   }
 }
 @media (min-width: 70em) {
+  #block-boxes-calendar-legend {
+    margin-left: 1.25rem;
+  }
+}
+@media (min-width: 85em) {
   #block-boxes-calendar-legend {
     margin-left: 10%;
   }
@@ -3941,6 +3997,7 @@ div.date-views-pager div.next-year {
 .report-as-inappropriate .report-inappropriate-title {
   width: 92%;
   margin: 0;
+  line-height: 1;
 }
 @media (min-width: 70em) {
   .report-as-inappropriate .report-inappropriate-title {
@@ -3951,12 +4008,12 @@ div.date-views-pager div.next-year {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.4;
-  margin-top: .2rem;
+  margin-top: -0.5rem;
 }
 .report-as-inappropriate .top-close {
-  position: absolute;
-  top: 14px;
-  right: 12px;
+  position: relative;
+  top: -28px;
+  left: 97%;
   border: none;
   background: transparent;
 }
@@ -4309,12 +4366,12 @@ fieldset.collapsed {
 @media (min-width: 40em) {
   #header .logo a {
     float: left;
-    background-size: 100% auto;
   }
 }
 @media (min-width: 70em) {
   #header .logo a {
     float: right;
+    background-size: 100% auto;
   }
 }
 #header .logo a span {
@@ -4326,28 +4383,24 @@ fieldset.collapsed {
 #header .date {
   display: none;
 }
-@media (min-width: 60em) {
+@media (min-width: 40em) {
   #header .date {
-    display: block;
     font-size: 11px;
     font-size: 0.6875rem;
+    display: block;
+    width: 6.875rem;
+    float: left;
     font-weight: bold;
     color: #ffffff;
-    position: absolute;
-    left: 150px;
-    top: 14px;
+    position: relative;
+    left: 0;
+    top: 1rem;
   }
 }
-@media (min-width: 60em) and (min-width: 70em) {
-  #header .date {
-    left: initial;
-    top: initial;
-  }
-}
-
 @media (min-width: 70em) {
   #header .date {
     color: #4f4f4f;
+    top: 0.3rem;
   }
 }
 @media (min-width: 70em) {
@@ -5044,6 +5097,10 @@ fieldset.collapsed {
     display: none;
   }
 }
+.mobile-search-open #content {
+  margin-top: 6rem;
+}
+
 @media all and (max-width: 70em) {
   #block-slac-search-form {
     width: 100%;
