@@ -1843,25 +1843,21 @@ ul.calendar-links,
   top: 7px;
 }
 
+.day-view .single-day .link-ical,
+.day-view .multi-day .link-ical {
+  top: 14px;
+}
+
 @media (min-width: 60em) {
   .week-view .all-day .link-ical {
     top: 11px;
   }
-}
-.dayview .link-ical,
-.day-view .single-day .type-access_information .link-ical {
-  top: 10px;
-}
 
-.dayview .type-access_information .link-ical {
-  top: 18px;
-}
-@media (min-width: 60em) {
-  .dayview .type-access_information .link-ical {
-    top: 14px;
+  .day-view .single-day .type-access_information .link-ical,
+  .day-view .single-day .type-event .link-ical {
+    top: 12px;
   }
 }
-
 .events-calendar p:first-of-type label {
   display: block;
   width: 200px;
