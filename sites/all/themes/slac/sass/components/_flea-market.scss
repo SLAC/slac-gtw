@@ -204,6 +204,16 @@
 }
 
 // flea market item listing
+.page-flea-market-my-items {
+  .views-field-title {
+    width: 25%;
+  }
+
+  .views-field-body {
+    width: 35%;
+  }
+}
+
 .my-flea-market-nav {
   @include breakpoint($tablet-large) {
     width: 200px;
