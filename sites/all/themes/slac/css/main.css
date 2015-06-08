@@ -3869,7 +3869,7 @@ div.date-views-pager div.next-year {
   text-indent: 14px;
   background: url(../images/blue-flag.png) 0 4px no-repeat;
 }
-.pane-flag-link .flag.unflag-action {
+.pane-flag-link .flag.unflag-action, .pane-flag-link .flag.unflag-disabled {
   background: url(../images/red-flag.png) 0 4px no-repeat;
   color: red;
 }

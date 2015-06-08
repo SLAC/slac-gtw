@@ -1,12 +1,14 @@
 .pane-flag-link {
   margin-top: 1.5rem;
   line-height: 1;
-  
+
   .flag {
     display: inline-block;
     text-indent: 14px;
     background: url(../images/blue-flag.png) 0 4px no-repeat;
-    &.unflag-action {
+
+    &.unflag-action,
+    &.unflag-disabled {
       background: url(../images/red-flag.png) 0 4px no-repeat;
       color: red;
     }
