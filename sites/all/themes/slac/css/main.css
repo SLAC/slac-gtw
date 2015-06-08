@@ -1726,6 +1726,17 @@ table.calendar-legend tr.even .stripe {
   }
 }
 
+@media (min-width: 20em) {
+  .calendar-calendar .single-day .mobile {
+    display: inline;
+  }
+}
+@media (min-width: 60em) {
+  .calendar-calendar .single-day .mobile {
+    display: none;
+  }
+}
+
 .date-nav-wrapper .date-next {
   background: none repeat scroll 0 0 #dfdfdf;
   float: none;
