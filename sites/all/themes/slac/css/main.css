@@ -5281,10 +5281,10 @@ fieldset.collapsed {
 .view-search .collapsible {
   margin-bottom: 2rem;
 }
-.view-search .field-name-field-shared-image {
+.view-search .field-type-image {
   float: left;
   margin-right: 2rem;
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
 }
 .view-search .node-created {
   font-size: 12px;

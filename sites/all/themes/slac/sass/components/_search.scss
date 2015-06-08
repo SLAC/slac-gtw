@@ -89,6 +89,7 @@
   }
 }
 
+// Search Results
 .section-search .title {
   @include zen-grid-item(6, 2);
 }
@@ -195,10 +196,10 @@
     margin-bottom: 2rem;
   }
 
-  .field-name-field-shared-image {
+  .field-type-image {
     float: left;
     margin-right: 2rem;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
   }
 
   .node-created {
