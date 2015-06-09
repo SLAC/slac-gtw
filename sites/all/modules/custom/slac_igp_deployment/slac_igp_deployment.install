@@ -48,6 +48,7 @@ function slac_igp_deployment_install() {
     'slac_ip_core',
     'slac_ip_media',
     'slac_ip_config_search',
+    'slac_ip_content_admin',
     'slac_ip_menus',
     'slac_ip_media',
     'slac_ip_panes',
@@ -112,8 +113,12 @@ function slac_igp_deployment_install() {
   // Revert other pre-existing, updated features.
   _slac_igp_deployment_revert('slac_igp_feed');
 
-  // Disable search module.
-  module_disable(array('search'));
+  // Disable Search, Comment, and old admin view modules.
+  module_disable(array(
+    'search',
+    'comment',
+    'slac_igp_workflow',
+  ));
 }
 
 /**
@@ -836,6 +841,26 @@ function slac_igp_deployment_update_7042() {
 function slac_igp_deployment_update_7043() {
   $result = module_enable(array(
     'unpublish_button',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
+}
+
+/**
+ * Disable the Comment module and old admin view feature.
+ * Enable the new admin view feature.
+ */
+function slac_igp_deployment_update_7044() {
+  module_disable(array(
+    'comment',
+    'slac_igp_workflow',
+  ));
+
+  $result = module_enable(array(
+    'slac_ip_content_admin',
   ));
 
   if ($result == FALSE) {
