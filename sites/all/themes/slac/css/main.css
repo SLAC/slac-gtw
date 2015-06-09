@@ -4082,6 +4082,13 @@ div.date-views-pager div.next-year {
   }
 }
 
+.page-flea-market-my-items .views-field-title {
+  width: 25%;
+}
+.page-flea-market-my-items .views-field-body {
+  width: 35%;
+}
+
 @media (min-width: 60em) {
   .my-flea-market-nav {
     width: 200px;
