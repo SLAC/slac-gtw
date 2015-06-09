@@ -3744,6 +3744,53 @@ div.date-views-pager div.next-year {
   padding-top: 1em;
 }
 
+@media (min-width: 60em) {
+  .section-access .general-right .pane-node-field-shared-contact-name,
+  .section-access .general-right .pane-node-field-shared-contact-email,
+  .section-access .general-right .pane-node-field-shared-contact-phone,
+  .section-access .general-right .pane-node-field-shared-tags {
+    display: none;
+  }
+}
+@media all and (min-width: 20em) and (max-width: 60em) {
+  .section-access .general-left .pane-node-field-shared-contact-name,
+  .section-access .general-left .pane-node-field-shared-contact-email,
+  .section-access .general-left .pane-node-field-shared-contact-phone,
+  .section-access .general-left .pane-node-field-shared-tags,
+  .section-access .general-left .pane-slac-ip-panes-print {
+    display: none;
+  }
+  .section-access .general-left .email-button a {
+    border: none;
+  }
+
+  .section-access .general-right .pane-node-field-shared-contact-name,
+  .section-access .general-right .pane-node-field-shared-contact-email,
+  .section-access .general-right .pane-node-field-shared-tags {
+    margin-bottom: 0.5rem;
+  }
+  .section-access .general-right .pane-node-field-shared-contact-name h2,
+  .section-access .general-right .pane-node-field-shared-contact-email h2,
+  .section-access .general-right .pane-node-field-shared-tags h2 {
+    font-size: 16px;
+    font-size: 1rem;
+    border: none;
+    margin-bottom: 0.5rem;
+    text-transform: none;
+    font-weight: bold;
+  }
+  .section-access .general-right .pane-node-field-shared-contact-phone {
+    margin-bottom: 3rem;
+  }
+  .section-access .general-right .pane-node-field-shared-tags {
+    margin-bottom: 3rem;
+  }
+  .section-access .general-right .pane-node-field-shared-tags:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
 .region-content-bottom {
   background: #ffffff;
   padding-top: 2rem;
