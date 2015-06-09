@@ -1,4 +1,4 @@
-@include breakpoint($desktop) {
+@include breakpoint($tablet-large) {
   .search-link {
     display: none;
   }
@@ -8,7 +8,7 @@
   margin-top: 6rem;
 }
 
-@media all and (max-width: $desktop) {
+@media all and (max-width: $tablet-large) {
   #block-slac-search-form {
     width: 100%;
     background: $light-blue;
@@ -31,7 +31,7 @@
   }
 
   .header__region input[type="text"] {
-    width: 120px;
+    width: 114px;
     margin-left: 0;
   }
 
@@ -68,7 +68,7 @@
     margin-top: 1rem;
   }
 
-  @include breakpoint($desktop) {
+  @include breakpoint($tablet-large) {
     display: block;
     width: 100%;
     left: 0;
@@ -79,7 +79,7 @@
   }
 }
 
-@include breakpoint($desktop) {
+@include breakpoint($tablet-large) {
   #block-slac-search-form {
     display: block;
     float: right;

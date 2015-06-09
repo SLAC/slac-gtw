@@ -4411,7 +4411,7 @@ fieldset.collapsed {
   margin: 0 auto;
   padding: 0;
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #header {
     width: 98%;
     padding: 0 1%;
@@ -4439,7 +4439,7 @@ fieldset.collapsed {
     float: left;
   }
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #header .logo a {
     float: right;
     background-size: 100% auto;
@@ -4468,13 +4468,21 @@ fieldset.collapsed {
     top: 1rem;
   }
 }
+@media (min-width: 60em) {
+  #header .date {
+    color: #4f4f4f;
+    top: 0.3rem;
+    left: 10.94rem;
+  }
+}
 @media (min-width: 70em) {
   #header .date {
     color: #4f4f4f;
     top: 0.3rem;
+    left: 0;
   }
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #header .header__region {
     padding-left: 0;
     padding-right: 0;
@@ -4492,18 +4500,14 @@ fieldset.collapsed {
   float: left;
   margin: 0;
   margin-left: 10px;
+  margin-right: 2px;
   padding: 4px 10px;
   width: 250px;
   border: 1px solid #316dae;
 }
 @media all and (min-width: 800px) {
   .header__region input[type="text"] {
-    width: 100px;
-  }
-}
-@media all and (min-width: 960px) {
-  .header__region input[type="text"] {
-    width: 100px;
+    width: 110px;
   }
 }
 @media all and (min-width: 1100px) {
@@ -4783,7 +4787,7 @@ fieldset.collapsed {
   margin-top: .5rem;
 }
 
-@media all and (max-width: 70em) {
+@media all and (max-width: 60em) {
   #main {
     background: #ffffff;
   }
@@ -4897,7 +4901,7 @@ fieldset.collapsed {
     color: #316dae;
   }
 }
-@media (min-width: 60em) {
+@media (min-width: 40em) {
   header[role="banner"] .date {
     display: block;
     position: absolute;
@@ -4907,7 +4911,7 @@ fieldset.collapsed {
 #block-menu-menu-top-menu {
   display: none;
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #block-menu-menu-top-menu {
     display: block;
     text-align: right;
@@ -4930,20 +4934,20 @@ fieldset.collapsed {
     text-transform: uppercase;
   }
 }
-@media all and (min-width: 70em) and (min-width: 960px) {
+@media all and (min-width: 60em) and (min-width: 960px) {
   #block-menu-menu-top-menu .menu li a {
     font-size: 11px;
     font-size: 0.6875rem;
     padding: .5em 1em;
   }
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #block-menu-menu-top-menu .menu li a:hover, #block-menu-menu-top-menu .menu li a:focus {
     outline: none;
   }
 }
 
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   .mobile-menu-toggle {
     display: none;
   }
@@ -5017,7 +5021,7 @@ fieldset.collapsed {
     display: block;
   }
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #block-system-main-menu .menu {
     display: block;
   }
@@ -5163,7 +5167,7 @@ fieldset.collapsed {
   padding-bottom: .1rem;
 }
 
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   .search-link {
     display: none;
   }
@@ -5172,7 +5176,7 @@ fieldset.collapsed {
   margin-top: 6rem;
 }
 
-@media all and (max-width: 70em) {
+@media all and (max-width: 60em) {
   #block-slac-search-form {
     width: 100%;
     background: #e9f2f9;
@@ -5195,7 +5199,7 @@ fieldset.collapsed {
   }
 
   .header__region input[type="text"] {
-    width: 120px;
+    width: 114px;
     margin-left: 0;
   }
 
@@ -5230,7 +5234,7 @@ fieldset.collapsed {
     margin-top: 1rem;
   }
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #slac-search-block-form {
     display: block;
     width: 100%;
@@ -5242,7 +5246,7 @@ fieldset.collapsed {
   }
 }
 
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #block-slac-search-form {
     display: block;
     float: right;
