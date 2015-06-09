@@ -3745,50 +3745,86 @@ div.date-views-pager div.next-year {
 }
 
 @media (min-width: 60em) {
+  .section-event .general-right .pane-node-field-shared-contact-name,
+  .section-event .general-right .pane-node-field-shared-contact-email,
+  .section-event .general-right .pane-node-field-shared-contact-phone,
+  .section-event .general-right .pane-terms-on-node-panel-pane-terms-on-node,
+  .section-event .general-right .pane-node-field-shared-tags,
   .section-access .general-right .pane-node-field-shared-contact-name,
   .section-access .general-right .pane-node-field-shared-contact-email,
   .section-access .general-right .pane-node-field-shared-contact-phone,
+  .section-access .general-right .pane-terms-on-node-panel-pane-terms-on-node,
   .section-access .general-right .pane-node-field-shared-tags {
     display: none;
   }
 }
 @media all and (min-width: 20em) and (max-width: 60em) {
+  .section-event .general-left .pane-node-field-shared-contact-name,
+  .section-event .general-left .pane-node-field-shared-contact-email,
+  .section-event .general-left .pane-node-field-shared-contact-phone,
+  .section-event .general-left .pane-node-field-shared-tags,
+  .section-event .general-left .pane-terms-on-node-panel-pane-terms-on-node,
+  .section-event .general-left .pane-slac-ip-panes-print,
   .section-access .general-left .pane-node-field-shared-contact-name,
   .section-access .general-left .pane-node-field-shared-contact-email,
   .section-access .general-left .pane-node-field-shared-contact-phone,
   .section-access .general-left .pane-node-field-shared-tags,
+  .section-access .general-left .pane-terms-on-node-panel-pane-terms-on-node,
   .section-access .general-left .pane-slac-ip-panes-print {
     display: none;
   }
+  .section-event .general-left .email-button a,
   .section-access .general-left .email-button a {
     border: none;
   }
-
+  .section-event .general-right .pane-node-field-shared-contact-name,
+  .section-event .general-right .pane-node-field-shared-contact-email,
+  .section-event .general-right .pane-node-field-shared-tags,
+  .section-event .general-right .pane-terms-on-node-panel-pane-terms-on-node,
   .section-access .general-right .pane-node-field-shared-contact-name,
   .section-access .general-right .pane-node-field-shared-contact-email,
-  .section-access .general-right .pane-node-field-shared-tags {
+  .section-access .general-right .pane-node-field-shared-tags,
+  .section-access .general-right .pane-terms-on-node-panel-pane-terms-on-node {
     margin-bottom: 0.5rem;
   }
-  .section-access .general-right .pane-node-field-shared-contact-name h2,
-  .section-access .general-right .pane-node-field-shared-contact-email h2,
-  .section-access .general-right .pane-node-field-shared-tags h2 {
+  .section-event .general-right .pane-node-field-shared-contact-name .pane-title,
+  .section-event .general-right .pane-node-field-shared-contact-email .pane-title,
+  .section-event .general-right .pane-node-field-shared-tags .pane-title,
+  .section-event .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title,
+  .section-access .general-right .pane-node-field-shared-contact-name .pane-title,
+  .section-access .general-right .pane-node-field-shared-contact-email .pane-title,
+  .section-access .general-right .pane-node-field-shared-tags .pane-title,
+  .section-access .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title {
     font-size: 16px;
     font-size: 1rem;
     border: none;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     text-transform: none;
     font-weight: bold;
   }
+  .section-event .general-right .pane-node-field-shared-contact-phone,
   .section-access .general-right .pane-node-field-shared-contact-phone {
     margin-bottom: 3rem;
   }
-  .section-access .general-right .pane-node-field-shared-tags {
+  .section-event .general-right .pane-node-field-shared-tags,
+  .section-event .general-right .pane-terms-on-node-panel-pane-terms-on-node,
+  .section-access .general-right .pane-node-field-shared-tags,
+  .section-access .general-right .pane-terms-on-node-panel-pane-terms-on-node {
     margin-bottom: 3rem;
   }
-  .section-access .general-right .pane-node-field-shared-tags:after {
+  .section-event .general-right .pane-node-field-shared-tags:after,
+  .section-event .general-right .pane-terms-on-node-panel-pane-terms-on-node:after,
+  .section-access .general-right .pane-node-field-shared-tags:after,
+  .section-access .general-right .pane-terms-on-node-panel-pane-terms-on-node:after {
     content: "";
     display: table;
     clear: both;
+  }
+  .section-event .general-right .pane-node-field-shared-tags .pane-title,
+  .section-event .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title,
+  .section-access .general-right .pane-node-field-shared-tags .pane-title,
+  .section-access .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title {
+    margin-bottom: 0.4rem;
   }
 }
 .region-content-bottom {
@@ -5478,6 +5514,8 @@ fieldset.collapsed {
 .node-type-access-information ul.event-tags li {
   display: inline-block;
   padding-left: 0;
+  margin-left: 0;
+  margin-right: 0.25rem;
   list-style: none;
   background: none;
 }

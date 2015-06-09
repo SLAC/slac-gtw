@@ -1,0 +1,106 @@
+// See /components/_event-news-notice.scss for shared styles
+// among Events, News and Access Notice
+
+@include breakpoint($tablet-large) {
+  .section-event,
+  .section-access {
+    .general-right {
+    .pane-node-field-shared-contact-name,
+    .pane-node-field-shared-contact-email,
+    .pane-node-field-shared-contact-phone,
+    .pane-terms-on-node-panel-pane-terms-on-node,
+    .pane-node-field-shared-tags {
+      display: none;
+    }
+  }
+}}
+
+@media all and (min-width: $mobile) and (max-width: $tablet-large) {
+  .section-event,
+  .section-access {
+    .general-left {
+      .pane-node-field-shared-contact-name,
+      .pane-node-field-shared-contact-email,
+      .pane-node-field-shared-contact-phone,
+      .pane-node-field-shared-tags,
+      .pane-terms-on-node-panel-pane-terms-on-node,
+      .pane-slac-ip-panes-print {
+        display: none;
+      }
+
+      .email-button a {
+        border: none;
+      }
+    }
+
+    .general-right {
+      .pane-node-field-shared-contact-name,
+      .pane-node-field-shared-contact-email,
+      .pane-node-field-shared-tags,
+      .pane-terms-on-node-panel-pane-terms-on-node {
+        margin-bottom: 0.5rem;
+
+        .pane-title {
+          @include font-size(16px);
+          border: none;
+          margin-bottom: 0;
+          text-transform: none;
+          font-weight: bold;
+        }
+      }
+
+      .pane-node-field-shared-contact-phone {
+        margin-bottom: 3rem;
+      }
+
+      .pane-node-field-shared-tags,
+      .pane-terms-on-node-panel-pane-terms-on-node {
+        @include clearfix;
+        margin-bottom: 3rem;
+
+        .pane-title {
+          margin-bottom: 0.4rem;
+        }
+      }
+    }
+  }
+  // .section-access .general-left {
+
+
+
+  // }
+
+  // .section-access .general-right {
+  //   .pane-node-field-shared-contact-name,
+  //   .pane-node-field-shared-contact-email,
+  //   .pane-node-field-shared-tags {
+  //     margin-bottom: 0.5rem;
+
+  //     h2 {
+  //       @include font-size(16px);
+  //       border: none;
+  //       margin-bottom: 0.5rem;
+  //       text-transform: none;
+  //       font-weight: bold;
+  //     }
+  //   }
+
+  //   .pane-node-field-shared-contact-phone {
+  //     margin-bottom: 3rem;
+  //   }
+
+  //   .pane-node-field-shared-tags {
+  //     @include clearfix;
+  //     margin-bottom: 3rem;
+  //   }
+  // }
+}
+// .section-event {
+//   .pane-slac-ip-panes-print {
+//     display: none;
+//   }
+
+//   .email-button a {
+//     border: none;
+//   }
+// }
