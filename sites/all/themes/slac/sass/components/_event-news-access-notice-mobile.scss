@@ -2,8 +2,8 @@
 // among Events, News and Access Notice
 
 @include breakpoint($tablet-large) {
-  .section-event,
-  .section-access {
+  .node-type-event,
+  .node-type-access-information {
     .general-right {
     .pane-node-field-shared-contact-name,
     .pane-node-field-shared-contact-email,
@@ -16,8 +16,8 @@
 }}
 
 @media all and (min-width: $mobile) and (max-width: $tablet-large) {
-  .section-event,
-  .section-access {
+  .node-type-event,
+  .node-type-access-information {
     .general-left {
       .pane-node-field-shared-contact-name,
       .pane-node-field-shared-contact-email,
