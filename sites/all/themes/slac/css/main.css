@@ -5455,7 +5455,7 @@ fieldset.collapsed {
     padding-right: 0;
     float: none;
   }
-  .views-exposed-form .views-exposed-widget input.form-submit:not(#edit-second-submit-search) {
+  .views-exposed-form .views-exposed-widget .form-submit:not(#edit-second-submit-search) {
     background: #316dae url(../images/search.svg) center center no-repeat;
     background-size: 20px 20px;
     display: block;

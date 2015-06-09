@@ -108,7 +108,7 @@
     padding-right: 0;
     float: none;
 
-    input.form-submit:not(#edit-second-submit-search) {
+    .form-submit:not(#edit-second-submit-search) {
       background: $blue url(../images/search.svg) center center no-repeat;
       background-size: 20px 20px;
       display: block;
