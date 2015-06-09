@@ -1,4 +1,4 @@
-// See /components/_event-news-notice.scss for shared styles
+// See /components/_event-news-access-notice.scss for shared styles
 // among Events, News and Access Notice
 
 @include breakpoint($tablet-large) {
@@ -64,43 +64,4 @@
       }
     }
   }
-  // .section-access .general-left {
-
-
-
-  // }
-
-  // .section-access .general-right {
-  //   .pane-node-field-shared-contact-name,
-  //   .pane-node-field-shared-contact-email,
-  //   .pane-node-field-shared-tags {
-  //     margin-bottom: 0.5rem;
-
-  //     h2 {
-  //       @include font-size(16px);
-  //       border: none;
-  //       margin-bottom: 0.5rem;
-  //       text-transform: none;
-  //       font-weight: bold;
-  //     }
-  //   }
-
-  //   .pane-node-field-shared-contact-phone {
-  //     margin-bottom: 3rem;
-  //   }
-
-  //   .pane-node-field-shared-tags {
-  //     @include clearfix;
-  //     margin-bottom: 3rem;
-  //   }
-  // }
 }
-// .section-event {
-//   .pane-slac-ip-panes-print {
-//     display: none;
-//   }
-
-//   .email-button a {
-//     border: none;
-//   }
-// }
