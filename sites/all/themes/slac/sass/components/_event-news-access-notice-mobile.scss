@@ -5,15 +5,16 @@
   .node-type-event,
   .node-type-access-information {
     .general-right {
-    .pane-node-field-shared-contact-name,
-    .pane-node-field-shared-contact-email,
-    .pane-node-field-shared-contact-phone,
-    .pane-terms-on-node-panel-pane-terms-on-node,
-    .pane-node-field-shared-tags {
-      display: none;
+      .pane-node-field-shared-contact-name,
+      .pane-node-field-shared-contact-email,
+      .pane-node-field-shared-contact-phone,
+      .pane-terms-on-node-panel-pane-terms-on-node,
+      .pane-node-field-shared-tags {
+        display: none;
+      }
     }
   }
-}}
+}
 
 @media all and (min-width: $mobile) and (max-width: $tablet-large) {
   .node-type-event,

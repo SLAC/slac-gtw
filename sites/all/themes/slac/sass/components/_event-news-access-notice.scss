@@ -19,16 +19,16 @@
 
   .general-left {
     .pane-node-field-event-type {
-      margin-bottom: 2em;
+      margin-bottom: 2rem;
     }
 
     .pane-node-body {
       border-top: solid 3px $event-border;
-      margin-top: 40px;
+      margin-top: 2.5rem;
     }
 
     h1 {
-      margin-bottom: .6em;
+      margin-bottom: .6rem;
       margin-top: 0;
       line-height: 1.2;
     }
@@ -48,31 +48,32 @@
       display: inline-block;
       color: $dim-grey;
       font-weight: bold;
-      margin-bottom: 12px;
+      margin-bottom: 0.75rem;
     }
 
     .date-display-single {
-      margin-bottom: 4px;
+      margin-bottom: 0.25rem;
     }
 
     .field-name-field-shared-location {
-      margin-bottom: 16px;
+      margin-bottom: 1rem;
     }
 
     .field-name-field-shared-contact-name,
     .field-name-field-shared-contact-email,
     .field-name-field-shared-contact-phone {
-      margin-bottom: .2em;
+      margin-bottom: .2rem;
     }
 
     .pane-node-body {
       border-top: solid 3px $event-border;
-      margin-top: 40px;
+      margin-top: 2.5rem;
     }
   }
 
   .general-right {
-    margin-top: .5em;
+    margin-top: .5rem;
+
     .inside {
       padding: 0;
     }
@@ -82,11 +83,11 @@
       border-bottom: 3px solid $event-border;
       text-transform: uppercase;
       color: $dim-grey;
-      margin-bottom: 1em;
+      margin-bottom: 1rem;
     }
 
     .panel-pane {
-      margin-bottom: 2em;
+      margin-bottom: 2rem;
     }
   }
 
@@ -99,6 +100,7 @@
 .node-type-news {
   #content {
     @include font-size(16px);
+
     .field-name-field-shared-location {
       font-weight: normal;
     }
@@ -106,7 +108,7 @@
     .field-name-field-news-subtitle {
       @include font-size(20px);
       font-weight: bold;
-      margin-bottom: 1.5em;
+      margin-bottom: 1.5rem;
     }
   }
 
@@ -116,12 +118,12 @@
       position: relative;
       top: -30px;
       float: right;
-      margin-right: 95px;
+      margin-right: 5.938rem
     }
 
     .pane-slac-ip-panes-print {
-      top: -30px;
-      margin-right: -200px;
+      top: -1.875rem;
+      margin-right: -12.5rem;
     }
 
     .field-name-field-shared-image {
@@ -139,7 +141,7 @@
 
     .field-name-field-shared-byline,
     .panel-pane.pane-node-created {
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
     }
   }
 
@@ -171,13 +173,13 @@
     .pane-node-field-shared-location .pane-title {
       @include font-size(14px);
       display: block;
-      width: 80px;
+      width: 5rem;
       text-align: right;
       float: left;
       margin-top: 0;
       font-weight: normal;
       border-right: 3px solid $white;
-      padding: 10px 10px 10px 0;
+      padding: 0.625rem 0.625rem 0.625rem 0;
     }
 
     .pane-node-field-event-date .pane-title {
@@ -185,8 +187,8 @@
     }
 
     .panel-pane:nth-child(6n) {
-      margin-top: 4em;
-      margin-bottom: 3px;
+      margin-top: 4rem;
+      margin-bottom: 0.1875rem;
     }
 
     .pane-node-field-shared-contact-name h2 {
@@ -195,7 +197,7 @@
       text-align: left;
       width: 100%;
       padding: 0;
-      margin-top: 2em;
+      margin-top: 2rem;
     }
 
     .pane-node-field-event-date,
@@ -218,7 +220,7 @@
     }
 
     .pane-node-field-shared-location {
-      margin-top: 3px;
+      margin-top: 0.1875rem;
     }
 
     .panel-pane {
@@ -232,11 +234,11 @@
     .panel-pane {
       div.field-item {
         display: block;
-        padding: 12px 0 12px 14px;
+        padding: 0.75rem 0 0.75rem 0.875rem;
       }
 
       span {
-        padding-left: 14px;
+        padding-left: 0.875rem;
       }
 
       &.pane-node-body .field-item {
@@ -264,6 +266,6 @@
 // event overrides
 .node-type-event {
   .pane-node-body .field-name-body {
-    padding-top: 1em;
+    padding-top: 1rem;
   }
 }
