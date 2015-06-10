@@ -42,11 +42,12 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['style_options']['columns'] = array(
     'views_bulk_operations' => 'views_bulk_operations',
     'title' => 'title',
-    'timestamp' => 'title',
-    'type' => 'type',
-    'name' => 'name',
-    'status' => 'status',
+    'changed' => 'changed',
     'created' => 'created',
+    'state' => 'state',
+    'type' => 'type',
+    'status' => 'status',
+    'name' => 'name',
     'edit_node' => 'edit_node',
     'delete_node' => 'edit_node',
   );
@@ -64,19 +65,28 @@ function slac_ip_content_admin_views_default_views() {
       'separator' => '&nbsp;',
       'empty_column' => 0,
     ),
-    'timestamp' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'type' => array(
+    'changed' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'name' => array(
+    'created' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'desc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'state' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'type' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -90,9 +100,9 @@ function slac_ip_content_admin_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'created' => array(
+    'name' => array(
       'sortable' => 1,
-      'default_sort_order' => 'desc',
+      'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
