@@ -3754,7 +3754,12 @@ div.date-views-pager div.next-year {
   .node-type-access-information .general-right .pane-node-field-shared-contact-email,
   .node-type-access-information .general-right .pane-node-field-shared-contact-phone,
   .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node,
-  .node-type-access-information .general-right .pane-node-field-shared-tags {
+  .node-type-access-information .general-right .pane-node-field-shared-tags,
+  .node-type-news .general-right .pane-node-field-shared-contact-name,
+  .node-type-news .general-right .pane-node-field-shared-contact-email,
+  .node-type-news .general-right .pane-node-field-shared-contact-phone,
+  .node-type-news .general-right .pane-terms-on-node-panel-pane-terms-on-node,
+  .node-type-news .general-right .pane-node-field-shared-tags {
     display: none;
   }
 }
@@ -3770,12 +3775,41 @@ div.date-views-pager div.next-year {
   .node-type-access-information .general-left .pane-node-field-shared-contact-phone,
   .node-type-access-information .general-left .pane-node-field-shared-tags,
   .node-type-access-information .general-left .pane-terms-on-node-panel-pane-terms-on-node,
-  .node-type-access-information .general-left .pane-slac-ip-panes-print {
+  .node-type-access-information .general-left .pane-slac-ip-panes-print,
+  .node-type-news .general-left .pane-node-field-shared-contact-name,
+  .node-type-news .general-left .pane-node-field-shared-contact-email,
+  .node-type-news .general-left .pane-node-field-shared-contact-phone,
+  .node-type-news .general-left .pane-node-field-shared-tags,
+  .node-type-news .general-left .pane-terms-on-node-panel-pane-terms-on-node,
+  .node-type-news .general-left .pane-slac-ip-panes-print {
     display: none;
   }
   .node-type-event .general-left .email-button a,
-  .node-type-access-information .general-left .email-button a {
+  .node-type-access-information .general-left .email-button a,
+  .node-type-news .general-left .email-button a {
     border: none;
+  }
+  .node-type-event .general-left .pane-node-created,
+  .node-type-access-information .general-left .pane-node-created,
+  .node-type-news .general-left .pane-node-created {
+    font-weight: normal;
+  }
+  .node-type-event .general-left .field-name-field-shared-image,
+  .node-type-access-information .general-left .field-name-field-shared-image,
+  .node-type-news .general-left .field-name-field-shared-image {
+    float: none;
+    margin-bottom: 2rem;
+  }
+  .node-type-event .general-left .panel-pane.pane-slac-ip-panes-email,
+  .node-type-access-information .general-left .panel-pane.pane-slac-ip-panes-email,
+  .node-type-news .general-left .panel-pane.pane-slac-ip-panes-email {
+    margin-right: 0;
+  }
+  .node-type-event .general-left .panel-pane.pane-slac-ip-panes-email .email-button a,
+  .node-type-access-information .general-left .panel-pane.pane-slac-ip-panes-email .email-button a,
+  .node-type-news .general-left .panel-pane.pane-slac-ip-panes-email .email-button a {
+    margin-right: 0;
+    padding-right: 0;
   }
   .node-type-event .general-right .pane-node-field-shared-contact-name,
   .node-type-event .general-right .pane-node-field-shared-contact-email,
@@ -3784,7 +3818,11 @@ div.date-views-pager div.next-year {
   .node-type-access-information .general-right .pane-node-field-shared-contact-name,
   .node-type-access-information .general-right .pane-node-field-shared-contact-email,
   .node-type-access-information .general-right .pane-node-field-shared-tags,
-  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node {
+  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node,
+  .node-type-news .general-right .pane-node-field-shared-contact-name,
+  .node-type-news .general-right .pane-node-field-shared-contact-email,
+  .node-type-news .general-right .pane-node-field-shared-tags,
+  .node-type-news .general-right .pane-terms-on-node-panel-pane-terms-on-node {
     margin-bottom: 0.5rem;
   }
   .node-type-event .general-right .pane-node-field-shared-contact-name .pane-title,
@@ -3794,7 +3832,11 @@ div.date-views-pager div.next-year {
   .node-type-access-information .general-right .pane-node-field-shared-contact-name .pane-title,
   .node-type-access-information .general-right .pane-node-field-shared-contact-email .pane-title,
   .node-type-access-information .general-right .pane-node-field-shared-tags .pane-title,
-  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title {
+  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title,
+  .node-type-news .general-right .pane-node-field-shared-contact-name .pane-title,
+  .node-type-news .general-right .pane-node-field-shared-contact-email .pane-title,
+  .node-type-news .general-right .pane-node-field-shared-tags .pane-title,
+  .node-type-news .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title {
     font-size: 16px;
     font-size: 1rem;
     border: none;
@@ -3803,19 +3845,24 @@ div.date-views-pager div.next-year {
     font-weight: bold;
   }
   .node-type-event .general-right .pane-node-field-shared-contact-phone,
-  .node-type-access-information .general-right .pane-node-field-shared-contact-phone {
+  .node-type-access-information .general-right .pane-node-field-shared-contact-phone,
+  .node-type-news .general-right .pane-node-field-shared-contact-phone {
     margin-bottom: 3rem;
   }
   .node-type-event .general-right .pane-node-field-shared-tags,
   .node-type-event .general-right .pane-terms-on-node-panel-pane-terms-on-node,
   .node-type-access-information .general-right .pane-node-field-shared-tags,
-  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node {
+  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node,
+  .node-type-news .general-right .pane-node-field-shared-tags,
+  .node-type-news .general-right .pane-terms-on-node-panel-pane-terms-on-node {
     margin-bottom: 3rem;
   }
   .node-type-event .general-right .pane-node-field-shared-tags:after,
   .node-type-event .general-right .pane-terms-on-node-panel-pane-terms-on-node:after,
   .node-type-access-information .general-right .pane-node-field-shared-tags:after,
-  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node:after {
+  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node:after,
+  .node-type-news .general-right .pane-node-field-shared-tags:after,
+  .node-type-news .general-right .pane-terms-on-node-panel-pane-terms-on-node:after {
     content: "";
     display: table;
     clear: both;
@@ -3823,7 +3870,9 @@ div.date-views-pager div.next-year {
   .node-type-event .general-right .pane-node-field-shared-tags .pane-title,
   .node-type-event .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title,
   .node-type-access-information .general-right .pane-node-field-shared-tags .pane-title,
-  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title {
+  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title,
+  .node-type-news .general-right .pane-node-field-shared-tags .pane-title,
+  .node-type-news .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title {
     margin-bottom: 0.4rem;
   }
 }
