@@ -69,6 +69,7 @@ function slac_igp_deployment_install() {
     'v_event',
     'v_featured_news_pane',
     'v_flea_market',
+    'v_my_content',
     'v_news',
     'v_news_archive',
     'v_search',
@@ -861,6 +862,20 @@ function slac_igp_deployment_update_7044() {
 
   $result = module_enable(array(
     'slac_ip_content_admin',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
+}
+
+/**
+ * Enable v_my_content feature.
+ */
+function slac_igp_deployment_update_7045() {
+  $result = module_enable(array(
+    'v_my_content',
   ));
 
   if ($result == FALSE) {
