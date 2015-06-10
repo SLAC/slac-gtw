@@ -527,9 +527,67 @@ table th.active {
 
 .view-search {
   float: left;
-  width: 66.66667%;
-  margin-left: 8.33333%;
-  margin-right: -75%;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: -100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+@media (min-width: 60em) {
+  .view-search {
+    float: left;
+    width: 83.33333%;
+    margin-left: 8.33333%;
+    margin-right: -91.66667%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+}
+
+@media all and (max-width: 60em) {
+  .search-wrapper .form-type-textfield {
+    float: left;
+    width: 83.33333%;
+    margin-left: 0%;
+    margin-right: -83.33333%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    padding-left: 0;
+  }
+  .search-wrapper .form-type-textfield .form-submit {
+    float: left;
+    width: 16.66667%;
+    margin-left: 83.33333%;
+    margin-right: -100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+}
+.section-search .title {
+  float: left;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: -100%;
   padding-left: 20px;
   padding-right: 20px;
   -moz-box-sizing: border-box;
@@ -4364,7 +4422,6 @@ textarea {
 }
 
 fieldset {
-  width: 800px;
   padding: 1rem;
   border: 3px solid #eaeaea;
   background: #fbfbfb;
@@ -4372,6 +4429,11 @@ fieldset {
 fieldset.collapsed {
   background: transparent;
   border: none;
+}
+@media (min-width: 60em) {
+  fieldset {
+    width: 800px;
+  }
 }
 
 .footer-wrapper {
@@ -5138,6 +5200,11 @@ fieldset.collapsed {
   margin-bottom: 2rem;
   text-align: left;
 }
+@media all and (max-width: 60em) {
+  .section-search .item-list .pager {
+    text-align: center;
+  }
+}
 .item-list .pager li {
   font-weight: normal;
   padding-right: .2rem;
@@ -5276,7 +5343,35 @@ fieldset.collapsed {
   margin-top: 6rem;
 }
 
-@media all and (max-width: 60em) {
+.section-search .title {
+  font-size: 18px;
+  font-size: 1.125rem;
+}
+@media (min-width: 40em) {
+  .section-search .title {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 60em) {
+  .section-search .title {
+    float: left;
+    width: 91.66667%;
+    margin-left: 8.33333%;
+    margin-right: -100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    font-size: 24px;
+    font-size: 1.5rem;
+  }
+}
+
+@media all and (max-width: 70em) {
   #block-slac-search-form {
     width: 100%;
     background: #e9f2f9;
@@ -5355,49 +5450,75 @@ fieldset.collapsed {
     z-index: 10;
   }
 }
-.section-search .title {
-  float: left;
-  width: 50%;
-  margin-left: 8.33333%;
-  margin-right: -58.33333%;
-  padding-left: 20px;
-  padding-right: 20px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
+@media all and (max-width: 60em) {
+  .views-exposed-form .views-exposed-widget {
+    padding-right: 0;
+    float: none;
+  }
+  .views-exposed-form .views-exposed-widget input.form-submit:not(#edit-second-submit-search) {
+    background: #316dae url(../images/search.svg) center center no-repeat;
+    background-size: 20px 20px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    font-size: 0;
+    color: #316dae;
+  }
 }
-
 .view-search {
   color: #848484;
 }
 .view-search .form-text {
-  width: 424px;
+  width: 100%;
+  height: 26px;
+}
+@media (min-width: 60em) {
+  .view-search .form-text {
+    width: 424px;
+    height: initial;
+  }
 }
 .view-search .form-text.bef-datepicker {
   width: 120px;
 }
 .view-search .search-wrapper {
-  margin-bottom: 3rem;
-  margin-top: 3rem;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
 }
 .view-search .search-wrapper:after {
   content: "";
   display: table;
   clear: both;
 }
+@media (min-width: 60em) {
+  .view-search .search-wrapper {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+  }
+}
 .view-search .search-wrapper .form-type-textfield {
-  float: left;
-  margin-right: 10px;
+  margin-right: 2px;
+}
+@media (min-width: 60em) {
+  .view-search .search-wrapper .form-type-textfield {
+    float: left;
+    margin-right: 10px;
+  }
 }
 .view-search .views-row {
   margin-bottom: 3rem;
 }
+@media all and (max-width: 60em) {
+  .view-search .views-row {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 4px solid #d5dde1;
+  }
+}
 .view-search .view-header {
   padding: .5rem 1rem;
   margin-bottom: 2rem;
-  background: #f2f2f2;
+  background: #eaeef0;
 }
 .view-search .view-footer {
   font-size: 14px;
@@ -5435,16 +5556,24 @@ fieldset.collapsed {
 .view-search .collapsible .fieldset-title,
 .view-search .collapsed .fieldset-title {
   display: block;
+  margin-left: 3px;
   line-height: 1;
   width: 200px;
   height: 16px;
   font-weight: bold;
-  color: #6a6a6a;
+  color: #316dae;
   background: url(../images/legend-bg.png) 160px -16px no-repeat;
 }
 .view-search .collapsible .fieldset-title:hover,
 .view-search .collapsed .fieldset-title:hover {
   text-decoration: none;
+}
+@media (min-width: 60em) {
+  .view-search .collapsible .fieldset-title,
+  .view-search .collapsed .fieldset-title {
+    color: #6a6a6a;
+    margin-left: 0;
+  }
 }
 .view-search .collapsed .fieldset-title {
   background-position: 160px 0;
@@ -5453,9 +5582,13 @@ fieldset.collapsed {
   margin-bottom: 2rem;
 }
 .view-search .field-type-image {
-  float: left;
-  margin-right: 2rem;
   margin-bottom: 1rem;
+}
+@media (min-width: 60em) {
+  .view-search .field-type-image {
+    float: left;
+    margin-right: 2rem;
+  }
 }
 .view-search .node-created {
   font-size: 12px;
@@ -5476,8 +5609,13 @@ fieldset.collapsed {
 
 .bef-checkboxes .form-type-bef-checkbox,
 .bef-checkboxes .bef-select-as-checkboxes {
-  float: left;
   margin-right: 20px;
+}
+@media (min-width: 60em) {
+  .bef-checkboxes .form-type-bef-checkbox,
+  .bef-checkboxes .bef-select-as-checkboxes {
+    float: left;
+  }
 }
 .bef-checkboxes label.option {
   position: relative;
