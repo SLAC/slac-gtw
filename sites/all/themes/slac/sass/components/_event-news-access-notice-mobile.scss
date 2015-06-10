@@ -3,7 +3,8 @@
 
 @include breakpoint($tablet-large) {
   .node-type-event,
-  .node-type-access-information {
+  .node-type-access-information,
+  .node-type-news {
     .general-right {
       .pane-node-field-shared-contact-name,
       .pane-node-field-shared-contact-email,
@@ -18,7 +19,8 @@
 
 @media all and (min-width: $mobile) and (max-width: $tablet-large) {
   .node-type-event,
-  .node-type-access-information {
+  .node-type-access-information,
+  .node-type-news {
     .general-left {
       .pane-node-field-shared-contact-name,
       .pane-node-field-shared-contact-email,
@@ -31,6 +33,24 @@
 
       .email-button a {
         border: none;
+      }
+
+      .pane-node-created {
+        font-weight: normal;
+      }
+
+      .field-name-field-shared-image {
+        float: none;
+        margin-bottom: 2rem;
+      }
+
+      .panel-pane.pane-slac-ip-panes-email {
+        margin-right: 0;
+
+        .email-button a {
+          margin-right: 0;
+          padding-right: 0;
+        }
       }
     }
 
