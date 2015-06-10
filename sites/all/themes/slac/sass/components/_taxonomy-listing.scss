@@ -1,0 +1,31 @@
+@media all and (max-width: $tablet-large) {
+  .page-taxonomy-term {
+    .l-general-one-col {
+      margin-top: 0;
+    }
+
+    .title {
+      @include zen-grid-item(12, 1);
+      float: none;
+      margin-left: 0;
+      margin-bottom: 2rem;
+    }
+
+    .node-title {
+      margin-top: 0;
+    }
+
+    .feed-icon {
+      display: none;
+    }
+
+    article {
+      margin-bottom: 2rem;
+      border-bottom: 4px solid color(grey-blue);
+    }
+
+    .pager {
+      text-align: center;
+    }
+  }
+}

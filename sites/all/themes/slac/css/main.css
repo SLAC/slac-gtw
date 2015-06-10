@@ -5605,6 +5605,40 @@ fieldset.collapsed {
   margin-top: 0 !important;
 }
 
+@media all and (max-width: 60em) {
+  .page-taxonomy-term .l-general-one-col {
+    margin-top: 0;
+  }
+  .page-taxonomy-term .title {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    float: none;
+    margin-left: 0;
+    margin-bottom: 2rem;
+  }
+  .page-taxonomy-term .node-title {
+    margin-top: 0;
+  }
+  .page-taxonomy-term .feed-icon {
+    display: none;
+  }
+  .page-taxonomy-term article {
+    margin-bottom: 2rem;
+    border-bottom: 4px solid #d5dde1;
+  }
+  .page-taxonomy-term .pager {
+    text-align: center;
+  }
+}
 .page-news #page-title {
   display: none;
 }
