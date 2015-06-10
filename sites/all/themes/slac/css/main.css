@@ -3743,6 +3743,15 @@ div.date-views-pager div.next-year {
 .node-type-event .pane-node-body .field-name-body {
   padding-top: 1rem;
 }
+.node-type-event .pane-node-field-event-date {
+  margin-bottom: 1rem;
+}
+.node-type-event .general-left .pane-node-body {
+  margin-top: 3.5rem;
+}
+.node-type-event .pane-node-body .field-name-body {
+  padding-top: 0.5rem;
+}
 
 @media (min-width: 60em) {
   .node-type-event .general-right .pane-node-field-shared-contact-name,
