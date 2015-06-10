@@ -5343,18 +5343,18 @@ fieldset.collapsed {
   margin-top: 6rem;
 }
 
-.section-search .title {
+.page-search .title {
   font-size: 18px;
   font-size: 1.125rem;
 }
 @media (min-width: 40em) {
-  .section-search .title {
+  .page-search .title {
     font-size: 20px;
     font-size: 1.25rem;
   }
 }
 @media (min-width: 60em) {
-  .section-search .title {
+  .page-search .title {
     float: left;
     width: 91.66667%;
     margin-left: 8.33333%;
