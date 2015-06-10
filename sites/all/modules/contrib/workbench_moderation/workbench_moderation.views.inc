@@ -16,12 +16,10 @@ function workbench_moderation_views_data() {
     'node' => array(
       'left_field' => 'nid',
       'field' => 'nid',
-      'type' => 'INNER',
     ),
     'node_revision' => array(
       'left_field' => 'vid',
       'field' => 'vid',
-      'type' => 'INNER',
     ),
   );
 

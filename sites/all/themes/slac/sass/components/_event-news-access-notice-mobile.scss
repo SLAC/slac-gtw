@@ -1,0 +1,88 @@
+// See /components/_event-news-access-notice.scss for shared styles
+// among Events, News and Access Notice
+
+@include breakpoint($tablet-large) {
+  .node-type-event,
+  .node-type-access-information,
+  .node-type-news {
+    .general-right {
+      .pane-node-field-shared-contact-name,
+      .pane-node-field-shared-contact-email,
+      .pane-node-field-shared-contact-phone,
+      .pane-terms-on-node-panel-pane-terms-on-node,
+      .pane-node-field-shared-tags {
+        display: none;
+      }
+    }
+  }
+}
+
+@media all and (min-width: $mobile) and (max-width: $tablet-large) {
+  .node-type-event,
+  .node-type-access-information,
+  .node-type-news {
+    .general-left {
+      .pane-node-field-shared-contact-name,
+      .pane-node-field-shared-contact-email,
+      .pane-node-field-shared-contact-phone,
+      .pane-node-field-shared-tags,
+      .pane-terms-on-node-panel-pane-terms-on-node,
+      .pane-slac-ip-panes-print {
+        display: none;
+      }
+
+      .email-button a {
+        border: none;
+      }
+
+      .pane-node-created {
+        font-weight: normal;
+      }
+
+      .field-name-field-shared-image {
+        float: none;
+        margin-bottom: 2rem;
+      }
+
+      .panel-pane.pane-slac-ip-panes-email {
+        margin-right: 0;
+
+        .email-button a {
+          margin-right: 0;
+          padding-right: 0;
+        }
+      }
+    }
+
+    .general-right {
+      .pane-node-field-shared-contact-name,
+      .pane-node-field-shared-contact-email,
+      .pane-node-field-shared-tags,
+      .pane-terms-on-node-panel-pane-terms-on-node {
+        margin-bottom: 0.5rem;
+
+        .pane-title {
+          @include font-size(16px);
+          border: none;
+          margin-bottom: 0;
+          text-transform: none;
+          font-weight: bold;
+        }
+      }
+
+      .pane-node-field-shared-contact-phone {
+        margin-bottom: 3rem;
+      }
+
+      .pane-node-field-shared-tags,
+      .pane-terms-on-node-panel-pane-terms-on-node {
+        @include clearfix;
+        margin-bottom: 3rem;
+
+        .pane-title {
+          margin-bottom: 0.4rem;
+        }
+      }
+    }
+  }
+}

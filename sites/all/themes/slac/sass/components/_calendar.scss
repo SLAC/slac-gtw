@@ -963,6 +963,16 @@ table.calendar-legend tr.even .stripe {
     }
   }
 }
+.calendar-calendar {
+  .single-day .mobile {
+    @include breakpoint($mobile) {
+      display: inline;
+    }
+    @include breakpoint($tablet-large) {
+      display: none;
+    }
+  }
+}
 
 .date-nav-wrapper .date-next {
   background: none repeat scroll 0 0 #dfdfdf;
