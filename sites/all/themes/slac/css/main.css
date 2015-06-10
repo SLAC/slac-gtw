@@ -4691,24 +4691,29 @@ fieldset.collapsed {
   margin-top: 6rem;
 }
 
-.view-events-by-term .views-row {
+.view-events-by-term .views-row,
+.view-content-taxonomy-listing .views-row {
   margin-bottom: 2rem;
 }
-.view-events-by-term .field-name-field-shared-image {
+.view-events-by-term .field-name-field-shared-image,
+.view-content-taxonomy-listing .field-name-field-shared-image {
   float: left;
   margin-right: 2rem;
   margin-bottom: .5rem;
 }
-.view-events-by-term .node-created {
+.view-events-by-term .node-created,
+.view-content-taxonomy-listing .node-created {
   font-size: 12px;
   font-size: 0.75rem;
   font-weight: bold;
   line-height: 1;
 }
-.view-events-by-term .node-title {
+.view-events-by-term .node-title,
+.view-content-taxonomy-listing .node-title {
   margin-top: .5rem;
 }
-.view-events-by-term .field-type-text .field-item {
+.view-events-by-term .field-type-text .field-item,
+.view-content-taxonomy-listing .field-type-text .field-item {
   margin-top: .5rem;
 }
 
