@@ -117,6 +117,23 @@
     }
   };
 
+  /**
+   * Adds a button to toggle expanstion of the views filters in mobile layouts.
+   */
+  Drupal.behaviors.viewsFiltersMobile = {
+    attach: function (context, settings) {
+      $('.view-filters', context).each(function (idx, elem) {
+        $(elem).prepend('<a class="button-expand">Show Filters</button>')
+            .click(function (e) {
+              var $clickTarget = $(e.target);
+              if ($clickTarget.is('.button-expand')) {
+                $clickTarget.parent().toggleClass('expanded');
+              }
+            });
+      });
+    }
+  };
+
   Drupal.behaviors.alphapager = {
     attach: function (context, settings) {
       $('.alpha-link').each(function () {
