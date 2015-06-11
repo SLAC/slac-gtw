@@ -4278,11 +4278,11 @@ div.date-views-pager div.next-year {
   }
 }
 
-.section-flea-market .title {
+.page-flea-market .title {
   padding-left: 1.25rem;
 }
 @media (min-width: 60em) {
-  .section-flea-market .title {
+  .page-flea-market .title {
     float: left;
     width: 50%;
     margin-left: 8.33333%;
@@ -4298,42 +4298,91 @@ div.date-views-pager div.next-year {
     margin-bottom: 0;
   }
 }
-.section-flea-market .view-header {
-  display: none;
-}
-@media (min-width: 40em) {
-  .section-flea-market .view-header {
-    display: block;
-  }
-}
-.section-flea-market table {
+.page-flea-market table {
   margin-bottom: 4rem;
 }
-.section-flea-market table td p {
+.page-flea-market table td p {
   margin: 0;
 }
-.section-flea-market .views-field-changed {
+.page-flea-market .views-field-changed {
   min-width: 120px;
   font-weight: bold;
 }
-.section-flea-market .views-field-field-flea-market-item-type {
+.page-flea-market .views-field-field-flea-market-item-type {
   min-width: 100px;
   font-weight: bold;
 }
-.section-flea-market .views-field-edit-node {
+.page-flea-market .views-field-edit-node {
   min-width: 90px;
 }
-.section-flea-market .view-flea-market-listing {
+.page-flea-market .view-flea-market-listing {
   margin-bottom: 2rem;
 }
 @media (min-width: 60em) {
-  .section-flea-market .view-flea-market-listing {
+  .page-flea-market .view-flea-market-listing {
     padding-top: 4rem;
   }
 }
-.section-flea-market .view-flea-market-listing p {
+.page-flea-market .view-flea-market-listing p {
   margin-top: 0;
   margin-bottom: 1rem;
+}
+@media all and (max-width: 60em) {
+  .page-flea-market table,
+  .page-flea-market tbody {
+    display: block;
+    width: 100%;
+  }
+  .page-flea-market thead {
+    display: none;
+  }
+  .page-flea-market table tr,
+  .page-flea-market table th,
+  .page-flea-market table td {
+    display: block;
+    padding: 0;
+    text-align: left;
+    white-space: normal;
+  }
+  .page-flea-market table tr {
+    padding: 1rem 0.875rem;
+    border-bottom: 4px solid #d5dde1;
+  }
+  .page-flea-market table tr.odd {
+    background: #ffffff;
+  }
+  .page-flea-market table th[data-title]:before,
+  .page-flea-market table td[data-title]:before {
+    display: none;
+  }
+  .page-flea-market table td {
+    border: none;
+    margin-bottom: 6px;
+  }
+  .page-flea-market table td:empty {
+    display: none;
+  }
+  .page-flea-market table td:first-child {
+    margin-bottom: 6px;
+  }
+  .page-flea-market table td:first-child:before {
+    content: '';
+  }
+  .page-flea-market .view-header {
+    display: none;
+  }
+  .page-flea-market .views-field-name a,
+  .page-flea-market .views-field-body,
+  .page-flea-market .views-field-state {
+    display: none;
+  }
+  .page-flea-market .views-field-changed {
+    font-weight: normal;
+    color: #999999;
+  }
+  .page-flea-market .views-field-title {
+    width: 100%;
+  }
 }
 
 select {
