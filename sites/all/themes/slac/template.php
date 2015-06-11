@@ -336,3 +336,15 @@ function slac_date_nav_title($params) {
     return $title;
   }
 }
+
+/**
+ * Implements template_preprocess_views_view_table().
+ */
+function slac_preprocess_views_view_table(&$vars) {
+  // Add raw label values for use in responsive layouts.
+  $view = $vars['view'];
+
+  foreach ($view->field as $key => $field) {
+    $vars['header_raw'][$key] = $field->options['label'];
+  }
+}

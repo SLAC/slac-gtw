@@ -5644,6 +5644,25 @@ fieldset.collapsed {
     text-align: center;
   }
 }
+@media (min-width: 20em) {
+  .view-filters .button-expand {
+    display: inline;
+  }
+  .view-filters form {
+    display: none;
+  }
+  .view-filters.expanded form {
+    display: block;
+  }
+}
+@media (min-width: 40em) {
+  .view-filters .button-expand {
+    display: none;
+  }
+  .view-filters form {
+    display: block;
+  }
+}
 .page-news #page-title {
   display: none;
 }
