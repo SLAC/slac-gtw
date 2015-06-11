@@ -10,6 +10,7 @@
   }
 
   .general-left {
+    margin-bottom: 3rem;
 
     .views-row {
       @include font-size($base-font-size);
@@ -41,8 +42,6 @@
         }
       }
     }
-
-    margin-bottom: 3rem;
 
     .field-type-image {
       float: none;
