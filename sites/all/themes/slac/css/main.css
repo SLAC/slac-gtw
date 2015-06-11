@@ -3989,14 +3989,15 @@ div.date-views-pager div.next-year {
   background: #838383;
 }
 
-.feed-icon {
-  float: right;
-  margin-top: -35px;
+@media (min-width: 60em) {
+  .feed-icon {
+    float: right;
+    margin-top: -35px;
+  }
+  .logged-in .feed-icon {
+    margin-top: -40px;
+  }
 }
-.logged-in .feed-icon {
-  margin-top: -40px;
-}
-
 .node-type-news .pane-featured-news-featured-news-panel-pane h2 {
   margin-bottom: 0;
 }
@@ -5635,6 +5636,10 @@ fieldset.collapsed {
   }
   .page-taxonomy-term .feed-icon {
     display: none;
+  }
+  .page-taxonomy-term .feed-icon__bottom {
+    display: block;
+    margin-bottom: 2rem;
   }
   .page-taxonomy-term article {
     margin-bottom: 2rem;
