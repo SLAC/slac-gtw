@@ -43,3 +43,12 @@
 @mixin move-page-title {
   @include zen-grid-item(6, 2);
 }
+
+// Content Listing for Mobile
+@mixin content-listing($padding-bottom, $margin-bottom) {
+  article {
+    border-bottom: 4px solid color(grey-blue);
+    padding-bottom: $padding-bottom;
+    margin-bottom: $margin-bottom;
+  }
+}
