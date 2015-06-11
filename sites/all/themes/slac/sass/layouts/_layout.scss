@@ -68,8 +68,30 @@ $zen-column-count: 12;
   }
 }
 
+// Search Results
 .view-search {
-  @include zen-grid-item(8, 2);
+  @include zen-grid-item(12, 1);
+
+  @include breakpoint($tablet-large) {
+    @include zen-grid-item(10, 2);
+  }
+}
+
+@media all and (max-width: $tablet-large) {
+  .search-wrapper {
+    .form-type-textfield {
+      @include zen-grid-item(10, 1);
+      padding-left: 0;
+
+      .form-submit {
+        @include zen-grid-item(2, 11);
+      }
+    }
+  }
+}
+
+.section-search .title {
+  @include zen-grid-item(12, 1);
 }
 
 .l-general-one-col {

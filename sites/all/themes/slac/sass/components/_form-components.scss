@@ -26,12 +26,16 @@ textarea {
 }
 
 fieldset {
-  width: 800px;
   padding: 1rem;
   border: 3px solid lighten($grey, 50%);
   background: lighten($grey, 57%);
+
   &.collapsed {
     background: transparent;
     border: none;
+  }
+
+  @include breakpoint($tablet-large) {
+    width: 800px;
   }
 }

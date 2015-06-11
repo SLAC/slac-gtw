@@ -36,6 +36,8 @@ $zen-column-count: 12;
     background-image: url(../logo.svg), none;
     background-size: 90px auto;
     float: right;
+    position: relative;
+    z-index: 1;
 
     @include breakpoint($tablet-small) {
       float: left;
