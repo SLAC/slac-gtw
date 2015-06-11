@@ -4773,11 +4773,11 @@ fieldset.collapsed {
 }
 .general-left .calendar-button a {
   background: url("../images/icons-cal-mail-print.png") 0 -16px no-repeat;
-  background-size: 16px 48px;
+  background-size: 16px 46px;
 }
 .general-left .email-button a {
   background: url("../images/icons-cal-mail-print.png") 0 2px no-repeat;
-  background-size: 16px 48px;
+  background-size: 16px 46px;
 }
 .general-left .js-print-button a {
   border: none;
