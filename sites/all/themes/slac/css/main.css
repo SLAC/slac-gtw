@@ -1726,6 +1726,17 @@ table.calendar-legend tr.even .stripe {
   }
 }
 
+@media (min-width: 20em) {
+  .calendar-calendar .single-day .mobile {
+    display: inline;
+  }
+}
+@media (min-width: 60em) {
+  .calendar-calendar .single-day .mobile {
+    display: none;
+  }
+}
+
 .date-nav-wrapper .date-next {
   background: none repeat scroll 0 0 #dfdfdf;
   float: none;
@@ -3498,18 +3509,18 @@ div.date-views-pager div.next-year {
 .node-type-event .general-left .pane-node-field-event-type,
 .node-type-news .general-left .pane-node-field-event-type,
 .node-type-access-information .general-left .pane-node-field-event-type {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 .node-type-event .general-left .pane-node-body,
 .node-type-news .general-left .pane-node-body,
 .node-type-access-information .general-left .pane-node-body {
   border-top: solid 3px #b1c0c7;
-  margin-top: 40px;
+  margin-top: 2.5rem;
 }
 .node-type-event .general-left h1,
 .node-type-news .general-left h1,
 .node-type-access-information .general-left h1 {
-  margin-bottom: .6em;
+  margin-bottom: .6rem;
   margin-top: 0;
   line-height: 1.2;
 }
@@ -3543,17 +3554,17 @@ div.date-views-pager div.next-year {
   display: inline-block;
   color: #4f4f4f;
   font-weight: bold;
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
 }
 .node-type-event .general-left .date-display-single,
 .node-type-news .general-left .date-display-single,
 .node-type-access-information .general-left .date-display-single {
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
 }
 .node-type-event .general-left .field-name-field-shared-location,
 .node-type-news .general-left .field-name-field-shared-location,
 .node-type-access-information .general-left .field-name-field-shared-location {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 .node-type-event .general-left .field-name-field-shared-contact-name,
 .node-type-event .general-left .field-name-field-shared-contact-email,
@@ -3564,18 +3575,18 @@ div.date-views-pager div.next-year {
 .node-type-access-information .general-left .field-name-field-shared-contact-name,
 .node-type-access-information .general-left .field-name-field-shared-contact-email,
 .node-type-access-information .general-left .field-name-field-shared-contact-phone {
-  margin-bottom: .2em;
+  margin-bottom: .2rem;
 }
 .node-type-event .general-left .pane-node-body,
 .node-type-news .general-left .pane-node-body,
 .node-type-access-information .general-left .pane-node-body {
   border-top: solid 3px #b1c0c7;
-  margin-top: 40px;
+  margin-top: 2.5rem;
 }
 .node-type-event .general-right,
 .node-type-news .general-right,
 .node-type-access-information .general-right {
-  margin-top: .5em;
+  margin-top: 0.5rem;
 }
 .node-type-event .general-right .inside,
 .node-type-news .general-right .inside,
@@ -3590,12 +3601,12 @@ div.date-views-pager div.next-year {
   border-bottom: 3px solid #b1c0c7;
   text-transform: uppercase;
   color: #4f4f4f;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 .node-type-event .general-right .panel-pane,
 .node-type-news .general-right .panel-pane,
 .node-type-access-information .general-right .panel-pane {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 .node-type-event .general-right .inside,
 .node-type-news .general-right .inside,
@@ -3614,18 +3625,18 @@ div.date-views-pager div.next-year {
   font-size: 20px;
   font-size: 1.25rem;
   font-weight: bold;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5rem;
 }
 .node-type-news .general-left .panel-pane.pane-slac-ip-panes-email,
 .node-type-news .general-left .pane-slac-ip-panes-print {
   position: relative;
   top: -30px;
   float: right;
-  margin-right: 95px;
+  margin-right: 5.938rem;
 }
 .node-type-news .general-left .pane-slac-ip-panes-print {
-  top: -30px;
-  margin-right: -200px;
+  top: -1.875rem;
+  margin-right: -12.5rem;
 }
 .node-type-news .general-left .field-name-field-shared-image {
   float: left;
@@ -3642,7 +3653,7 @@ div.date-views-pager div.next-year {
 }
 .node-type-news .general-left .field-name-field-shared-byline,
 .node-type-news .general-left .panel-pane.pane-node-created {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 .node-type-news .general-right .pane-node-field-shared-image .field-item + .field-item,
 .node-type-news .general-right .pane-node-field-shared-video .field-item + .field-item {
@@ -3663,20 +3674,20 @@ div.date-views-pager div.next-year {
   font-size: 14px;
   font-size: 0.875rem;
   display: block;
-  width: 80px;
+  width: 5rem;
   text-align: right;
   float: left;
   margin-top: 0;
   font-weight: normal;
   border-right: 3px solid #ffffff;
-  padding: 10px 10px 10px 0;
+  padding: 0.625rem 0.625rem 0.625rem 0;
 }
 .node-type-access-information .general-left .pane-node-field-event-date .pane-title {
   margin-bottom: 0;
 }
 .node-type-access-information .general-left .panel-pane:nth-child(6n) {
-  margin-top: 4em;
-  margin-bottom: 3px;
+  margin-top: 4rem;
+  margin-bottom: 0.1875rem;
 }
 .node-type-access-information .general-left .pane-node-field-shared-contact-name h2 {
   float: none;
@@ -3684,7 +3695,7 @@ div.date-views-pager div.next-year {
   text-align: left;
   width: 100%;
   padding: 0;
-  margin-top: 2em;
+  margin-top: 2rem;
 }
 .node-type-access-information .general-left .pane-node-field-event-date .field-items,
 .node-type-access-information .general-left .field-name-field-event-date .field-items {
@@ -3701,17 +3712,17 @@ div.date-views-pager div.next-year {
   background: #ecf0f2;
 }
 .node-type-access-information .general-left .pane-node-field-shared-location {
-  margin-top: 3px;
+  margin-top: 0.1875rem;
 }
 .node-type-access-information .general-left .panel-pane.pane-node-field-shared-location, .node-type-access-information .general-left .panel-pane.field-name-field-event-date, .node-type-access-information .general-left .panel-pane.pane-node-field-event-date {
   border-left: 5px solid rgba(92, 154, 201, 0.85);
 }
 .node-type-access-information .general-left .panel-pane div.field-item {
   display: block;
-  padding: 12px 0 12px 14px;
+  padding: 0.75rem 0 0.75rem 0.875rem;
 }
 .node-type-access-information .general-left .panel-pane span {
-  padding-left: 14px;
+  padding-left: 0.875rem;
 }
 .node-type-access-information .general-left .panel-pane.pane-node-body .field-item {
   padding: 0;
@@ -3730,9 +3741,150 @@ div.date-views-pager div.next-year {
 }
 
 .node-type-event .pane-node-body .field-name-body {
-  padding-top: 1em;
+  padding-top: 1rem;
+}
+.node-type-event .pane-node-field-event-date {
+  margin-bottom: 1rem;
+}
+.node-type-event .general-left .pane-node-body {
+  margin-top: 3.5rem;
+}
+.node-type-event .pane-node-body .field-name-body {
+  padding-top: 0.5rem;
 }
 
+@media (min-width: 60em) {
+  .node-type-event .general-right .pane-node-field-shared-contact-name,
+  .node-type-event .general-right .pane-node-field-shared-contact-email,
+  .node-type-event .general-right .pane-node-field-shared-contact-phone,
+  .node-type-event .general-right .pane-terms-on-node-panel-pane-terms-on-node,
+  .node-type-event .general-right .pane-node-field-shared-tags,
+  .node-type-access-information .general-right .pane-node-field-shared-contact-name,
+  .node-type-access-information .general-right .pane-node-field-shared-contact-email,
+  .node-type-access-information .general-right .pane-node-field-shared-contact-phone,
+  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node,
+  .node-type-access-information .general-right .pane-node-field-shared-tags,
+  .node-type-news .general-right .pane-node-field-shared-contact-name,
+  .node-type-news .general-right .pane-node-field-shared-contact-email,
+  .node-type-news .general-right .pane-node-field-shared-contact-phone,
+  .node-type-news .general-right .pane-terms-on-node-panel-pane-terms-on-node,
+  .node-type-news .general-right .pane-node-field-shared-tags {
+    display: none;
+  }
+}
+@media all and (min-width: 20em) and (max-width: 60em) {
+  .node-type-event .general-left .pane-node-field-shared-contact-name,
+  .node-type-event .general-left .pane-node-field-shared-contact-email,
+  .node-type-event .general-left .pane-node-field-shared-contact-phone,
+  .node-type-event .general-left .pane-node-field-shared-tags,
+  .node-type-event .general-left .pane-terms-on-node-panel-pane-terms-on-node,
+  .node-type-event .general-left .pane-slac-ip-panes-print,
+  .node-type-access-information .general-left .pane-node-field-shared-contact-name,
+  .node-type-access-information .general-left .pane-node-field-shared-contact-email,
+  .node-type-access-information .general-left .pane-node-field-shared-contact-phone,
+  .node-type-access-information .general-left .pane-node-field-shared-tags,
+  .node-type-access-information .general-left .pane-terms-on-node-panel-pane-terms-on-node,
+  .node-type-access-information .general-left .pane-slac-ip-panes-print,
+  .node-type-news .general-left .pane-node-field-shared-contact-name,
+  .node-type-news .general-left .pane-node-field-shared-contact-email,
+  .node-type-news .general-left .pane-node-field-shared-contact-phone,
+  .node-type-news .general-left .pane-node-field-shared-tags,
+  .node-type-news .general-left .pane-terms-on-node-panel-pane-terms-on-node,
+  .node-type-news .general-left .pane-slac-ip-panes-print {
+    display: none;
+  }
+  .node-type-event .general-left .email-button a,
+  .node-type-access-information .general-left .email-button a,
+  .node-type-news .general-left .email-button a {
+    border: none;
+  }
+  .node-type-event .general-left .pane-node-created,
+  .node-type-access-information .general-left .pane-node-created,
+  .node-type-news .general-left .pane-node-created {
+    font-weight: normal;
+  }
+  .node-type-event .general-left .field-name-field-shared-image,
+  .node-type-access-information .general-left .field-name-field-shared-image,
+  .node-type-news .general-left .field-name-field-shared-image {
+    float: none;
+    margin-bottom: 2rem;
+  }
+  .node-type-event .general-left .panel-pane.pane-slac-ip-panes-email,
+  .node-type-access-information .general-left .panel-pane.pane-slac-ip-panes-email,
+  .node-type-news .general-left .panel-pane.pane-slac-ip-panes-email {
+    margin-right: 0;
+  }
+  .node-type-event .general-left .panel-pane.pane-slac-ip-panes-email .email-button a,
+  .node-type-access-information .general-left .panel-pane.pane-slac-ip-panes-email .email-button a,
+  .node-type-news .general-left .panel-pane.pane-slac-ip-panes-email .email-button a {
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .node-type-event .general-right .pane-node-field-shared-contact-name,
+  .node-type-event .general-right .pane-node-field-shared-contact-email,
+  .node-type-event .general-right .pane-node-field-shared-tags,
+  .node-type-event .general-right .pane-terms-on-node-panel-pane-terms-on-node,
+  .node-type-access-information .general-right .pane-node-field-shared-contact-name,
+  .node-type-access-information .general-right .pane-node-field-shared-contact-email,
+  .node-type-access-information .general-right .pane-node-field-shared-tags,
+  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node,
+  .node-type-news .general-right .pane-node-field-shared-contact-name,
+  .node-type-news .general-right .pane-node-field-shared-contact-email,
+  .node-type-news .general-right .pane-node-field-shared-tags,
+  .node-type-news .general-right .pane-terms-on-node-panel-pane-terms-on-node {
+    margin-bottom: 0.5rem;
+  }
+  .node-type-event .general-right .pane-node-field-shared-contact-name .pane-title,
+  .node-type-event .general-right .pane-node-field-shared-contact-email .pane-title,
+  .node-type-event .general-right .pane-node-field-shared-tags .pane-title,
+  .node-type-event .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title,
+  .node-type-access-information .general-right .pane-node-field-shared-contact-name .pane-title,
+  .node-type-access-information .general-right .pane-node-field-shared-contact-email .pane-title,
+  .node-type-access-information .general-right .pane-node-field-shared-tags .pane-title,
+  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title,
+  .node-type-news .general-right .pane-node-field-shared-contact-name .pane-title,
+  .node-type-news .general-right .pane-node-field-shared-contact-email .pane-title,
+  .node-type-news .general-right .pane-node-field-shared-tags .pane-title,
+  .node-type-news .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title {
+    font-size: 16px;
+    font-size: 1rem;
+    border: none;
+    margin-bottom: 0;
+    text-transform: none;
+    font-weight: bold;
+  }
+  .node-type-event .general-right .pane-node-field-shared-contact-phone,
+  .node-type-access-information .general-right .pane-node-field-shared-contact-phone,
+  .node-type-news .general-right .pane-node-field-shared-contact-phone {
+    margin-bottom: 3rem;
+  }
+  .node-type-event .general-right .pane-node-field-shared-tags,
+  .node-type-event .general-right .pane-terms-on-node-panel-pane-terms-on-node,
+  .node-type-access-information .general-right .pane-node-field-shared-tags,
+  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node,
+  .node-type-news .general-right .pane-node-field-shared-tags,
+  .node-type-news .general-right .pane-terms-on-node-panel-pane-terms-on-node {
+    margin-bottom: 3rem;
+  }
+  .node-type-event .general-right .pane-node-field-shared-tags:after,
+  .node-type-event .general-right .pane-terms-on-node-panel-pane-terms-on-node:after,
+  .node-type-access-information .general-right .pane-node-field-shared-tags:after,
+  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node:after,
+  .node-type-news .general-right .pane-node-field-shared-tags:after,
+  .node-type-news .general-right .pane-terms-on-node-panel-pane-terms-on-node:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .node-type-event .general-right .pane-node-field-shared-tags .pane-title,
+  .node-type-event .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title,
+  .node-type-access-information .general-right .pane-node-field-shared-tags .pane-title,
+  .node-type-access-information .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title,
+  .node-type-news .general-right .pane-node-field-shared-tags .pane-title,
+  .node-type-news .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title {
+    margin-bottom: 0.4rem;
+  }
+}
 .region-content-bottom {
   background: #ffffff;
   padding-top: 2rem;
@@ -3869,7 +4021,7 @@ div.date-views-pager div.next-year {
   text-indent: 14px;
   background: url(../images/blue-flag.png) 0 4px no-repeat;
 }
-.pane-flag-link .flag.unflag-action {
+.pane-flag-link .flag.unflag-action, .pane-flag-link .flag.unflag-disabled {
   background: url(../images/red-flag.png) 0 4px no-repeat;
   color: red;
 }
@@ -4071,6 +4223,13 @@ div.date-views-pager div.next-year {
   }
 }
 
+.page-flea-market-my-items .views-field-title {
+  width: 25%;
+}
+.page-flea-market-my-items .views-field-body {
+  width: 35%;
+}
+
 @media (min-width: 60em) {
   .my-flea-market-nav {
     width: 200px;
@@ -4227,6 +4386,12 @@ fieldset.collapsed {
   color: #ffffff;
   text-decoration: underline;
 }
+@media (min-width: 60em) {
+  .footer-wrapper a,
+  .footer-wrapper a:link {
+    text-decoration: none;
+  }
+}
 .footer-wrapper a:hover, .footer-wrapper a:focus,
 .footer-wrapper a:link:hover,
 .footer-wrapper a:link:focus {
@@ -4340,7 +4505,7 @@ fieldset.collapsed {
   margin: 0 auto;
   padding: 0;
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #header {
     width: 98%;
     padding: 0 1%;
@@ -4368,7 +4533,7 @@ fieldset.collapsed {
     float: left;
   }
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #header .logo a {
     float: right;
     background-size: 100% auto;
@@ -4397,13 +4562,21 @@ fieldset.collapsed {
     top: 1rem;
   }
 }
+@media (min-width: 60em) {
+  #header .date {
+    color: #4f4f4f;
+    top: 0.3rem;
+    left: 10.94rem;
+  }
+}
 @media (min-width: 70em) {
   #header .date {
     color: #4f4f4f;
     top: 0.3rem;
+    left: 0;
   }
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #header .header__region {
     padding-left: 0;
     padding-right: 0;
@@ -4421,18 +4594,14 @@ fieldset.collapsed {
   float: left;
   margin: 0;
   margin-left: 10px;
+  margin-right: 2px;
   padding: 4px 10px;
   width: 250px;
   border: 1px solid #316dae;
 }
 @media all and (min-width: 800px) {
   .header__region input[type="text"] {
-    width: 100px;
-  }
-}
-@media all and (min-width: 960px) {
-  .header__region input[type="text"] {
-    width: 100px;
+    width: 110px;
   }
 }
 @media all and (min-width: 1100px) {
@@ -4691,28 +4860,33 @@ fieldset.collapsed {
   margin-top: 6rem;
 }
 
-.view-events-by-term .views-row {
+.view-events-by-term .views-row,
+.view-content-taxonomy-listing .views-row {
   margin-bottom: 2rem;
 }
-.view-events-by-term .field-name-field-shared-image {
+.view-events-by-term .field-name-field-shared-image,
+.view-content-taxonomy-listing .field-name-field-shared-image {
   float: left;
   margin-right: 2rem;
   margin-bottom: .5rem;
 }
-.view-events-by-term .node-created {
+.view-events-by-term .node-created,
+.view-content-taxonomy-listing .node-created {
   font-size: 12px;
   font-size: 0.75rem;
   font-weight: bold;
   line-height: 1;
 }
-.view-events-by-term .node-title {
+.view-events-by-term .node-title,
+.view-content-taxonomy-listing .node-title {
   margin-top: .5rem;
 }
-.view-events-by-term .field-type-text .field-item {
+.view-events-by-term .field-type-text .field-item,
+.view-content-taxonomy-listing .field-type-text .field-item {
   margin-top: .5rem;
 }
 
-@media all and (max-width: 70em) {
+@media all and (max-width: 60em) {
   #main {
     background: #ffffff;
   }
@@ -4826,7 +5000,7 @@ fieldset.collapsed {
     color: #316dae;
   }
 }
-@media (min-width: 60em) {
+@media (min-width: 40em) {
   header[role="banner"] .date {
     display: block;
     position: absolute;
@@ -4836,7 +5010,7 @@ fieldset.collapsed {
 #block-menu-menu-top-menu {
   display: none;
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #block-menu-menu-top-menu {
     display: block;
     text-align: right;
@@ -4859,20 +5033,20 @@ fieldset.collapsed {
     text-transform: uppercase;
   }
 }
-@media all and (min-width: 70em) and (min-width: 960px) {
+@media all and (min-width: 60em) and (min-width: 960px) {
   #block-menu-menu-top-menu .menu li a {
     font-size: 11px;
     font-size: 0.6875rem;
     padding: .5em 1em;
   }
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #block-menu-menu-top-menu .menu li a:hover, #block-menu-menu-top-menu .menu li a:focus {
     outline: none;
   }
 }
 
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   .mobile-menu-toggle {
     display: none;
   }
@@ -4946,7 +5120,7 @@ fieldset.collapsed {
     display: block;
   }
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #block-system-main-menu .menu {
     display: block;
   }
@@ -5092,7 +5266,7 @@ fieldset.collapsed {
   padding-bottom: .1rem;
 }
 
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   .search-link {
     display: none;
   }
@@ -5101,7 +5275,7 @@ fieldset.collapsed {
   margin-top: 6rem;
 }
 
-@media all and (max-width: 70em) {
+@media all and (max-width: 60em) {
   #block-slac-search-form {
     width: 100%;
     background: #e9f2f9;
@@ -5124,7 +5298,7 @@ fieldset.collapsed {
   }
 
   .header__region input[type="text"] {
-    width: 120px;
+    width: 114px;
     margin-left: 0;
   }
 
@@ -5159,7 +5333,7 @@ fieldset.collapsed {
     margin-top: 1rem;
   }
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #slac-search-block-form {
     display: block;
     width: 100%;
@@ -5171,7 +5345,7 @@ fieldset.collapsed {
   }
 }
 
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   #block-slac-search-form {
     display: block;
     float: right;
@@ -5277,10 +5451,10 @@ fieldset.collapsed {
 .view-search .collapsible {
   margin-bottom: 2rem;
 }
-.view-search .field-name-field-shared-image {
+.view-search .field-type-image {
   float: left;
   margin-right: 2rem;
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
 }
 .view-search .node-created {
   font-size: 12px;
@@ -5403,6 +5577,8 @@ fieldset.collapsed {
 .node-type-access-information ul.event-tags li {
   display: inline-block;
   padding-left: 0;
+  margin-left: 0;
+  margin-right: 0.25rem;
   list-style: none;
   background: none;
 }
@@ -5434,6 +5610,40 @@ fieldset.collapsed {
   margin-top: 0 !important;
 }
 
+@media all and (max-width: 60em) {
+  .page-taxonomy-term .l-general-one-col {
+    margin-top: 0;
+  }
+  .page-taxonomy-term .title {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    float: none;
+    margin-left: 0;
+    margin-bottom: 2rem;
+  }
+  .page-taxonomy-term .node-title {
+    margin-top: 0;
+  }
+  .page-taxonomy-term .feed-icon {
+    display: none;
+  }
+  .page-taxonomy-term article {
+    margin-bottom: 2rem;
+    border-bottom: 4px solid #d5dde1;
+  }
+  .page-taxonomy-term .pager {
+    text-align: center;
+  }
+}
 .page-news #page-title {
   display: none;
 }

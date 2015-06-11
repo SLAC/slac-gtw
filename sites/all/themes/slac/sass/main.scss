@@ -25,7 +25,8 @@
 @import "components/calendar-mobile";
 @import "components/captions";
 @import "components/date";
-@import "components/event-news-notice";
+@import "components/event-news-access-notice";
+@import "components/event-news-access-notice-mobile";
 @import "components/events-legend";
 @import "components/feed-icon";
 @import "components/featured-news";
@@ -44,5 +45,6 @@
 @import "components/sidebar";
 @import "components/search";
 @import "components/tags";
+@import "components/taxonomy-listing";
 
 @import "pages/news-archives";

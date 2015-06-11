@@ -62,18 +62,6 @@ function slac_ip_core_user_default_permissions() {
     'module' => 'backup_migrate',
   );
 
-  // Exported permission: 'access comments'.
-  $permissions['access comments'] = array(
-    'name' => 'access comments',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
-      'authenticated user' => 'authenticated user',
-      'manager' => 'manager',
-    ),
-    'module' => 'comment',
-  );
-
   // Exported permission: 'access content'.
   $permissions['access content'] = array(
     'name' => 'access content',
@@ -195,15 +183,6 @@ function slac_ip_core_user_default_permissions() {
       'manager' => 'manager',
     ),
     'module' => 'boxes',
-  );
-
-  // Exported permission: 'administer comments'.
-  $permissions['administer comments'] = array(
-    'name' => 'administer comments',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'comment',
   );
 
   // Exported permission: 'administer content types'.
@@ -523,19 +502,6 @@ function slac_ip_core_user_default_permissions() {
     'module' => 'boxes',
   );
 
-  // Exported permission: 'edit own comments'.
-  $permissions['edit own comments'] = array(
-    'name' => 'edit own comments',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
-      'author' => 'author',
-      'editor' => 'editor',
-      'manager' => 'manager',
-    ),
-    'module' => 'comment',
-  );
-
   // Exported permission: 'flush caches'.
   $permissions['flush caches'] = array(
     'name' => 'flush caches',
@@ -604,17 +570,6 @@ function slac_ip_core_user_default_permissions() {
     'module' => 'backup_migrate',
   );
 
-  // Exported permission: 'post comments'.
-  $permissions['post comments'] = array(
-    'name' => 'post comments',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
-      'manager' => 'manager',
-    ),
-    'module' => 'comment',
-  );
-
   // Exported permission: 'rename features'.
   $permissions['rename features'] = array(
     'name' => 'rename features',
@@ -649,17 +604,6 @@ function slac_ip_core_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'user',
-  );
-
-  // Exported permission: 'skip comment approval'.
-  $permissions['skip comment approval'] = array(
-    'name' => 'skip comment approval',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
-      'manager' => 'manager',
-    ),
-    'module' => 'comment',
   );
 
   // Exported permission: 'switch shortcut sets'.

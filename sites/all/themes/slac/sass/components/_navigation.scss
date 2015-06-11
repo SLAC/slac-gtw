@@ -1,5 +1,5 @@
 // mobile menu
-@media all and (max-width: $desktop) {
+@media all and (max-width: $tablet-large) {
   #main {
     @include clearfix;
     background: $white;
@@ -111,7 +111,7 @@
   }
 }
 
-@include breakpoint($tablet-large) {
+@include breakpoint($tablet-small) {
   header[role="banner"] {
     .date {
       display: block;
@@ -125,7 +125,7 @@
 #block-menu-menu-top-menu {
   display: none;
 
-  @include breakpoint($desktop) {
+  @include breakpoint($tablet-large) {
     display: block;
     text-align: right;
     margin-bottom: 24px;
@@ -161,7 +161,7 @@
     }
   }
 }
-@include breakpoint($desktop) {
+@include breakpoint($tablet-large) {
   .mobile-menu-toggle {
     display: none;
   }
@@ -238,7 +238,7 @@
         display: block;
       }
     }
-    @include breakpoint($desktop) {
+    @include breakpoint($tablet-large) {
       display: block;
     }
   }
