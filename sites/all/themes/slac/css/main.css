@@ -4368,6 +4368,13 @@ div.date-views-pager div.next-year {
   .page-flea-market table td:first-child:before {
     content: '';
   }
+  .page-flea-market .l-general-one-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .page-flea-market .my-flea-market-nav {
+    margin: 0 20px;
+  }
   .page-flea-market .view-header {
     display: none;
   }
