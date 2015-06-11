@@ -23,12 +23,6 @@
   }
 }
 
-@include breakpoint($tablet-large) {
-  .logged-in.page-search .title {
-    margin-top: 4rem;
-  }
-}
-
 @media all and (max-width: $desktop) {
   #block-slac-search-form {
     width: 100%;
@@ -155,10 +149,6 @@
     @include breakpoint($tablet-large) {
       margin-bottom: 3rem;
       margin-top: 3rem;
-
-      .logged-in & {
-        margin-top: 0;
-      }
     }
 
     .form-type-textfield {

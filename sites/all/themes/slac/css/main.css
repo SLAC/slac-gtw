@@ -4590,6 +4590,8 @@ fieldset.collapsed {
   background-image: url(../logo.svg), none;
   background-size: 90px auto;
   float: right;
+  position: relative;
+  z-index: 1;
 }
 @media (min-width: 40em) {
   #header .logo a {
@@ -5373,11 +5375,6 @@ fieldset.collapsed {
   }
 }
 
-@media (min-width: 60em) {
-  .logged-in.page-search .title {
-    margin-top: 4rem;
-  }
-}
 @media all and (max-width: 70em) {
   #block-slac-search-form {
     width: 100%;
@@ -5504,9 +5501,6 @@ fieldset.collapsed {
   .view-search .search-wrapper {
     margin-bottom: 3rem;
     margin-top: 3rem;
-  }
-  .logged-in .view-search .search-wrapper {
-    margin-top: 0;
   }
 }
 .view-search .search-wrapper .form-type-textfield {
