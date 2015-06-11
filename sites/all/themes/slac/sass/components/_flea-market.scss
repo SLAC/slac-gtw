@@ -265,6 +265,15 @@
 }
 
 .page-flea-market {
+  .l-general-one-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .my-flea-market-nav {
+    margin: 0 20px;
+  }
+
   .title {
     padding-left: 1.25rem;
 
@@ -272,16 +281,6 @@
       @include zen-grid-item(6, 2);
       margin-top: 0;
       margin-bottom: 0;
-    }
-  }
-
-  table {
-    margin-bottom: 4rem;
-
-    td {
-      p {
-        margin: 0;
-      }
     }
   }
 
@@ -312,6 +311,16 @@
     }
   }
 
+  table {
+    margin-bottom: 4rem;
+
+    td {
+      p {
+        margin: 0;
+      }
+    }
+  }
+
   // Responsive Tables
   // http://blog.apps.npr.org/2014/05/09/responsive-data-tables.html
   @media all and (max-width: $tablet-large) {
@@ -334,8 +343,17 @@
       white-space: normal;
     }
 
+    .pager {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+@media all and (max-width: $tablet-large) {
+  .main-flea-market-list {
     table tr {
-      padding: 1rem 0.875rem;
+      padding: 1rem;
       border-bottom: 4px solid color(grey-blue);
 
       &.odd {
@@ -365,15 +383,6 @@
       content: '';
     }
 
-    .l-general-one-col {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    .my-flea-market-nav {
-      margin: 0 20px;
-    }
-
     .view-header {
       display: none;
     }
@@ -391,6 +400,73 @@
 
     .views-field-title {
       width: 100%;
+    }
+  }
+}
+
+// My Flea Market List - Responsive
+.page-flea-market-my-items {
+  &.logged-in {
+    .views-field-edit-node {
+      display: block;
+    }
+  }
+
+  .view-header {
+    display: block;
+    margin: 1.5rem 20px;
+  }
+}
+
+@media all and (max-width: $tablet-large) {
+  .my-flea-market-list {
+    tr td {
+      font-weight: bold;
+
+      a {
+        font-weight: normal;
+      }
+    }
+
+    tr td:before {
+      display: block;
+      width: 110px;
+      float: left;
+      font-weight: normal;
+    }
+
+    table tr {
+      border-bottom: 4px solid color(grey-blue);
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+
+      &.odd {
+        background: $white;
+      }
+
+      td {
+        padding: 0.4rem 1rem;
+      }
+    }
+
+    .views-field-title {
+      width: calc(100% - 142px);
+      padding-left: 126px;
+      padding-right: 16px;
+      text-align: left;
+
+      &:before {
+        margin-left: -110px;
+      }
+    }
+
+    .views-field-state {
+      display: block;
+    }
+
+    .views-field-body,
+    .views-field-edit-node {
+      display: none;
     }
   }
 }
