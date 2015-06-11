@@ -11,6 +11,12 @@
   margin-bottom: 2rem;
   text-align: left;
 
+  @media all and (max-width: $tablet-large) {
+    .section-search & {
+      text-align: center;
+    }
+  }
+
   li {
     font-weight: normal;
     padding-right: .2rem;
