@@ -5191,6 +5191,108 @@ fieldset.collapsed {
   }
 }
 
+.page-news #page-title {
+  display: none;
+}
+.page-news .views-exposed-form .views-exposed-widget {
+  float: none;
+  padding-top: 0;
+}
+.page-news .general-left {
+  margin-bottom: 3rem;
+}
+.page-news .general-left .views-row {
+  font-size: 16px;
+  font-size: 1rem;
+  background: none;
+  padding-left: 0;
+}
+@media (min-width: 60em) {
+  .page-news .general-left .views-row {
+    margin-bottom: 2.5rem;
+  }
+}
+.page-news .general-left .pane-title {
+  font-size: 24px;
+  font-size: 1.5rem;
+  margin-top: 0;
+  line-height: 1;
+}
+.page-news .general-left .node-title {
+  font-size: 18.72px;
+  font-size: 1.17rem;
+  margin: .2rem 0;
+}
+.page-news .general-left .view-news-archive article {
+  border-bottom: 4px solid #d5dde1;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 60em) {
+  .page-news .general-left .view-news-archive article {
+    border: none;
+  }
+}
+.page-news .general-left .field-type-image {
+  float: none;
+  margin-right: 2rem;
+}
+@media (min-width: 60em) {
+  .page-news .general-left .field-type-image {
+    float: left;
+  }
+}
+.page-news .general-left .node-created {
+  font-size: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+.page-news .general-left .field-item > p {
+  margin-top: 0;
+}
+.page-news .general-left .field-name-field-news-teaser .field-item {
+  margin-top: .5rem;
+}
+.page-news .general-left .item-list .pager {
+  padding-left: 0;
+}
+.page-news .general-right .pane-title {
+  line-height: 1;
+  margin-top: 0;
+}
+.page-news .general-right select {
+  width: 150px;
+  float: none !important;
+  margin-bottom: 1rem;
+}
+.page-news .general-right select:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.lte-ie9 .page-news .general-right select {
+  padding-right: 4px;
+  background: none;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .page-news .general-right select {
+    padding-right: 4px;
+    background: none;
+  }
+}
+.page-news .general-right input[type="submit"].form-submit {
+  margin-top: 0;
+  width: 150px;
+}
+@media all and (max-width: 60em) {
+  .page-news .general-right .views-exposed-widgets {
+    text-align: center;
+  }
+  .page-news .general-right .form-submit {
+    margin: 0 auto;
+  }
+}
+
 .general-left .item-list .pager li {
   background: none;
   display: inline-block;
@@ -5812,78 +5914,4 @@ fieldset.collapsed {
   .view-filters form {
     display: block;
   }
-}
-.page-news #page-title {
-  display: none;
-}
-.page-news .views-exposed-form .views-exposed-widget {
-  float: none;
-  padding-top: 0;
-}
-.page-news .general-left {
-  margin-bottom: 3rem;
-}
-.page-news .general-left .views-row {
-  font-size: 16px;
-  font-size: 1rem;
-  background: none;
-  padding-left: 0;
-  margin-bottom: 2.5rem;
-}
-.page-news .general-left .pane-title {
-  font-size: 24px;
-  font-size: 1.5rem;
-  margin-top: 0;
-  line-height: 1;
-}
-.page-news .general-left .view-news-archive {
-  margin-bottom: 2rem;
-}
-.page-news .general-left .node-title {
-  font-size: 18.72px;
-  font-size: 1.17rem;
-  margin: .2rem 0;
-}
-.page-news .general-left .field-type-image {
-  float: left;
-  margin-right: 2rem;
-}
-.page-news .general-left .node-created {
-  font-size: 12px;
-  font-size: 0.75rem;
-  font-weight: bold;
-}
-.page-news .general-left .field-item > p {
-  margin-top: 0;
-}
-.page-news .general-left .field-name-field-news-teaser .field-item {
-  margin-top: .5rem;
-}
-.page-news .general-right .pane-title {
-  line-height: 1;
-  margin-top: 0;
-}
-.page-news .general-right select {
-  width: 150px;
-  float: none !important;
-  margin-bottom: 1rem;
-}
-.page-news .general-right select:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.lte-ie9 .page-news .general-right select {
-  padding-right: 4px;
-  background: none;
-}
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .page-news .general-right select {
-    padding-right: 4px;
-    background: none;
-  }
-}
-.page-news .general-right input[type="submit"].form-submit {
-  margin-top: 0;
-  width: 150px;
 }
