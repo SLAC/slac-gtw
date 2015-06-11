@@ -264,7 +264,7 @@
   }
 }
 
-.section-flea-market {
+.page-flea-market {
   .title {
     padding-left: 1.25rem;
 
@@ -272,14 +272,6 @@
       @include zen-grid-item(6, 2);
       margin-top: 0;
       margin-bottom: 0;
-    }
-  }
-
-  .view-header {
-    display: none;
-
-    @include breakpoint($tablet-small) {
-      display: block;
     }
   }
 
@@ -317,6 +309,88 @@
     p {
       margin-top: 0;
       margin-bottom: 1rem;
+    }
+  }
+
+  // Responsive Tables
+  // http://blog.apps.npr.org/2014/05/09/responsive-data-tables.html
+  @media all and (max-width: $tablet-large) {
+    table,
+    tbody {
+      display: block;
+      width: 100%;
+    }
+
+    thead {
+      display: none;
+    }
+
+    table tr,
+    table th,
+    table td {
+      display: block;
+      padding: 0;
+      text-align: left;
+      white-space: normal;
+    }
+
+    table tr {
+      padding: 1rem 0.875rem;
+      border-bottom: 4px solid color(grey-blue);
+
+      &.odd {
+        background: $white;
+      }
+    }
+
+    table th[data-title]:before,
+    table td[data-title]:before {
+      display: none;
+    }
+
+    table td {
+      border: none;
+      margin-bottom: 6px;
+    }
+
+    table td:empty {
+      display: none;
+    }
+
+    table td:first-child {
+      margin-bottom: 6px;
+    }
+
+    table td:first-child:before {
+      content: '';
+    }
+
+    .l-general-one-col {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .my-flea-market-nav {
+      margin: 0 20px;
+    }
+
+    .view-header {
+      display: none;
+    }
+
+    .views-field-name a,
+    .views-field-body,
+    .views-field-state {
+      display: none;
+    }
+
+    .views-field-changed {
+      font-weight: normal;
+      color: darken($light-grey, 35%);
+    }
+
+    .views-field-title {
+      width: 100%;
     }
   }
 }
