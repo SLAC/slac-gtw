@@ -1757,25 +1757,6 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
     'node.created' => 'node.created',
   );
-  /* Filter criterion: Workbench Moderation: State */
-  $handler->display->display_options['filters']['state']['id'] = 'state';
-  $handler->display->display_options['filters']['state']['table'] = 'workbench_moderation_node_history';
-  $handler->display->display_options['filters']['state']['field'] = 'state';
-  $handler->display->display_options['filters']['state']['group'] = 1;
-  $handler->display->display_options['filters']['state']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['state']['expose']['operator_id'] = 'state_op';
-  $handler->display->display_options['filters']['state']['expose']['label'] = 'State';
-  $handler->display->display_options['filters']['state']['expose']['operator'] = 'state_op';
-  $handler->display->display_options['filters']['state']['expose']['identifier'] = 'state';
-  $handler->display->display_options['filters']['state']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    5 => 0,
-    4 => 0,
-    6 => 0,
-    7 => 0,
-    3 => 0,
-  );
   /* Filter criterion: Flags: Flagged */
   $handler->display->display_options['filters']['flagged']['id'] = 'flagged';
   $handler->display->display_options['filters']['flagged']['table'] = 'flagging';
