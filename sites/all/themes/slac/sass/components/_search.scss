@@ -8,7 +8,22 @@
   margin-top: 6rem;
 }
 
-@media all and (max-width: $tablet-large) {
+.page-search .title {
+  @include font-size(18px);
+  float: none;
+  margin-bottom: 0;
+
+  @include breakpoint($tablet-small) {
+    @include font-size(20px);
+  }
+
+  @include breakpoint($tablet-large) {
+    @include zen-grid-item(11, 2);
+    @include font-size(24px);
+  }
+}
+
+@media all and (max-width: $desktop) {
   #block-slac-search-form {
     width: 100%;
     background: $light-blue;
@@ -90,15 +105,36 @@
 }
 
 // Search Results
-.section-search .title {
-  @include zen-grid-item(6, 2);
+@media all and (max-width: $tablet-large) {
+  .views-exposed-form .views-exposed-widget {
+    padding-right: 0;
+
+    .form-submit:not(#edit-second-submit-search) {
+      background: $blue url(../images/search.svg) center center no-repeat;
+      background-size: 20px 20px;
+      display: block;
+      width: 30px;
+      height: 30px;
+      font-size: 0;
+      color: $blue;
+    }
+  }
 }
 
+.page-search .views-exposed-form .views-exposed-widget {
+  float: none;
+}
 .view-search {
   color: lighten($grey, 10%);
 
   .form-text {
-    width: 424px;
+    width: 100%;
+    height: 26px;
+
+    @include breakpoint($tablet-large) {
+      width: 424px;
+      height: initial;
+    }
 
     &.bef-datepicker {
       width: 120px;
@@ -107,23 +143,38 @@
 
   .search-wrapper {
     @include clearfix;
-    margin-bottom: 3rem;
-    margin-top: 3rem;
+    margin-bottom: 4rem;
+    margin-top: 0;
+
+    @include breakpoint($tablet-large) {
+      margin-bottom: 3rem;
+      margin-top: 3rem;
+    }
 
     .form-type-textfield {
-      float: left;
-      margin-right: 10px;
+      margin-right: 2px;
+
+      @include breakpoint($tablet-large) {
+        float: left;
+        margin-right: 10px;
+      }
     }
   }
 
   .views-row {
     margin-bottom: 3rem;
+
+    @media all and (max-width: $tablet-large) {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 4px solid color(grey-blue);
+    }
   }
 
   .view-header {
     padding: .5rem 1rem;
     margin-bottom: 2rem;
-    background: $light-grey;
+    background: color(grey-blue-light);
   }
 
   .view-footer {
@@ -173,15 +224,21 @@
   .collapsed {
     .fieldset-title {
       display: block;
+      margin-left: 3px;
       line-height: 1;
       width: 200px;
       height: 16px;
       font-weight: bold;
-      color: $grey;
+      color: $blue;
       background: url(../images/legend-bg.png) 160px -16px no-repeat;
 
       &:hover {
         text-decoration: none;
+      }
+
+      @include breakpoint($tablet-large) {
+        color: $grey;
+        margin-left: 0;
       }
     }
   }
@@ -197,9 +254,12 @@
   }
 
   .field-type-image {
-    float: left;
-    margin-right: 2rem;
     margin-bottom: 1rem;
+
+    @include breakpoint($tablet-large) {
+      float: left;
+      margin-right: 2rem;
+    }
   }
 
   .node-created {
@@ -220,8 +280,11 @@
 .bef-checkboxes {
   .form-type-bef-checkbox,
   .bef-select-as-checkboxes {
-    float: left;
     margin-right: 20px;
+
+    @include breakpoint($tablet-large) {
+      float: left;
+    }
   }
 
   label.option {

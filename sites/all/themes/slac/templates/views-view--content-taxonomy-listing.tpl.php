@@ -75,6 +75,15 @@
     <?php print $pager; ?>
   <?php endif; ?>
 
+  <!-- Printing RSS Feed for mobile only -->
+  <?php if (!empty($term_name) && !empty($term_feed_url)): ?>
+  <div class="feed-icon-bottom">
+    <a class="feed-icon__bottom" href="<?php print $term_feed_url; ?>" title="Subscribe to <?php print $term_name; ?>">
+      <img alt="<?php print $term_name; ?> RSS Feed Icon" height="16" src="/misc/feed.png" width="16">
+      <?php print $term_name; ?> RSS Feed</a>
+  </div>
+<?php endif; ?>
+
   <?php if ($attachment_after): ?>
     <div class="attachment attachment-after">
       <?php print $attachment_after; ?>

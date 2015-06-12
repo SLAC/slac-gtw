@@ -10,12 +10,16 @@
   }
 
   .general-left {
+    margin-bottom: 3rem;
 
     .views-row {
       @include font-size($base-font-size);
       background: none;
       padding-left: 0;
-      margin-bottom: 2.5rem;
+
+      @include breakpoint($tablet-large) {
+        margin-bottom: 2.5rem;
+      }
     }
 
     .pane-title {
@@ -24,19 +28,28 @@
       line-height: 1;
     }
 
-    .view-news-archive {
-      margin-bottom: 2rem;
-    }
-
     .node-title {
       @include font-size($h3-font-size);
       margin: .2rem 0;
     }
 
-    margin-bottom: 3rem;
+    .view-news-archive {
+      @include content-listing(1rem, 1rem);
+
+      @include breakpoint($tablet-large) {
+        article {
+          border: none;
+        }
+      }
+    }
+
     .field-type-image {
-      float: left;
+      float: none;
       margin-right: 2rem;
+
+      @include breakpoint($tablet-large) {
+        float: left;
+      }
     }
 
     .node-created {
@@ -50,6 +63,10 @@
 
     .field-name-field-news-teaser .field-item {
       margin-top: .5rem;
+    }
+
+    .item-list .pager {
+      padding-left: 0;
     }
   }
 
@@ -81,6 +98,18 @@
     input[type="submit"].form-submit {
       margin-top: 0;
       width: 150px;
+    }
+  }
+
+  @media all and(max-width: $tablet-large) {
+    .general-right {
+      .views-exposed-widgets {
+        text-align: center;
+      }
+
+      .form-submit {
+        margin: 0 auto;
+      }
     }
   }
 }

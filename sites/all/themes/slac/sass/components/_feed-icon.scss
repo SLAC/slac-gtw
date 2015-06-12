@@ -1,8 +1,10 @@
-.feed-icon {
-  float: right;
-  margin-top: -35px;
+@include breakpoint($tablet-large) {
+  .feed-icon {
+    float: right;
+    margin-top: -35px;
 
-  .logged-in & {
-    margin-top: -40px;
+    .logged-in & {
+      margin-top: -40px;
+    }
   }
 }
