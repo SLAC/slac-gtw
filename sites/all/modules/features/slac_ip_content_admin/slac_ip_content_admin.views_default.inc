@@ -1100,11 +1100,26 @@ function slac_ip_content_admin_views_default_views() {
     3 => 0,
   );
   /* Filter criterion: Content: Event Type (field_event_type) */
-  $handler->display->display_options['filters']['field_event_type_tid']['id'] = 'field_event_type_tid';
-  $handler->display->display_options['filters']['field_event_type_tid']['table'] = 'field_data_field_event_type';
-  $handler->display->display_options['filters']['field_event_type_tid']['field'] = 'field_event_type_tid';
-  $handler->display->display_options['filters']['field_event_type_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_event_type_tid']['vocabulary'] = 'event_type';
+  $handler->display->display_options['filters']['field_event_type_tid_1']['id'] = 'field_event_type_tid_1';
+  $handler->display->display_options['filters']['field_event_type_tid_1']['table'] = 'field_data_field_event_type';
+  $handler->display->display_options['filters']['field_event_type_tid_1']['field'] = 'field_event_type_tid';
+  $handler->display->display_options['filters']['field_event_type_tid_1']['group'] = 1;
+  $handler->display->display_options['filters']['field_event_type_tid_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_event_type_tid_1']['expose']['operator_id'] = 'field_event_type_tid_1_op';
+  $handler->display->display_options['filters']['field_event_type_tid_1']['expose']['label'] = 'Event Type';
+  $handler->display->display_options['filters']['field_event_type_tid_1']['expose']['operator'] = 'field_event_type_tid_1_op';
+  $handler->display->display_options['filters']['field_event_type_tid_1']['expose']['identifier'] = 'field_event_type_tid_1';
+  $handler->display->display_options['filters']['field_event_type_tid_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    5 => 0,
+    4 => 0,
+    6 => 0,
+    7 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_event_type_tid_1']['type'] = 'select';
+  $handler->display->display_options['filters']['field_event_type_tid_1']['vocabulary'] = 'event_type';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
