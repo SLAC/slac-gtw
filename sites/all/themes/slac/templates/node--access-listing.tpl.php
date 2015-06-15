@@ -44,9 +44,7 @@
 
   <div class="access-notice-date">
     <?php print render($content['field_event_date']); ?>
-    <div class="calendar-link">
-      <a href="/node/<?php print $node->nid; ?>/ical"><img src="/sites/all/themes/slac/images/calendar-icon-gray.png"></a>
-    </div>
+      <a href="/node/<?php print $node->nid; ?>/ical" title="Add to your Calendar"><img src="/sites/all/themes/slac/images/calendar-icon-gray.png">Add to your Calendar</a>
   </div>
 
   <?php print render($content['field_shared_location']); ?>

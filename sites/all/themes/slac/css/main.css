@@ -757,31 +757,55 @@ table th.active {
   }
 }
 .page-access .title {
-  float: left;
-  width: 50%;
-  margin-left: 8.33333%;
-  margin-right: -58.33333%;
-  padding-left: 20px;
-  padding-right: 20px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  padding-left: 30px;
-  background: url(../images/access-notice-icon.svg) 0 6px no-repeat;
+  padding-left: 50px;
+  background: url(../images/access-notice-icon.svg) 20px 6px no-repeat;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 70em) {
+  .page-access .title {
+    float: left;
+    width: 50%;
+    margin-left: 8.33333%;
+    margin-right: -58.33333%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    padding-left: 50px;
+  }
 }
 .lt-ie9 .page-access .title {
-  background: url(../images/access-notice-icon.png) 0 6px no-repeat;
+  background: url(../images/access-notice-icon.png) 20px 6px no-repeat;
 }
-.page-access .general-left {
-  margin-top: 3.5rem;
+@media (min-width: 60em) {
+  .page-access .general-left {
+    margin-top: 3.5rem;
+  }
 }
 .page-access .view-header {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 60em) {
+  .page-access .view-header {
+    margin-bottom: 2rem;
+  }
+}
+.page-access .pager {
+  padding-left: 0;
 }
 .page-access .general-right {
   padding-top: 1.6rem;
+}
+@media all and (max-width: 60em) {
+  .page-access .general-right {
+    margin-bottom: 2rem;
+  }
+  .page-access .general-right .pane-title {
+    border-bottom: 3px solid #d5dde1;
+  }
 }
 .page-access .general-right .menu {
   padding-left: 2rem;
@@ -796,25 +820,73 @@ table th.active {
 .page-access .general-right .feed-icon {
   float: none;
   margin: 0;
-  margin-bottom: 4.5rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 60em) {
+  .page-access .general-right .feed-icon {
+    margin-bottom: 4.5rem;
+  }
 }
 
 .view-access-notice-listing .views-row {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
+  padding-left: 0;
   background: none;
 }
+@media (min-width: 60em) {
+  .view-access-notice-listing .views-row {
+    margin-bottom: 1rem;
+  }
+}
+.view-access-notice-listing .views-row article {
+  border-bottom: 4px solid #d5dde1;
+  padding-bottom: 1rem;
+}
+@media (min-width: 60em) {
+  .view-access-notice-listing .views-row article {
+    border: none;
+  }
+}
+.view-access-notice-listing .views-row:last-child article {
+  border-bottom: none;
+}
 .view-access-notice-listing .field-name-field-shared-image {
-  float: left;
-  margin-right: 2rem;
-  margin-bottom: .5rem;
+  float: none;
+  margin-top: 1rem;
+}
+@media (min-width: 60em) {
+  .view-access-notice-listing .field-name-field-shared-image {
+    float: left;
+    margin-right: 2rem;
+    margin-bottom: .5rem;
+    margin-top: 0;
+  }
 }
 .view-access-notice-listing .node-title {
   margin-top: .5rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.2rem;
+}
+@media (min-width: 60em) {
+  .view-access-notice-listing .node-title {
+    margin-bottom: 0.5rem;
+  }
 }
 .view-access-notice-listing .field-name-field-event-date {
-  float: left;
+  display: inline;
   margin-right: 10px;
+  font-weight: bold;
+}
+.view-access-notice-listing .field-name-field-event-date div,
+.view-access-notice-listing .field-name-field-event-date a {
+  display: inline;
+}
+.view-access-notice-listing .access-notice-date a {
+  font-size: 0;
+  color: white;
+}
+.view-access-notice-listing .field-name-field-shared-location {
+  margin-top: 0.8rem;
+  font-weight: bold;
 }
 
 .pane-slac-ip-node-author {
@@ -5399,6 +5471,7 @@ fieldset.collapsed {
   background: none;
   display: inline-block;
   padding: 0 3px;
+  margin-bottom: 1rem;
 }
 
 .item-list .pager {
