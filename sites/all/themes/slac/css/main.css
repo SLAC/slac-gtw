@@ -4356,12 +4356,6 @@ div.date-views-pager div.next-year {
     margin-bottom: 0;
   }
 }
-.page-flea-market table {
-  margin-bottom: 4rem;
-}
-.page-flea-market table td p {
-  margin: 0;
-}
 .page-flea-market .views-field-changed {
   min-width: 120px;
   font-weight: bold;
@@ -4385,6 +4379,12 @@ div.date-views-pager div.next-year {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+.page-flea-market table {
+  margin-bottom: 4rem;
+}
+.page-flea-market table td p {
+  margin: 0;
+}
 @media all and (max-width: 60em) {
   .page-flea-market table,
   .page-flea-market tbody {
@@ -4402,54 +4402,100 @@ div.date-views-pager div.next-year {
     text-align: left;
     white-space: normal;
   }
-  .page-flea-market table tr {
-    padding: 1rem 0.875rem;
+}
+
+@media all and (max-width: 60em) {
+  .main-flea-market-list table tr {
+    padding: 1rem;
     border-bottom: 4px solid #d5dde1;
   }
-  .page-flea-market table tr.odd {
+  .main-flea-market-list table tr.odd {
     background: #ffffff;
   }
-  .page-flea-market table th[data-title]:before,
-  .page-flea-market table td[data-title]:before {
+  .main-flea-market-list table th[data-title]:before,
+  .main-flea-market-list table td[data-title]:before {
     display: none;
   }
-  .page-flea-market table td {
+  .main-flea-market-list table td {
     border: none;
     margin-bottom: 6px;
   }
-  .page-flea-market table td:empty {
+  .main-flea-market-list table td:empty {
     display: none;
   }
-  .page-flea-market table td:first-child {
+  .main-flea-market-list table td:first-child {
     margin-bottom: 6px;
   }
-  .page-flea-market table td:first-child:before {
+  .main-flea-market-list table td:first-child:before {
     content: '';
   }
-  .page-flea-market .l-general-one-col {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .page-flea-market .my-flea-market-nav {
-    margin: 0 20px;
-  }
-  .page-flea-market .view-header {
+  .main-flea-market-list .view-header {
     display: none;
   }
-  .page-flea-market .views-field-name a,
-  .page-flea-market .views-field-body,
-  .page-flea-market .views-field-state {
+  .main-flea-market-list .views-field-name a,
+  .main-flea-market-list .views-field-body,
+  .main-flea-market-list .views-field-state {
     display: none;
   }
-  .page-flea-market .views-field-changed {
+  .main-flea-market-list .views-field-changed {
     font-weight: normal;
     color: #999999;
   }
-  .page-flea-market .views-field-title {
+  .main-flea-market-list .views-field-title {
     width: 100%;
   }
 }
+.page-flea-market-my-items.logged-in .views-field-edit-node {
+  display: block;
+}
+.page-flea-market-my-items .view-header {
+  display: block;
+  margin: 1.5rem 0;
+}
 
+@media all and (max-width: 60em) {
+  .my-flea-market-list tr td {
+    font-weight: bold;
+  }
+  .my-flea-market-list tr td a {
+    font-weight: normal;
+  }
+  .my-flea-market-list table tr {
+    border-bottom: 4px solid #d5dde1;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+  .my-flea-market-list table tr.odd {
+    background: #ffffff;
+  }
+  .my-flea-market-list table tr td {
+    padding: 0.4rem 0;
+  }
+  .my-flea-market-list tr td:before {
+    font-size: 14px;
+    font-size: 0.875rem;
+    color: #747474;
+    display: block;
+    width: 120px;
+    float: left;
+    font-weight: normal;
+  }
+  .my-flea-market-list .views-field-title {
+    width: calc(100% - 120px);
+    padding-left: 120px;
+    text-align: left;
+  }
+  .my-flea-market-list .views-field-title:before {
+    margin-left: -120px;
+  }
+  .my-flea-market-list .views-field-state {
+    display: block;
+  }
+  .my-flea-market-list .views-field-body,
+  .my-flea-market-list .views-field-edit-node {
+    display: none;
+  }
+}
 select {
   font-size: 10px;
   font-size: 0.625rem;

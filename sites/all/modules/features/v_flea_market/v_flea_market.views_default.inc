@@ -241,11 +241,15 @@ function v_flea_market_views_default_views() {
 
   /* Display: Main Flea Market List pane */
   $handler = $view->new_display('panel_pane', 'Main Flea Market List pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'main-flea-market-list';
   $handler->display->display_options['inherit_panels_path'] = '1';
 
   /* Display: My Flea Market List pane */
   $handler = $view->new_display('panel_pane', 'My Flea Market List pane', 'panel_pane_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'my-flea-market-list';
   $handler->display->display_options['defaults']['query'] = FALSE;
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['disable_sql_rewrite'] = TRUE;
