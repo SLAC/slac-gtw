@@ -5732,10 +5732,10 @@ fieldset.collapsed {
   }
 }
 @media all and (max-width: 60em) {
-  .views-exposed-form .views-exposed-widget {
+  .page-search .views-exposed-form .views-exposed-widget {
     padding-right: 0;
   }
-  .views-exposed-form .views-exposed-widget .form-submit:not(#edit-second-submit-search) {
+  .page-search .form-submit:not(#edit-second-submit-search) {
     background: #316dae url(../images/search.svg) center center no-repeat;
     background-size: 20px 20px;
     display: block;
