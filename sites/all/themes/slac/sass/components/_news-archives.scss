@@ -75,6 +75,10 @@
     .pane-title {
       line-height: 1;
       margin-top: 0;
+
+      @media all and (max-width: $tablet-large) {
+        border-bottom: 4px solid color(grey-blue);
+      }
     }
 
     select {

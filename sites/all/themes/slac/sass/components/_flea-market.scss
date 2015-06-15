@@ -339,7 +339,7 @@
 @media all and (max-width: $tablet-large) {
   .main-flea-market-list {
     table tr {
-      padding: 1rem;
+      padding: 1rem 0;
       border-bottom: 4px solid color(grey-blue);
 
       &.odd {
