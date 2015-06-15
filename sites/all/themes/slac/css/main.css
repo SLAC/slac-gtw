@@ -4119,13 +4119,29 @@ div.date-views-pager div.next-year {
   background: #838383;
 }
 
+.feed-icon__bottom {
+  display: block;
+}
+
+.page-taxonomy-term .feed-icon {
+  display: none;
+}
+
 @media (min-width: 60em) {
+  .page-taxonomy-term .feed-icon {
+    display: block;
+  }
+
   .feed-icon {
     float: right;
     margin-top: -35px;
   }
   .logged-in .feed-icon {
     margin-top: -40px;
+  }
+
+  .feed-icon__bottom {
+    display: none;
   }
 }
 .node-type-news .pane-featured-news-featured-news-panel-pane h2 {
@@ -6056,19 +6072,25 @@ fieldset.collapsed {
   .page-taxonomy-term .node-title {
     margin-top: 0;
   }
-  .page-taxonomy-term .feed-icon {
-    display: none;
-  }
-  .page-taxonomy-term .feed-icon__bottom {
-    display: block;
-    margin-bottom: 2rem;
-  }
   .page-taxonomy-term article {
     margin-bottom: 2rem;
     border-bottom: 4px solid #d5dde1;
   }
+  .page-taxonomy-term .views-row:last-child article {
+    border: none;
+  }
+  .page-taxonomy-term .node-created {
+    margin-bottom: 0.5rem;
+  }
+  .page-taxonomy-term .field-name-field-shared-image {
+    float: none;
+  }
   .page-taxonomy-term .pager {
     text-align: center;
+  }
+  .page-taxonomy-term .feed-icon__bottom {
+    display: block;
+    margin-bottom: 2rem;
   }
 }
 @media (min-width: 20em) {
