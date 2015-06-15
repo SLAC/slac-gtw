@@ -265,15 +265,6 @@
 }
 
 .page-flea-market {
-  .l-general-one-col {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .my-flea-market-nav {
-    margin: 0 20px;
-  }
-
   .title {
     padding-left: 1.25rem;
 
@@ -342,11 +333,6 @@
       text-align: left;
       white-space: normal;
     }
-
-    .pager {
-      margin-left: 1rem;
-      margin-right: 1rem;
-    }
   }
 }
 
@@ -414,7 +400,7 @@
 
   .view-header {
     display: block;
-    margin: 1.5rem 20px;
+    margin: 1.5rem 0;
   }
 }
 
@@ -428,13 +414,6 @@
       }
     }
 
-    tr td:before {
-      display: block;
-      width: 110px;
-      float: left;
-      font-weight: normal;
-    }
-
     table tr {
       border-bottom: 4px solid color(grey-blue);
       padding-bottom: 1rem;
@@ -445,18 +424,26 @@
       }
 
       td {
-        padding: 0.4rem 1rem;
+        padding: 0.4rem 0;
       }
     }
 
+    tr td:before {
+      @include font-size(14px);
+      color: $grey-labels;
+      display: block;
+      width: 120px;
+      float: left;
+      font-weight: normal;
+    }
+
     .views-field-title {
-      width: calc(100% - 142px);
-      padding-left: 126px;
-      padding-right: 16px;
+      width: calc(100% - 120px);
+      padding-left: 120px;
       text-align: left;
 
       &:before {
-        margin-left: -110px;
+        margin-left: -120px;
       }
     }
 

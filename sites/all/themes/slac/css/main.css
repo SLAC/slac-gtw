@@ -4336,13 +4336,6 @@ div.date-views-pager div.next-year {
   }
 }
 
-.page-flea-market .l-general-one-col {
-  padding-left: 0;
-  padding-right: 0;
-}
-.page-flea-market .my-flea-market-nav {
-  margin: 0 20px;
-}
 .page-flea-market .title {
   padding-left: 1.25rem;
 }
@@ -4409,10 +4402,6 @@ div.date-views-pager div.next-year {
     text-align: left;
     white-space: normal;
   }
-  .page-flea-market .pager {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
 }
 
 @media all and (max-width: 60em) {
@@ -4461,7 +4450,7 @@ div.date-views-pager div.next-year {
 }
 .page-flea-market-my-items .view-header {
   display: block;
-  margin: 1.5rem 20px;
+  margin: 1.5rem 0;
 }
 
 @media all and (max-width: 60em) {
@@ -4469,12 +4458,6 @@ div.date-views-pager div.next-year {
     font-weight: bold;
   }
   .my-flea-market-list tr td a {
-    font-weight: normal;
-  }
-  .my-flea-market-list tr td:before {
-    display: block;
-    width: 110px;
-    float: left;
     font-weight: normal;
   }
   .my-flea-market-list table tr {
@@ -4486,16 +4469,24 @@ div.date-views-pager div.next-year {
     background: #ffffff;
   }
   .my-flea-market-list table tr td {
-    padding: 0.4rem 1rem;
+    padding: 0.4rem 0;
+  }
+  .my-flea-market-list tr td:before {
+    font-size: 14px;
+    font-size: 0.875rem;
+    color: #747474;
+    display: block;
+    width: 120px;
+    float: left;
+    font-weight: normal;
   }
   .my-flea-market-list .views-field-title {
-    width: calc(100% - 142px);
-    padding-left: 126px;
-    padding-right: 16px;
+    width: calc(100% - 120px);
+    padding-left: 120px;
     text-align: left;
   }
   .my-flea-market-list .views-field-title:before {
-    margin-left: -110px;
+    margin-left: -120px;
   }
   .my-flea-market-list .views-field-state {
     display: block;
