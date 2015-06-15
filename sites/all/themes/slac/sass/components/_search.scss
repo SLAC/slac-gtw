@@ -106,8 +106,10 @@
 
 // Search Results
 @media all and (max-width: $tablet-large) {
-  .views-exposed-form .views-exposed-widget {
-    padding-right: 0;
+  .page-search {
+    .views-exposed-form .views-exposed-widget {
+      padding-right: 0;
+    }
 
     .form-submit:not(#edit-second-submit-search) {
       background: $blue url(../images/search.svg) center center no-repeat;
