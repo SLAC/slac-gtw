@@ -268,6 +268,15 @@ function slac_preprocess_views_view(&$vars) {
 }
 
 /**
+ * Adds a Panels pane template suggestion for the front page.
+ */
+function slac_preprocess_panels_pane(&$vars) {
+  if ($vars['is_front']) {
+    $vars['theme_hook_suggestions'][] = 'panels_pane__front';
+  }
+}
+
+/**
  * Themes the calendar title.
  */
 function slac_date_nav_title($params) {
