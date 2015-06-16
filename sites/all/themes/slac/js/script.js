@@ -118,19 +118,24 @@
   };
 
   /**
-   * Adds a button to toggle expanstion of the views filters in mobile layouts.
+   * Adds a button to toggle expansion of the views filters in mobile layouts.
+   *
+   * Excludes the advanced search filters, they display differently and have
+   * custom behaviors.
    */
   Drupal.behaviors.viewsFiltersMobile = {
     attach: function (context, settings) {
-      $('.view-filters', context).each(function (idx, elem) {
-        $(elem).prepend('<a class="button-expand">Show Filters</button>')
-            .click(function (e) {
-              var $clickTarget = $(e.target);
-              if ($clickTarget.is('.button-expand')) {
-                $clickTarget.parent().toggleClass('expanded');
-              }
-            });
-      });
+      $('.view-filters', context)
+          .not('.view-id-search .view-filters')
+          .each(function (i, el) {
+            $(el).prepend('<a class="button-expand">Show Filters</button>')
+                .click(function (e) {
+                  var $clickTarget = $(e.target);
+                  if ($clickTarget.is('.button-expand')) {
+                    $clickTarget.parent().toggleClass('expanded');
+                  }
+                });
+          });
     }
   };
 

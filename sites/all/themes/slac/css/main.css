@@ -6141,6 +6141,10 @@ fieldset.collapsed {
   .view-filters.expanded form {
     display: block;
   }
+
+  .view-id-search .view-filters form {
+    display: block;
+  }
 }
 @media (min-width: 40em) {
   .view-filters .button-expand {
