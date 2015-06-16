@@ -135,7 +135,8 @@
     float: left;
     width: 40%;
     margin-right: 10px;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     text-align: left;
   }
 
@@ -153,6 +154,20 @@
     width: 60%;
   }
 
+  .week-view td.single-day .inner,
+  .week-view td.date-box .inner,
+  .week-view .type-access_information,
+  .week-view .type-event {
+    width: 84%;
+  }
+
+  .month-view td.single-day .inner,
+  .month-view td.date-box .inner,
+  .month-view .type-access_information .inner,
+  .month-view .type-event .inner {
+    width: 70%;
+  }
+
   table td {
     border: none;
     margin-bottom: 6px;
@@ -164,7 +179,6 @@
   }
 
   table td:first-child {
-    font-size: 14px;
     font-weight: bold;
     margin-bottom: 6px;
     color: #333;
@@ -326,6 +340,9 @@
     .time {
       border: none;
       background: transparent;
+      line-height: 1;
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 

@@ -1092,7 +1092,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   clear: both;
   font-style: normal;
   color: #555;
-  font-size: 0.8em;
 }
 
 .calendar-calendar .inner {
@@ -1155,7 +1154,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 }
 
 .calendar-calendar div.title {
-  font-size: .8em;
   text-align: center;
 }
 
@@ -1216,14 +1214,6 @@ table .mini-day-on a {
   text-decoration: underline;
 }
 
-.calendar-calendar .mini .title {
-  font-size: .8em;
-}
-
-.mini .calendar-calendar .week {
-  font-size: .7em;
-}
-
 .mini-row {
   width: 100%;
   border: none;
@@ -1282,7 +1272,8 @@ table.calendar-legend tr.even .stripe {
 }
 
 .calendar-calendar td.calendar-agenda-hour .calendar-hour {
-  font-size: 1.2em;
+  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: bold;
 }
 
@@ -1395,7 +1386,14 @@ table.calendar-legend tr.even .stripe {
 
 .calendar-calendar div.calendar {
   border: none;
-  font-size: x-small;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+@media (min-width: 60em) {
+  .calendar-calendar div.calendar {
+    font-size: 11px;
+    font-size: 0.6875rem;
+  }
 }
 
 .calendar-calendar td .inner div.calendar div.calendar-more,
@@ -1963,10 +1961,7 @@ ul.calendar-links,
 }
 
 .calendar .time {
-  font-size: 11px;
-  font-size: 0.6875rem;
   display: block;
-  margin-bottom: .2rem;
   font-weight: bold;
 }
 
@@ -2004,8 +1999,6 @@ ul.calendar-links,
   width: 200px;
   position: relative;
   left: 0;
-  font-size: 14px;
-  font-size: 0.875rem;
   color: dimgray;
 }
 
@@ -2196,7 +2189,8 @@ ul.calendar-links,
 .calendar-calendar td.calendar-agenda-hour .calendar-ampm,
 .calendar-calendar .week-view .full div.calendar-agenda-hour span,
 .calendar-calendar .day-view .full div.calendar-agenda-hour span {
-  font-size: .8em;
+  font-size: 14px;
+  font-size: 0.875rem;
   margin-right: 0px;
   padding-right: 0.2rem;
 }
@@ -2989,7 +2983,7 @@ ul.calendar-links,
 }
 .events-calendar .type-access_information .type-access_information,
 .events-calendar .type-event .type-access_information {
-  padding-top: .2rem;
+  padding-top: 0;
 }
 .events-calendar .type-access_information.event-summer-school-programs,
 .events-calendar .type-event.event-summer-school-programs {
@@ -3220,7 +3214,8 @@ ul.calendar-links,
     float: left;
     width: 40%;
     margin-right: 10px;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     text-align: left;
   }
 
@@ -3236,6 +3231,20 @@ ul.calendar-links,
     width: 60%;
   }
 
+  .week-view td.single-day .inner,
+  .week-view td.date-box .inner,
+  .week-view .type-access_information,
+  .week-view .type-event {
+    width: 84%;
+  }
+
+  .month-view td.single-day .inner,
+  .month-view td.date-box .inner,
+  .month-view .type-access_information .inner,
+  .month-view .type-event .inner {
+    width: 70%;
+  }
+
   table td {
     border: none;
     margin-bottom: 6px;
@@ -3247,7 +3256,6 @@ ul.calendar-links,
   }
 
   table td:first-child {
-    font-size: 14px;
     font-weight: bold;
     margin-bottom: 6px;
     color: #333;
@@ -3406,6 +3414,9 @@ ul.calendar-links,
   .calendar-calendar .dayview .type-event .time {
     border: none;
     background: transparent;
+    line-height: 1;
+    padding-top: 0;
+    padding-bottom: 0;
   }
   .calendar-calendar .day-view,
   .calendar-calendar .day-view td.first,
