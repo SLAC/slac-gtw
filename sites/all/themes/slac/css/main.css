@@ -3777,18 +3777,18 @@ div.date-views-pager div.next-year {
   margin-bottom: 0.625rem;
   margin-right: 2rem;
 }
-.node-type-news .general-left .panel-pane.pane-slac-ip-panes-email,
+.node-type-news .general-left .pane-slac-ip-panes-email,
 .node-type-news .general-left .pane-slac-ip-panes-print {
   padding-top: 0.2rem;
 }
 .node-type-news .general-left > .inside {
   position: relative;
 }
-.node-type-news .general-left .panel-pane.pane-slac-ip-panes-email {
+.node-type-news .general-left .pane-slac-ip-panes-email {
   position: absolute;
   right: 70px;
 }
-.node-type-news .general-left .panel-pane.pane-slac-ip-panes-email a {
+.node-type-news .general-left .pane-slac-ip-panes-email a {
   padding-right: 1rem;
 }
 .node-type-news .general-left .pane-slac-ip-panes-print {
@@ -3814,7 +3814,7 @@ div.date-views-pager div.next-year {
 .node-type-news .general-left .pane-node-body p:first-child {
   margin-top: 0;
 }
-.node-type-news .general-left .panel-pane.pane-node-created {
+.node-type-news .general-left .pane-node-created {
   margin-bottom: 0.625rem;
   margin-top: 2rem;
   display: block;

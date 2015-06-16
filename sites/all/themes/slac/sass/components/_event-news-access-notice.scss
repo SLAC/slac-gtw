@@ -124,7 +124,7 @@
       margin-right: 2rem;
     }
 
-    .panel-pane.pane-slac-ip-panes-email,
+    .pane-slac-ip-panes-email,
     .pane-slac-ip-panes-print {
       padding-top: 0.2rem;
     }
@@ -133,7 +133,7 @@
       position: relative;
     }
 
-    .panel-pane.pane-slac-ip-panes-email {
+    .pane-slac-ip-panes-email {
       position: absolute;
       right: 70px;
 
@@ -167,7 +167,7 @@
       }
     }
 
-    .panel-pane.pane-node-created {
+    .pane-node-created {
       margin-bottom: 0.625rem;
       margin-top: 2rem;
       display: block;
