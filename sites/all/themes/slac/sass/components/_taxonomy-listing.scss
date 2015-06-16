@@ -15,22 +15,30 @@
       margin-top: 0;
     }
 
-    .feed-icon {
-      display: none;
-    }
-
-    .feed-icon__bottom {
-      display: block;
-      margin-bottom: 2rem;
-    }
-
     article {
       margin-bottom: 2rem;
       border-bottom: 4px solid color(grey-blue);
     }
 
+    .views-row:last-child article {
+      border: none;
+    }
+
+    .node-created {
+      margin-bottom: 0.5rem;
+    }
+
+    .field-name-field-shared-image {
+      float: none;
+    }
+
     .pager {
       text-align: center;
+    }
+
+    .feed-icon__bottom {
+      display: block;
+      margin-bottom: 2rem;
     }
   }
 }

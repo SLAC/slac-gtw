@@ -1,4 +1,16 @@
+.feed-icon__bottom {
+  display: block;
+}
+
+.page-taxonomy-term .feed-icon {
+  display: none;
+}
+
 @include breakpoint($tablet-large) {
+  .page-taxonomy-term .feed-icon {
+    display: block;
+  }
+
   .feed-icon {
     float: right;
     margin-top: -35px;
@@ -6,5 +18,9 @@
     .logged-in & {
       margin-top: -40px;
     }
+  }
+
+  .feed-icon__bottom {
+    display: none;
   }
 }
