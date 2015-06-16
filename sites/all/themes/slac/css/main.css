@@ -5613,11 +5613,6 @@ fieldset.collapsed {
   padding-bottom: .1rem;
 }
 
-@media (min-width: 60em) {
-  .search-link {
-    display: none;
-  }
-}
 .mobile-search-open #content {
   margin-top: 6rem;
 }
@@ -5652,7 +5647,7 @@ fieldset.collapsed {
   }
 }
 
-@media all and (max-width: 70em) {
+@media all and (max-width: 60em) {
   #block-slac-search-form {
     width: 100%;
     background: #e9f2f9;
@@ -5661,8 +5656,18 @@ fieldset.collapsed {
     display: table;
     height: 95px;
   }
+  #block-slac-search-form .form-submit {
+    background: #316dae url(../images/search.svg) center center no-repeat;
+    background-size: 18px 19px;
+    display: block;
+    width: 40px;
+    height: 27px;
+    font-size: 0;
+    color: #316dae;
+    margin-left: 0;
+  }
 
-  a.search-link {
+  .search-link {
     display: block;
     width: 19px;
     height: 20px;
@@ -5675,13 +5680,25 @@ fieldset.collapsed {
   }
 
   .header__region input[type="text"] {
-    width: 114px;
+    width: 210px;
     margin-left: 0;
+    margin-right: 0;
   }
 
   .form-item-search-type {
     position: absolute;
-    top: 20px;
+    top: 25px;
+    left: 0;
+  }
+}
+@media (min-width: 40em) {
+  .form-item-search-type {
+    left: 8px;
+  }
+}
+@media (min-width: 60em) {
+  .search-link {
+    display: none;
   }
 }
 @media (min-width: 20em) {
@@ -5691,23 +5708,28 @@ fieldset.collapsed {
   #block-slac-search-form.active {
     position: relative;
     top: 52px;
-    padding-top: 1rem;
+    padding-top: 4rem;
     z-index: 1;
     background: #e9f2f9;
     display: block;
   }
 }
+@media (min-width: 40em) {
+  #block-slac-search-form.active {
+    padding-top: 1rem;
+  }
+}
 
 #slac-search-block-form {
-  width: 185px;
+  width: 300px;
   position: relative;
-  margin-left: 8rem;
+  margin-left: 1rem;
   margin-top: 0;
 }
 @media (min-width: 40em) {
   #slac-search-block-form {
-    margin-left: 12.5rem;
-    margin-top: 1rem;
+    margin-left: 7.5rem;
+    margin-top: 0;
   }
 }
 @media (min-width: 60em) {
@@ -5737,10 +5759,10 @@ fieldset.collapsed {
   }
   .page-search .form-submit:not(#edit-second-submit-search) {
     background: #316dae url(../images/search.svg) center center no-repeat;
-    background-size: 20px 20px;
+    background-size: 18px 18px;
     display: block;
     width: 30px;
-    height: 30px;
+    height: 27px;
     font-size: 0;
     color: #316dae;
   }

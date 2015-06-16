@@ -1,9 +1,3 @@
-@include breakpoint($tablet-large) {
-  .search-link {
-    display: none;
-  }
-}
-
 .mobile-search-open #content {
   margin-top: 6rem;
 }
@@ -23,7 +17,7 @@
   }
 }
 
-@media all and (max-width: $desktop) {
+@media all and (max-width: $tablet-large) {
   #block-slac-search-form {
     width: 100%;
     background: $light-blue;
@@ -31,9 +25,20 @@
     top: 0;
     display: table;
     height: 95px;
+
+    .form-submit {
+      background: $blue url(../images/search.svg) center center no-repeat;
+      background-size: 18px 19px;
+      display: block;
+      width: 40px;
+      height: 27px;
+      font-size: 0;
+      color: $blue;
+      margin-left: 0;
+    }
   }
 
-  a.search-link {
+  .search-link {
     display: block;
     width: 19px;
     height: 20px;
@@ -46,13 +51,27 @@
   }
 
   .header__region input[type="text"] {
-    width: 114px;
+    width: 210px;
     margin-left: 0;
+    margin-right: 0;
   }
 
   .form-item-search-type {
     position: absolute;
-    top: 20px;
+    top: 25px;
+    left: 0;
+  }
+}
+
+@include breakpoint ($tablet-small) {
+  .form-item-search-type {
+    left: 8px;
+  }
+}
+
+@include breakpoint($tablet-large) {
+  .search-link {
+    display: none;
   }
 }
 
@@ -64,23 +83,29 @@
     &.active {
       position: relative;
       top: 52px;
-      padding-top: 1rem;
+      padding-top: 4rem;
       z-index: 1;
       background: $light-blue;
       display: block;
     }
   }
+
+  @include breakpoint($tablet-small) {
+    &.active {
+      padding-top: 1rem;
+    }
+  }
 }
 
 #slac-search-block-form {
-  width: 185px;
+  width: 300px;
   position: relative;
-  margin-left: 8rem;
+  margin-left: 1rem;
   margin-top: 0;
 
   @include breakpoint($tablet-small) {
-    margin-left: 12.5rem;
-    margin-top: 1rem;
+    margin-left: 7.5rem;
+    margin-top: 0;
   }
 
   @include breakpoint($tablet-large) {
@@ -113,10 +138,10 @@
 
     .form-submit:not(#edit-second-submit-search) {
       background: $blue url(../images/search.svg) center center no-repeat;
-      background-size: 20px 20px;
+      background-size: 18px 18px;
       display: block;
       width: 30px;
-      height: 30px;
+      height: 27px;
       font-size: 0;
       color: $blue;
     }
@@ -126,6 +151,7 @@
 .page-search .views-exposed-form .views-exposed-widget {
   float: none;
 }
+
 .view-search {
   color: lighten($grey, 10%);
 
