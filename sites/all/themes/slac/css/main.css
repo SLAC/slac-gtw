@@ -3768,16 +3768,38 @@ div.date-views-pager div.next-year {
   font-weight: bold;
   margin-bottom: 1.5rem;
 }
+.node-type-news .general-left .pane-node-title {
+  margin-bottom: 1rem;
+}
+.node-type-news .general-left .pane-node-field-shared-byline {
+  width: 72%;
+  float: left;
+  margin-bottom: 0.625rem;
+  margin-right: 2rem;
+}
 .node-type-news .general-left .panel-pane.pane-slac-ip-panes-email,
 .node-type-news .general-left .pane-slac-ip-panes-print {
+  padding-top: 0.2rem;
+}
+.node-type-news .general-left > .inside {
   position: relative;
-  top: -30px;
-  float: right;
-  margin-right: 5.938rem;
+}
+.node-type-news .general-left .panel-pane.pane-slac-ip-panes-email {
+  position: absolute;
+  right: 70px;
+}
+.node-type-news .general-left .panel-pane.pane-slac-ip-panes-email a {
+  padding-right: 1rem;
 }
 .node-type-news .general-left .pane-slac-ip-panes-print {
-  top: -1.875rem;
-  margin-right: -12.5rem;
+  position: absolute;
+  right: 10px;
+  padding-left: 1rem;
+  padding-right: 0;
+}
+.node-type-news .general-left .pane-slac-ip-panes-print a {
+  padding-right: 0;
+  margin-right: 0;
 }
 .node-type-news .general-left .field-name-field-shared-image {
   float: left;
@@ -3792,9 +3814,11 @@ div.date-views-pager div.next-year {
 .node-type-news .general-left .pane-node-body p:first-child {
   margin-top: 0;
 }
-.node-type-news .general-left .field-name-field-shared-byline,
 .node-type-news .general-left .panel-pane.pane-node-created {
   margin-bottom: 0.625rem;
+  margin-top: 2rem;
+  display: block;
+  clear: both;
 }
 .node-type-news .general-right .pane-node-field-shared-image .field-item + .field-item,
 .node-type-news .general-right .pane-node-field-shared-video .field-item + .field-item {
