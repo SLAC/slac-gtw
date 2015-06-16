@@ -214,57 +214,74 @@
   }
 }
 
-.my-flea-market-nav {
-  @include breakpoint($tablet-large) {
-    width: 200px;
-    margin-top: 16px;
-    text-align: right;
-    float: right;
-    position: relative;
-    z-index: 30;
-  }
-
-  ul {
-    padding-left: 0;
-
-    li {
-      list-style: none;
-    }
-  }
-
-  span {
-    display: none;
-
+.page-flea-market {
+  .my-flea-market-nav {
     @include breakpoint($tablet-large) {
-      display: initial;
-    }
-  }
-
-  a {
-    display: block;
-    padding: .4rem .5rem;
-    background: darken($light-grey, 3%) url(../images/right-arrow.png) 98% .5rem no-repeat;
-    color: $blue;
-    text-decoration: none;
-    margin-bottom: .5rem;
-
-    @include breakpoint($tablet-large) {
-      background: darken($light-grey, 3%);
+      width: 200px;
+      text-align: right;
+      right: 0;
+      top: -46px;
+      position: absolute;
+      z-index: 30;
     }
 
-    &:hover,
-    &:focus {
-      background: lighten($grey, 10%) url(../images/right-arrow.png) 98% -1.75rem no-repeat;
-      color: $white;
+    ul {
+      padding-left: 0;
+
+      li {
+        list-style: none;
+      }
+    }
+
+    span {
+      display: none;
 
       @include breakpoint($tablet-large) {
-        background: lighten($grey, 10%);
+        display: initial;
+      }
+    }
+
+    a {
+      display: block;
+      padding: .4rem .5rem;
+      background: darken($light-grey, 3%) url(../images/right-arrow.png) 98% .5rem no-repeat;
+      color: $blue;
+      text-decoration: none;
+      margin-bottom: .5rem;
+
+      @include breakpoint($tablet-large) {
+        background: darken($light-grey, 3%);
+      }
+
+      &:hover,
+      &:focus {
+        background: lighten($grey, 10%) url(../images/right-arrow.png) 98% -1.75rem no-repeat;
+        color: $white;
+
+        @include breakpoint($tablet-large) {
+          background: lighten($grey, 10%);
+        }
       }
     }
   }
-}
 
-.page-flea-market {
+  .l-general-one-col {
+    margin-top: 0;
+
+    @include breakpoint($tablet-large) {
+      margin-top: 1.75rem;
+
+      .view-header {
+        width: 80%;
+        margin: 1.5rem 0;
+      }
+    }
+  }
+
+  .main-content > .inside {
+    position: relative;
+  }
+
   .title {
     padding-left: 1.25rem;
 
@@ -291,10 +308,6 @@
 
   .view-flea-market-listing {
     margin-bottom: 2rem;
-
-    @include breakpoint($tablet-large) {
-      padding-top: 4rem;
-    }
 
     p {
       margin-top: 0;

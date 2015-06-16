@@ -936,56 +936,51 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   display: none;
 }
 
-.js .section-calendar .view-filters {
+.js .page-calendar .view-filters {
   display: none;
 }
 
-.section-calendar #main {
+.page-calendar #main {
   margin-top: 0;
 }
-.section-calendar h1.title {
+.page-calendar h1.title {
   display: none;
 }
-.section-calendar .tabs-primary {
+.page-calendar .tabs-primary {
   position: relative;
-  top: 165px;
+  top: 115px;
   border: none;
   width: 236px;
   margin-right: auto;
   margin-left: auto;
   z-index: 10;
 }
-@media (min-width: 60em) {
-  .section-calendar .tabs-primary {
-    top: 115px;
-  }
-}
 @media (min-width: 70em) {
-  .section-calendar .tabs-primary {
+  .page-calendar .tabs-primary {
     top: 165px;
   }
 }
-.section-calendar .tabs-primary li {
+.page-calendar .tabs-primary li {
   border-radius: 0;
   background: #ffffff;
   border: 1px solid #DADADA;
   margin: 0;
   margin-left: -1px;
 }
-.section-calendar .tabs-primary li:hover {
+.page-calendar .tabs-primary li:hover {
   background: #6a6a6a;
   border: 1px solid #6a6a6a;
 }
-.section-calendar .tabs-primary li.is-active {
+.page-calendar .tabs-primary li.is-active {
   background: #6a6a6a;
   color: #ffffff;
   border: 1px solid #6a6a6a;
 }
-.section-calendar .tabs-primary li.is-active a {
+.page-calendar .tabs-primary li.is-active a {
   color: #ffffff;
 }
-.section-calendar .tabs-primary li a,
-.section-calendar .tabs-primary li a:link {
+.page-calendar .tabs-primary li a,
+.page-calendar .tabs-primary li a:link {
   font-size: 14px;
   font-size: 0.875rem;
   border: none;
@@ -997,9 +992,9 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   text-transform: uppercase;
   padding: .2rem 1rem;
 }
-.section-calendar .tabs-primary li a:hover, .section-calendar .tabs-primary li a:focus,
-.section-calendar .tabs-primary li a:link:hover,
-.section-calendar .tabs-primary li a:link:focus {
+.page-calendar .tabs-primary li a:hover, .page-calendar .tabs-primary li a:focus,
+.page-calendar .tabs-primary li a:link:hover,
+.page-calendar .tabs-primary li a:link:focus {
   background: #6a6a6a;
   border-color: #6a6a6a;
   color: #ffffff;
@@ -1931,7 +1926,7 @@ ul.calendar-links,
 }
 
 @media (min-width: 70em) {
-  .section-calendar .tabs-primary {
+  .page-calendar .tabs-primary {
     margin-right: 20px;
     padding-right: 0;
   }
@@ -1941,7 +1936,7 @@ ul.calendar-links,
   }
 }
 @media (min-width: 85em) {
-  .section-calendar .tabs-primary {
+  .page-calendar .tabs-primary {
     margin-right: 9.5%;
   }
 }
@@ -3727,12 +3722,13 @@ div.date-views-pager div.next-year {
 .node-type-event .general-right,
 .node-type-news .general-right,
 .node-type-access-information .general-right {
-  margin-top: 0.5rem;
+  padding-top: 3.8rem;
 }
-.node-type-event .general-right .inside,
-.node-type-news .general-right .inside,
-.node-type-access-information .general-right .inside {
-  padding: 0;
+.node-type-event .general-right div > .pane-title,
+.node-type-news .general-right div > .pane-title,
+.node-type-access-information .general-right div > .pane-title {
+  margin-top: 0;
+  line-height: 1;
 }
 .node-type-event .general-right h2,
 .node-type-news .general-right h2,
@@ -3819,6 +3815,9 @@ div.date-views-pager div.next-year {
   margin-top: 2rem;
   display: block;
   clear: both;
+}
+.node-type-news .general-right {
+  padding-top: 0;
 }
 .node-type-news .general-right .pane-node-field-shared-image .field-item + .field-item,
 .node-type-news .general-right .pane-node-field-shared-video .field-item + .field-item {
@@ -4413,30 +4412,30 @@ div.date-views-pager div.next-year {
 }
 
 @media (min-width: 60em) {
-  .my-flea-market-nav {
+  .page-flea-market .my-flea-market-nav {
     width: 200px;
-    margin-top: 16px;
     text-align: right;
-    float: right;
-    position: relative;
+    right: 0;
+    top: -46px;
+    position: absolute;
     z-index: 30;
   }
 }
-.my-flea-market-nav ul {
+.page-flea-market .my-flea-market-nav ul {
   padding-left: 0;
 }
-.my-flea-market-nav ul li {
+.page-flea-market .my-flea-market-nav ul li {
   list-style: none;
 }
-.my-flea-market-nav span {
+.page-flea-market .my-flea-market-nav span {
   display: none;
 }
 @media (min-width: 60em) {
-  .my-flea-market-nav span {
+  .page-flea-market .my-flea-market-nav span {
     display: initial;
   }
 }
-.my-flea-market-nav a {
+.page-flea-market .my-flea-market-nav a {
   display: block;
   padding: .4rem .5rem;
   background: #ebebeb url(../images/right-arrow.png) 98% 0.5rem no-repeat;
@@ -4445,20 +4444,34 @@ div.date-views-pager div.next-year {
   margin-bottom: .5rem;
 }
 @media (min-width: 60em) {
-  .my-flea-market-nav a {
+  .page-flea-market .my-flea-market-nav a {
     background: #ebebeb;
   }
 }
-.my-flea-market-nav a:hover, .my-flea-market-nav a:focus {
+.page-flea-market .my-flea-market-nav a:hover, .page-flea-market .my-flea-market-nav a:focus {
   background: #848484 url(../images/right-arrow.png) 98% -1.75rem no-repeat;
   color: #ffffff;
 }
 @media (min-width: 60em) {
-  .my-flea-market-nav a:hover, .my-flea-market-nav a:focus {
+  .page-flea-market .my-flea-market-nav a:hover, .page-flea-market .my-flea-market-nav a:focus {
     background: #848484;
   }
 }
-
+.page-flea-market .l-general-one-col {
+  margin-top: 0;
+}
+@media (min-width: 60em) {
+  .page-flea-market .l-general-one-col {
+    margin-top: 1.75rem;
+  }
+  .page-flea-market .l-general-one-col .view-header {
+    width: 80%;
+    margin: 1.5rem 0;
+  }
+}
+.page-flea-market .main-content > .inside {
+  position: relative;
+}
 .page-flea-market .title {
   padding-left: 1.25rem;
 }
@@ -4492,11 +4505,6 @@ div.date-views-pager div.next-year {
 }
 .page-flea-market .view-flea-market-listing {
   margin-bottom: 2rem;
-}
-@media (min-width: 60em) {
-  .page-flea-market .view-flea-market-listing {
-    padding-top: 4rem;
-  }
 }
 .page-flea-market .view-flea-market-listing p {
   margin-top: 0;
@@ -4785,6 +4793,38 @@ fieldset.collapsed {
 }
 #page:after {
   clear: both;
+}
+
+#content {
+  padding-top: 2.625rem;
+  padding-bottom: 2rem;
+}
+.page-calendar #content {
+  margin-top: 0;
+}
+#content .events-calendar {
+  margin-top: -3.5rem;
+}
+@media (min-width: 60em) {
+  #content {
+    padding-top: 3.25rem;
+  }
+  .page-calendar #content {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  #content .events-calendar {
+    margin-top: 0;
+  }
+}
+
+h1.title {
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+.l-general-one-col {
+  margin-top: 3.125rem;
 }
 
 #header {
@@ -5145,9 +5185,6 @@ fieldset.collapsed {
 }
 .page-taxonomy-term.logged-in .title {
   margin-top: 80px;
-}
-.page-taxonomy-term .l-general-one-col {
-  margin-top: 6rem;
 }
 
 .view-events-by-term .views-row,
