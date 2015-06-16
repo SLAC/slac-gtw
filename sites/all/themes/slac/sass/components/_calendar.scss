@@ -11,11 +11,11 @@
   }
 }
 
-.js .section-calendar .view-filters {
+.js .page-calendar .view-filters {
   display: none;
 }
 
-.section-calendar {
+.page-calendar {
 
   #main {
     margin-top: 0;
@@ -27,16 +27,12 @@
 
   .tabs-primary {
     position: relative;
-    top: 165px;
+    top: 115px;
     border: none;
     width: 236px;
     margin-right: auto;
     margin-left: auto;
     z-index: 10;
-
-    @include breakpoint($tablet-large) {
-      top: 115px;
-    }
 
     @include breakpoint($desktop) {
       top: 165px;
@@ -1035,7 +1031,7 @@ ul.calendar-links,
 
 // calendar for desktop
 @include breakpoint($desktop) {
-  .section-calendar .tabs-primary {
+  .page-calendar .tabs-primary {
     margin-right: 20px;
     padding-right: 0;
   }
@@ -1048,7 +1044,7 @@ ul.calendar-links,
 }
 
 @include breakpoint($calendar-full) {
-  .section-calendar .tabs-primary {
+  .page-calendar .tabs-primary {
     margin-right: 9.5%;
   }
 }

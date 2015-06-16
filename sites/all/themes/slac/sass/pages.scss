@@ -44,7 +44,6 @@ header, .content-wrapper {
 .not-front #content {
   width: 100%;
   max-width: 1432px;
-  padding: 2.5rem 0 2rem;
   margin: auto;
   background: #fbf9f9;
 }
@@ -424,7 +423,6 @@ a {
 
   .not-front #content {
     background-color: transparent;
-    padding-top: 50px;
   }
 
   .not-front.section-feedback{
@@ -488,18 +486,6 @@ a {
       background: url('../images/small-screen-search.png') no-repeat center 0;
     }
   }
-
-  .not-front{
-    #content > div,
-    #content > article{
-      width: 100%;
-      margin: 0;
-    }
-    #content > #page-title{
-      margin-left: 0;
-    }
-  }
-
 
   /* mobile menu */
   #mobile-menu-wrap{
