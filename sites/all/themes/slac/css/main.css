@@ -4494,7 +4494,7 @@ div.date-views-pager div.next-year {
 
 @media all and (max-width: 60em) {
   .main-flea-market-list table tr {
-    padding: 1rem;
+    padding: 1rem 0;
     border-bottom: 4px solid #d5dde1;
   }
   .main-flea-market-list table tr.odd {
@@ -5449,6 +5449,11 @@ fieldset.collapsed {
 .page-news .general-right .pane-title {
   line-height: 1;
   margin-top: 0;
+}
+@media all and (max-width: 60em) {
+  .page-news .general-right .pane-title {
+    border-bottom: 4px solid #d5dde1;
+  }
 }
 .page-news .general-right select {
   width: 150px;
