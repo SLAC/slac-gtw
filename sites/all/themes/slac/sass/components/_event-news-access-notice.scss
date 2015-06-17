@@ -72,10 +72,11 @@
   }
 
   .general-right {
-    margin-top: 0.5rem;
+    padding-top: 3.8rem;
 
-    .inside {
-      padding: 0;
+    div > .pane-title {
+      margin-top: 0;
+      line-height: 1;
     }
 
     h2 {
@@ -113,17 +114,45 @@
   }
 
   .general-left {
-    .panel-pane.pane-slac-ip-panes-email,
+    .pane-node-title {
+      margin-bottom: 1rem;
+    }
+
+    .pane-node-field-shared-byline {
+      width: 72%;
+      float: left;
+      margin-bottom: 0.625rem;
+      margin-right: 2rem;
+    }
+
+    .pane-slac-ip-panes-email,
     .pane-slac-ip-panes-print {
+      padding-top: 0.2rem;
+    }
+
+    > .inside {
       position: relative;
-      top: -30px;
-      float: right;
-      margin-right: 5.938rem
+    }
+
+    .pane-slac-ip-panes-email {
+      position: absolute;
+      right: 70px;
+
+      a {
+        padding-right: 1rem;
+      }
     }
 
     .pane-slac-ip-panes-print {
-      top: -1.875rem;
-      margin-right: -12.5rem;
+      position: absolute;
+      right: 10px;
+      padding-left: 1rem;
+      padding-right: 0;
+
+      a {
+        padding-right: 0;
+        margin-right: 0;
+      }
     }
 
     .field-name-field-shared-image {
@@ -139,13 +168,17 @@
       }
     }
 
-    .field-name-field-shared-byline,
-    .panel-pane.pane-node-created {
+    .pane-node-created {
       margin-bottom: 0.625rem;
+      margin-top: 2rem;
+      display: block;
+      clear: both;
     }
   }
 
   .general-right {
+    padding-top: 0;
+
     .pane-node-field-shared-image,
     .pane-node-field-shared-video {
       .field-item + .field-item {

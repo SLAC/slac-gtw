@@ -63,7 +63,7 @@
       var $searchContainer, $searchToggle;
       var $body = $('body');
       var mobileMenuClass = 'mobile-menu-open';
-      var mobileSearchClass= 'mobile-search-open';
+      var mobileSearchClass = 'mobile-search-open';
 
       function closeMobileMenu() {
         $menuToggle.add($mobileMenu).removeClass('active');
@@ -112,6 +112,45 @@
         else {
           $searchToggle.add($searchContainer).addClass('active');
           $body.addClass(mobileSearchClass);
+        }
+      });
+    }
+  };
+
+  /**
+   * Creates a Selectize widget from the tabs in My Content for display in
+   * mobile layouts.
+   */
+  Drupal.behaviors.myContentTabs = {
+    attach: function (context, settings) {
+      var options = [];
+      var items = [];
+
+      $('.page-my-content .tabs-primary li a', context).each(function () {
+        var thisLink = $(this).clone();
+
+        thisLink.children('.element-invisible').remove();
+
+        options.push({
+          value: thisLink.attr('href'),
+          text: thisLink.text().trim()
+        });
+        if (thisLink.is('.active')) {
+          items.push(thisLink.attr('href'));
+        }
+      });
+
+      $('<div class="tabs-mobile"/>').insertAfter('.page-my-content .tabs-primary').selectize({
+        openOnFocus: true,
+        maxItems: 1,
+        hideSelected: false,
+        closeAfterSelect: true,
+        allowEmptyOption: false,
+        lockOptgroupOrder: true,
+        options: options,
+        items: items,
+        onChange: function (value) {
+          window.location = value;
         }
       });
     }

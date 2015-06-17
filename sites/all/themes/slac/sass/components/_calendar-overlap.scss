@@ -189,7 +189,7 @@
 .calendar-calendar td.calendar-agenda-hour .calendar-ampm,
 .calendar-calendar .week-view .full div.calendar-agenda-hour span,
 .calendar-calendar .day-view .full div.calendar-agenda-hour span {
-  font-size: .8em;
+  @include font-size(14px);
   margin-right: 0px;
   padding-right: 0.2rem;
 }

@@ -366,7 +366,6 @@ header, .content-wrapper {
 .not-front #content {
   width: 100%;
   max-width: 1432px;
-  padding: 2.5rem 0 2rem;
   margin: auto;
   background: #fbf9f9;
 }
@@ -733,7 +732,6 @@ a:hover, a:active {
 
   .not-front #content {
     background-color: transparent;
-    padding-top: 50px;
   }
 
   .not-front.section-feedback #content {
@@ -791,15 +789,6 @@ a:hover, a:active {
     margin-left: 0;
     margin-right: 10px;
     background: url("../images/small-screen-search.png") no-repeat center 0;
-  }
-
-  .not-front #content > div,
-  .not-front #content > article {
-    width: 100%;
-    margin: 0;
-  }
-  .not-front #content > #page-title {
-    margin-left: 0;
   }
 
   /* mobile menu */

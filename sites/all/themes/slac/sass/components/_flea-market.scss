@@ -214,57 +214,74 @@
   }
 }
 
-.my-flea-market-nav {
-  @include breakpoint($tablet-large) {
-    width: 200px;
-    margin-top: 16px;
-    text-align: right;
-    float: right;
-    position: relative;
-    z-index: 30;
-  }
-
-  ul {
-    padding-left: 0;
-
-    li {
-      list-style: none;
-    }
-  }
-
-  span {
-    display: none;
-
+.page-flea-market {
+  .my-flea-market-nav {
     @include breakpoint($tablet-large) {
-      display: initial;
-    }
-  }
-
-  a {
-    display: block;
-    padding: .4rem .5rem;
-    background: darken($light-grey, 3%) url(../images/right-arrow.png) 98% .5rem no-repeat;
-    color: $blue;
-    text-decoration: none;
-    margin-bottom: .5rem;
-
-    @include breakpoint($tablet-large) {
-      background: darken($light-grey, 3%);
+      width: 200px;
+      text-align: right;
+      right: 0;
+      top: -46px;
+      position: absolute;
+      z-index: 30;
     }
 
-    &:hover,
-    &:focus {
-      background: lighten($grey, 10%) url(../images/right-arrow.png) 98% -1.75rem no-repeat;
-      color: $white;
+    ul {
+      padding-left: 0;
+
+      li {
+        list-style: none;
+      }
+    }
+
+    span {
+      display: none;
 
       @include breakpoint($tablet-large) {
-        background: lighten($grey, 10%);
+        display: initial;
+      }
+    }
+
+    a {
+      display: block;
+      padding: .4rem .5rem;
+      background: darken($light-grey, 3%) url(../images/right-arrow.png) 98% .5rem no-repeat;
+      color: $blue;
+      text-decoration: none;
+      margin-bottom: .5rem;
+
+      @include breakpoint($tablet-large) {
+        background: darken($light-grey, 3%);
+      }
+
+      &:hover,
+      &:focus {
+        background: lighten($grey, 10%) url(../images/right-arrow.png) 98% -1.75rem no-repeat;
+        color: $white;
+
+        @include breakpoint($tablet-large) {
+          background: lighten($grey, 10%);
+        }
       }
     }
   }
-}
 
-.page-flea-market {
+  .l-general-one-col {
+    margin-top: 0;
+
+    @include breakpoint($tablet-large) {
+      margin-top: 1.75rem;
+
+      .view-header {
+        width: 80%;
+        margin: 1.5rem 0;
+      }
+    }
+  }
+
+  .main-content > .inside {
+    position: relative;
+  }
+
   .title {
     padding-left: 1.25rem;
 
@@ -272,16 +289,6 @@
       @include zen-grid-item(6, 2);
       margin-top: 0;
       margin-bottom: 0;
-    }
-  }
-
-  table {
-    margin-bottom: 4rem;
-
-    td {
-      p {
-        margin: 0;
-      }
     }
   }
 
@@ -302,13 +309,19 @@
   .view-flea-market-listing {
     margin-bottom: 2rem;
 
-    @include breakpoint($tablet-large) {
-      padding-top: 4rem;
-    }
-
     p {
       margin-top: 0;
       margin-bottom: 1rem;
+    }
+  }
+
+  table {
+    margin-bottom: 4rem;
+
+    td {
+      p {
+        margin: 0;
+      }
     }
   }
 
@@ -333,9 +346,13 @@
       text-align: left;
       white-space: normal;
     }
+  }
+}
 
+@media all and (max-width: $tablet-large) {
+  .main-flea-market-list {
     table tr {
-      padding: 1rem 0.875rem;
+      padding: 1rem 0;
       border-bottom: 4px solid color(grey-blue);
 
       &.odd {
@@ -365,15 +382,6 @@
       content: '';
     }
 
-    .l-general-one-col {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    .my-flea-market-nav {
-      margin: 0 20px;
-    }
-
     .view-header {
       display: none;
     }
@@ -391,6 +399,74 @@
 
     .views-field-title {
       width: 100%;
+    }
+  }
+}
+
+// My Flea Market List - Responsive
+.page-flea-market-my-items {
+  &.logged-in {
+    .views-field-edit-node {
+      display: block;
+    }
+  }
+
+  .view-header {
+    display: block;
+    margin: 1.5rem 0;
+  }
+}
+
+@media all and (max-width: $tablet-large) {
+  .my-flea-market-list {
+    tr td {
+      font-weight: bold;
+
+      a {
+        font-weight: normal;
+      }
+    }
+
+    table tr {
+      border-bottom: 4px solid color(grey-blue);
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+
+      &.odd {
+        background: $white;
+      }
+
+      td {
+        padding: 0.4rem 0;
+      }
+    }
+
+    tr td:before {
+      @include font-size(14px);
+      color: $grey-labels;
+      display: block;
+      width: 120px;
+      float: left;
+      font-weight: normal;
+    }
+
+    .views-field-title {
+      width: calc(100% - 120px);
+      padding-left: 120px;
+      text-align: left;
+
+      &:before {
+        margin-left: -120px;
+      }
+    }
+
+    .views-field-state {
+      display: block;
+    }
+
+    .views-field-body,
+    .views-field-edit-node {
+      display: none;
     }
   }
 }

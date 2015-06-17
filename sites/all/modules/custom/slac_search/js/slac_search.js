@@ -18,13 +18,21 @@
         'enterprise': Drupal.t('Search SLAC Web')
       };
       var $searchInput = $('#slac-search-block-form .form-item-slac-search-block-form input');
+      var $body = $('body');
+      var searchDropdownClass = 'search-dropdown-active';
 
       $('#slac-search-block-form select', context).selectize({
         onChange: function(value) {
           $searchInput.attr('placeholder', placeholders[value]);
+        },
+        onDropdownOpen: function () {
+          $body.addClass(searchDropdownClass);
+        },
+        onDropdownClose: function () {
+          $body.removeClass(searchDropdownClass);
         }
       });
     }
   };
 
-})(jQuery);
+}(jQuery));

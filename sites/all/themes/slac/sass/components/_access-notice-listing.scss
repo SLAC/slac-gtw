@@ -1,28 +1,52 @@
 .page-access {
 
   .title {
-    @include move-page-title;
-    padding-left: 30px;
-    background: url(../images/access-notice-icon.svg) 0 6px no-repeat;
+    padding-left: 50px;
+    background: url(../images/access-notice-icon.svg) 20px 6px no-repeat;
+    margin-bottom: 0.5rem;
+
+    @include breakpoint($desktop) {
+      @include move-page-title;
+      padding-left: 50px;
+    }
 
     .lt-ie9 & {
-      background: url(../images/access-notice-icon.png) 0 6px no-repeat;
+      background: url(../images/access-notice-icon.png) 20px 6px no-repeat;
     }
   }
 
   .general-left {
-    margin-top: 3.5rem;
+    @include breakpoint($tablet-large) {
+      margin-top: 3.5rem;
+    }
   }
 
   .view-header {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+
+    @include breakpoint($tablet-large) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .pager {
+    padding-left: 0;
   }
 
   .general-right {
     padding-top: 1.6rem;
 
+    @media all and (max-width: $tablet-large) {
+      margin-bottom: 2rem;
+
+      .pane-title {
+        border-bottom: 3px solid color(grey-blue);
+      }
+    }
+
     .menu {
       padding-left: 2rem;
+
       li {
         list-style-type: disc;
       }
@@ -32,31 +56,81 @@
         padding: .2rem 0;
       }
     }
+
     .feed-icon {
       float: none;
       margin: 0;
-      margin-bottom: 4.5rem;
+      margin-bottom: 2rem;
+
+      @include breakpoint($tablet-large) {
+        margin-bottom: 4.5rem;
+      }
     }
   }
 }
+
 .view-access-notice-listing {
 
   .views-row {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
+    padding-left: 0;
     background: none;
+
+    @include breakpoint($tablet-large) {
+      margin-bottom: 1rem;
+    }
+
+    article {
+      border-bottom: 4px solid color(grey-blue);
+      padding-bottom: 1rem;
+
+      @include breakpoint($tablet-large) {
+        border: none;
+      }
+    }
+
+    &:last-child article {
+      border-bottom: none;
+    }
   }
 
   .field-name-field-shared-image {
-    @include float-left;
+    float: none;
+    margin-top: 1rem;
+
+    @include breakpoint($tablet-large) {
+      @include float-left;
+      margin-top: 0;
+    }
   }
 
   .node-title {
     @include node-title;
-    margin-bottom: .5rem;
+    margin-bottom: 0.2rem;
+
+    @include breakpoint($tablet-large) {
+      margin-bottom: 0.5rem;
+    }
   }
 
   .field-name-field-event-date {
-    float: left;
+    display: inline;
     margin-right: 10px;
+    font-weight: bold;
+
+    div,
+    a {
+      display: inline;
+    }
+  }
+
+  .access-notice-date a {
+    font-size: 0;
+    color: white;
+  }
+
+  .field-name-field-shared-location {
+    margin-top: 0.8rem;
+    font-weight: bold;
   }
 }
