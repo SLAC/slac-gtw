@@ -1,0 +1,23 @@
+.main-wrapper {
+  background: $white;
+
+  .front & {
+    background: $home-background;
+  }
+}
+
+.frontpage-weather {
+  display: none;
+
+  @include breakpoint($tablet-large) {
+    display: block;
+  }
+}
+
+.pane-top-links.desktop {
+  display: none;
+}
+
+.socials {
+  padding-left: 0;
+}

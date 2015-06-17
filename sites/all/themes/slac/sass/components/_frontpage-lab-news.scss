@@ -1,0 +1,52 @@
+.frontpage-news-list {
+  .pane-title a {
+    @include frontpage-news-headings;
+  }
+}
+
+.blue-bodered-white {
+  .pane-content {
+    padding: 0;
+  }
+  .views-row {
+    padding: 0.5rem;
+    background: $white url('../images/list-arrow-new.jpg') no-repeat right center;
+    margin-bottom: 1rem;
+
+    a {
+      @include font-size(16px);
+      line-height: 1.4;
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      padding-right: 3.75rem;
+
+      @include breakpoint($tablet-small) {
+        width: 92%;
+      }
+    }
+  }
+
+  .views-field-created .field-content {
+    color: darken($home-background, 20%);
+    font-weight: bold;
+    letter-spacing: 0.03rem;
+  }
+
+  .view-footer {
+    a {
+      @include font-size(14px);
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+      display: block;
+      background: $light-blue url('../images/mobile-menu-arrow.png') no-repeat 98% center;
+      color: $blue;
+      font-weight: bold;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+}

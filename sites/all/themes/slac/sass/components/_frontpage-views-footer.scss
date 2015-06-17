@@ -1,0 +1,13 @@
+.frontpage-calendar,
+.frontpage-access-info,
+.frontpage-help-market {
+  .view-footer {
+    @include view-footer;
+
+    .external {
+      @include font-size(14px);
+      background: none;
+      padding-left: 0;
+    }
+  }
+}
