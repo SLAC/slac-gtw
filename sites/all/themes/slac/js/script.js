@@ -63,7 +63,7 @@
       var $searchContainer, $searchToggle;
       var $body = $('body');
       var mobileMenuClass = 'mobile-menu-open';
-      var mobileSearchClass= 'mobile-search-open';
+      var mobileSearchClass = 'mobile-search-open';
 
       function closeMobileMenu() {
         $menuToggle.add($mobileMenu).removeClass('active');
