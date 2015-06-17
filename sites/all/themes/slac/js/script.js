@@ -127,8 +127,8 @@
     attach: function (context, settings) {
       $('.view-filters', context)
         .not('.view-id-search .view-filters')
-        .each(function (i, el) {
-          $(el).prepend('<a class="button-expand">Show Filters</a>')
+        .each(function (idx, element) {
+          $(element).prepend('<a class="button-expand">Show Filters</a>')
             .click(function (e) {
               var $clickTarget = $(e.target);
               if ($clickTarget.is('.button-expand')) {
