@@ -325,32 +325,4 @@
     }
   };
 
-  Drupal.behaviors.rearange_block = {
-    attach: function (context, settings) {
-      var cloned = $('.frontpage-left-col .frontpage-calendar, .frontpage-left-col .frontpage-access-info').hide();
-      var to_the_place = $('.frontpage-middle-col');
-
-      $(cloned).clone().appendTo($(to_the_place));
-
-      var blocks_rearange = function () {
-        if ($(window).width() < 620) {
-          $('.frontpage-middle-col .frontpage-calendar, .frontpage-middle-col .frontpage-access-info').css('padding-top', 15).show();
-          $('.frontpage-left-col .frontpage-calendar, .frontpage-left-col .frontpage-access-info').hide();
-        }
-        else {
-          $('.frontpage-middle-col .frontpage-calendar, .frontpage-middle-col .frontpage-access-info').hide();
-          $('.frontpage-left-col .frontpage-calendar, .frontpage-left-col .frontpage-access-info').show();
-        }
-      };
-
-      blocks_rearange();
-
-      try {
-        window.addEventListener('orientationchange', blocks_rearange);
-      } catch (ignore) {}
-
-      $(window).resize(blocks_rearange);
-    }
-  };
-
 }(jQuery, Drupal, window));
