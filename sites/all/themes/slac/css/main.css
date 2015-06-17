@@ -5453,6 +5453,23 @@ h1.title {
   }
 }
 
+@media (min-width: 20em) {
+  .page-my-content .tabs-primary {
+    display: none;
+  }
+  .page-my-content .tabs-mobile {
+    display: block;
+  }
+}
+@media (min-width: 40em) {
+  .page-my-content .tabs-primary {
+    display: block;
+  }
+  .page-my-content .tabs-mobile {
+    display: none;
+  }
+}
+
 .page-news #page-title {
   display: none;
 }
