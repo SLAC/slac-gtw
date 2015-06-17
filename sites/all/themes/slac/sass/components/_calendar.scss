@@ -11,11 +11,11 @@
   }
 }
 
-.js .section-calendar .view-filters {
+.js .page-calendar .view-filters {
   display: none;
 }
 
-.section-calendar {
+.page-calendar {
 
   #main {
     margin-top: 0;
@@ -27,16 +27,12 @@
 
   .tabs-primary {
     position: relative;
-    top: 165px;
+    top: 115px;
     border: none;
     width: 236px;
     margin-right: auto;
     margin-left: auto;
     z-index: 10;
-
-    @include breakpoint($tablet-large) {
-      top: 115px;
-    }
 
     @include breakpoint($desktop) {
       top: 165px;
@@ -177,7 +173,6 @@
   clear: both;
   font-style: normal;
   color: #555;
-  font-size: 0.8em;
 }
 
 // IE6 does not support min-height, using Min-Height fast hack from http://www.dustindiaz.com/min-height-fast-hack
@@ -246,7 +241,6 @@
 }
 
 .calendar-calendar div.title {
-  font-size:.8em;
   text-align: center;
 }
 
@@ -315,14 +309,6 @@ table .mini-day-on a {
   text-decoration: underline;
 }
 
-.calendar-calendar .mini .title {
-  font-size: .8em;
-}
-
-.mini .calendar-calendar .week {
-  font-size: .7em;
-}
-
 .mini-row {
   width: 100%;
   border: none;
@@ -383,7 +369,7 @@ table.calendar-legend tr.even .stripe {
 }
 
 .calendar-calendar td.calendar-agenda-hour .calendar-hour {
-  font-size: 1.2em;
+  @include font-size(14px);
   font-weight: bold;
 }
 
@@ -495,7 +481,11 @@ table.calendar-legend tr.even .stripe {
 // Use x-small instead of em to avoid multiplying effect in nested items.
 .calendar-calendar div.calendar {
   border: none;
-  font-size: x-small;
+  @include font-size(14px);
+
+  @include breakpoint($tablet-large) {
+    @include font-size(11px);
+  }
 }
 
 .calendar-calendar td .inner div.calendar div.calendar-more,
@@ -1041,7 +1031,7 @@ ul.calendar-links,
 
 // calendar for desktop
 @include breakpoint($desktop) {
-  .section-calendar .tabs-primary {
+  .page-calendar .tabs-primary {
     margin-right: 20px;
     padding-right: 0;
   }
@@ -1054,7 +1044,7 @@ ul.calendar-links,
 }
 
 @include breakpoint($calendar-full) {
-  .section-calendar .tabs-primary {
+  .page-calendar .tabs-primary {
     margin-right: 9.5%;
   }
 }
@@ -1080,9 +1070,7 @@ ul.calendar-links,
 }
 
 .calendar .time {
-  @include font-size(11px);
   display: block;
-  margin-bottom: .2rem;
   font-weight: bold;
 }
 
@@ -1125,7 +1113,6 @@ ul.calendar-links,
       width: 200px;
       position: relative;
       left: 0;
-      @include font-size(14px);
       color: lighten($dim-grey, 10%);
     }
   }

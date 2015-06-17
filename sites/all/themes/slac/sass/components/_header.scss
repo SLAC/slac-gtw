@@ -7,6 +7,41 @@ $zen-column-count: 12;
   @include zen-grid-container();
 }
 
+#content {
+  padding-top: 2.625rem;
+  padding-bottom: 2rem;
+
+  .page-calendar & {
+    margin-top: 0;
+  }
+
+  .events-calendar {
+    margin-top: -3.5rem;
+  }
+
+  @include breakpoint($tablet-large) {
+    padding-top: 3.25rem;
+
+    .page-calendar & {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .events-calendar {
+      margin-top: 0;
+    }
+  }
+}
+
+h1.title {
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+.l-general-one-col {
+  margin-top: 3.125rem;
+}
+
 #header {
   width: 100%;
   height: 52px;
