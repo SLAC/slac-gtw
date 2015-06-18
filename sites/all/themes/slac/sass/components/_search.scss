@@ -1,7 +1,3 @@
-.mobile-search-open #content {
-  margin-top: 6rem;
-}
-
 .page-search .title {
   @include font-size(18px);
   float: none;
@@ -18,6 +14,18 @@
 }
 
 @media all and (max-width: $tablet-large) {
+  .mobile-search-open #content {
+    margin-top: 6rem;
+  }
+
+  .search-dropdown-active #content {
+    margin-top: 10rem;
+  }
+
+  .search-dropdown-active #block-slac-search-form {
+    height: 175px;
+  }
+
   #block-slac-search-form {
     width: 100%;
     background: $light-blue;
@@ -31,7 +39,7 @@
       background-size: 18px 19px;
       display: block;
       width: 40px;
-      height: 27px;
+      height: 28px;
       font-size: 0;
       color: $blue;
       margin-left: 0;

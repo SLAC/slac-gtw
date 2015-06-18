@@ -5038,7 +5038,7 @@ h1.title {
   border-radius: 0;
   border-image: none;
   color: #9d9d9d;
-  padding: 4px 5em 6px 1em;
+  padding: 4px 5em 6px 4px;
   overflow: hidden;
   height: 27px;
 }
@@ -5736,10 +5736,6 @@ h1.title {
   padding-bottom: .1rem;
 }
 
-.mobile-search-open #content {
-  margin-top: 6rem;
-}
-
 .page-search .title {
   font-size: 18px;
   font-size: 1.125rem;
@@ -5771,6 +5767,18 @@ h1.title {
 }
 
 @media all and (max-width: 60em) {
+  .mobile-search-open #content {
+    margin-top: 6rem;
+  }
+
+  .search-dropdown-active #content {
+    margin-top: 10rem;
+  }
+
+  .search-dropdown-active #block-slac-search-form {
+    height: 175px;
+  }
+
   #block-slac-search-form {
     width: 100%;
     background: #e9f2f9;
@@ -5784,7 +5792,7 @@ h1.title {
     background-size: 18px 19px;
     display: block;
     width: 40px;
-    height: 27px;
+    height: 28px;
     font-size: 0;
     color: #316dae;
     margin-left: 0;
