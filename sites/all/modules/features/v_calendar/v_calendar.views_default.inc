@@ -211,7 +211,6 @@ function v_calendar_views_default_views() {
     7 => 0,
     3 => 0,
   );
-  $handler->display->display_options['filters']['type']['expose']['reduce'] = TRUE;
 
   /* Display: Day */
   $handler = $view->new_display('page', 'Day', 'calendar_day_view');
