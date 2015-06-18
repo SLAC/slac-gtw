@@ -454,8 +454,10 @@ function slac_ip_content_admin_views_default_views() {
     3 => 0,
   );
 
-  /* Display: Summary */
-  $handler = $view->new_display('system', 'Summary', 'system_1');
+  /* Display: All Content */
+  $handler = $view->new_display('system', 'All Content', 'system_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'All Content';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['hide_admin_links'] = TRUE;
   $handler->display->display_options['defaults']['access'] = FALSE;

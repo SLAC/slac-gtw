@@ -11,7 +11,11 @@ include_once 'slac_ip_content_admin.features.inc';
  *
  * Alters the webform admin listing menu item so that it will not appear as a
  * local task, but will still be in the Content menu.
+ *
+ * Alters the tab for 'Content' to reflect that it is for 'All Content'.
  */
 function slac_ip_content_admin_menu_alter(&$items) {
   $items['admin/content/webform']['type'] = MENU_NORMAL_ITEM;
+
+  $items['admin/content/node']['title'] = t('All Content');
 }
