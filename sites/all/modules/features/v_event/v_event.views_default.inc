@@ -137,14 +137,15 @@ function v_event_views_default_views() {
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_event_date_1], [field_shared_location]';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Field: Global: Custom text */
+  /* Field: ical Link (Global: Custom text) */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
   $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['ui_name'] = 'ical Link (Global: Custom text)';
   $handler->display->display_options['fields']['nothing_1']['label'] = '';
   $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<img src="/sites/all/themes/slac/images/calendar-icon-gray.png" />';
   $handler->display->display_options['fields']['nothing_1']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['nothing_1']['alter']['path'] = 'node/[nid]/ical';
+  $handler->display->display_options['fields']['nothing_1']['alter']['path'] = 'node/[nid]/ical.ics';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing_2']['id'] = 'nothing_2';
@@ -244,7 +245,7 @@ URL: [nothing_3] \\n';
     'event' => 'event',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  $handler->display->display_options['path'] = 'node/%/ical';
+  $handler->display->display_options['path'] = 'node/%/ical.ics';
   $export['calendar'] = $view;
 
   return $export;
