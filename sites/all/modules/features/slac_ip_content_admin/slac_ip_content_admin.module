@@ -5,3 +5,13 @@
  */
 
 include_once 'slac_ip_content_admin.features.inc';
+
+/**
+ * Implements hook_menu_alter().
+ *
+ * Alters the webform admin listing menu item so that it will not appear as a
+ * local task, but will still be in the Content menu.
+ */
+function slac_ip_content_admin_menu_alter(&$items) {
+  $items['admin/content/webform']['type'] = MENU_NORMAL_ITEM;
+}

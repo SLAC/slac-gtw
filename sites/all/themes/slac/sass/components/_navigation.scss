@@ -243,3 +243,27 @@
     }
   }
 }
+
+
+// Hide the My Content drop down navigation on all but mobile.
+.page-my-content {
+  @include breakpoint($mobile) {
+    .tabs-primary {
+      display: none;
+    }
+
+    .tabs-mobile {
+      display: block;
+    }
+  }
+
+  @include breakpoint($tablet-small) {
+    .tabs-primary {
+      display: block;
+    }
+
+    .tabs-mobile {
+      display: none;
+    }
+  }
+}
