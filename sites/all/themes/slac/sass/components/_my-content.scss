@@ -1,4 +1,5 @@
 .view-my-content {
+
   @media all and (max-width: $tablet-large) {
   .view-filters {
     margin-top: 1rem;
@@ -164,6 +165,126 @@
 
       &:before {
         margin-left: -120px;
+      }
+    }
+  }
+}
+
+// Desktop styles start here
+@include breakpoint($tablet-large) {
+  .page-my-content {
+    .view-filters {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border: 3px solid lighten($grey, 50%);
+      background: lighten($grey, 57%);
+
+      .views-exposed-widget {
+        padding-right: 0.4rem;
+      }
+
+      .form-type-date-popup {
+        @include clearfix;
+        width: 350px;
+      }
+
+      .form-item-date-filter-max-date,
+      .form-item-date-filter-min-date,
+      #edit-date-filter-max-wrapper,
+      #edit-date-filter-min-wrapper {
+        float: left;
+        width: 120px;
+
+        input {
+          width: 112px;
+        }
+      }
+
+      .form-item-date-filter-min-date,
+      #edit-date-filter-min-wrapper {
+        margin-right: 0.4rem;
+      }
+
+      .views-widget-filter-title {
+        width: 150px;
+
+        input {
+          width: 134px;
+          margin-right: 0.5rem;
+          margin-top: 1px;
+          height: 20px;
+        }
+      }
+
+      .form-submit {
+        margin-top: 1.5rem;
+      }
+    }
+
+    .tabs-primary {
+
+      li {
+        border-radius: 0;
+        margin: 0 0.5rem 0 0.5rem;
+        margin-bottom: -2px;
+
+        a {
+          background: $grey-primary-tabs;
+          padding: 0.3rem 1rem;
+          border-radius: 0;
+          border: none;
+          text-shadow: none;
+          color: $blue;
+
+          &:hover,
+          &:focus {
+            background: $white;
+          }
+        }
+
+        &.is-active a {
+          background: $white;
+          border-bottom: 1px solid $white;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint($desktop) {
+  .page-my-content {
+    .view-filters {
+
+      .views-exposed-widget {
+        padding-right: 1rem;
+      }
+
+      .views-widget-filter-title {
+        width: 250px;
+
+        input {
+          width: 234px;
+          margin-right: 0.5rem;
+          margin-top: 1px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint($calendar-full) {
+  .page-my-content {
+    .view-filters {
+      .views-widget-filter-title {
+        width: 300px;
+
+        input {
+          width: 280px;
+          margin-right: 0.5rem;
+          margin-top: 1px;
+          height: 20px;
+        }
       }
     }
   }

@@ -8,8 +8,16 @@ $zen-column-count: 12;
   padding: 0;
 }
 
-.content-container {
+.view-my-content,
+.page-my-content .tabs-primary,
+.page-my-content h1.title {
   @include zen-grid-item(12, 1);
+  float: none;
+
+  @include breakpoint($calendar-full) {
+    @include zen-grid-item(10, 2);
+    float: none;
+  }
 }
 
 .main-navigation {

@@ -375,7 +375,9 @@ table th.active {
   padding: 0;
 }
 
-.content-container {
+.view-my-content,
+.page-my-content .tabs-primary,
+.page-my-content h1.title {
   float: left;
   width: 100%;
   margin-left: 0%;
@@ -387,6 +389,25 @@ table th.active {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   word-wrap: break-word;
+  float: none;
+}
+@media (min-width: 85em) {
+  .view-my-content,
+  .page-my-content .tabs-primary,
+  .page-my-content h1.title {
+    float: left;
+    width: 83.33333%;
+    margin-left: 8.33333%;
+    margin-right: -91.66667%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    float: none;
+  }
 }
 
 .main-navigation .region-navigation {
@@ -977,7 +998,7 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 .page-calendar .tabs-primary li {
   border-radius: 0;
   background: #ffffff;
-  border: 1px solid #DADADA;
+  border: 1px solid #dadada;
   margin: 0;
   margin-left: -1px;
 }
@@ -4773,7 +4794,7 @@ fieldset.collapsed {
   font-size: 12px;
   font-size: 0.75rem;
   color: #ffffff;
-  background: #9A9A9A;
+  background: #9a9a9a;
   margin: 0;
   overflow: hidden;
 }
@@ -4843,7 +4864,7 @@ fieldset.collapsed {
 }
 .footer-wrapper .footer-logos span {
   font-size: 0;
-  color: #9A9A9A;
+  color: #9a9a9a;
 }
 .footer-wrapper .footer-logos .stanford-u {
   display: inline-block;
@@ -4873,7 +4894,7 @@ fieldset.collapsed {
 }
 @media (min-width: 60em) {
   .footer-wrapper {
-    background: #DADADA;
+    background: #dadada;
     color: #828282;
   }
   .footer-wrapper .region-footer {
@@ -5455,6 +5476,99 @@ h1.title {
   }
 }
 
+@media (min-width: 60em) {
+  .page-my-content .view-filters {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 3px solid #eaeaea;
+    background: #fbfbfb;
+  }
+  .page-my-content .view-filters .views-exposed-widget {
+    padding-right: 0.4rem;
+  }
+  .page-my-content .view-filters .form-type-date-popup {
+    width: 350px;
+  }
+  .page-my-content .view-filters .form-type-date-popup:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .page-my-content .view-filters .form-item-date-filter-max-date,
+  .page-my-content .view-filters .form-item-date-filter-min-date,
+  .page-my-content .view-filters #edit-date-filter-max-wrapper,
+  .page-my-content .view-filters #edit-date-filter-min-wrapper {
+    float: left;
+    width: 120px;
+  }
+  .page-my-content .view-filters .form-item-date-filter-max-date input,
+  .page-my-content .view-filters .form-item-date-filter-min-date input,
+  .page-my-content .view-filters #edit-date-filter-max-wrapper input,
+  .page-my-content .view-filters #edit-date-filter-min-wrapper input {
+    width: 112px;
+  }
+  .page-my-content .view-filters .form-item-date-filter-min-date,
+  .page-my-content .view-filters #edit-date-filter-min-wrapper {
+    margin-right: 0.4rem;
+  }
+  .page-my-content .view-filters .views-widget-filter-title {
+    width: 150px;
+  }
+  .page-my-content .view-filters .views-widget-filter-title input {
+    width: 134px;
+    margin-right: 0.5rem;
+    margin-top: 1px;
+    height: 20px;
+  }
+  .page-my-content .view-filters .form-submit {
+    margin-top: 1.5rem;
+  }
+  .page-my-content .tabs-primary li {
+    border-radius: 0;
+    margin: 0 0.5rem 0 0.5rem;
+    margin-bottom: -2px;
+  }
+  .page-my-content .tabs-primary li a {
+    background: #eee;
+    padding: 0.3rem 1rem;
+    border-radius: 0;
+    border: none;
+    text-shadow: none;
+    color: #316dae;
+  }
+  .page-my-content .tabs-primary li a:hover, .page-my-content .tabs-primary li a:focus {
+    background: #ffffff;
+  }
+  .page-my-content .tabs-primary li.is-active a {
+    background: #ffffff;
+    border-bottom: 1px solid #ffffff;
+  }
+}
+@media (min-width: 70em) {
+  .page-my-content .view-filters .views-exposed-widget {
+    padding-right: 1rem;
+  }
+  .page-my-content .view-filters .views-widget-filter-title {
+    width: 250px;
+  }
+  .page-my-content .view-filters .views-widget-filter-title input {
+    width: 234px;
+    margin-right: 0.5rem;
+    margin-top: 1px;
+    height: 20px;
+  }
+}
+@media (min-width: 85em) {
+  .page-my-content .view-filters .views-widget-filter-title {
+    width: 300px;
+  }
+  .page-my-content .view-filters .views-widget-filter-title input {
+    width: 280px;
+    margin-right: 0.5rem;
+    margin-top: 1px;
+    height: 20px;
+  }
+}
 @media all and (max-width: 60em) {
   #main {
     background: #ffffff;
