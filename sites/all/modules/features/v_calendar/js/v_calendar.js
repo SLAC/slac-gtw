@@ -117,6 +117,7 @@
         hideSelected: false,
         closeAfterSelect: false,
         allowEmptyOption: true,
+        selectOnTab: true,
         lockOptgroupOrder: true,
         options: optionsCombined,
         items: optionsItems,
@@ -263,6 +264,21 @@
       // handled in the render, or onChange callback functions.
       updateSelectizeDisplay($selectize.val());
 
+      // Open the dropdown control when the input area is clicked as well.
+      $selectizeInput.find('div, input').click(function (e) {
+        selectizeControl.open();
+      });
+
+      // Workaround for the dropdown being empty the first time the input area
+      // is clicked, hide it, then open the dropdown while it is hidden, then
+      // after this function is done, close it and un-hide.
+      selectizeControl.$dropdown_content.hide();
+      selectizeControl.open();
+      setTimeout(function () {
+        selectizeControl.close();
+        selectizeControl.$dropdown_content.show();
+      });
+
       // Set the initial state of the custom checkbox based on the state of the
       // view filter.
       if ($accessSelect.val() === 'All') {
@@ -275,8 +291,8 @@
       // Add checkbox toggle for the "Show Access Notices" filter above the view
       // header.
       $viewForm.parents('.view-id-calendar_view')
-          .find('.view-header')
-          .before($showAccessElements);
+        .find('.view-header')
+        .before($showAccessElements);
 
       // Update the filter when the checkbox is toggled.
       $showAccessInput.click(function () {

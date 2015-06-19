@@ -4207,15 +4207,6 @@ div.date-views-pager div.next-year {
   color: red;
 }
 
-.pane-node-created {
-  font-weight: bold;
-}
-.pane-node-created:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .page-breadcrumb {
   font-size: 24px;
   font-size: 1.5rem;
@@ -4277,7 +4268,7 @@ div.date-views-pager div.next-year {
   }
 }
 .node-type-flea-market-post .pane-slac-ip-node-author .pane-title {
-  margin-right: .4rem;
+  margin-right: 0.4rem;
 }
 .node-type-flea-market-post .pane-slac-ip-panes-print {
   top: 48px;
@@ -4465,8 +4456,13 @@ div.date-views-pager div.next-year {
     margin-top: 1.75rem;
   }
   .page-flea-market .l-general-one-col .view-header {
-    width: 80%;
+    width: 70%;
     margin: 1.5rem 0;
+  }
+}
+@media (min-width: 70em) {
+  .page-flea-market .l-general-one-col .view-header {
+    width: 75%;
   }
 }
 .page-flea-market .main-content > .inside {
@@ -4495,6 +4491,10 @@ div.date-views-pager div.next-year {
 .page-flea-market .views-field-changed {
   min-width: 120px;
   font-weight: bold;
+  color: #2f2f2f;
+}
+.page-flea-market .views-field-changed .date-updated-time {
+  font-weight: normal;
 }
 .page-flea-market .views-field-field-flea-market-item-type {
   min-width: 100px;
@@ -4570,8 +4570,18 @@ div.date-views-pager div.next-year {
   }
   .main-flea-market-list .views-field-changed {
     font-weight: normal;
-    color: #999999;
   }
+  .main-flea-market-list .date-updated-time {
+    display: none;
+  }
+}
+@media all and (max-width: 60em) and (min-width: 60em) {
+  .main-flea-market-list .date-updated-time {
+    display: block;
+    font-weight: normal;
+  }
+}
+@media all and (max-width: 60em) {
   .main-flea-market-list .views-field-title {
     width: 100%;
   }
@@ -4625,6 +4635,9 @@ div.date-views-pager div.next-year {
   .my-flea-market-list .views-field-body,
   .my-flea-market-list .views-field-edit-node {
     display: none;
+  }
+  .my-flea-market-list .date-updated-time {
+    font-weight: normal;
   }
 }
 select {
@@ -5025,7 +5038,7 @@ h1.title {
   border-radius: 0;
   border-image: none;
   color: #9d9d9d;
-  padding: 4px 5em 6px 1em;
+  padding: 4px 80px 6px 4px;
   overflow: hidden;
   height: 27px;
 }
@@ -5102,16 +5115,16 @@ h1.title {
 }
 .general-left .calendar-button a {
   background: url("../images/icons-cal-mail-print.png") 0 -16px no-repeat;
-  background-size: 16px 46px;
+  background-size: 16px 48px;
 }
 .general-left .email-button a {
   background: url("../images/icons-cal-mail-print.png") 0 2px no-repeat;
-  background-size: 16px 46px;
+  background-size: 16px 48px;
 }
 .general-left .js-print-button a {
   border: none;
   background: url("../images/icons-cal-mail-print.png") 0 -32px no-repeat;
-  background-size: 16px 46px;
+  background-size: 16px 48px;
 }
 
 .general-left ul,
@@ -5723,10 +5736,6 @@ h1.title {
   padding-bottom: .1rem;
 }
 
-.mobile-search-open #content {
-  margin-top: 6rem;
-}
-
 .page-search .title {
   font-size: 18px;
   font-size: 1.125rem;
@@ -5758,6 +5767,18 @@ h1.title {
 }
 
 @media all and (max-width: 60em) {
+  .mobile-search-open #content {
+    margin-top: 6rem;
+  }
+
+  .search-dropdown-active #content {
+    margin-top: 10rem;
+  }
+
+  .search-dropdown-active #block-slac-search-form {
+    height: 175px;
+  }
+
   #block-slac-search-form {
     width: 100%;
     background: #e9f2f9;
@@ -5771,7 +5792,7 @@ h1.title {
     background-size: 18px 19px;
     display: block;
     width: 40px;
-    height: 27px;
+    height: 28px;
     font-size: 0;
     color: #316dae;
     margin-left: 0;
@@ -6217,6 +6238,10 @@ h1.title {
     display: none;
   }
   .view-filters.expanded form {
+    display: block;
+  }
+
+  .view-id-search .view-filters form {
     display: block;
   }
 }

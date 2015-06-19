@@ -101,7 +101,7 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<img src="/sites/all/themes/slac/images/calendar-icon-gray.png" />';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]/ical';
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]/ical.ics';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -211,7 +211,6 @@ function v_calendar_views_default_views() {
     7 => 0,
     3 => 0,
   );
-  $handler->display->display_options['filters']['type']['expose']['reduce'] = TRUE;
 
   /* Display: Day */
   $handler = $view->new_display('page', 'Day', 'calendar_day_view');
