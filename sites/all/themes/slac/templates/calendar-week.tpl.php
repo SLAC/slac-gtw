@@ -23,6 +23,7 @@
  * $max_date_formatted: The maximum date for this calendar in the format YYYY-MM-DD HH:MM:SS.
  * 
  */
+
 $index = 0;
 $header_ids = array();
 foreach ($day_names as $key => $value) {
@@ -30,7 +31,6 @@ foreach ($day_names as $key => $value) {
 }
 $today = new DateTime(date('Y-m-d'));
 $today_day_col = $today->format('w');
-
 ?>
 <div class="calendar-calendar"><div class="week-view">
 <table class="full">
@@ -54,18 +54,18 @@ $today_day_col = $today->format('w');
       <?php
         $cell_titles = array();
         $week_day = new DateTime($view->date_info->min_date);
+        $week_last_day = new DateTime($view->date_info->max_date);
         $one_day = new DateInterval('P1D');
+        $is_current_week = ($week_day <= $today && $today <= $week_last_day);
       ?>
       <?php for ($i = 0; $i < 7; $i++): ?>
       <?php
         $date_day = $week_day->format('j');
         $cell_titles[$i] = strtoupper($week_day->format('D')) . $week_day->format(' M j');
 
-        if ($i == $today_day_col) {
+        $cell_class = '';
+        if ($is_current_week && $i == $today_day_col) {
           $cell_class = 'today';
-        }
-        else {
-          $cell_class = '';
         }
 
         $week_day->add($one_day);
@@ -87,7 +87,9 @@ $today_day_col = $today->format('w');
     <?php foreach ($day_containers as $index => $day_container): ?>
       <?php
       $cell_class = ($index == 0 || $index == 6) ? ' weekend' : '';
-      $cell_class .= ($today_day_col == $index) ? ' today' : '';
+      if ($is_current_week) {
+        $cell_class .= ($today_day_col == $index) ? ' today' : '';
+      }
       ?>
       <td class="calendar-agenda-items single-day<?php print $cell_class; ?> " data-title="<?php print $cell_titles[$index]; ?>" headers="<?php print $header_ids[$index] ?>">
         <div class="calendar">

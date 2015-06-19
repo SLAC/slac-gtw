@@ -16,6 +16,13 @@
       }
     }
   }
+
+  // The advanced search filters are always displayed.
+  .view-id-search .view-filters {
+    form {
+      display: block;
+    }
+  }
 }
 
 @include breakpoint($tablet-small) {
