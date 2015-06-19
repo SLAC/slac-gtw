@@ -1,0 +1,170 @@
+.view-my-content {
+  @media all and (max-width: $tablet-large) {
+  .view-filters {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: 3px solid lighten($grey, 50%);
+    background: lighten($grey, 57%);
+
+    &.collapsed {
+      background: transparent;
+      border: none;
+    }
+
+    .views-widget-filter-date_filter,
+    .views-widget-filter-title,
+    .views-widget-filter-type,
+    .views-widget-filter-state {
+      display: block;
+      float: none;
+    }
+
+    .form-item-title input {
+      max-width: 245px;
+    }
+
+    .button-expand {
+      display: block;
+      margin-left: 3px;
+      line-height: 1;
+      height: 16px;
+      font-weight: bold;
+      color: $blue;
+
+      &:after {
+        content: "+";
+        float: right;
+        border-radius: 50%;
+        border: 3px solid $blue;
+        height: 16px;
+        width: 16px;
+        text-align: center;
+        vertical-align: middle;
+        margin-top: -2px;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      @include breakpoint($tablet-large) {
+        color: $grey;
+        margin-left: 0;
+      }
+    }
+
+    &.expanded .button-expand {
+      &:after {
+        content: "-";
+      }
+    }
+  }
+  }
+
+  @media all and (min-width: $tablet-small) and (max-width: $tablet-large) {
+    .form-item-title input {
+      max-width: 480px;
+    }
+  }
+
+  @include breakpoint($tablet-large) {
+    .view-filters {
+      width: 800px;
+    }
+  }
+
+  // Responsive Tables
+  // http://blog.apps.npr.org/2014/05/09/responsive-data-tables.html
+  @media all and (max-width: $tablet-large) {
+    table,
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+      display: none;
+    }
+
+    table tr,
+    table th,
+    table td {
+      display: block;
+      padding: 0;
+      text-align: left;
+      white-space: normal;
+    }
+
+    table th[data-title]:before,
+    table td[data-title]:before {
+        content: attr(data-title) ":\00A0";
+    }
+
+    table tr {
+      padding: 1rem 0;
+      border-bottom: 4px solid color(grey-blue);
+
+      &.odd {
+        background: $white;
+      }
+    }
+
+    table td {
+      border: none;
+      margin-bottom: 6px;
+    }
+
+    table td:empty {
+      display: none;
+    }
+
+    table td:first-child {
+      margin-bottom: 6px;
+    }
+
+    table td:first-child:before {
+      content: '';
+    }
+
+    tr td {
+      font-weight: bold;
+
+      a {
+        font-weight: normal;
+      }
+    }
+
+    table tr {
+      border-bottom: 4px solid color(grey-blue);
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+
+      &.odd {
+        background: $white;
+      }
+
+      td {
+        padding: 0.4rem 0;
+      }
+    }
+
+    tr td:before {
+      @include font-size(14px);
+      color: $grey-labels;
+      display: block;
+      width: 120px;
+      float: left;
+      font-weight: normal;
+    }
+
+    .views-field-title {
+      width: calc(100% - 120px);
+      padding-left: 120px;
+      text-align: left;
+
+      &:before {
+        margin-left: -120px;
+      }
+    }
+  }
+}

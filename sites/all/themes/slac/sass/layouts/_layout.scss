@@ -8,6 +8,10 @@ $zen-column-count: 12;
   padding: 0;
 }
 
+.content-container {
+  @include zen-grid-item(12, 1);
+}
+
 .main-navigation {
 
   .region-navigation {

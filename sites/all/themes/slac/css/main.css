@@ -375,6 +375,20 @@ table th.active {
   padding: 0;
 }
 
+.content-container {
+  float: left;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: -100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
 .main-navigation .region-navigation {
   float: left;
   width: 83.33333%;
@@ -2902,71 +2916,144 @@ ul.calendar-links,
   height: 3px;
 }
 
-.events-calendar .selectize-control .selectize-input {
+.events-calendar .selectize-control .selectize-input,
+.events-calendar .selectize-control.my-content-dropdown.single .selectize-input,
+.page-my-content .selectize-control .selectize-input,
+.page-my-content .selectize-control.my-content-dropdown.single .selectize-input {
   cursor: pointer;
   border: 3px solid #d5dde1;
   font-weight: bold;
   padding: .3rem;
   background: url(../images/down-arrow.png) 95% 12px no-repeat;
 }
-.events-calendar .selectize-control .selectize-input:hover, .events-calendar .selectize-control .selectize-input.focus {
+.events-calendar .selectize-control .selectize-input:hover, .events-calendar .selectize-control .selectize-input:focus,
+.events-calendar .selectize-control.my-content-dropdown.single .selectize-input:hover,
+.events-calendar .selectize-control.my-content-dropdown.single .selectize-input:focus,
+.page-my-content .selectize-control .selectize-input:hover,
+.page-my-content .selectize-control .selectize-input:focus,
+.page-my-content .selectize-control.my-content-dropdown.single .selectize-input:hover,
+.page-my-content .selectize-control.my-content-dropdown.single .selectize-input:focus {
   border-color: #849ba6;
 }
-.events-calendar .selectize-control .selectize-input:hover .selectize-dropdown-content, .events-calendar .selectize-control .selectize-input.focus .selectize-dropdown-content {
+.events-calendar .selectize-control .selectize-input:hover .selectize-dropdown-content, .events-calendar .selectize-control .selectize-input:focus .selectize-dropdown-content,
+.events-calendar .selectize-control.my-content-dropdown.single .selectize-input:hover .selectize-dropdown-content,
+.events-calendar .selectize-control.my-content-dropdown.single .selectize-input:focus .selectize-dropdown-content,
+.page-my-content .selectize-control .selectize-input:hover .selectize-dropdown-content,
+.page-my-content .selectize-control .selectize-input:focus .selectize-dropdown-content,
+.page-my-content .selectize-control.my-content-dropdown.single .selectize-input:hover .selectize-dropdown-content,
+.page-my-content .selectize-control.my-content-dropdown.single .selectize-input:focus .selectize-dropdown-content {
   border: 3px solid #d5dde1;
 }
-.events-calendar .selectize-control.multi .selectize-input > div {
+.events-calendar .selectize-control.multi .selectize-input > div,
+.events-calendar .selectize-control.my-content-dropdown.single.multi .selectize-input > div,
+.page-my-content .selectize-control.multi .selectize-input > div,
+.page-my-content .selectize-control.my-content-dropdown.single.multi .selectize-input > div {
   background: none;
   border: none;
   margin: 0;
 }
-.events-calendar .selectize-control.multi .selectize-input > div.active {
+.events-calendar .selectize-control.multi .selectize-input > div.active,
+.events-calendar .selectize-control.my-content-dropdown.single.multi .selectize-input > div.active,
+.page-my-content .selectize-control.multi .selectize-input > div.active,
+.page-my-content .selectize-control.my-content-dropdown.single.multi .selectize-input > div.active {
   background: none;
 }
-.events-calendar .selectize-control.multi .selectize-input > div[data-value] {
+.events-calendar .selectize-control.multi .selectize-input > div[data-value],
+.events-calendar .selectize-control.my-content-dropdown.single.multi .selectize-input > div[data-value],
+.page-my-content .selectize-control.multi .selectize-input > div[data-value],
+.page-my-content .selectize-control.my-content-dropdown.single.multi .selectize-input > div[data-value] {
   display: none;
 }
 @media (min-width: 40em) {
-  .events-calendar .selectize-control {
+  .events-calendar .selectize-control,
+  .events-calendar .selectize-control.my-content-dropdown.single,
+  .page-my-content .selectize-control,
+  .page-my-content .selectize-control.my-content-dropdown.single {
     width: 250px;
   }
 }
-.events-calendar .selectize-dropdown-content {
+.events-calendar .selectize-dropdown-content,
+.page-my-content .selectize-dropdown-content {
   border: 3px solid #d5dde1;
   border-top: none;
   max-height: 620px;
 }
-.events-calendar .selectize-dropdown-content:hover {
+.events-calendar .selectize-dropdown-content:hover,
+.page-my-content .selectize-dropdown-content:hover {
   border-color: #849ba6;
 }
-.events-calendar .selectize-dropdown {
+.events-calendar .selectize-dropdown,
+.page-my-content .selectize-dropdown {
   font-weight: bold;
 }
-.events-calendar .selectize-dropdown .option {
+.events-calendar .selectize-dropdown .option,
+.page-my-content .selectize-dropdown .option {
   color: #849ba6;
   font-weight: bold;
   background: #ffffff;
 }
-.events-calendar .selectize-dropdown .option:before {
+.events-calendar .selectize-dropdown .option:before,
+.page-my-content .selectize-dropdown .option:before {
   content: "\25A1";
   font-size: 26px;
   font-size: 1.625rem;
   margin-right: 6px;
 }
-.events-calendar .selectize-dropdown .option:hover {
+.events-calendar .selectize-dropdown .option:hover,
+.page-my-content .selectize-dropdown .option:hover {
   background: #e6e6e6;
 }
-.events-calendar .selectize-dropdown .option.selected:before {
+.events-calendar .selectize-dropdown .option.selected:before,
+.page-my-content .selectize-dropdown .option.selected:before {
   content: "\2611";
   font-size: 22px;
   font-size: 1.375rem;
   margin-right: 4px;
 }
-.events-calendar .selectize-dropdown .selected {
+.events-calendar .selectize-dropdown .selected,
+.page-my-content .selectize-dropdown .selected {
   background: #e6e6e6 !important;
 }
-.events-calendar .selectize-dropdown:hover {
+.events-calendar .selectize-dropdown:hover,
+.page-my-content .selectize-dropdown:hover {
   background: #ffffff;
+}
+
+.selectize-control.my-content-dropdown.single .selectize-input {
+  width: 280px;
+}
+.selectize-control.my-content-dropdown.single .selectize-input:hover, .selectize-control.my-content-dropdown.single .selectize-input:focus {
+  width: 280px;
+  border-color: #d5dde1 !important;
+  background: url(../images/down-arrow.png) 95% 12px no-repeat;
+}
+.selectize-control.my-content-dropdown.single .selectize-dropdown-content {
+  max-height: 320px;
+}
+.selectize-control.my-content-dropdown.single .selectize-dropdown-content:hover {
+  border-color: #d5dde1;
+}
+.selectize-control.my-content-dropdown.single .selectize-dropdown .option {
+  color: #6c676c;
+}
+.selectize-control.my-content-dropdown.single .selectize-dropdown .option:hover {
+  background: #e6e6e6;
+}
+.selectize-control.my-content-dropdown.single .selectize-dropdown .selected {
+  background: #e6e6e6 !important;
+}
+.selectize-control.my-content-dropdown.single .selectize-dropdown:hover {
+  background: #ffffff;
+}
+.selectize-control.my-content-dropdown.single .selectize-dropdown .option:before {
+  content: "";
+  margin-right: 0;
+}
+.selectize-control.my-content-dropdown.single .selectize-dropdown .option:hover {
+  background: #e6e6e6;
+}
+.selectize-control.my-content-dropdown.single .selectize-dropdown .option.selected:before {
+  content: "";
 }
 
 .events-calendar .type-access_information,
@@ -5224,6 +5311,148 @@ h1.title {
 .view-events-by-term .field-type-text .field-item,
 .view-content-taxonomy-listing .field-type-text .field-item {
   margin-top: .5rem;
+}
+
+@media all and (max-width: 60em) {
+  .view-my-content .view-filters {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: 3px solid #eaeaea;
+    background: #fbfbfb;
+  }
+  .view-my-content .view-filters.collapsed {
+    background: transparent;
+    border: none;
+  }
+  .view-my-content .view-filters .views-widget-filter-date_filter,
+  .view-my-content .view-filters .views-widget-filter-title,
+  .view-my-content .view-filters .views-widget-filter-type,
+  .view-my-content .view-filters .views-widget-filter-state {
+    display: block;
+    float: none;
+  }
+  .view-my-content .view-filters .form-item-title input {
+    max-width: 245px;
+  }
+  .view-my-content .view-filters .button-expand {
+    display: block;
+    margin-left: 3px;
+    line-height: 1;
+    height: 16px;
+    font-weight: bold;
+    color: #316dae;
+  }
+  .view-my-content .view-filters .button-expand:after {
+    content: "+";
+    float: right;
+    border-radius: 50%;
+    border: 3px solid #316dae;
+    height: 16px;
+    width: 16px;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: -2px;
+  }
+  .view-my-content .view-filters .button-expand:hover {
+    text-decoration: none;
+  }
+}
+@media all and (max-width: 60em) and (min-width: 60em) {
+  .view-my-content .view-filters .button-expand {
+    color: #6a6a6a;
+    margin-left: 0;
+  }
+}
+@media all and (max-width: 60em) {
+  .view-my-content .view-filters.expanded .button-expand:after {
+    content: "-";
+  }
+}
+@media all and (min-width: 40em) and (max-width: 60em) {
+  .view-my-content .form-item-title input {
+    max-width: 480px;
+  }
+}
+@media (min-width: 60em) {
+  .view-my-content .view-filters {
+    width: 800px;
+  }
+}
+@media all and (max-width: 60em) {
+  .view-my-content table,
+  .view-my-content tbody {
+    display: block;
+    width: 100%;
+  }
+  .view-my-content thead {
+    display: none;
+  }
+  .view-my-content table tr,
+  .view-my-content table th,
+  .view-my-content table td {
+    display: block;
+    padding: 0;
+    text-align: left;
+    white-space: normal;
+  }
+  .view-my-content table th[data-title]:before,
+  .view-my-content table td[data-title]:before {
+    content: attr(data-title) ": ";
+  }
+  .view-my-content table tr {
+    padding: 1rem 0;
+    border-bottom: 4px solid #d5dde1;
+  }
+  .view-my-content table tr.odd {
+    background: #ffffff;
+  }
+  .view-my-content table td {
+    border: none;
+    margin-bottom: 6px;
+  }
+  .view-my-content table td:empty {
+    display: none;
+  }
+  .view-my-content table td:first-child {
+    margin-bottom: 6px;
+  }
+  .view-my-content table td:first-child:before {
+    content: '';
+  }
+  .view-my-content tr td {
+    font-weight: bold;
+  }
+  .view-my-content tr td a {
+    font-weight: normal;
+  }
+  .view-my-content table tr {
+    border-bottom: 4px solid #d5dde1;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+  .view-my-content table tr.odd {
+    background: #ffffff;
+  }
+  .view-my-content table tr td {
+    padding: 0.4rem 0;
+  }
+  .view-my-content tr td:before {
+    font-size: 14px;
+    font-size: 0.875rem;
+    color: #747474;
+    display: block;
+    width: 120px;
+    float: left;
+    font-weight: normal;
+  }
+  .view-my-content .views-field-title {
+    width: calc(100% - 120px);
+    padding-left: 120px;
+    text-align: left;
+  }
+  .view-my-content .views-field-title:before {
+    margin-left: -120px;
+  }
 }
 
 @media all and (max-width: 60em) {

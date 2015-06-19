@@ -1,5 +1,7 @@
-.events-calendar {
-  .selectize-control {
+.events-calendar,
+.page-my-content {
+  .selectize-control,
+  .selectize-control.my-content-dropdown.single {
     .selectize-input {
       cursor: pointer;
       border: 3px solid color(grey-blue);
@@ -8,7 +10,7 @@
       background: url(../images/down-arrow.png) 95% 12px no-repeat;
 
       &:hover,
-      &.focus {
+      &:focus {
         border-color: color(grey-blue-dark);
 
         .selectize-dropdown-content {
@@ -26,6 +28,7 @@
         background: none;
       }
     }
+
     &.multi .selectize-input > div[data-value] {
       display: none;
     }
@@ -76,6 +79,62 @@
 
     &:hover {
       background: $white;
+    }
+  }
+}
+
+.selectize-control.my-content-dropdown.single {
+  .selectize-input {
+    width: 280px;
+
+    &:hover,
+    &:focus {
+      width: 280px;
+      border-color: color(grey-blue) !important;
+      background: url(../images/down-arrow.png) 95% 12px no-repeat;
+    }
+  }
+
+  .selectize-dropdown-content {
+    max-height: 320px;
+
+    &:hover {
+      border-color: color(grey-blue);
+    }
+  }
+
+  .selectize-dropdown {
+    .option {
+      color: $grey-dropdown;
+
+      &:hover {
+        background: darken(color(weekend-grey), 3%);
+      }
+    }
+
+    .selected {
+      background: darken(color(weekend-grey), 3%) !important;
+    }
+
+    &:hover {
+      background: $white;
+    }
+  }
+
+  .selectize-dropdown {
+    .option {
+      &:before {
+        content: "";
+        margin-right: 0;
+      }
+
+      &:hover {
+        background: darken(color(weekend-grey), 3%);
+      }
+
+      &.selected:before {
+        content: "";
+      }
     }
   }
 }
