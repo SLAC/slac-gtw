@@ -67,39 +67,6 @@
     }
   }
 
-  @media all and (min-width: $tablet-small) and (max-width: $tablet-large) {
-    .form-item-title input {
-      max-width: 480px;
-    }
-  }
-
-  @media all and (min-width: $tablet-small) and (max-width: $desktop) {
-    .views-widget-filter-date_filter {
-      float: left !important;
-      min-height: 160px;
-      width: 46%;
-    }
-
-    .views-submit-button,
-    .views-reset-button {
-      margin-top: 3rem;
-      padding: 0;
-    }
-
-    .form-submit {
-      margin: 0;
-      margin-right: 2rem;
-    }
-
-    .views-exposed-widget .form-submit {
-      margin-top: 0;
-    }
-
-    .form-item-date-filter-max {
-      padding-top: 1rem;
-    }
-  }
-
   @include breakpoint($tablet-large) {
     .view-filters {
       width: 800px;
@@ -109,6 +76,10 @@
   // Responsive Tables
   // http://blog.apps.npr.org/2014/05/09/responsive-data-tables.html
   @media all and (max-width: $tablet-large) {
+    .sticky-header {
+      display: none;
+    }
+
     table,
     tbody {
         display: block;
@@ -126,11 +97,6 @@
       padding: 0;
       text-align: left;
       white-space: normal;
-    }
-
-    table th[data-title]:before,
-    table td[data-title]:before {
-        content: attr(data-title) ":\00A0";
     }
 
     table tr {
@@ -153,10 +119,6 @@
 
     table td:first-child {
       margin-bottom: 6px;
-    }
-
-    table td:first-child:before {
-      content: '';
     }
 
     tr td {
@@ -191,6 +153,7 @@
     }
 
     .views-field-title {
+      width: 85%;
       width: calc(100% - 120px);
       padding-left: 120px;
       text-align: left;
@@ -273,7 +236,7 @@
 @include breakpoint($desktop) {
   .page-my-content {
     .view-filters {
-      width: 90%;
+      width: 95%;
       padding: 0.4rem 1rem 0;
       border: 3px solid lighten($grey, 50%);
       background: lighten($grey, 57%);
@@ -320,6 +283,10 @@
       }
     }
 
+    .view-display-id-page_2 {
+      width: 80%;
+    }
+
     .views-widget-filter-date_filter,
     .views-widget-filter-title,
     .views-widget-filter-type,
@@ -328,6 +295,49 @@
       border-right: 3px solid lighten($grey, 50%);
       margin-right: 0.5rem;
     }
+  }
+}
+
+@media all and (min-width: $tablet-small) and (max-width: $tablet-large) {
+  .form-item-title input {
+    max-width: 480px;
+  }
+}
+
+@media all and (min-width: $tablet-small) and (max-width: $desktop) {
+  .views-widget-filter-date_filter {
+    float: left !important;
+    min-height: 160px;
+    width: 46%;
+  }
+
+  .views-submit-button,
+  .views-reset-button {
+    margin-top: 3rem;
+    padding: 0;
+  }
+
+  .form-submit {
+    margin: 0;
+    margin-right: 2rem;
+  }
+
+  .views-exposed-widget .form-submit {
+    margin-top: 0;
+  }
+
+  .form-item-date-filter-max {
+    padding-top: 1rem;
+  }
+
+  td.views-field-title {
+    width: 30%;
+  }
+}
+
+@media all and (min-width: $desktop) and (max-width: $calendar-full) {
+  td.views-field-title {
+    width: 35%;
   }
 }
 

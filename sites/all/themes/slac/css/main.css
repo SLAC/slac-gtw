@@ -3567,6 +3567,29 @@ ul.calendar-links,
   margin-bottom: 1rem;
 }
 
+@media (min-width: 20em) {
+  .view-filters .button-expand {
+    display: inline;
+  }
+  .view-filters form {
+    display: none;
+  }
+  .view-filters.expanded form {
+    display: block;
+  }
+
+  .view-id-search .view-filters form {
+    display: block;
+  }
+}
+@media (min-width: 60em) {
+  .view-filters .button-expand {
+    display: none;
+  }
+  .view-filters form {
+    display: block;
+  }
+}
 /* Pager plugin css */
 div.date-views-pager {
   margin-left: auto;
@@ -5389,39 +5412,15 @@ h1.title {
     padding-top: 1rem;
   }
 }
-@media all and (min-width: 40em) and (max-width: 60em) {
-  .view-my-content .form-item-title input {
-    max-width: 480px;
-  }
-}
-@media all and (min-width: 40em) and (max-width: 70em) {
-  .view-my-content .views-widget-filter-date_filter {
-    float: left !important;
-    min-height: 160px;
-    width: 46%;
-  }
-  .view-my-content .views-submit-button,
-  .view-my-content .views-reset-button {
-    margin-top: 3rem;
-    padding: 0;
-  }
-  .view-my-content .form-submit {
-    margin: 0;
-    margin-right: 2rem;
-  }
-  .view-my-content .views-exposed-widget .form-submit {
-    margin-top: 0;
-  }
-  .view-my-content .form-item-date-filter-max {
-    padding-top: 1rem;
-  }
-}
 @media (min-width: 60em) {
   .view-my-content .view-filters {
     width: 800px;
   }
 }
 @media all and (max-width: 60em) {
+  .view-my-content .sticky-header {
+    display: none;
+  }
   .view-my-content table,
   .view-my-content tbody {
     display: block;
@@ -5437,10 +5436,6 @@ h1.title {
     padding: 0;
     text-align: left;
     white-space: normal;
-  }
-  .view-my-content table th[data-title]:before,
-  .view-my-content table td[data-title]:before {
-    content: attr(data-title) ": ";
   }
   .view-my-content table tr {
     padding: 1rem 0;
@@ -5458,9 +5453,6 @@ h1.title {
   }
   .view-my-content table td:first-child {
     margin-bottom: 6px;
-  }
-  .view-my-content table td:first-child:before {
-    content: '';
   }
   .view-my-content tr td {
     font-weight: bold;
@@ -5489,6 +5481,7 @@ h1.title {
     font-weight: normal;
   }
   .view-my-content .views-field-title {
+    width: 85%;
     width: calc(100% - 120px);
     padding-left: 120px;
     text-align: left;
@@ -5546,7 +5539,7 @@ h1.title {
 }
 @media (min-width: 70em) {
   .page-my-content .view-filters {
-    width: 90%;
+    width: 95%;
     padding: 0.4rem 1rem 0;
     border: 3px solid #eaeaea;
     background: #fbfbfb;
@@ -5591,6 +5584,9 @@ h1.title {
   .page-my-content .view-filters .form-submit {
     margin-top: 1.5rem;
   }
+  .page-my-content .view-display-id-page_2 {
+    width: 80%;
+  }
   .page-my-content .views-widget-filter-date_filter,
   .page-my-content .views-widget-filter-title,
   .page-my-content .views-widget-filter-type,
@@ -5598,6 +5594,46 @@ h1.title {
     height: 70px;
     border-right: 3px solid #eaeaea;
     margin-right: 0.5rem;
+  }
+}
+@media all and (min-width: 40em) and (max-width: 60em) {
+  .form-item-title input {
+    max-width: 480px;
+  }
+}
+@media all and (min-width: 40em) and (max-width: 70em) {
+  .views-widget-filter-date_filter {
+    float: left !important;
+    min-height: 160px;
+    width: 46%;
+  }
+
+  .views-submit-button,
+  .views-reset-button {
+    margin-top: 3rem;
+    padding: 0;
+  }
+
+  .form-submit {
+    margin: 0;
+    margin-right: 2rem;
+  }
+
+  .views-exposed-widget .form-submit {
+    margin-top: 0;
+  }
+
+  .form-item-date-filter-max {
+    padding-top: 1rem;
+  }
+
+  td.views-field-title {
+    width: 30%;
+  }
+}
+@media all and (min-width: 70em) and (max-width: 85em) {
+  td.views-field-title {
+    width: 35%;
   }
 }
 @media (min-width: 85em) {
@@ -6623,28 +6659,5 @@ h1.title {
   .page-taxonomy-term .feed-icon__bottom {
     display: block;
     margin-bottom: 2rem;
-  }
-}
-@media (min-width: 20em) {
-  .view-filters .button-expand {
-    display: inline;
-  }
-  .view-filters form {
-    display: none;
-  }
-  .view-filters.expanded form {
-    display: block;
-  }
-
-  .view-id-search .view-filters form {
-    display: block;
-  }
-}
-@media (min-width: 40em) {
-  .view-filters .button-expand {
-    display: none;
-  }
-  .view-filters form {
-    display: block;
   }
 }
