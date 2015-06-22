@@ -1,6 +1,6 @@
 .view-my-content {
 
-  @media all and (max-width: $tablet-large) {
+  @media all and (max-width: $desktop) {
     .view-filters {
       margin-top: 1rem;
       padding: 0.5rem 1rem;
@@ -46,6 +46,7 @@
 
         &:hover {
           text-decoration: none;
+          cursor: pointer;
         }
 
         @include breakpoint($tablet-large) {
@@ -59,12 +60,43 @@
           content: "-";
         }
       }
+
+      .form-item-date-filter-max {
+        padding-top: 1rem;
+      }
     }
   }
 
   @media all and (min-width: $tablet-small) and (max-width: $tablet-large) {
     .form-item-title input {
       max-width: 480px;
+    }
+  }
+
+  @media all and (min-width: $tablet-small) and (max-width: $desktop) {
+    .views-widget-filter-date_filter {
+      float: left !important;
+      min-height: 160px;
+      width: 46%;
+    }
+
+    .views-submit-button,
+    .views-reset-button {
+      margin-top: 3rem;
+      padding: 0;
+    }
+
+    .form-submit {
+      margin: 0;
+      margin-right: 2rem;
+    }
+
+    .views-exposed-widget .form-submit {
+      margin-top: 0;
+    }
+
+    .form-item-date-filter-max {
+      padding-top: 1rem;
     }
   }
 
@@ -175,7 +207,6 @@
 
     .tabs-primary {
       padding-left: 0;
-      // border-bottom: 1px solid $grey-primary-tabs-border;
       border-bottom: none;
       background: url(../images/border-img.jpg) 0 bottom repeat-x;
 
@@ -243,7 +274,7 @@
   .page-my-content {
     .view-filters {
       width: 90%;
-      padding: 0.4rem 1rem 0.2rem;
+      padding: 0.4rem 1rem 0;
       border: 3px solid lighten($grey, 50%);
       background: lighten($grey, 57%);
 
