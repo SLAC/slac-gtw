@@ -1,0 +1,370 @@
+.view-my-content {
+
+  @media all and (max-width: $desktop) {
+    .view-filters {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      border: 3px solid lighten($grey, 50%);
+      background: lighten($grey, 57%);
+
+      &.collapsed {
+        background: transparent;
+        border: none;
+      }
+
+      .views-widget-filter-date_filter,
+      .views-widget-filter-title,
+      .views-widget-filter-type,
+      .views-widget-filter-state {
+        display: block;
+        float: none;
+      }
+
+      .form-item-title input {
+        max-width: 245px;
+      }
+
+      .button-expand {
+        display: block;
+        margin-left: 3px;
+        line-height: 1;
+        height: 16px;
+        font-weight: bold;
+        color: $blue;
+
+        &:after {
+          content: "+";
+          float: right;
+          border-radius: 50%;
+          border: 3px solid $blue;
+          height: 16px;
+          width: 16px;
+          text-align: center;
+          vertical-align: middle;
+          margin-top: -2px;
+        }
+
+        &:hover {
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+        @include breakpoint($tablet-large) {
+          color: $grey;
+          margin-left: 0;
+        }
+      }
+
+      &.expanded .button-expand {
+        &:after {
+          content: "-";
+        }
+      }
+
+      .form-item-date-filter-max {
+        padding-top: 1rem;
+      }
+    }
+  }
+
+  @include breakpoint($tablet-large) {
+    .view-filters {
+      width: 800px;
+    }
+  }
+
+  // Responsive Tables
+  // http://blog.apps.npr.org/2014/05/09/responsive-data-tables.html
+  @media all and (max-width: $tablet-large) {
+    .sticky-header {
+      display: none;
+    }
+
+    table,
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+      display: none;
+    }
+
+    table tr,
+    table th,
+    table td {
+      display: block;
+      padding: 0;
+      text-align: left;
+      white-space: normal;
+    }
+
+    table tr {
+      padding: 1rem 0;
+      border-bottom: 4px solid color(grey-blue);
+
+      &.odd {
+        background: $white;
+      }
+    }
+
+    table td {
+      border: none;
+      margin-bottom: 6px;
+    }
+
+    table td:empty {
+      display: none;
+    }
+
+    table td:first-child {
+      margin-bottom: 6px;
+    }
+
+    tr td {
+      font-weight: bold;
+
+      a {
+        font-weight: normal;
+      }
+    }
+
+    table tr {
+      border-bottom: 4px solid color(grey-blue);
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+
+      &.odd {
+        background: $white;
+      }
+
+      td {
+        padding: 0.4rem 0;
+      }
+    }
+
+    tr td:before {
+      @include font-size(14px);
+      color: $grey-labels;
+      display: block;
+      width: 120px;
+      float: left;
+      font-weight: normal;
+    }
+
+    .views-field-title {
+      width: 85%;
+      width: calc(100% - 120px);
+      padding-left: 120px;
+      text-align: left;
+
+      &:before {
+        margin-left: -120px;
+      }
+    }
+  }
+}
+
+@include breakpoint($tablet-small) {
+  .page-my-content {
+
+    .tabs-primary {
+      padding-left: 0;
+      border-bottom: none;
+      background: url(../images/border-img.jpg) 0 bottom repeat-x;
+
+      li {
+        border-radius: 0;
+        margin: 0 0.4rem;
+        border: none;
+
+        &:first-child {
+          margin-left: 0.8rem;
+        }
+
+        a {
+          background: $grey-primary-tabs;
+          border: 1px solid $grey-primary-tabs-border;
+          padding: 0.2rem 1rem;
+          border-radius: 0;
+          text-shadow: none;
+          color: $blue;
+
+          &:hover,
+          &:focus,
+          &.active {
+            background: $white;
+            border-bottom: 1px solid $white;
+          }
+        }
+
+        &.is-active a {
+          background: $white;
+          border-bottom: 1px solid $white;
+        }
+      }
+    }
+  }
+}
+
+// Desktop styles start here
+@include breakpoint($tablet-large) {
+  .page-my-content {
+    .tabs-primary {
+      li {
+        margin: 0 0.5rem;
+
+        &:first-child {
+          margin-left: 1rem;
+        }
+
+        a {
+          background: $grey-primary-tabs;
+          padding: 0.3rem 1rem;
+
+          &:hover,
+          &:focus {
+            background: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@include breakpoint($desktop) {
+  .page-my-content {
+    .view-filters {
+      width: 95%;
+      padding: 0.4rem 1rem 0;
+      border: 3px solid lighten($grey, 50%);
+      background: lighten($grey, 57%);
+
+      .views-exposed-form .views-exposed-widget {
+        padding-right: 0.5rem;
+      }
+
+      .form-type-date-popup {
+        @include clearfix;
+        width: 350px;
+      }
+
+      .form-item-date-filter-max-date,
+      .form-item-date-filter-min-date,
+      #edit-date-filter-max-wrapper,
+      #edit-date-filter-min-wrapper {
+        float: left;
+        width: 120px;
+
+        input {
+          width: 112px;
+        }
+      }
+
+      .form-item-date-filter-min-date,
+      #edit-date-filter-min-wrapper {
+        margin-right: 0.4rem;
+      }
+
+      .views-widget-filter-title {
+        width: 200px;
+
+        input {
+          width: 190px;
+          margin-right: 0.5rem;
+          margin-top: 1px;
+          height: 20px;
+        }
+      }
+
+      .form-submit {
+        margin-top: 1.5rem;
+      }
+    }
+
+    .view-display-id-page_2 {
+      width: 80%;
+    }
+
+    .views-widget-filter-date_filter,
+    .views-widget-filter-title,
+    .views-widget-filter-type,
+    .views-widget-filter-state {
+      height: 70px;
+      border-right: 3px solid lighten($grey, 50%);
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+@media all and (min-width: $tablet-small) and (max-width: $tablet-large) {
+  .form-item-title input {
+    max-width: 480px;
+  }
+}
+
+@media all and (min-width: $tablet-small) and (max-width: $desktop) {
+  .views-widget-filter-date_filter {
+    float: left !important;
+    min-height: 160px;
+    width: 46%;
+  }
+
+  .views-submit-button,
+  .views-reset-button {
+    margin-top: 3rem;
+    padding: 0;
+  }
+
+  .form-submit {
+    margin: 0;
+    margin-right: 2rem;
+  }
+
+  .views-exposed-widget .form-submit {
+    margin-top: 0;
+  }
+
+  .form-item-date-filter-max {
+    padding-top: 1rem;
+  }
+
+  td.views-field-title {
+    width: 30%;
+  }
+}
+
+@media all and (min-width: $desktop) and (max-width: $calendar-full) {
+  td.views-field-title {
+    width: 35%;
+  }
+}
+
+@include breakpoint($calendar-full) {
+  .page-my-content {
+    .view-filters {
+      .views-widget-filter-title {
+        width: 300px;
+
+        input {
+          width: 290px;
+          margin-right: 0.5rem;
+          margin-top: 1px;
+          height: 20px;
+        }
+      }
+      .views-exposed-form .views-exposed-widget {
+        padding-right: 1rem;
+      }
+    }
+
+    .views-widget-filter-date_filter,
+    .views-widget-filter-title,
+    .views-widget-filter-type,
+    .views-widget-filter-state {
+      margin-right: 1rem;
+      padding-right: 1.5rem;
+    }
+  }
+}

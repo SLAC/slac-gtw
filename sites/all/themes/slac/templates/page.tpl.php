@@ -74,7 +74,7 @@
 
   <header id="header" role="banner">
     <div class="header-wrapper">
-      
+
     <?php if ($logo): ?>
       <div class="logo">
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><span>Slac Today</span></a>
@@ -111,7 +111,7 @@
   <div id="main">
 
     <div class="content-wrapper" class="column" role="main">
-      <div id="content" class="column" role="main">
+      <div id="content" class="column content-container" role="main">
         <?php print render($page['highlighted']); ?>
         <!-- <?php print $breadcrumb; ?> -->
         <a id="main-content"></a>
