@@ -3005,22 +3005,30 @@ ul.calendar-links,
 }
 
 .my-content-dropdown.selectize-control.single {
-  width: 280px;
+  color: #6c676c;
 }
 .my-content-dropdown.selectize-control.single .selectize-input {
   width: 280px;
+  border: 3px solid #d5dde1;
   background: url(../images/down-arrow.png) 95% 12px no-repeat;
 }
 .my-content-dropdown.selectize-control.single .selectize-input:hover, .my-content-dropdown.selectize-control.single .selectize-input:focus {
+  background: url(../images/down-arrow.png) 95% 12px no-repeat;
+}
+.my-content-dropdown.selectize-control.single .selectize-input.dropdown-active {
   width: 280px;
-  border-color: #d5dde1 !important;
   background: url(../images/down-arrow.png) 95% 12px no-repeat;
 }
 .my-content-dropdown.selectize-control.single .selectize-dropdown-content {
-  max-height: 320px;
+  border: 3px solid #d5dde1;
+  border-top: none;
 }
-.my-content-dropdown.selectize-control.single .selectize-dropdown-content:hover {
-  border-color: #d5dde1;
+.my-content-dropdown.selectize-control.single .selectize-dropdown-content:hover, .my-content-dropdown.selectize-control.single .selectize-dropdown-content:focus {
+  border: 3px solid #d5dde1;
+  border-top: none;
+}
+.my-content-dropdown.selectize-control.single .selectize-dropdown {
+  width: 280px;
 }
 .my-content-dropdown.selectize-control.single .selectize-dropdown .option {
   color: #6c676c;
@@ -3029,7 +3037,7 @@ ul.calendar-links,
   background: #e6e6e6;
 }
 .my-content-dropdown.selectize-control.single .selectize-dropdown .selected {
-  background: #e6e6e6 !important;
+  background: #e6e6e6;
 }
 .my-content-dropdown.selectize-control.single .selectize-dropdown:hover {
   background: #ffffff;
@@ -5358,7 +5366,7 @@ h1.title {
     content: "+";
     float: right;
     border-radius: 50%;
-    border: 3px solid #316dae;
+    border: 2px solid #316dae;
     height: 16px;
     width: 16px;
     text-align: center;
@@ -5387,6 +5395,9 @@ h1.title {
 @media (min-width: 60em) {
   .view-my-content .view-filters {
     width: 800px;
+  }
+  .view-my-content .view-filters .button-expand {
+    display: none;
   }
 }
 @media all and (max-width: 60em) {
