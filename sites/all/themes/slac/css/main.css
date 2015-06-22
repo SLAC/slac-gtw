@@ -2933,143 +2933,111 @@ ul.calendar-links,
   height: 3px;
 }
 
-.events-calendar .selectize-control .selectize-input,
-.events-calendar .selectize-control.my-content-dropdown.single .selectize-input,
-.page-my-content .selectize-control .selectize-input,
-.page-my-content .selectize-control.my-content-dropdown.single .selectize-input {
+.events-calendar .selectize-control .selectize-input {
   cursor: pointer;
   border: 3px solid #d5dde1;
   font-weight: bold;
   padding: .3rem;
   background: url(../images/down-arrow.png) 95% 12px no-repeat;
 }
-.events-calendar .selectize-control .selectize-input:hover, .events-calendar .selectize-control .selectize-input:focus,
-.events-calendar .selectize-control.my-content-dropdown.single .selectize-input:hover,
-.events-calendar .selectize-control.my-content-dropdown.single .selectize-input:focus,
-.page-my-content .selectize-control .selectize-input:hover,
-.page-my-content .selectize-control .selectize-input:focus,
-.page-my-content .selectize-control.my-content-dropdown.single .selectize-input:hover,
-.page-my-content .selectize-control.my-content-dropdown.single .selectize-input:focus {
+.events-calendar .selectize-control .selectize-input:hover, .events-calendar .selectize-control .selectize-input:focus {
   border-color: #849ba6;
 }
-.events-calendar .selectize-control .selectize-input:hover .selectize-dropdown-content, .events-calendar .selectize-control .selectize-input:focus .selectize-dropdown-content,
-.events-calendar .selectize-control.my-content-dropdown.single .selectize-input:hover .selectize-dropdown-content,
-.events-calendar .selectize-control.my-content-dropdown.single .selectize-input:focus .selectize-dropdown-content,
-.page-my-content .selectize-control .selectize-input:hover .selectize-dropdown-content,
-.page-my-content .selectize-control .selectize-input:focus .selectize-dropdown-content,
-.page-my-content .selectize-control.my-content-dropdown.single .selectize-input:hover .selectize-dropdown-content,
-.page-my-content .selectize-control.my-content-dropdown.single .selectize-input:focus .selectize-dropdown-content {
+.events-calendar .selectize-control .selectize-input:hover .selectize-dropdown-content, .events-calendar .selectize-control .selectize-input:focus .selectize-dropdown-content {
   border: 3px solid #d5dde1;
 }
-.events-calendar .selectize-control.multi .selectize-input > div,
-.events-calendar .selectize-control.my-content-dropdown.single.multi .selectize-input > div,
-.page-my-content .selectize-control.multi .selectize-input > div,
-.page-my-content .selectize-control.my-content-dropdown.single.multi .selectize-input > div {
+.events-calendar .selectize-control.multi .selectize-input > div {
   background: none;
   border: none;
   margin: 0;
 }
-.events-calendar .selectize-control.multi .selectize-input > div.active,
-.events-calendar .selectize-control.my-content-dropdown.single.multi .selectize-input > div.active,
-.page-my-content .selectize-control.multi .selectize-input > div.active,
-.page-my-content .selectize-control.my-content-dropdown.single.multi .selectize-input > div.active {
+.events-calendar .selectize-control.multi .selectize-input > div.active {
   background: none;
 }
-.events-calendar .selectize-control.multi .selectize-input > div[data-value],
-.events-calendar .selectize-control.my-content-dropdown.single.multi .selectize-input > div[data-value],
-.page-my-content .selectize-control.multi .selectize-input > div[data-value],
-.page-my-content .selectize-control.my-content-dropdown.single.multi .selectize-input > div[data-value] {
+.events-calendar .selectize-control.multi .selectize-input > div[data-value] {
   display: none;
 }
 @media (min-width: 40em) {
-  .events-calendar .selectize-control,
-  .events-calendar .selectize-control.my-content-dropdown.single,
-  .page-my-content .selectize-control,
-  .page-my-content .selectize-control.my-content-dropdown.single {
+  .events-calendar .selectize-control {
     width: 250px;
   }
 }
-.events-calendar .selectize-dropdown-content,
-.page-my-content .selectize-dropdown-content {
+.events-calendar .selectize-dropdown-content {
   border: 3px solid #d5dde1;
   border-top: none;
   max-height: 620px;
 }
-.events-calendar .selectize-dropdown-content:hover,
-.page-my-content .selectize-dropdown-content:hover {
+.events-calendar .selectize-dropdown-content:hover {
   border-color: #849ba6;
 }
-.events-calendar .selectize-dropdown,
-.page-my-content .selectize-dropdown {
+.events-calendar .selectize-dropdown {
   font-weight: bold;
 }
-.events-calendar .selectize-dropdown .option,
-.page-my-content .selectize-dropdown .option {
+.events-calendar .selectize-dropdown .option {
   color: #849ba6;
   font-weight: bold;
   background: #ffffff;
 }
-.events-calendar .selectize-dropdown .option:before,
-.page-my-content .selectize-dropdown .option:before {
+.events-calendar .selectize-dropdown .option:before {
   content: "\25A1";
   font-size: 26px;
   font-size: 1.625rem;
   margin-right: 6px;
 }
-.events-calendar .selectize-dropdown .option:hover,
-.page-my-content .selectize-dropdown .option:hover {
+.events-calendar .selectize-dropdown .option:hover {
   background: #e6e6e6;
 }
-.events-calendar .selectize-dropdown .option.selected:before,
-.page-my-content .selectize-dropdown .option.selected:before {
+.events-calendar .selectize-dropdown .option.selected:before {
   content: "\2611";
   font-size: 22px;
   font-size: 1.375rem;
   margin-right: 4px;
 }
-.events-calendar .selectize-dropdown .selected,
-.page-my-content .selectize-dropdown .selected {
+.events-calendar .selectize-dropdown .selected {
   background: #e6e6e6 !important;
 }
-.events-calendar .selectize-dropdown:hover,
-.page-my-content .selectize-dropdown:hover {
+.events-calendar .selectize-dropdown:hover {
   background: #ffffff;
 }
 
-.selectize-control.my-content-dropdown.single .selectize-input {
+.my-content-dropdown.selectize-control.single {
   width: 280px;
 }
-.selectize-control.my-content-dropdown.single .selectize-input:hover, .selectize-control.my-content-dropdown.single .selectize-input:focus {
+.my-content-dropdown.selectize-control.single .selectize-input {
+  width: 280px;
+  background: url(../images/down-arrow.png) 95% 12px no-repeat;
+}
+.my-content-dropdown.selectize-control.single .selectize-input:hover, .my-content-dropdown.selectize-control.single .selectize-input:focus {
   width: 280px;
   border-color: #d5dde1 !important;
   background: url(../images/down-arrow.png) 95% 12px no-repeat;
 }
-.selectize-control.my-content-dropdown.single .selectize-dropdown-content {
+.my-content-dropdown.selectize-control.single .selectize-dropdown-content {
   max-height: 320px;
 }
-.selectize-control.my-content-dropdown.single .selectize-dropdown-content:hover {
+.my-content-dropdown.selectize-control.single .selectize-dropdown-content:hover {
   border-color: #d5dde1;
 }
-.selectize-control.my-content-dropdown.single .selectize-dropdown .option {
+.my-content-dropdown.selectize-control.single .selectize-dropdown .option {
   color: #6c676c;
 }
-.selectize-control.my-content-dropdown.single .selectize-dropdown .option:hover {
+.my-content-dropdown.selectize-control.single .selectize-dropdown .option:hover {
   background: #e6e6e6;
 }
-.selectize-control.my-content-dropdown.single .selectize-dropdown .selected {
+.my-content-dropdown.selectize-control.single .selectize-dropdown .selected {
   background: #e6e6e6 !important;
 }
-.selectize-control.my-content-dropdown.single .selectize-dropdown:hover {
+.my-content-dropdown.selectize-control.single .selectize-dropdown:hover {
   background: #ffffff;
 }
-.selectize-control.my-content-dropdown.single .selectize-dropdown .option:before {
+.my-content-dropdown.selectize-control.single .selectize-dropdown .option:before {
   content: "";
   margin-right: 0;
 }
-.selectize-control.my-content-dropdown.single .selectize-dropdown .option:hover {
+.my-content-dropdown.selectize-control.single .selectize-dropdown .option:hover {
   background: #e6e6e6;
 }
-.selectize-control.my-content-dropdown.single .selectize-dropdown .option.selected:before {
+.my-content-dropdown.selectize-control.single .selectize-dropdown .option.selected:before {
   content: "";
 }
 
