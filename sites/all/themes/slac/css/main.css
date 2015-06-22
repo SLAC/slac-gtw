@@ -375,41 +375,6 @@ table th.active {
   padding: 0;
 }
 
-.view-my-content,
-.page-my-content .tabs-primary,
-.page-my-content h1.title {
-  float: left;
-  width: 100%;
-  margin-left: 0%;
-  margin-right: -100%;
-  padding-left: 20px;
-  padding-right: 20px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  float: none;
-}
-@media (min-width: 85em) {
-  .view-my-content,
-  .page-my-content .tabs-primary,
-  .page-my-content h1.title {
-    float: left;
-    width: 83.33333%;
-    margin-left: 8.33333%;
-    margin-right: -91.66667%;
-    padding-left: 20px;
-    padding-right: 20px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    float: none;
-  }
-}
-
 .main-navigation .region-navigation {
   float: left;
   width: 83.33333%;
@@ -658,6 +623,37 @@ table th.active {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     word-wrap: break-word;
+  }
+}
+
+.page-my-content .content-container {
+  float: left;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: -100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  float: none;
+}
+@media (min-width: 85em) {
+  .page-my-content .content-container {
+    float: left;
+    width: 83.33333%;
+    margin-left: 8.33333%;
+    margin-right: -91.66667%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    float: none;
   }
 }
 
@@ -5476,15 +5472,58 @@ h1.title {
   }
 }
 
+@media (min-width: 40em) {
+  .page-my-content .tabs-primary {
+    padding-left: 0;
+  }
+  .page-my-content .tabs-primary li {
+    border-radius: 0;
+    margin: 0 0.4rem;
+    margin-bottom: -2px;
+  }
+  .page-my-content .tabs-primary li:first-child {
+    margin-left: 0.8rem;
+  }
+  .page-my-content .tabs-primary li a {
+    background: #eee;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0;
+    border: none;
+    text-shadow: none;
+    color: #316dae;
+  }
+  .page-my-content .tabs-primary li a:hover, .page-my-content .tabs-primary li a:focus {
+    background: #ffffff;
+  }
+  .page-my-content .tabs-primary li.is-active a {
+    background: #ffffff;
+    border-bottom: 1px solid #ffffff;
+  }
+}
 @media (min-width: 60em) {
+  .page-my-content .tabs-primary li {
+    margin: 0 0.5rem;
+  }
+  .page-my-content .tabs-primary li:first-child {
+    margin-left: 1rem;
+  }
+  .page-my-content .tabs-primary li a {
+    background: #eee;
+    padding: 0.3rem 1rem;
+  }
+  .page-my-content .tabs-primary li a:hover, .page-my-content .tabs-primary li a:focus {
+    background: #ffffff;
+  }
+}
+@media (min-width: 70em) {
   .page-my-content .view-filters {
-    width: 100%;
-    padding: 0.5rem 1rem;
+    width: 90%;
+    padding: 0.4rem 1rem 0.2rem;
     border: 3px solid #eaeaea;
     background: #fbfbfb;
   }
-  .page-my-content .view-filters .views-exposed-widget {
-    padding-right: 0.4rem;
+  .page-my-content .view-filters .views-exposed-form .views-exposed-widget {
+    padding-right: 0.5rem;
   }
   .page-my-content .view-filters .form-type-date-popup {
     width: 350px;
@@ -5512,10 +5551,10 @@ h1.title {
     margin-right: 0.4rem;
   }
   .page-my-content .view-filters .views-widget-filter-title {
-    width: 150px;
+    width: 200px;
   }
   .page-my-content .view-filters .views-widget-filter-title input {
-    width: 134px;
+    width: 190px;
     margin-right: 0.5rem;
     margin-top: 1px;
     height: 20px;
@@ -5523,39 +5562,13 @@ h1.title {
   .page-my-content .view-filters .form-submit {
     margin-top: 1.5rem;
   }
-  .page-my-content .tabs-primary li {
-    border-radius: 0;
-    margin: 0 0.5rem 0 0.5rem;
-    margin-bottom: -2px;
-  }
-  .page-my-content .tabs-primary li a {
-    background: #eee;
-    padding: 0.3rem 1rem;
-    border-radius: 0;
-    border: none;
-    text-shadow: none;
-    color: #316dae;
-  }
-  .page-my-content .tabs-primary li a:hover, .page-my-content .tabs-primary li a:focus {
-    background: #ffffff;
-  }
-  .page-my-content .tabs-primary li.is-active a {
-    background: #ffffff;
-    border-bottom: 1px solid #ffffff;
-  }
-}
-@media (min-width: 70em) {
-  .page-my-content .view-filters .views-exposed-widget {
-    padding-right: 1rem;
-  }
-  .page-my-content .view-filters .views-widget-filter-title {
-    width: 250px;
-  }
-  .page-my-content .view-filters .views-widget-filter-title input {
-    width: 234px;
+  .page-my-content .views-widget-filter-date_filter,
+  .page-my-content .views-widget-filter-title,
+  .page-my-content .views-widget-filter-type,
+  .page-my-content .views-widget-filter-state {
+    height: 70px;
+    border-right: 3px solid #eaeaea;
     margin-right: 0.5rem;
-    margin-top: 1px;
-    height: 20px;
   }
 }
 @media (min-width: 85em) {
@@ -5563,10 +5576,20 @@ h1.title {
     width: 300px;
   }
   .page-my-content .view-filters .views-widget-filter-title input {
-    width: 280px;
+    width: 290px;
     margin-right: 0.5rem;
     margin-top: 1px;
     height: 20px;
+  }
+  .page-my-content .view-filters .views-exposed-form .views-exposed-widget {
+    padding-right: 1rem;
+  }
+  .page-my-content .views-widget-filter-date_filter,
+  .page-my-content .views-widget-filter-title,
+  .page-my-content .views-widget-filter-type,
+  .page-my-content .views-widget-filter-state {
+    margin-right: 1rem;
+    padding-right: 1.5rem;
   }
 }
 @media all and (max-width: 60em) {
