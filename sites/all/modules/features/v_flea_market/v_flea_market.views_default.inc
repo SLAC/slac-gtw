@@ -155,36 +155,11 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['relationships']['uid']['required'] = TRUE;
-  /* Field: Content: Updated date (date only) (excluded) */
-  $handler->display->display_options['fields']['changed_1']['id'] = 'changed_1';
-  $handler->display->display_options['fields']['changed_1']['table'] = 'node';
-  $handler->display->display_options['fields']['changed_1']['field'] = 'changed';
-  $handler->display->display_options['fields']['changed_1']['ui_name'] = 'Content: Updated date (date only) (excluded)';
-  $handler->display->display_options['fields']['changed_1']['label'] = '';
-  $handler->display->display_options['fields']['changed_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['changed_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['changed_1']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['changed_1']['custom_date_format'] = 'n/j/Y';
-  $handler->display->display_options['fields']['changed_1']['second_date_format'] = 'slac_ip_access_date';
-  /* Field: Content: Updated date (time only) (excluded) */
-  $handler->display->display_options['fields']['changed_2']['id'] = 'changed_2';
-  $handler->display->display_options['fields']['changed_2']['table'] = 'node';
-  $handler->display->display_options['fields']['changed_2']['field'] = 'changed';
-  $handler->display->display_options['fields']['changed_2']['ui_name'] = 'Content: Updated date (time only) (excluded)';
-  $handler->display->display_options['fields']['changed_2']['label'] = '';
-  $handler->display->display_options['fields']['changed_2']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['changed_2']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['changed_2']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['changed_2']['custom_date_format'] = 'g:ia';
-  $handler->display->display_options['fields']['changed_2']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Content: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['label'] = 'Last Updated';
-  $handler->display->display_options['fields']['changed']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['changed']['alter']['text'] = '<span class="date-updated-date">[changed_1]</span>
-<span class="date-updated-time">[changed_2]</span>';
   $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
   $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/d/Y g:ia';
@@ -295,36 +270,11 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = 'You don\'t have any Flea Market items posted at this time. <a href="/node/add/flea-market-post">Click here if you would like to post one now.</a>';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Updated date (date only) (excluded) */
-  $handler->display->display_options['fields']['changed_1']['id'] = 'changed_1';
-  $handler->display->display_options['fields']['changed_1']['table'] = 'node';
-  $handler->display->display_options['fields']['changed_1']['field'] = 'changed';
-  $handler->display->display_options['fields']['changed_1']['ui_name'] = 'Content: Updated date (date only) (excluded)';
-  $handler->display->display_options['fields']['changed_1']['label'] = '';
-  $handler->display->display_options['fields']['changed_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['changed_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['changed_1']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['changed_1']['custom_date_format'] = 'j/n/Y';
-  $handler->display->display_options['fields']['changed_1']['second_date_format'] = 'slac_ip_access_date';
-  /* Field: Content: Updated date (time only) (excluded) */
-  $handler->display->display_options['fields']['changed_2']['id'] = 'changed_2';
-  $handler->display->display_options['fields']['changed_2']['table'] = 'node';
-  $handler->display->display_options['fields']['changed_2']['field'] = 'changed';
-  $handler->display->display_options['fields']['changed_2']['ui_name'] = 'Content: Updated date (time only) (excluded)';
-  $handler->display->display_options['fields']['changed_2']['label'] = '';
-  $handler->display->display_options['fields']['changed_2']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['changed_2']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['changed_2']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['changed_2']['custom_date_format'] = 'g:ia';
-  $handler->display->display_options['fields']['changed_2']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Content: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['label'] = 'Last Updated';
-  $handler->display->display_options['fields']['changed']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['changed']['alter']['text'] = '<span class="date-updated-date">[changed_1]</span>
-<span class="date-updated-time">[changed_2]</span>';
   $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
   $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/d/Y g:ia';
