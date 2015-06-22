@@ -1,6 +1,10 @@
 (function ($) {
   'use strict';
 
+  /**
+   * Creates a custom widget for Calendar event filters based on the view
+   * filters, which are hidden.
+   */
   Drupal.behaviors.calendarFilters = {
     attach: function (context, settings) {
 
