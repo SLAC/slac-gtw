@@ -25,7 +25,7 @@
   }
 }
 
-@include breakpoint($tablet-small) {
+@include breakpoint($tablet-large) {
   .view-filters {
     .button-expand {
       display: none;
