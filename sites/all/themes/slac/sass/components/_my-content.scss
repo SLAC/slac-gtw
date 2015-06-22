@@ -235,8 +235,23 @@
 
 @include breakpoint($desktop) {
   .page-my-content {
+
+    .view-display-id-page_2,
+    .view-display-id-page_3,
+    .view-display-id-page_4 {
+      .view-filters {
+        width: 80%;
+      }
+    }
+
+    .view-display-id-page_0,
+    .view-display-id-page_5 {
+      .view-filters {
+        width: 95%;
+      }
+    }
+
     .view-filters {
-      width: 95%;
       padding: 0.4rem 1rem 0;
       border: 3px solid lighten($grey, 50%);
       background: lighten($grey, 57%);
@@ -283,10 +298,6 @@
       }
     }
 
-    .view-display-id-page_2 {
-      width: 80%;
-    }
-
     .views-widget-filter-date_filter,
     .views-widget-filter-title,
     .views-widget-filter-type,
@@ -298,6 +309,24 @@
   }
 }
 
+@include breakpoint($huge) {
+  .page-my-content {
+    .view-display-id-page_2,
+    .view-display-id-page_3,
+    .view-display-id-page_4 {
+      .view-filters {
+        width: 75%;
+      }
+    }
+
+    .view-display-id-page_0,
+    .view-display-id-page_5 {
+      .view-filters {
+        width: 90%;
+      }
+    }
+  }
+}
 @media all and (min-width: $tablet-small) and (max-width: $tablet-large) {
   .form-item-title input {
     max-width: 480px;
@@ -307,13 +336,12 @@
 @media all and (min-width: $tablet-small) and (max-width: $desktop) {
   .views-widget-filter-date_filter {
     float: left !important;
-    min-height: 160px;
+    min-height: 170px;
     width: 46%;
   }
 
   .views-submit-button,
   .views-reset-button {
-    margin-top: 3rem;
     padding: 0;
   }
 
