@@ -5475,25 +5475,28 @@ h1.title {
 @media (min-width: 40em) {
   .page-my-content .tabs-primary {
     padding-left: 0;
+    border-bottom: none;
+    background: url(../images/border-img.jpg) 0 bottom repeat-x;
   }
   .page-my-content .tabs-primary li {
     border-radius: 0;
     margin: 0 0.4rem;
-    margin-bottom: -2px;
+    border: none;
   }
   .page-my-content .tabs-primary li:first-child {
     margin-left: 0.8rem;
   }
   .page-my-content .tabs-primary li a {
     background: #eee;
-    padding: 0.2rem 0.6rem;
+    border: 1px solid #adadad;
+    padding: 0.2rem 1rem;
     border-radius: 0;
-    border: none;
     text-shadow: none;
     color: #316dae;
   }
-  .page-my-content .tabs-primary li a:hover, .page-my-content .tabs-primary li a:focus {
+  .page-my-content .tabs-primary li a:hover, .page-my-content .tabs-primary li a:focus, .page-my-content .tabs-primary li a.active {
     background: #ffffff;
+    border-bottom: 1px solid #ffffff;
   }
   .page-my-content .tabs-primary li.is-active a {
     background: #ffffff;

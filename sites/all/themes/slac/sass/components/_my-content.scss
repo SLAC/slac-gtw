@@ -175,11 +175,14 @@
 
     .tabs-primary {
       padding-left: 0;
+      // border-bottom: 1px solid $grey-primary-tabs-border;
+      border-bottom: none;
+      background: url(../images/border-img.jpg) 0 bottom repeat-x;
 
       li {
         border-radius: 0;
         margin: 0 0.4rem;
-        margin-bottom: -2px;
+        border: none;
 
         &:first-child {
           margin-left: 0.8rem;
@@ -187,15 +190,17 @@
 
         a {
           background: $grey-primary-tabs;
-          padding: 0.2rem 0.6rem;
+          border: 1px solid $grey-primary-tabs-border;
+          padding: 0.2rem 1rem;
           border-radius: 0;
-          border: none;
           text-shadow: none;
           color: $blue;
 
           &:hover,
-          &:focus {
+          &:focus,
+          &.active {
             background: $white;
+            border-bottom: 1px solid $white;
           }
         }
 
