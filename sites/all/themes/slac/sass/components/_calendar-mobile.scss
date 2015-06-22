@@ -52,9 +52,9 @@
   }
 
   .calendar-calendar .view-empty {
-    @include font-size(12px);
+    @include font-size(14px);
     margin-top: 1rem;
-    font-weight: bold;
+    color: $grey;
   }
 
   .calendar-calendar .day-view #multi-day-container td.calendar-agenda-hour .calendar-hour {
@@ -223,6 +223,10 @@
     .week-view .full tr td.today,
     .week-view .full tr td.weekend {
       background: $white;
+    }
+
+    .month-view .full td.single-day.empty {
+      display: none;
     }
 
     .day-view div.single-day .view-item {
