@@ -114,6 +114,7 @@
   @include breakpoint($tablet-small) {
     margin-left: 7.5rem;
     margin-top: 0;
+    width: 320px;
   }
 
   @include breakpoint($tablet-large) {
