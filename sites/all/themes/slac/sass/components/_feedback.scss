@@ -19,11 +19,13 @@
     border: 3px solid $feedback-form-border;
     padding: 0 8% 32px;
     overflow: hidden;
+
     label {
       font-size: 13px;
       font-weight: normal;
       margin-bottom: 3px;
     }
+
     input[type="text"],
     input[type="email"],
     textarea,
