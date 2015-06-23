@@ -3022,6 +3022,7 @@ ul.calendar-links,
 .my-content-dropdown.selectize-control.single .selectize-dropdown-content {
   border: 3px solid #d5dde1;
   border-top: none;
+  font-weight: bold;
 }
 .my-content-dropdown.selectize-control.single .selectize-dropdown-content:hover, .my-content-dropdown.selectize-control.single .selectize-dropdown-content:focus {
   border: 3px solid #d5dde1;
