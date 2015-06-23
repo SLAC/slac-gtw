@@ -5412,7 +5412,10 @@ h1.title {
   .view-my-content .view-filters.expanded .button-expand:after {
     content: "-";
   }
-  .view-my-content .view-filters .form-item-date-filter-max {
+  .view-my-content .form-item-date-filter-max,
+  .view-my-content .views-widget-filter-type,
+  .view-my-content .views-widget-filter-state,
+  .view-my-content .views-widget-filter-field_flea_market_item_type_value {
     padding-top: 1rem;
   }
 }
@@ -5632,7 +5635,7 @@ h1.title {
 @media all and (min-width: 40em) and (max-width: 70em) {
   .views-widget-filter-date_filter {
     float: left !important;
-    min-height: 170px;
+    min-height: 180px;
     width: 46%;
   }
 
@@ -5655,7 +5658,7 @@ h1.title {
   }
 
   td.views-field-title {
-    width: 30%;
+    width: 28%;
   }
 }
 @media all and (min-width: 70em) and (max-width: 85em) {

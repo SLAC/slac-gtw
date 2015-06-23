@@ -77,10 +77,13 @@
           content: "-";
         }
       }
+    }
 
-      .form-item-date-filter-max {
-        padding-top: 1rem;
-      }
+    .form-item-date-filter-max,
+    .views-widget-filter-type,
+    .views-widget-filter-state,
+    .views-widget-filter-field_flea_market_item_type_value {
+      padding-top: 1rem;
     }
   }
 
@@ -363,7 +366,7 @@
 @media all and (min-width: $tablet-small) and (max-width: $desktop) {
   .views-widget-filter-date_filter {
     float: left !important;
-    min-height: 170px;
+    min-height: 180px;
     width: 46%;
   }
 
@@ -386,7 +389,7 @@
   }
 
   td.views-field-title {
-    width: 30%;
+    width: 28%;
   }
 }
 
