@@ -82,30 +82,41 @@
   }
 }
 
+// My Content Page Selectize Dropdown
 .my-content-dropdown.selectize-control.single {
-  width: 280px;
+  color: $grey-dropdown;
 
   .selectize-input {
     width: 280px;
+    border: 3px solid color(grey-blue);
     background: url(../images/down-arrow.png) 95% 12px no-repeat;
 
     &:hover,
     &:focus {
+      background: url(../images/down-arrow.png) 95% 12px no-repeat;
+    }
+
+    &.dropdown-active {
       width: 280px;
-      border-color: color(grey-blue) !important;
       background: url(../images/down-arrow.png) 95% 12px no-repeat;
     }
   }
 
   .selectize-dropdown-content {
-    max-height: 320px;
+    border: 3px solid color(grey-blue);
+    border-top: none;
+    font-weight: bold;
 
-    &:hover {
-      border-color: color(grey-blue);
+    &:hover,
+    &:focus {
+      border: 3px solid color(grey-blue);
+      border-top: none;
     }
   }
 
   .selectize-dropdown {
+    width: 280px;
+
     .option {
       color: $grey-dropdown;
 
@@ -115,7 +126,7 @@
     }
 
     .selected {
-      background: darken(color(weekend-grey), 3%) !important;
+      background: darken(color(weekend-grey), 3%);
     }
 
     &:hover {
