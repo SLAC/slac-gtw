@@ -3217,10 +3217,10 @@ ul.calendar-links,
   }
 
   .calendar-calendar .view-empty {
-    font-size: 12px;
-    font-size: 0.75rem;
+    font-size: 14px;
+    font-size: 0.875rem;
     margin-top: 1rem;
-    font-weight: bold;
+    color: #6a6a6a;
   }
 
   .calendar-calendar .day-view #multi-day-container td.calendar-agenda-hour .calendar-hour {
@@ -3376,6 +3376,9 @@ ul.calendar-links,
   .calendar-calendar .week-view .full tr td.today,
   .calendar-calendar .week-view .full tr td.weekend {
     background: #ffffff;
+  }
+  .calendar-calendar .month-view .full td.single-day.empty {
+    display: none;
   }
   .calendar-calendar .day-view div.single-day .view-item {
     width: 100%;
