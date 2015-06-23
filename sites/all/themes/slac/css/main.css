@@ -5333,6 +5333,26 @@ h1.title {
   margin-top: .5rem;
 }
 
+.view-my-content .date-updated-date,
+.view-my-content .date-updated-time,
+.view-my-content .date-created-date,
+.view-my-content .date-created-time {
+  font-weight: bold;
+}
+@media (min-width: 60em) {
+  .view-my-content .date-updated-date,
+  .view-my-content .date-updated-time,
+  .view-my-content .date-created-date,
+  .view-my-content .date-created-time {
+    display: block;
+    text-align: center;
+  }
+}
+.view-my-content .date-updated-time,
+.view-my-content .date-created-time {
+  font-weight: normal;
+  color: #2f2f2f;
+}
 @media all and (max-width: 70em) {
   .view-my-content .view-filters {
     margin-top: 1rem;
@@ -5506,6 +5526,11 @@ h1.title {
   }
 }
 @media (min-width: 60em) {
+  th.views-field-changed,
+  th.views-field-created {
+    text-align: center;
+  }
+
   .page-my-content .tabs-primary li {
     margin: 0 0.5rem;
   }
@@ -5653,6 +5678,9 @@ h1.title {
   .page-my-content .views-widget-filter-state {
     margin-right: 1rem;
     padding-right: 1.5rem;
+  }
+  .page-my-content td.views-field-title {
+    width: 50%;
   }
 }
 @media all and (max-width: 60em) {

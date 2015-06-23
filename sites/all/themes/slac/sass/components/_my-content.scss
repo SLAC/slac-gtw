@@ -1,4 +1,21 @@
 .view-my-content {
+  .date-updated-date,
+  .date-updated-time,
+  .date-created-date,
+  .date-created-time {
+    font-weight: bold;
+
+    @include breakpoint($tablet-large) {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  .date-updated-time,
+  .date-created-time {
+    font-weight: normal;
+    color: $event-date;
+  }
 
   @media all and (max-width: $desktop) {
     .view-filters {
@@ -213,6 +230,12 @@
 
 // Desktop styles start here
 @include breakpoint($tablet-large) {
+
+  th.views-field-changed,
+  th.views-field-created {
+    text-align: center;
+  }
+
   .page-my-content {
     .tabs-primary {
       li {
@@ -397,6 +420,10 @@
     .views-widget-filter-state {
       margin-right: 1rem;
       padding-right: 1.5rem;
+    }
+
+    td.views-field-title {
+      width: 50%;
     }
   }
 }
