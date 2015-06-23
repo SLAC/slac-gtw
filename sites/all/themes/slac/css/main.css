@@ -6319,6 +6319,7 @@ h1.title {
   #slac-search-block-form {
     margin-left: 7.5rem;
     margin-top: 0;
+    width: 320px;
   }
 }
 @media (min-width: 60em) {
