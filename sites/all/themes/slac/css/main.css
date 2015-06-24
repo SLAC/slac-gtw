@@ -5753,6 +5753,7 @@ h1.title {
   }
   .page-my-content .tabs-primary li a:hover, .page-my-content .tabs-primary li a:focus, .page-my-content .tabs-primary li a.active {
     background: #ffffff;
+    color: inherit;
     border-bottom: 1px solid #ffffff;
   }
   .page-my-content .tabs-primary li.is-active a {

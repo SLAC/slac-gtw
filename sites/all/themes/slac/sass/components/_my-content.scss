@@ -218,6 +218,7 @@
           &:focus,
           &.active {
             background: $white;
+            color: inherit;
             border-bottom: 1px solid $white;
           }
         }
