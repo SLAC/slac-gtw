@@ -385,6 +385,7 @@ blockquote p {
 
 table {
   width: 100%;
+  border-collapse: collapse;
 }
 table tbody {
   border: none;
@@ -398,6 +399,9 @@ table tr.even {
   background-color: #ffffff;
   border: none;
 }
+table tr.odd {
+  background-color: #f2f2f2;
+}
 table th {
   border: none;
 }
@@ -410,20 +414,20 @@ table th.active {
   background-color: transparent;
 }
 
-.add-borders tr td {
+table[border="1"] th,
+table[border="2"] th,
+table[border="3"] th,
+table[border="1"] tr td,
+table[border="2"] tr td,
+table[border="3"] tr td {
   border: 3px solid #e2e2e2;
 }
 
-table thead th {
+table th {
   color: #890024;
-}
-
-.add-borders thead th {
-  border: 3px solid #e2e2e2;
 }
 
 table tr td:first-child {
-  color: #890024;
   width: 235px;
 }
 
