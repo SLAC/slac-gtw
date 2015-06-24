@@ -1,0 +1,65 @@
+.node-type-webform {
+  h1.title,
+  .tabs-primary,
+  article {
+    @include zen-grid-item(10, 2);
+    float: none;
+  }
+
+  .form-actions {
+    width: auto;
+    float: left;
+    margin: 0;
+    border: 1px dotted $event-border;
+  }
+
+  input[type="submit"] {
+    background: $blue;
+    margin: 0.3rem;
+
+    &:hover,
+    &:focus {
+      background: lighten($blue, 10%);
+      outline: none;
+    }
+  }
+
+  .webform-client-form {
+    max-width: 640px;
+    background: $feedback-form-background;
+    border: 3px solid $feedback-form-border;
+    padding: 0 4% 32px 6%;
+    overflow: hidden;
+
+    label {
+      font-size: 13px;
+      font-weight: normal;
+      margin-bottom: 3px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      background: $white;
+      border: 1px solid $feedback-form-border;
+      max-width: 380px;
+      width: 96%;
+      padding: 0.2rem 0.5rem;
+      outline: none;
+    }
+
+    select {
+      max-width: 320px;
+      padding: 0.5rem;
+      background: $white url(../images/down-arrow.png) 98% center no-repeat;
+    }
+
+    textarea {
+      width: 100%;
+      max-width: inherit;
+      padding: 0.3rem 0.7rem;
+      min-height: 11.25rem;
+    }
+  }
+}
