@@ -51,6 +51,11 @@ table[border="0"] tr td {
 
 table th {
   color: $red;
+
+  .page-my-content &,
+  .page-flea-market & {
+    color: inherit;
+  }
 }
 
 table tr td:first-child {

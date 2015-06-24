@@ -428,6 +428,9 @@ table[border="0"] tr td {
 table th {
   color: #890024;
 }
+.page-my-content table th, .page-flea-market table th {
+  color: inherit;
+}
 
 table tr td:first-child {
   width: 235px;
