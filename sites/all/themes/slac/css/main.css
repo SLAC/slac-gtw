@@ -1934,6 +1934,10 @@ table.calendar-legend tr.even .stripe {
   margin-top: 5px;
 }
 
+.calendar-week-view .feed-icon {
+  display: none;
+}
+
 table.mini .date-prev,
 table.mini .date-next {
   background: none;
