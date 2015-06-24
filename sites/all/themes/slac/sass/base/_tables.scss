@@ -1,10 +1,17 @@
 table {
+  width: 100%;
+  border-collapse: collapse;
 
   tbody {
     border: none;
   }
 
+  td {
+    vertical-align: top;
+  }
+
 // overrides system styles
+  tr,
   tr.odd,
   tr.even {
     background-color: $white;
@@ -27,4 +34,30 @@ table {
       background-color: transparent;
     }
   }
+}
+
+// Adds borders to headers and cells
+table[border],
+table[border] th,
+table[border] tr td {
+  border: 3px solid $default-table-borders;
+}
+
+// No borders if border value is zero
+table[border="0"] th,
+table[border="0"] tr td {
+  border: none;
+}
+
+table th {
+  color: $red;
+
+  .page-my-content &,
+  .page-flea-market & {
+    color: inherit;
+  }
+}
+
+table tr td:first-child {
+  width: 235px;
 }

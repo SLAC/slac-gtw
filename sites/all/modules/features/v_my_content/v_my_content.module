@@ -11,8 +11,8 @@ include_once 'v_my_content.features.inc';
  */
 function v_my_content_form_views_exposed_form_alter(&$form, &$form_state) {
   if (strpos($form['#id'], 'views-exposed-form-my-content-page-') !== FALSE) {
-    $form['date_filter']['min']['#title'] = t('From Post Date');
-    $form['date_filter']['max']['#title'] = t('To Post Date');
+    $form['date_filter']['min']['#title'] = t('From Post Date:');
+    $form['date_filter']['max']['#title'] = t('To Post Date:');
 
     $field_name = 'field_flea_market_item_type';
     $form_field = $field_name . '_value';

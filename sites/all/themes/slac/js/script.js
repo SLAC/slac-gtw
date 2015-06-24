@@ -140,7 +140,7 @@
         }
       });
 
-      $('<div class="tabs-mobile"/>').insertAfter('.page-my-content .tabs-primary').selectize({
+      $('<div class="tabs-mobile my-content-dropdown"/>').insertAfter('.page-my-content .tabs-primary').selectize({
         openOnFocus: true,
         maxItems: 1,
         hideSelected: false,
