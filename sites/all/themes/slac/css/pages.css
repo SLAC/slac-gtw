@@ -694,10 +694,6 @@ a:hover, a:active {
   .not-front.section-feedback #content {
     background-color: #fff;
   }
-  .not-front #content > article {
-    width: 94%;
-    margin: 0 3%;
-  }
 }
 @media (max-width: 800px) {
   #block-system-main-menu .menu li {

@@ -26,7 +26,10 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['css_class'] = 'admin-views-view';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    2 => '2',
+  );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
@@ -108,14 +111,14 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['label'] = 'Last Updated';
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y g:i a';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y g:i a';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -136,6 +139,8 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Operations';
+  $handler->display->display_options['fields']['edit_node']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['edit_node']['alter']['text'] = 'Edit';
   /* Filter criterion: User: Current */
   $handler->display->display_options['filters']['uid_current']['id'] = 'uid_current';
   $handler->display->display_options['filters']['uid_current']['table'] = 'users';
@@ -175,7 +180,7 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['filters']['title']['group'] = 1;
   $handler->display->display_options['filters']['title']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title:';
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
   $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
@@ -194,7 +199,7 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['filters']['type']['exposed'] = TRUE;
   $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
-  $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
+  $handler->display->display_options['filters']['type']['expose']['label'] = 'Type:';
   $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
   $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
   $handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
@@ -213,7 +218,7 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['filters']['state']['group'] = 1;
   $handler->display->display_options['filters']['state']['exposed'] = TRUE;
   $handler->display->display_options['filters']['state']['expose']['operator_id'] = 'state_op';
-  $handler->display->display_options['filters']['state']['expose']['label'] = 'State';
+  $handler->display->display_options['filters']['state']['expose']['label'] = 'State:';
   $handler->display->display_options['filters']['state']['expose']['operator'] = 'state_op';
   $handler->display->display_options['filters']['state']['expose']['identifier'] = 'state';
   $handler->display->display_options['filters']['state']['expose']['remember_roles'] = array(
@@ -260,14 +265,14 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['label'] = 'Last Updated';
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y g:i a';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y g:i a';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -336,7 +341,7 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['filters']['title']['group'] = 1;
   $handler->display->display_options['filters']['title']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title:';
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
   $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
@@ -355,7 +360,7 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['filters']['state']['group'] = 1;
   $handler->display->display_options['filters']['state']['exposed'] = TRUE;
   $handler->display->display_options['filters']['state']['expose']['operator_id'] = 'state_op';
-  $handler->display->display_options['filters']['state']['expose']['label'] = 'State';
+  $handler->display->display_options['filters']['state']['expose']['label'] = 'State:';
   $handler->display->display_options['filters']['state']['expose']['operator'] = 'state_op';
   $handler->display->display_options['filters']['state']['expose']['identifier'] = 'state';
   $handler->display->display_options['filters']['state']['expose']['remember_roles'] = array(
@@ -383,14 +388,14 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['label'] = 'Last Updated';
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y g:i a';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y g:i a';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -459,7 +464,7 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['filters']['title']['group'] = 1;
   $handler->display->display_options['filters']['title']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title:';
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
   $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
@@ -478,7 +483,7 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['filters']['state']['group'] = 1;
   $handler->display->display_options['filters']['state']['exposed'] = TRUE;
   $handler->display->display_options['filters']['state']['expose']['operator_id'] = 'state_op';
-  $handler->display->display_options['filters']['state']['expose']['label'] = 'State';
+  $handler->display->display_options['filters']['state']['expose']['label'] = 'State:';
   $handler->display->display_options['filters']['state']['expose']['operator'] = 'state_op';
   $handler->display->display_options['filters']['state']['expose']['identifier'] = 'state';
   $handler->display->display_options['filters']['state']['expose']['remember_roles'] = array(
@@ -506,14 +511,14 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['label'] = 'Last Updated';
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y g:i a';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y g:i a';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -582,7 +587,7 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['filters']['title']['group'] = 1;
   $handler->display->display_options['filters']['title']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title:';
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
   $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
@@ -601,7 +606,7 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['filters']['state']['group'] = 1;
   $handler->display->display_options['filters']['state']['exposed'] = TRUE;
   $handler->display->display_options['filters']['state']['expose']['operator_id'] = 'state_op';
-  $handler->display->display_options['filters']['state']['expose']['label'] = 'State';
+  $handler->display->display_options['filters']['state']['expose']['label'] = 'State:';
   $handler->display->display_options['filters']['state']['expose']['operator'] = 'state_op';
   $handler->display->display_options['filters']['state']['expose']['identifier'] = 'state';
   $handler->display->display_options['filters']['state']['expose']['remember_roles'] = array(
@@ -629,14 +634,14 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['label'] = 'Last Updated';
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y g:i a';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y g:i a';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -710,7 +715,7 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['filters']['title']['group'] = 1;
   $handler->display->display_options['filters']['title']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title:';
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
   $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
@@ -729,7 +734,7 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['filters']['field_flea_market_item_type_value']['group'] = 1;
   $handler->display->display_options['filters']['field_flea_market_item_type_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_flea_market_item_type_value']['expose']['operator_id'] = 'field_flea_market_item_type_value_op';
-  $handler->display->display_options['filters']['field_flea_market_item_type_value']['expose']['label'] = 'Category';
+  $handler->display->display_options['filters']['field_flea_market_item_type_value']['expose']['label'] = 'Category:';
   $handler->display->display_options['filters']['field_flea_market_item_type_value']['expose']['operator'] = 'field_flea_market_item_type_value_op';
   $handler->display->display_options['filters']['field_flea_market_item_type_value']['expose']['identifier'] = 'field_flea_market_item_type_value';
   $handler->display->display_options['filters']['field_flea_market_item_type_value']['expose']['remember_roles'] = array(
@@ -748,7 +753,7 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['filters']['state']['group'] = 1;
   $handler->display->display_options['filters']['state']['exposed'] = TRUE;
   $handler->display->display_options['filters']['state']['expose']['operator_id'] = 'state_op';
-  $handler->display->display_options['filters']['state']['expose']['label'] = 'State';
+  $handler->display->display_options['filters']['state']['expose']['label'] = 'State:';
   $handler->display->display_options['filters']['state']['expose']['operator'] = 'state_op';
   $handler->display->display_options['filters']['state']['expose']['identifier'] = 'state';
   $handler->display->display_options['filters']['state']['expose']['remember_roles'] = array(

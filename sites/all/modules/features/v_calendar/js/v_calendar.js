@@ -1,6 +1,10 @@
 (function ($) {
   'use strict';
 
+  /**
+   * Creates a custom widget for Calendar event filters based on the view
+   * filters, which are hidden.
+   */
   Drupal.behaviors.calendarFilters = {
     attach: function (context, settings) {
 
@@ -128,6 +132,9 @@
         optgroupValueField: 'value',
         optgroupLabelField: 'label',
         optgroupField: 'group',
+        onDelete: function () {
+          return false;
+        },
         onItemAdd: function (value, $item) {
           var inTypes, inTags;
           var allIndex = -1;
@@ -247,6 +254,7 @@
       // The selectize input element and control object are needed for updating
       // the display of selected filter state (eg. 'Calendar Filters: 2').
       $selectizeInput = $selectize.parent().find('.selectize-input');
+      $selectizeInput.find('input').prop('disabled', true);
       selectizeControl = $selectize[0].selectize;
 
       // Add custom click handler to allow de-select of selected options.
@@ -265,7 +273,7 @@
       updateSelectizeDisplay($selectize.val());
 
       // Open the dropdown control when the input area is clicked as well.
-      $selectizeInput.find('div, input').click(function (e) {
+      $selectizeInput.click(function (e) {
         selectizeControl.open();
       });
 

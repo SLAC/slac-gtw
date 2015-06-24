@@ -102,11 +102,35 @@ $zen-column-count: 12;
   }
 }
 
+// My content
+.page-my-content .content-container {
+  @include zen-grid-item(12, 1);
+  float: none;
+
+  @include breakpoint($calendar-full) {
+    @include zen-grid-item(10, 2);
+    float: none;
+  }
+}
+
+// Calendar
 .events-calendar {
   @include zen-grid-item(12, 1);
 
   @include breakpoint($calendar-full) {
     @include zen-grid-item(10, 2);
+  }
+}
+
+
+// Feedback Webform
+.node-type-webform .content-container {
+  @include zen-grid-item(12, 1);
+  float: none;
+
+  @include breakpoint($tablet-large) {
+    @include zen-grid-item(10, 2);
+    float: none;
   }
 }
 

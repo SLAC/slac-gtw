@@ -74,7 +74,7 @@
 
   <header id="header" role="banner">
     <div class="header-wrapper">
-      
+
     <?php if ($logo): ?>
       <div class="logo">
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><span>Slac Today</span></a>
@@ -110,8 +110,8 @@
 
   <div id="main">
 
-    <div class="content-wrapper" class="column" role="main">
-      <div id="content" class="column" role="main">
+    <div class="content-wrapper column" role="main">
+      <div id="content" class="column content-container" role="main">
         <?php print render($page['highlighted']); ?>
         <!-- <?php print $breadcrumb; ?> -->
         <a id="main-content"></a>
@@ -135,16 +135,18 @@
       <?php endif; ?>
     </div><!-- /#content -->
 
-  <div class="footer-wrapper">
-    <div class="footer-inner">
-      <?php print render($page['footer']); ?>
-      <div class="footer-logos">
-        <a class="stanford-u" title="Stanford University" href="http://www.stanford.edu/"><span>Stanford University</span></a>
+    <div class="footer-wrapper">
+      <div class="footer-inner">
+        <?php print render($page['footer']); ?>
+        <div class="footer-logos">
+          <a class="stanford-u" title="Stanford University" href="http://www.stanford.edu/"><span>Stanford University</span></a>
 
-        <a class="dept-of-energy" title="U.S. Department of Energy" href="http://science.energy.gov/"><span>US Department of Energy</span></a>
+          <a class="dept-of-energy" title="U.S. Department of Energy" href="http://science.energy.gov/"><span>US Department of Energy</span></a>
+        </div>
       </div>
     </div>
-  </div>
+
+  </div> <!-- /#main -->
 
 </div><!-- /#page -->
 

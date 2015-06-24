@@ -93,7 +93,7 @@ function v_event_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Date */
+  /* Field: Content: Access Restrictions Dates */
   $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
   $handler->display->display_options['fields']['field_event_date']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
@@ -158,7 +158,7 @@ Date: [field_event_date] \\n
 Time: [field_event_date_1] \\n
 URL: [nothing_3] \\n';
   $handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Date -  start date (field_event_date) */
+  /* Sort criterion: Content: Access Restrictions Dates -  start date (field_event_date) */
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
   $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
@@ -176,7 +176,7 @@ URL: [nothing_3] \\n';
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
-  /* Filter criterion: Content: Date - end date (field_event_date:value2) */
+  /* Filter criterion: Content: Access Restrictions Dates - end date (field_event_date:value2) */
   $handler->display->display_options['filters']['field_event_date_value2']['id'] = 'field_event_date_value2';
   $handler->display->display_options['filters']['field_event_date_value2']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['filters']['field_event_date_value2']['field'] = 'field_event_date_value2';
@@ -195,7 +195,7 @@ URL: [nothing_3] \\n';
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/calendar/all">View All Upcoming Events</a><br />
+  $handler->display->display_options['footer']['area']['content'] = '<a href="/calendar">View All Upcoming Events</a><br />
 <a href="http://training.slac.stanford.edu/calendar.asp">View SLAC Training Calendar</a><br />
 <a href="/node/add/event/slac ">Submit Event</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';

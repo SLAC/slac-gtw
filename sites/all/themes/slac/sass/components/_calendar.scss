@@ -1002,6 +1002,9 @@ table.calendar-legend tr.even .stripe {
 .view-calendar .feed-icon {
   margin-top: 5px;
 }
+.calendar-week-view .feed-icon {
+  display: none;
+}
 
 table.mini .date-prev,
 table.mini .date-next {
