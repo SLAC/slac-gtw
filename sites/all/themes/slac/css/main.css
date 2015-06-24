@@ -751,9 +751,9 @@ table tr td:first-child {
 
 .node-type-webform .content-container {
   float: left;
-  width: 83.33333%;
-  margin-left: 8.33333%;
-  margin-right: -91.66667%;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: -100%;
   padding-left: 20px;
   padding-right: 20px;
   -moz-box-sizing: border-box;
@@ -762,6 +762,22 @@ table tr td:first-child {
   box-sizing: border-box;
   word-wrap: break-word;
   float: none;
+}
+@media (min-width: 60em) {
+  .node-type-webform .content-container {
+    float: left;
+    width: 83.33333%;
+    margin-left: 8.33333%;
+    margin-right: -91.66667%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    float: none;
+  }
 }
 
 .region-content-bottom {
@@ -4343,12 +4359,11 @@ div.date-views-pager div.next-year {
 }
 
 .node-type-webform h1.title,
-.node-type-webform .tabs-primary,
-.node-type-webform article {
+.node-type-webform .tabs-primary {
   float: left;
-  width: 83.33333%;
-  margin-left: 8.33333%;
-  margin-right: -91.66667%;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: -100%;
   padding-left: 20px;
   padding-right: 20px;
   -moz-box-sizing: border-box;
@@ -4357,27 +4372,86 @@ div.date-views-pager div.next-year {
   box-sizing: border-box;
   word-wrap: break-word;
   float: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+@media (min-width: 60em) {
+  .node-type-webform h1.title,
+  .node-type-webform .tabs-primary {
+    float: left;
+    width: 83.33333%;
+    margin-left: 8.33333%;
+    margin-right: -91.66667%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    float: none;
+  }
+}
+@media (min-width: 60em) {
+  .node-type-webform .tabs-primary {
+    margin-left: 9.7%;
+  }
+}
+.node-type-webform article {
+  margin: 0;
+  width: 100%;
+}
+@media (min-width: 60em) {
+  .node-type-webform article {
+    float: left;
+    width: 83.33333%;
+    margin-left: 8.33333%;
+    margin-right: -91.66667%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    float: none;
+  }
 }
 .node-type-webform .form-actions {
-  width: auto;
-  float: left;
-  margin: 0;
+  width: 100%;
   border: 1px dotted #b1c0c7;
+}
+@media (min-width: 40em) {
+  .node-type-webform .form-actions {
+    width: auto;
+    float: left;
+    margin: 0;
+  }
 }
 .node-type-webform input[type="submit"] {
   background: #316dae;
-  margin: 0.3rem;
+  margin: 0;
 }
 .node-type-webform input[type="submit"]:hover, .node-type-webform input[type="submit"]:focus {
   background: #4786cb;
   outline: none;
 }
+@media (min-width: 40em) {
+  .node-type-webform input[type="submit"] {
+    margin: 0.3rem;
+  }
+}
 .node-type-webform .webform-client-form {
   max-width: 640px;
   background: #f8f8f8;
   border: 3px solid #e2e2e2;
-  padding: 0 4% 32px 6%;
+  padding: 0 1rem 2rem 1rem;
   overflow: hidden;
+}
+@media (min-width: 60em) {
+  .node-type-webform .webform-client-form {
+    padding: 0 4% 2rem 6%;
+  }
 }
 .node-type-webform .webform-client-form label {
   font-size: 13px;
@@ -4391,9 +4465,17 @@ div.date-views-pager div.next-year {
   background: #ffffff;
   border: 1px solid #e2e2e2;
   max-width: 380px;
-  width: 96%;
+  width: 92%;
   padding: 0.2rem 0.5rem;
   outline: none;
+}
+@media (min-width: 60em) {
+  .node-type-webform .webform-client-form input[type="text"],
+  .node-type-webform .webform-client-form input[type="email"],
+  .node-type-webform .webform-client-form textarea,
+  .node-type-webform .webform-client-form select {
+    width: 96%;
+  }
 }
 .node-type-webform .webform-client-form select {
   max-width: 320px;
