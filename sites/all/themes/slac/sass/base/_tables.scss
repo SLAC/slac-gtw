@@ -37,13 +37,15 @@ table {
 }
 
 // Adds borders to headers and cells
-table[border="1"] th,
-table[border="2"] th,
-table[border="3"] th,
-table[border="1"] tr td,
-table[border="2"] tr td,
-table[border="3"] tr td {
+table[border] th,
+table[border] tr td {
   border: 3px solid $default-table-borders;
+}
+
+// No borders if border value is zero
+table[border="0"] th,
+table[border="0"] tr td {
+  border: none;
 }
 
 table th {
