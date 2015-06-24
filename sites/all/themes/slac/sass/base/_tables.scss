@@ -1,5 +1,6 @@
 table {
   width: 100%;
+  border-collapse: collapse;
 
   tbody {
     border: none;
@@ -17,6 +18,10 @@ table {
     border: none;
   }
 
+  tr.odd {
+    background-color: $light-grey;
+  }
+
   th {
     border: none;
   }
@@ -31,21 +36,23 @@ table {
   }
 }
 
-// Adds borders
-.add-borders tr td {
+// Adds borders to headers and cells
+table[border],
+table[border] th,
+table[border] tr td {
   border: 3px solid $default-table-borders;
 }
 
-table thead th {
+// No borders if border value is zero
+table[border="0"] th,
+table[border="0"] tr td {
+  border: none;
+}
+
+table th {
   color: $red;
-}
-
-// Adds borders
-.add-borders thead th {
-  border: 3px solid $default-table-borders;
 }
 
 table tr td:first-child {
-  color: $red;
   width: 235px;
 }
