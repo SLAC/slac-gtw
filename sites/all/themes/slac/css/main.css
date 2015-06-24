@@ -4337,6 +4337,7 @@ div.date-views-pager div.next-year {
 }
 
 .node-type-webform h1.title,
+.node-type-webform .tabs-primary,
 .node-type-webform article {
   float: left;
   width: 83.33333%;
@@ -4351,18 +4352,25 @@ div.date-views-pager div.next-year {
   word-wrap: break-word;
   float: none;
 }
-.node-type-webform article .form-actions {
-  padding: 0.3rem 0.7rem;
+.node-type-webform .form-actions {
   width: auto;
   float: left;
   margin: 0;
   border: 1px dotted #b1c0c7;
 }
+.node-type-webform input[type="submit"] {
+  background: #316dae;
+  margin: 0.3rem;
+}
+.node-type-webform input[type="submit"]:hover, .node-type-webform input[type="submit"]:focus {
+  background: #4786cb;
+  outline: none;
+}
 .node-type-webform .webform-client-form {
   max-width: 640px;
   background: #f8f8f8;
   border: 3px solid #e2e2e2;
-  padding: 0 8% 32px;
+  padding: 0 4% 32px 6%;
   overflow: hidden;
 }
 .node-type-webform .webform-client-form label {
@@ -4376,29 +4384,21 @@ div.date-views-pager div.next-year {
 .node-type-webform .webform-client-form select {
   background: #ffffff;
   border: 1px solid #e2e2e2;
-  height: 22px;
   max-width: 380px;
   width: 96%;
-  padding: 0 2%;
+  padding: 0.2rem 0.5rem;
   outline: none;
 }
+.node-type-webform .webform-client-form select {
+  max-width: 320px;
+  padding: 0.5rem;
+  background: #ffffff url(../images/down-arrow.png) 98% center no-repeat;
+}
 .node-type-webform .webform-client-form textarea {
+  width: 100%;
   max-width: inherit;
   padding: 0.3rem 0.7rem;
   min-height: 11.25rem;
-}
-.node-type-webform .webform-client-form select {
-  background: #ffffff url(../images/down-arrow.png) 98% center no-repeat;
-}
-.node-type-webform .webform-client-form input {
-  display: block;
-  background: #316dae;
-  padding: 0.6rem 1.5rem;
-  color: #ffffff;
-  text-transform: lowercase;
-  min-width: 8.75rem;
-  width: 100%;
-  margin: 0;
 }
 
 .feed-icon__bottom {

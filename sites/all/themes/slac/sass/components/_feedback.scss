@@ -1,23 +1,34 @@
 .node-type-webform {
   h1.title,
+  .tabs-primary,
   article {
     @include zen-grid-item(10, 2);
     float: none;
   }
 
-  article .form-actions {
-    padding: 0.3rem 0.7rem;
+  .form-actions {
     width: auto;
     float: left;
     margin: 0;
     border: 1px dotted $event-border;
   }
 
+  input[type="submit"] {
+    background: $blue;
+    margin: 0.3rem;
+
+    &:hover,
+    &:focus {
+      background: lighten($blue, 10%);
+      outline: none;
+    }
+  }
+
   .webform-client-form {
     max-width: 640px;
     background: $feedback-form-background;
     border: 3px solid $feedback-form-border;
-    padding: 0 8% 32px;
+    padding: 0 4% 32px 6%;
     overflow: hidden;
 
     label {
@@ -32,32 +43,23 @@
     select {
       background: $white;
       border: 1px solid $feedback-form-border;
-      height: 22px;
       max-width: 380px;
       width: 96%;
-      padding: 0 2%;
+      padding: 0.2rem 0.5rem;
       outline: none;
     }
 
-    textarea {
-      max-width: inherit;
-      padding: 0.3rem 0.7rem;
-      min-height: 11.25rem;
-    }
-
     select {
+      max-width: 320px;
+      padding: 0.5rem;
       background: $white url(../images/down-arrow.png) 98% center no-repeat;
     }
 
-    input {
-      display: block;
-      background: $blue;
-      padding: 0.6rem 1.5rem;
-      color: $white;
-      text-transform: lowercase;
-      min-width: 8.75rem;
+    textarea {
       width: 100%;
-      margin: 0;
+      max-width: inherit;
+      padding: 0.3rem 0.7rem;
+      min-height: 11.25rem;
     }
   }
 }
