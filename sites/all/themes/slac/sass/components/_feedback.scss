@@ -1,0 +1,61 @@
+.node-type-webform {
+  h1.title,
+  article {
+    @include zen-grid-item(10, 2);
+    float: none;
+  }
+
+  article .form-actions {
+    padding: 0.3rem 0.7rem;
+    width: auto;
+    float: left;
+    margin: 0;
+    border: 1px dotted $event-border;
+  }
+
+  .webform-client-form {
+    max-width: 640px;
+    background: $feedback-form-background;
+    border: 3px solid $feedback-form-border;
+    padding: 0 8% 32px;
+    overflow: hidden;
+    label {
+      font-size: 13px;
+      font-weight: normal;
+      margin-bottom: 3px;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      background: $white;
+      border: 1px solid $feedback-form-border;
+      height: 22px;
+      max-width: 380px;
+      width: 96%;
+      padding: 0 2%;
+      outline: none;
+    }
+
+    textarea {
+      max-width: inherit;
+      padding: 0.3rem 0.7rem;
+      min-height: 11.25rem;
+    }
+
+    select {
+      background: $white url(../images/down-arrow.png) 98% center no-repeat;
+    }
+
+    input {
+      display: block;
+      background: $blue;
+      padding: 0.6rem 1.5rem;
+      color: $white;
+      text-transform: lowercase;
+      min-width: 8.75rem;
+      width: 100%;
+      margin: 0;
+    }
+  }
+}

@@ -743,6 +743,21 @@ table tr td:first-child {
   }
 }
 
+.node-type-webform .content-container {
+  float: left;
+  width: 83.33333%;
+  margin-left: 8.33333%;
+  margin-right: -91.66667%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  float: none;
+}
+
 .region-content-bottom {
   width: 100%;
   max-width: 1432px;
@@ -4319,6 +4334,71 @@ div.date-views-pager div.next-year {
 }
 .events-color-legend .event-none:before {
   background: #838383;
+}
+
+.node-type-webform h1.title,
+.node-type-webform article {
+  float: left;
+  width: 83.33333%;
+  margin-left: 8.33333%;
+  margin-right: -91.66667%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  float: none;
+}
+.node-type-webform article .form-actions {
+  padding: 0.3rem 0.7rem;
+  width: auto;
+  float: left;
+  margin: 0;
+  border: 1px dotted #b1c0c7;
+}
+.node-type-webform .webform-client-form {
+  max-width: 640px;
+  background: #f8f8f8;
+  border: 3px solid #e2e2e2;
+  padding: 0 8% 32px;
+  overflow: hidden;
+}
+.node-type-webform .webform-client-form label {
+  font-size: 13px;
+  font-weight: normal;
+  margin-bottom: 3px;
+}
+.node-type-webform .webform-client-form input[type="text"],
+.node-type-webform .webform-client-form input[type="email"],
+.node-type-webform .webform-client-form textarea,
+.node-type-webform .webform-client-form select {
+  background: #ffffff;
+  border: 1px solid #e2e2e2;
+  height: 22px;
+  max-width: 380px;
+  width: 96%;
+  padding: 0 2%;
+  outline: none;
+}
+.node-type-webform .webform-client-form textarea {
+  max-width: inherit;
+  padding: 0.3rem 0.7rem;
+  min-height: 11.25rem;
+}
+.node-type-webform .webform-client-form select {
+  background: #ffffff url(../images/down-arrow.png) 98% center no-repeat;
+}
+.node-type-webform .webform-client-form input {
+  display: block;
+  background: #316dae;
+  padding: 0.6rem 1.5rem;
+  color: #ffffff;
+  text-transform: lowercase;
+  min-width: 8.75rem;
+  width: 100%;
+  margin: 0;
 }
 
 .feed-icon__bottom {

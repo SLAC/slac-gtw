@@ -122,6 +122,13 @@ $zen-column-count: 12;
   }
 }
 
+
+// Feedback Webform
+.node-type-webform .content-container {
+  @include zen-grid-item(10, 2);
+  float: none;
+}
+
 .region-content-bottom {
   width: 100%;
   max-width: 1432px;
