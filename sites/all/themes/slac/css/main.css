@@ -435,6 +435,9 @@ table th {
 table tr td:first-child {
   width: 235px;
 }
+.page-my-content table tr td:first-child, .page-flea-market table tr td:first-child {
+  width: inherit;
+}
 
 .content-wrapper {
   width: 100%;
