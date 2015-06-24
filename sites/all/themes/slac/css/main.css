@@ -337,6 +337,42 @@ hr {
   margin: 1rem 0 1rem;
 }
 
+blockquote {
+  font-size: 20px;
+  font-size: 1.25rem;
+  color: #7c6235;
+  font-family: Georgia, "Times New Roman", serif;
+  position: relative;
+  font-style: italic;
+  margin: 2.5rem 2rem;
+}
+
+blockquote:before,
+blockquote:after {
+  font-size: 75px;
+  font-size: 4.6875rem;
+  color: #86A3B2;
+  line-height: 0.1rem;
+}
+
+blockquote:before {
+  content: "\201C";
+  position: absolute;
+  top: 0.5rem;
+  left: -2.5rem;
+}
+
+blockquote:after {
+  content: "\201D";
+  position: absolute;
+  right: -1.5rem;
+  bottom: -2rem;
+}
+
+blockquote p {
+  display: inline;
+}
+
 .general-left h2 {
   font-size: 20px;
   font-size: 1.25rem;
@@ -350,17 +386,17 @@ hr {
 table {
   width: 100%;
 }
-
 table tbody {
   border: none;
 }
+table td {
+  vertical-align: top;
+}
+table tr,
 table tr.odd,
 table tr.even {
   background-color: #ffffff;
   border: none;
-}
-table tr.odd {
-  background-color: #f2f2f2;
 }
 table th {
   border: none;
@@ -372,6 +408,23 @@ table th {
 table td.active,
 table th.active {
   background-color: transparent;
+}
+
+.add-borders tr td {
+  border: 3px solid #e2e2e2;
+}
+
+table thead th {
+  color: #890024;
+}
+
+.add-borders thead th {
+  border: 3px solid #e2e2e2;
+}
+
+table tr td:first-child {
+  color: #890024;
+  width: 235px;
 }
 
 .content-wrapper {
