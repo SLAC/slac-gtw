@@ -6038,7 +6038,6 @@ h1.title {
     text-align: right;
   }
   #block-menu-menu-top-menu .menu {
-    height: 12px;
     vertical-align: top;
     line-height: 1;
   }
@@ -6046,11 +6045,10 @@ h1.title {
     display: inline-block;
     line-height: 1;
     padding: 0;
-    height: 11px;
-    margin-right: 14px;
+    margin-right: 0.875rem;
   }
   #block-menu-menu-top-menu .menu li:first-child a {
-    padding-right: 14px;
+    padding-right: 0.875rem;
     border-right: 1px solid #316dae;
   }
   #block-menu-menu-top-menu .menu a {

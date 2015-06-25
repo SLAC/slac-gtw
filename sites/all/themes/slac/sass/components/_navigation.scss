@@ -130,7 +130,6 @@
     text-align: right;
 
     .menu {
-      height: 12px;
       vertical-align: top;
       line-height: 1;
 
@@ -138,11 +137,10 @@
         display: inline-block;
         line-height: 1;
         padding: 0;
-        height: 11px;
-        margin-right: 14px;
+        margin-right: 0.875rem;
 
         &:first-child a {
-          padding-right: 14px;
+          padding-right: 0.875rem;
           border-right: 1px solid $blue;
         }
       }
