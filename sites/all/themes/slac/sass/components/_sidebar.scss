@@ -1,10 +1,10 @@
 .general-right {
   .pane-title {
-    @include font-size(14px);
-    border-bottom: 2px solid $event-border;
+    @include font-size(12px);
+    border-bottom: 3px solid $event-border;
     text-transform: uppercase;
     color: $dim-grey;
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
     padding-bottom: .1rem;
   }
 }

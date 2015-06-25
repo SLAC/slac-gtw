@@ -10,6 +10,12 @@
 .node-type-news,
 .node-type-access-information {
   .general-right {
+
+    ul a {
+      display: block;
+      padding: 0.25rem 0;
+    }
+
     .field-name-field-shared-related-files {
       li a {
         display: inline-block;
@@ -18,23 +24,17 @@
 
     .field-type-file span.file {
       display: block;
-      padding: .2em 0;
+      padding: 0.2rem 0;
     }
 
     ul {
-      color: $dim-grey;
-      padding-left: 2em;
+      @include font-size(12px);
+      padding-left: 2rem;
       list-style-type: disc;
     }
 
     .view-featured-news ul {
       padding-left: 0;
-    }
-
-    ul a {
-      @include font-size(14px);
-      display: block;
-      padding: .2em 0;
     }
 
     // removes gap in related links lists
@@ -44,11 +44,12 @@
 
     .pane-combined-related-items {
       ul {
+
         li {
-          margin-left: 0;
+          margin: 0;
+          padding: 0;
           list-style-type: disc;
           list-style-position: outside;
-          padding: .2em 0;
         }
 
         a {

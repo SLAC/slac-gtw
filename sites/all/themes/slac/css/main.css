@@ -3938,16 +3938,6 @@ div.date-views-pager div.next-year {
   margin-top: 0;
   line-height: 1;
 }
-.node-type-event .general-right h2,
-.node-type-news .general-right h2,
-.node-type-access-information .general-right h2 {
-  font-size: 14px;
-  font-size: 0.875rem;
-  border-bottom: 3px solid #b1c0c7;
-  text-transform: uppercase;
-  color: #4f4f4f;
-  margin-bottom: 1rem;
-}
 .node-type-event .general-right .panel-pane,
 .node-type-news .general-right .panel-pane,
 .node-type-access-information .general-right .panel-pane {
@@ -5472,6 +5462,12 @@ h1.title {
   margin-bottom: 1rem;
 }
 
+.node-type-event .general-right ul a,
+.node-type-news .general-right ul a,
+.node-type-access-information .general-right ul a {
+  display: block;
+  padding: 0.25rem 0;
+}
 .node-type-event .general-right .field-name-field-shared-related-files li a,
 .node-type-news .general-right .field-name-field-shared-related-files li a,
 .node-type-access-information .general-right .field-name-field-shared-related-files li a {
@@ -5481,27 +5477,20 @@ h1.title {
 .node-type-news .general-right .field-type-file span.file,
 .node-type-access-information .general-right .field-type-file span.file {
   display: block;
-  padding: .2em 0;
+  padding: 0.2rem 0;
 }
 .node-type-event .general-right ul,
 .node-type-news .general-right ul,
 .node-type-access-information .general-right ul {
-  color: #4f4f4f;
-  padding-left: 2em;
+  font-size: 12px;
+  font-size: 0.75rem;
+  padding-left: 2rem;
   list-style-type: disc;
 }
 .node-type-event .general-right .view-featured-news ul,
 .node-type-news .general-right .view-featured-news ul,
 .node-type-access-information .general-right .view-featured-news ul {
   padding-left: 0;
-}
-.node-type-event .general-right ul a,
-.node-type-news .general-right ul a,
-.node-type-access-information .general-right ul a {
-  font-size: 14px;
-  font-size: 0.875rem;
-  display: block;
-  padding: .2em 0;
 }
 .node-type-event .general-right .panel-pane.pane-node-field-shared-related-files,
 .node-type-news .general-right .panel-pane.pane-node-field-shared-related-files,
@@ -5511,10 +5500,10 @@ h1.title {
 .node-type-event .general-right .pane-combined-related-items ul li,
 .node-type-news .general-right .pane-combined-related-items ul li,
 .node-type-access-information .general-right .pane-combined-related-items ul li {
-  margin-left: 0;
+  margin: 0;
+  padding: 0;
   list-style-type: disc;
   list-style-position: outside;
-  padding: .2em 0;
 }
 .node-type-event .general-right .pane-combined-related-items ul a,
 .node-type-news .general-right .pane-combined-related-items ul a,
@@ -6421,12 +6410,12 @@ h1.title {
 }
 
 .general-right .pane-title {
-  font-size: 14px;
-  font-size: 0.875rem;
-  border-bottom: 2px solid #b1c0c7;
+  font-size: 12px;
+  font-size: 0.75rem;
+  border-bottom: 3px solid #b1c0c7;
   text-transform: uppercase;
   color: #4f4f4f;
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
   padding-bottom: .1rem;
 }
 

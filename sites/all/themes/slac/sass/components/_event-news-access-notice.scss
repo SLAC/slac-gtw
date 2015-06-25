@@ -79,14 +79,6 @@
       line-height: 1;
     }
 
-    h2 {
-      @include font-size(14px);
-      border-bottom: 3px solid $event-border;
-      text-transform: uppercase;
-      color: $dim-grey;
-      margin-bottom: 1rem;
-    }
-
     .panel-pane {
       margin-bottom: 2rem;
     }
