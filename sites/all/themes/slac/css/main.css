@@ -6203,7 +6203,8 @@ h1.title {
   margin-top: 0;
   line-height: 1;
 }
-.page-news .general-left .node-title {
+.page-news .general-left .node-title,
+.page-news .general-left .field-name-field-shared-news-title h3 {
   font-size: 18.72px;
   font-size: 1.17rem;
   margin: .2rem 0;
