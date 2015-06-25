@@ -128,39 +128,35 @@
   @include breakpoint($tablet-large) {
     display: block;
     text-align: right;
-    margin-bottom: 24px;
 
     .menu {
-      text-align: right;
+      height: 12px;
+      vertical-align: top;
+      line-height: 1;
 
       li {
-        display: inline;
+        display: inline-block;
+        line-height: 1;
+        padding: 0;
+        height: 11px;
+        margin-right: 14px;
 
-        &.first {
+        &:first-child a {
+          padding-right: 14px;
           border-right: 1px solid $blue;
         }
+      }
 
-        a {
-          @include font-size(9px);
-          padding: .5em;
-
-          @media all and (min-width: 960px) {
-            @include font-size(11px);
-            padding: .5em 1em;
-          }
-
-          color: $blue;
-          text-transform: uppercase;
-
-          &:hover,
-          &:focus {
-            outline: none;
-          }
-        }
+      a {
+        @include font-size(11px);
+        text-transform: uppercase;
+        padding: 0;
+        vertical-align: top;
       }
     }
   }
 }
+
 @include breakpoint($tablet-large) {
   .mobile-menu-toggle {
     display: none;
