@@ -38,8 +38,11 @@ function ct_news_field_default_field_instances() {
       ),
       'news_archive' => array(
         'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 300,
+        ),
+        'type' => 'text_summary_or_trimmed',
         'weight' => 13,
       ),
       'search_result' => array(
@@ -341,11 +344,8 @@ function ct_news_field_default_field_instances() {
       ),
       'news_archive' => array(
         'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'type' => 'text_trimmed',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 16,
       ),
       'search_result' => array(
