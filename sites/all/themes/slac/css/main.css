@@ -6036,35 +6036,27 @@ h1.title {
   #block-menu-menu-top-menu {
     display: block;
     text-align: right;
-    margin-bottom: 24px;
   }
   #block-menu-menu-top-menu .menu {
-    text-align: right;
+    vertical-align: top;
+    line-height: 1;
   }
   #block-menu-menu-top-menu .menu li {
-    display: inline;
+    display: inline-block;
+    line-height: 1;
+    padding: 0;
+    margin-right: 0.875rem;
   }
-  #block-menu-menu-top-menu .menu li.first {
+  #block-menu-menu-top-menu .menu li:first-child a {
+    padding-right: 0.875rem;
     border-right: 1px solid #316dae;
   }
-  #block-menu-menu-top-menu .menu li a {
-    font-size: 9px;
-    font-size: 0.5625rem;
-    padding: .5em;
-    color: #316dae;
-    text-transform: uppercase;
-  }
-}
-@media all and (min-width: 60em) and (min-width: 960px) {
-  #block-menu-menu-top-menu .menu li a {
+  #block-menu-menu-top-menu .menu a {
     font-size: 11px;
     font-size: 0.6875rem;
-    padding: .5em 1em;
-  }
-}
-@media (min-width: 60em) {
-  #block-menu-menu-top-menu .menu li a:hover, #block-menu-menu-top-menu .menu li a:focus {
-    outline: none;
+    text-transform: uppercase;
+    padding: 0;
+    vertical-align: top;
   }
 }
 
