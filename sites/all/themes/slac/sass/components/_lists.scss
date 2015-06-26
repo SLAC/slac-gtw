@@ -1,8 +1,12 @@
 .general-left {
   ul,
   ol {
-    padding-left: 4rem;
+    padding-left: 2.5rem;
     margin-bottom: 1rem;
+
+    @include breakpoint($tablet-large) {
+      padding-left: 4rem;
+    }
   }
 }
 
