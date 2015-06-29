@@ -92,6 +92,21 @@ function v_calendar_views_default_views() {
   );
   $handler->display->display_options['fields']['field_event_date']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['delta_offset'] = '0';
+  /* Field: Content: Date (start only) */
+  $handler->display->display_options['fields']['field_event_date_1']['id'] = 'field_event_date_1';
+  $handler->display->display_options['fields']['field_event_date_1']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['fields']['field_event_date_1']['field'] = 'field_event_date';
+  $handler->display->display_options['fields']['field_event_date_1']['ui_name'] = 'Content: Date (start only)';
+  $handler->display->display_options['fields']['field_event_date_1']['label'] = '';
+  $handler->display->display_options['fields']['field_event_date_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_event_date_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_date_1']['settings'] = array(
+    'format_type' => 'calendar_item_time',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
   /* Field: ical link (Global: Custom text) */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -125,7 +140,10 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['ui_name'] = 'Item Output (Global: Custom text)';
   $handler->display->display_options['fields']['nothing_1']['label'] = '';
   $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<div class="type-[type] event-[field_event_type]">
-<span class="time">[field_event_date]</span>
+<span class="time">
+  <span class="desktop">[field_event_date]</span>
+  <span class="mobile">[field_event_date_1]</span>
+</span>
 <span class="link-ical">[nothing]</span>
 <span class="title"><a href="[path]" title="[title]">[title]</a></span>
 </div>';

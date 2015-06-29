@@ -962,6 +962,14 @@ table.calendar-legend tr.even .stripe {
       display: none;
     }
   }
+  .single-day .desktop {
+    @include breakpoint($mobile) {
+      display: none;
+    }
+    @include breakpoint($tablet-large) {
+      display: inline;
+    }
+  }
 }
 
 .date-nav-wrapper .date-next {
