@@ -135,6 +135,7 @@ h1.title {
   input[type="text"] {
     @include font-size(14px);
     display: block;
+    color: $search-text-color;
     float: left;
     margin: 0;
     margin-left: 10px;
