@@ -173,14 +173,14 @@
     .pane-node-field-shared-image,
     .pane-node-field-shared-video {
       .field-item + .field-item {
-        border-top: dashed 3px $event-border;
+        border-top: dashed 2px $event-border;
         margin-top: 2rem;
         padding-top: 2rem;
       }
     }
 
     .pane-node-field-shared-image + .pane-node-field-shared-video {
-      border-top: dashed 3px $event-border;
+      border-top: dashed 2px $event-border;
       padding-top: 2rem;
     }
   }

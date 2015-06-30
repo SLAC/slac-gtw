@@ -4047,12 +4047,12 @@ div.date-views-pager div.next-year {
 }
 .node-type-news .general-right .pane-node-field-shared-image .field-item + .field-item,
 .node-type-news .general-right .pane-node-field-shared-video .field-item + .field-item {
-  border-top: dashed 3px #b1c0c7;
+  border-top: dashed 2px #b1c0c7;
   margin-top: 2rem;
   padding-top: 2rem;
 }
 .node-type-news .general-right .pane-node-field-shared-image + .pane-node-field-shared-video {
-  border-top: dashed 3px #b1c0c7;
+  border-top: dashed 2px #b1c0c7;
   padding-top: 2rem;
 }
 
