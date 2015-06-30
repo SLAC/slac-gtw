@@ -193,19 +193,26 @@
       border-top: none;
     }
 
+    h1 {
+      margin-bottom: 1rem;
+    }
+
     .pane-node-field-event-date,
     .pane-node-field-shared-location {
       width: 78.6%;
       background: lighten($event-border, 20%);
 
       .pane-title {
-        @include font-size(14px);
+        @include font-size(12px);
         float: left;
         margin: 0;
         width: 5rem;
         text-align: right;
         font-weight: normal;
-        padding: 0.625rem 0.625rem 0.625rem 0;
+        padding: 1rem 0.625rem 0.625rem 0;
+        text-transform: uppercase;
+        line-height: 1;
+        font-weight: bold;
       }
 
       .field {
@@ -221,7 +228,7 @@
     }
 
     .panel-pane:nth-child(6n) {
-      margin-top: 4rem;
+      margin-top: 3.5rem;
       margin-bottom: 0.1875rem;
     }
 
