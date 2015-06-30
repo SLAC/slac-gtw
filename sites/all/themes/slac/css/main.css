@@ -4059,6 +4059,9 @@ div.date-views-pager div.next-year {
 .node-type-access-information .general-left .pane-node-body {
   border-top: none;
 }
+.node-type-access-information .general-left h1 {
+  margin-bottom: 1rem;
+}
 .node-type-access-information .general-left .pane-node-field-event-date,
 .node-type-access-information .general-left .pane-node-field-shared-location {
   width: 78.6%;
@@ -4066,14 +4069,17 @@ div.date-views-pager div.next-year {
 }
 .node-type-access-information .general-left .pane-node-field-event-date .pane-title,
 .node-type-access-information .general-left .pane-node-field-shared-location .pane-title {
-  font-size: 14px;
-  font-size: 0.875rem;
+  font-size: 12px;
+  font-size: 0.75rem;
   float: left;
   margin: 0;
   width: 5rem;
   text-align: right;
   font-weight: normal;
-  padding: 0.625rem 0.625rem 0.625rem 0;
+  padding: 1rem 0.625rem 0.625rem 0;
+  text-transform: uppercase;
+  line-height: 1;
+  font-weight: bold;
 }
 .node-type-access-information .general-left .pane-node-field-event-date .field,
 .node-type-access-information .general-left .pane-node-field-shared-location .field {
@@ -4088,7 +4094,7 @@ div.date-views-pager div.next-year {
   padding: 0;
 }
 .node-type-access-information .general-left .panel-pane:nth-child(6n) {
-  margin-top: 4rem;
+  margin-top: 3.5rem;
   margin-bottom: 0.1875rem;
 }
 .node-type-access-information .general-left .pane-node-field-shared-contact-name h2 {
