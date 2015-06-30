@@ -45,7 +45,6 @@
     .field-name-field-shared-location,
     .field-name-field-shared-byline {
       @include font-size(16px);
-      display: inline-block;
       color: $dim-grey;
       font-weight: bold;
       margin-bottom: 0.75rem;
@@ -194,21 +193,31 @@
       border-top: none;
     }
 
-    .pane-node-field-event-date .pane-title,
-    .pane-node-field-shared-location .pane-title {
-      @include font-size(14px);
-      display: block;
-      width: 5rem;
-      text-align: right;
-      float: left;
-      margin-top: 0;
-      font-weight: normal;
-      border-right: 3px solid $white;
-      padding: 0.625rem 0.625rem 0.625rem 0;
-    }
+    .pane-node-field-event-date,
+    .pane-node-field-shared-location {
+      width: 78.6%;
+      background: lighten($event-border, 20%);
 
-    .pane-node-field-event-date .pane-title {
-      margin-bottom: 0;
+      .pane-title {
+        @include font-size(14px);
+        float: left;
+        margin: 0;
+        width: 5rem;
+        text-align: right;
+        font-weight: normal;
+        padding: 0.625rem 0.625rem 0.625rem 0;
+      }
+
+      .field {
+        margin-left: 5.625rem;
+        padding: 0.625rem;
+        border-left: 3px solid $white;
+
+        span,
+        div.field-item {
+          padding: 0;
+        }
+      }
     }
 
     .panel-pane:nth-child(6n) {
@@ -225,23 +234,8 @@
       margin-top: 2rem;
     }
 
-    .pane-node-field-event-date,
-    .field-name-field-event-date {
-      .field-items {
-        background: lighten($event-border, 20%);
-        width: 78.6%;
-      }
-    }
-
     .field-name-field-shared-location {
       margin-bottom: 0;
-    }
-
-    .date-display-single,
-    .pane-node-field-shared-location {
-      width: 78%;
-      margin-bottom: 0;
-      background: lighten($event-border, 20%);
     }
 
     .pane-node-field-shared-location {
@@ -260,10 +254,6 @@
       div.field-item {
         display: block;
         padding: 0.75rem 0 0.75rem 0.875rem;
-      }
-
-      span {
-        padding-left: 0.875rem;
       }
 
       &.pane-node-body .field-item {

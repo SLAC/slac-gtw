@@ -3924,7 +3924,6 @@ div.date-views-pager div.next-year {
 .node-type-access-information .general-left .field-name-field-shared-byline {
   font-size: 16px;
   font-size: 1rem;
-  display: inline-block;
   color: #4f4f4f;
   font-weight: bold;
   margin-bottom: 0.75rem;
@@ -4060,21 +4059,33 @@ div.date-views-pager div.next-year {
 .node-type-access-information .general-left .pane-node-body {
   border-top: none;
 }
+.node-type-access-information .general-left .pane-node-field-event-date,
+.node-type-access-information .general-left .pane-node-field-shared-location {
+  width: 78.6%;
+  background: #ecf0f2;
+}
 .node-type-access-information .general-left .pane-node-field-event-date .pane-title,
 .node-type-access-information .general-left .pane-node-field-shared-location .pane-title {
   font-size: 14px;
   font-size: 0.875rem;
-  display: block;
+  float: left;
+  margin: 0;
   width: 5rem;
   text-align: right;
-  float: left;
-  margin-top: 0;
   font-weight: normal;
-  border-right: 3px solid #ffffff;
   padding: 0.625rem 0.625rem 0.625rem 0;
 }
-.node-type-access-information .general-left .pane-node-field-event-date .pane-title {
-  margin-bottom: 0;
+.node-type-access-information .general-left .pane-node-field-event-date .field,
+.node-type-access-information .general-left .pane-node-field-shared-location .field {
+  margin-left: 5.625rem;
+  padding: 0.625rem;
+  border-left: 3px solid #ffffff;
+}
+.node-type-access-information .general-left .pane-node-field-event-date .field span,
+.node-type-access-information .general-left .pane-node-field-event-date .field div.field-item,
+.node-type-access-information .general-left .pane-node-field-shared-location .field span,
+.node-type-access-information .general-left .pane-node-field-shared-location .field div.field-item {
+  padding: 0;
 }
 .node-type-access-information .general-left .panel-pane:nth-child(6n) {
   margin-top: 4rem;
@@ -4088,19 +4099,8 @@ div.date-views-pager div.next-year {
   padding: 0;
   margin-top: 2rem;
 }
-.node-type-access-information .general-left .pane-node-field-event-date .field-items,
-.node-type-access-information .general-left .field-name-field-event-date .field-items {
-  background: #ecf0f2;
-  width: 78.6%;
-}
 .node-type-access-information .general-left .field-name-field-shared-location {
   margin-bottom: 0;
-}
-.node-type-access-information .general-left .date-display-single,
-.node-type-access-information .general-left .pane-node-field-shared-location {
-  width: 78%;
-  margin-bottom: 0;
-  background: #ecf0f2;
 }
 .node-type-access-information .general-left .pane-node-field-shared-location {
   margin-top: 0.1875rem;
@@ -4111,9 +4111,6 @@ div.date-views-pager div.next-year {
 .node-type-access-information .general-left .panel-pane div.field-item {
   display: block;
   padding: 0.75rem 0 0.75rem 0.875rem;
-}
-.node-type-access-information .general-left .panel-pane span {
-  padding-left: 0.875rem;
 }
 .node-type-access-information .general-left .panel-pane.pane-node-body .field-item {
   padding: 0;
