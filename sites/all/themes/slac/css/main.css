@@ -1301,14 +1301,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   text-align: center;
 }
 
-.calendar-calendar div.title a {
-  color: #000;
-}
-
-.calendar-calendar div.title a:hover {
-  color: #c00;
-}
-
 @media (min-width: 60em) {
   .calendar-calendar .monthview .contents,
   .calendar-calendar .monthview .views-field-nothing-1 {
@@ -1709,7 +1701,7 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .day-view .full td .inner div.view-item,
 .calendar-calendar .day-view .full td .inner div.calendar div,
 .calendar-calendar .day-view .full td .inner div.calendar div a {
-  color: #6a6a6a;
+  color: #3d3d3d;
   font-weight: normal;
 }
 
@@ -2121,6 +2113,7 @@ ul.calendar-links,
 .calendar .time {
   display: block;
   font-weight: bold;
+  color: #252525;
 }
 
 .calendar .type-access_information .time {
@@ -3187,7 +3180,7 @@ ul.calendar-links,
   background: #e4e4e4;
   margin: .2rem .2rem .5rem .2rem;
   padding: .2rem .4rem;
-  border-left: 3px solid #838383;
+  border-left: 4px solid #838383;
 }
 .events-calendar .type-access_information .type-access_information,
 .events-calendar .type-event .type-access_information {
@@ -3235,9 +3228,10 @@ ul.calendar-links,
 .events-calendar .weekview .type-event .time,
 .events-calendar .dayview .type-access_information .time,
 .events-calendar .dayview .type-event .time {
-  padding: .1rem .4rem .4rem .4rem;
-  border-top: 3px solid #838383;
+  padding: 3px 6px 4px 6px;
+  border-top: 2px solid #838383;
   background: #c8cac8;
+  height: 16px;
 }
 .events-calendar .weekview .type-access_information .title a,
 .events-calendar .weekview .type-event .title a,
@@ -3285,6 +3279,10 @@ ul.calendar-links,
 .events-calendar .dayview .event-training--development .time {
   border-color: #e76d00;
   background: #fae2cc;
+}
+.events-calendar .dayview .type-access_information .time,
+.events-calendar .dayview .type-event .time {
+  border-width: 4px;
 }
 @media (min-width: 60em) {
   .events-calendar .weekview .type-access_information {

@@ -244,14 +244,6 @@
   text-align: center;
 }
 
-.calendar-calendar div.title a {
-  color: #000;
-}
-
-.calendar-calendar div.title a:hover {
-  color: #c00;
-}
-
 // trims calendar events titles to one line on desktop
 @include breakpoint($tablet-large) {
   .calendar-calendar {
@@ -664,7 +656,7 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .day-view .full td .inner div.view-item,
 .calendar-calendar .day-view .full td .inner div.calendar div,
 .calendar-calendar .day-view .full td .inner div.calendar div a {
-  color: $grey;
+  color: color(event-description-grey);
   font-weight: normal;
 }
 
@@ -1083,6 +1075,7 @@ ul.calendar-links,
 .calendar .time {
   display: block;
   font-weight: bold;
+  color: color(event-time-grey);
 }
 
 .calendar .type-access_information .time {
