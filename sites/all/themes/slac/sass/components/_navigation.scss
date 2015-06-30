@@ -196,10 +196,10 @@
       }
 
       a {
-        @include font-size(11px);
+        @include font-size(14px);
         line-height: 1;
         display: inline-block;
-        padding: 10px 2em;
+        padding: 0.5625rem 1.9375rem;
         text-transform: uppercase;
         color: #fff;
         background: transparent;

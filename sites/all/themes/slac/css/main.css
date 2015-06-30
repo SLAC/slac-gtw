@@ -6149,11 +6149,11 @@ h1.title {
     background: transparent;
   }
   #block-system-main-menu .menu li a {
-    font-size: 11px;
-    font-size: 0.6875rem;
+    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1;
     display: inline-block;
-    padding: 10px 2em;
+    padding: 0.5625rem 1.9375rem;
     text-transform: uppercase;
     color: #fff;
     background: transparent;
