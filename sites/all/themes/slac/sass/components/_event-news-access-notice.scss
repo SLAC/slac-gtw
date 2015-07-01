@@ -127,7 +127,11 @@
 
     .pane-slac-ip-panes-email {
       position: absolute;
-      right: 70px;
+      right: 0;
+
+      @include breakpoint($tablet-large) {
+        right: 70px;
+      }
 
       a {
         padding-right: 1rem;
