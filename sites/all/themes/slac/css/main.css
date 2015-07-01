@@ -4049,7 +4049,12 @@ div.date-views-pager div.next-year {
 }
 .node-type-news .general-left .pane-slac-ip-panes-email {
   position: absolute;
-  right: 70px;
+  right: 0;
+}
+@media (min-width: 60em) {
+  .node-type-news .general-left .pane-slac-ip-panes-email {
+    right: 70px;
+  }
 }
 .node-type-news .general-left .pane-slac-ip-panes-email a {
   padding-right: 1rem;
