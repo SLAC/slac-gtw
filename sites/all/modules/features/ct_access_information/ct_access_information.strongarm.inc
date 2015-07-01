@@ -300,7 +300,7 @@ function ct_access_information_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_access_information';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_access_information'] = $strongarm;
 
   $strongarm = new stdClass();
