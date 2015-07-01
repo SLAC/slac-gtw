@@ -346,6 +346,9 @@ hr {
 .general-left p {
   margin-top: .5rem;
 }
+.general-left ul li a {
+  font-size: inherit;
+}
 
 table {
   width: 100%;
