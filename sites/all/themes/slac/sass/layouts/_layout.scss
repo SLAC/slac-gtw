@@ -8,6 +8,14 @@ $zen-column-count: 12;
   padding: 0;
 }
 
+.l-main {
+  @include zen-grid-item(12, 1);
+  max-width: 1432px;
+  margin: 0 auto;
+  @include clearfix;
+  float: none;
+}
+
 .main-navigation {
 
   .region-navigation {
@@ -135,10 +143,12 @@ $zen-column-count: 12;
 }
 
 .region-content-bottom {
-  width: 100%;
+  @include clearfix;
+  @include zen-grid-item(12, 1);
   max-width: 1432px;
-  margin: 0 auto;
-  padding-bottom: 4rem;
+  float: none;
+  padding: 0;
+  margin: 0 auto 4rem auto;
 }
 
 .footer-inner {

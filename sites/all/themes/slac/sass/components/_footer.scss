@@ -1,9 +1,50 @@
+// keep footer at bottom
+html,
+body {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body.logged-in {
+  height: calc(100% - 29px); //to account for admin menu
+}
+
+.l-page {
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+}
+
+.l-main {
+  background: $white;
+
+  .front & {
+    background: transparent;
+  }
+}
+
+.l-main,
+.general-right,
+.region-content-bottom,
+.content-wrapper {
+  padding-bottom: 6.75rem;
+
+  @include breakpoint($tablet-small) {
+    padding-bottom: 3.75rem;
+  }
+}
+// =================
+
 .footer-wrapper {
   @include font-size(12px);
   color: $white;
   background: $grey-footer-dark;
   margin: 0;
   overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
   a,
   a:link {
