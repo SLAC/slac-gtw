@@ -302,7 +302,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #000;
+  color: #1e1e1e;
   font-weight: bold;
 }
 
@@ -337,42 +337,6 @@ hr {
   margin: 1rem 0 1rem;
 }
 
-blockquote {
-  font-size: 20px;
-  font-size: 1.25rem;
-  color: #7c6235;
-  font-family: Georgia, "Times New Roman", serif;
-  position: relative;
-  font-style: italic;
-  margin: 2.5rem 2rem;
-}
-
-blockquote:before,
-blockquote:after {
-  font-size: 75px;
-  font-size: 4.6875rem;
-  color: #86A3B2;
-  line-height: 0.1rem;
-}
-
-blockquote:before {
-  content: "\201C";
-  position: absolute;
-  top: 0.5rem;
-  left: -2.5rem;
-}
-
-blockquote:after {
-  content: "\201D";
-  position: absolute;
-  right: -1.5rem;
-  bottom: -2rem;
-}
-
-blockquote p {
-  display: inline;
-}
-
 .general-left h2 {
   font-size: 20px;
   font-size: 1.25rem;
@@ -381,6 +345,9 @@ blockquote p {
 }
 .general-left p {
   margin-top: .5rem;
+}
+.general-left ul li a {
+  font-size: inherit;
 }
 
 table {
@@ -435,10 +402,89 @@ table th {
 table tr td:first-child {
   width: 235px;
 }
+.page-my-content table tr td:first-child, .page-flea-market table tr td:first-child {
+  width: inherit;
+}
+
+blockquote {
+  font-size: 20px;
+  font-size: 1.25rem;
+  color: #7c6235;
+  font-family: Georgia, "Times New Roman", serif;
+  position: relative;
+  font-style: italic;
+  margin: 2.5rem 0.5rem;
+}
+@media (min-width: 60em) {
+  blockquote {
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
+}
+
+blockquote:before,
+blockquote:after {
+  font-size: 75px;
+  font-size: 4.6875rem;
+  color: #86A3B2;
+  line-height: 0.1rem;
+}
+
+blockquote:before {
+  content: "\201C";
+  position: absolute;
+  top: 0.1rem;
+  left: -1rem;
+}
+@media (min-width: 60em) {
+  blockquote:before {
+    top: 0.5rem;
+    left: -2.5rem;
+  }
+}
+
+blockquote:after {
+  content: "\201D";
+  position: absolute;
+  right: 0.8rem;
+  bottom: -2.5rem;
+}
+@media (min-width: 60em) {
+  blockquote:after {
+    right: -1.5rem;
+    bottom: -2rem;
+  }
+}
+
+blockquote p {
+  display: inline;
+}
 
 .content-wrapper {
   width: 100%;
   padding: 0;
+}
+
+.l-main {
+  float: left;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: -100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  max-width: 1432px;
+  margin: 0 auto;
+  float: none;
+}
+.l-main:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .main-navigation .region-navigation {
@@ -784,10 +830,26 @@ table tr td:first-child {
 }
 
 .region-content-bottom {
+  float: left;
   width: 100%;
+  margin-left: 0%;
+  margin-right: -100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
   max-width: 1432px;
-  margin: 0 auto;
-  padding-bottom: 4rem;
+  float: none;
+  padding: 0;
+  margin: 0 auto 4rem auto;
+}
+.region-content-bottom:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .footer-inner {
@@ -1280,14 +1342,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   text-align: center;
 }
 
-.calendar-calendar div.title a {
-  color: #000;
-}
-
-.calendar-calendar div.title a:hover {
-  color: #c00;
-}
-
 @media (min-width: 60em) {
   .calendar-calendar .monthview .contents,
   .calendar-calendar .monthview .views-field-nothing-1 {
@@ -1688,7 +1742,7 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .day-view .full td .inner div.view-item,
 .calendar-calendar .day-view .full td .inner div.calendar div,
 .calendar-calendar .day-view .full td .inner div.calendar div a {
-  color: #6a6a6a;
+  color: #3d3d3d;
   font-weight: normal;
 }
 
@@ -1987,6 +2041,16 @@ table.calendar-legend tr.even .stripe {
     display: none;
   }
 }
+@media (min-width: 20em) {
+  .calendar-calendar .single-day .desktop {
+    display: none;
+  }
+}
+@media (min-width: 60em) {
+  .calendar-calendar .single-day .desktop {
+    display: inline;
+  }
+}
 
 .date-nav-wrapper .date-next {
   background: none repeat scroll 0 0 #dfdfdf;
@@ -2090,6 +2154,7 @@ ul.calendar-links,
 .calendar .time {
   display: block;
   font-weight: bold;
+  color: #252525;
 }
 
 .calendar .type-access_information .time {
@@ -3156,7 +3221,7 @@ ul.calendar-links,
   background: #e4e4e4;
   margin: .2rem .2rem .5rem .2rem;
   padding: .2rem .4rem;
-  border-left: 3px solid #838383;
+  border-left: 4px solid #838383;
 }
 .events-calendar .type-access_information .type-access_information,
 .events-calendar .type-event .type-access_information {
@@ -3204,9 +3269,10 @@ ul.calendar-links,
 .events-calendar .weekview .type-event .time,
 .events-calendar .dayview .type-access_information .time,
 .events-calendar .dayview .type-event .time {
-  padding: .1rem .4rem .4rem .4rem;
-  border-top: 3px solid #838383;
+  padding: 3px 6px 4px 6px;
+  border-top: 2px solid #838383;
   background: #c8cac8;
+  height: 16px;
 }
 .events-calendar .weekview .type-access_information .title a,
 .events-calendar .weekview .type-event .title a,
@@ -3254,6 +3320,10 @@ ul.calendar-links,
 .events-calendar .dayview .event-training--development .time {
   border-color: #e76d00;
   background: #fae2cc;
+}
+.events-calendar .dayview .type-access_information .time,
+.events-calendar .dayview .type-event .time {
+  border-width: 4px;
 }
 @media (min-width: 60em) {
   .events-calendar .weekview .type-access_information {
@@ -3895,7 +3965,6 @@ div.date-views-pager div.next-year {
 .node-type-access-information .general-left .field-name-field-shared-byline {
   font-size: 16px;
   font-size: 1rem;
-  display: inline-block;
   color: #4f4f4f;
   font-weight: bold;
   margin-bottom: 0.75rem;
@@ -3937,16 +4006,6 @@ div.date-views-pager div.next-year {
 .node-type-access-information .general-right div > .pane-title {
   margin-top: 0;
   line-height: 1;
-}
-.node-type-event .general-right h2,
-.node-type-news .general-right h2,
-.node-type-access-information .general-right h2 {
-  font-size: 14px;
-  font-size: 0.875rem;
-  border-bottom: 3px solid #b1c0c7;
-  text-transform: uppercase;
-  color: #4f4f4f;
-  margin-bottom: 1rem;
 }
 .node-type-event .general-right .panel-pane,
 .node-type-news .general-right .panel-pane,
@@ -3990,7 +4049,12 @@ div.date-views-pager div.next-year {
 }
 .node-type-news .general-left .pane-slac-ip-panes-email {
   position: absolute;
-  right: 70px;
+  right: 0;
+}
+@media (min-width: 60em) {
+  .node-type-news .general-left .pane-slac-ip-panes-email {
+    right: 70px;
+  }
 }
 .node-type-news .general-left .pane-slac-ip-panes-email a {
   padding-right: 1rem;
@@ -4029,37 +4093,81 @@ div.date-views-pager div.next-year {
 }
 .node-type-news .general-right .pane-node-field-shared-image .field-item + .field-item,
 .node-type-news .general-right .pane-node-field-shared-video .field-item + .field-item {
-  border-top: dashed 3px #b1c0c7;
+  border-top: dashed 2px #b1c0c7;
   margin-top: 2rem;
   padding-top: 2rem;
 }
 .node-type-news .general-right .pane-node-field-shared-image + .pane-node-field-shared-video {
-  border-top: dashed 3px #b1c0c7;
+  border-top: dashed 2px #b1c0c7;
   padding-top: 2rem;
 }
 
 .node-type-access-information .general-left .pane-node-body {
   border-top: none;
 }
+.node-type-access-information .general-left h1 {
+  margin-bottom: 1rem;
+}
+.node-type-access-information .general-left .pane-node-field-event-date,
+.node-type-access-information .general-left .pane-node-field-shared-location {
+  box-sizing: border-box;
+  width: 100%;
+  background: #eaeef0;
+}
+@media (min-width: 60em) {
+  .node-type-access-information .general-left .pane-node-field-event-date,
+  .node-type-access-information .general-left .pane-node-field-shared-location {
+    width: 78.6%;
+  }
+}
 .node-type-access-information .general-left .pane-node-field-event-date .pane-title,
 .node-type-access-information .general-left .pane-node-field-shared-location .pane-title {
-  font-size: 14px;
-  font-size: 0.875rem;
-  display: block;
-  width: 5rem;
-  text-align: right;
-  float: left;
-  margin-top: 0;
-  font-weight: normal;
-  border-right: 3px solid #ffffff;
-  padding: 0.625rem 0.625rem 0.625rem 0;
-}
-.node-type-access-information .general-left .pane-node-field-event-date .pane-title {
+  font-size: 12px;
+  font-size: 0.75rem;
+  padding: 0.625rem;
+  padding-bottom: 0;
   margin-bottom: 0;
+  margin-top: 0;
+  text-transform: uppercase;
+  line-height: 1;
+  font-weight: bold;
+}
+@media (min-width: 60em) {
+  .node-type-access-information .general-left .pane-node-field-event-date .pane-title,
+  .node-type-access-information .general-left .pane-node-field-shared-location .pane-title {
+    width: 5rem;
+    margin: 0;
+    padding: 1rem 0.625rem 0.625rem 0;
+    float: left;
+    text-align: right;
+  }
+}
+.node-type-access-information .general-left .pane-node-field-event-date .field,
+.node-type-access-information .general-left .pane-node-field-shared-location .field {
+  padding: 0.3rem 0.625rem 0.625rem;
+}
+@media (min-width: 60em) {
+  .node-type-access-information .general-left .pane-node-field-event-date .field,
+  .node-type-access-information .general-left .pane-node-field-shared-location .field {
+    margin-left: 5.625rem;
+    padding: 0.625rem;
+    border-left: 3px solid #ffffff;
+  }
+}
+.node-type-access-information .general-left .pane-node-field-event-date .field span,
+.node-type-access-information .general-left .pane-node-field-event-date .field div.field-item,
+.node-type-access-information .general-left .pane-node-field-shared-location .field span,
+.node-type-access-information .general-left .pane-node-field-shared-location .field div.field-item {
+  padding: 0;
 }
 .node-type-access-information .general-left .panel-pane:nth-child(6n) {
-  margin-top: 4rem;
-  margin-bottom: 0.1875rem;
+  margin-top: 3.5rem;
+  margin-bottom: 0.285rem;
+}
+@media (min-width: 60em) {
+  .node-type-access-information .general-left .panel-pane:nth-child(6n) {
+    margin-bottom: 0.1875rem;
+  }
 }
 .node-type-access-information .general-left .pane-node-field-shared-contact-name h2 {
   float: none;
@@ -4069,32 +4177,24 @@ div.date-views-pager div.next-year {
   padding: 0;
   margin-top: 2rem;
 }
-.node-type-access-information .general-left .pane-node-field-event-date .field-items,
-.node-type-access-information .general-left .field-name-field-event-date .field-items {
-  background: #ecf0f2;
-  width: 78.6%;
-}
 .node-type-access-information .general-left .field-name-field-shared-location {
   margin-bottom: 0;
-}
-.node-type-access-information .general-left .date-display-single,
-.node-type-access-information .general-left .pane-node-field-shared-location {
-  width: 78%;
-  margin-bottom: 0;
-  background: #ecf0f2;
 }
 .node-type-access-information .general-left .pane-node-field-shared-location {
   margin-top: 0.1875rem;
 }
 .node-type-access-information .general-left .panel-pane.pane-node-field-shared-location, .node-type-access-information .general-left .panel-pane.field-name-field-event-date, .node-type-access-information .general-left .panel-pane.pane-node-field-event-date {
-  border-left: 5px solid rgba(92, 154, 201, 0.85);
+  border-left: 5px solid #7ca9da;
+  margin-bottom: 0.385rem;
+}
+@media (min-width: 60em) {
+  .node-type-access-information .general-left .panel-pane.pane-node-field-shared-location, .node-type-access-information .general-left .panel-pane.field-name-field-event-date, .node-type-access-information .general-left .panel-pane.pane-node-field-event-date {
+    margin-bottom: 0.1875rem;
+  }
 }
 .node-type-access-information .general-left .panel-pane div.field-item {
   display: block;
   padding: 0.75rem 0 0.75rem 0.875rem;
-}
-.node-type-access-information .general-left .panel-pane span {
-  padding-left: 0.875rem;
 }
 .node-type-access-information .general-left .panel-pane.pane-node-body .field-item {
   padding: 0;
@@ -5021,6 +5121,44 @@ fieldset.collapsed {
   }
 }
 
+html,
+body {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body.logged-in {
+  height: calc(100% - 29px);
+}
+
+.l-page {
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+}
+
+.l-main {
+  background: #ffffff;
+}
+.front .l-main {
+  background: transparent;
+}
+
+.l-main,
+.general-right,
+.region-content-bottom,
+.content-wrapper {
+  padding-bottom: 6.75rem;
+}
+@media (min-width: 40em) {
+  .l-main,
+  .general-right,
+  .region-content-bottom,
+  .content-wrapper {
+    padding-bottom: 3.75rem;
+  }
+}
+
 .footer-wrapper {
   font-size: 12px;
   font-size: 0.75rem;
@@ -5028,6 +5166,10 @@ fieldset.collapsed {
   background: #9a9a9a;
   margin: 0;
   overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 .footer-wrapper a,
 .footer-wrapper a:link {
@@ -5273,6 +5415,7 @@ h1.title {
   font-size: 14px;
   font-size: 0.875rem;
   display: block;
+  color: #474747;
   float: left;
   margin: 0;
   margin-left: 10px;
@@ -5281,11 +5424,22 @@ h1.title {
   width: 250px;
   border: 1px solid #316dae;
 }
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .header__region input[type="text"] {
+    height: 18px;
+  }
+}
 @media all and (min-width: 800px) {
   .header__region input[type="text"] {
     width: 110px;
   }
 }
+@media all and (min-width: 800px) and (-ms-high-contrast: none), all and (min-width: 800px) and (-ms-high-contrast: active) {
+  .header__region input[type="text"] {
+    height: 17px;
+  }
+}
+
 @media all and (min-width: 1100px) {
   .header__region input[type="text"] {
     width: 140px;
@@ -5468,10 +5622,22 @@ h1.title {
 
 .general-left ul,
 .general-left ol {
-  padding-left: 4rem;
+  padding-left: 2.5rem;
   margin-bottom: 1rem;
 }
+@media (min-width: 60em) {
+  .general-left ul,
+  .general-left ol {
+    padding-left: 4rem;
+  }
+}
 
+.node-type-event .general-right ul a,
+.node-type-news .general-right ul a,
+.node-type-access-information .general-right ul a {
+  display: block;
+  padding: 0.25rem 0;
+}
 .node-type-event .general-right .field-name-field-shared-related-files li a,
 .node-type-news .general-right .field-name-field-shared-related-files li a,
 .node-type-access-information .general-right .field-name-field-shared-related-files li a {
@@ -5481,27 +5647,20 @@ h1.title {
 .node-type-news .general-right .field-type-file span.file,
 .node-type-access-information .general-right .field-type-file span.file {
   display: block;
-  padding: .2em 0;
+  padding: 0.2rem 0;
 }
 .node-type-event .general-right ul,
 .node-type-news .general-right ul,
 .node-type-access-information .general-right ul {
-  color: #4f4f4f;
-  padding-left: 2em;
+  font-size: 12px;
+  font-size: 0.75rem;
+  padding-left: 2rem;
   list-style-type: disc;
 }
 .node-type-event .general-right .view-featured-news ul,
 .node-type-news .general-right .view-featured-news ul,
 .node-type-access-information .general-right .view-featured-news ul {
   padding-left: 0;
-}
-.node-type-event .general-right ul a,
-.node-type-news .general-right ul a,
-.node-type-access-information .general-right ul a {
-  font-size: 14px;
-  font-size: 0.875rem;
-  display: block;
-  padding: .2em 0;
 }
 .node-type-event .general-right .panel-pane.pane-node-field-shared-related-files,
 .node-type-news .general-right .panel-pane.pane-node-field-shared-related-files,
@@ -5511,10 +5670,10 @@ h1.title {
 .node-type-event .general-right .pane-combined-related-items ul li,
 .node-type-news .general-right .pane-combined-related-items ul li,
 .node-type-access-information .general-right .pane-combined-related-items ul li {
-  margin-left: 0;
+  margin: 0;
+  padding: 0;
   list-style-type: disc;
   list-style-position: outside;
-  padding: .2em 0;
 }
 .node-type-event .general-right .pane-combined-related-items ul a,
 .node-type-news .general-right .pane-combined-related-items ul a,
@@ -6047,35 +6206,27 @@ h1.title {
   #block-menu-menu-top-menu {
     display: block;
     text-align: right;
-    margin-bottom: 24px;
   }
   #block-menu-menu-top-menu .menu {
-    text-align: right;
+    vertical-align: top;
+    line-height: 1;
   }
   #block-menu-menu-top-menu .menu li {
-    display: inline;
+    display: inline-block;
+    line-height: 1;
+    padding: 0;
+    margin-right: 0.875rem;
   }
-  #block-menu-menu-top-menu .menu li.first {
+  #block-menu-menu-top-menu .menu li:first-child a {
+    padding-right: 0.875rem;
     border-right: 1px solid #316dae;
   }
-  #block-menu-menu-top-menu .menu li a {
-    font-size: 9px;
-    font-size: 0.5625rem;
-    padding: .5em;
-    color: #316dae;
-    text-transform: uppercase;
-  }
-}
-@media all and (min-width: 60em) and (min-width: 960px) {
-  #block-menu-menu-top-menu .menu li a {
+  #block-menu-menu-top-menu .menu a {
     font-size: 11px;
     font-size: 0.6875rem;
-    padding: .5em 1em;
-  }
-}
-@media (min-width: 60em) {
-  #block-menu-menu-top-menu .menu li a:hover, #block-menu-menu-top-menu .menu li a:focus {
-    outline: none;
+    text-transform: uppercase;
+    padding: 0;
+    vertical-align: top;
   }
 }
 
@@ -6128,7 +6279,7 @@ h1.title {
     font-size: 0.875rem;
     line-height: 1;
     display: inline-block;
-    padding: 8px 2em;
+    padding: 0.5625rem 1.9375rem;
     text-transform: uppercase;
     color: #fff;
     background: transparent;
@@ -6203,7 +6354,8 @@ h1.title {
   margin-top: 0;
   line-height: 1;
 }
-.page-news .general-left .node-title {
+.page-news .general-left .node-title,
+.page-news .general-left .field-name-field-shared-news-title h3 {
   font-size: 18.72px;
   font-size: 1.17rem;
   margin: .2rem 0;
@@ -6420,12 +6572,12 @@ h1.title {
 }
 
 .general-right .pane-title {
-  font-size: 14px;
-  font-size: 0.875rem;
-  border-bottom: 2px solid #b1c0c7;
+  font-size: 12px;
+  font-size: 0.75rem;
+  border-bottom: 3px solid #b1c0c7;
   text-transform: uppercase;
   color: #4f4f4f;
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
   padding-bottom: .1rem;
 }
 

@@ -6,7 +6,7 @@
     background: color(event-item-grey);
     margin: .2rem .2rem .5rem .2rem;
     padding: .2rem .4rem;
-    border-left: 3px solid color(grey);
+    border-left: 4px solid color(grey);
 
   .type-access_information {
     padding-top: 0;
@@ -54,9 +54,10 @@
       border: none;
 
       .time {
-        padding: .1rem .4rem .4rem .4rem;
-        border-top: 3px solid color(grey);
+        padding: 3px 6px 4px 6px;
+        border-top: 2px solid color(grey);
         background: color(grey-light);
+        height: 16px;
       }
 
       .title a {
@@ -103,6 +104,16 @@
     .event-training--development .time {
       border-color: color(orange);
       background: color(orange-light);
+    }
+  }
+
+  .dayview {
+    .type-access_information,
+    .type-event {
+
+      .time {
+        border-width: 4px;
+      }
     }
   }
 

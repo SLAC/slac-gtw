@@ -28,7 +28,8 @@
       line-height: 1;
     }
 
-    .node-title {
+    .node-title,
+    .field-name-field-shared-news-title h3 {
       @include font-size($h3-font-size);
       margin: .2rem 0;
     }

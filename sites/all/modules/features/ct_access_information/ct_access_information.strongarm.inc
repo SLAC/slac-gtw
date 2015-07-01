@@ -14,7 +14,7 @@ function ct_access_information_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_access_information';
-  $strongarm->value = 'edit-scheduler';
+  $strongarm->value = 'edit-diff';
   $export['additional_settings__active_tab_access_information'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -91,7 +91,7 @@ function ct_access_information_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'diff_show_preview_changes_node_access_information';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['diff_show_preview_changes_node_access_information'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -300,7 +300,7 @@ function ct_access_information_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_access_information';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_access_information'] = $strongarm;
 
   $strongarm = new stdClass();
