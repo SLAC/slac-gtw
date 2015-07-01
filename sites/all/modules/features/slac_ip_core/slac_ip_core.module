@@ -111,6 +111,10 @@ function slac_ip_core_field_formatter_info() {
       'label' => t('SLAC Custom Event Time Format'),
       'field types' => array('datetime'),
     ),
+    'slac_existing_node_url_formatter' => array(
+      'label' => t('SLAC Event Node URL Format'),
+      'field types' => array('list_text'),
+    ),
   );
 }
 
@@ -209,6 +213,26 @@ function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $insta
         $element[$delta] = array('#markup' => $markup);
       }
       break;
+
+    case 'slac_existing_node_url_formatter':
+      foreach ($items as $delta => $item) {
+        if ($item['value'] == 'Link to Existing URL') {
+          $field_name = 'field_shared_existing_url';
+          $field = field_get_items($entity_type, $entity, $field_name);
+          $url = $field[$delta]['safe_value'];
+        }
+        else {
+          if (!empty($entity->path['alias'])) {
+            $url = $entity->path['alias'];
+          }
+          else {
+            $url = $entity->path['source'];
+          }
+        }
+        $element[$delta] = array('#markup' => $url);
+      }
+      break;
+
   }
 
   return $element;
@@ -227,7 +251,6 @@ function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $insta
  *   interval.
  */
 function _slac_ip_core_get_time_fmt($value1, $value2) {
-//  $interval = $value1->diff($value2);
 
   // Only minutes past the hour should be displayed.
   $start_min = $value1->format('i');
@@ -263,6 +286,7 @@ function _slac_ip_core_create_datetimes($item) {
   $value1->setTimezone($tz);
   $value2 = new DateTime($item['value2'], $tz_db);
   $value2->setTimezone($tz);
+
   return array($value1, $value2);
 }
 
