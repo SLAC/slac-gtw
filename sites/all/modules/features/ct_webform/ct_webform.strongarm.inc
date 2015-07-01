@@ -14,7 +14,7 @@ function ct_webform_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_webform';
-  $strongarm->value = 'edit-comment';
+  $strongarm->value = 'edit-diff';
   $export['additional_settings__active_tab_webform'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -77,7 +77,7 @@ function ct_webform_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'diff_show_preview_changes_node_webform';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['diff_show_preview_changes_node_webform'] = $strongarm;
 
   $strongarm = new stdClass();
