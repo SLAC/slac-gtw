@@ -70,7 +70,7 @@
  */
 ?>
 
-<div id="page">
+<div id="page" class="l-page">
 
   <header id="header" role="banner">
     <div class="header-wrapper">
@@ -108,7 +108,7 @@
     </nav>
   <?php endif; ?>
 
-  <div id="main">
+  <div id="main" class="l-main">
 
     <div class="content-wrapper column" role="main">
       <div id="content" class="column content-container" role="main">
@@ -135,6 +135,8 @@
       <?php endif; ?>
     </div><!-- /#content -->
 
+  </div> <!-- /#main -->
+
     <div class="footer-wrapper">
       <div class="footer-inner">
         <?php print render($page['footer']); ?>
@@ -145,8 +147,6 @@
         </div>
       </div>
     </div>
-
-  </div> <!-- /#main -->
 
 </div><!-- /#page -->
 
