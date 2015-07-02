@@ -151,7 +151,6 @@ function _slac_igp_deployment_remove_dup_items($menu_name) {
 
   // Remove duplicate links.
   foreach ($result as $record) {
-    dpm($record);
     db_delete('menu_links')
       ->condition('link_title', $record->link_title, '=')
       ->condition('mlid', $record->mlid, '<>')
