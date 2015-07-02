@@ -4,6 +4,10 @@
 .page-calendar {
   table tr td:first-child {
     width: 100%;
+
+    @include breakpoint($tablet-large) {
+      width: 8%;
+    }
   }
 }
 

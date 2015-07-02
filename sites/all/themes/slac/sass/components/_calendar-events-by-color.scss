@@ -116,6 +116,26 @@
     }
   }
 
+  @media all and (max-width: $tablet-large) {
+    .weekview {
+      .type-access_information,
+      .type-event {
+        .title a {
+          margin-top: -0.2rem;
+        }
+      }
+    }
+
+    .monthview {
+      .type-access_information,
+      .type-event {
+        .title a {
+          margin-top: -0.6rem;
+        }
+      }
+    }
+  }
+
   .dayview {
     .type-access_information,
     .type-event {
