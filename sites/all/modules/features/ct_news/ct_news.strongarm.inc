@@ -13,6 +13,13 @@ function ct_news_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'additional_settings__active_tab_news';
+  $strongarm->value = 'edit-diff';
+  $export['additional_settings__active_tab_news'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_news';
   $strongarm->value = 0;
   $export['comment_anonymous_news'] = $strongarm;
@@ -65,6 +72,48 @@ function ct_news_strongarm() {
   $strongarm->name = 'date_format_slac_ip_published_date';
   $strongarm->value = 'F j, Y';
   $export['date_format_slac_ip_published_date'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date_popup_authored_enabled_news';
+  $strongarm->value = 1;
+  $export['date_popup_authored_enabled_news'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date_popup_authored_format_news';
+  $strongarm->value = 'm/d/Y - H:i';
+  $export['date_popup_authored_format_news'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date_popup_authored_year_range_news';
+  $strongarm->value = '3';
+  $export['date_popup_authored_year_range_news'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_enable_revisions_page_node_news';
+  $strongarm->value = 1;
+  $export['diff_enable_revisions_page_node_news'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_show_preview_changes_node_news';
+  $strongarm->value = 0;
+  $export['diff_show_preview_changes_node_news'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_view_mode_preview_node_news';
+  $strongarm->value = 'full';
+  $export['diff_view_mode_preview_node_news'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -353,6 +402,13 @@ function ct_news_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_publish_moderation_state_news';
+  $strongarm->value = 'published';
+  $export['scheduler_publish_moderation_state_news'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'scheduler_publish_past_date_news';
   $strongarm->value = 'error';
   $export['scheduler_publish_past_date_news'] = $strongarm;
@@ -381,9 +437,23 @@ function ct_news_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_unpublish_default_time_news';
+  $strongarm->value = '';
+  $export['scheduler_unpublish_default_time_news'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'scheduler_unpublish_enable_news';
   $strongarm->value = 0;
   $export['scheduler_unpublish_enable_news'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_unpublish_moderation_state_news';
+  $strongarm->value = 'draft';
+  $export['scheduler_unpublish_moderation_state_news'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

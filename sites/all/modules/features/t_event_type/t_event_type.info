@@ -8,4 +8,6 @@ dependencies[] = features
 dependencies[] = taxonomy
 features[features_api][] = api:2
 features[taxonomy][] = event_type
+features[user_permission][] = delete terms in event_type
+features[user_permission][] = edit terms in event_type
 project path = sites/all/modules/features
