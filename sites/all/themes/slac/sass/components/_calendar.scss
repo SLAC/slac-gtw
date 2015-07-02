@@ -3,9 +3,10 @@
 // overrides position of prev - next links
 .page-calendar {
   table tr td:first-child {
-    width: inherit;
+    width: 100%;
   }
 }
+
 .date-nav-wrapper .date-prev {
   right: inherit;
 }

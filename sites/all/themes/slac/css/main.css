@@ -1119,7 +1119,7 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 }
 
 .page-calendar table tr td:first-child {
-  width: inherit;
+  width: 100%;
 }
 
 .date-nav-wrapper .date-prev {
@@ -3550,11 +3550,11 @@ ul.calendar-links,
   }
   .calendar-calendar .day-view #multi-day-container table td.first,
   .calendar-calendar .day-view #single-day-container table.full td.first {
-    width: 40%;
+    width: 30%;
   }
   .calendar-calendar .day-view #multi-day-container table td.last,
   .calendar-calendar .day-view #single-day-container table.full td.last {
-    width: 60%;
+    width: 70%;
   }
   .calendar-calendar .time {
     width: 100px;
