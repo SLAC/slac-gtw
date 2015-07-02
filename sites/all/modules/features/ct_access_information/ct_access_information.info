@@ -16,7 +16,6 @@ dependencies[] = image
 dependencies[] = link
 dependencies[] = list
 dependencies[] = media
-dependencies[] = metatag
 dependencies[] = node
 dependencies[] = number
 dependencies[] = options
