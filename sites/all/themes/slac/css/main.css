@@ -2296,15 +2296,14 @@ ul.calendar-links,
   width: 100%;
   background: #ffffff;
   border-bottom: 2px solid #d5dde1;
+  height: auto;
 }
 
 .calendar-calendar .week-view #multi-day-container,
-.calendar-calendar .day-view #multi-day-container {
-  height: 57px;
-}
-
-.calendar-calendar .day-view #multi-day-container {
-  min-height: 110px;
+.calendar-calendar .day-view #multi-day-container,
+.calendar-calendar .week-view #single-day-container,
+.calendar-calendar .day-view #single-day-container {
+  height: auto;
 }
 
 .calendar-calendar .week-view #multi-day-container .expand {
@@ -2759,6 +2758,10 @@ ul.calendar-links,
 
 .calendar-calendar div.single-day .d_41 .view-item .calendar {
   height: 490px;
+}
+
+.calendar-calendar div.single-day .d_42 .view-item .calendar {
+  height: 502px;
 }
 
 .calendar-calendar div.single-day .d_43 .view-item .calendar {
