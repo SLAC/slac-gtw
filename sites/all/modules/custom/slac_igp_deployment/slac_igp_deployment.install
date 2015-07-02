@@ -138,6 +138,27 @@ function _slac_igp_deployment_revert($feature_name) {
 }
 
 /**
+ * Removes duplicate links from the specified menu.
+ *
+ * @param string $menu_name
+ *   The machine name of the menu to remove duplicate links from.
+ */
+function _slac_igp_deployment_remove_dup_items($menu_name) {
+  $result = db_select('menu_links', 'ml')
+    ->fields('ml', array('mlid', 'link_title'))
+    ->condition('menu_name', $menu_name)
+    ->execute();
+
+  // Remove duplicate links.
+  foreach ($result as $record) {
+    db_delete('menu_links')
+      ->condition('link_title', $record->link_title, '=')
+      ->condition('mlid', $record->mlid, '<>')
+      ->execute();
+  }
+}
+
+/**
  * Updates block placement for search blocks.
  */
 function _slac_igp_deployment_place_search_block() {
@@ -882,4 +903,11 @@ function slac_igp_deployment_update_7045() {
     $message = __FUNCTION__ . ' An error occurred while enabling modules.';
     throw new DrupalUpdateException($message);
   }
+}
+
+/**
+ * Removes duplicate links from the Maps & Directions menu.
+ */
+function slac_igp_deployment_update_7046() {
+  _slac_igp_deployment_remove_dup_items('menu-maps-and-directions');
 }

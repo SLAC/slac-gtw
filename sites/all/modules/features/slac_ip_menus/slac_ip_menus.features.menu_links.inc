@@ -30,7 +30,7 @@ function slac_ip_menus_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => 2,
     'customized' => 1,
   );
   // Exported menu link: menu-maps-and-directions_slac-meeting-rooms-map:https://www6.slac.stanford.edu/visiting-slac/maps-directions-meetingrooms.aspx
@@ -53,7 +53,7 @@ function slac_ip_menus_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => 1,
     'customized' => 1,
   );
   // Exported menu link: menu-maps-and-directions_stanford-university-campus-map:https://www6.slac.stanford.edu/sites/www6.slac.stanford.edu/files/stanford_visitor_map.pdf
@@ -76,7 +76,7 @@ function slac_ip_menus_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => 3,
     'customized' => 1,
   );
   // Exported menu link: menu-top-menu_slac-public-home:http://slac.stanford.edu
