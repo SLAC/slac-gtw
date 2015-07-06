@@ -279,10 +279,24 @@
       margin-right: 0;
     }
 
+    .day-view .full td.multi-day div.dayview {
+      width: 100%;
+    }
+
+    .day-view #multi-day-container table td.first,
+    .day-view #single-day-container table.full td.first  {
+      width: 30%;
+    }
+
+    .day-view #multi-day-container table td.last,
+    .day-view #single-day-container table.full td.last {
+      width: 70%;
+    }
+
     .time {
       width: 100px;
       position: relative;
-      left: -120px;
+      left: -125px;
       text-align: right;
     }
 
