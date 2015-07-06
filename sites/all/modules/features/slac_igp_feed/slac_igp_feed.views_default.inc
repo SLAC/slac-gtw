@@ -139,7 +139,7 @@ function slac_igp_feed_views_default_views() {
   $view->description = 'News articles that displays on the front page';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'News';
+  $view->human_name = 'News (old)';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
