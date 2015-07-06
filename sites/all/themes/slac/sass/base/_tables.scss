@@ -60,4 +60,9 @@ table th {
 
 table tr td:first-child {
   width: 235px;
+
+  .page-my-content &,
+  .page-flea-market & {
+    width: inherit;
+  }
 }

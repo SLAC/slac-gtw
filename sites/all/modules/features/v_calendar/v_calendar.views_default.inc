@@ -92,6 +92,21 @@ function v_calendar_views_default_views() {
   );
   $handler->display->display_options['fields']['field_event_date']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['delta_offset'] = '0';
+  /* Field: Content: Date (start only) */
+  $handler->display->display_options['fields']['field_event_date_1']['id'] = 'field_event_date_1';
+  $handler->display->display_options['fields']['field_event_date_1']['table'] = 'field_data_field_event_date';
+  $handler->display->display_options['fields']['field_event_date_1']['field'] = 'field_event_date';
+  $handler->display->display_options['fields']['field_event_date_1']['ui_name'] = 'Content: Date (start only)';
+  $handler->display->display_options['fields']['field_event_date_1']['label'] = '';
+  $handler->display->display_options['fields']['field_event_date_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_event_date_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_date_1']['settings'] = array(
+    'format_type' => 'calendar_item_time',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
   /* Field: ical link (Global: Custom text) */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -111,13 +126,15 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Path */
-  $handler->display->display_options['fields']['path']['id'] = 'path';
-  $handler->display->display_options['fields']['path']['table'] = 'node';
-  $handler->display->display_options['fields']['path']['field'] = 'path';
-  $handler->display->display_options['fields']['path']['label'] = '';
-  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  /* Field: Content: Existing / New (Excluded, rendering as path) */
+  $handler->display->display_options['fields']['field_shared_new_existing']['id'] = 'field_shared_new_existing';
+  $handler->display->display_options['fields']['field_shared_new_existing']['table'] = 'field_data_field_shared_new_existing';
+  $handler->display->display_options['fields']['field_shared_new_existing']['field'] = 'field_shared_new_existing';
+  $handler->display->display_options['fields']['field_shared_new_existing']['ui_name'] = 'Content: Existing / New (Excluded, rendering as path)';
+  $handler->display->display_options['fields']['field_shared_new_existing']['label'] = '';
+  $handler->display->display_options['fields']['field_shared_new_existing']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_shared_new_existing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_shared_new_existing']['type'] = 'slac_existing_node_url_formatter';
   /* Field: Item Output (Global: Custom text) */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
@@ -125,9 +142,12 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['ui_name'] = 'Item Output (Global: Custom text)';
   $handler->display->display_options['fields']['nothing_1']['label'] = '';
   $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<div class="type-[type] event-[field_event_type]">
-<span class="time">[field_event_date]</span>
+<span class="time">
+  <span class="desktop">[field_event_date]</span>
+  <span class="mobile">[field_event_date_1]</span>
+</span>
 <span class="link-ical">[nothing]</span>
-<span class="title"><a href="[path]" title="[title]">[title]</a></span>
+<span class="title"><a href="[field_shared_new_existing]" title="[title]">[title]</a></span>
 </div>';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Date -  start date (field_event_date) */
@@ -273,6 +293,7 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['style_options']['multiday_theme'] = '1';
   $handler->display->display_options['style_options']['theme_style'] = '1';
   $handler->display->display_options['style_options']['max_items'] = '0';
+  $handler->display->display_options['style_options']['groupby_times'] = 'half';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'calendar_entity';

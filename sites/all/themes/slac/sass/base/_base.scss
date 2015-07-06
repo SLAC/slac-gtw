@@ -56,40 +56,6 @@ hr {
   margin: 1rem 0 1rem;
 }
 
-blockquote {
-  @include font-size(20px);
-  color: $gold;
-  font-family: $serif;
-  position: relative;
-  font-style: italic;
-  margin: 2.5rem 2rem;
-}
-
-blockquote:before,
-blockquote:after {
-  @include font-size(75px);
-  color: $quotes-blue;
-  line-height: 0.1rem;
-}
-
-blockquote:before {
-  content: "\201C";
-  position: absolute;
-  top: 0.5rem;
-  left: -2.5rem;
-}
-
-blockquote:after {
-  content: "\201D";
-  position: absolute;
-  right: -1.5rem;
-  bottom: -2rem;
-}
-
-blockquote p {
-  display: inline;
-}
-
 .general-left {
   h2 {
     @include font-size(20px);
@@ -99,5 +65,9 @@ blockquote p {
 
   p {
     margin-top: .5rem;
+  }
+
+  ul li a {
+    font-size: inherit;
   }
 }

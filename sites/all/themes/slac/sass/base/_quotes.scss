@@ -1,0 +1,49 @@
+blockquote {
+  @include font-size(20px);
+  color: $gold;
+  font-family: $serif;
+  position: relative;
+  font-style: italic;
+  margin: 2.5rem 0.5rem;
+
+  @include breakpoint($tablet-large) {
+    margin-right: 2rem;
+    margin-left: 2rem;
+
+  }
+}
+
+blockquote:before,
+blockquote:after {
+  @include font-size(75px);
+  color: $quotes-blue;
+  line-height: 0.1rem;
+}
+
+blockquote:before {
+  content: "\201C";
+  position: absolute;
+  top: 0.1rem;
+  left: -1rem;
+
+  @include breakpoint($tablet-large) {
+    top: 0.5rem;
+    left: -2.5rem;
+  }
+}
+
+blockquote:after {
+  content: "\201D";
+  position: absolute;
+  right: 0.8rem;
+  bottom: -2.5rem;
+
+  @include breakpoint($tablet-large) {
+    right: -1.5rem;
+    bottom: -2rem;
+  }
+}
+
+blockquote p {
+  display: inline;
+}
