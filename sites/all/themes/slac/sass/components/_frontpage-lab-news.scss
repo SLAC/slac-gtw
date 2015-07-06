@@ -4,13 +4,15 @@
   }
 }
 
-.blue-bodered-white {
+.pane-slac-news {
   .pane-content {
     padding: 0;
   }
+
   .views-row {
     padding: 0.5rem;
     background: $white url('../images/list-arrow-new.jpg') no-repeat right center;
+    margin: 0;
     margin-bottom: 1rem;
 
     a {

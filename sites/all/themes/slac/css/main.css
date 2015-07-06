@@ -5549,15 +5549,16 @@ body.logged-in {
   text-decoration: none;
 }
 
-.blue-bodered-white .pane-content {
+.pane-slac-news .pane-content {
   padding: 0;
 }
-.blue-bodered-white .views-row {
+.pane-slac-news .views-row {
   padding: 0.5rem;
   background: #ffffff url("../images/list-arrow-new.jpg") no-repeat right center;
+  margin: 0;
   margin-bottom: 1rem;
 }
-.blue-bodered-white .views-row a {
+.pane-slac-news .views-row a {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.4;
@@ -5567,16 +5568,16 @@ body.logged-in {
   padding-right: 3.75rem;
 }
 @media (min-width: 40em) {
-  .blue-bodered-white .views-row a {
+  .pane-slac-news .views-row a {
     width: 92%;
   }
 }
-.blue-bodered-white .views-field-created .field-content {
+.pane-slac-news .views-field-created .field-content {
   color: #b5b5b5;
   font-weight: bold;
   letter-spacing: 0.03rem;
 }
-.blue-bodered-white .view-footer a {
+.pane-slac-news .view-footer a {
   font-size: 14px;
   font-size: 0.875rem;
   padding: 0.5rem;
@@ -5586,7 +5587,7 @@ body.logged-in {
   color: #316dae;
   font-weight: bold;
 }
-.blue-bodered-white .view-footer a:hover, .blue-bodered-white .view-footer a:focus {
+.pane-slac-news .view-footer a:hover, .pane-slac-news .view-footer a:focus {
   text-decoration: none;
 }
 
