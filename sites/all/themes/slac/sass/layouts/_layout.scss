@@ -13,6 +13,7 @@ $zen-column-count: 12;
   max-width: 1432px;
   margin: 0 auto;
   @include clearfix;
+}
 
 .front .content-wrapper {
   @include zen-grid-item(12, 1);

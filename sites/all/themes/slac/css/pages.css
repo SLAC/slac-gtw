@@ -1,335 +1,4 @@
 /* Grids */
-.container:before, .container:after {
-  content: "";
-  display: table;
-}
-.container:after {
-  clear: both;
-}
-
-.frontpage-left-col {
-  float: left;
-  width: 25%;
-  margin-left: 0%;
-  margin-right: -25%;
-  padding-left: 1%;
-  padding-right: 1%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-
-.frontpage-right {
-  float: left;
-  width: 75%;
-  margin-left: 25%;
-  margin-right: -100%;
-  padding-left: 1%;
-  padding-right: 1%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-
-.frontpage-help-market {
-  float: left;
-  width: 50%;
-  margin-left: 0%;
-  margin-right: -50%;
-  padding-left: 1%;
-  padding-right: 1%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-
-.frontpage-security-contacts {
-  float: left;
-  width: 50%;
-  margin-left: 50%;
-  margin-right: -100%;
-  padding-left: 1%;
-  padding-right: 1%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-
-.general-two-col .general-left {
-  float: left;
-  width: 75%;
-  margin-left: 0%;
-  margin-right: -75%;
-  padding-left: 1%;
-  padding-right: 1%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-
-.general-two-col .general-right {
-  float: left;
-  width: 25%;
-  margin-left: 75%;
-  margin-right: -100%;
-  padding-left: 1%;
-  padding-right: 1%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-
-.rowonecolone,
-.rowtwocolone {
-  float: left;
-  width: 33.33333%;
-  margin-left: 0%;
-  margin-right: -33.33333%;
-  padding-left: 1%;
-  padding-right: 1%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-
-.rowonecoltwo,
-.rowtwocoltwo {
-  float: left;
-  width: 33.33333%;
-  margin-left: 33.33333%;
-  margin-right: -66.66667%;
-  padding-left: 1%;
-  padding-right: 1%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-
-.rowonecolthree,
-.rowtwocolthree {
-  float: left;
-  width: 33.33333%;
-  margin-left: 66.66667%;
-  margin-right: -100%;
-  padding-left: 1%;
-  padding-right: 1%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-
-.frontpage-middle-col {
-  float: left;
-  width: 55.55556%;
-  margin-left: 0%;
-  margin-right: -55.55556%;
-  padding-left: 1%;
-  padding-right: 1%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-
-.frontpage-right-col {
-  float: left;
-  width: 44.44444%;
-  margin-left: 55.55556%;
-  margin-right: -100%;
-  padding-left: 1%;
-  padding-right: 1%;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-
-@media (min-width: 901px) {
-  .frontpage-left-col {
-    padding-left: 0;
-    padding-right: 2.5%;
-  }
-
-  .frontpage-right {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .frontpage-right .frontpage-middle-col {
-    width: 58.05556%;
-    padding-left: 0;
-    padding-right: 3.33%;
-    margin-right: -58.05556%;
-  }
-  .frontpage-right .frontpage-right-col {
-    width: 41.94444%;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 58.05556%;
-  }
-}
-.lt-ie9 .frontpage-left-col {
-  padding-left: 0;
-  padding-right: 2.5%;
-}
-.lt-ie9 .frontpage-right {
-  padding-left: 0;
-  padding-right: 0;
-}
-.lt-ie9 .frontpage-right .frontpage-middle-col {
-  width: 58.05556%;
-  padding-left: 0;
-  padding-right: 3.33%;
-  margin-right: -58.05556%;
-}
-.lt-ie9 .frontpage-right .frontpage-right-col {
-  width: 41.94444%;
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: 58.05556%;
-}
-
-@media (max-width: 900px) {
-  .frontpage-left-col {
-    float: left;
-    width: 55.55556%;
-    margin-left: 0%;
-    margin-right: -55.55556%;
-    padding-left: 1%;
-    padding-right: 1%;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    word-wrap: break-word;
-  }
-
-  .frontpage-right {
-    float: left;
-    width: 77.77778%;
-    margin-left: 55.55556%;
-    margin-right: -133.33333%;
-    padding-left: 1%;
-    padding-right: 1%;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    word-wrap: break-word;
-  }
-
-  .frontpage-middle-col,
-  .frontpage-right-col,
-  .frontpage-help-market,
-  .frontpage-security-contacts {
-    float: left;
-    width: 133.33333%;
-    margin-left: 0%;
-    margin-right: -133.33333%;
-    padding-left: 1%;
-    padding-right: 1%;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    clear: left;
-  }
-
-  .staff-top {
-    float: left;
-    width: 100%;
-    margin-left: 0%;
-    margin-right: -100%;
-    padding-left: 1%;
-    padding-right: 1%;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    word-wrap: break-word;
-  }
-
-  .rowonecolone,
-  .rowonecolthree,
-  .rowtwocoltwo {
-    float: left;
-    width: 55.55556%;
-    margin-left: 0%;
-    margin-right: -55.55556%;
-    padding-left: 1%;
-    padding-right: 1%;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    word-wrap: break-word;
-  }
-
-  .rowonecoltwo,
-  .rowtwocolone,
-  .rowtwocolthree {
-    float: left;
-    width: 55.55556%;
-    margin-left: 55.55556%;
-    margin-right: -111.11111%;
-    padding-left: 1%;
-    padding-right: 1%;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    word-wrap: break-word;
-  }
-}
-@media (max-width: 620px) {
-  .frontpage-left-col,
-  .frontpage-right,
-  .frontpage-middle-col,
-  .frontpage-right-col,
-  .general-two-col .general-left,
-  .general-two-col .general-right,
-  .staff-top {
-    float: left;
-    width: 55.55556%;
-    margin-left: 0%;
-    margin-right: -55.55556%;
-    padding-left: 1%;
-    padding-right: 1%;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    clear: left;
-  }
-
-  .frontpage-right .frontpage-middle-col,
-  .frontpage-right .frontpage-right-col,
-  .frontpage-right .frontpage-security-contacts {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
 /*
  * @file
  * Page Styling
@@ -374,16 +43,6 @@ header, .content-wrapper {
   padding: 0 32px;
 }
 
-@media (max-width: 1447px) {
-  .frontpage-links ul.menu li a {
-    height: 30px;
-  }
-}
-@media (max-width: 970px) {
-  .frontpage-links ul.menu li a {
-    font-size: 11px;
-  }
-}
 .grippie {
   display: none;
 }
@@ -419,10 +78,6 @@ a:hover, a:active {
 
 .front #page-title {
   display: none;
-}
-.front #main {
-  display: block;
-  margin-top: 20px;
 }
 
 #block-boxes-web-search,
@@ -660,14 +315,6 @@ a:hover, a:active {
     margin-left: 5%;
   }
 
-  .frontpage-links,
-  .frontpage-projects,
-  .frontpage-help-market,
-  .pane-boxes-stanford-compliance,
-  .frontpage-weather {
-    display: none;
-  }
-
   .rowonecoltwo ul {
     min-height: 298px;
   }
@@ -680,12 +327,8 @@ a:hover, a:active {
     min-height: 88px;
   }
 
-  .frontpage-left-col {
+  .front-first-column {
     margin-top: 0px;
-  }
-
-  .front #main {
-    margin-top: 80px;
   }
 
   .not-front.section-staff-resources #content {
@@ -735,11 +378,6 @@ a:hover, a:active {
   }
   .not-front.section-feedback #edit-actions {
     float: none;
-  }
-
-  .frontpage-right {
-    float: none;
-    overflow: hidden;
   }
 
   .general-two-col .general-left, .general-two-col .general-right {
