@@ -215,27 +215,53 @@ function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $insta
       break;
 
     case 'slac_existing_node_url_formatter':
-      foreach ($items as $delta => $item) {
-        if ($item['value'] == 'Link to Existing URL') {
-          $field_name = 'field_shared_existing_url';
-          $field = field_get_items($entity_type, $entity, $field_name);
-          $url = $field[$delta]['safe_value'];
-        }
-        else {
-          if (!empty($entity->path['alias'])) {
-            $url = $entity->path['alias'];
-          }
-          else {
-            $url = $entity->path['source'];
-          }
-        }
-        $element[$delta] = array('#markup' => $url);
+      if (empty($items)) {
+        $url = _slac_ip_core_source_or_alias($entity);
+        $element[0] = array('#markup' => $url);
       }
+      else {
+        foreach ($items as $delta => $item) {
+          $url = '';
+
+          if ($item['value'] == 'Link to Existing URL') {
+            $field_name = 'field_shared_existing_url';
+            $field = field_get_items($entity_type, $entity, $field_name);
+            $url = $field[$delta]['safe_value'];
+          }
+
+          if (empty($url)) {
+            $url = _slac_ip_core_source_or_alias($entity);
+          }
+
+          $element[$delta] = array('#markup' => $url);
+        }
+      }
+
       break;
 
   }
 
   return $element;
+}
+
+/**
+ * Returns the path alias to the entity, if set, otherwise the entity source
+ * path.
+ *
+ * @param $entity
+ *   The entity to return the path for.
+ *
+ * @return string
+ */
+function _slac_ip_core_source_or_alias($entity) {
+  if (!empty($entity->path['alias'])) {
+    $url = $entity->path['alias'];
+  }
+  else {
+    $url = $entity->path['source'];
+  }
+
+  return $url;
 }
 
 /**
