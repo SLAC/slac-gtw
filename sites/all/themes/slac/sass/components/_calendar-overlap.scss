@@ -122,7 +122,7 @@
 }
 
 .calendar-calendar .day-view #multi-day-container table td {
-  width: 8%;
+  width: 10%;
 }
 
 .calendar-calendar .week-view #single-day-container table td,
@@ -134,7 +134,7 @@
 }
 
 .calendar-calendar .day-view #single-day-container table td {
-  width: 8%;
+  width: 10%;
 }
 
 .calendar-calendar .day-view #single-day-container table td.last {
@@ -255,6 +255,26 @@
 
   &:first-child {
     margin-left: 1rem;
+  }
+
+  &:nth-child(4) {
+    @include breakpoint($tablet-large) {
+      margin-left: 1rem;
+      padding-right: 0;
+      clear: left;
+    }
+
+    @include breakpoint($desktop) {
+      margin-left: inherit;
+      clear: none;
+    }
+  }
+
+  &:nth-child(5) {
+    @include breakpoint($desktop) {
+      margin-left: 1rem;
+      clear: left;
+    }
   }
 }
 
