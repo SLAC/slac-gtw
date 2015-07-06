@@ -291,7 +291,7 @@
 .calendar-calendar .day-view .full div.single-day:nth-child(2n+1),
 .calendar-calendar .day-view .full div.calendar-agenda-hour:nth-child(2n+1) {
   background: color(grey-blue-light);
-  min-height: 110px;
+  min-height: 140px;
 }
 
 .calendar-calendar .day-view #multi-day-container table td {
@@ -372,7 +372,9 @@
 
 .calendar-calendar .week-view div.single-day .view-item .contents,
 .calendar-calendar .day-view div.single-day .view-item .contents {
-  overflow: hidden;
+  @include breakpoint($tablet-large) {
+    overflow: hidden;
+  }
 }
 
 .calendar-calendar div.single-day .o_0 .view-item {
@@ -423,10 +425,6 @@
   height: 82px;
 }
 
-.calendar-calendar div.single-day .d_8 .view-item .calendar {
-  height: 94px;
-}
-
 .calendar-calendar div.single-day .d_9 .view-item .calendar {
   height: 106px;
 }
@@ -437,10 +435,6 @@
 
 .calendar-calendar div.single-day .d_11 .view-item .calendar {
   height: 130px;
-}
-
-.calendar-calendar div.single-day .d_12 .view-item .calendar {
-  height: 142px;
 }
 
 .calendar-calendar div.single-day .d_13 .view-item .calendar {
@@ -487,10 +481,6 @@
   height: 274px;
 }
 
-.calendar-calendar div.single-day .d_24 .view-item .calendar {
-  height: 286px;
-}
-
 .calendar-calendar div.single-day .d_25 .view-item .calendar {
   height: 298px;
 }
@@ -512,7 +502,7 @@
 }
 
 .calendar-calendar div.single-day .d_30 .view-item .calendar {
-  height: 358px;
+  height: auto;
 }
 
 .calendar-calendar div.single-day .d_31 .view-item .calendar {
@@ -540,8 +530,7 @@
 }
 
 .calendar-calendar .day-view div.single-day .d_36 .view-item .calendar {
-  height: 100px;
-  max-height: 430px;
+  height: auto;
 }
 
 .calendar-calendar div.single-day .d_37 .view-item .calendar {
@@ -562,10 +551,6 @@
 
 .calendar-calendar div.single-day .d_41 .view-item .calendar {
   height: 490px;
-}
-
-.calendar-calendar div.single-day .d_42 .view-item .calendar {
-  height: 502px;
 }
 
 .calendar-calendar div.single-day .d_43 .view-item .calendar {
@@ -629,7 +614,7 @@
 }
 
 .calendar-calendar div.single-day .d_58 .view-item .calendar {
-  height: 694px;
+  height: auto;
 }
 
 .calendar-calendar div.single-day .d_59 .view-item .calendar {

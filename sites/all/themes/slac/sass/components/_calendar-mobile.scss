@@ -61,6 +61,10 @@
     display: none;
   }
 
+  .calendar-calendar .day-view td.first .calendar-agenda-hour {
+    display: none;
+  }
+
   .month-view {
     table tr,
     table th,
@@ -285,12 +289,12 @@
 
     .day-view #multi-day-container table td.first,
     .day-view #single-day-container table.full td.first  {
-      width: 30%;
+      width: 35%;
     }
 
     .day-view #multi-day-container table td.last,
     .day-view #single-day-container table.full td.last {
-      width: 70%;
+      width: 65%;
     }
 
     .time {
