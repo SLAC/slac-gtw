@@ -161,15 +161,14 @@ abstract class SlacNodeMigration extends DrupalNode6Migration {
    * Converts D6 Tags of Lab News and SLAC Science to field_news_news_type selection.
    */
   public function convert_tag_to_news_type($entity, $row) {
-
     foreach ($row->{'7'} as $index => $tid) {
       if ($tid == '527') {
         $entity->field_news_news_type[LANGUAGE_NONE][0]['value'] = 'Lab News';
-        unset($row->{'7'}[$index]);
+        unset($entity->field_shared_tags[LANGUAGE_NONE][$index]);
       }
       elseif ($tid == '528') {
         $entity->field_news_news_type[LANGUAGE_NONE][0]['value'] = 'SLAC Science';
-        unset($row->{'7'}[$index]);
+        unset($entity->field_shared_tags[LANGUAGE_NONE][$index]);
       }
     }
   }
