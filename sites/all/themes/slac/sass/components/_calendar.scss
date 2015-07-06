@@ -586,7 +586,12 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .week-view .full td,
 .calendar-calendar .day-view  td {
   vertical-align: top;
-  padding: 1px 2px 0 2px
+  padding: 1px 2px 0 2px;
+}
+
+.calendar-calendar .day-view  td {
+  vertical-align: top;
+  padding: 1px 0 0 0;
 }
 
 .calendar-calendar .month-view .full td.date-box {
