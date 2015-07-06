@@ -484,7 +484,6 @@ blockquote p {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   word-wrap: break-word;
-  max-width: 1432px;
   margin: 0 auto;
 }
 .l-main:after {
@@ -505,7 +504,10 @@ blockquote p {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   word-wrap: break-word;
+  padding-left: 0;
+  padding-right: 0;
   float: none;
+  margin: 0 auto;
 }
 
 .main-navigation .region-navigation {
@@ -6770,9 +6772,16 @@ h1.title {
     word-wrap: break-word;
     margin: 0;
     padding: 0;
+    background: transparent;
+  }
+}
+@media all and (max-width: 60em) and (min-width: 60em) {
+  .main-navigation .region-navigation {
     background: #ffffff;
   }
+}
 
+@media all and (max-width: 60em) {
   #block-system-main-menu {
     margin-top: 8px;
   }
