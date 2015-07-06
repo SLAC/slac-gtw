@@ -1,0 +1,14 @@
+.frontpage-access-info {
+  .views-row {
+    @include font-size(11px);
+    margin-bottom: 0.625rem;
+
+    div {
+      display: inline;
+    }
+  }
+
+  .view-footer {
+    border-top: 1px dotted $event-border;
+  }
+}

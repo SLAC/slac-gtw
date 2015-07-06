@@ -1,0 +1,40 @@
+.frontpage-people-finder {
+  input {
+    margin: 0;
+    padding: 0;
+    float: left;
+    outline: none;
+  }
+
+  .searchbox {
+    @include font-size(12px);
+    height: 1.313rem;
+    line-height: 1.313rem;
+    background: $grey-search-box;
+    border: 1px solid $grey-search-border;
+    margin-right: 7px;
+    padding: 0 5px;
+    width: 64%;
+    color: $grey-search-text;
+  }
+
+  .searchbutton {
+    @include font-size(11px);
+    width: 1.75rem;
+    height: 1.438rem;
+    border: none;
+    background: $blue;
+    text-transform: uppercase;
+    color: $white;
+    padding: 0.25rem;
+  }
+
+  .advanced-search {
+    @include font-size(12px);
+    display: block;
+    clear: both;
+    padding: 0.4rem 0 0 0.9rem;
+    background: url('../images/arrow-dot-line.png') no-repeat left 12px;
+  }
+}
+
