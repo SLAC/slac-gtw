@@ -2334,7 +2334,7 @@ ul.calendar-links,
 }
 
 .calendar-calendar .day-view #multi-day-container table td {
-  width: 8%;
+  width: 10%;
 }
 
 .calendar-calendar .week-view #single-day-container table td,
@@ -2346,7 +2346,7 @@ ul.calendar-links,
 }
 
 .calendar-calendar .day-view #single-day-container table td {
-  width: 8%;
+  width: 10%;
 }
 
 .calendar-calendar .day-view #single-day-container table td.last {
@@ -2469,6 +2469,25 @@ ul.calendar-links,
 }
 .calendar-calendar .day-view .full .calendar-agenda-items .inner > .item:first-child {
   margin-left: 1rem;
+}
+@media (min-width: 60em) {
+  .calendar-calendar .day-view .full .calendar-agenda-items .inner > .item:nth-child(4) {
+    margin-left: 1rem;
+    padding-right: 0;
+    clear: left;
+  }
+}
+@media (min-width: 70em) {
+  .calendar-calendar .day-view .full .calendar-agenda-items .inner > .item:nth-child(4) {
+    margin-left: inherit;
+    clear: none;
+  }
+}
+@media (min-width: 70em) {
+  .calendar-calendar .day-view .full .calendar-agenda-items .inner > .item:nth-child(5) {
+    margin-left: 1rem;
+    clear: left;
+  }
 }
 
 .calendar-calendar .week-view #header-container td.calendar-time-holder,
@@ -3179,8 +3198,8 @@ ul.calendar-links,
 @media (min-width: 60em) {
   .events-calendar .type-access_information,
   .events-calendar .type-event {
-    margin-right: 0.2rem;
-    margin-left: 0.2rem;
+    margin: 0;
+    margin-bottom: 0.5rem;
   }
 }
 .events-calendar .type-access_information .type-access_information,
@@ -3293,6 +3312,16 @@ ul.calendar-links,
   .events-calendar .monthview .type-access_information .title a,
   .events-calendar .monthview .type-event .title a {
     margin-top: -0.6rem;
+  }
+}
+.events-calendar .dayview .type-access_information,
+.events-calendar .dayview .type-event {
+  margin-bottom: 0;
+}
+@media (min-width: 60em) {
+  .events-calendar .dayview .type-access_information,
+  .events-calendar .dayview .type-event {
+    margin-bottom: 0.5rem;
   }
 }
 .events-calendar .dayview .type-access_information .time,
