@@ -109,7 +109,7 @@
   <?php endif; ?>
 
   <div id="main" class="l-main">
-
+  <div id="main" class="main-wrapper">
     <div class="content-wrapper column" role="main">
       <div id="content" class="column content-container" role="main">
         <?php print render($page['highlighted']); ?>
