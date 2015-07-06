@@ -2697,6 +2697,10 @@ ul.calendar-links,
   height: 274px;
 }
 
+.calendar-calendar div.single-day .d_24 .view-item .calendar {
+  height: 286px;
+}
+
 .calendar-calendar div.single-day .d_25 .view-item .calendar {
   height: 298px;
 }
