@@ -911,3 +911,22 @@ function slac_igp_deployment_update_7045() {
 function slac_igp_deployment_update_7046() {
   _slac_igp_deployment_remove_dup_items('menu-maps-and-directions');
 }
+
+/**
+ * Removes legacy nodequeue expiration variables.
+ * Enables the slac_nodequeue_expire module.
+ */
+function slac_igp_deployment_update_7047() {
+  db_delete('variable')
+    ->condition('name', 'nodequeue_subqueue_expiration_%', 'LIKE')
+    ->execute();
+
+  $result = module_enable(array(
+    'slac_nodequeue_expire',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
+}
