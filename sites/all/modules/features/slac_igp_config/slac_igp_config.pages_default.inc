@@ -77,55 +77,75 @@ function slac_igp_config_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-61eb4510-1f55-41ee-bdb5-09cfa5c07679';
+    $pane->pid = 'new-9acf67a9-8cad-47c8-bc39-d35375150c5b';
     $pane->panel = 'colonerowone';
-    $pane->type = 'block';
-    $pane->subtype = 'views-news-block';
+    $pane->type = 'views';
+    $pane->subtype = 'slac_news';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '5',
+      'pager_id' => '0',
+      'offset' => '',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_3',
       'override_title' => 0,
       'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => '',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '61eb4510-1f55-41ee-bdb5-09cfa5c07679';
-    $display->content['new-61eb4510-1f55-41ee-bdb5-09cfa5c07679'] = $pane;
-    $display->panels['colonerowone'][0] = 'new-61eb4510-1f55-41ee-bdb5-09cfa5c07679';
+    $pane->uuid = '9acf67a9-8cad-47c8-bc39-d35375150c5b';
+    $display->content['new-9acf67a9-8cad-47c8-bc39-d35375150c5b'] = $pane;
+    $display->panels['colonerowone'][0] = 'new-9acf67a9-8cad-47c8-bc39-d35375150c5b';
     $pane = new stdClass();
-    $pane->pid = 'new-f2351ada-fcca-4e09-b9c7-c3060e9650c3';
+    $pane->pid = 'new-6b54ccf8-deed-4260-87f5-7259397c4fc0';
     $pane->panel = 'colonerowthree';
-    $pane->type = 'block';
-    $pane->subtype = 'views-news-block_3';
+    $pane->type = 'views';
+    $pane->subtype = 'slac_news';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '5',
+      'pager_id' => '0',
+      'offset' => '',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_2',
       'override_title' => 0,
       'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'blue-bodered-white no-bg',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'f2351ada-fcca-4e09-b9c7-c3060e9650c3';
-    $display->content['new-f2351ada-fcca-4e09-b9c7-c3060e9650c3'] = $pane;
-    $display->panels['colonerowthree'][0] = 'new-f2351ada-fcca-4e09-b9c7-c3060e9650c3';
+    $pane->uuid = '6b54ccf8-deed-4260-87f5-7259397c4fc0';
+    $display->content['new-6b54ccf8-deed-4260-87f5-7259397c4fc0'] = $pane;
+    $display->panels['colonerowthree'][0] = 'new-6b54ccf8-deed-4260-87f5-7259397c4fc0';
     $pane = new stdClass();
     $pane->pid = 'new-37ad32d3-085c-43b0-9fe4-e65a379b4370';
     $pane->panel = 'colonerowtwo';
@@ -146,8 +166,8 @@ function slac_igp_config_default_page_manager_pages() {
       'args' => '',
       'url' => '',
       'display' => 'block_1',
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => '<a href="https://news.slac.stanford.edu/tags/staff-benefits-resources/lab-news">LAB NEWS</a>',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
@@ -171,7 +191,7 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->configuration = array(
       'override_pager_settings' => 0,
       'use_pager' => 0,
-      'nodes_per_page' => '8',
+      'nodes_per_page' => '10',
       'pager_id' => '0',
       'offset' => '',
       'more_link' => 0,
@@ -182,7 +202,8 @@ function slac_igp_config_default_page_manager_pages() {
       'url' => '',
       'display' => 'block_1',
       'override_title' => 1,
-      'override_title_text' => '<a href="https://news.slac.stanford.edu/tags/staff-benefits-resources/lab-news">LAB NEWS</a>',
+      'override_title_text' => '<a href="https://news.slac.stanford.edu/tags/staff-benefits-resources/lab-news">LAB NEWS (old)</a>',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
