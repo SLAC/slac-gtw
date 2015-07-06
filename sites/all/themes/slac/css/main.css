@@ -5650,9 +5650,30 @@ body.logged-in {
   }
 }
 
-/* Front slider */
 .jcarousel-container-horizontal {
   overflow: hidden;
+}
+.jcarousel-container-horizontal .title {
+  background: #ffffff;
+  display: block;
+  padding: 0.5rem;
+}
+.jcarousel-container-horizontal .title a {
+  display: block;
+  line-height: 1.4;
+  color: #316dae;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-bottom: 1px dashed transparent;
+}
+.jcarousel-container-horizontal .title a:hover, .jcarousel-container-horizontal .title a:focus {
+  border-color: #316dae;
+}
+@media (min-width: 60em) {
+  .jcarousel-container-horizontal .title a {
+    background: rgba(54, 116, 163, 0.85);
+    color: #ffffff;
+  }
 }
 
 .jcarousel-item {
@@ -5675,22 +5696,6 @@ body.logged-in {
     color: #ffffff;
   }
 }
-.jcarousel-item .views-field-nothing .title a {
-  display: inline;
-  color: #316dae;
-  text-decoration: none;
-  font-size: 1.2rem;
-  border-bottom: 1px dashed transparent;
-}
-.jcarousel-item .views-field-nothing .title a:hover, .jcarousel-item .views-field-nothing .title a:focus {
-  border-color: #316dae;
-}
-@media (min-width: 60em) {
-  .jcarousel-item .views-field-nothing .title a {
-    background: rgba(54, 116, 163, 0.85);
-    color: #ffffff;
-  }
-}
 .jcarousel-item .views-field-nothing .body {
   display: none;
   max-height: 80px;
@@ -5705,18 +5710,13 @@ body.logged-in {
     display: block;
   }
 }
-.jcarousel-item .views-field-nothing .title-body {
-  width: 94%;
-  padding: 10px 3%;
-}
 
 .jcarousel-navigation {
-  display: block;
+  display: table;
   clear: both;
   list-style: none;
   margin: 1rem auto;
   padding: 0;
-  width: 200px;
   text-align: center;
 }
 .jcarousel-navigation li {

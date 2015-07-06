@@ -6,9 +6,33 @@
   }
 }
 
-/* Front slider */
 .jcarousel-container-horizontal {
   overflow: hidden;
+
+  .title {
+    background: $white;
+    display: block;
+    padding: 0.5rem;
+
+    a {
+      display: block;
+      line-height: 1.4;
+      color: $blue;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-bottom: 1px dashed transparent;
+
+      &:hover,
+      &:focus {
+        border-color: $blue;
+      }
+
+      @include breakpoint($tablet-large) {
+        background: $overlay-blue;
+        color: $white;
+      }
+    }
+  }
 }
 
 .jcarousel-item {
@@ -30,24 +54,6 @@
       color: $white;
     }
 
-    .title a {
-      display: inline;
-      color: $blue;
-      text-decoration: none;
-      font-size: 1.2rem;
-      border-bottom: 1px dashed transparent;
-
-      &:hover,
-      &:focus {
-        border-color: $blue;
-      }
-
-      @include breakpoint($tablet-large) {
-        background: $overlay-blue;
-        color: $white;
-      }
-    }
-
     .body {
       display: none;
       max-height: 80px;
@@ -61,21 +67,15 @@
         display: block;
       }
     }
-
-    .title-body {
-      width: 94%;
-      padding: 10px 3%;
-    }
   }
 }
 
 .jcarousel-navigation {
-  display: block;
+  display: table;
   clear: both;
   list-style: none;
   margin: 1rem auto;
   padding: 0;
-  width: 200px;
   text-align: center;
 
   li {
@@ -136,21 +136,3 @@
     width: 100%;
   }
 }
-
-// @media (max-width: 1318px) and (min-width: 901px) {
-//   .pane-boxes-stanford-compliance{
-//     margin-top: 44px !important;
-//   }
-
-//   .pane-boxes-stanford-compliance h2{
-//     margin-top: -26px !important;
-//   }
-// }
-
-// .frontpage-directorate-links{
-//   .view-content:after{
-//     content: "";
-//     display: table;
-//     clear: both;
-//   }
-// }

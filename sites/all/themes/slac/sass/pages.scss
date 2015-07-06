@@ -51,18 +51,6 @@ header, .content-wrapper {
   padding: 0 32px;
 }
 
-// @media (max-width: 1447px){
-//   .frontpage-links ul.menu li a{
-//     height:  30px;
-//   }
-// }
-
-// @media (max-width: 970px){
-//   .frontpage-links ul.menu li a{
-//     font-size: 11px;
-//   }
-// }
-
 .grippie {
   display: none;
 }
@@ -103,11 +91,8 @@ a {
   #page-title{
     display:none;
   }
-  // #main{
-  //   display:block;
-  //   margin-top: 20px;
-  // }
 }
+
 #block-boxes-web-search,
 #block-boxes-search-people{
   width: 48.5%;
@@ -340,14 +325,6 @@ a {
     margin-left: 5%;
   }
 
-  // .frontpage-links,
-  // .frontpage-projects,
-  // .frontpage-help-market,
-  // .pane-boxes-stanford-compliance,
-  // .frontpage-weather {
-  //   display: none;
-  // }
-
   .rowonecoltwo ul{
     min-height: 298px;
   }
@@ -363,10 +340,6 @@ a {
   .front-first-column {
     margin-top: 0px;
   }
-
-  // .front #main {
-  //   margin-top: 80px;
-  // }
 
   .not-front{
     &.section-staff-resources #content {
@@ -427,11 +400,6 @@ a {
       float: none;
     }
   }
-
-  // .frontpage-right{
-  //   float: none;
-  //   overflow: hidden;
-  // }
 
   .general-two-col {
     .general-left, .general-right {
