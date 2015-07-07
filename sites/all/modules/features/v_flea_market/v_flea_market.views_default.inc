@@ -38,7 +38,6 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<a href="/flea-market">Visit Flea Market</a>
-<br />
 <a href="/node/add/flea-market-post">Submit Flea Market Item</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   /* Field: Content: Title */
