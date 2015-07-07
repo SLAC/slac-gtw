@@ -9,9 +9,9 @@
 .frontpage-security-contacts {
   .pane-title {
     @include font-size(12px);
-    line-height: $base-line-height;
+    line-height: 1.2;
     color: $gold;
-    margin-bottom: 0;
+    margin-bottom: -3px;
     text-transform: uppercase;
   }
 }
