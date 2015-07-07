@@ -94,10 +94,10 @@
   margin-top: 0.45rem;
   margin-bottom: 0.45rem;
 
-    a {
-      @include font-size(12px);
-      display: block;
-      background: none;
-      padding: 0.3rem 0.5rem;
-    }
+  a {
+    @include font-size(12px);
+    display: block;
+    background: none;
+    padding: 0.3rem 0.5rem;
+  }
 }

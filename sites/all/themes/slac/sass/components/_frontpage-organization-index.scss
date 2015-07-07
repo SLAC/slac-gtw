@@ -1,11 +1,11 @@
-  .frontpage-directorate-links{
-    .views-row a {
-      @include font-size(12px);
-      background: $light-blue;
-      border: none;
-    }
-
-    .views-row-last {
-      margin-bottom: 0;
-    }
+.frontpage-directorate-links{
+  .views-row a {
+    @include font-size(12px);
+    background: $light-blue;
+    border: none;
   }
+
+  .views-row-last {
+    margin-bottom: 0;
+  }
+}
