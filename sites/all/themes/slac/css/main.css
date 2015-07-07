@@ -570,6 +570,7 @@ blockquote p {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     word-wrap: break-word;
+    clear: both;
   }
 }
 @media (min-width: 60em) {
@@ -613,6 +614,7 @@ blockquote p {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     word-wrap: break-word;
+    clear: left;
   }
 }
 @media (min-width: 70em) {
@@ -656,6 +658,7 @@ blockquote p {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     word-wrap: break-word;
+    clear: right;
   }
 }
 #content:before, #content:after {
@@ -5590,13 +5593,13 @@ body.logged-in {
 .view-slac-news .pane-content {
   padding: 0;
 }
-.view-slac-news .views-row {
+.view-slac-news .item-list .views-row {
   padding: 0.5rem;
   background: #ffffff url("../images/list-arrow-new.jpg") no-repeat right center;
   margin: 0;
   margin-bottom: 1rem;
 }
-.view-slac-news .views-row a {
+.view-slac-news .item-list .views-row a {
   font-size: 12px;
   font-size: 0.75rem;
   line-height: 1.4;
@@ -5606,11 +5609,11 @@ body.logged-in {
   padding-right: 3.75rem;
 }
 @media (min-width: 40em) {
-  .view-slac-news .views-row a {
+  .view-slac-news .item-list .views-row a {
     width: 92%;
   }
 }
-.view-slac-news .views-row .views-field-created {
+.view-slac-news .item-list .views-row .views-field-created {
   font-size: 11px;
   font-size: 0.6875rem;
   color: #636363;
@@ -5708,6 +5711,27 @@ body.logged-in {
 .frontpage-slac-science .pane-title:hover, .frontpage-slac-science .pane-title:focus {
   text-decoration: none;
 }
+.frontpage-slac-science .view-content .views-row-1 {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.frontpage-slac-science .view-content .views-row-1 .title-body {
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  right: 0;
+  display: block;
+  background: rgba(54, 116, 163, 0.75);
+  padding: 0.4rem;
+}
+.frontpage-slac-science .view-content .views-row-1 .title-body a {
+  font-size: 19px;
+  font-size: 1.1875rem;
+  color: #ffffff;
+}
+.frontpage-slac-science .body {
+  display: none;
+}
 
 .jcarousel-item .body {
   display: none;
@@ -5740,7 +5764,7 @@ body.logged-in {
 }
 @media (min-width: 60em) {
   .jcarousel-container-horizontal .title a {
-    background: rgba(54, 116, 163, 0.85);
+    background: rgba(54, 116, 163, 0.75);
     color: #ffffff;
   }
 }
@@ -5761,7 +5785,7 @@ body.logged-in {
   .jcarousel-item .views-field-nothing {
     position: absolute;
     bottom: 0;
-    background: rgba(54, 116, 163, 0.85);
+    background: rgba(54, 116, 163, 0.75);
     color: #ffffff;
   }
 }
@@ -5973,14 +5997,14 @@ body.logged-in {
   font-size: 11px;
   font-size: 0.6875rem;
   line-height: 2.25;
-  background: url(../images/arrow-dot-line.png) no-repeat left center;
-  padding-left: 0.9375rem;
 }
 @media (min-width: 60em) {
   .frontpage-calendar .view-footer a,
   .frontpage-access-info .view-footer a,
   .frontpage-help-market .view-footer a {
+    background: url(../images/arrow-dot-line.png) no-repeat left center;
     line-height: 1.5;
+    padding-left: 0.9375rem;
   }
 }
 .frontpage-calendar .view-footer .external,

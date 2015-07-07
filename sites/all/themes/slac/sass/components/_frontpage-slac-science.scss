@@ -2,4 +2,29 @@
   .pane-title {
     @include frontpage-news-headings;
   }
+
+  .view-content .views-row-1 {
+    position: relative;
+    margin-bottom: 1rem;
+
+    .title-body {
+      position: absolute;
+      bottom: 7px;
+      left: 0;
+      right: 0;
+      display: block;
+      background: $overlay-blue;
+      padding: 0.4rem;
+
+      a {
+        @include font-size(19px);
+        color: $white;
+      }
+    }
+  }
+
+  .body {
+    display: none;
+  }
+
 }
