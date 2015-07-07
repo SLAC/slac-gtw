@@ -5458,6 +5458,12 @@ body.logged-in {
   background: #E8E8E8;
 }
 
+.frontpage-news-slider,
+.frontpage-news-list,
+.frontpage-slac-science {
+  margin-bottom: 2.25rem;
+}
+
 .frontpage-weather {
   display: none;
 }
@@ -5548,18 +5554,18 @@ body.logged-in {
   text-decoration: none;
 }
 
-.pane-slac-news .pane-content {
+.view-slac-news .pane-content {
   padding: 0;
 }
-.pane-slac-news .views-row {
+.view-slac-news .views-row {
   padding: 0.5rem;
   background: #ffffff url("../images/list-arrow-new.jpg") no-repeat right center;
   margin: 0;
   margin-bottom: 1rem;
 }
-.pane-slac-news .views-row a {
-  font-size: 16px;
-  font-size: 1rem;
+.view-slac-news .views-row a {
+  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 1.4;
   display: block;
   box-sizing: border-box;
@@ -5567,16 +5573,17 @@ body.logged-in {
   padding-right: 3.75rem;
 }
 @media (min-width: 40em) {
-  .pane-slac-news .views-row a {
+  .view-slac-news .views-row a {
     width: 92%;
   }
 }
-.pane-slac-news .views-field-created .field-content {
-  color: #b5b5b5;
-  font-weight: bold;
+.view-slac-news .views-row .views-field-created {
+  font-size: 11px;
+  font-size: 0.6875rem;
+  color: #636363;
   letter-spacing: 0.03rem;
 }
-.pane-slac-news .view-footer a {
+.view-slac-news .view-footer a {
   font-size: 14px;
   font-size: 0.875rem;
   padding: 0.5rem;
@@ -5586,7 +5593,7 @@ body.logged-in {
   color: #316dae;
   font-weight: bold;
 }
-.pane-slac-news .view-footer a:hover, .pane-slac-news .view-footer a:focus {
+.view-slac-news .view-footer a:hover, .view-slac-news .view-footer a:focus {
   text-decoration: none;
 }
 
@@ -5661,11 +5668,12 @@ body.logged-in {
   padding: 0.5rem;
 }
 .jcarousel-container-horizontal .title a {
+  font-size: 19px;
+  font-size: 1.1875rem;
   display: block;
   line-height: 1.4;
   color: #316dae;
   text-decoration: none;
-  font-size: 1.2rem;
   border-bottom: 1px dashed transparent;
 }
 .jcarousel-container-horizontal .title a:hover, .jcarousel-container-horizontal .title a:focus {
@@ -5717,7 +5725,7 @@ body.logged-in {
   display: table;
   clear: both;
   list-style: none;
-  margin: 1rem auto;
+  margin: 1rem auto 0 auto;
   padding: 0;
   text-align: center;
 }
@@ -5859,16 +5867,14 @@ body.logged-in {
   font-weight: bold;
 }
 .frontpage-calendar .month {
-  font-size: 12px;
-  font-size: 0.75rem;
-  font-weight: bold;
+  font-size: 14px;
+  font-size: 0.875rem;
 }
 .frontpage-calendar .day {
-  font-size: 16px;
-  font-size: 1rem;
+  font-size: 20px;
+  font-size: 1.25rem;
   display: block;
-  font-weight: normal;
-  margin-top: -0.8rem;
+  margin-top: -0.65rem;
 }
 .frontpage-calendar .views-field-nothing-1 {
   position: absolute;
@@ -5900,16 +5906,11 @@ body.logged-in {
     line-height: 1.5;
   }
 }
-.frontpage-calendar .view-footer br,
-.frontpage-access-info .view-footer br,
-.frontpage-help-market .view-footer br {
-  display: none;
-}
 .frontpage-calendar .view-footer .external,
 .frontpage-access-info .view-footer .external,
 .frontpage-help-market .view-footer .external {
-  font-size: 14px;
-  font-size: 0.875rem;
+  font-size: 11px;
+  font-size: 0.6875rem;
   background: none;
   padding-left: 0;
 }

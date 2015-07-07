@@ -4,7 +4,7 @@
   }
 }
 
-.pane-slac-news {
+.view-slac-news {
   .pane-content {
     padding: 0;
   }
@@ -16,7 +16,7 @@
     margin-bottom: 1rem;
 
     a {
-      @include font-size(16px);
+      @include font-size(12px);
       line-height: 1.4;
       display: block;
       box-sizing: border-box;
@@ -27,12 +27,12 @@
         width: 92%;
       }
     }
-  }
 
-  .views-field-created .field-content {
-    color: darken($home-background, 20%);
-    font-weight: bold;
-    letter-spacing: 0.03rem;
+    .views-field-created {
+      @include font-size(11px);
+      color: $grey-homepage;
+      letter-spacing: 0.03rem;
+    }
   }
 
   .view-footer {
