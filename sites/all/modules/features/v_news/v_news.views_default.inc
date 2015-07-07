@@ -356,10 +356,10 @@ function v_news_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
   $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
-    'featured_news' => 'featured_news',
+    'slac_science_news' => 'slac_science_news',
     'news_articles' => 0,
     'lab_news' => 0,
-    'slac_science_news' => 0,
+    'featured_news' => 0,
   );
   $handler->display->display_options['displays'] = array(
     'block_2' => 'block_2',
