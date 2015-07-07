@@ -190,11 +190,6 @@
   width: 50%;
   padding-bottom: 7px;
 }
-.pane-staff-resource-modern .views-field-name a {
-  padding-left: 12px;
-  font-size: 12px;
-  background: url("../images/list-dot.png") no-repeat 0 7px;
-}
 .pane-staff-resource-modern .col-last {
   width: 46%;
   padding-left: 4%;
@@ -202,38 +197,6 @@
 
 .section-a-z .views-field-name a {
   background: transparent;
-}
-
-.frontpage-security-contacts p,
-.pane-boxes-it-help-desk p {
-  margin: 0 0 8px 0;
-  font-size: 12px;
-}
-
-.pane-views-flea-market-block .views-row {
-  font-size: 11px;
-  padding: 8px 0;
-  border-top: 1px dashed #b8c9d1;
-}
-.pane-views-flea-market-block .views-row-first {
-  padding-top: 0;
-  border-top: none;
-}
-
-.pane-boxes-slac-projects .boxes-box-content {
-  overflow: hidden;
-}
-.pane-boxes-slac-projects .boxes-box-content img {
-  display: block;
-  float: left;
-  margin: 0 20px 0 0;
-}
-.pane-boxes-slac-projects .boxes-box-content li {
-  color: #20659A;
-  list-style-type: none;
-  list-style-image: none;
-  font-size: 12px;
-  margin-bottom: 7px;
 }
 
 a.submit-feedback {
@@ -308,35 +271,6 @@ a.submit-feedback {
   .brown-bodered-white h2 {
     font-size: 11px;
     margin-top: -12px;
-  }
-
-  .blue-striped-list > .pane-content {
-    padding: 10px;
-  }
-  .blue-striped-list .view-content .views-row {
-    background: #e9f2f9;
-    border: none;
-    font-size: 14px;
-    width: 46%;
-    margin-top: 7px;
-    margin-bottom: 7px;
-  }
-  .blue-striped-list .view-content .views-row a {
-    background: none;
-    padding: 0;
-    line-height: normal;
-    padding: 6px 7%;
-    width: 86%;
-    float: left;
-  }
-
-  .frontpage-directorate-links .views-row a {
-    background-color: #e9f2f9;
-    border: none;
-    font-size: 14px;
-  }
-  .frontpage-directorate-links .views-row-last {
-    margin-bottom: 0;
   }
 
   .frontpage-calendar h3 {

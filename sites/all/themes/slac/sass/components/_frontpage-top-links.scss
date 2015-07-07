@@ -1,12 +1,17 @@
 .frontpage-top-links,
 .frontpage-directorate-links {
-  .view-content .views-row {
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 0.875rem;
+  .view-row,
+  .views-row {
+    @include blue-striped-list;
 
     &.views-row-last{
       margin-bottom: 0.4375rem;
     }
+  }
+}
+
+.frontpage-top-links {
+  .view-footer {
+    display: none;
   }
 }

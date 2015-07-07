@@ -5539,6 +5539,39 @@ body.logged-in {
   text-transform: uppercase;
 }
 
+.frontpage-help-market,
+.pane-views-flea-market-block,
+.frontpage-security-contacts {
+  font-size: 12px;
+  font-size: 0.75rem;
+  padding: 0.6rem 0;
+}
+.frontpage-help-market p,
+.pane-views-flea-market-block p,
+.frontpage-security-contacts p {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+.frontpage-help-market .views-row-first,
+.pane-views-flea-market-block .views-row-first,
+.frontpage-security-contacts .views-row-first {
+  padding-top: 0;
+  border-top: none;
+}
+.frontpage-help-market .view-footer,
+.pane-views-flea-market-block .view-footer,
+.frontpage-security-contacts .view-footer {
+  display: none;
+}
+
+.pane-views-flea-market-block .views-row {
+  padding: 0.5rem 0.3rem;
+  border-bottom: 1px dashed #154E6B;
+}
+.pane-views-flea-market-block .view-footer {
+  display: block;
+}
+
 .frontpage-news-list .pane-title a {
   font-size: 12px;
   font-size: 0.75rem;
@@ -5597,6 +5630,16 @@ body.logged-in {
   text-decoration: none;
 }
 
+.frontpage-directorate-links .views-row a {
+  font-size: 12px;
+  font-size: 0.75rem;
+  background: #e9f2f9;
+  border: none;
+}
+.frontpage-directorate-links .views-row-last {
+  margin-bottom: 0;
+}
+
 .frontpage-people-finder input {
   margin: 0;
   padding: 0;
@@ -5627,12 +5670,28 @@ body.logged-in {
   padding: 0.25rem;
 }
 .frontpage-people-finder .advanced-search {
-  font-size: 12px;
-  font-size: 0.75rem;
+  font-size: 11px;
+  font-size: 0.6875rem;
   display: block;
   clear: both;
-  padding: 0.4rem 0 0 0.9rem;
-  background: url("../images/arrow-dot-line.png") no-repeat left 12px;
+  padding: 0.6rem 0 0 0.9rem;
+  background: url("../images/arrow-dot-line.png") no-repeat left 15px;
+}
+
+.pane-boxes-slac-projects {
+  overflow: hidden;
+}
+.pane-boxes-slac-projects img {
+  display: block;
+  float: left;
+  margin: 0 1.25rem 1.25rem 0;
+}
+.pane-boxes-slac-projects li {
+  font-size: 12px;
+  font-size: 0.75rem;
+  list-style-type: none;
+  list-style-image: none;
+  margin-bottom: 0.4375rem;
 }
 
 .frontpage-slac-science .pane-title {
@@ -5820,15 +5879,35 @@ body.logged-in {
   background-position: center -80px;
 }
 
-.frontpage-top-links .view-content .views-row,
-.frontpage-directorate-links .view-content .views-row {
+.frontpage-top-links .view-row,
+.frontpage-top-links .views-row,
+.frontpage-directorate-links .view-row,
+.frontpage-directorate-links .views-row {
+  background: #e9f2f9;
+  border: none;
   width: 100%;
-  overflow: hidden;
-  margin-bottom: 0.875rem;
+  margin-top: 0.45rem;
+  margin-bottom: 0.45rem;
 }
-.frontpage-top-links .view-content .views-row.views-row-last,
-.frontpage-directorate-links .view-content .views-row.views-row-last {
+.frontpage-top-links .view-row a,
+.frontpage-top-links .views-row a,
+.frontpage-directorate-links .view-row a,
+.frontpage-directorate-links .views-row a {
+  font-size: 12px;
+  font-size: 0.75rem;
+  display: block;
+  background: none;
+  padding: 0.3rem 0.5rem;
+}
+.frontpage-top-links .view-row.views-row-last,
+.frontpage-top-links .views-row.views-row-last,
+.frontpage-directorate-links .view-row.views-row-last,
+.frontpage-directorate-links .views-row.views-row-last {
   margin-bottom: 0.4375rem;
+}
+
+.frontpage-top-links .view-footer {
+  display: none;
 }
 
 .frontpage-calendar .views-row {
@@ -5885,8 +5964,6 @@ body.logged-in {
 .frontpage-calendar .view-footer,
 .frontpage-access-info .view-footer,
 .frontpage-help-market .view-footer {
-  display: block;
-  clear: both;
   padding-top: 0.5rem;
 }
 .frontpage-calendar .view-footer a,
