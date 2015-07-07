@@ -1,0 +1,31 @@
+.frontpage-help-market,
+.pane-views-flea-market-block,
+.frontpage-security-contacts {
+  @include font-size(12px);
+    padding: 0.6rem 0;
+
+  p {
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+  }
+
+  .views-row-first {
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .view-footer {
+    display: none;
+  }
+}
+
+.pane-views-flea-market-block {
+  .views-row {
+    padding: 0.5rem 0.3rem;
+    border-bottom: 1px dashed $homepage-dashed-line;
+  }
+
+  .view-footer {
+    display: block;
+  }
+}
