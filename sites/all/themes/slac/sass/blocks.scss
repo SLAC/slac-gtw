@@ -267,23 +267,6 @@ a.submit-feedback {
 
 /* Front middle general */
 
-.frontpage-slac-science,
-.frontpage-news-list{
-  .views-row {
-    background: url('../images/list-dot.png') no-repeat 0 7px;
-    .views-field-title,
-    .views-field-created{
-      display: inline;
-      font-size: 12px;
-      line-height: 1.85em;
-    }
-    .views-field-created{
-      color: #5D5D5D;
-      font-style: italic;
-      font-size: 11px;
-    }
-  }
-}
 .frontpage-slac-science .view-header {
   margin: -12px;
   .view-content{
@@ -418,9 +401,6 @@ a.submit-feedback {
     position: absolute;
   }
 
-  .frontpage-news-slider{
-    margin-bottom: 36px;
-  }
   .frontpage-slider-mobile{
     display: block;
   }

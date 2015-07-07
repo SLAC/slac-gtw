@@ -15,11 +15,11 @@
     padding: 0.5rem;
 
     a {
+      @include font-size(19px);
       display: block;
       line-height: 1.4;
       color: $blue;
       text-decoration: none;
-      font-size: 1.2rem;
       border-bottom: 1px dashed transparent;
 
       &:hover,
@@ -74,7 +74,7 @@
   display: table;
   clear: both;
   list-style: none;
-  margin: 1rem auto;
+  margin: 1rem auto 0 auto;
   padding: 0;
   text-align: center;
 

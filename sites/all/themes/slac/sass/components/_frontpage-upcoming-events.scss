@@ -44,15 +44,13 @@
   }
 
   .month {
-    @include font-size(12px);
-    font-weight: bold;
+    @include font-size(14px);
   }
 
   .day {
-    @include font-size($base-font-size);
+    @include font-size(20px);
     display: block;
-    font-weight: normal;
-    margin-top: -0.8rem;
+    margin-top: -0.65rem;
   }
 
   .views-field-nothing-1 {
