@@ -47,6 +47,7 @@ $zen-column-count: 12;
 
   .front-last-column {
     @include zen-grid-item(7, 6);
+    clear: both;
   }
 }
 
@@ -61,6 +62,7 @@ $zen-column-count: 12;
 
   .front-last-column {
     @include zen-grid-item(8, 5);
+    clear: left;
   }
 }
 
@@ -75,6 +77,7 @@ $zen-column-count: 12;
 
   .front-last-column {
     @include zen-grid-item(4, 9);
+    clear: right;
   }
 }
 // end of frontpage
