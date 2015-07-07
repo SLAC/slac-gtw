@@ -109,8 +109,10 @@
   <?php endif; ?>
 
   <div id="main" class="l-main">
-  <div id="main" class="main-wrapper">
+  <div class="main-wrapper">
+
     <div class="content-wrapper column" role="main">
+
       <div id="content" class="column content-container" role="main">
         <?php print render($page['highlighted']); ?>
         <!-- <?php print $breadcrumb; ?> -->
@@ -128,25 +130,26 @@
         <?php endif; ?>
         <?php print render($page['content']); ?>
         <?php print $feed_icons; ?>
-      </div>
+      </div><!-- /#content -->
 
       <?php if ($page['content_bottom']): ?>
       <?php print render($page['content_bottom']); ?>
       <?php endif; ?>
-    </div><!-- /#content -->
+    </div><!-- /.content-wrapper -->
 
+  </div> <!-- /.main-wrapper -->
   </div> <!-- /#main -->
 
-    <div class="footer-wrapper">
-      <div class="footer-inner">
-        <?php print render($page['footer']); ?>
-        <div class="footer-logos">
-          <a class="stanford-u" title="Stanford University" href="http://www.stanford.edu/"><span>Stanford University</span></a>
+  <div class="footer-wrapper">
+    <div class="footer-inner">
+      <?php print render($page['footer']); ?>
+      <div class="footer-logos">
+        <a class="stanford-u" title="Stanford University" href="http://www.stanford.edu/"><span>Stanford University</span></a>
 
-          <a class="dept-of-energy" title="U.S. Department of Energy" href="http://science.energy.gov/"><span>US Department of Energy</span></a>
-        </div>
+        <a class="dept-of-energy" title="U.S. Department of Energy" href="http://science.energy.gov/"><span>US Department of Energy</span></a>
       </div>
     </div>
+  </div><!-- /.footer-wrapper -->
 
 </div><!-- /#page -->
 
