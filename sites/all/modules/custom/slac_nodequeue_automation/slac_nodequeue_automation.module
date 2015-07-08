@@ -1,0 +1,196 @@
+<?php
+
+/**
+ * @file
+ * Manages automatic addition/removal of News nodes from queues.
+ */
+
+// Nodequeue machine names.
+define('LAB_NEWS', 'lab_news');
+define('SLAC_SCIENCE', 'slac_science_news');
+define('FEATURED_NEWS', 'featured_news');
+
+/**
+ * Implements hook_node_insert().
+ *
+ * Automatically inserts News nodes into a queue based on the News Type field
+ * and if the node is promoted or not.
+ */
+function slac_nodequeue_automation_node_insert($node) {
+  if ($node->type == 'news' && $node->is_new) {
+    $promoted = (bool) $node->promote;
+    $news_type = _slac_nodequeue_automation_get_field_value($node, 'field_news_news_type');
+
+    if (empty($news_type) && !$promoted) {
+      return;
+    }
+
+    if ($promoted) {
+      $queue_name = FEATURED_NEWS;
+    }
+    else {
+      $queue_name = _slac_nodequeue_automation_get_name_for_type($news_type);
+    }
+
+    _slac_nodequeue_automation_node_add($node->nid, $queue_name);
+  }
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function slac_nodequeue_automation_node_update($node) {
+  if ($node->type == 'news') {
+    dpm($node);
+    $original = $node->original;
+
+    $was_promoted = (bool) $original->promote;
+    $promoted = (bool) $node->promote;
+
+    $old_type = _slac_nodequeue_automation_get_field_value($original, 'field_news_news_type');
+    $type = _slac_nodequeue_automation_get_field_value($node, 'field_news_news_type');
+
+
+    // If the node promote flag has changed, update the queues accordingly.
+    if ($promoted != $was_promoted) {
+      if ($promoted) {
+        // Remove from non-promoted queues, add to promoted queue.
+        _slac_nodequeue_automation_node_remove($node->nid, LAB_NEWS);
+        _slac_nodequeue_automation_node_remove($node->nid, SLAC_SCIENCE);
+        _slac_nodequeue_automation_node_add($node->nid, FEATURED_NEWS);
+      }
+      else {
+        // Remove from the promoted queue, add to appropriate News Type queue.
+        _slac_nodequeue_automation_node_remove($node->nid, FEATURED_NEWS);
+
+        $queue_name = _slac_nodequeue_automation_get_name_for_type($type);
+        if ($queue_name != NULL) {
+          _slac_nodequeue_automation_node_add($node->nid, $queue_name);
+        }
+      }
+    }
+    else {
+      // If the News Type value has changed, move to the correct queue.
+      if ($old_type != $type) {
+        $queue_name = _slac_nodequeue_automation_get_name_for_type($old_type);
+        if ($queue_name != NULL) {
+          _slac_nodequeue_automation_node_remove($node->nid, $queue_name);
+        }
+        $queue_name = _slac_nodequeue_automation_get_name_for_type($type);
+        if ($queue_name != NULL) {
+          _slac_nodequeue_automation_node_add($node->nid, $queue_name);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Get the nodequeue machine name associated with a given News Type value.
+ *
+ * @param $type
+ *   The News Type to get the queue machine name for.
+ *
+ * @return null|string
+ *   The nodequeue machine name for the given News Type, or NULL if it is not
+ *   a known type.
+ */
+function _slac_nodequeue_automation_get_name_for_type($type) {
+  switch ($type) {
+    case 'Lab News':
+      $queue_name = LAB_NEWS;
+      break;
+
+    case 'SLAC Science':
+      $queue_name = SLAC_SCIENCE;
+      break;
+
+    default:
+      $queue_name = NULL;
+      break;
+  }
+
+  return $queue_name;
+}
+
+/**
+ * Gets a single field value from the passed node.
+ *
+ * @param $node
+ *   The node object to get the field value from.
+ * @param $field_name
+ *   The machine name of the field to get the value from.
+ *
+ * @return string
+ *   The field value or empty string if there is no value.
+ */
+function _slac_nodequeue_automation_get_field_value($node, $field_name) {
+  $items = field_get_items('node', $node, $field_name);
+  return (!empty($items)) ? $items[0]['value'] : '';
+}
+
+/**
+ * Adds the passed node id onto the specified nodequeue.
+ *
+ * @param $nid
+ *   The node id to add to the queue.
+ * @param $queue_name
+ *   The machine name of the queue to add onto.
+ */
+function _slac_nodequeue_automation_node_add($nid, $queue_name) {
+  $queue = _slac_nodequeue_automation_get_queue($queue_name);
+  if (!empty($queue)) {
+    $subqueue = _slac_nodequeue_automation_get_subqueue($queue->qid);
+
+    if ($subqueue != NULL) {
+      nodequeue_subqueue_add($queue, $subqueue, $nid);
+    }
+  }
+}
+
+/**
+ * Removes the passed node id from the specified nodequeue.
+ *
+ * @param $nid
+ *   The node id to remove from the queue.
+ * @param $queue_name
+ *   The machine name of the queue to remove from.
+ */
+function _slac_nodequeue_automation_node_remove($nid, $queue_name) {
+  $queue = _slac_nodequeue_automation_get_queue($queue_name);
+  if (!empty($queue)) {
+    $subqueue = _slac_nodequeue_automation_get_subqueue($queue->qid);
+
+    if ($subqueue != NULL) {
+      nodequeue_subqueue_remove_node($subqueue->sqid, $nid);
+    }
+  }
+}
+
+/**
+ * Loads the queue information for the passed machine name.
+ *
+ * @param $queue_name
+ *   The machine name of the nodequeue to load.
+ *
+ * @return object|array
+ *   The queue object, or an empty array if it does not exist.
+ */
+function _slac_nodequeue_automation_get_queue($queue_name) {
+  $qid_map = nodequeue_get_qid_map();
+  return nodequeue_load($qid_map[$queue_name]);
+}
+
+/**
+ * Loads the subqueue information for the passed queue id.
+ *
+ * @param $qid
+ *   The queue id to load subqueue information for.
+ *
+ * @return object|null
+ *   The first subqueue object, or null if none exist.
+ */
+function _slac_nodequeue_automation_get_subqueue($qid) {
+  $subqueues = nodequeue_load_subqueues_by_queue($qid);
+  return array_shift($subqueues);
+}
