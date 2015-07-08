@@ -40,45 +40,46 @@ function slac_nodequeue_automation_node_insert($node) {
  * Implements hook_node_update().
  */
 function slac_nodequeue_automation_node_update($node) {
-  if ($node->type == 'news') {
-    $original = $node->original;
+  if ($node->type != 'news') {
+    return;
+  }
 
-    $was_promoted = (bool) $original->promote;
-    $promoted = (bool) $node->promote;
+  $original = $node->original;
 
-    $old_type = _slac_nodequeue_automation_get_field_value($original, 'field_news_news_type');
-    $type = _slac_nodequeue_automation_get_field_value($node, 'field_news_news_type');
+  $was_promoted = (bool) $original->promote;
+  $promoted = (bool) $node->promote;
 
+  $old_type = _slac_nodequeue_automation_get_field_value($original, 'field_news_news_type');
+  $type = _slac_nodequeue_automation_get_field_value($node, 'field_news_news_type');
 
-    // If the node promote flag has changed, update the queues accordingly.
-    if ($promoted != $was_promoted) {
-      if ($promoted) {
-        // Remove from non-promoted queues, add to promoted queue.
-        _slac_nodequeue_automation_node_remove($node->nid, LAB_NEWS);
-        _slac_nodequeue_automation_node_remove($node->nid, SLAC_SCIENCE);
-        _slac_nodequeue_automation_node_add($node->nid, FEATURED_NEWS);
-      }
-      else {
-        // Remove from the promoted queue, add to appropriate News Type queue.
-        _slac_nodequeue_automation_node_remove($node->nid, FEATURED_NEWS);
-
-        $queue_name = _slac_nodequeue_automation_get_name_for_type($type);
-        if ($queue_name != NULL) {
-          _slac_nodequeue_automation_node_add($node->nid, $queue_name);
-        }
-      }
+  // If the node promote flag has changed, update the queues accordingly.
+  if ($promoted != $was_promoted) {
+    if ($promoted) {
+      // Remove from non-promoted queues, add to promoted queue.
+      _slac_nodequeue_automation_node_remove($node->nid, LAB_NEWS);
+      _slac_nodequeue_automation_node_remove($node->nid, SLAC_SCIENCE);
+      _slac_nodequeue_automation_node_add($node->nid, FEATURED_NEWS);
     }
     else {
-      // If the News Type value has changed, move to the correct queue.
-      if ($old_type != $type) {
-        $queue_name = _slac_nodequeue_automation_get_name_for_type($old_type);
-        if ($queue_name != NULL) {
-          _slac_nodequeue_automation_node_remove($node->nid, $queue_name);
-        }
-        $queue_name = _slac_nodequeue_automation_get_name_for_type($type);
-        if ($queue_name != NULL) {
-          _slac_nodequeue_automation_node_add($node->nid, $queue_name);
-        }
+      // Remove from the promoted queue, add to appropriate News Type queue.
+      _slac_nodequeue_automation_node_remove($node->nid, FEATURED_NEWS);
+
+      $queue_name = _slac_nodequeue_automation_get_name_for_type($type);
+      if ($queue_name != NULL) {
+        _slac_nodequeue_automation_node_add($node->nid, $queue_name);
+      }
+    }
+  }
+  else {
+    // If the News Type value has changed, move to the correct queue.
+    if ($old_type != $type) {
+      $queue_name = _slac_nodequeue_automation_get_name_for_type($old_type);
+      if ($queue_name != NULL) {
+        _slac_nodequeue_automation_node_remove($node->nid, $queue_name);
+      }
+      $queue_name = _slac_nodequeue_automation_get_name_for_type($type);
+      if ($queue_name != NULL) {
+        _slac_nodequeue_automation_node_add($node->nid, $queue_name);
       }
     }
   }
