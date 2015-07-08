@@ -1,4 +1,11 @@
 .frontpage-calendar {
+
+  @include breakpoint($tablet-small) {
+    .pane-title {
+      margin-top: 0;
+      line-height: 1.2;
+    }
+  }
   .views-row {
     @include font-size(11px);
     position: relative;

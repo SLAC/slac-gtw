@@ -76,14 +76,12 @@
 
   a {
     display: block;
+    font-weight: normal;
     @include font-size(11px);
     line-height: $base-line-height * 1.5;
-
-    @include breakpoint($tablet-large) {
-      background: url(../images/arrow-dot-line.png) no-repeat left center;
-      line-height: $base-line-height;
-      padding-left: 0.9375rem;
-    }
+    background: url(../images/arrow-dot-line.png) no-repeat left center;
+    line-height: $base-line-height;
+    padding-left: 0.9375rem;
   }
 }
 
