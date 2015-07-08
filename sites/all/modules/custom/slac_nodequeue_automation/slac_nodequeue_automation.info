@@ -1,0 +1,5 @@
+name = SLAC Nodequeue Automation
+description = Manages automatic addition/removal of News nodes from queues.
+core = 7.x
+package = SLAC
+version = 7.x-1.0

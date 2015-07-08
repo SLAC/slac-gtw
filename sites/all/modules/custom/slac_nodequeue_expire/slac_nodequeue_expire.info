@@ -1,5 +1,5 @@
 name = SLAC Nodequeue Expire
-description = * Adds a configurable automatic expiration system to nodequeues.
+description = Adds a configurable automatic expiration system to nodequeues.
 core = 7.x
 package = SLAC
 version = 7.x-1.0
