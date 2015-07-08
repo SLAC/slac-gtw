@@ -41,7 +41,6 @@ function slac_nodequeue_automation_node_insert($node) {
  */
 function slac_nodequeue_automation_node_update($node) {
   if ($node->type == 'news') {
-    dpm($node);
     $original = $node->original;
 
     $was_promoted = (bool) $original->promote;
