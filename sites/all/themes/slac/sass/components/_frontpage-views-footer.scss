@@ -3,6 +3,7 @@
 .frontpage-help-market {
   .view-footer {
     @include view-footer;
+    clear: both;
 
     .external {
       @include font-size(11px);
