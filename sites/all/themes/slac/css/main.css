@@ -5706,10 +5706,9 @@ body.logged-in {
   font-size: 0.75rem;
   height: 1.313rem;
   line-height: 1.313rem;
-  background: #ebebeb;
-  border: 1px solid #cecdce;
-  margin-right: 7px;
-  padding: 0 5px;
+  border: 1px solid #316dae;
+  margin-right: 0.4375rem;
+  padding: 0 0.3125rem;
   width: 64%;
   color: #535353;
 }
