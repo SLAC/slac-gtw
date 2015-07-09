@@ -167,7 +167,7 @@ function slac_igp_config_default_page_manager_pages() {
       'url' => '',
       'display' => 'block_1',
       'override_title' => 1,
-      'override_title_text' => '<a href="https://news.slac.stanford.edu/tags/staff-benefits-resources/lab-news">LAB NEWS</a>',
+      'override_title_text' => '<a href="/news?field_news_news_type_value=Lab+News">LAB NEWS</a>',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
