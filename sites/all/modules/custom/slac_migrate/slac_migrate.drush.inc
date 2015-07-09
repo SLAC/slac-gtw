@@ -78,7 +78,7 @@ function drush_slac_migrate_delete_terms() {
  * Drush callback for deleting nodes created by slac_news feed importers.
  */
 function drush_slac_migrate_delete_feed_nodes() {
-  $feed_ids = array(219, 230);
+  $feed_ids = array(219);
   foreach($feed_ids as $feed_id) {
     $results = db_query("SELECT entity_id FROM feeds_item WHERE id = 'slac_news' AND feed_nid = :feed_id", array(':feed_id' => $feed_id));
     foreach($results as $result) {
