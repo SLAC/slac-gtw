@@ -10,10 +10,9 @@
     @include font-size(12px);
     height: 1.313rem;
     line-height: 1.313rem;
-    background: $grey-search-box;
-    border: 1px solid $grey-search-border;
-    margin-right: 7px;
-    padding: 0 5px;
+    border: 1px solid $blue;
+    margin-right: 0.4375rem;
+    padding: 0 0.3125rem;
     width: 64%;
     color: $grey-search-text;
   }
