@@ -127,9 +127,10 @@ function slac_igp_deployment_install() {
     'slac_igp_workflow',
   ));
 
-  // Remove legacy items.
+  // Remove/update legacy items.
   _slac_igp_deployment_remove_legacy_vars();
   _slac_igp_deployment_remove_legacy_nodequeue();
+  _slac_igp_deployment_update_dashboard_menu();
   _slac_igp_deployment_remove_legacy_views();
   _slac_igp_deployment_remove_legacy_image_styles();
 }
@@ -219,6 +220,30 @@ function _slac_igp_deployment_remove_legacy_nodequeue() {
   if (!empty($queue)) {
     nodequeue_delete($queue->qid);
   }
+}
+
+/**
+ * Updates the custom Dashboard links to new News queues.
+ */
+function _slac_igp_deployment_update_dashboard_menu() {
+  db_update('menu_links')
+    ->fields(array(
+      'link_path' => 'admin/structure/nodequeue/2/view/4',
+    ))
+    ->condition('link_path', 'admin/structure/nodequeue/1/view/1')
+    ->execute();
+  db_update('menu_links')
+    ->fields(array(
+      'link_path' => 'admin/structure/nodequeue/3/view/5',
+    ))
+    ->condition('link_path', 'admin/structure/nodequeue/1/view/2')
+    ->execute();
+  db_update('menu_links')
+    ->fields(array(
+      'link_path' => 'admin/structure/nodequeue/4/view/6',
+    ))
+    ->condition('link_path', 'admin/structure/nodequeue/1/view/3')
+    ->execute();
 }
 
 /**
@@ -1013,4 +1038,11 @@ function slac_igp_deployment_update_7048() {
  */
 function slac_igp_deployment_update_7049() {
   _slac_igp_deployment_remove_legacy_image_styles();
+}
+
+/**
+ * Updates the custom Dashboard links to new News queues.
+ */
+function slac_igp_deployment_update_7050() {
+  _slac_igp_deployment_update_dashboard_menu();
 }
