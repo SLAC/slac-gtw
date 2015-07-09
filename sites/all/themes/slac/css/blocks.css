@@ -54,22 +54,6 @@
   padding: 0;
 }
 
-.blue-dashed-list ul.menu li, .blue-dashed-list .views-row {
-  list-style-type: none;
-  list-style-image: none;
-  font-size: 12px;
-  margin-bottom: 10px;
-}
-.blue-dashed-list ul.menu li a, .blue-dashed-list .views-row a {
-  display: block;
-  padding: 5px 8px;
-  background: #f1f1f1;
-  border: 1px dashed #90a7b2;
-}
-.blue-dashed-list ul.menu li.odd, .blue-dashed-list .views-row-odd {
-  clear: both;
-}
-
 #boxes-box-weather_traffic small {
   width: 100%;
   clear: both;

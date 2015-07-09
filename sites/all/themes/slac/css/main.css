@@ -5685,14 +5685,106 @@ body.logged-in {
     background: #ffffff;
   }
 }
-.frontpage-directorate-links .views-row a {
-  font-size: 12px;
-  font-size: 0.75rem;
+.frontpage-top-links .top-links-list,
+.frontpage-top-links .organization-index-list,
+.frontpage-directorate-links .top-links-list,
+.frontpage-directorate-links .organization-index-list {
+  padding-left: 0;
+  list-style: none;
+}
+.frontpage-top-links .list-link-item,
+.frontpage-directorate-links .list-link-item {
   background: #e9f2f9;
   border: none;
+  width: 100%;
+  margin-top: 0.45rem;
+  margin-bottom: 0.45rem;
 }
-.frontpage-directorate-links .views-row-last {
-  margin-bottom: 0;
+.frontpage-top-links .list-link-item a,
+.frontpage-directorate-links .list-link-item a {
+  font-size: 11px;
+  font-size: 0.6875rem;
+  display: block;
+  background: none;
+  padding: 0.3rem 0.5rem;
+}
+
+@media (min-width: 60em) {
+  .frontpage-top-links .blue-striped-list,
+  .frontpage-top-links .blue-dashed-list,
+  .frontpage-directorate-links .blue-striped-list,
+  .frontpage-directorate-links .blue-dashed-list {
+    padding-bottom: 0.5rem;
+  }
+  .frontpage-top-links .blue-striped-list:after,
+  .frontpage-top-links .blue-dashed-list:after,
+  .frontpage-directorate-links .blue-striped-list:after,
+  .frontpage-directorate-links .blue-dashed-list:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .frontpage-top-links .top-links-list,
+  .frontpage-top-links .organization-index-list,
+  .frontpage-directorate-links .top-links-list,
+  .frontpage-directorate-links .organization-index-list {
+    font-size: 11px;
+    font-size: 0.6875rem;
+    color: #316dae;
+    list-style: inherit;
+    list-style-position: inside;
+  }
+  .frontpage-top-links .top-links-list .list-link-item,
+  .frontpage-top-links .organization-index-list .list-link-item,
+  .frontpage-directorate-links .top-links-list .list-link-item,
+  .frontpage-directorate-links .organization-index-list .list-link-item {
+    float: left;
+    width: 49%;
+    background: none;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .frontpage-top-links .top-links-list .list-link-item a,
+  .frontpage-top-links .organization-index-list .list-link-item a,
+  .frontpage-directorate-links .top-links-list .list-link-item a,
+  .frontpage-directorate-links .organization-index-list .list-link-item a {
+    padding-left: 0;
+  }
+}
+@media (min-width: 70em) {
+  .frontpage-top-links .top-links-list,
+  .frontpage-top-links .organization-index-list,
+  .frontpage-directorate-links .top-links-list,
+  .frontpage-directorate-links .organization-index-list {
+    padding-left: 0;
+    list-style: none;
+  }
+  .frontpage-top-links .top-links-list .list-link-item,
+  .frontpage-top-links .organization-index-list .list-link-item,
+  .frontpage-directorate-links .top-links-list .list-link-item,
+  .frontpage-directorate-links .organization-index-list .list-link-item {
+    background: #e9f2f9;
+    border: none;
+    width: 100%;
+    margin-top: 0.45rem;
+    margin-bottom: 0.45rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  .frontpage-top-links .top-links-list .list-link-item a,
+  .frontpage-top-links .organization-index-list .list-link-item a,
+  .frontpage-directorate-links .top-links-list .list-link-item a,
+  .frontpage-directorate-links .organization-index-list .list-link-item a {
+    font-size: 11px;
+    font-size: 0.6875rem;
+    display: block;
+    background: none;
+    padding: 0.3rem 0.5rem;
+  }
+}
+.frontpage-top-links .view-footer,
+.frontpage-directorate-links .view-footer {
+  display: none;
 }
 
 .frontpage-people-finder input {
@@ -5971,37 +6063,6 @@ body.logged-in {
 }
 .socials .youtube {
   background-position: center -80px;
-}
-
-.frontpage-top-links .view-row,
-.frontpage-top-links .views-row,
-.frontpage-directorate-links .view-row,
-.frontpage-directorate-links .views-row {
-  background: #e9f2f9;
-  border: none;
-  width: 100%;
-  margin-top: 0.45rem;
-  margin-bottom: 0.45rem;
-}
-.frontpage-top-links .view-row a,
-.frontpage-top-links .views-row a,
-.frontpage-directorate-links .view-row a,
-.frontpage-directorate-links .views-row a {
-  font-size: 12px;
-  font-size: 0.75rem;
-  display: block;
-  background: none;
-  padding: 0.3rem 0.5rem;
-}
-.frontpage-top-links .view-row.views-row-last,
-.frontpage-top-links .views-row.views-row-last,
-.frontpage-directorate-links .view-row.views-row-last,
-.frontpage-directorate-links .views-row.views-row-last {
-  margin-bottom: 0.4375rem;
-}
-
-.frontpage-top-links .view-footer {
-  display: none;
 }
 
 @media (min-width: 40em) {
