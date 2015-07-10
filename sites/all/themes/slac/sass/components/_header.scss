@@ -251,12 +251,13 @@ h1.title {
     border-radius: 0;
     border-image: none;
     color: lighten($grey, 20%);
-    padding: 4px 80px 6px 4px;
+    padding: 4px 80px 2px 4px;
     overflow: hidden;
     height: 27px;
 
     > .item {
       display: inline-block;
+      white-space: nowrap;
     }
   }
 
