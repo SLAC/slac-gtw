@@ -3,7 +3,8 @@
   @include breakpoint($tablet-small) {
     .pane-title {
       margin-top: 0;
-      line-height: 1.2;
+      line-height: 1;
+      margin-bottom: -2px;
     }
   }
   .views-row {

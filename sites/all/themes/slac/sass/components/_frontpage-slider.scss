@@ -12,7 +12,7 @@
   .title {
     background: $white;
     display: block;
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem 0.2rem 0;
 
     a {
       @include font-size(19px);

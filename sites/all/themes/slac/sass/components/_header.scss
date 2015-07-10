@@ -3,11 +3,11 @@
 $zen-gutter-width: 40px;
 $zen-column-count: 12;
 
-#page {
+.l-page {
   @include zen-grid-container();
 }
 
-#content {
+.content-container {
   padding-top: 2.625rem;
   padding-bottom: 2rem;
 
