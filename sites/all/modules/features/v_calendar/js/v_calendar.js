@@ -56,7 +56,6 @@
         $viewForm = $('.view-id-calendar_view .views-exposed-form', context);
       }
       var $typeSelect = $viewForm.find('.form-item-tid select');
-      var $tagsSelect = $viewForm.find('.form-item-tid-1 select');
       var $accessSelect = $viewForm.find('.form-item-type select');
 
       // Create a new select element to use for creating a Selectize widget
@@ -69,13 +68,9 @@
 
       // Set up options and items arrays for Selectize initialization and for
       // using in option value comparissons later.
-      var optionsCombined = [];
       var optionsItems = [];
       var optionsType = createOptionsList($typeSelect, 'all', 'type');
       var typeValues = optionsType.map(function (i) {return i.value;});
-      var optionsTags = createOptionsList($tagsSelect, 'all2', 'tags');
-      var tagsValues = optionsTags.map(function (i) {return i.value;});
-      optionsCombined = optionsCombined.concat(optionsType, optionsTags);
 
       // Set the 'All Items' value for each group if no other options in the
       // group are selected.
@@ -84,12 +79,6 @@
       }));
       if (!itemsContainsTypeOption) {
         optionsItems.push('all');
-      }
-      var itemsContainsTagsOption = (optionsItems.some(function (elem) {
-        return (tagsValues.indexOf(elem) !== -1);
-      }));
-      if (!itemsContainsTagsOption) {
-        optionsItems.push('all2');
       }
 
       // Add the combined select element to the document.
@@ -123,11 +112,10 @@
         allowEmptyOption: true,
         selectOnTab: true,
         lockOptgroupOrder: true,
-        options: optionsCombined,
+        options: optionsType,
         items: optionsItems,
         optgroups: [
-          {value: 'type', label: 'Filter by Event Type'},
-          {value: 'tags', label: 'Filter by Event Tags'}
+          {value: 'type', label: 'Filter by Event Type'}
         ],
         optgroupValueField: 'value',
         optgroupLabelField: 'label',
@@ -136,7 +124,7 @@
           return false;
         },
         onItemAdd: function (value, $item) {
-          var inTypes, inTags;
+          var inTypes;
           var allIndex = -1;
 
           // If either of the 'View All' options is chosen, remove any selected
@@ -144,13 +132,7 @@
           if (value === 'all') {
             // Remove all other values from the type select.
             this.items = this.items.filter(function (v) {
-              return (v === 'all' || v === 'all2' || tagsValues.indexOf(v) !== -1);
-            });
-          }
-          else if (value === 'all2') {
-            // Remove all values from the tags select.
-            this.items = this.items.filter(function (v) {
-              return (v === 'all' || v === 'all2' || typeValues.indexOf(v) !== -1);
+              return (v === 'all' || v === 'all2');
             });
           }
           else {
@@ -159,12 +141,6 @@
             inTypes = (typeValues.indexOf(value) !== -1);
             if (inTypes) {
               allIndex = this.items.indexOf('all');
-            }
-            else {
-              inTags = (tagsValues.indexOf(value) !== -1);
-              if (inTags) {
-                allIndex = this.items.indexOf('all2');
-              }
             }
             if (allIndex !== -1) {
               this.items.splice(allIndex, 1);
@@ -180,14 +156,7 @@
             if (values.indexOf('all') !== -1) {
               // Remove all other values from the type select.
               setValues = values.filter(function (v) {
-                return (v === 'all' || v === 'all2' || tagsValues.indexOf(v) !== -1);
-              });
-              selectizeControl.setValue(setValues, true);
-            }
-            else if (values.indexOf('all2') !== -1) {
-              // Remove all values from the tags select.
-              setValues = values.filter(function (v) {
-                return (v === 'all' || v === 'all2' || typeValues.indexOf(v) !== -1);
+                return (v === 'all' || v === 'all2');
               });
               selectizeControl.setValue(setValues, true);
             }
@@ -209,14 +178,11 @@
           var len = values.length;
           var currentTypeValues = $typeSelect.val() || [];
           var lenTypes = currentTypeValues.length;
-          var currentTagsValues = $tagsSelect.val() || [];
-          var lenTags = currentTagsValues.length;
 
-          var selectionLengthsMatch = (len == (lenTypes + lenTags));
+          var selectionLengthsMatch = (len === lenTypes);
           var selectionsAllInValues = (values.every(function (v) {
             var inTypes = (currentTypeValues.indexOf(v) !== -1);
-            var inTags = (currentTagsValues.indexOf(v) !== -1);
-            return (inTypes || inTags);
+            return inTypes;
           }));
 
           // If the user opened the filter widget, but didn't actually change
@@ -224,9 +190,6 @@
           if (!(selectionLengthsMatch && selectionsAllInValues)) {
             $typeSelect.val(values.filter(function (v) {
               return typeValues.indexOf(v) !== -1;
-            }));
-            $tagsSelect.val(values.filter(function (v) {
-              return tagsValues.indexOf(v) !== -1;
             }));
 
             // Submit the filter form to apply the new values.
@@ -273,7 +236,7 @@
       updateSelectizeDisplay($selectize.val());
 
       // Open the dropdown control when the input area is clicked as well.
-      $selectizeInput.click(function (e) {
+      $selectizeInput.click(function () {
         selectizeControl.open();
       });
 
