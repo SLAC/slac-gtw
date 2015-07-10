@@ -6405,12 +6405,13 @@ h1.title {
   border-radius: 0;
   border-image: none;
   color: #9d9d9d;
-  padding: 4px 80px 6px 4px;
+  padding: 4px 80px 2px 4px;
   overflow: hidden;
   height: 27px;
 }
 .container-inline .selectize-control .selectize-input > .item {
   display: inline-block;
+  white-space: nowrap;
 }
 .container-inline .selectize-control .selectize-dropdown .selectize-dropdown-content {
   border: 1px solid #316dae;
