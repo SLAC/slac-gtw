@@ -55,7 +55,7 @@
       @include zen-grid-item(12, 1);
       margin: 0;
       padding: 0;
-      background: transparent;
+      background: $white;
 
       @include breakpoint($tablet-large) {
         background: $white;
