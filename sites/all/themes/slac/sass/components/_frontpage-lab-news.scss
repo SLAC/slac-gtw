@@ -93,7 +93,10 @@
 
 @include breakpoint($tablet-small) {
   .pane-slac-news {
-    padding-top: 0.5rem;
     background: $white;
+
+    .item-list {
+      padding-top: 0.5rem;
+    }
   }
 }

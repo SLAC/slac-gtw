@@ -5681,8 +5681,10 @@ body.logged-in {
 
 @media (min-width: 40em) {
   .pane-slac-news {
-    padding-top: 0.5rem;
     background: #ffffff;
+  }
+  .pane-slac-news .item-list {
+    padding-top: 0.5rem;
   }
 }
 .frontpage-top-links .top-links-list,
@@ -5865,6 +5867,11 @@ body.logged-in {
 .frontpage-slac-science .view-content .views-row-1 {
   position: relative;
   margin-bottom: 1rem;
+}
+@media (min-width: 40em) {
+  .frontpage-slac-science .view-content .views-row-1 {
+    margin-bottom: 0;
+  }
 }
 .frontpage-slac-science .view-content .views-row-1 .title-body {
   position: absolute;

@@ -14,6 +14,10 @@
     position: relative;
     margin-bottom: 1rem;
 
+    @include breakpoint($tablet-small) {
+      margin-bottom: 0;
+    }
+
     .title-body {
       position: absolute;
       bottom: 7px;
