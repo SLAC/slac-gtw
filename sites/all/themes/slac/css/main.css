@@ -5267,6 +5267,13 @@ select {
   appearance: none;
   background: #ffffff url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
 }
+select::-ms-expand {
+  display: none;
+}
+.lte-ie9 select {
+  padding-right: 4px;
+  background: none;
+}
 select:hover, select:focus {
   outline: none;
 }
@@ -7307,16 +7314,6 @@ h1.title {
   content: "";
   display: table;
   clear: both;
-}
-.lte-ie9 .page-news .general-right select {
-  padding-right: 4px;
-  background: none;
-}
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .page-news .general-right select {
-    padding-right: 4px;
-    background: none;
-  }
 }
 .page-news .general-right input[type="submit"].form-submit {
   margin-top: 0;
