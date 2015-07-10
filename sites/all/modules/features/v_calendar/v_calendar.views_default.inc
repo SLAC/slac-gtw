@@ -184,29 +184,6 @@ function v_calendar_views_default_views() {
   );
   $handler->display->display_options['filters']['tid']['type'] = 'select';
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'event_type';
-  /* Filter criterion: Event Tags (Content: Has taxonomy term) */
-  $handler->display->display_options['filters']['tid_1']['id'] = 'tid_1';
-  $handler->display->display_options['filters']['tid_1']['table'] = 'taxonomy_index';
-  $handler->display->display_options['filters']['tid_1']['field'] = 'tid';
-  $handler->display->display_options['filters']['tid_1']['ui_name'] = 'Event Tags (Content: Has taxonomy term)';
-  $handler->display->display_options['filters']['tid_1']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['tid_1']['expose']['operator_id'] = 'tid_1_op';
-  $handler->display->display_options['filters']['tid_1']['expose']['label'] = 'Filter by Event Tags';
-  $handler->display->display_options['filters']['tid_1']['expose']['operator'] = 'tid_1_op';
-  $handler->display->display_options['filters']['tid_1']['expose']['identifier'] = 'tid_1';
-  $handler->display->display_options['filters']['tid_1']['expose']['remember'] = TRUE;
-  $handler->display->display_options['filters']['tid_1']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['tid_1']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    5 => 0,
-    4 => 0,
-    6 => 0,
-    7 => 0,
-    3 => 0,
-  );
-  $handler->display->display_options['filters']['tid_1']['type'] = 'select';
-  $handler->display->display_options['filters']['tid_1']['vocabulary'] = 'tags';
   /* Filter criterion: Show Access Notices (Content: Type) */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
