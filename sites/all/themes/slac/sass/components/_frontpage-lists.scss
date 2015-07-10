@@ -1,0 +1,63 @@
+.frontpage-top-links,
+.frontpage-directorate-links {
+
+  .top-links-list,
+  .organization-index-list {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .list-link-item {
+    @include blue-striped-list;
+  }
+}
+
+.frontpage-top-links,
+.frontpage-directorate-links {
+
+  @include breakpoint($tablet-large) {
+    .blue-striped-list,
+    .blue-dashed-list {
+      @include clearfix;
+      padding-bottom: 0.5rem;
+    }
+
+    .top-links-list,
+    .organization-index-list {
+      @include font-size(11px);
+      color: $blue;
+      list-style: inherit;
+      list-style-position: inside;
+
+      .list-link-item {
+        float: left;
+        width: 49%;
+        background: none;
+        margin-top: 0;
+        margin-bottom: 0;
+
+        a {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  @include breakpoint($desktop) {
+    .top-links-list,
+    .organization-index-list {
+      padding-left: 0;
+      list-style: none;
+
+      .list-link-item {
+        @include blue-striped-list;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .view-footer {
+    display: none;
+  }
+}

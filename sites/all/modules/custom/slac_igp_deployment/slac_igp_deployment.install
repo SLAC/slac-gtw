@@ -27,8 +27,10 @@ function slac_igp_deployment_install() {
 
   // Enable new modules/features.
   module_enable(array(
+    'better_exposed_filters',
     'calendar',
     'conditional_fields',
+    'date_popup_authored',
     'flag',
     'jquery_update',
     'pathauto',
@@ -45,6 +47,9 @@ function slac_igp_deployment_install() {
     'linkit',
     'menu_trail_by_path',
     'prepopulate',
+    'scheduler_workbench',
+    'smart_trim',
+    'unpublish_button',
     'slac_ip_core',
     'slac_ip_media',
     'slac_ip_config_search',
@@ -52,6 +57,8 @@ function slac_igp_deployment_install() {
     'slac_ip_menus',
     'slac_ip_media',
     'slac_ip_panes',
+    'slac_nodequeue_automation',
+    'slac_nodequeue_expire',
     'slac_search',
     'ct_access_information',
     'ct_basic_page',
@@ -76,7 +83,6 @@ function slac_igp_deployment_install() {
     'workbench',
     'workbench_email',
     'slac_ip_config_moderation',
-    'date_popup_authored',
     't_event_type',
     'v_terms_on_node',
     'v_top_links',
@@ -120,10 +126,19 @@ function slac_igp_deployment_install() {
     'comment',
     'slac_igp_workflow',
   ));
+
+  // Remove/update legacy items.
+  _slac_igp_deployment_remove_legacy_vars();
+  _slac_igp_deployment_remove_legacy_nodequeue();
+  _slac_igp_deployment_update_dashboard_menu();
+  _slac_igp_deployment_remove_legacy_views();
+  _slac_igp_deployment_remove_legacy_image_styles();
 }
 
 /**
+ *
  * Helper functions.
+ *
  */
 
 /**
@@ -135,6 +150,27 @@ function slac_igp_deployment_install() {
 function _slac_igp_deployment_revert($feature_name) {
   $feature = features_get_features($feature_name);
   features_revert(array($feature_name => $feature->components));
+}
+
+/**
+ * Removes duplicate links from the specified menu.
+ *
+ * @param string $menu_name
+ *   The machine name of the menu to remove duplicate links from.
+ */
+function _slac_igp_deployment_remove_dup_items($menu_name) {
+  $result = db_select('menu_links', 'ml')
+    ->fields('ml', array('mlid', 'link_title'))
+    ->condition('menu_name', $menu_name)
+    ->execute();
+
+  // Remove duplicate links.
+  foreach ($result as $record) {
+    db_delete('menu_links')
+      ->condition('link_title', $record->link_title, '=')
+      ->condition('mlid', $record->mlid, '<>')
+      ->execute();
+  }
 }
 
 /**
@@ -165,6 +201,76 @@ function _slac_igp_deployment_place_search_block() {
     ->condition('delta', 'form', '=')
     ->condition('theme', 'slac', '=')
     ->execute();
+}
+
+/**
+ * Removes items from the variable table that are no longer needed in the site.
+ */
+function _slac_igp_deployment_remove_legacy_vars() {
+  db_delete('variable')
+    ->condition('name', 'nodequeue_subqueue_expiration_%', 'LIKE')
+    ->execute();
+}
+
+/**
+ * Removes the legacy News Articles nodequeue.
+ */
+function _slac_igp_deployment_remove_legacy_nodequeue() {
+  $queue = nodequeue_load_queue_by_name('news_articles');
+  if (!empty($queue)) {
+    nodequeue_delete($queue->qid);
+  }
+}
+
+/**
+ * Updates the custom Dashboard links to new News queues.
+ */
+function _slac_igp_deployment_update_dashboard_menu() {
+  db_update('menu_links')
+    ->fields(array(
+      'link_path' => 'admin/structure/nodequeue/2/view/4',
+    ))
+    ->condition('link_path', 'admin/structure/nodequeue/1/view/1')
+    ->execute();
+  db_update('menu_links')
+    ->fields(array(
+      'link_path' => 'admin/structure/nodequeue/3/view/5',
+    ))
+    ->condition('link_path', 'admin/structure/nodequeue/1/view/2')
+    ->execute();
+  db_update('menu_links')
+    ->fields(array(
+      'link_path' => 'admin/structure/nodequeue/4/view/6',
+    ))
+    ->condition('link_path', 'admin/structure/nodequeue/1/view/3')
+    ->execute();
+}
+
+/**
+ * Deletes legacy views.
+ */
+function _slac_igp_deployment_remove_legacy_views() {
+  $view = views_get_view('news');
+  if ($view) {
+    $view->delete();
+  }
+}
+
+/**
+ * Removes a list of legacy image styles.
+ */
+function _slac_igp_deployment_remove_legacy_image_styles() {
+  $styles = array(
+    'featured_news' => 'news_-_featured_slideshow',
+    'featured_news_scale' => 'news_-_featured_slideshow',
+  );
+
+  foreach ($styles as $style_name => $replacement) {
+    $image_style = image_style_load($style_name);
+    if ($image_style != FALSE) {
+      image_style_delete($image_style, $replacement);
+    }
+  }
 }
 
 /**
@@ -210,7 +316,9 @@ function _slac_igp_deployment_place_main_menu_block() {
 }
 
 /**
+ *
  * Update hooks.
+ *
  */
 
 /**
@@ -241,8 +349,7 @@ function slac_igp_deployment_update_7002() {
     throw new DrupalUpdateException('An error occurred while enabling slac_ip_config_search.');
   }
 
-  $feature = features_get_features('slac_ip_config_search');
-  features_revert(array('slac_ip_config_search' => $feature->components));
+  _slac_igp_deployment_revert('slac_ip_config_search');
 }
 
 /**
@@ -257,8 +364,7 @@ function slac_igp_deployment_update_7003() {
     throw new DrupalUpdateException('An error occurred while enabling slac_ip_menus.');
   }
 
-  $feature = features_get_features('slac_ip_menus');
-  features_revert(array('slac_ip_menus' => $feature->components));
+  _slac_igp_deployment_revert('slac_ip_menus');
 
   _slac_igp_deployment_place_top_menu_block();
 }
@@ -302,8 +408,7 @@ function slac_igp_deployment_update_7005() {
     throw new DrupalUpdateException('An error occurred while enabling modules.');
   }
 
-  $feature = features_get_features('slac_igp_config');
-  features_revert(array('slac_igp_config' => $feature->components));
+  _slac_igp_deployment_revert('slac_igp_config');
 }
 
 /**
@@ -882,4 +987,62 @@ function slac_igp_deployment_update_7045() {
     $message = __FUNCTION__ . ' An error occurred while enabling modules.';
     throw new DrupalUpdateException($message);
   }
+}
+
+/**
+ * Removes duplicate links from the Maps & Directions menu.
+ */
+function slac_igp_deployment_update_7046() {
+  _slac_igp_deployment_remove_dup_items('menu-maps-and-directions');
+}
+
+/**
+ * Removes legacy nodequeue expiration variables.
+ * Enables the slac_nodequeue_expire module.
+ */
+function slac_igp_deployment_update_7047() {
+  _slac_igp_deployment_remove_legacy_vars();
+
+  $result = module_enable(array(
+    'slac_nodequeue_expire',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
+}
+
+/**
+ * Removes legacy News Articles nodequeue (replaced by three new queues and
+ * ported automation functionality (slac_nodequeue_automation).
+ *
+ * Enables the slac_nodequeue_automation module.
+ */
+function slac_igp_deployment_update_7048() {
+  _slac_igp_deployment_remove_legacy_nodequeue();
+  _slac_igp_deployment_remove_legacy_views();
+
+  $result = module_enable(array(
+    'slac_nodequeue_automation',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
+}
+
+/**
+ * Removes legacy News Article image styles.
+ */
+function slac_igp_deployment_update_7049() {
+  _slac_igp_deployment_remove_legacy_image_styles();
+}
+
+/**
+ * Updates the custom Dashboard links to new News queues.
+ */
+function slac_igp_deployment_update_7050() {
+  _slac_igp_deployment_update_dashboard_menu();
 }

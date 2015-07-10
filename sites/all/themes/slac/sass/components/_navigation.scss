@@ -1,15 +1,5 @@
 // mobile menu
 @media all and (max-width: $tablet-large) {
-  #main {
-    @include clearfix;
-    background: $white;
-
-    .front & {
-      margin-top: 0;
-      padding-top: 80px;
-    }
-  }
-
   header[role="banner"] {
     background: $header-blue url(../images/menu-search-toggle-bg.png) 100% 0 repeat-y;
 
@@ -65,7 +55,11 @@
       @include zen-grid-item(12, 1);
       margin: 0;
       padding: 0;
-      background: $white;
+      background: transparent;
+
+      @include breakpoint($tablet-large) {
+        background: $white;
+      }
     }
   }
 

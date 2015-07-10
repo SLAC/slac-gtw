@@ -10,10 +10,16 @@ $zen-column-count: 12;
 
 .l-main {
   @include zen-grid-item(12, 1);
-  max-width: 1432px;
   margin: 0 auto;
   @include clearfix;
+}
+
+.front .content-wrapper {
+  @include zen-grid-item(12, 1);
+  padding-left: 0;
+  padding-right: 0;
   float: none;
+  margin: 0 auto;
 }
 
 .main-navigation {
@@ -28,6 +34,54 @@ $zen-column-count: 12;
   width: 100%;
   margin: 0;
 }
+
+// frontpage
+@include breakpoint($tablet-small) {
+  .front-main-column {
+    @include zen-grid-item(7, 6);
+  }
+
+  .front-first-column {
+    @include zen-grid-item(5, 1);
+  }
+
+  .front-last-column {
+    @include zen-grid-item(7, 6);
+    clear: both;
+  }
+}
+
+@include breakpoint($tablet-large) {
+  .front-main-column {
+    @include zen-grid-item(8, 5);
+  }
+
+  .front-first-column {
+    @include zen-grid-item(4, 1);
+  }
+
+  .front-last-column {
+    @include zen-grid-item(8, 5);
+    clear: left;
+  }
+}
+
+@include breakpoint($desktop) {
+  .front-main-column {
+    @include zen-grid-item(5, 4);
+  }
+
+  .front-first-column {
+    @include zen-grid-item(3, 1);
+  }
+
+  .front-last-column {
+    @include zen-grid-item(4, 9);
+    clear: right;
+  }
+}
+// end of frontpage
+
 
 #content {
   @include zen-grid-container();

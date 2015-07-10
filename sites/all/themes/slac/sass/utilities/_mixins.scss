@@ -52,3 +52,50 @@
     margin-bottom: $margin-bottom;
   }
 }
+
+// ====================
+@mixin frontpage-news-headings {
+  @include font-size(12px);
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  display: block;
+  color: $white;
+  background: $grey-blue-dark url('../images/right-arrow.png') no-repeat 98% -28px;
+  padding-left: 1.25rem;
+  line-height: 2.8;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+// =================
+@mixin view-footer {
+  padding-top: 0.5rem;
+
+  a {
+    display: block;
+    font-weight: normal;
+    @include font-size(11px);
+    line-height: $base-line-height * 1.5;
+    background: url(../images/arrow-dot-line.png) no-repeat left center;
+    line-height: $base-line-height;
+    padding-left: 0.9375rem;
+  }
+}
+
+@mixin  blue-striped-list {
+  background: $light-blue;
+  border: none;
+  width: 100%;
+  margin-top: 0.45rem;
+  margin-bottom: 0.45rem;
+
+  a {
+    @include font-size(11px);
+    display: block;
+    background: none;
+    padding: 0.3rem 0.5rem;
+  }
+}

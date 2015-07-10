@@ -77,55 +77,75 @@ function slac_igp_config_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-61eb4510-1f55-41ee-bdb5-09cfa5c07679';
+    $pane->pid = 'new-9acf67a9-8cad-47c8-bc39-d35375150c5b';
     $pane->panel = 'colonerowone';
-    $pane->type = 'block';
-    $pane->subtype = 'views-news-block';
+    $pane->type = 'views';
+    $pane->subtype = 'slac_news';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '5',
+      'pager_id' => '0',
+      'offset' => '',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_3',
       'override_title' => 0,
       'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => '',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '61eb4510-1f55-41ee-bdb5-09cfa5c07679';
-    $display->content['new-61eb4510-1f55-41ee-bdb5-09cfa5c07679'] = $pane;
-    $display->panels['colonerowone'][0] = 'new-61eb4510-1f55-41ee-bdb5-09cfa5c07679';
+    $pane->uuid = '9acf67a9-8cad-47c8-bc39-d35375150c5b';
+    $display->content['new-9acf67a9-8cad-47c8-bc39-d35375150c5b'] = $pane;
+    $display->panels['colonerowone'][0] = 'new-9acf67a9-8cad-47c8-bc39-d35375150c5b';
     $pane = new stdClass();
-    $pane->pid = 'new-f2351ada-fcca-4e09-b9c7-c3060e9650c3';
+    $pane->pid = 'new-6b54ccf8-deed-4260-87f5-7259397c4fc0';
     $pane->panel = 'colonerowthree';
-    $pane->type = 'block';
-    $pane->subtype = 'views-news-block_3';
+    $pane->type = 'views';
+    $pane->subtype = 'slac_news';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '5',
+      'pager_id' => '0',
+      'offset' => '',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'block_2',
       'override_title' => 0,
       'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'blue-bodered-white no-bg',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'f2351ada-fcca-4e09-b9c7-c3060e9650c3';
-    $display->content['new-f2351ada-fcca-4e09-b9c7-c3060e9650c3'] = $pane;
-    $display->panels['colonerowthree'][0] = 'new-f2351ada-fcca-4e09-b9c7-c3060e9650c3';
+    $pane->uuid = '6b54ccf8-deed-4260-87f5-7259397c4fc0';
+    $display->content['new-6b54ccf8-deed-4260-87f5-7259397c4fc0'] = $pane;
+    $display->panels['colonerowthree'][0] = 'new-6b54ccf8-deed-4260-87f5-7259397c4fc0';
     $pane = new stdClass();
     $pane->pid = 'new-37ad32d3-085c-43b0-9fe4-e65a379b4370';
     $pane->panel = 'colonerowtwo';
@@ -146,8 +166,8 @@ function slac_igp_config_default_page_manager_pages() {
       'args' => '',
       'url' => '',
       'display' => 'block_1',
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => '<a href="/news?field_news_news_type_value=Lab+News">LAB NEWS</a>',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
@@ -161,43 +181,6 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->uuid = '37ad32d3-085c-43b0-9fe4-e65a379b4370';
     $display->content['new-37ad32d3-085c-43b0-9fe4-e65a379b4370'] = $pane;
     $display->panels['colonerowtwo'][0] = 'new-37ad32d3-085c-43b0-9fe4-e65a379b4370';
-    $pane = new stdClass();
-    $pane->pid = 'new-25830832-5472-4916-a0a3-81843df40ed9';
-    $pane->panel = 'colonerowtwo';
-    $pane->type = 'views';
-    $pane->subtype = 'news';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '8',
-      'pager_id' => '0',
-      'offset' => '',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'block_1',
-      'override_title' => 1,
-      'override_title_text' => '<a href="https://news.slac.stanford.edu/tags/staff-benefits-resources/lab-news">LAB NEWS</a>',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'blue-bodered-white no-bg',
-    );
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '25830832-5472-4916-a0a3-81843df40ed9';
-    $display->content['new-25830832-5472-4916-a0a3-81843df40ed9'] = $pane;
-    $display->panels['colonerowtwo'][1] = 'new-25830832-5472-4916-a0a3-81843df40ed9';
     $pane = new stdClass();
     $pane->pid = 'new-ec1dc49a-827e-4685-821b-c6e760af2ca9';
     $pane->panel = 'colthreerowfive';
@@ -411,43 +394,6 @@ function slac_igp_config_default_page_manager_pages() {
     $display->content['new-c0566837-ec4a-41dd-afae-060a6b4a249d'] = $pane;
     $display->panels['colthreerowthree'][0] = 'new-c0566837-ec4a-41dd-afae-060a6b4a249d';
     $pane = new stdClass();
-    $pane->pid = 'new-4481ec24-da24-47c6-8392-18c14b77f12f';
-    $pane->panel = 'colthreerowtwo';
-    $pane->type = 'views';
-    $pane->subtype = 'staff_resource_modern';
-    $pane->shown = FALSE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '18',
-      'pager_id' => '0',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'block_2',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'brown-bodered-white desktop',
-    );
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '4481ec24-da24-47c6-8392-18c14b77f12f';
-    $display->content['new-4481ec24-da24-47c6-8392-18c14b77f12f'] = $pane;
-    $display->panels['colthreerowtwo'][0] = 'new-4481ec24-da24-47c6-8392-18c14b77f12f';
-    $pane = new stdClass();
     $pane->pid = 'new-c5c9d0dc-e5bc-4dd3-967e-5ac45635e581';
     $pane->panel = 'colthreerowtwo';
     $pane->type = 'views';
@@ -479,48 +425,11 @@ function slac_igp_config_default_page_manager_pages() {
       'css_class' => 'brown-bodered-white blue-striped-list mobile',
     );
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = 'c5c9d0dc-e5bc-4dd3-967e-5ac45635e581';
     $display->content['new-c5c9d0dc-e5bc-4dd3-967e-5ac45635e581'] = $pane;
-    $display->panels['colthreerowtwo'][1] = 'new-c5c9d0dc-e5bc-4dd3-967e-5ac45635e581';
-    $pane = new stdClass();
-    $pane->pid = 'new-8c0b190a-16e6-4bd0-ac35-ee47b18a5c24';
-    $pane->panel = 'colthreerowtwo';
-    $pane->type = 'views';
-    $pane->subtype = 'top_links';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '',
-      'pager_id' => '0',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'block',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'brown-bodered-white desktop',
-    );
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = '8c0b190a-16e6-4bd0-ac35-ee47b18a5c24';
-    $display->content['new-8c0b190a-16e6-4bd0-ac35-ee47b18a5c24'] = $pane;
-    $display->panels['colthreerowtwo'][2] = 'new-8c0b190a-16e6-4bd0-ac35-ee47b18a5c24';
+    $display->panels['colthreerowtwo'][0] = 'new-c5c9d0dc-e5bc-4dd3-967e-5ac45635e581';
     $pane = new stdClass();
     $pane->pid = 'new-0c2839e1-4c81-4f99-a2e1-c5fcad80f627';
     $pane->panel = 'coltworowfive';
@@ -572,44 +481,6 @@ function slac_igp_config_default_page_manager_pages() {
     $display->content['new-b3a7a5ca-2d77-4982-bd20-2b73650db455'] = $pane;
     $display->panels['coltworowfour'][0] = 'new-b3a7a5ca-2d77-4982-bd20-2b73650db455';
     $pane = new stdClass();
-    $pane->pid = 'new-1ed069f0-d205-44aa-ba40-67d3462f8a2c';
-    $pane->panel = 'coltworowone';
-    $pane->type = 'views';
-    $pane->subtype = 'news';
-    $pane->shown = FALSE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '3',
-      'pager_id' => '0',
-      'offset' => '',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'block_4',
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-      'style' => 'default',
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => '',
-    );
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '1ed069f0-d205-44aa-ba40-67d3462f8a2c';
-    $display->content['new-1ed069f0-d205-44aa-ba40-67d3462f8a2c'] = $pane;
-    $display->panels['coltworowone'][0] = 'new-1ed069f0-d205-44aa-ba40-67d3462f8a2c';
-    $pane = new stdClass();
     $pane->pid = 'new-3a98c25b-f230-4840-ae8a-d14df30a9fa5';
     $pane->panel = 'coltworowthree';
     $pane->type = 'block';
@@ -634,31 +505,6 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->uuid = '3a98c25b-f230-4840-ae8a-d14df30a9fa5';
     $display->content['new-3a98c25b-f230-4840-ae8a-d14df30a9fa5'] = $pane;
     $display->panels['coltworowthree'][0] = 'new-3a98c25b-f230-4840-ae8a-d14df30a9fa5';
-    $pane = new stdClass();
-    $pane->pid = 'new-76508b3a-8a77-44dc-992b-e22b78e5d9bf';
-    $pane->panel = 'coltworowtwo';
-    $pane->type = 'block';
-    $pane->subtype = 'menu-menu-sidebar-menu';
-    $pane->shown = FALSE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'brown-bodered-white blue-dashed-list',
-    );
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '76508b3a-8a77-44dc-992b-e22b78e5d9bf';
-    $display->content['new-76508b3a-8a77-44dc-992b-e22b78e5d9bf'] = $pane;
-    $display->panels['coltworowtwo'][0] = 'new-76508b3a-8a77-44dc-992b-e22b78e5d9bf';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

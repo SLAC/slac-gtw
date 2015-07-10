@@ -434,6 +434,11 @@ function slac_igp_importers_feeds_importer_default() {
             'term_search' => '0',
             'autocreate' => 1,
           ),
+          8 => array(
+            'source' => 'Blank source 2',
+            'target' => 'field_news_news_type',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'input_format' => 'filtered_html',

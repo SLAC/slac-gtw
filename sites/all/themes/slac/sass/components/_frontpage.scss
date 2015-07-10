@@ -1,0 +1,33 @@
+.front .content-container {
+  padding-top: 0;
+}
+
+.main-wrapper {
+  background: $white;
+
+  .front & {
+    background: $home-background;
+  }
+}
+
+.frontpage-news-slider,
+.frontpage-news-list,
+.frontpage-slac-science {
+  margin-bottom: 2.25rem;
+}
+
+.frontpage-weather {
+  display: none;
+
+  @include breakpoint($tablet-large) {
+    display: block;
+  }
+}
+
+.pane-top-links.desktop {
+  display: none;
+}
+
+.socials {
+  padding-left: 0;
+}
