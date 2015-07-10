@@ -29,3 +29,28 @@
     display: block;
   }
 }
+
+// ===================================
+// Floating IT Helpdesk, Flea Market, Site Security
+// Compliance Helpline and social icons on desktop
+@include breakpoint($desktop) {
+  .frontpage-help-market,
+  .frontpage-security-contacts {
+    width: 48%;
+    float: left;
+    margin-right: 3%;
+
+    .view-footer {
+      display: block;
+      border-top: 1px dashed $blue;
+    }
+
+    .views-row-last {
+      border: none;
+    }
+  }
+
+  .frontpage-security-contacts {
+    margin-right: 0;
+  }
+}

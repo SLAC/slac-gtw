@@ -4,11 +4,5 @@
   .view-footer {
     @include view-footer;
     clear: both;
-
-    .external {
-      @include font-size(11px);
-      background: none;
-      padding-left: 0;
-    }
   }
 }
