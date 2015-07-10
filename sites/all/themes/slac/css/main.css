@@ -1101,6 +1101,43 @@ blockquote p {
     padding-right: 0;
   }
 }
+.calendar-button,
+.email-button,
+.js-print-button {
+  float: left;
+}
+.calendar-button a,
+.email-button a,
+.js-print-button a {
+  font-size: 12px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: dimgray;
+  font-weight: lighter;
+  display: block;
+  padding-left: 2em;
+  padding-right: 1.5em;
+  margin-right: 1.5em;
+  height: 16px;
+  border-right: 1px solid #a8a8a8;
+}
+
+.calendar-button a {
+  background: url("../images/icons-cal-mail-print.png") 0 -16px no-repeat;
+  background-size: 16px 48px;
+}
+
+.email-button a {
+  background: url("../images/icons-cal-mail-print.png") 0 2px no-repeat;
+  background-size: 16px 48px;
+}
+
+.js-print-button a {
+  border: none;
+  background: url("../images/icons-cal-mail-print.png") 0 -32px no-repeat;
+  background-size: 16px 48px;
+}
+
 .page-access .title {
   padding-left: 50px;
   background: url(../images/access-notice-icon.svg) 20px 6px no-repeat;
@@ -4213,32 +4250,27 @@ div.date-views-pager div.next-year {
   margin-bottom: 0.625rem;
   margin-right: 2rem;
 }
-.node-type-news .general-left .pane-slac-ip-panes-email,
-.node-type-news .general-left .pane-slac-ip-panes-print {
+.node-type-news .general-left .email-button,
+.node-type-news .general-left .js-print-button {
   padding-top: 0.2rem;
 }
 .node-type-news .general-left > .inside {
   position: relative;
 }
-.node-type-news .general-left .pane-slac-ip-panes-email {
+.node-type-news .general-left .email-button {
   position: absolute;
-  right: 0;
+  right: 70px;
 }
-@media (min-width: 60em) {
-  .node-type-news .general-left .pane-slac-ip-panes-email {
-    right: 70px;
-  }
-}
-.node-type-news .general-left .pane-slac-ip-panes-email a {
+.node-type-news .general-left .email-button a {
   padding-right: 1rem;
 }
-.node-type-news .general-left .pane-slac-ip-panes-print {
+.node-type-news .general-left .js-print-button {
   position: absolute;
   right: 10px;
   padding-left: 1rem;
   padding-right: 0;
 }
-.node-type-news .general-left .pane-slac-ip-panes-print a {
+.node-type-news .general-left .js-print-button a {
   padding-right: 0;
   margin-right: 0;
 }
@@ -4423,25 +4455,17 @@ div.date-views-pager div.next-year {
   .node-type-event .general-left .pane-node-field-shared-contact-phone,
   .node-type-event .general-left .pane-node-field-shared-tags,
   .node-type-event .general-left .pane-terms-on-node-panel-pane-terms-on-node,
-  .node-type-event .general-left .pane-slac-ip-panes-print,
   .node-type-access-information .general-left .pane-node-field-shared-contact-name,
   .node-type-access-information .general-left .pane-node-field-shared-contact-email,
   .node-type-access-information .general-left .pane-node-field-shared-contact-phone,
   .node-type-access-information .general-left .pane-node-field-shared-tags,
   .node-type-access-information .general-left .pane-terms-on-node-panel-pane-terms-on-node,
-  .node-type-access-information .general-left .pane-slac-ip-panes-print,
   .node-type-news .general-left .pane-node-field-shared-contact-name,
   .node-type-news .general-left .pane-node-field-shared-contact-email,
   .node-type-news .general-left .pane-node-field-shared-contact-phone,
   .node-type-news .general-left .pane-node-field-shared-tags,
-  .node-type-news .general-left .pane-terms-on-node-panel-pane-terms-on-node,
-  .node-type-news .general-left .pane-slac-ip-panes-print {
+  .node-type-news .general-left .pane-terms-on-node-panel-pane-terms-on-node {
     display: none;
-  }
-  .node-type-event .general-left .email-button a,
-  .node-type-access-information .general-left .email-button a,
-  .node-type-news .general-left .email-button a {
-    border: none;
   }
   .node-type-event .general-left .pane-node-created,
   .node-type-access-information .general-left .pane-node-created,
@@ -4453,17 +4477,6 @@ div.date-views-pager div.next-year {
   .node-type-news .general-left .field-name-field-shared-image {
     float: none;
     margin-bottom: 2rem;
-  }
-  .node-type-event .general-left .panel-pane.pane-slac-ip-panes-email,
-  .node-type-access-information .general-left .panel-pane.pane-slac-ip-panes-email,
-  .node-type-news .general-left .panel-pane.pane-slac-ip-panes-email {
-    margin-right: 0;
-  }
-  .node-type-event .general-left .panel-pane.pane-slac-ip-panes-email .email-button a,
-  .node-type-access-information .general-left .panel-pane.pane-slac-ip-panes-email .email-button a,
-  .node-type-news .general-left .panel-pane.pane-slac-ip-panes-email .email-button a {
-    margin-right: 0;
-    padding-right: 0;
   }
   .node-type-event .general-right .pane-node-field-shared-contact-name,
   .node-type-event .general-right .pane-node-field-shared-contact-email,
@@ -4528,6 +4541,30 @@ div.date-views-pager div.next-year {
   .node-type-news .general-right .pane-node-field-shared-tags .pane-title,
   .node-type-news .general-right .pane-terms-on-node-panel-pane-terms-on-node .pane-title {
     margin-bottom: 0.4rem;
+  }
+}
+@media (min-device-width: 320px) and (max-device-width: 1280px) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
+  }
+}
+@media (max-width: 40em) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
   }
 }
 .region-content-bottom {
@@ -6485,41 +6522,6 @@ h1.title {
 .selectize-input.dropdown-active::before,
 .selectize-control.single .selectize-input:after {
   content: none;
-}
-
-.general-left .calendar-button,
-.general-left .email-button,
-.general-left .js-print-button {
-  display: block;
-  float: left;
-}
-.general-left .calendar-button a,
-.general-left .email-button a,
-.general-left .js-print-button a {
-  font-size: 12px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: dimgray;
-  font-weight: lighter;
-  display: block;
-  padding-left: 2em;
-  padding-right: 1.5em;
-  margin-right: 1.5em;
-  height: 16px;
-  border-right: 1px solid #a8a8a8;
-}
-.general-left .calendar-button a {
-  background: url("../images/icons-cal-mail-print.png") 0 -16px no-repeat;
-  background-size: 16px 48px;
-}
-.general-left .email-button a {
-  background: url("../images/icons-cal-mail-print.png") 0 2px no-repeat;
-  background-size: 16px 48px;
-}
-.general-left .js-print-button a {
-  border: none;
-  background: url("../images/icons-cal-mail-print.png") 0 -32px no-repeat;
-  background-size: 16px 48px;
 }
 
 .general-left ul,

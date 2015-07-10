@@ -26,13 +26,8 @@
       .pane-node-field-shared-contact-email,
       .pane-node-field-shared-contact-phone,
       .pane-node-field-shared-tags,
-      .pane-terms-on-node-panel-pane-terms-on-node,
-      .pane-slac-ip-panes-print {
+      .pane-terms-on-node-panel-pane-terms-on-node {
         display: none;
-      }
-
-      .email-button a {
-        border: none;
       }
 
       .pane-node-created {
@@ -42,15 +37,6 @@
       .field-name-field-shared-image {
         float: none;
         margin-bottom: 2rem;
-      }
-
-      .panel-pane.pane-slac-ip-panes-email {
-        margin-right: 0;
-
-        .email-button a {
-          margin-right: 0;
-          padding-right: 0;
-        }
       }
     }
 
@@ -83,6 +69,40 @@
           margin-bottom: 0.4rem;
         }
       }
+    }
+  }
+}
+
+// =======================================================
+// Hiding the print button on all mobile and tablet devices
+// =======================================================
+
+@media
+  (min-device-width: 320px)
+  and (max-device-width: 1280px) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
+    }
+  }
+}
+
+@media (max-width: $tablet-small) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
     }
   }
 }
