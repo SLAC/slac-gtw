@@ -5575,6 +5575,27 @@ body.logged-in {
   display: block;
 }
 
+@media (min-width: 70em) {
+  .frontpage-help-market,
+  .frontpage-security-contacts {
+    width: 48%;
+    float: left;
+    margin-right: 3%;
+  }
+  .frontpage-help-market .view-footer,
+  .frontpage-security-contacts .view-footer {
+    display: block;
+    border-top: 1px dashed #316dae;
+  }
+  .frontpage-help-market .views-row-last,
+  .frontpage-security-contacts .views-row-last {
+    border: none;
+  }
+
+  .frontpage-security-contacts {
+    margin-right: 0;
+  }
+}
 .frontpage-news-list .pane-title a {
   font-size: 12px;
   font-size: 0.75rem;
@@ -6145,14 +6166,6 @@ body.logged-in {
   background: url(../images/arrow-dot-line.png) no-repeat left center;
   line-height: 1.5;
   padding-left: 0.9375rem;
-}
-.frontpage-calendar .view-footer .external,
-.frontpage-access-info .view-footer .external,
-.frontpage-help-market .view-footer .external {
-  font-size: 11px;
-  font-size: 0.6875rem;
-  background: none;
-  padding-left: 0;
 }
 
 #page:before, #page:after {
