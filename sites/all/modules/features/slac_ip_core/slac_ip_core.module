@@ -452,7 +452,6 @@ function theme_slac_ip_core_title($variables) {
     $shared_new_existing = $field_shared_new_existing[0]['value'];
     if ($shared_new_existing == 'Link to Existing URL') {
       $field_shared_existing_url = field_get_items('node', $node, 'field_shared_existing_url');
-      dpm($field_shared_existing_url);
       $path = $field_shared_existing_url[0]['safe_value'];
     }
   }
