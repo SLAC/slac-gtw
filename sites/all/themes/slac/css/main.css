@@ -5454,6 +5454,10 @@ body.logged-in {
   }
 }
 
+.front .content-container {
+  padding-top: 0;
+}
+
 .main-wrapper {
   background: #ffffff;
 }
@@ -5846,6 +5850,13 @@ body.logged-in {
   padding: 0.6rem 0 0 0.9rem;
   background: url("../images/arrow-dot-line.png") no-repeat left 15px;
 }
+@media (min-width: 70em) {
+  .frontpage-people-finder .pane-title {
+    margin-top: 0;
+    line-height: 1;
+    margin-bottom: -2px;
+  }
+}
 
 .pane-boxes-slac-projects {
   overflow: hidden;
@@ -5856,11 +5867,13 @@ body.logged-in {
   margin: 0 1.25rem 1.25rem 0;
 }
 .pane-boxes-slac-projects li {
-  font-size: 12px;
-  font-size: 0.75rem;
-  list-style-type: none;
-  list-style-image: none;
-  margin-bottom: 0.4375rem;
+  list-style: none;
+}
+.pane-boxes-slac-projects li a {
+  font-size: 11px;
+  font-size: 0.6875rem;
+  display: block;
+  padding: 0.2rem 0;
 }
 
 .frontpage-slac-science .pane-title {
@@ -5927,7 +5940,7 @@ body.logged-in {
 .jcarousel-container-horizontal .title {
   background: #ffffff;
   display: block;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0.2rem 0;
 }
 .jcarousel-container-horizontal .title a {
   font-size: 19px;
@@ -6095,7 +6108,8 @@ body.logged-in {
 @media (min-width: 40em) {
   .frontpage-calendar .pane-title {
     margin-top: 0;
-    line-height: 1.2;
+    line-height: 1;
+    margin-bottom: -2px;
   }
 }
 .frontpage-calendar .views-row {
@@ -6168,33 +6182,33 @@ body.logged-in {
   padding-left: 0.9375rem;
 }
 
-#page:before, #page:after {
+.l-page:before, .l-page:after {
   content: "";
   display: table;
 }
-#page:after {
+.l-page:after {
   clear: both;
 }
 
-#content {
+.content-container {
   padding-top: 2.625rem;
   padding-bottom: 2rem;
 }
-.page-calendar #content {
+.page-calendar .content-container {
   margin-top: 0;
 }
-#content .events-calendar {
+.content-container .events-calendar {
   margin-top: -3.5rem;
 }
 @media (min-width: 60em) {
-  #content {
+  .content-container {
     padding-top: 3.25rem;
   }
-  .page-calendar #content {
+  .page-calendar .content-container {
     margin-top: 0;
     padding-top: 0;
   }
-  #content .events-calendar {
+  .content-container .events-calendar {
     margin-top: 0;
   }
 }
