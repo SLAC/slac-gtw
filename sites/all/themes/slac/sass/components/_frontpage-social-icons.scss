@@ -1,0 +1,40 @@
+// Social Icons
+.socials {
+  overflow: hidden;
+
+  li {
+    float: left;
+    list-style-image: none;
+    list-style-type: none;
+    overflow: hidden;
+    background: url('../images/socials.png') no-repeat;
+    width: 16.666%;
+    min-width: 16px;
+    height: 16px;
+
+    a {
+      display: block;
+      height: 1px;
+      padding-top: 30px;
+      overflow:hidden;
+    }
+  }
+  .fb {
+    background-position: center 0;
+  }
+  .gplus{
+    background: url('../images/googleplus-icon.png') no-repeat center center;
+  }
+  .flickr {
+    background-position: center -20px;
+  }
+  .rss {
+    background-position: center -40px;
+  }
+  .twitter {
+    background-position: center -60px;
+  }
+  .youtube {
+    background-position: center -80px;
+  }
+}

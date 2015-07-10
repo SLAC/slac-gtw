@@ -1,0 +1,69 @@
+.frontpage-calendar {
+
+  @include breakpoint($tablet-small) {
+    .pane-title {
+      margin-top: 0;
+      line-height: 1;
+      margin-bottom: -2px;
+    }
+  }
+  .views-row {
+    @include font-size(11px);
+    position: relative;
+    float: right;
+    width: 76%;
+    border-left: 1px dashed $event-border;
+    padding: 0 0 0.625rem 5%;
+  }
+
+  h3 {
+    margin: 0;
+    float: left;
+    color: $gold;
+    width: 18%;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .views-row-grouped {
+    color: $blue;
+
+    .views-row-last {
+      background: url('../images/dotted-bottom-border.png') no-repeat 0 bottom;
+    }
+
+    &:first-child{
+      .views-row-first{
+        padding-top: 0;
+      }
+    }
+  }
+
+  .views-row.views-row-first{
+    padding-top: 0.625rem;
+  }
+
+  .views-row:hover {
+    text-decoration: underline;
+  }
+
+  .views-field-title {
+    font-weight: bold;
+  }
+
+  .month {
+    @include font-size(14px);
+  }
+
+  .day {
+    @include font-size(20px);
+    display: block;
+    margin-top: -0.65rem;
+  }
+
+  .views-field-nothing-1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

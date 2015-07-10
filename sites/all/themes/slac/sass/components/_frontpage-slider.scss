@@ -1,0 +1,146 @@
+.jcarousel-item .body {
+  display: none;
+
+  @include breakpoint($tablet-large) {
+    display: block;
+  }
+}
+
+.jcarousel-container-horizontal {
+  overflow: hidden;
+
+  .title {
+    background: $white;
+    display: block;
+    padding: 0.5rem 0.5rem 0.2rem 0;
+
+    a {
+      @include font-size(19px);
+      display: block;
+      line-height: 1.4;
+      color: $blue;
+      text-decoration: none;
+    }
+
+    @include breakpoint($tablet-large) {
+      background: transparent;
+
+      a {
+        color: $white;
+      }
+    }
+  }
+
+  @include breakpoint($tablet-large) {
+    .title-body {
+      @include font-size(12px);
+      background: $overlay-blue;
+      max-height: 100px;
+      color: $grey-filters-border;
+      line-height: 1.4;
+      overflow: hidden;
+      padding: 0.3rem 1rem;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}
+
+.jcarousel-item {
+  position: relative;
+  line-height: 0;
+
+  .views-field-nothing {
+    width: 100%;
+    max-width: 588px;
+    height: auto;
+    background: $white;
+    color: $blue;
+    line-height: 1.6;
+
+    @include breakpoint($tablet-large) {
+      position: absolute;
+      bottom: 0;
+      background: $overlay-blue;
+      color: $white;
+    }
+  }
+}
+
+.jcarousel-navigation {
+  display: table;
+  clear: both;
+  list-style: none;
+  margin: 0.5rem auto 0 auto;
+  padding: 0;
+  text-align: center;
+
+  li {
+    display: block;
+    float: left;
+    list-style: none;
+    margin: 0 0.4rem;
+
+    a {
+      display: block;
+      width: 18px;
+      height: 18px;
+      background: $white;
+      border: 3px solid $blue;
+      border-radius: 50%;
+    }
+
+    span {
+      font-size: 0;
+      color: $home-background;
+    }
+
+    &.active a {
+      background: $blue;
+      border-color: $white;
+    }
+  }
+
+  @include breakpoint($tablet-large) {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    li a {
+      width: 12px;
+      height: 12px;
+      border-width: 1px;
+    }
+  }
+}
+
+.jcarousel-prev-horizontal,
+.jcarousel-next-horizontal{
+  position: absolute;
+  top: 20%;
+  width: 30px;
+  height: 70px;
+  display: block;
+  overflow: hidden;
+  z-index: 99;
+  border-radius: 10px;
+  display: block;
+}
+
+.jcarousel-prev-horizontal{
+  left: 20px;
+  background: url('../images/slider-back.png') no-repeat center;
+}
+
+.jcarousel-next-horizontal{
+  right: 20px;
+  background: url('../images/slider-next.png') no-repeat center;
+}
+
+@media (max-width: $extra-large) {
+  .frontpage-news-slider .views_slideshow_slide img,
+  .frontpage-slider-mobile .views_slideshow_slide img{
+    height: auto;
+    width: 100%;
+  }
+}

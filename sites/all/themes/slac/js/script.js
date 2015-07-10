@@ -286,70 +286,12 @@
     }
   };
 
-  Drupal.behaviors.sliderResize = {
-    attach: function (context, settings) {
-      // fix slider width/height on screen resize
-      var resizer = function () {
-        var $slider = $('.jcarousel-container');
-        if ($slider.length) {
-          var normalWidth = $('.frontpage-middle-col').width() + 8 |0;
-          $slider.find('.jcarousel-item img').css('width', normalWidth);
-        }
-      };
-      $(window).resize(resizer);
-
-      // frontpage mobile fix
-      if ($('body').hasClass('front')) {
-        var leftCol = $('.frontpage-left-col'),
-          middleCol = $('.frontpage-middle-col'),
-          setPosition = function () {
-            if ($('#content').css('position') === 'relative') {
-              leftCol.addClass('layoutfix').css('top', middleCol.height() + 12);
-              middleCol.css('padding-bottom', leftCol.height() - 3);
-            }
-            else {
-              leftCol.attr('style', '').removeClass('layoutfix');
-              middleCol.attr('style', '');
-            }
-          };
-      }
-    }
-  };
-
   Drupal.behaviors.iePlaceholders = {
     attach: function (context, settings) {
       $('.searchbox').each(function () {
         $(this).prev('label').addClass('search-label');
       });
       $('.searchbox').placeholder();
-    }
-  };
-
-  Drupal.behaviors.rearange_block = {
-    attach: function (context, settings) {
-      var cloned = $('.frontpage-left-col .frontpage-calendar, .frontpage-left-col .frontpage-access-info').hide();
-      var to_the_place = $('.frontpage-middle-col');
-
-      $(cloned).clone().appendTo($(to_the_place));
-
-      var blocks_rearange = function () {
-        if ($(window).width() < 620) {
-          $('.frontpage-middle-col .frontpage-calendar, .frontpage-middle-col .frontpage-access-info').css('padding-top', 15).show();
-          $('.frontpage-left-col .frontpage-calendar, .frontpage-left-col .frontpage-access-info').hide();
-        }
-        else {
-          $('.frontpage-middle-col .frontpage-calendar, .frontpage-middle-col .frontpage-access-info').hide();
-          $('.frontpage-left-col .frontpage-calendar, .frontpage-left-col .frontpage-access-info').show();
-        }
-      };
-
-      blocks_rearange();
-
-      try {
-        window.addEventListener('orientationchange', blocks_rearange);
-      } catch (ignore) {}
-
-      $(window).resize(blocks_rearange);
     }
   };
 

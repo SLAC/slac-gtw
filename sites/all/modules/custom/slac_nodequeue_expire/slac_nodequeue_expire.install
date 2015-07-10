@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Adds a configurable automatic expiration system to nodequeues.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function slac_nodequeue_expire_uninstall() {
+  db_delete('variable')
+    ->condition('name', 'nodequeue_subqueue_expiration_%', 'LIKE')
+    ->execute();
+}

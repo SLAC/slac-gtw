@@ -50,6 +50,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'administer files',
     'roles' => array(
       'administrator' => 'administrator',
+      'editor' => 'editor',
     ),
     'module' => 'file_entity',
   );
@@ -408,6 +409,7 @@ function slac_ip_media_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'editor' => 'editor',
     ),
     'module' => 'file_entity',
   );
@@ -418,6 +420,7 @@ function slac_ip_media_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+      'editor' => 'editor',
     ),
     'module' => 'file_entity',
   );
@@ -427,6 +430,7 @@ function slac_ip_media_user_default_permissions() {
     'name' => 'view private files',
     'roles' => array(
       'administrator' => 'administrator',
+      'editor' => 'editor',
     ),
     'module' => 'file_entity',
   );

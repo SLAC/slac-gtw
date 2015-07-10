@@ -1,6 +1,16 @@
 // Original Styles came from calendar module
 
 // overrides position of prev - next links
+.page-calendar {
+  table tr td:first-child {
+    width: 100%;
+
+    @include breakpoint($tablet-large) {
+      width: 8%;
+    }
+  }
+}
+
 .date-nav-wrapper .date-prev {
   right: inherit;
 }
@@ -235,7 +245,8 @@
 }
 
 // No floating of day view content because there is no floating day number
-.calendar-calendar .day-view div.calendar {
+.calendar-calendar .day-view div.calendar,
+.calendar-calendar .day-view .full div.calendar.dayview {
   float: none;
   width: 100%;
 }
@@ -575,7 +586,12 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .week-view .full td,
 .calendar-calendar .day-view  td {
   vertical-align: top;
-  padding: 1px 2px 0 2px
+  padding: 1px 2px 0 2px;
+}
+
+.calendar-calendar .day-view  td {
+  vertical-align: top;
+  padding: 1px 0 0 0;
 }
 
 .calendar-calendar .month-view .full td.date-box {
@@ -1094,7 +1110,11 @@ ul.calendar-links,
 
 .day-view .single-day .link-ical,
 .day-view .multi-day .link-ical {
-  top: 14px;
+  top: 12px;
+}
+
+.day-view .multi-day.last .date-display-single {
+  display: none;
 }
 
 @include breakpoint($tablet-large) {

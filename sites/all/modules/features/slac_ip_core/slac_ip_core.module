@@ -215,27 +215,53 @@ function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $insta
       break;
 
     case 'slac_existing_node_url_formatter':
-      foreach ($items as $delta => $item) {
-        if ($item['value'] == 'Link to Existing URL') {
-          $field_name = 'field_shared_existing_url';
-          $field = field_get_items($entity_type, $entity, $field_name);
-          $url = $field[$delta]['safe_value'];
-        }
-        else {
-          if (!empty($entity->path['alias'])) {
-            $url = $entity->path['alias'];
-          }
-          else {
-            $url = $entity->path['source'];
-          }
-        }
-        $element[$delta] = array('#markup' => $url);
+      if (empty($items)) {
+        $url = _slac_ip_core_source_or_alias($entity);
+        $element[0] = array('#markup' => $url);
       }
+      else {
+        foreach ($items as $delta => $item) {
+          $url = '';
+
+          if ($item['value'] == 'Link to Existing URL') {
+            $field_name = 'field_shared_existing_url';
+            $field = field_get_items($entity_type, $entity, $field_name);
+            $url = $field[$delta]['safe_value'];
+          }
+
+          if (empty($url)) {
+            $url = _slac_ip_core_source_or_alias($entity);
+          }
+
+          $element[$delta] = array('#markup' => $url);
+        }
+      }
+
       break;
 
   }
 
   return $element;
+}
+
+/**
+ * Returns the path alias to the entity, if set, otherwise the entity source
+ * path.
+ *
+ * @param $entity
+ *   The entity to return the path for.
+ *
+ * @return string
+ */
+function _slac_ip_core_source_or_alias($entity) {
+  if (!empty($entity->path['alias'])) {
+    $url = $entity->path['alias'];
+  }
+  else {
+    $url = $entity->path['source'];
+  }
+
+  return $url;
 }
 
 /**
@@ -375,38 +401,78 @@ function slac_ip_core_theme($existing, $type, $theme, $path) {
   );
 }
 
+/**
+ * Theme callback.
+ * Returns themed output for the Content Type of the node.
+ *
+ * @see slac_ip_core_node_view().
+ */
 function theme_slac_ip_core_content_type($variables) {
   $node = $variables['node'];
   $types = node_type_get_types($node);
   $human_name = $types[$node->type]->name;
-  $output = '<div class="node-content-type">';
-  $output .= $human_name;
-  $output .= '</div>';
+
+  $output = '<div class="node-content-type">'
+    . $human_name
+    . '</div>';
+
   return $output;
 }
 
+/**
+ * Theme callback.
+ * Returns themed output for the created date of the node.
+ *
+ * @see slac_ip_core_node_view().
+ */
 function theme_slac_ip_core_created($variables) {
   $node = $variables['node'];
-  $output = '<div class="node-created">';
-  $output .= date('F j, Y', $node->created);
-  $output .= '</div>';
+  $output = '<div class="node-created">'
+    . date('F j, Y', $node->created)
+    . '</div>';
+
   return $output;
 }
 
+/**
+ * Theme callback.
+ * Returns themed output for the title property of the node.
+ *
+ * Changes the link URL for nodes that have the 'Existing / New', 'Existing URL'
+ * fields.
+ *
+ * @see slac_ip_core_node_view().
+ */
 function theme_slac_ip_core_title($variables) {
   $node = $variables['node'];
-  $entity_uri = entity_uri('node', $node);
-  $output = '<h3 class="node-title">';
-  $output .= l($node->title, $entity_uri['path']);
-  $output .= '</h3>';
-  return $output;
+  $path = '';
+
+  if (!empty($node->field_shared_existing_url) && !empty($node->field_shared_new_existing)) {
+    $field_shared_new_existing = field_get_items('node', $node, 'field_shared_new_existing');
+    $shared_new_existing = $field_shared_new_existing[0]['value'];
+    if ($shared_new_existing == 'Link to Existing URL') {
+      $field_shared_existing_url = field_get_items('node', $node, 'field_shared_existing_url');
+      $path = $field_shared_existing_url[0]['safe_value'];
+    }
+  }
+
+  if (empty($path)) {
+    $entity_uri = entity_uri('node', $node);
+    $path = $entity_uri['path'];
+  }
+
+  return '<h3 class="node-title">' . l($node->title, $path) . '</h3>';
 }
 
+/**
+ * Theme callback.
+ * Returns themed output for the author of the node.
+ *
+ * @see slac_ip_core_node_view().
+ */
 function slac_ip_core_author($variables) {
   $node = $variables['node'];
   $user = user_load($node->uid);
-  $output = '<div class="node-author">';
-  $output .= $user->name;
-  $output .= '</div>';
-  return $output;
+
+  return '<div class="node-author">' . $user->name . '</div>';
 }
