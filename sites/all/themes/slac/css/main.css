@@ -876,6 +876,8 @@ blockquote p {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   word-wrap: break-word;
+  padding-left: 0;
+  padding-right: 0;
 }
 @media (min-width: 60em) {
   .l-general-one-col {
@@ -5138,7 +5140,7 @@ div.date-views-pager div.next-year {
   }
 }
 .page-flea-market .views-field-changed {
-  min-width: 120px;
+  min-width: 145px;
   font-weight: bold;
   color: #2f2f2f;
 }
@@ -7043,7 +7045,7 @@ h1.title {
     word-wrap: break-word;
     margin: 0;
     padding: 0;
-    background: transparent;
+    background: #ffffff;
   }
 }
 @media all and (max-width: 60em) and (min-width: 60em) {
