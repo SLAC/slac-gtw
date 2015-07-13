@@ -30,7 +30,7 @@ Sass is a preprocessor for writing more efficient and advanced CSS.  Sass provid
 
 
   - **Compass**
-Compass goes hand-and-hand with Sass.  Compass is a css authoring system that allows for compilation of CSS in addition to other advanced tools and mixing we can take advantage of in our Sass files.  **Note**: In this project we do NOT compile CSS using `compass watch`, instead, we use Bundler's `bundle exec compass watch`.  Using Bundler for compiling CSS ensures that our ruby gems are in sync with our Gemfile specifications.
+Compass goes hand-in-hand with Sass.  Compass is a css authoring system that allows for compilation of CSS in addition to other advanced tools and mixing we can take advantage of in our Sass files.  **Note**: In this project we do NOT compile CSS using `compass watch`, instead, we use Bundler's `bundle exec compass watch`.  Using Bundler for compiling CSS ensures that our ruby gems are in sync with our Gemfile specifications.
 
 
 
