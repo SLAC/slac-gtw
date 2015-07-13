@@ -295,7 +295,10 @@ h1.title {
 .selectize-control.single .selectize-input {
   background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
   width: 135px;
-  height: !important;
+
+  > input {
+    display: none !important;
+  }
 
   &.dropdown-active {
       background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
