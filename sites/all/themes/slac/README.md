@@ -6,6 +6,7 @@
 
   1. [Theme’s front-end tools setup](#markdown-header-themes-front-end-tools-setup)
   1. [Watching for Sass changes](#markdown-header-watching-for-sass-changes)
+  1. [Theme's structure and organization](#markdown-header-themes-structure-organization)
 
 ## Theme’s front-end tools setup
 
@@ -99,4 +100,94 @@ Once your gems are in place by either of the methods above, you can start watchi
 Using Bundler for compiling CSS ensures that our ruby gems are in sync with our Gemfile specifications.
 
 
+## Theme's structure and organization
+Thanks to Sass we can provide better structure and organization of our theme's stylesheets.  By modulizing as many of the site's elements as possible, we are able to create individual Sass partials that are easy to maintain in the long run.
 
+The slac theme is currently structured as follows:
+
+```
+css/
+images/
+js/
+sass/
+|
+|– base/
+|   |– _base.scss
+|   |– _colors.scss
+|   |- _quotes.scss
+|   |- _tables.scss
+|   |- _typography.scss
+|
+|– components/
+|   |- _access-notice-listings.scss
+|   |- _author.scss
+|   |– _buttons.scss
+|   |- _calendar-events-by-color.scss
+|   |- _calendar-filters-dropdown.scss
+|   |- _calendar-mobile.scss
+|   |- _calendar-overlap.scss
+|   |- _calendar.scss
+|   |- _captions.scss
+|   |- _collapsible-content.scss
+|   |- _date.scss  #Date's module legacy styles modified for this project
+|   |- _event-news-access-notice-mobile.scss
+|   |- _event-news-access-notice.scss
+|   |- _events-legend.scss
+|   |- _featured-news.scss
+|   |- _feed-icon.scss
+|   |- _feedback.scss
+|   |- _flag.scss
+|   |- _flea-market.scss
+|   |- _footer.scss
+|   |- _form-components.scss
+|   |- _frontpage-access-information.scss
+|   |- _frontpage-content-blocks.scss
+|   |- _frontpage-gold-headings.scss
+|   |- _frontpage-help-market-security-contacts.scss
+|   |- _frontpage-lab-news.scss
+|   |- _frontpage-lists.scss
+|   |- _frontpage-people-finder.scss
+|   |- _frontpage-slac-projects.scss
+|   |- _frontpage-slac-science.scss
+|   |- _frontpage-slider.scss
+|   |- _frontpage-social-icons.scss
+|   |- _frontpage-upcoming-events.scss
+|   |- _frontpage-views-footer.scss
+|   |- _frontpage.scss
+|   |- _header.scss
+|   |- _icons.scss
+|   |- _listing-blocks.scss
+|   |- _lists.scss
+|   |- _my-content.scss
+|   |- _navigation.scss
+|   |- _news-archives.scss
+|   |- _page-icons.scss
+|   |- _pager.scss
+|   |- _scroll-to-top.scss
+|   |– _search.scss
+|   |- _sidebar.scss
+|   |- _taxonomy-listing.scss
+|
+|– layout/
+|   |– _layout.scss
+|
+|– utilities/
+|   |– _breakpoints.scss
+|   |– _events-color-legend.scss
+|   |– _mixins.scss
+|
+|- main.scss
+|
+```
+**base/**: The base directory is intended to hold partials that address styles at a very high level.  Elements addressed in the base directory normally don't have IDs or classes associated with them.
+
+**components/**: Also known as modules, this directory contains partials reserved for reusable UI patterns. A general rule of thumb, anytime you find yourself needing the same CSS more than once, you should modularize it. As your project matures, you should be able to compartmentalize more CSS into modules.
+
+**layout/**:  Partials in this directory target the layout or structure of your theme’s regions.  Definitions for regions' widths or how many grid columns a particular region spans.
+
+**utilities/**: Mixins, variables, breakpoints and functions are usually found in this directory in addition to other custom or third party utilities.
+
+**main.scss**: This partial's only function is to compile a list of all other partials to be imported into the project.  Instead of writing `@import` statements in different partials, combining all partials in the order they are required for the project to run properly makes more sense.
+
+
+**[⬆ back to top](#markdown-header-table-of-contents)**
