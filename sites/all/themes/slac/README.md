@@ -1,4 +1,4 @@
-# Front-End Documentation for SlacToday
+# Front-End Documentation for Slac Today
 
 * Information on theme and front-end configuration *
 
