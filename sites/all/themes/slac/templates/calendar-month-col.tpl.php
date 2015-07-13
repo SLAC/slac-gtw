@@ -2,7 +2,7 @@
 /**
  * @file
  * Template to display a column
- * 
+ *
  * - $item: The item to render within a td element.
  */
 $id = (isset($item['id'])) ? 'id="' . $item['id'] . '" ' : '';
@@ -18,11 +18,15 @@ $dt = new DateTime($item['date']);
 $title = strtoupper($dt->format('D')) . $dt->format(' M j');
 ?>
 <td <?php print $id?>data-title="<?php print $title ?>" class="<?php print $item['class'] ?>" colspan="<?php print $item['colspan'] ?>" rowspan="<?php print $item['rowspan'] ?>"<?php print $date . $headers . $day; ?>>
-  <div class="inner">
+
     <?php if (strpos($item['class'], 'no-entry') === FALSE): ?>
-    <?php print $item['entry']; ?>
+    <div class="inner">
+      <?php print $item['entry']; ?>
+    </div>
     <?php else: ?>
-    <p class="mobile">No Events Scheduled for Today</p>
+    <div class="inner no-events">
+      <p class="mobile">No Events Scheduled for Today</p>
+    </div>
     <?php endif; ?>
   </div>
 </td>
