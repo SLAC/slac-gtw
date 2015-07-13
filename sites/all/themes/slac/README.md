@@ -5,6 +5,7 @@
 ## Table of Contents
 
   1. [Theme’s front-end tools setup](#markdown-header-themes-front-end-tools-setup)
+  1. [Watching for Sass changes](#markdown-header-watching-for-sass-changes)
 
 ## Theme’s front-end tools setup
 
@@ -30,7 +31,7 @@ Sass is a preprocessor for writing more efficient and advanced CSS.  Sass provid
 
 
   - **Compass**
-Compass goes hand-in-hand with Sass.  Compass is a css authoring system that allows for compilation of CSS in addition to other advanced tools and mixing we can take advantage of in our Sass files.  **Note**: In this project we do NOT compile CSS using `compass watch`, instead, we use Bundler's `bundle exec compass watch`.  Using Bundler for compiling CSS ensures that our ruby gems are in sync with our Gemfile specifications.
+Compass goes hand-in-hand with Sass.  Compass is a css authoring system that allows for compilation of CSS in addition to other advanced tools and mixing we can take advantage of in our Sass files.
 
 
 
@@ -63,3 +64,39 @@ $zen-gutter-width: 10px;
 ```
 
 **[⬆ back to top](#markdown-header-table-of-contents)**
+
+
+A more efficient way for ensuring all ruby gems are up to date is to include them in a Gemfile which bundler would look at to ensure consistency.  This is an example of the Gemfile used on this project:
+```
+source 'https://rubygems.org'
+
+group :development do
+
+  # Sass, Compass and extensions.
+  gem 'sass', '3.4.9'           # Sass.
+  gem 'compass', '1.0.1'        # Framework built on Sass.
+  gem 'toolkit'                 # Compass utility from the fabulous Snugug.
+  gem 'breakpoint', '2.5.0'     # Manages CSS media queries.
+  gem 'zen-grids', '1.4'        # Zen-Grids gem.
+
+end
+```
+
+The Gemfile is saved in the root location of your theme `(i.e. /docroot/sites/all/themes/slac/Gemfile)
+
+Once your gemfile is in place, you need to navigate to your theme's location (i.e. /docroot/sites/all/themes/slac/), and run `bundle install`.  Bundler will read your Gemfile and ensure the ruby versions specified in it are installed for this project.  Ruby versions can vary from project to project and that's another advantage of using Bundler as it will always ensure the right versions are installed on yoru project based on what is found in your Gemfile.
+
+**[⬆ back to top](#markdown-header-table-of-contents)**
+
+## Watching for Sass changes
+
+Once your gems are in place by either of the methods above, you can start watching for Sass changes.
+
+  - Navigate to your theme's location (i.e. /docroot/sites/all/themes/slac/)
+
+  - run `bundle exec compass watch`
+
+Using Bundler for compiling CSS ensures that our ruby gems are in sync with our Gemfile specifications.
+
+
+
