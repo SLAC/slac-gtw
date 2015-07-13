@@ -4833,10 +4833,10 @@ div.date-views-pager div.next-year {
 
   .feed-icon {
     float: right;
-    margin-top: -35px;
+    margin-top: -23px;
   }
   .logged-in .feed-icon {
-    margin-top: -40px;
+    margin-top: -22px;
   }
 
   .feed-icon__bottom {
