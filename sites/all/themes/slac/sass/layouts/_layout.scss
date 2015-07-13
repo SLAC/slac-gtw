@@ -10,8 +10,19 @@ $zen-column-count: 12;
 
 .l-main {
   @include zen-grid-item(12, 1);
+  max-width: 1432px;
+  float: none;
   margin: 0 auto;
   @include clearfix;
+  padding-top: 37px;
+
+  @include breakpoint($tablet-large) {
+    padding-top: 47px;
+
+    .page-calendar & {
+      padding-top: 0;
+    }
+  }
 }
 
 .front .content-wrapper {
@@ -48,6 +59,7 @@ $zen-column-count: 12;
   .front-last-column {
     @include zen-grid-item(7, 6);
     clear: both;
+    padding-bottom: 2rem;
   }
 }
 
@@ -63,6 +75,7 @@ $zen-column-count: 12;
   .front-last-column {
     @include zen-grid-item(8, 5);
     clear: left;
+    padding-bottom: inherit;
   }
 }
 

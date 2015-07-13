@@ -157,11 +157,6 @@
   .main-navigation {
     @include clearfix;
     background: $blue;
-    margin-bottom: 40px;
-
-    .not-front & {
-      margin-bottom: 0;
-    }
 
     .inner-wrapper {
       width: 100%;
