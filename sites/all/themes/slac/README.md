@@ -6,7 +6,7 @@
 
   1. [Theme’s front-end tools setup](#markdown-header-themes-front-end-tools-setup)
   1. [Watching for Sass changes](#markdown-header-watching-for-sass-changes)
-  1. [Theme's structure and organization](#markdown-header-themes-structure-organization)
+  1. [Theme's structure and organization](#markdown-header-themes-structure-and-organization)
 
 ## Theme’s front-end tools setup
 
@@ -101,6 +101,7 @@ Using Bundler for compiling CSS ensures that our ruby gems are in sync with our 
 
 
 ## Theme's structure and organization
+
 Thanks to Sass we can provide better structure and organization of our theme's stylesheets.  By modulizing as many of the site's elements as possible, we are able to create individual Sass partials that are easy to maintain in the long run.
 
 The slac theme is currently structured as follows:
