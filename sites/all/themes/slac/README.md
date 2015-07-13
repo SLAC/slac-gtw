@@ -10,7 +10,7 @@
 
 ## Theme’s front-end tools setup
 
-SlacToday's Drupal theme can be found under `/docroot/sites/all/themes/slac`.  In here you will find theme's and fron-end confirguations which we will cover in this documentation.
+Slac Today's Drupal theme can be found under `/docroot/sites/all/themes/slac`.  In here you will find theme's and fron-end confirguations which we will cover in this documentation.
 
 
 The following ruby gems are part of this theme:
