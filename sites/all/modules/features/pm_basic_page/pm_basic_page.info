@@ -1,0 +1,11 @@
+name = Basic Page
+description = Page Manager configuration for the Basic Page (page) content type display.
+core = 7.x
+package = Pages
+version = 7.x-1.0-dev
+project = pm_basic_page
+dependencies[] = ctools
+dependencies[] = page_manager
+features[ctools][] = page_manager:pages_default:1
+features[features_api][] = api:2
+features[page_manager_handlers][] = node_view_panel_context
