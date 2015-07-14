@@ -216,17 +216,23 @@ The site's grid is configured to use 12 columns.  The site's layout structure is
   - `@include zen-grid-item(12, 1)`: Grid spans 12 columns starting on column 1.
   - `max-width: 1432px`: The site's width should not exceed 1432px.
   - `padding-top: 37px`: provides default padding for all pages on mobile.  This increases to 47px on large screens.
-The dimensions above apply to all device sizes from smartphones to desktops.
+  - The dimensions above apply to all device sizes from smartphones to desktops.
 
 The homepage is broken down in three columns:
-`.front-main-column`
-`.front-first-column`
-`.front-last-column`
+```
+.front-main-column
+.front-first-column
+.front-last-column
+```
 
 Pages that are broken down in two columns look like this:
-`.general-two-col`
-  `.general-left`
-  `.general-right`
+```
+.general-two-col
+
+    .general-left
+
+    .general-right
+```
 
 One column pages:
 `.l-genral-one-col` at 83% the width of .l-main.
