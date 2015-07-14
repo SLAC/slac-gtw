@@ -197,7 +197,7 @@ sass/
 ## Grid and layout
 
 The site's grid is configured to use 12 columns.  The site's layout structure is defined in `layouts/_layout.scss` as follows:
-```
+```css
 .l-main {
   @include zen-grid-item(12, 1);
   max-width: 1432px;
@@ -211,11 +211,11 @@ The site's grid is configured to use 12 columns.  The site's layout structure is
     }
   }
 }
-
 ```
-`@include zen-grid-item(12, 1)`: Grid spans 12 columns starting on column 1.
-`max-width: 1432px`: The site's width should not exceed 1432px.
-`padding-top: 37px`: provides default padding for all pages on mobile.  This increases to 47px on large screens.
+
+  - `@include zen-grid-item(12, 1)`: Grid spans 12 columns starting on column 1.
+  - `max-width: 1432px`: The site's width should not exceed 1432px.
+  - `padding-top: 37px`: provides default padding for all pages on mobile.  This increases to 47px on large screens.
 The dimensions above apply to all device sizes from smartphones to desktops.
 
 The homepage is broken down in three columns:
