@@ -8,6 +8,7 @@
   1. [Watching for Sass changes](#markdown-header-watching-for-sass-changes)
   1. [Theme's structure and organization](#markdown-header-themes-structure-and-organization)
   1. [Grid and Layout](#markdown-header-grid-and-layout)
+  1. [Responsive Design](#markdown-header-responsive-design)
 
 ## Theme’s front-end tools setup
 
@@ -239,4 +240,47 @@ One column pages:
 
 All pages default to 1 column at 100% width on mobile devices.
 
+
 **[⬆ back to top](#markdown-header-table-of-contents)**
+
+
+## Responsive Design
+
+Responsive design was accomplished by taking advantage of Zen grids, Breakpoint and Sass.
+All pages default to a single column or 100% in width on mobile devices.  As the device's increase in size (tablets), the site's structure changes to multiple columns allowing for better content placements.  This process continues all the way to large desktop.  At its widest, the site is rearranged into three columns (i.e. homepage).  Most other pages retain a two column layout (.general-left and .general-right).
+Other unique pages such as listing pages, calendar and search results stay at
+a single wolumn expanding to about 83% of the site's width.
+
+In addition to traditional pages, several tables througout the site were transformed into [responsive tables](http://blog.apps.npr.org/2014/05/09/responsive-data-tables.html).  Tables such as My Content and Calendar provide a better user experience in mobile.
+
+The following breakpoints were created to handle the different layouts on different devices:
+```
+$mobile: 20em; // 320px
+$tablet-small: 40em; // 640px
+$tablet-large: 60em; // 960px
+$desktop: 70em; // 1120px
+$huge: 80em; // 1280px
+$calendar-full: 85em; //1337px
+$extra-large: 92.50em; // 1480px
+```
+
+Internet Explorer (IE), 10 and 11 no longer support conditional html comments (i.e. `<!--[if IE 9]><html class="lte-ie9"><![endif]-->`).  We used a special media query to conditional target IE 10+.:
+```
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  // IE10+ CSS here
+}
+```
+
+All font sizes are declared using REMs with Pixels fallback and we used percentages for widths as much as we could to provide a great and fluid user experience.
+
+Image and media resizing is currently being handled by using the famous css rule:
+```css
+img,
+embed,
+iframe,
+object,
+video {
+  max-width: 100%;
+  height: auto;
+}
+```
