@@ -57,6 +57,10 @@
       padding: 0;
       background: $white;
 
+      .front & {
+        background: transparent;
+      }
+
       @include breakpoint($tablet-large) {
         background: $white;
       }
