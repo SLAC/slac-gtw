@@ -5586,8 +5586,8 @@ fieldset.collapsed {
 .frontpage-help-market,
 .pane-views-flea-market-block,
 .frontpage-security-contacts {
-  font-size: 12px;
-  font-size: 0.75rem;
+  font-size: 11px;
+  font-size: 0.6875rem;
   padding: 0.6rem 0;
 }
 .frontpage-help-market p,
@@ -5608,6 +5608,14 @@ fieldset.collapsed {
   display: none;
 }
 
+@media (min-width: 70em) {
+  .pane-views-flea-market-block {
+    padding: 0;
+  }
+  .pane-views-flea-market-block .pane-content {
+    padding-top: 0;
+  }
+}
 .pane-views-flea-market-block .views-row {
   padding: 0.5rem 0.3rem;
   border-bottom: 1px dashed #154E6B;
@@ -5619,6 +5627,8 @@ fieldset.collapsed {
 @media (min-width: 70em) {
   .frontpage-help-market,
   .frontpage-security-contacts {
+    font-size: 11px;
+    font-size: 0.6875rem;
     width: 48%;
     float: left;
     margin-right: 3%;
