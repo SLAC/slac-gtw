@@ -7,6 +7,7 @@
   1. [Theme’s front-end tools setup](#markdown-header-themes-front-end-tools-setup)
   1. [Watching for Sass changes](#markdown-header-watching-for-sass-changes)
   1. [Theme's structure and organization](#markdown-header-themes-structure-and-organization)
+  1. [Grid and Layout](#markdown-header-grid-and-layout)
 
 ## Theme’s front-end tools setup
 
@@ -190,5 +191,52 @@ sass/
 
 **main.scss**: This partial's only function is to compile a list of all other partials to be imported into the project.  Instead of writing `@import` statements in different partials, combining all partials in the order they are required for the project to run properly makes more sense.
 
+
+**[⬆ back to top](#markdown-header-table-of-contents)**
+
+## Grid and layout
+
+The site's grid is configured to use 12 columns.  The site's layout structure is defined in `layouts/_layout.scss` as follows:
+```css
+.l-main {
+  @include zen-grid-item(12, 1);
+  max-width: 1432px;
+  padding-top: 37px;
+
+  @include breakpoint($tablet-large) {
+    padding-top: 47px;
+
+    .page-calendar & {
+      padding-top: 0;
+    }
+  }
+}
+```
+
+  - `@include zen-grid-item(12, 1)`: Grid spans 12 columns starting on column 1.
+  - `max-width: 1432px`: The site's width should not exceed 1432px.
+  - `padding-top: 37px`: provides default padding for all pages on mobile.  This increases to 47px on large screens.
+  - The dimensions above apply to all device sizes from smartphones to desktops.
+
+The homepage is broken down in three columns:
+```
+.front-main-column
+.front-first-column
+.front-last-column
+```
+
+Pages that are broken down in two columns look like this:
+```
+.general-two-col
+
+    .general-left
+
+    .general-right
+```
+
+One column pages:
+`.l-genral-one-col` at 83% the width of .l-main.
+
+All pages default to 1 column at 100% width on mobile devices.
 
 **[⬆ back to top](#markdown-header-table-of-contents)**
