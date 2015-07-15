@@ -11,6 +11,9 @@ h1.title {
 
 // basic page sub title
 .field-name-field-page-subtitle {
-  @include font-size(18px);
-  font-style: italic;
+  @include font-size(20px);
+  color: $sub-headings-color;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+  font-weight: bold;
 }

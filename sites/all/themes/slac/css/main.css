@@ -7769,9 +7769,12 @@ h1.title {
 }
 
 .field-name-field-page-subtitle {
-  font-size: 18px;
-  font-size: 1.125rem;
-  font-style: italic;
+  font-size: 20px;
+  font-size: 1.25rem;
+  color: #4c4c4c;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+  font-weight: bold;
 }
 
 .node-type-event .pane-node-field-shared-tags,
