@@ -142,7 +142,6 @@
 
       // If no options are found, do not add the select widget.
       if (options.length !== 0) {
-        console.log('adding options widget');
         $('<div class="tabs-mobile my-content-dropdown"/>')
             .insertAfter('.page-my-content .tabs-primary')
             .selectize({
