@@ -127,8 +127,8 @@ function slac_ip_config_moderation_user_default_permissions() {
     'name' => 'moderate content from needs_review to draft',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
       'editor' => 'editor',
+      'manager' => 'manager',
     ),
     'module' => 'workbench_moderation',
   );
@@ -147,7 +147,9 @@ function slac_ip_config_moderation_user_default_permissions() {
   $permissions['moderate content from published to draft'] = array(
     'name' => 'moderate content from published to draft',
     'roles' => array(
-      'authenticated user' => 'authenticated user',
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+      'manager' => 'manager',
     ),
     'module' => 'workbench_moderation',
   );
