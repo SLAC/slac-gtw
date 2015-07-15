@@ -5,10 +5,11 @@
 ## Table of Contents
 
   1. [Theme’s front-end tools setup](#markdown-header-themes-front-end-tools-setup)
-  1. [Watching for Sass changes](#markdown-header-watching-for-sass-changes)
-  1. [Theme's structure and organization](#markdown-header-themes-structure-and-organization)
-  1. [Grid and Layout](#markdown-header-grid-and-layout)
-  1. [Responsive Design](#markdown-header-responsive-design)
+  2. [Watching for Sass changes](#markdown-header-watching-for-sass-changes)
+  3. [Theme's structure and organization](#markdown-header-themes-structure-and-organization)
+  4. [Grid and Layout](#markdown-header-grid-and-layout)
+  5. [Responsive Design](#markdown-header-responsive-design)
+  6. [Events Calendar](#markdown-header-events-calendar)
 
 ## Theme’s front-end tools setup
 
@@ -284,3 +285,142 @@ video {
   height: auto;
 }
 ```
+
+**[⬆ back to top](#markdown-header-table-of-contents)**
+
+
+## Events Calendar
+
+The events calendar located under `/calendar` presented many development and theming challenges because of complexity of calendars in general.
+
+Events are color-coded based on their type.  For this we created a simply color map to be used on each event.  Event types are applied thorugh a taxonomy terms.  By appending the taxonomy machine name to each event as a css class we are able to target the color-coding with Sass.
+
+The color map can be found under `/sass/utilities/events-color-legend.scss` and it looks like this:
+```sass
+$color: (
+  red: #de0105,
+  red-light: #fce9e9,
+
+  blue: #4780d1,
+  blue-light: #e6eef9,
+
+  green: #35b635,
+  green-light: #d0eed0,
+
+  purple: #7e00aa,
+  purple-light: #eddaf3,
+
+  pink: #ff2eba,
+  pink-light: #f9e1f2,
+
+  yellow: #e9ce43,
+  yellow-light: #fff8df,
+
+  orange: #e76d00,
+  orange-light: #fae2cc,
+
+  grey: #838383,
+  grey-light: #c8cac8,
+
+  grey-blue: #d5dde1,
+  grey-blue-light: #eaeef0,
+  grey-blue-dark: #849ba6,
+  light-green: #eff9f5,
+  light-blue: #dfe9f5,
+  weekend-grey: #eeeeee,
+  event-item-grey: #e4e4e4,
+  event-time-grey: #252525,
+  event-description-grey: #3d3d3d
+);
+```
+
+Through the use of a Sass function, we've built some logic and
+validation for when colors are used:
+```sass
+// color function
+@function color($key) {
+  @if map-has-key($color, $key) {
+    @return map-get($color, $key);
+  }
+
+  @warn "This `#{$key}` is not in the $color map.";
+  @return null;
+}
+```
+
+Finally, to appy a color to an element or selector we do as follows:
+```css
+.selector__name {
+  color: color(pink);
+  background-color: color(purple);
+}
+```
+
+### Applying color to event types ###
+
+Since calendar events color-code would be consistent across the site and in all device sizes, we gathered all rules for applying color to events into a single Sass partial, which can be found under `/sass/components/calendar-events-by-color.scss`.
+
+First we created a general rule that would apply to all events:
+```
+.type-access_information,
+.type-event {
+  background: color(event-item-grey);
+  margin: 0.2rem 0 0.5rem 0;
+  padding: 0.2rem 0.4rem;
+  border-left: 4px solid color(grey);
+```
+Events container fall in one of two types: _access_information_ and _type-event_.
+
+In the rule above we are applying a general grey background as well as a 4px border to all events.
+
+Next, we get more specific about each event type:
+```
+  &.event-summer-school-programs {
+    border-color: color(pink);
+  }
+
+  &.event-talks-seminars--colloquia {
+    border-color: color(yellow);
+  }
+
+  &.event-public-events--tours {
+    border-color: color(green);
+  }
+
+  &.event-conferences--workshops {
+    border-color: color(blue);
+  }
+
+  &.event-staff-celebrations {
+    border-color: color(purple);
+  }
+
+  &.event-training--development {
+    border-color: color(orange);
+  }
+
+  &.type-access_information {
+    border-color: color(red);
+    background: color(event-item-grey) url(../images/access-notice-icon-smaller.png) 5px 3px no-repeat;
+  }
+}
+```
+The code above targets the event's border color and assigns a background image to the access_information events as they do not use the same theming as all other events.
+
+We are not changing the event background color found behind the event time filed because the background position changes based on the calendar view and the device breakpoints.  We do that individually as we theme each specific view at different breakpoints.
+
+Important to note, if a new event type is added to the list of existing event types, the easiest way to ensure the color-coding approached shown above is followed would be to:
+
+1. Add your color variable to the color map
+2. Obtain the event's taxonomy term machine name
+3. Add the taxonomy term machine name as a css class as shown above to the list of other event's css classes. This should allow for that new event to be properly color-coded across the calendar.
+
+
+**Note**
+  >  The above color map can be used on any selector and it's not exclusive to the calendar.  However as of now the calendar is where it's being more widely used.
+
+=======
+
+As far as responsive theming for calendar, we used the same technique as we've done on tables.  After all, most of the calendar is built using tables.
+
+**[⬆ back to top](#markdown-header-table-of-contents)**
