@@ -2,12 +2,12 @@
 /**
  * @file
  * Template to display a view as a calendar week.
- * 
+ *
  * @see template_preprocess_calendar_week.
  *
  * $day_names: An array of the day of week names for the table header.
  * $rows: The rendered data for this week.
- * 
+ *
  * For each day of the week, you have:
  * $rows['date'] - the date for this day, formatted as YYYY-MM-DD.
  * $rows['datebox'] - the formatted datebox for this day.
@@ -17,11 +17,11 @@
  * $rows['items'][$time_period]['hour'] - the formatted hour for a time period.
  * $rows['items'][$time_period]['ampm'] - the formatted ampm value, if any for a time period.
  * $rows['items'][$time_period]['values'] - An array of formatted items for a time period.
- * 
+ *
  * $view: The view.
  * $min_date_formatted: The minimum date for this calendar in the format YYYY-MM-DD HH:MM:SS.
  * $max_date_formatted: The maximum date for this calendar in the format YYYY-MM-DD HH:MM:SS.
- * 
+ *
  */
 
 $index = 0;
@@ -93,18 +93,22 @@ $today_day_col = $today->format('w');
       ?>
       <td class="calendar-agenda-items single-day<?php print $cell_class; ?> " data-title="<?php print $cell_titles[$index]; ?>" headers="<?php print $header_ids[$index] ?>">
         <div class="calendar">
-          <div class="inner">
+
           <?php if (!empty($day_container)): ?>
+            <div class="inner">
             <?php foreach ($day_container as $time_str => $items): ?>
               <?php foreach($items as $item): ?>
                 <?php print $item['entry'] ?>
               <?php endforeach; ?>
             <?php endforeach; ?>
+            </div>
           <?php else: ?>
-            <p class="mobile">No Events Scheduled for Today</p>
+            <div class="inner no-events">
+              <p class="mobile">No Events Scheduled for Today</p>
+            </div>
           <?php endif; ?>
-          </div>
         </div>
+
       </td>
     <?php endforeach; ?>
     </tr>

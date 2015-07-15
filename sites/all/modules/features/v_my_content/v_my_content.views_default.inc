@@ -270,7 +270,7 @@ function v_my_content_views_default_views() {
   $handler = $view->new_display('page', 'My Content', 'page_0');
   $handler->display->display_options['path'] = 'my-content';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'View My Content';
+  $handler->display->display_options['menu']['title'] = 'view my content';
   $handler->display->display_options['menu']['weight'] = '4';
   $handler->display->display_options['menu']['name'] = 'menu-footer';
   $handler->display->display_options['menu']['context'] = 0;

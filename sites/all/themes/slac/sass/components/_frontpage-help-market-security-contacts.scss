@@ -1,7 +1,7 @@
 .frontpage-help-market,
 .pane-views-flea-market-block,
 .frontpage-security-contacts {
-  @include font-size(12px);
+  @include font-size(11px);
     padding: 0.6rem 0;
 
   p {
@@ -16,6 +16,16 @@
 
   .view-footer {
     display: none;
+  }
+}
+
+@include breakpoint($desktop) {
+  .pane-views-flea-market-block {
+    padding: 0;
+
+    .pane-content {
+      padding-top: 0;
+    }
   }
 }
 
@@ -36,6 +46,7 @@
 @include breakpoint($desktop) {
   .frontpage-help-market,
   .frontpage-security-contacts {
+    @include font-size(11px);
     width: 48%;
     float: left;
     margin-right: 3%;

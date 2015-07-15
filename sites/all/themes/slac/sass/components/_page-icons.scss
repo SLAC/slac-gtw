@@ -2,7 +2,7 @@
 .node-type-news,
 .node-type-access-information {
   .general-left {
-    @include zen-grid-item(7, 2);
+
     a.page-icon {
       @include font-size(18px);
       display: inline;
@@ -12,24 +12,31 @@
       font-weight: bold;
       width: 16px;
       height: 16px;
+
       &.conferences-workshops {
         background: url('../images/icon-blue.png') 0 2px no-repeat;
       }
+
       &.public-events-tours {
         background: url('../images/icon-green.png') 0 2px no-repeat;
       }
+
       &.staff-celebrations {
         background: url('../images/icon-purple.png') 0 2px no-repeat;
       }
+
       &.summer-school-programs {
         background: url('../images/icon-pink.png') 0 2px no-repeat;
       }
+
       &.talks-seminars-colloquia {
         background: url('../images/icon-yellow.png') 0 2px no-repeat;
       }
+
       &.training-development {
         background: url('../images/icon-orange.png') 0 2px no-repeat;
       }
+
       &.none {
         background: url('../images/icon-grey.png') 0 2px no-repeat;
       }
@@ -40,10 +47,12 @@
 // access notice specific icon
 .node-type-access-information {
   .general-left {
+
     a.page-icon {
       background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
     }
   }
+
   .pane-slac-ip-panes-access-notice-link {
     margin-bottom: 2em;
   }

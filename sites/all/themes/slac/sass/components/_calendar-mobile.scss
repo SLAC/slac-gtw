@@ -23,7 +23,7 @@
     }
   }
 
-  .calendar-calendar .day-view{
+  .calendar-calendar .day-view {
     margin-top: 1rem;
   }
 
@@ -170,6 +170,11 @@
   .month-view .type-access_information .inner,
   .month-view .type-event .inner {
     width: 70%;
+  }
+
+  .week-view td.single-day .inner.no-events,
+  .month-view td.single-day .inner.no-events {
+    width: 100%;
   }
 
   table td {
@@ -331,43 +336,43 @@
     .dayview .type-event {
       border-top: 3px solid;
 
-    &.event-summer-school-programs {
-      border-color: color(pink);
-    }
+      &.event-summer-school-programs {
+        border-color: color(pink);
+      }
 
-    &.event-talks-seminars--colloquia {
-      border-color: color(yellow);
-    }
+      &.event-talks-seminars--colloquia {
+        border-color: color(yellow);
+      }
 
-    &.event-public-events--tours {
-      border-color: color(green);
-    }
+      &.event-public-events--tours {
+        border-color: color(green);
+      }
 
-    &.event-conferences--workshops {
-      border-color: color(blue);
-    }
+      &.event-conferences--workshops {
+        border-color: color(blue);
+      }
 
-    &.event-staff-celebrations {
-      border-color: color(purple);
-    }
+      &.event-staff-celebrations {
+        border-color: color(purple);
+      }
 
-    &.event-training--development {
-      border-color: color(orange);
-    }
+      &.event-training--development {
+        border-color: color(orange);
+      }
 
-    &.type-access_information {
-      border-color: color(red);
-      background: color(event-item-grey);
-    }
+      &.type-access_information {
+        border-color: color(red);
+        background: color(event-item-grey);
+      }
 
-    .time {
-      border: none;
-      background: transparent;
-      line-height: 1;
-      padding-top: 0;
-      padding-bottom: 0;
+      .time {
+        border: none;
+        background: transparent;
+        line-height: 1;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
     }
-  }
 
     .day-view,
     .day-view td.first,

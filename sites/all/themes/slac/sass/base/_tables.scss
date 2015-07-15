@@ -36,6 +36,12 @@ table {
   }
 }
 
+caption {
+  display: table-caption;
+  text-align: center;
+  white-space: nowrap;
+}
+
 // Adds borders to headers and cells
 table[border],
 table[border] th,

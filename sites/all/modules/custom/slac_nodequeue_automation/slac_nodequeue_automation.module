@@ -177,8 +177,13 @@ function _slac_nodequeue_automation_node_remove($nid, $queue_name) {
  *   The queue object, or an empty array if it does not exist.
  */
 function _slac_nodequeue_automation_get_queue($queue_name) {
+  $queue = array();
   $qid_map = nodequeue_get_qid_map();
-  return nodequeue_load($qid_map[$queue_name]);
+  if (isset($qid_map[$queue_name])) {
+    $queue = nodequeue_load($qid_map[$queue_name]);
+  }
+
+  return $queue;
 }
 
 /**

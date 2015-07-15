@@ -105,9 +105,28 @@ function ct_basic_page_strongarm() {
       'news_archive' => array(
         'custom_settings' => FALSE,
       ),
+      'access_listing' => array(
+        'custom_settings' => FALSE,
+      ),
+      'slac_term_listing' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'metatags' => array(
+          'weight' => '5',
+        ),
+        'title' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '4',
+        ),
+        'redirect' => array(
+          'weight' => '3',
+        ),
+      ),
       'display' => array(
         'content_type' => array(
           'search_result' => array(

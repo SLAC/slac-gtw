@@ -11,6 +11,17 @@ select {
   -moz-appearance: none;
   appearance: none;
   background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
+
+  // removes IE 10/11 default dropdown img
+  &::-ms-expand {
+    display: none;
+  }
+
+  .lte-ie9 & {
+    padding-right: 4px;
+    background: none;
+  }
+
   &:hover,
   &:focus {
     outline: none;

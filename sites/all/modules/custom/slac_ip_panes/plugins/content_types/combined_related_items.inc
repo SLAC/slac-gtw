@@ -50,9 +50,11 @@ function slac_ip_combined_related_items_content_type_render($subtype, $conf, $ar
   foreach ($field_names as $field_name => $format) {
     $field_items = field_get_items('node', $node, $field_name);
 
-    foreach ($field_items as $item) {
-      $render_array = field_view_value('node', $node, $field_name, $item, $format);
-      $list_items[] = drupal_render($render_array);
+    if ($field_items !== FALSE) {
+      foreach ($field_items as $item) {
+        $render_array = field_view_value('node', $node, $field_name, $item, $format);
+        $list_items[] = drupal_render($render_array);
+      }
     }
   }
 
