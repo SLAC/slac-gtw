@@ -362,6 +362,9 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
+.view-staff-resource-modern table {
+  width: inherit;
+}
 table tbody {
   border: none;
 }
@@ -373,6 +376,11 @@ table tr.odd,
 table tr.even {
   background-color: #ffffff;
   border: none;
+}
+.view-staff-resource-modern table tr, .view-staff-resource-modern
+table tr.odd, .view-staff-resource-modern
+table tr.even {
+  background-color: transparent;
 }
 table tr.odd {
   background-color: #f2f2f2;

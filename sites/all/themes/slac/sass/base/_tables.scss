@@ -2,6 +2,10 @@ table {
   width: 100%;
   border-collapse: collapse;
 
+  .view-staff-resource-modern & {
+    width: inherit;
+  }
+
   tbody {
     border: none;
   }
@@ -16,6 +20,10 @@ table {
   tr.even {
     background-color: $white;
     border: none;
+
+    .view-staff-resource-modern & {
+      background-color: transparent;
+    }
   }
 
   tr.odd {
