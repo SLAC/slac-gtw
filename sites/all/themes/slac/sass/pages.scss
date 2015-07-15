@@ -29,24 +29,6 @@ body {
  * See the element-focusable rule in system.base.css.
  */
 
-.header-wrapper, #content {
-  width: 100%;
-  max-width: 1432px;
-  margin: auto;
-}
-
-header, .content-wrapper {
-  width: 98%;
-  padding: 0 1%;
-}
-
-.not-front #content {
-  width: 100%;
-  max-width: 1432px;
-  margin: auto;
-  background: #fbf9f9;
-}
-
 .lt-ie9 .not-front #content > *{
   padding: 0 32px;
 }
@@ -401,12 +383,6 @@ a {
     }
   }
 
-  .general-two-col {
-    .general-left, .general-right {
-      width: 100%;
-      clear: both;
-    }
-  }
   .logo a {
     width: 88px;
     margin-bottom: -49px;
