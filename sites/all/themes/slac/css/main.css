@@ -6246,11 +6246,6 @@ fieldset.collapsed {
   }
 }
 
-h1.title {
-  line-height: 1.2;
-  margin-top: 0;
-}
-
 .l-general-one-col {
   margin-top: 3.125rem;
 }
@@ -7810,6 +7805,22 @@ h1.title {
   display: block;
   clear: both;
   font-weight: bold;
+}
+
+h1.title {
+  line-height: 1.2;
+  margin-top: 0;
+}
+@media (min-width: 70em) {
+  .node-type-page h1.title {
+    margin-left: calc(8.33333% + 20px);
+  }
+}
+
+.field-name-field-page-subtitle {
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-style: italic;
 }
 
 .node-type-event .pane-node-field-shared-tags,
