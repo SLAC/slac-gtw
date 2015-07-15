@@ -389,6 +389,12 @@ table th.active {
   background-color: transparent;
 }
 
+caption {
+  display: table-caption;
+  text-align: center;
+  white-space: nowrap;
+}
+
 table[border],
 table[border] th,
 table[border] tr td {
