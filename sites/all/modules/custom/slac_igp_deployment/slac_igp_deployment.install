@@ -67,6 +67,7 @@ function slac_igp_deployment_install() {
     'ct_news',
     'ct_webform',
     'pm_access_notices',
+    'pm_basic_page',
     'pm_flea_market',
     'pm_news',
     'pm_taxonomy_term_template',
@@ -1045,4 +1046,18 @@ function slac_igp_deployment_update_7049() {
  */
 function slac_igp_deployment_update_7050() {
   _slac_igp_deployment_update_dashboard_menu();
+}
+
+/**
+ * Enable the pm_basic_page feature.
+ */
+function slac_igp_deployment_update_7051() {
+  $result = module_enable(array(
+    'pm_basic_page',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
 }

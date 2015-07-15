@@ -55,7 +55,11 @@
       @include zen-grid-item(12, 1);
       margin: 0;
       padding: 0;
-      background: transparent;
+      background: $white;
+
+      .front & {
+        background: transparent;
+      }
 
       @include breakpoint($tablet-large) {
         background: $white;
@@ -157,11 +161,6 @@
   .main-navigation {
     @include clearfix;
     background: $blue;
-    margin-bottom: 40px;
-
-    .not-front & {
-      margin-bottom: 0;
-    }
 
     .inner-wrapper {
       width: 100%;

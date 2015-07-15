@@ -3,23 +3,27 @@
 $zen-gutter-width: 40px;
 $zen-column-count: 12;
 
-.content-wrapper {
+.header-wrapper {
   width: 100%;
-  padding: 0;
+  max-width: 1432px;
+  margin: auto;
 }
 
 .l-main {
   @include zen-grid-item(12, 1);
-  margin: 0 auto;
-  @include clearfix;
-}
-
-.front .content-wrapper {
-  @include zen-grid-item(12, 1);
-  padding-left: 0;
-  padding-right: 0;
+  max-width: 1432px;
   float: none;
   margin: 0 auto;
+  @include clearfix;
+  padding-top: 37px;
+
+  @include breakpoint($tablet-large) {
+    padding-top: 47px;
+
+    .page-calendar & {
+      padding-top: 0;
+    }
+  }
 }
 
 .main-navigation {
@@ -29,40 +33,40 @@ $zen-column-count: 12;
   }
 }
 
-// overrides original rule
-.not-front #content > .contextual-links-region {
-  width: 100%;
-  margin: 0;
-}
-
 // frontpage
 @include breakpoint($tablet-small) {
   .front-main-column {
     @include zen-grid-item(7, 6);
+    padding-right: 0;
   }
 
   .front-first-column {
     @include zen-grid-item(5, 1);
+    padding-left: 0;
   }
 
   .front-last-column {
     @include zen-grid-item(7, 6);
     clear: both;
+    padding-bottom: 2rem;
   }
 }
 
 @include breakpoint($tablet-large) {
   .front-main-column {
     @include zen-grid-item(8, 5);
+    padding-right: 0;
   }
 
   .front-first-column {
     @include zen-grid-item(4, 1);
+    padding-left: 0;
   }
 
   .front-last-column {
     @include zen-grid-item(8, 5);
     clear: left;
+    padding-bottom: inherit;
   }
 }
 
@@ -73,25 +77,29 @@ $zen-column-count: 12;
 
   .front-first-column {
     @include zen-grid-item(3, 1);
+    padding-left: 0;
   }
 
   .front-last-column {
     @include zen-grid-item(4, 9);
+    padding-right: 0;
     clear: right;
   }
 }
 // end of frontpage
 
 
-#content {
+.content-container {
   @include zen-grid-container();
 
   .general-left {
-    @include zen-grid-item(12, 1);
-    float: none;
+    width: 100%;
+    clear: both;
 
     @include breakpoint($tablet-large) {
       @include zen-grid-item(8, 1);
+      padding-left: 0;
+      clear: none;
     }
 
     @include breakpoint($desktop) {
@@ -100,11 +108,13 @@ $zen-column-count: 12;
   }
 
   .general-right {
-    @include zen-grid-item(12, 1);
-    float: none;
+    width: 100%;
+    clear: both;
 
     @include breakpoint($tablet-large) {
       @include zen-grid-item(4, 9);
+      padding-right: 0;
+      clear: none;
     }
 
     @include breakpoint($desktop) {
@@ -158,26 +168,19 @@ $zen-column-count: 12;
 
 .l-general-one-col {
   @include zen-grid-item(12, 1);
+  padding-left: 0;
+  padding-right: 0;
 
   @include breakpoint($tablet-large) {
     @include zen-grid-item(10, 2);
   }
 }
 
-// My content
-.page-my-content .content-container {
-  @include zen-grid-item(12, 1);
-  float: none;
-
-  @include breakpoint($calendar-full) {
-    @include zen-grid-item(10, 2);
-    float: none;
-  }
-}
-
 // Calendar
 .events-calendar {
   @include zen-grid-item(12, 1);
+  padding-left: 0;
+  padding-right: 0;
 
   @include breakpoint($calendar-full) {
     @include zen-grid-item(10, 2);

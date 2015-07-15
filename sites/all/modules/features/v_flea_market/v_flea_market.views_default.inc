@@ -161,7 +161,7 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['fields']['changed']['label'] = 'Last Updated';
   $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/d/Y g:ia';
+  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/d/Y g:i a';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Content: My Item Is */
   $handler->display->display_options['fields']['field_flea_market_item_type']['id'] = 'field_flea_market_item_type';
@@ -276,7 +276,7 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['fields']['changed']['label'] = 'Last Updated';
   $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/d/Y g:ia';
+  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/d/Y g:i a';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Content: My Item Is */
   $handler->display->display_options['fields']['field_flea_market_item_type']['id'] = 'field_flea_market_item_type';

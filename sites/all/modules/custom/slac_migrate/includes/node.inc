@@ -715,6 +715,8 @@ class SlacNewsArticleMigration extends DrupalNode7Migration {
     $this->addFieldMapping('field_shared_tags:create_term')
      ->defaultValue(TRUE);
     $this->addFieldMapping('field_shared_image', 'field_news_image');
+    $this->addFieldMapping('field_shared_image:preserve_files')
+      ->defaultValue(TRUE);
 
     // Workbench moderation mappings
     $this->addFieldMapping('workbench_moderation_state_new', 'status')

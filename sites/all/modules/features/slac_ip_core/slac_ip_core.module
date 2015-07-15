@@ -9,25 +9,92 @@ include_once 'slac_ip_core.features.inc';
 /**
  * Implements hook_menu_alter().
  *
- * Adds custom access callback to hide the node view tab from non-editor users.
+ * Adds custom access callback to hide the node view tab from non-editor users
+ * when the node is Published.
+ *
+ * Adds custom access callback to prevent new drafts from being created by
+ * normal auth. users when a node is in 'Needs Review' or 'Published' state.
  */
 function slac_ip_core_menu_alter(&$items) {
   $items['node/%node/view']['access callback'] = 'slac_ip_core_node_view_access';
+  $items['node/%node/view']['access arguments'] = array('view', 1);
+
+  $items['node/%node/edit']['access callback'] = 'slac_ip_core_node_edit_access';
 }
 
 /**
  * Menu access callback.
- * Don't render a 'View published' tab for normal users.
+ * Do not render a 'View published' tab for normal users.
  *
  * @return bool
  */
-function slac_ip_core_node_view_access() {
+function slac_ip_core_node_view_access($op, $node) {
   global $user;
 
-  if ($user->uid != 1 && !in_array('editor', $user->roles)) {
+  // Check moderation status.
+  if (isset($node->workbench_moderation['current'])) {
+    $current_state = $node->workbench_moderation['current'];
+
+    if ($current_state->state == 'published' && !slac_ip_core_user_is_elevated($user)) {
+      return FALSE;
+    }
+  }
+
+  // Do not bypass normal access.
+  return node_access($op, $node);
+}
+
+/**
+ * Menu access callback.
+ * Do not allow a normal auth. user to create a new draft when a node is in
+ * 'Needs Review' or 'Published' state.
+ *
+ * @return bool
+ */
+function slac_ip_core_node_edit_access($op, $node) {
+  $allowed = TRUE;
+  global $user;
+
+  if (slac_ip_core_user_is_elevated($user)) {
+    // Skip the moderation state check for eleveated users.
+    $allowed = TRUE;
+  }
+  else {
+    // Check moderation status.
+    if (isset($node->workbench_moderation['current'])) {
+      $current_state = $node->workbench_moderation['current'];
+      if (in_array($current_state->state, array('needs_review', 'published'))) {
+        $allowed = FALSE;
+      }
+    }
+  }
+
+  if ($allowed) {
+    // Do not bypass the normal access checks.
+    return node_access($op, $node);
+  }
+  else {
     return FALSE;
   }
-  return TRUE;
+}
+
+/**
+ * Checks the passed user for roles above a normal authenticated user.
+ *
+ * @param $user
+ *   The user object to check the roles for.
+ *
+ * @return bool
+ */
+function slac_ip_core_user_is_elevated($user) {
+  $elevated_roles = array(
+    'editor',
+    'manager',
+    'administrator',
+  );
+  $roles_intersect = array_intersect($user->roles, $elevated_roles);
+
+  return !empty($roles_intersect) || $user->uid == 1;
 }
 
 /**

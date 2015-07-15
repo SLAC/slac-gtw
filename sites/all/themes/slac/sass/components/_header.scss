@@ -8,7 +8,6 @@ $zen-column-count: 12;
 }
 
 .content-container {
-  padding-top: 2.625rem;
   padding-bottom: 2rem;
 
   .page-calendar & {
@@ -20,8 +19,6 @@ $zen-column-count: 12;
   }
 
   @include breakpoint($tablet-large) {
-    padding-top: 3.25rem;
-
     .page-calendar & {
       margin-top: 0;
       padding-top: 0;
@@ -31,11 +28,6 @@ $zen-column-count: 12;
       margin-top: 0;
     }
   }
-}
-
-h1.title {
-  line-height: 1.2;
-  margin-top: 0;
 }
 
 .l-general-one-col {
@@ -298,7 +290,10 @@ h1.title {
 .selectize-control.single .selectize-input {
   background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
   width: 135px;
-  height: !important;
+
+  > input {
+    display: none !important;
+  }
 
   &.dropdown-active {
       background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
