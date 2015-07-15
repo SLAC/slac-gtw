@@ -1,0 +1,16 @@
+h1.title {
+  line-height: 1.2;
+  margin-top: 0;
+
+  @include breakpoint($desktop) {
+    .node-type-page & {
+      margin-left: calc(8.33333% + 20px);
+    }
+  }
+}
+
+// basic page sub title
+.field-name-field-page-subtitle {
+  @include font-size(18px);
+  font-style: italic;
+}
