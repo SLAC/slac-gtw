@@ -5127,13 +5127,15 @@ div.date-views-pager div.next-year {
   .page-flea-market .l-general-one-col {
     margin-top: 1.75rem;
   }
-  .page-flea-market .l-general-one-col .view-header {
-    width: 70%;
-    margin: 1.5rem 0;
-  }
+}
+.page-flea-market .view-header,
+.page-flea-market .view-empty {
+  width: 70%;
+  margin: 1.5rem 0;
 }
 @media (min-width: 70em) {
-  .page-flea-market .l-general-one-col .view-header {
+  .page-flea-market .view-header,
+  .page-flea-market .view-empty {
     width: 75%;
   }
 }
