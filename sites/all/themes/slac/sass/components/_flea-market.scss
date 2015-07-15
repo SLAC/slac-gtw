@@ -265,17 +265,16 @@
 
     @include breakpoint($tablet-large) {
       margin-top: 1.75rem;
-
-      .view-header {
-        width: 70%;
-        margin: 1.5rem 0;
-      }
     }
+  }
+
+  .view-header,
+  .view-empty {
+    width: 70%;
+    margin: 1.5rem 0;
 
     @include breakpoint($desktop) {
-      .view-header {
-        width: 75%;
-      }
+      width: 75%;
     }
   }
 
