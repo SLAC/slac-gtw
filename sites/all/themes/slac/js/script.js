@@ -140,19 +140,24 @@
         }
       });
 
-      $('<div class="tabs-mobile my-content-dropdown"/>').insertAfter('.page-my-content .tabs-primary').selectize({
-        openOnFocus: true,
-        maxItems: 1,
-        hideSelected: false,
-        closeAfterSelect: true,
-        allowEmptyOption: false,
-        lockOptgroupOrder: true,
-        options: options,
-        items: items,
-        onChange: function (value) {
-          window.location = value;
-        }
-      });
+      // If no options are found, do not add the select widget.
+      if (options.length !== 0) {
+        $('<div class="tabs-mobile my-content-dropdown"/>')
+            .insertAfter('.page-my-content .tabs-primary')
+            .selectize({
+              openOnFocus: true,
+              maxItems: 1,
+              hideSelected: false,
+              closeAfterSelect: true,
+              allowEmptyOption: false,
+              lockOptgroupOrder: true,
+              options: options,
+              items: items,
+              onChange: function (value) {
+                window.location = value;
+              }
+            });
+      }
     }
   };
 
