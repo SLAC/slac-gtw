@@ -43,6 +43,29 @@ function slac_ip_config_moderation_permission() {
 }
 
 /**
+ * Implements hook_node_access().
+ *
+ * If the node has a moderation state, perform an additional permission check
+ * for the edit operation.
+ */
+function slac_ip_config_moderation_node_access($node, $op, $account) {
+  if ($op == 'update' && isset($node->workbench_moderation['current'])) {
+    $current_state = $node->workbench_moderation['current'];
+    $perm = "create draft for $node->type nodes in $current_state->state state";
+
+    if (user_access($perm, $account)) {
+      return NODE_ACCESS_ALLOW;
+    }
+    else {
+      return NODE_ACCESS_DENY;
+    }
+  }
+  else {
+    return NODE_ACCESS_IGNORE;
+  }
+}
+
+/**
  * Implements hook_menu_alter().
  *
  * Adds custom access callback to hide the node view tab from non-editor users
@@ -54,13 +77,14 @@ function slac_ip_config_moderation_permission() {
 function slac_ip_config_moderation_menu_alter(&$items) {
   $items['node/%node/view']['access callback'] = 'slac_ip_config_moderation_node_view_access';
   $items['node/%node/view']['access arguments'] = array('view', 1);
-
-  $items['node/%node/edit']['access callback'] = 'slac_ip_config_moderation_node_edit_access';
 }
 
 /**
  * Menu access callback.
  * Do not render a 'View published' tab for normal users.
+ *
+ * This is not using hook_node_access because the user can still actually view
+ * the node, this will only prevent the 'View published' tab from rendering.
  *
  * @return bool
  */
@@ -69,41 +93,15 @@ function slac_ip_config_moderation_node_view_access($op, $node) {
 
   // Check moderation status.
   if (isset($node->workbench_moderation['current'])) {
-    $current_state = $node->workbench_moderation['current'];
+    $is_published = ($node->workbench_moderation['current']->state == 'published');
 
-    if ($current_state->state == 'published' && !slac_ip_config_moderation_user_is_elevated($user)) {
+    if ($is_published && !slac_ip_config_moderation_user_is_elevated($user)) {
       return FALSE;
     }
   }
 
   // Do not bypass normal access.
   return node_access($op, $node);
-}
-
-/**
- * Menu access callback.
- * For node types that are moderated, only certain roles can create drafts when
- * the node is in 'Needs Review' or 'Published' state.
- *
- * @return bool
- */
-function slac_ip_config_moderation_node_edit_access($op, $node) {
-  $allowed = TRUE;
-
-  // If the node is moderated, perform the permissions check.
-  if (isset($node->workbench_moderation['current'])) {
-    $current_state = $node->workbench_moderation['current'];
-    $perm = "create draft for $node->type nodes in $current_state->state state";
-    $allowed = user_access($perm);
-  }
-
-  if ($allowed) {
-    // Do not bypass the normal access checks.
-    return node_access($op, $node);
-  }
-  else {
-    return FALSE;
-  }
 }
 
 /**
