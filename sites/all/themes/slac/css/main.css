@@ -876,7 +876,24 @@ blockquote p {
   padding-right: 0;
 }
 @media (min-width: 60em) {
-  .l-general-one-col {
+  .page-flea-market .l-general-one-col {
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: -100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media (min-width: 80em) {
+  .page-flea-market .l-general-one-col {
     float: left;
     width: 83.33333%;
     margin-left: 8.33333%;
@@ -5081,8 +5098,13 @@ div.date-views-pager div.next-year {
 }
 .page-flea-market .view-header,
 .page-flea-market .view-empty {
-  width: 70%;
   margin: 1.5rem 0;
+}
+@media (min-width: 60em) {
+  .page-flea-market .view-header,
+  .page-flea-market .view-empty {
+    width: 70%;
+  }
 }
 @media (min-width: 70em) {
   .page-flea-market .view-header,
@@ -5094,9 +5116,27 @@ div.date-views-pager div.next-year {
   position: relative;
 }
 .page-flea-market .title {
-  padding-left: 1.25rem;
+  padding-left: 0;
 }
 @media (min-width: 60em) {
+  .page-flea-market .title {
+    float: left;
+    width: 50%;
+    margin-left: 0%;
+    margin-right: -50%;
+    padding-left: 20px;
+    padding-right: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 80em) {
   .page-flea-market .title {
     float: left;
     width: 50%;
@@ -5114,12 +5154,20 @@ div.date-views-pager div.next-year {
   }
 }
 .page-flea-market .views-field-changed {
-  min-width: 145px;
+  min-width: 125px;
   font-weight: bold;
   color: #2f2f2f;
 }
 .page-flea-market .views-field-changed .date-updated-time {
   font-weight: normal;
+}
+@media (min-width: 60em) {
+  .page-flea-market .views-field-changed .date-updated-time {
+    display: block;
+  }
+}
+.page-flea-market thead tr > .views-field-changed {
+  padding-left: 0;
 }
 .page-flea-market .views-field-field-flea-market-item-type {
   min-width: 100px;
