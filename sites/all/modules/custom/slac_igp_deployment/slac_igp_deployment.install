@@ -82,7 +82,6 @@ function slac_igp_deployment_install() {
     'v_news_archive',
     'v_search',
     'workbench',
-    'workbench_email',
     'slac_ip_config_moderation',
     't_event_type',
     'v_terms_on_node',
@@ -617,7 +616,6 @@ function slac_igp_deployment_update_7020() {
 function slac_igp_deployment_update_7021() {
   $result = module_enable(array(
     'workbench',
-    'workbench_email',
     'slac_ip_config_moderation',
     'date_popup_authored',
   ));
