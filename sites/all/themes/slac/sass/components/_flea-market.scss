@@ -270,8 +270,11 @@
 
   .view-header,
   .view-empty {
-    width: 70%;
     margin: 1.5rem 0;
+
+    @include breakpoint($tablet-large) {
+      width: 70%;
+    }
 
     @include breakpoint($desktop) {
       width: 75%;
@@ -283,9 +286,16 @@
   }
 
   .title {
-    padding-left: 1.25rem;
+    padding-left: 0;
 
     @include breakpoint($tablet-large) {
+      @include zen-grid-item(6, 1);
+      padding-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    @include breakpoint($huge) {
       @include zen-grid-item(6, 2);
       margin-top: 0;
       margin-bottom: 0;
@@ -293,13 +303,21 @@
   }
 
   .views-field-changed {
-    min-width: 145px;
+    min-width: 125px;
     font-weight: bold;
     color: $event-date;
 
     .date-updated-time {
       font-weight: normal;
+
+      @include breakpoint($tablet-large) {
+        display: block;
+      }
     }
+  }
+
+  thead tr > .views-field-changed {
+    padding-left: 0;
   }
 
   .views-field-field-flea-market-item-type {
