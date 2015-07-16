@@ -6105,6 +6105,9 @@ fieldset.collapsed {
   background-position: center -80px;
 }
 
+.frontpage-calendar .brown-bodered-white > .pane-content {
+  padding-top: 0;
+}
 @media (min-width: 40em) {
   .frontpage-calendar .pane-title {
     margin-top: 0;
@@ -6112,40 +6115,59 @@ fieldset.collapsed {
     margin-bottom: -2px;
   }
 }
-.frontpage-calendar .views-row {
+.frontpage-calendar .views-field-nothing-1 {
+  position: absolute;
+  top: 0.8rem;
+  right: 0;
+}
+.frontpage-calendar .views-row-grouped {
+  color: #316dae;
+}
+.frontpage-calendar .views-row-grouped:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.frontpage-calendar .views-row-grouped:first-child {
+  margin-top: 0.75rem;
+}
+.frontpage-calendar .views-row-grouped:first-child .views-row.views-row-1 {
+  padding-top: 0;
+}
+.frontpage-calendar .views-row-grouped:first-child .views-row.views-row-1 .views-field-nothing-1 {
+  top: 0.2rem;
+}
+.frontpage-calendar .views-row-grouped .views-row {
   font-size: 11px;
   font-size: 0.6875rem;
   position: relative;
   float: right;
   width: 76%;
   border-left: 1px dashed #b1c0c7;
-  padding: 0 0 0.625rem 5%;
+  padding: 0.625rem 0 0.625rem 0.625rem;
+}
+.frontpage-calendar .views-row-grouped .views-row:hover {
+  text-decoration: underline;
+}
+.frontpage-calendar .views-row-grouped .views-row-last {
+  background: url("../images/dotted-bottom-border.png") no-repeat 0 bottom;
 }
 .frontpage-calendar h3 {
   margin: 0;
+  margin-top: -0.4rem;
   float: left;
   color: #7c6235;
   width: 18%;
   text-transform: uppercase;
   text-align: center;
 }
-.frontpage-calendar .views-row-grouped {
-  color: #316dae;
-}
-.frontpage-calendar .views-row-grouped .views-row-last {
-  background: url("../images/dotted-bottom-border.png") no-repeat 0 bottom;
-}
-.frontpage-calendar .views-row-grouped:first-child .views-row-first {
-  padding-top: 0;
-}
-.frontpage-calendar .views-row.views-row-first {
-  padding-top: 0.625rem;
-}
-.frontpage-calendar .views-row:hover {
-  text-decoration: underline;
-}
-.frontpage-calendar .views-field-title {
+.frontpage-calendar .views-field-title,
+.frontpage-calendar .views-field-nothing {
   font-weight: bold;
+  width: 85%;
+}
+.frontpage-calendar .views-field-nothing {
+  font-weight: initial;
 }
 .frontpage-calendar .month {
   font-size: 14px;
@@ -6156,11 +6178,6 @@ fieldset.collapsed {
   font-size: 1.25rem;
   display: block;
   margin-top: -0.65rem;
-}
-.frontpage-calendar .views-field-nothing-1 {
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 
 .frontpage-calendar .view-footer,
