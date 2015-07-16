@@ -10,36 +10,33 @@
   overflow: hidden;
 
   .title {
-    background: $white;
-    display: block;
-    padding: 0.5rem 0.5rem 0.2rem 0;
-
     a {
       @include font-size(19px);
       display: block;
       line-height: 1.4;
       color: $blue;
       text-decoration: none;
-    }
 
-    @include breakpoint($tablet-large) {
-      background: transparent;
-
-      a {
+      @include breakpoint($tablet-small) {
         color: $white;
       }
     }
   }
 
-  @include breakpoint($tablet-large) {
-    .title-body {
+  .title-body {
+    display: block;
+    padding: 0.6rem;
+    background: $white;
+    width: 100%;
+    box-sizing: border-box;
+
+    @include breakpoint($tablet-small) {
       @include font-size(12px);
       background: $overlay-blue;
       max-height: 100px;
       color: $grey-filters-border;
       line-height: 1.4;
       overflow: hidden;
-      padding: 0.3rem 1rem;
       position: absolute;
       bottom: 0;
     }
@@ -58,7 +55,7 @@
     color: $blue;
     line-height: 1.6;
 
-    @include breakpoint($tablet-large) {
+    @include breakpoint($tablet-small) {
       position: absolute;
       bottom: 0;
       background: $overlay-blue;
@@ -101,7 +98,7 @@
     }
   }
 
-  @include breakpoint($tablet-large) {
+  @include breakpoint($tablet-small) {
     position: absolute;
     top: 0;
     right: 0;
