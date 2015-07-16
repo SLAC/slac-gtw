@@ -13,7 +13,7 @@
 
 ## Theme’s front-end tools setup
 
-Slac Today's Drupal theme can be found under `/docroot/sites/all/themes/slac`.  In here you will find theme's and fron-end confirguations which we will cover in this documentation.
+Slac Today's Drupal theme can be found under `/docroot/sites/all/themes/slac`.  In here you will find theme's and front-end configurations which we will cover in this documentation.
 
 
 The following ruby gems are part of this theme:
@@ -59,12 +59,13 @@ $zen-gutter-width: 10px;
 
 // Apply this mixin to the container.
 .container {
- @include zen-grid-container;
+  @include zen-grid-container;
 }
 
 // Apply this mixin for each grid item in the container.
-.aside1 {
- @include zen-grid-item(2, 1);
+.aside {
+  @include zen-grid-item(2, 1);
+ }
 ```
 
 **[⬆ back to top](#markdown-header-table-of-contents)**
@@ -79,7 +80,7 @@ group :development do
   # Sass, Compass and extensions.
   gem 'sass', '3.4.9'           # Sass.
   gem 'compass', '1.0.1'        # Framework built on Sass.
-  gem 'toolkit'                 # Compass utility from the fabulous Snugug.
+  gem 'toolkit'                 # Toolkit utility from Snugug.
   gem 'breakpoint', '2.5.0'     # Manages CSS media queries.
   gem 'zen-grids', '1.4'        # Zen-Grids gem.
 
@@ -88,7 +89,7 @@ end
 
 The Gemfile is saved in the root location of your theme `(i.e. /docroot/sites/all/themes/slac/Gemfile)
 
-Once your gemfile is in place, you need to navigate to your theme's location (i.e. /docroot/sites/all/themes/slac/), and run `bundle install`.  Bundler will read your Gemfile and ensure the ruby versions specified in it are installed for this project.  Ruby versions can vary from project to project and that's another advantage of using Bundler as it will always ensure the right versions are installed on yoru project based on what is found in your Gemfile.
+Once your Gemfile is in place, you need to navigate to your theme's location (i.e. /docroot/sites/all/themes/slac/), and run `bundle install`.  Bundler will read your Gemfile and ensure the ruby versions specified in it are installed for this project.  Ruby versions can vary from project to project and that's another advantage of using Bundler as it will always ensure the right versions are installed on your project based on what is found in your Gemfile.
 
 **[⬆ back to top](#markdown-header-table-of-contents)**
 
@@ -133,7 +134,7 @@ sass/
 |   |- _calendar.scss
 |   |- _captions.scss
 |   |- _collapsible-content.scss
-|   |- _date.scss  #Date's module legacy styles modified for this project
+|   |- _date.scss
 |   |- _event-news-access-notice-mobile.scss
 |   |- _event-news-access-notice.scss
 |   |- _events-legend.scss
