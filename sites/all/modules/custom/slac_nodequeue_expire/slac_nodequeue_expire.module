@@ -16,7 +16,7 @@ function slac_nodequeue_expire_cron() {
   $qids = nodequeue_get_all_qids();
   $queues = nodequeue_load_queues($qids);
   $subqueues = nodequeue_load_subqueues_by_queue($qids);
-  $week_seconds= 604800;
+  $week_seconds = 604800;
 
   foreach ($subqueues as $subqueue) {
     $queue = $queues[$subqueue->qid];
