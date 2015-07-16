@@ -5937,11 +5937,6 @@ fieldset.collapsed {
 .jcarousel-container-horizontal {
   overflow: hidden;
 }
-.jcarousel-container-horizontal .title {
-  background: #ffffff;
-  display: block;
-  padding: 0.5rem 0.5rem 0.2rem 0;
-}
 .jcarousel-container-horizontal .title a {
   font-size: 19px;
   font-size: 1.1875rem;
@@ -5950,15 +5945,19 @@ fieldset.collapsed {
   color: #316dae;
   text-decoration: none;
 }
-@media (min-width: 60em) {
-  .jcarousel-container-horizontal .title {
-    background: transparent;
-  }
+@media (min-width: 40em) {
   .jcarousel-container-horizontal .title a {
     color: #ffffff;
   }
 }
-@media (min-width: 60em) {
+.jcarousel-container-horizontal .title-body {
+  display: block;
+  padding: 0.6rem;
+  background: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (min-width: 40em) {
   .jcarousel-container-horizontal .title-body {
     font-size: 12px;
     font-size: 0.75rem;
@@ -5967,7 +5966,6 @@ fieldset.collapsed {
     color: #dfdfdf;
     line-height: 1.4;
     overflow: hidden;
-    padding: 0.3rem 1rem;
     position: absolute;
     bottom: 0;
   }
@@ -5985,7 +5983,7 @@ fieldset.collapsed {
   color: #316dae;
   line-height: 1.6;
 }
-@media (min-width: 60em) {
+@media (min-width: 40em) {
   .jcarousel-item .views-field-nothing {
     position: absolute;
     bottom: 0;
@@ -6024,7 +6022,7 @@ fieldset.collapsed {
   background: #316dae;
   border-color: #ffffff;
 }
-@media (min-width: 60em) {
+@media (min-width: 40em) {
   .jcarousel-navigation {
     position: absolute;
     top: 0;
