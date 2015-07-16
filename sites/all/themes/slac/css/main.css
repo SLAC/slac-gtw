@@ -7639,6 +7639,13 @@ fieldset.collapsed {
     color: #316dae;
   }
 }
+.page-search table td:first-child {
+  width: inherit;
+}
+.page-search table th {
+  color: inherit;
+}
+
 .page-search .views-exposed-form .views-exposed-widget {
   float: none;
 }

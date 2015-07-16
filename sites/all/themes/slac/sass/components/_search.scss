@@ -157,6 +157,18 @@
   }
 }
 
+.page-search {
+  table {
+    td:first-child {
+      width: inherit;
+    }
+
+    th {
+      color: inherit;
+    }
+  }
+}
+
 .page-search .views-exposed-form .views-exposed-widget {
   float: none;
 }
