@@ -1051,7 +1051,7 @@ ul.calendar-links,
 // calendar for desktop
 @include breakpoint($desktop) {
   .page-calendar .tabs-primary {
-    margin-right: 20px;
+    margin-right: 0;
     padding-right: 0;
   }
 
