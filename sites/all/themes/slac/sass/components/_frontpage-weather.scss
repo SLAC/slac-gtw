@@ -1,0 +1,139 @@
+.frontpage-weather {
+  .current {
+    padding-bottom: 0;
+    margin-bottom: 10px;
+    overflow: hidden;
+
+    .temp {
+      float: left;
+    }
+  }
+
+  .temp-nr {
+    background: url('../images/far.jpg') no-repeat right 3px;
+    font-size: 24px;
+    color: #472725;
+    padding-right: 15px;
+    float: left;
+  }
+
+  .current {
+    .condition {
+      font-size: 12px;
+      color: #706a65;
+      font-weight: bold;
+      text-transform: capitalize;
+      float: left;
+      margin: 2px 0 0 5px;
+    }
+
+    .icon {
+      float: right;
+      width: 75px;
+      margin: -25px -8px 0 0;
+    }
+  }
+
+  .forecast {
+    padding-top: 0;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    overflow: hidden;
+
+    ul {
+      padding-left: 0;
+
+      &:after{
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+
+    li {
+      list-style: none;
+      float: left;
+      width: 32.5%;
+      text-align: center;
+      border-left: 1px solid #ececec;
+
+      &:first-child {
+        border: none;
+      }
+    }
+
+    img {
+      display: block;
+      width: 75%;
+      margin: 0 auto;
+    }
+
+    .day {
+      display: block;
+      font-size: 0.8em;
+    }
+
+    .hight {
+      padding: 0 6px 0  4px;
+      font-size: 11px;
+      background: url('../images/grade-dark.jpg') no-repeat right 3px;
+    }
+
+    .low {
+      padding: 0 6px 0  4px;
+      font-size: 11px;
+      background: url('../images/grade-dark.jpg') no-repeat right 3px;
+      color: #b6afa6;
+      background: url('../images/grade-light.jpg') no-repeat right 3px;
+    }
+
+    .switch-link {
+      display: block;
+
+      a {
+        display: block;
+        padding: 0.5rem 0 0.5rem 0.9375rem;
+        position: static;
+        float: none;
+      }
+    }
+  }
+
+  #boxes-box-weather_traffic {
+    padding-top: 0;
+
+    small {
+      border: none;
+      display: block;
+    }
+  }
+
+  #map-canvas {
+    width: 100% !important;
+  }
+}
+
+.frontpage-weather {
+  .pane-content {
+    padding-bottom: 0.5rem;
+  }
+
+  h2:not(.pane-title) {
+    @include font-size(16px);
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0.2rem;
+    line-height: 1;
+    color: $weather-heading;
+  }
+
+  .switch-link,
+  small {
+    @include view-footer;
+  }
+
+  a,
+  a:link {
+    color: $blue;
+  }
+}
