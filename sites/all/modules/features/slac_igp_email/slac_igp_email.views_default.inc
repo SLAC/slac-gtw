@@ -257,6 +257,15 @@ function slac_igp_email_views_default_views() {
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['path']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['path']['absolute'] = TRUE;
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
@@ -272,7 +281,7 @@ function slac_igp_email_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_link]';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['title']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
@@ -299,8 +308,8 @@ function slac_igp_email_views_default_views() {
     'flea_market_post' => 'flea_market_post',
   );
 
-  /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block');
+  /* Display: Flea Market */
+  $handler = $view->new_display('block', 'Flea Market', 'block');
   $export['email_flea_market'] = $view;
 
   return $export;
