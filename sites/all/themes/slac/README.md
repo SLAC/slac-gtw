@@ -227,11 +227,9 @@ The homepage is broken down in three columns:
 .front-first-column
 .front-last-column
 ```
-`.front-main-column` is about 42% the width of the site’s container (.l-main)--
-
-`.front-first-column` is 25%--
-
-`.front-last-column` is 33%--
+`.front-main-column` is about 42% the width of the site’s container (.l-main)
+`.front-first-column` is 25%
+`.front-last-column` is 33%
 
 
 Pages that are broken down in two columns look like this:
@@ -239,13 +237,13 @@ Pages that are broken down in two columns look like this:
 .general-left
 .general-right
 ```
-`.general-left` is about 58% the width of the site’s container (.l-main)--
-
-`.general-right` is 25%--
-
+`.general-left` is about 58% the width of the site’s container (.l-main)
+`.general-right` is 25%
 
 
-The two column layout spans 10 columns out of the grid’s 12 starting on column 2.--
+
+
+The two column layout spans 10 columns out of the grid’s 12 starting on column 2.
 
 
 
@@ -432,7 +430,7 @@ Important to note, if a new event type is added to the list of existing event ty
 **Note**
   >  The above color map can be used on any selector and it's not exclusive to the calendar.  However as of now the calendar is where it's being more widely used.
 
-=======
+***
 
 As far as responsive theming for calendar, we used the same technique as we've done on tables.  After all, most of the calendar is built using tables.
 
