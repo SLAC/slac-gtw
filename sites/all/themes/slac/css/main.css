@@ -5686,8 +5686,9 @@ fieldset.collapsed {
   .view-slac-news .item-list ul .views-row {
     background: none;
     margin: 0;
-    padding: 0 1rem;
-    padding-left: 0;
+    margin-bottom: 0.3rem;
+    padding: 0 1rem 0 0;
+    line-height: 1;
     list-style: disc;
     color: #316dae;
   }
@@ -5728,7 +5729,6 @@ fieldset.collapsed {
   font-size: 14px;
   font-size: 0.875rem;
   padding: 0.5rem;
-  margin-bottom: 0.5rem;
   display: block;
   background: #e9f2f9 url("../images/mobile-menu-arrow.png") no-repeat 98% center;
   color: #316dae;
