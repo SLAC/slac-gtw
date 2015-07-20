@@ -5966,22 +5966,35 @@ fieldset.collapsed {
     margin-bottom: 0;
   }
 }
-.frontpage-slac-science .view-content .views-row-1 .title-body {
-  position: absolute;
-  bottom: 7px;
-  left: 0;
-  right: 0;
-  display: block;
-  background: rgba(54, 116, 163, 0.75);
-  padding: 0.4rem;
-}
-.frontpage-slac-science .view-content .views-row-1 .title-body a {
-  font-size: 19px;
-  font-size: 1.1875rem;
-  color: #ffffff;
+@media (min-width: 40em) {
+  .frontpage-slac-science .title-body {
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    right: 0;
+    display: block;
+    background: rgba(54, 116, 163, 0.75);
+    padding: 0.6rem;
+  }
+  .frontpage-slac-science .title-body a {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    color: #ffffff;
+  }
+  .frontpage-slac-science .title-body .body a {
+    font-size: 12px;
+    font-size: 0.75rem;
+    display: block;
+    line-height: 1.4;
+  }
 }
 .frontpage-slac-science .body {
   display: none;
+}
+@media (min-width: 60em) {
+  .frontpage-slac-science .body {
+    display: block;
+  }
 }
 
 .jcarousel-item .body {
@@ -6004,9 +6017,12 @@ fieldset.collapsed {
   color: #316dae;
   text-decoration: none;
 }
+.jcarousel-container-horizontal .title a:hover {
+  text-decoration: underline;
+}
 @media (min-width: 40em) {
   .jcarousel-container-horizontal .title a {
-    color: #ffffff;
+    color: #f6f6f6;
   }
 }
 .jcarousel-container-horizontal .title-body {
@@ -6028,6 +6044,9 @@ fieldset.collapsed {
     position: absolute;
     bottom: 0;
   }
+}
+.jcarousel-container-horizontal .title-body .body a {
+  color: #dcdcdc;
 }
 
 .jcarousel-item {
