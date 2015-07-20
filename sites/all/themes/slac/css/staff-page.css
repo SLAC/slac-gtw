@@ -73,19 +73,6 @@
   display: none;
 }
 
-.switch-link a {
-  float: right;
-  display: block;
-  position: relative;
-  z-index: 99;
-  top: -32px;
-  font-size: 13px;
-  color: #154E6B;
-}
-.section-staff-resources .switch-link a {
-  top: 0;
-}
-
 .pane-quicktabs-staff-resources {
   position: relative;
   top: -32px;

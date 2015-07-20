@@ -6237,6 +6237,131 @@ fieldset.collapsed {
   margin-top: -0.65rem;
 }
 
+.frontpage-weather .current {
+  padding-bottom: 0;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.frontpage-weather .current .temp {
+  float: left;
+}
+.frontpage-weather .temp-nr {
+  background: url("../images/far.jpg") no-repeat right 3px;
+  font-size: 24px;
+  color: #472725;
+  padding-right: 15px;
+  float: left;
+}
+.frontpage-weather .current .condition {
+  font-size: 12px;
+  color: #706a65;
+  font-weight: bold;
+  text-transform: capitalize;
+  float: left;
+  margin: 2px 0 0 5px;
+}
+.frontpage-weather .current .icon {
+  float: right;
+  width: 75px;
+  margin: -25px -8px 0 0;
+}
+.frontpage-weather .forecast {
+  padding-top: 0;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+.frontpage-weather .forecast ul {
+  padding-left: 0;
+}
+.frontpage-weather .forecast ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.frontpage-weather .forecast li {
+  list-style: none;
+  float: left;
+  width: 32.5%;
+  text-align: center;
+  border-left: 1px solid #ececec;
+}
+.frontpage-weather .forecast li:first-child {
+  border: none;
+}
+.frontpage-weather .forecast img {
+  display: block;
+  width: 75%;
+  margin: 0 auto;
+}
+.frontpage-weather .forecast .day {
+  display: block;
+  font-size: 0.8em;
+}
+.frontpage-weather .forecast .hight {
+  padding: 0 6px 0 4px;
+  font-size: 11px;
+  background: url("../images/grade-dark.jpg") no-repeat right 3px;
+}
+.frontpage-weather .forecast .low {
+  padding: 0 6px 0 4px;
+  font-size: 11px;
+  background: url("../images/grade-dark.jpg") no-repeat right 3px;
+  color: #b6afa6;
+  background: url("../images/grade-light.jpg") no-repeat right 3px;
+}
+.frontpage-weather .forecast .switch-link {
+  display: block;
+}
+.frontpage-weather .forecast .switch-link a {
+  display: block;
+  padding: 0.5rem 0 0.5rem 0.9375rem;
+  position: static;
+  float: none;
+}
+.frontpage-weather #boxes-box-weather_traffic {
+  padding-top: 0;
+}
+.frontpage-weather #boxes-box-weather_traffic small {
+  border: none;
+  display: block;
+}
+.frontpage-weather #map-canvas {
+  width: 100% !important;
+}
+
+.frontpage-weather .pane-content {
+  padding-bottom: 0.5rem;
+}
+.frontpage-weather h2:not(.pane-title) {
+  font-size: 16px;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 0.2rem;
+  line-height: 1;
+  color: #5d5d5d;
+}
+.frontpage-weather .switch-link,
+.frontpage-weather small {
+  padding-top: 0.5rem;
+}
+.frontpage-weather .switch-link a,
+.frontpage-weather small a {
+  display: block;
+  font-weight: normal;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  line-height: 2.25;
+  background: url(../images/arrow-dot-line.png) no-repeat left center;
+  line-height: 1.5;
+  padding-left: 0.9375rem;
+}
+.frontpage-weather a,
+.frontpage-weather a:link {
+  color: #316dae;
+}
+
 .frontpage-calendar .view-footer,
 .frontpage-access-info .view-footer,
 .frontpage-help-market .view-footer {

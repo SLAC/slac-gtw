@@ -88,20 +88,6 @@
   display: none;
 }
 
-.switch-link a {
-  float: right;
-  display: block;
-  position: relative;
-  z-index: 99;
-  top: -32px;
-  font-size: 13px;
-  color: #154E6B;
-  .section-staff-resources &{
-    top: 0;
-  }
-}
-
-
 .pane-quicktabs-staff-resources {
   position: relative;
   top: -32px;
@@ -131,7 +117,7 @@
   }
   .quicktabs_main{
     float: left;
-    width: 74%; 
+    width: 74%;
     .view-footer{
       display: none;
     }
@@ -272,7 +258,7 @@
     }
   }
 }
-  
+
 @media (max-width: 620px) {
   .staff-main .inside {
     width: 100%;
