@@ -5649,14 +5649,14 @@ fieldset.collapsed {
   }
 }
 .frontpage-news-list .pane-title a {
-  font-size: 12px;
-  font-size: 0.75rem;
+  font-size: 13px;
+  font-size: 0.8125rem;
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   display: block;
   color: #ffffff;
   background: #a8bcc7 url("../images/right-arrow.png") no-repeat 98% -28px;
-  padding-left: 1.25rem;
+  padding-left: 1rem;
   line-height: 2.8;
 }
 .frontpage-news-list .pane-title a:hover, .frontpage-news-list .pane-title a:focus {
@@ -5676,20 +5676,23 @@ fieldset.collapsed {
 .view-slac-news .pane-content {
   padding: 0;
 }
-.view-slac-news .item-list .views-row {
+.view-slac-news .item-list ul .views-row {
   padding: 0.5rem;
   background: #ffffff url("../images/list-arrow-new.jpg") no-repeat right center;
   margin: 0;
   margin-bottom: 1rem;
 }
 @media (min-width: 40em) {
-  .view-slac-news .item-list .views-row {
+  .view-slac-news .item-list ul .views-row {
     background: none;
     margin: 0;
     padding: 0 1rem;
+    padding-left: 0;
+    list-style: disc;
+    color: #316dae;
   }
 }
-.view-slac-news .item-list .views-row a {
+.view-slac-news .item-list ul .views-row a {
   font-size: 12px;
   font-size: 0.75rem;
   line-height: 1.4;
@@ -5699,22 +5702,27 @@ fieldset.collapsed {
   padding-right: 3.75rem;
 }
 @media (min-width: 40em) {
-  .view-slac-news .item-list .views-row a {
+  .view-slac-news .item-list ul .views-row a {
     display: inline;
     width: 98%;
     padding-right: 4px;
   }
 }
-.view-slac-news .item-list .views-row .views-field-created {
+.view-slac-news .item-list ul .views-field-created {
   font-size: 11px;
   font-size: 0.6875rem;
   font-style: italic;
   color: #636363;
   letter-spacing: 0.03rem;
 }
-.view-slac-news .item-list .views-row div.views-field-title,
-.view-slac-news .item-list .views-row div.views-field-created {
+.view-slac-news .item-list ul div.views-field-title,
+.view-slac-news .item-list ul div.views-field-created {
   display: inline;
+}
+@media (min-width: 40em) {
+  .view-slac-news .item-list ul {
+    padding-left: 2rem;
+  }
 }
 .view-slac-news .view-footer a {
   font-size: 14px;
@@ -5925,14 +5933,14 @@ fieldset.collapsed {
 }
 
 .frontpage-slac-science .pane-title {
-  font-size: 12px;
-  font-size: 0.75rem;
+  font-size: 13px;
+  font-size: 0.8125rem;
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   display: block;
   color: #ffffff;
   background: #a8bcc7 url("../images/right-arrow.png") no-repeat 98% -28px;
-  padding-left: 1.25rem;
+  padding-left: 1rem;
   line-height: 2.8;
 }
 .frontpage-slac-science .pane-title:hover, .frontpage-slac-science .pane-title:focus {
