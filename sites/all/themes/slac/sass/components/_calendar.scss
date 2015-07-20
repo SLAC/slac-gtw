@@ -51,7 +51,7 @@
     li {
       border-radius: 0;
       background: $white;
-      border: 1px solid $grey-footer-light;
+      border: 1px solid $color-gray-alto;
       margin: 0;
       margin-left: -1px;
 
@@ -1137,7 +1137,7 @@ ul.calendar-links,
       width: 200px;
       position: relative;
       left: 0;
-      color: lighten($dim-grey, 10%);
+      color: lighten($color-gray-tundora, 10%);
     }
   }
 }

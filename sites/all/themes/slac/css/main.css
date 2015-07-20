@@ -285,6 +285,7 @@ body {
   line-height: 1.5;
   font-weight: normal;
   background: #e8e8e8;
+  color: #424242;
 }
 
 a:hover, a:focus,
@@ -383,7 +384,7 @@ table tr.even {
   background-color: transparent;
 }
 table tr.odd {
-  background-color: #f2f2f2;
+  background-color: #e8e8e8;
 }
 table th {
   border: none;
@@ -1098,14 +1099,14 @@ blockquote p {
   font-size: 12px;
   font-size: 0.75rem;
   text-transform: uppercase;
-  color: dimgray;
+  color: #5c5c5c;
   font-weight: lighter;
   display: block;
   padding-left: 2em;
   padding-right: 1.5em;
   margin-right: 1.5em;
   height: 16px;
-  border-right: 1px solid #a8a8a8;
+  border-right: 1px solid #9b9b9b;
 }
 
 .calendar-button a {
@@ -1340,7 +1341,7 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 .page-calendar .tabs-primary li {
   border-radius: 0;
   background: #ffffff;
-  border: 1px solid #dadada;
+  border: 1px solid #dbdbdb;
   margin: 0;
   margin-left: -1px;
 }
@@ -2388,7 +2389,7 @@ ul.calendar-links,
   width: 200px;
   position: relative;
   left: 0;
-  color: dimgray;
+  color: #5c5c5c;
 }
 
 .calendar-calendar tr.holder {
@@ -3632,11 +3633,11 @@ ul.calendar-links,
     content: attr(data-title) " ";
     font-weight: bold;
     word-wrap: nowrap;
-    color: #4f4f4f;
+    color: #424242;
   }
 
   table tbody tr td.weekend[data-title]:before {
-    color: #9c9c9c;
+    color: #8f8f8f;
   }
 
   td.single-day:before,
@@ -3919,6 +3920,14 @@ ul.calendar-links,
   margin-bottom: 1rem;
 }
 
+#cboxTitle {
+  color: #424242 !important;
+}
+
+#cboxCurrent {
+  color: #8a8a8a !important;
+}
+
 @media (min-width: 20em) {
   .view-filters .button-expand {
     display: inline;
@@ -4166,7 +4175,7 @@ div.date-views-pager div.next-year {
 .node-type-access-information .general-left .field-name-field-shared-byline {
   font-size: 16px;
   font-size: 1rem;
-  color: #4f4f4f;
+  color: #424242;
   font-weight: bold;
   margin-bottom: 0.75rem;
 }
@@ -4327,6 +4336,7 @@ div.date-views-pager div.next-year {
   text-transform: uppercase;
   line-height: 1;
   font-weight: bold;
+  color: #424242;
 }
 @media (min-width: 60em) {
   .node-type-access-information .general-left .pane-node-field-event-date .pane-title,
@@ -4412,7 +4422,9 @@ div.date-views-pager div.next-year {
   padding-top: 1rem;
 }
 .node-type-event .pane-node-field-event-date {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  color: #424242;
+  font-weight: bold;
 }
 .node-type-event .general-left .pane-node-body {
   margin-top: 3.5rem;
@@ -4876,11 +4888,15 @@ div.date-views-pager div.next-year {
 .node-type-flea-market-post .pane-node-field-flea-market-item-type {
   font-size: 24px;
   font-size: 1.5rem;
+  color: #8a8a8a;
 }
 @media (min-width: 60em) {
   .node-type-flea-market-post .pane-node-field-flea-market-item-type {
     font-size: initial;
   }
+}
+.node-type-flea-market-post .pane-node-created {
+  font-weight: bold;
 }
 .node-type-flea-market-post .panel-pane.pane-slac-ip-panes-email,
 .node-type-flea-market-post .pane-slac-ip-panes-print {
@@ -4902,13 +4918,14 @@ div.date-views-pager div.next-year {
   }
   .node-type-flea-market-post .panel-pane.pane-slac-ip-panes-email a,
   .node-type-flea-market-post .pane-slac-ip-panes-print a {
-    border-right: 1px solid #a8a8a8;
+    border-right: 1px solid #9b9b9b;
     margin-right: 1.5rem;
     padding-right: 1.5rem;
   }
 }
 .node-type-flea-market-post .pane-slac-ip-node-author .pane-title {
   margin-right: 0.4rem;
+  color: #424242;
 }
 .node-type-flea-market-post .pane-slac-ip-panes-print {
   top: 48px;
@@ -4954,7 +4971,7 @@ div.date-views-pager div.next-year {
 }
 
 .report-as-inappropriate {
-  background: #f2f2f2;
+  background: #e8e8e8;
   padding: 1rem;
   margin-top: 1rem;
 }
@@ -5022,7 +5039,7 @@ div.date-views-pager div.next-year {
 }
 .report-as-inappropriate .close-x {
   display: inline-block;
-  color: #6a6a6a;
+  color: #636363;
   margin-right: 12px;
 }
 .report-as-inappropriate .flag-flea-market-inappropriate {
@@ -5069,23 +5086,23 @@ div.date-views-pager div.next-year {
 .page-flea-market .my-flea-market-nav a {
   display: block;
   padding: .4rem .5rem;
-  background: #ebebeb url(../images/right-arrow.png) 98% 0.5rem no-repeat;
+  background: #e8e8e8 url(../images/right-arrow.png) 98% 0.5rem no-repeat;
   color: #316dae;
   text-decoration: none;
   margin-bottom: .5rem;
 }
 @media (min-width: 60em) {
   .page-flea-market .my-flea-market-nav a {
-    background: #ebebeb;
+    background: #e8e8e8;
   }
 }
 .page-flea-market .my-flea-market-nav a:hover, .page-flea-market .my-flea-market-nav a:focus {
-  background: #848484 url(../images/right-arrow.png) 98% -1.75rem no-repeat;
+  background: #ababab url(../images/right-arrow.png) 98% -1.75rem no-repeat;
   color: #ffffff;
 }
 @media (min-width: 60em) {
   .page-flea-market .my-flea-market-nav a:hover, .page-flea-market .my-flea-market-nav a:focus {
-    background: #848484;
+    background: #ababab;
   }
 }
 .page-flea-market .l-general-one-col {
@@ -5156,7 +5173,6 @@ div.date-views-pager div.next-year {
 .page-flea-market .views-field-changed {
   min-width: 125px;
   font-weight: bold;
-  color: #2f2f2f;
 }
 .page-flea-market .views-field-changed .date-updated-time {
   font-weight: normal;
@@ -5322,7 +5338,7 @@ select {
   background: #ffffff;
   border-radius: 0;
   border-image: none;
-  color: #9d9d9d;
+  color: #8a8a8a;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -5345,6 +5361,7 @@ input[type="checkbox"],
 input[type="password"],
 textarea {
   border: 1px solid #316dae;
+  color: #8a8a8a;
 }
 
 fieldset {
@@ -5379,7 +5396,7 @@ fieldset.collapsed {
 }
 @media (min-width: 60em) {
   .footer-wrapper .footer-inner {
-    background: #dadada;
+    background: #dbdbdb;
   }
 }
 .footer-wrapper a,
@@ -5478,8 +5495,8 @@ fieldset.collapsed {
 }
 @media (min-width: 60em) {
   .footer-wrapper {
-    background: #dadada;
-    color: #828282;
+    background: #dbdbdb;
+    color: #757575;
   }
   .footer-wrapper .region-footer {
     background: transparent;
@@ -5488,7 +5505,7 @@ fieldset.collapsed {
     color: #285385;
   }
   .footer-wrapper .footer-info {
-    border-bottom: 1px solid #b5b5b5;
+    border-bottom: 1px solid #a8a8a8;
   }
 }
 
@@ -5543,7 +5560,6 @@ fieldset.collapsed {
   padding: 0;
   margin-bottom: 2.25rem;
   background: #ffffff;
-  color: #636363;
   border-radius: 2px;
   border: 1px solid #316dae;
   border: 1px solid #aebdc5;
@@ -6503,14 +6519,14 @@ fieldset.collapsed {
 }
 @media (min-width: 60em) {
   #header .date {
-    color: #4f4f4f;
+    color: #424242;
     top: 0.3rem;
     left: 10.94rem;
   }
 }
 @media (min-width: 70em) {
   #header .date {
-    color: #4f4f4f;
+    color: #424242;
     top: 0.3rem;
     left: 0;
   }
@@ -6530,7 +6546,6 @@ fieldset.collapsed {
   font-size: 14px;
   font-size: 0.875rem;
   display: block;
-  color: #474747;
   float: left;
   margin: 0;
   margin-left: 10px;
@@ -6620,7 +6635,6 @@ fieldset.collapsed {
   background: #ffffff;
   border-radius: 0;
   border-image: none;
-  color: #9d9d9d;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -6645,7 +6659,7 @@ fieldset.collapsed {
   width: 100%;
   border-radius: 0;
   border-image: none;
-  color: #9d9d9d;
+  color: #8a8a8a;
   padding: 4px 80px 2px 4px;
   overflow: hidden;
   height: 27px;
@@ -6825,7 +6839,6 @@ fieldset.collapsed {
 .view-my-content .date-updated-time,
 .view-my-content .date-created-time {
   font-weight: normal;
-  color: #2f2f2f;
 }
 @media all and (max-width: 70em) {
   .view-my-content .view-filters {
@@ -7533,7 +7546,7 @@ fieldset.collapsed {
   padding: .5rem .6rem;
   color: #5b93d1;
   font-weight: normal;
-  background: #f2f2f2;
+  background: #e8e8e8;
   text-decoration: none;
 }
 .item-list .pager li a:hover, .item-list .pager li a:focus {
@@ -7629,7 +7642,7 @@ fieldset.collapsed {
   font-size: 0.75rem;
   border-bottom: 3px solid #b1c0c7;
   text-transform: uppercase;
-  color: #4f4f4f;
+  color: #424242;
   margin-bottom: 0.6rem;
   padding-bottom: .1rem;
 }

@@ -30,7 +30,7 @@
 
   .form-actions {
     width: 100%;
-    border: 1px dotted $event-border;
+    border: 1px dotted $color-gray-loblolly;
 
     @include breakpoint($tablet-small) {
       width: auto;

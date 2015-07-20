@@ -3,7 +3,8 @@ body {
   @include font-size($base-font-size);
   line-height: $base-line-height;
   font-weight: normal;
-  background: $home-background;
+  background: $color-gray-mercury;
+  color: $color-gray-tundora;
 }
 
 a,
@@ -31,7 +32,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: $headings-color;
+  color: $color-gray-cod;
   font-weight: bold;
 }
 
@@ -57,7 +58,7 @@ ol {
 }
 
 hr {
-  border: dotted $event-border;
+  border: dotted $color-gray-loblolly;
   border-width: 3px 0 0;
   clear: both;
   height: 0;
