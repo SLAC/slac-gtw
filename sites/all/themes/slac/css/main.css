@@ -6288,12 +6288,12 @@ fieldset.collapsed {
   font-size: 0.8em;
 }
 .frontpage-weather .forecast .hight {
-  padding: 0 6px 0  4px;
+  padding: 0 6px 0 4px;
   font-size: 11px;
   background: url("../images/grade-dark.jpg") no-repeat right 3px;
 }
 .frontpage-weather .forecast .low {
-  padding: 0 6px 0  4px;
+  padding: 0 6px 0 4px;
   font-size: 11px;
   background: url("../images/grade-dark.jpg") no-repeat right 3px;
   color: #b6afa6;
