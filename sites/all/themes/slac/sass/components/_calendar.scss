@@ -51,17 +51,17 @@
     li {
       border-radius: 0;
       background: $white;
-      border: 1px solid $color-gray-alto;
+      border: 1px solid $color-gray-silver-chalice;
       margin: 0;
       margin-left: -1px;
 
       &:hover {
         background: $grey;
-        border: 1px solid $grey;
+        border: 1px solid $color-gray-silver-chalice;
       }
 
       &.is-active {
-        background: $grey;
+        background: $color-gray-dove;
         color: $white;
         border: 1px solid $grey;
 
@@ -84,8 +84,8 @@
 
         &:hover,
         &:focus {
-          background: $grey;
-          border-color: $grey;
+          background: $color-gray-dove;
+          border-color: $color-gray-silver-chalice;
           color: $white;
         }
       }
@@ -215,8 +215,8 @@
 
 // format days of the week header cells
 .calendar-calendar th.days {
-  background-color: color(grey-blue-light);
-  color: #ccc;
+  background: color(grey-blue-light);
+  color: $color-gray-cod;
   text-align: center;
   padding: 1px;
   margin: 0;
@@ -228,7 +228,7 @@
   text-align: center;
   padding: 0.125em 0.25em 0 0.25em;
   margin: 0;
-  border: 1px solid gray;
+  border: 1px solid color(grey-blue);
   border-width: 0 0 1px 1px;
   clear: both;
   width: 1.5em;
@@ -452,12 +452,12 @@ table.calendar-legend tr.even .stripe {
 
 .calendar-calendar div.date-nav a,
 .calendar-calendar div.date-nav h3 {
-  color: #777;
+  color: $color-gray-cod;
   text-decoration: none;
 }
 
 .calendar-calendar th.days {
-  color: #777;
+  color: $color-gray-cod;
   font-weight: bold;
   border: 2px solid color(grey-blue);
 }
@@ -1137,7 +1137,7 @@ ul.calendar-links,
       width: 200px;
       position: relative;
       left: 0;
-      color: lighten($color-gray-tundora, 10%);
+      color: $color-gray-dove;
     }
   }
 }
