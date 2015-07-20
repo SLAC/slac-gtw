@@ -199,7 +199,7 @@ sass/
 
 ## Grid and layout
 
-The site's grid is configured to use 12 columns.  The site's layout structure is defined in `layouts/_layout.scss` as follows:
+The site's grid is configured to use 12 columns.  The site's layout structure is defined in `/sass/layouts/_layout.scss` as follows:
 ```css
 .l-main {
   @include zen-grid-item(12, 1);
@@ -227,20 +227,30 @@ The homepage is broken down in three columns:
 .front-first-column
 .front-last-column
 ```
+`.front-main-column` is about 42% the width of the site’s container (.l-main)
+`.front-first-column` is 25%
+`.front-last-column` is 33%
+
 
 Pages that are broken down in two columns look like this:
 ```
-.general-two-col
-
-    .general-left
-
-    .general-right
+.general-left
+.general-right
 ```
+`.general-left` is about 58% the width of the site’s container (.l-main)
+`.general-right` is 25%
+
+
+
+
+The two column layout spans 10 columns out of the grid’s 12 starting on column 2.
+
+
 
 One column pages:
-`.l-genral-one-col` at 83% the width of .l-main.
+`.l-general-one-col` at 83% the width of .l-main.  As with the two column layout, the one column layout also spans for 10 columns out the grid's 12 starting at column 2.
 
-All pages default to 1 column at 100% width on mobile devices.
+All pages default to 1 column at 100% width on mobile devices with 20px of padding on left and right.
 
 
 **[⬆ back to top](#markdown-header-table-of-contents)**
@@ -251,9 +261,9 @@ All pages default to 1 column at 100% width on mobile devices.
 Responsive design was accomplished by taking advantage of Zen grids, Breakpoint and Sass.
 All pages default to a single column or 100% in width on mobile devices.  As the device's increase in size (tablets), the site's structure changes to multiple columns allowing for better content placements.  This process continues all the way to large desktop.  At its widest, the site is rearranged into three columns (i.e. homepage).  Most other pages retain a two column layout (.general-left and .general-right).
 Other unique pages such as listing pages, calendar and search results stay at
-a single wolumn expanding to about 83% of the site's width.
+a single column expanding to about 83% of the site's width.
 
-In addition to traditional pages, several tables througout the site were transformed into [responsive tables](http://blog.apps.npr.org/2014/05/09/responsive-data-tables.html).  Tables such as My Content and Calendar provide a better user experience in mobile.
+In addition to traditional pages, several tables throughout the site were transformed into [responsive tables](http://blog.apps.npr.org/2014/05/09/responsive-data-tables.html).  Tables such as My Content and Calendar provide a better user experience in mobile.
 
 The following breakpoints were created to handle the different layouts on different devices:
 ```
@@ -292,11 +302,11 @@ video {
 
 ## Events Calendar
 
-The events calendar located under `/calendar` presented many development and theming challenges because of complexity of calendars in general.
+The events calendar located under _/calendar_ presented many development and theming challenges because of complexity of calendars in general.
 
-Events are color-coded based on their type.  For this we created a simply color map to be used on each event.  Event types are applied thorugh a taxonomy terms.  By appending the taxonomy machine name to each event as a css class we are able to target the color-coding with Sass.
+Events are color-coded based on their type.  For this we created a simply color map to be used on each event.  Event types are applied through a taxonomy terms.  By appending the taxonomy machine name to each event as a css class we are able to target the color-coding with Sass.
 
-The color map can be found under `/sass/utilities/events-color-legend.scss` and it looks like this:
+The color map can be found under `/sass/utilities/_events-color-legend.scss` and it looks like this:
 ```sass
 $color: (
   red: #de0105,
@@ -349,7 +359,7 @@ validation for when colors are used:
 }
 ```
 
-Finally, to appy a color to an element or selector we do as follows:
+Finally, to apply a color to an element or selector we do as follows:
 ```css
 .selector__name {
   color: color(pink);
@@ -357,9 +367,9 @@ Finally, to appy a color to an element or selector we do as follows:
 }
 ```
 
-### Applying color to event types ###
+### Applying color to events by type ###
 
-Since calendar events color-code would be consistent across the site and in all device sizes, we gathered all rules for applying color to events into a single Sass partial, which can be found under `/sass/components/calendar-events-by-color.scss`.
+Since calendar events color-code would be consistent across the site and in all device sizes, we gathered all rules for applying color to events into a single Sass partial, which can be found under `/sass/components/_calendar-events-by-color.scss`.
 
 First we created a general rule that would apply to all events:
 ```
@@ -420,7 +430,7 @@ Important to note, if a new event type is added to the list of existing event ty
 **Note**
   >  The above color map can be used on any selector and it's not exclusive to the calendar.  However as of now the calendar is where it's being more widely used.
 
-=======
+***
 
 As far as responsive theming for calendar, we used the same technique as we've done on tables.  After all, most of the calendar is built using tables.
 
