@@ -6220,6 +6220,9 @@ fieldset.collapsed {
   font-weight: bold;
   width: 85%;
 }
+.frontpage-calendar .views-field-title {
+  line-height: 1.3;
+}
 .frontpage-calendar .views-field-nothing {
   font-weight: initial;
 }
