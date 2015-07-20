@@ -40,7 +40,13 @@
   <?php foreach ($rows as $row_count => $row): ?>
     <tr <?php if ($row_classes[$row_count]) { print 'class="' . implode(' ', $row_classes[$row_count]) .'"';  } ?>>
       <?php foreach ($row as $field => $content): ?>
-        <td data-title="<?php print $header_raw[$field]; ?>" <?php if ($field_classes[$field][$row_count]) { print 'class="'. $field_classes[$field][$row_count] . '" '; } ?><?php print drupal_attributes($field_attributes[$field][$row_count]); ?>>
+        <?php
+        $data_title = '';
+        if (isset($header_raw[$field])) :
+          $data_title = $header_raw[$field];
+        endif;
+        ?>
+        <td data-title="<?php $data_title ?>" <?php if ($field_classes[$field][$row_count]) { print 'class="'. $field_classes[$field][$row_count] . '" '; } ?><?php print drupal_attributes($field_attributes[$field][$row_count]); ?>>
           <?php print $content; ?>
         </td>
       <?php endforeach; ?>
