@@ -5876,6 +5876,9 @@ fieldset.collapsed {
   float: left;
   outline: none;
 }
+.frontpage-people-finder .pane-content {
+  padding-bottom: 0.4rem;
+}
 .frontpage-people-finder .searchbox {
   font-size: 12px;
   font-size: 0.75rem;
@@ -5903,7 +5906,7 @@ fieldset.collapsed {
   font-size: 0.6875rem;
   display: block;
   clear: both;
-  padding: 0.6rem 0 0 0.9rem;
+  padding: 0.4rem 0 0 0.9rem;
   background: url("../images/arrow-dot-line.png") no-repeat left 15px;
 }
 @media (min-width: 70em) {

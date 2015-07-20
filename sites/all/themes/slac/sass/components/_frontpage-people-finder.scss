@@ -6,6 +6,10 @@
     outline: none;
   }
 
+  .pane-content {
+    padding-bottom: 0.4rem;
+  }
+
   .searchbox {
     @include font-size(12px);
     height: 1.313rem;
@@ -32,7 +36,7 @@
     @include font-size(11px);
     display: block;
     clear: both;
-    padding: 0.6rem 0 0 0.9rem;
+    padding: 0.4rem 0 0 0.9rem;
     background: url('../images/arrow-dot-line.png') no-repeat left 15px;
   }
 
