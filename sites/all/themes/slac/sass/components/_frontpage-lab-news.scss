@@ -21,30 +21,35 @@
     padding: 0;
   }
 
-  .item-list .views-row {
-    padding: 0.5rem;
-    background: $white url('../images/list-arrow-new.jpg') no-repeat right center;
-    margin: 0;
-    margin-bottom: 1rem;
-
-    @include breakpoint($tablet-small) {
-      background: none;
+  .item-list ul {
+    .views-row {
+      padding: 0.5rem;
+      background: $white url('../images/list-arrow-new.jpg') no-repeat right center;
       margin: 0;
-      padding: 0 1rem;
-    }
-
-    a {
-      @include font-size(12px);
-      line-height: 1.4;
-      display: block;
-      box-sizing: border-box;
-      width: 100%;
-      padding-right: 3.75rem;
+      margin-bottom: 1rem;
 
       @include breakpoint($tablet-small) {
-        display: inline;
-        width: 98%;
-        padding-right: 4px;
+        background: none;
+        margin: 0;
+        padding: 0 1rem;
+        padding-left: 0;
+        list-style: disc;
+        color: $blue;
+      }
+
+      a {
+        @include font-size(12px);
+        line-height: 1.4;
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        padding-right: 3.75rem;
+
+        @include breakpoint($tablet-small) {
+          display: inline;
+          width: 98%;
+          padding-right: 4px;
+        }
       }
     }
 
@@ -58,6 +63,12 @@
     div.views-field-title,
     div.views-field-created {
       display: inline;
+    }
+  }
+
+  @include breakpoint($tablet-small) {
+    .item-list ul {
+      padding-left: 2rem;
     }
   }
 
