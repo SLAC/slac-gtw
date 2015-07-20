@@ -33,7 +33,19 @@ function v_search_form_views_exposed_form_alter(&$form, &$form_state, $form_id) 
         ),
       ),
     );
+
+    // Order the secondary filters to match the comp instead of the logical
+    // grouping.
+    $secondary = $form['secondary'];
+    $offset = array_search('created-from', array_keys($secondary));
+    $type_filter = $secondary['type'];
+    unset($secondary['type']);
+    $form['secondary'] = array_slice($secondary, 0, $offset, TRUE) +
+      array('type' => $type_filter) +
+      array_slice($secondary, $offset, NULL, TRUE);
+
     $form['secondary']['created-from']['#prefix'] = '<div class="exposed-date-label">Select date range:</div>';
+
     // Reorder the form values and unset the originals.
     $form['search']['search_container']['search_api_views_fulltext'] = $form['search_api_views_fulltext'];
     unset($form['search_api_views_fulltext']);
