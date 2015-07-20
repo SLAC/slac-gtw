@@ -17,8 +17,12 @@
       color: $blue;
       text-decoration: none;
 
+      &:hover {
+        text-decoration: underline;
+      }
+
       @include breakpoint($tablet-small) {
-        color: $white;
+        color: $slider-title;
       }
     }
   }
@@ -39,6 +43,10 @@
       overflow: hidden;
       position: absolute;
       bottom: 0;
+    }
+
+    .body a {
+      color: $slider-teaser;
     }
   }
 }
