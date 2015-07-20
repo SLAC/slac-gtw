@@ -28,6 +28,10 @@ function slac_ip_content_admin_form_alter(&$form, &$form_state, $form_id) {
     if (strpos($form['#id'], 'views-exposed-form-administration-nodes-slac-') === 0) {
       $form['date_filter']['min']['#title'] = t('From Post Date');
       $form['date_filter']['max']['#title'] = t('To Post Date');
+
+      $form['#attached']['css'] = array(
+        drupal_get_path('module', 'slac_ip_content_admin') . '/css/slac_ip_content_admin.css',
+      );
     }
   }
 }
