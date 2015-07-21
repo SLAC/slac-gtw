@@ -5831,33 +5831,6 @@ fieldset.collapsed {
     font-size: 11px;
     font-size: 0.6875rem;
     color: #316dae;
-    list-style: inherit;
-    list-style-position: inside;
-  }
-  .frontpage-top-links .top-links-list .list-link-item,
-  .frontpage-top-links .organization-index-list .list-link-item,
-  .frontpage-directorate-links .top-links-list .list-link-item,
-  .frontpage-directorate-links .organization-index-list .list-link-item {
-    float: left;
-    width: 49%;
-    background: none;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  .frontpage-top-links .top-links-list .list-link-item a,
-  .frontpage-top-links .organization-index-list .list-link-item a,
-  .frontpage-directorate-links .top-links-list .list-link-item a,
-  .frontpage-directorate-links .organization-index-list .list-link-item a {
-    padding-left: 0;
-  }
-}
-@media (min-width: 70em) {
-  .frontpage-top-links .top-links-list,
-  .frontpage-top-links .organization-index-list,
-  .frontpage-directorate-links .top-links-list,
-  .frontpage-directorate-links .organization-index-list {
-    padding-left: 0;
-    list-style: none;
   }
   .frontpage-top-links .top-links-list .list-link-item,
   .frontpage-top-links .organization-index-list .list-link-item,
@@ -5868,8 +5841,10 @@ fieldset.collapsed {
     width: 100%;
     margin-top: 0.45rem;
     margin-bottom: 0.45rem;
+    float: left;
+    width: 47%;
     margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
   }
   .frontpage-top-links .top-links-list .list-link-item a,
   .frontpage-top-links .organization-index-list .list-link-item a,
@@ -5880,6 +5855,106 @@ fieldset.collapsed {
     display: block;
     background: none;
     padding: 0.3rem 0.5rem;
+  }
+  .frontpage-top-links .top-links-list .list-link-item.views-row-odd,
+  .frontpage-top-links .organization-index-list .list-link-item.views-row-odd,
+  .frontpage-directorate-links .top-links-list .list-link-item.views-row-odd,
+  .frontpage-directorate-links .organization-index-list .list-link-item.views-row-odd {
+    margin-right: 6%;
+  }
+  .frontpage-top-links .top-links-list .list-link-item a,
+  .frontpage-top-links .organization-index-list .list-link-item a,
+  .frontpage-directorate-links .top-links-list .list-link-item a,
+  .frontpage-directorate-links .organization-index-list .list-link-item a {
+    padding-left: 1rem;
+  }
+}
+@media (min-width: 70em) {
+  .frontpage-top-links .blue-striped-list,
+  .frontpage-top-links .blue-dashed-list,
+  .frontpage-directorate-links .blue-striped-list,
+  .frontpage-directorate-links .blue-dashed-list {
+    padding-bottom: 0.5rem;
+  }
+  .frontpage-top-links .blue-striped-list:after,
+  .frontpage-top-links .blue-dashed-list:after,
+  .frontpage-directorate-links .blue-striped-list:after,
+  .frontpage-directorate-links .blue-dashed-list:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .frontpage-top-links .top-links-list,
+  .frontpage-directorate-links .top-links-list {
+    font-size: 11px;
+    font-size: 0.6875rem;
+    color: #316dae;
+    padding-left: 1.5rem;
+  }
+  .frontpage-top-links .top-links-list .list-link-item,
+  .frontpage-directorate-links .top-links-list .list-link-item {
+    background: none;
+    list-style: disc;
+    float: left;
+    width: 47%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .frontpage-top-links .top-links-list .list-link-item.views-row-odd,
+  .frontpage-directorate-links .top-links-list .list-link-item.views-row-odd {
+    margin-right: 6%;
+  }
+  .frontpage-top-links .top-links-list .list-link-item a,
+  .frontpage-directorate-links .top-links-list .list-link-item a {
+    padding-left: 0;
+  }
+}
+@media (min-width: 70em) {
+  .frontpage-top-links .blue-dashed-list,
+  .frontpage-directorate-links .blue-dashed-list {
+    padding-bottom: 0.5rem;
+  }
+  .frontpage-top-links .blue-dashed-list:after,
+  .frontpage-directorate-links .blue-dashed-list:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .frontpage-top-links .organization-index-list,
+  .frontpage-directorate-links .organization-index-list {
+    font-size: 11px;
+    font-size: 0.6875rem;
+    color: #316dae;
+  }
+  .frontpage-top-links .organization-index-list .list-link-item,
+  .frontpage-directorate-links .organization-index-list .list-link-item {
+    background: #e9f2f9;
+    border: none;
+    width: 100%;
+    margin-top: 0.45rem;
+    margin-bottom: 0.45rem;
+    background: #eaeef0;
+    float: left;
+    width: 46%;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    border: 1px dashed #316dae;
+  }
+  .frontpage-top-links .organization-index-list .list-link-item a,
+  .frontpage-directorate-links .organization-index-list .list-link-item a {
+    font-size: 11px;
+    font-size: 0.6875rem;
+    display: block;
+    background: none;
+    padding: 0.3rem 0.5rem;
+  }
+  .frontpage-top-links .organization-index-list .list-link-item.views-row-odd,
+  .frontpage-directorate-links .organization-index-list .list-link-item.views-row-odd {
+    margin-right: 6%;
+  }
+  .frontpage-top-links .organization-index-list .list-link-item a,
+  .frontpage-directorate-links .organization-index-list .list-link-item a {
+    padding-left: 1rem;
   }
 }
 .frontpage-top-links .view-footer,
