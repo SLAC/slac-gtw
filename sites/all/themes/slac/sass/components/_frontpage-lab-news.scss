@@ -21,37 +21,43 @@
     padding: 0;
   }
 
-  .item-list .views-row {
-    padding: 0.5rem;
-    background: $white url('../images/list-arrow-new.jpg') no-repeat right center;
-    margin: 0;
-    margin-bottom: 1rem;
-
-    @include breakpoint($tablet-small) {
-      background: none;
+  .item-list ul {
+    .views-row {
+      padding: 0.5rem;
+      background: $white url('../images/list-arrow-new.jpg') no-repeat right center;
       margin: 0;
-      padding: 0 1rem;
-    }
-
-    a {
-      @include font-size(12px);
-      line-height: 1.4;
-      display: block;
-      box-sizing: border-box;
-      width: 100%;
-      padding-right: 3.75rem;
+      margin-bottom: 1rem;
 
       @include breakpoint($tablet-small) {
-        display: inline;
-        width: 98%;
-        padding-right: 4px;
+        background: none;
+        margin: 0;
+        margin-bottom: 0.3rem;
+        padding: 0 1rem 0 0;
+        line-height: 1;
+        list-style: disc;
+        color: $blue;
+      }
+
+      a {
+        @include font-size(12px);
+        line-height: 1.4;
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        padding-right: 3.75rem;
+
+        @include breakpoint($tablet-small) {
+          display: inline;
+          width: 98%;
+          padding-right: 4px;
+        }
       }
     }
 
     .views-field-created {
       @include font-size(11px);
       font-style: italic;
-      color: $grey-homepage;
+      color: $color-gray-dove;
       letter-spacing: 0.03rem;
     }
 
@@ -61,11 +67,16 @@
     }
   }
 
+  @include breakpoint($tablet-small) {
+    .item-list ul {
+      padding-left: 2rem;
+    }
+  }
+
   .view-footer {
     a {
       @include font-size(14px);
       padding: 0.5rem;
-      margin-bottom: 0.5rem;
       display: block;
       background: $light-blue url('../images/mobile-menu-arrow.png') no-repeat 98% center;
       color: $blue;

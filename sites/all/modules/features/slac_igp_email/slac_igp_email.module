@@ -8,7 +8,7 @@ include_once 'slac_igp_email.features.inc';
 define('VIEW_MODE_TEASER', 'teaser');
 define('VIEW_MODE_LINK', 'link');
 define('DIRECTOR_COLUMN', 'DIRECTOR\'S COLUMNS');
-define('IMAGE_SOURCE_FIELD', 'field_news_image_source');
+define('IMAGE_SOURCE_FIELD', 'field_shared_image');
 
 
 /**
@@ -288,13 +288,13 @@ function slac_igp_email_preprocess_slac_igp_director_column(&$vars) {
   }
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
-    ->entityCondition('bundle', 'news_article')
+    ->entityCondition('bundle', array('access_information', 'event', 'news'), 'IN')
     ->propertyCondition('status', 1)
-    ->fieldCondition('field_tags', 'tid', $tid)
+    ->fieldCondition('field_shared_tags', 'tid', $tid)
+    ->fieldCondition('field_shared_promote_news', 'value', 1, '=')
     ->propertyOrderBy('created', 'DESC')
     ->range(0, 1);
   $result = $query->execute();
-  
   if (!empty($result)) {
     $node = current($result['node']);
     $vars['director_column'] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=teaser]';
@@ -353,8 +353,9 @@ function _slac_igp_email_generate_items($type, $last_campaign = array()) {
   }
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
-    ->entityCondition('bundle', 'news_article')
-    ->propertyCondition('status', 1);
+    ->entityCondition('bundle', array('access_information', 'event', 'news'), 'IN')
+    ->propertyCondition('status', 1)
+    ->fieldCondition('field_shared_promote_news', 'value', 1, '=');
 
   if ($type == 'promoted') {
     $query->propertyCondition('promote', 1);
@@ -385,8 +386,9 @@ function _slac_igp_email_generate_items_views($type, $last_campaign = array()) {
   }
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
-    ->entityCondition('bundle', 'news_article')
-    ->propertyCondition('status', 1);
+    ->entityCondition('bundle', array('access_information', 'event', 'news'), 'IN')
+    ->propertyCondition('status', 1)
+    ->fieldCondition('field_shared_promote_news', 'value', 1, '=');
 
   if ($type == 'promoted') {
     $query->propertyCondition('promote', 1);

@@ -41,15 +41,6 @@ function slac_ip_config_moderation_user_default_permissions() {
     'module' => 'workbench',
   );
 
-  // Exported permission: 'administer workbench emails'.
-  $permissions['administer workbench emails'] = array(
-    'name' => 'administer workbench emails',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'workbench_email',
-  );
-
   // Exported permission: 'administer workbench moderation'.
   $permissions['administer workbench moderation'] = array(
     'name' => 'administer workbench moderation',
@@ -67,6 +58,124 @@ function slac_ip_config_moderation_user_default_permissions() {
       'editor' => 'editor',
     ),
     'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'create draft for access_information nodes in draft state'.
+  $permissions['create draft for access_information nodes in draft state'] = array(
+    'name' => 'create draft for access_information nodes in draft state',
+    'roles' => array(
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'slac_ip_config_moderation',
+  );
+
+  // Exported permission: 'create draft for access_information nodes in needs_review state'.
+  $permissions['create draft for access_information nodes in needs_review state'] = array(
+    'name' => 'create draft for access_information nodes in needs_review state',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+      'manager' => 'manager',
+    ),
+    'module' => 'slac_ip_config_moderation',
+  );
+
+  // Exported permission: 'create draft for access_information nodes in published state'.
+  $permissions['create draft for access_information nodes in published state'] = array(
+    'name' => 'create draft for access_information nodes in published state',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+      'manager' => 'manager',
+    ),
+    'module' => 'slac_ip_config_moderation',
+  );
+
+  // Exported permission: 'create draft for event nodes in draft state'.
+  $permissions['create draft for event nodes in draft state'] = array(
+    'name' => 'create draft for event nodes in draft state',
+    'roles' => array(
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'slac_ip_config_moderation',
+  );
+
+  // Exported permission: 'create draft for event nodes in needs_review state'.
+  $permissions['create draft for event nodes in needs_review state'] = array(
+    'name' => 'create draft for event nodes in needs_review state',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+      'manager' => 'manager',
+    ),
+    'module' => 'slac_ip_config_moderation',
+  );
+
+  // Exported permission: 'create draft for event nodes in published state'.
+  $permissions['create draft for event nodes in published state'] = array(
+    'name' => 'create draft for event nodes in published state',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+      'manager' => 'manager',
+    ),
+    'module' => 'slac_ip_config_moderation',
+  );
+
+  // Exported permission: 'create draft for flea_market_post nodes in draft state'.
+  $permissions['create draft for flea_market_post nodes in draft state'] = array(
+    'name' => 'create draft for flea_market_post nodes in draft state',
+    'roles' => array(
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'slac_ip_config_moderation',
+  );
+
+  // Exported permission: 'create draft for flea_market_post nodes in needs_review state'.
+  $permissions['create draft for flea_market_post nodes in needs_review state'] = array(
+    'name' => 'create draft for flea_market_post nodes in needs_review state',
+    'roles' => array(),
+    'module' => 'slac_ip_config_moderation',
+  );
+
+  // Exported permission: 'create draft for flea_market_post nodes in published state'.
+  $permissions['create draft for flea_market_post nodes in published state'] = array(
+    'name' => 'create draft for flea_market_post nodes in published state',
+    'roles' => array(
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'slac_ip_config_moderation',
+  );
+
+  // Exported permission: 'create draft for news nodes in draft state'.
+  $permissions['create draft for news nodes in draft state'] = array(
+    'name' => 'create draft for news nodes in draft state',
+    'roles' => array(
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'slac_ip_config_moderation',
+  );
+
+  // Exported permission: 'create draft for news nodes in needs_review state'.
+  $permissions['create draft for news nodes in needs_review state'] = array(
+    'name' => 'create draft for news nodes in needs_review state',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+      'manager' => 'manager',
+    ),
+    'module' => 'slac_ip_config_moderation',
+  );
+
+  // Exported permission: 'create draft for news nodes in published state'.
+  $permissions['create draft for news nodes in published state'] = array(
+    'name' => 'create draft for news nodes in published state',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+      'manager' => 'manager',
+    ),
+    'module' => 'slac_ip_config_moderation',
   );
 
   // Exported permission: 'moderate access_information state from draft to needs_review'.

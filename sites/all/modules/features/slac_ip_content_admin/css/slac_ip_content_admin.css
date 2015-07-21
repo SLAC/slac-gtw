@@ -1,0 +1,8 @@
+
+/**
+ * Match the Admin Views date filter style by hiding the date widget
+ * description text.
+ */
+.admin-views-view .views-widget-filter-date_filter .description {
+  display: none;
+}

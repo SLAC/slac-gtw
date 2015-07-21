@@ -17,26 +17,34 @@ $grey: #6a6a6a;
 $grey-dropdown: #6c676c;
 $grey-filters-border: #dfdfdf;
 $dim-grey: #4f4f4f;
-$search-text-color: #474747;
-$event-date: #2f2f2f;
-$grey-homepage: #636363;
-$dim-grey: #4f4f4f;
 $grey-labels: #747474;
 $grey-footer-dark: #9a9a9a;
-$grey-footer-light: #dadada;
 $grey-primary-tabs: #eee;
 $grey-primary-tabs-border: #adadad;
-$headings-color: #1e1e1e;
-$light-grey: lighten($dim-grey, 64%); // used on pagers
-$event-border: #b1c0c7;
+$sub-headings-color: #4c4c4c;
+$light-grey: lighten($dim-grey, 64%);
 $event-body: #2b2b2b;
 $default-table-borders: #e2e2e2;
 $feedback-form-background: #f8f8f8;
 $feedback-form-border: #e2e2e2;
 $feedback-fields-border: #7c7c7c;
-$home-background: #e8e8e8;
 $grey-blue-dark: #a8bcc7;
-$grey-search-box: #ebebeb;
 $grey-search-border: #cecdce;
 $grey-search-text: #535353;
-$homepage-dashed-line: #154E6B
+$homepage-dashed-line: #154E6B;
+$weather-heading: #5d5d5d;
+$slider-title: #f6f6f6;
+$slider-teaser: #dcdcdc;
+
+$color-gray-mercury: #e8e8e8;
+$color-gray-alto: #dbdbdb;
+$color-gray-silver-chalice: #ababab;
+$color-gray: #8a8a8a;
+$color-gray-dove: #636363;
+$color-gray-tundora: #424242;
+$color-gray-cod: #1e1e1e;
+
+$color-gray-porcelain: #eaeef0;
+$color-gray-geyser: #d6dee2;
+$color-gray-loblolly: #b1c0c7;
+$color-gray-gull: #93a8b2;

@@ -28,6 +28,31 @@ function slac_ip_content_admin_form_alter(&$form, &$form_state, $form_id) {
     if (strpos($form['#id'], 'views-exposed-form-administration-nodes-slac-') === 0) {
       $form['date_filter']['min']['#title'] = t('From Post Date');
       $form['date_filter']['max']['#title'] = t('To Post Date');
+
+      $form['#attached']['css'] = array(
+        drupal_get_path('module', 'slac_ip_content_admin') . '/css/slac_ip_content_admin.css',
+      );
+    }
+  }
+}
+
+/**
+ * Implements hook_views_query_alter().
+ *
+ * Updates the Content Type sort in the Content admin view to sort as if it were
+ * 'basic_page' instead of the actual machine name: 'page'.
+ */
+function slac_ip_content_admin_views_query_alter(&$view, &$query) {
+  if ($view->name == 'administration_nodes_slac') {
+    if ($query->orderby[0]['field'] == 'node_type') {
+      $dir = $query->orderby[0]['direction'];
+      $query->orderby = array(array(
+        'field' => 'CASE node_type
+            WHEN \'page\' THEN \'basic_page\'
+            ELSE node_type
+          END',
+        'direction' => $dir,
+      ));
     }
   }
 }

@@ -11,7 +11,8 @@ $zen-column-count: 12;
   padding-bottom: 2rem;
 
   .page-calendar & {
-    margin-top: 0;
+    margin-top: -5px;
+
   }
 
   .events-calendar {
@@ -20,7 +21,9 @@ $zen-column-count: 12;
 
   @include breakpoint($tablet-large) {
     .page-calendar & {
-      margin-top: 0;
+      position: relative;
+      z-index: 3;
+      margin-top: -22px;
       padding-top: 0;
     }
 
@@ -64,7 +67,7 @@ $zen-column-count: 12;
     background-size: 90px auto;
     float: right;
     position: relative;
-    z-index: 1;
+    z-index: 5;
 
     @include breakpoint($tablet-small) {
       float: left;
@@ -99,13 +102,13 @@ $zen-column-count: 12;
     }
 
     @include breakpoint($tablet-large) {
-      color: $dim-grey;
+      color: $color-gray-tundora;
       top: 0.3rem;
       left: 10.94rem;
     }
 
     @include breakpoint($desktop) {
-      color: $dim-grey;
+      color: $color-gray-tundora;
       top: 0.3rem;
       left: 0;
     }
@@ -127,7 +130,6 @@ $zen-column-count: 12;
   input[type="text"] {
     @include font-size(14px);
     display: block;
-    color: $search-text-color;
     float: left;
     margin: 0;
     margin-left: 10px;
@@ -215,7 +217,6 @@ $zen-column-count: 12;
     background: $white;
     border-radius: 0;
     border-image: none;
-    color: lighten($grey, 20%);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -242,7 +243,7 @@ $zen-column-count: 12;
     width: 100%;
     border-radius: 0;
     border-image: none;
-    color: lighten($grey, 20%);
+    color: $color-gray;
     padding: 4px 80px 2px 4px;
     overflow: hidden;
     height: 27px;

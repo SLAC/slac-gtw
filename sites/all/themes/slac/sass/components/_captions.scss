@@ -2,3 +2,11 @@
   @include caption;
   max-width: 370px;
 }
+
+#cboxTitle {
+  color: $color-gray-tundora !important;
+}
+
+#cboxCurrent {
+  color: $color-gray !important;
+}

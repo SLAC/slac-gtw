@@ -23,7 +23,7 @@
     }
 
     .pane-node-body {
-      border-top: solid 3px $event-border;
+      border-top: solid 3px $color-gray-loblolly;
       margin-top: 2.5rem;
     }
 
@@ -45,7 +45,7 @@
     .field-name-field-shared-location,
     .field-name-field-shared-byline {
       @include font-size(16px);
-      color: $dim-grey;
+      color: $color-gray-tundora;
       font-weight: bold;
       margin-bottom: 0.75rem;
     }
@@ -65,7 +65,7 @@
     }
 
     .pane-node-body {
-      border-top: solid 3px $event-border;
+      border-top: solid 3px $color-gray-loblolly;
       margin-top: 2.5rem;
     }
   }
@@ -173,14 +173,14 @@
     .pane-node-field-shared-image,
     .pane-node-field-shared-video {
       .field-item + .field-item {
-        border-top: dashed 2px $event-border;
+        border-top: dashed 2px $color-gray-loblolly;
         margin-top: 2rem;
         padding-top: 2rem;
       }
     }
 
     .pane-node-field-shared-image + .pane-node-field-shared-video {
-      border-top: dashed 2px $event-border;
+      border-top: dashed 2px $color-gray-loblolly;
       padding-top: 2rem;
     }
   }
@@ -201,7 +201,7 @@
     .pane-node-field-shared-location {
       box-sizing: border-box;
       width: 100%;
-      background: color(grey-blue-light);
+      background: $color-gray-porcelain;
 
       @include breakpoint($tablet-large) {
         width: 78.6%;
@@ -216,6 +216,7 @@
         text-transform: uppercase;
         line-height: 1;
         font-weight: bold;
+        color: $color-gray-tundora;
 
         @include breakpoint($tablet-large) {
           width: 5rem;
@@ -316,7 +317,9 @@
   }
 
   .pane-node-field-event-date {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    color: $color-gray-tundora;
+    font-weight: bold;
   }
 
   .general-left .pane-node-body {
