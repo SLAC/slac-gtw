@@ -125,11 +125,11 @@
     content: attr(data-title) "\00A0";
     font-weight: bold;
     word-wrap: nowrap;
-    color: $dim-grey;
+    color: $color-gray-tundora;
   }
 
   table tbody tr td.weekend[data-title]:before {
-    color: lighten($dim-grey, 30%);
+    color: lighten($color-gray-tundora, 30%);
   }
 
   td.single-day:before,

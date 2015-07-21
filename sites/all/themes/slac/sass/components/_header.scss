@@ -102,13 +102,13 @@ $zen-column-count: 12;
     }
 
     @include breakpoint($tablet-large) {
-      color: $dim-grey;
+      color: $color-gray-tundora;
       top: 0.3rem;
       left: 10.94rem;
     }
 
     @include breakpoint($desktop) {
-      color: $dim-grey;
+      color: $color-gray-tundora;
       top: 0.3rem;
       left: 0;
     }
@@ -130,7 +130,6 @@ $zen-column-count: 12;
   input[type="text"] {
     @include font-size(14px);
     display: block;
-    color: $search-text-color;
     float: left;
     margin: 0;
     margin-left: 10px;
@@ -218,7 +217,6 @@ $zen-column-count: 12;
     background: $white;
     border-radius: 0;
     border-image: none;
-    color: lighten($grey, 20%);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -245,7 +243,7 @@ $zen-column-count: 12;
     width: 100%;
     border-radius: 0;
     border-image: none;
-    color: lighten($grey, 20%);
+    color: $color-gray;
     padding: 4px 80px 2px 4px;
     overflow: hidden;
     height: 27px;
