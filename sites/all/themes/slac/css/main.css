@@ -1126,8 +1126,8 @@ blockquote p {
 }
 
 .page-access .title {
-  padding-left: 50px;
-  background: url(../images/access-notice-icon.svg) 20px 6px no-repeat;
+  padding-left: 30px;
+  background: url(../images/access-notice-icon.svg) 0 3px no-repeat;
   margin-bottom: 0.5rem;
 }
 @media (min-width: 70em) {
@@ -1144,10 +1144,11 @@ blockquote p {
     box-sizing: border-box;
     word-wrap: break-word;
     padding-left: 50px;
+    background-position: 20px 3px;
   }
 }
 .lt-ie9 .page-access .title {
-  background: url(../images/access-notice-icon.png) 20px 6px no-repeat;
+  background: url(../images/access-notice-icon.png) 20px 3px no-repeat;
 }
 @media (min-width: 60em) {
   .page-access .general-left {
