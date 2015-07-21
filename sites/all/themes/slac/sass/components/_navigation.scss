@@ -161,6 +161,8 @@
   .main-navigation {
     @include clearfix;
     background: $blue;
+    position: relative;
+    z-index: 4;
 
     .inner-wrapper {
       width: 100%;
