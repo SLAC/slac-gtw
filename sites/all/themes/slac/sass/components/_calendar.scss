@@ -1109,9 +1109,12 @@ ul.calendar-links,
   top: 7px;
 }
 
-.day-view .single-day .link-ical,
+.day-view .single-day .link-ical {
+  top: 8px;
+}
+
 .day-view .multi-day .link-ical {
-  top: 12px;
+  top: 10px;
 }
 
 .day-view .multi-day.last .date-display-single {
@@ -1125,6 +1128,11 @@ ul.calendar-links,
 
   .day-view .single-day .type-access_information .link-ical,
   .day-view .single-day .type-event .link-ical {
+    top: 9px;
+  }
+
+  .day-view .multi-day .type-access_information .link-ical,
+  .day-view .multi-day .type-event .link-ical {
     top: 12px;
   }
 }

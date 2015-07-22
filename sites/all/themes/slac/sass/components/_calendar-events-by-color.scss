@@ -149,7 +149,20 @@
 
   @include breakpoint($tablet-large) {
     .weekview .type-access_information {
-      margin: 0.2rem;
+      margin: 0.2rem 0;
+    }
+
+    .week-view .full td,
+    .month-view .full td {
+      padding: 0 0.5rem 1rem;
+    }
+
+    .month-view .full .inner .monthview {
+      margin-bottom: 0.6rem;
+    }
+
+    .week-view .full .inner .weekview {
+      margin-bottom: 0.6rem;
     }
   }
 }
