@@ -26,15 +26,48 @@
     .organization-index-list {
       @include font-size(11px);
       color: $blue;
-      list-style: inherit;
-      list-style-position: inside;
 
       .list-link-item {
+        @include blue-striped-list;
         float: left;
-        width: 49%;
+        width: 47%;
+        margin-top: 0;
+        margin-bottom: 0.8rem;
+
+        &.views-row-odd {
+          margin-right: 6%;
+        }
+
+        a {
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+
+  @include breakpoint($desktop) {
+    .blue-striped-list,
+    .blue-dashed-list {
+      @include clearfix;
+      padding-bottom: 0.5rem;
+    }
+
+    .top-links-list {
+      @include font-size(11px);
+      color: $blue;
+      padding-left: 1.5rem;
+
+      .list-link-item {
         background: none;
+        list-style: disc;
+        float: left;
+        width: 47%;
         margin-top: 0;
         margin-bottom: 0;
+
+        &.views-row-odd {
+          margin-right: 6%;
+        }
 
         a {
           padding-left: 0;
@@ -44,15 +77,31 @@
   }
 
   @include breakpoint($desktop) {
-    .top-links-list,
+    .blue-dashed-list {
+      @include clearfix;
+      padding-bottom: 0.5rem;
+    }
+
     .organization-index-list {
-      padding-left: 0;
-      list-style: none;
+      @include font-size(11px);
+      color: $blue;
 
       .list-link-item {
         @include blue-striped-list;
+        background: $color-gray-porcelain;
+        float: left;
+        width: 46%;
         margin-top: 0;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.8rem;
+        border: 1px dashed $blue;
+
+        &.views-row-odd {
+          margin-right: 6%;
+        }
+
+        a {
+          padding-left: 1rem;
+        }
       }
     }
   }
