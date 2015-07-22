@@ -30,6 +30,8 @@
 
   .form-actions {
     width: 100%;
+    padding: 0.3rem;
+    box-sizing: border-box;
     border: 1px dotted $color-gray-loblolly;
 
     @include breakpoint($tablet-small) {
@@ -41,7 +43,9 @@
 
   input[type="submit"] {
     background: $blue;
+    width: 100%;
     margin: 0;
+    padding: 0.4rem;
 
     &:hover,
     &:focus {
@@ -50,7 +54,7 @@
     }
 
     @include breakpoint($tablet-small) {
-      margin: 0.3rem;
+      padding: 0.4rem 1.5rem;
     }
   }
 

@@ -4961,6 +4961,8 @@ div.date-views-pager div.next-year {
 }
 .node-type-webform .form-actions {
   width: 100%;
+  padding: 0.3rem;
+  box-sizing: border-box;
   border: 1px dotted #b1c0c7;
 }
 @media (min-width: 40em) {
@@ -4972,7 +4974,9 @@ div.date-views-pager div.next-year {
 }
 .node-type-webform input[type="submit"] {
   background: #316dae;
+  width: 100%;
   margin: 0;
+  padding: 0.4rem;
 }
 .node-type-webform input[type="submit"]:hover, .node-type-webform input[type="submit"]:focus {
   background: #4786cb;
@@ -4980,7 +4984,7 @@ div.date-views-pager div.next-year {
 }
 @media (min-width: 40em) {
   .node-type-webform input[type="submit"] {
-    margin: 0.3rem;
+    padding: 0.4rem 1.5rem;
   }
 }
 .node-type-webform .webform-client-form {
