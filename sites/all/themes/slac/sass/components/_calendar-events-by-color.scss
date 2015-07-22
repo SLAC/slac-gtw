@@ -3,7 +3,7 @@
   // global styles for calendar events
   .type-access_information,
   .type-event {
-    background: color(event-item-grey);
+    background: $color-gray-mercury;
     margin: 0.2rem 0 0.5rem 0;
     padding: 0.2rem 0.4rem;
     border-left: 4px solid color(grey);
@@ -60,7 +60,7 @@
 
       .time {
         padding: 3px 6px 4px 6px;
-        border-top: 2px solid color(grey);
+        border-top: 2px solid $color-gray;
         background: color(grey-light);
         height: 16px;
       }

@@ -72,10 +72,9 @@ div.date-views-pager div.next-year {
     li.date-today {
       display: none;
 
-      @include breakpoint($desktop) {
+      @include breakpoint($tablet-large) {
         display: block;
-        width: 194px;
-        padding-top: .3rem;
+        padding-top: 14px;
         text-align: center;
       }
     }
@@ -84,8 +83,12 @@ div.date-views-pager div.next-year {
   .item-list .pager li {
     padding-top: 0;
 
+    @include breakpoint($tablet-large) {
+      padding-top: 10px;
+    }
+
     span {
-      color: darken($light-grey, 20%);
+      color: $color-gray-dove;
     }
 
     a {
@@ -102,12 +105,10 @@ div.date-views-pager div.next-year {
     }
   }
 
-  @include breakpoint($desktop) {
+  @include breakpoint($tablet-large) {
     .item-list .pager {
       display: inline-block;
-      width: 202px;
       height: 34px;
-      background: color(grey-blue-light);
       position: relative;
       bottom: .4rem;
     }
@@ -126,6 +127,10 @@ div.date-views-pager div.next-year {
   left: 0;
   right: auto;
   border-right: 4px solid $white;
+
+  @include breakpoint($tablet-large) {
+    border-right: none;
+  }
 }
 
 .date-nav-wrapper .item-list .pager li.date-prev a {
@@ -136,7 +141,10 @@ div.date-views-pager div.next-year {
   background: url(../images/pager-arrows.png) 4px 7px no-repeat;
 
   @include breakpoint($tablet-large) {
-    background-position: 10px 8px;
+    background: $color-gray-porcelain url(../images/calendar-arrows.png) 50% -4px no-repeat;
+    border: 1px solid $color-gray-silver-chalice;
+    margin-right: 0.6rem;
+    height: 14px;
   }
 }
 
@@ -148,8 +156,9 @@ div.date-views-pager div.next-year {
   z-index: 1;
   border-left: 4px solid $white;
 
-  @include breakpoint($desktop) {
+  @include breakpoint($tablet-large) {
     left: 140px;
+    border-left: none;
   }
 }
 
@@ -161,6 +170,18 @@ div.date-views-pager div.next-year {
   background: url(../images/pager-arrows.png) -38px 7px no-repeat;
 
   @include breakpoint($tablet-large) {
-    background-position: -36px 8px;
+    background: $color-gray-porcelain url(../images/calendar-arrows.png) 50% -67px no-repeat;
+    border: 1px solid $color-gray-silver-chalice;
+    margin-left: 0.4rem;
+    height: 14px;
   }
+}
+
+.date-nav-wrapper .item-list .pager li.date-today a,
+.date-nav-wrapper .item-list .pager li.date-today span {
+    background: color(grey-blue-light);
+    padding: 0.4070rem 1rem;
+    margin-left: 4rem;
+    margin-right: 0.2rem;
+    border: 1px solid $color-gray-silver-chalice;
 }
