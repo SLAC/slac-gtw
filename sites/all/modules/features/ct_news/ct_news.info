@@ -1,5 +1,5 @@
 name = News
-description = Provides the news content type and cofiguration.
+description = Provides the news content type and configuration.
 core = 7.x
 package = Content Types
 version = 7.x-1.0-dev
