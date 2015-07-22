@@ -3526,7 +3526,17 @@ ul.calendar-links,
 }
 @media (min-width: 60em) {
   .events-calendar .weekview .type-access_information {
-    margin: 0.2rem;
+    margin: 0.2rem 0;
+  }
+  .events-calendar .week-view .full td,
+  .events-calendar .month-view .full td {
+    padding: 0 0.5rem 1rem;
+  }
+  .events-calendar .month-view .full .inner .monthview {
+    margin-bottom: 0.6rem;
+  }
+  .events-calendar .week-view .full .inner .weekview {
+    margin-bottom: 0.6rem;
   }
 }
 
