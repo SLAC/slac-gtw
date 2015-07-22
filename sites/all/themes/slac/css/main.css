@@ -3408,12 +3408,12 @@ ul.calendar-links,
 .events-calendar .type-event .type-access_information {
   padding-top: 0;
 }
-.events-calendar .type-access_information.event-summer-school-programs,
-.events-calendar .type-event.event-summer-school-programs {
+.events-calendar .type-access_information.event-recreation-health--wellness,
+.events-calendar .type-event.event-recreation-health--wellness {
   border-color: #ff2eba;
 }
-.events-calendar .type-access_information.event-talks-seminars--colloquia,
-.events-calendar .type-event.event-talks-seminars--colloquia {
+.events-calendar .type-access_information.event-talks--seminars,
+.events-calendar .type-event.event-talks--seminars {
   border-color: #e9ce43;
 }
 .events-calendar .type-access_information.event-public-events--tours,
@@ -3424,8 +3424,8 @@ ul.calendar-links,
 .events-calendar .type-event.event-conferences--workshops {
   border-color: #4780d1;
 }
-.events-calendar .type-access_information.event-staff-celebrations,
-.events-calendar .type-event.event-staff-celebrations {
+.events-calendar .type-access_information.event-staff-celebrations-events--meetings,
+.events-calendar .type-event.event-staff-celebrations-events--meetings {
   border-color: #7e00aa;
 }
 .events-calendar .type-access_information.event-training--development,
@@ -3476,13 +3476,13 @@ ul.calendar-links,
   border-color: #de0105;
   background: #fce9e9 url(../images/access-notice-icon-smaller.png) 5px 4px no-repeat;
 }
-.events-calendar .weekview .event-summer-school-programs .time,
-.events-calendar .dayview .event-summer-school-programs .time {
+.events-calendar .weekview .event-recreation-health--wellness .time,
+.events-calendar .dayview .event-recreation-health--wellness .time {
   border-color: #ff2eba;
   background: #f9e1f2;
 }
-.events-calendar .weekview .event-talks-seminars--colloquia .time,
-.events-calendar .dayview .event-talks-seminars--colloquia .time {
+.events-calendar .weekview .event-talks--seminars .time,
+.events-calendar .dayview .event-talks--seminars .time {
   border-color: #e9ce43;
   background: #fff8df;
 }
@@ -3496,8 +3496,8 @@ ul.calendar-links,
   border-color: #4780d1;
   background: #e6eef9;
 }
-.events-calendar .weekview .event-staff-celebrations .time,
-.events-calendar .dayview .event-staff-celebrations .time {
+.events-calendar .weekview .event-staff-celebrations-events--meetings .time,
+.events-calendar .dayview .event-staff-celebrations-events--meetings .time {
   border-color: #7e00aa;
   background: #eddaf3;
 }
@@ -3853,16 +3853,16 @@ ul.calendar-links,
   .calendar-calendar .dayview .type-event {
     border-top: 3px solid;
   }
-  .calendar-calendar .weekview .type-access_information.event-summer-school-programs,
-  .calendar-calendar .weekview .type-event.event-summer-school-programs,
-  .calendar-calendar .dayview .type-access_information.event-summer-school-programs,
-  .calendar-calendar .dayview .type-event.event-summer-school-programs {
+  .calendar-calendar .weekview .type-access_information.event-recreation-health--wellness,
+  .calendar-calendar .weekview .type-event.event-recreation-health--wellness,
+  .calendar-calendar .dayview .type-access_information.event-recreation-health--wellness,
+  .calendar-calendar .dayview .type-event.event-recreation-health--wellness {
     border-color: #ff2eba;
   }
-  .calendar-calendar .weekview .type-access_information.event-talks-seminars--colloquia,
-  .calendar-calendar .weekview .type-event.event-talks-seminars--colloquia,
-  .calendar-calendar .dayview .type-access_information.event-talks-seminars--colloquia,
-  .calendar-calendar .dayview .type-event.event-talks-seminars--colloquia {
+  .calendar-calendar .weekview .type-access_information.event-talks--seminars,
+  .calendar-calendar .weekview .type-event.event-talks--seminars,
+  .calendar-calendar .dayview .type-access_information.event-talks--seminars,
+  .calendar-calendar .dayview .type-event.event-talks--seminars {
     border-color: #e9ce43;
   }
   .calendar-calendar .weekview .type-access_information.event-public-events--tours,
@@ -3877,10 +3877,10 @@ ul.calendar-links,
   .calendar-calendar .dayview .type-event.event-conferences--workshops {
     border-color: #4780d1;
   }
-  .calendar-calendar .weekview .type-access_information.event-staff-celebrations,
-  .calendar-calendar .weekview .type-event.event-staff-celebrations,
-  .calendar-calendar .dayview .type-access_information.event-staff-celebrations,
-  .calendar-calendar .dayview .type-event.event-staff-celebrations {
+  .calendar-calendar .weekview .type-access_information.event-staff-celebrations-events--meetings,
+  .calendar-calendar .weekview .type-event.event-staff-celebrations-events--meetings,
+  .calendar-calendar .dayview .type-access_information.event-staff-celebrations-events--meetings,
+  .calendar-calendar .dayview .type-event.event-staff-celebrations-events--meetings {
     border-color: #7e00aa;
   }
   .calendar-calendar .weekview .type-access_information.event-training--development,
@@ -4884,22 +4884,22 @@ div.date-views-pager div.next-year {
   margin-right: 6px;
   margin-top: 0;
 }
-.events-color-legend .event-summer-school-programs:before {
+.events-color-legend .event-recreation-health--wellness:before {
   background: #ff2eba;
 }
-.events-color-legend .event-conference-workshops:before {
+.events-color-legend .event-conferences-workshops:before {
   background: #4780d1;
 }
 .events-color-legend .event-public-event-tours:before {
   background: #35b635;
 }
-.events-color-legend .event-talks-seminars-colloquia:before {
+.events-color-legend .event-talks--seminars:before {
   background: #e9ce43;
 }
 .events-color-legend .event-training-development:before {
   background: #e76d00;
 }
-.events-color-legend .event-staff-celebrations:before {
+.events-color-legend .event-staff-celebrations-events-meetings:before {
   background: #7e00aa;
 }
 .events-color-legend .event-none:before {
@@ -7918,19 +7918,19 @@ body {
 .node-type-access-information .general-left a.page-icon.public-events-tours {
   background: url("../images/icon-green.png") 0 2px no-repeat;
 }
-.node-type-event .general-left a.page-icon.staff-celebrations,
-.node-type-news .general-left a.page-icon.staff-celebrations,
-.node-type-access-information .general-left a.page-icon.staff-celebrations {
+.node-type-event .general-left a.page-icon.staff-celebrations-events-meetings,
+.node-type-news .general-left a.page-icon.staff-celebrations-events-meetings,
+.node-type-access-information .general-left a.page-icon.staff-celebrations-events-meetings {
   background: url("../images/icon-purple.png") 0 2px no-repeat;
 }
-.node-type-event .general-left a.page-icon.summer-school-programs,
-.node-type-news .general-left a.page-icon.summer-school-programs,
-.node-type-access-information .general-left a.page-icon.summer-school-programs {
+.node-type-event .general-left a.page-icon.recreation-health-wellness,
+.node-type-news .general-left a.page-icon.recreation-health-wellness,
+.node-type-access-information .general-left a.page-icon.recreation-health-wellness {
   background: url("../images/icon-pink.png") 0 2px no-repeat;
 }
-.node-type-event .general-left a.page-icon.talks-seminars-colloquia,
-.node-type-news .general-left a.page-icon.talks-seminars-colloquia,
-.node-type-access-information .general-left a.page-icon.talks-seminars-colloquia {
+.node-type-event .general-left a.page-icon.talks-seminars,
+.node-type-news .general-left a.page-icon.talks-seminars,
+.node-type-access-information .general-left a.page-icon.talks-seminars {
   background: url("../images/icon-yellow.png") 0 2px no-repeat;
 }
 .node-type-event .general-left a.page-icon.training-development,

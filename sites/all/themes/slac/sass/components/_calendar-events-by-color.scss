@@ -18,11 +18,11 @@
   }
 
     // individual styles
-    &.event-summer-school-programs {
+    &.event-recreation-health--wellness {
       border-color: color(pink);
     }
 
-    &.event-talks-seminars--colloquia {
+    &.event-talks--seminars {
       border-color: color(yellow);
     }
 
@@ -34,7 +34,7 @@
       border-color: color(blue);
     }
 
-    &.event-staff-celebrations {
+    &.event-staff-celebrations-events--meetings {
       border-color: color(purple);
     }
 
@@ -81,12 +81,12 @@
       background: color(red-light) url(../images/access-notice-icon-smaller.png) 5px 4px no-repeat;
     }
 
-    .event-summer-school-programs .time {
+    .event-recreation-health--wellness .time {
       border-color: color(pink);
       background: color(pink-light);
     }
 
-    .event-talks-seminars--colloquia .time {
+    .event-talks--seminars .time {
       border-color: color(yellow);
       background: color(yellow-light);
     }
@@ -101,7 +101,7 @@
       background: color(blue-light);
     }
 
-    .event-staff-celebrations .time {
+    .event-staff-celebrations-events--meetings .time {
       border-color: color(purple);
       background: color(purple-light);
     }
