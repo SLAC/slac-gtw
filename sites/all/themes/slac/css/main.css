@@ -7604,6 +7604,7 @@ fieldset.collapsed {
   }
 
   .main-navigation {
+    height: 33px;
     background: #316dae;
     position: relative;
     z-index: 4;
@@ -7645,7 +7646,7 @@ fieldset.collapsed {
     font-size: 0.875rem;
     line-height: 1;
     display: inline-block;
-    padding: 0.5625rem 1.9375rem;
+    padding: 0.58rem 1.9375rem;
     text-transform: uppercase;
     color: #fff;
     background: transparent;
