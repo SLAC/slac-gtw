@@ -1,5 +1,5 @@
 name = SLAC IP Core
-description = Configuration for shared fields, view modes and other global settings.
+description = Configuration for view modes and other global settings.
 core = 7.x
 package = SLAC
 version = 7.x-1.0-dev

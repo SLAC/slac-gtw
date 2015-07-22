@@ -1,4 +1,4 @@
-name = SLAC IGP FEED
+name = SLAC IGP Feed
 description = UI components for home page that includes news articles, event items, access information, flea market
 core = 7.x
 package = SLAC
