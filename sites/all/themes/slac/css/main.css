@@ -5745,6 +5745,30 @@ fieldset.collapsed {
   }
 }
 
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.l-page {
+  min-height: 100%;
+  margin-bottom: -146px;
+}
+
+.l-page:after {
+  content: "";
+  display: block;
+}
+
+.footer-wrapper,
+.l-page:after {
+  height: 146px;
+}
+
 .front .content-container {
   padding-top: 0;
 }
