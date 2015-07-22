@@ -54,6 +54,7 @@ function slac_igp_deployment_install() {
     'slac_ip_media',
     'slac_ip_config_search',
     'slac_ip_content_admin',
+    'slac_ip_event_date',
     'slac_ip_menus',
     'slac_ip_media',
     'slac_ip_panes',
@@ -1052,6 +1053,21 @@ function slac_igp_deployment_update_7050() {
 function slac_igp_deployment_update_7051() {
   $result = module_enable(array(
     'pm_basic_page',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
+}
+
+
+/**
+ * Enable the slac_ip_event_date module.
+ */
+function slac_igp_deployment_update_7052() {
+  $result = module_enable(array(
+    'slac_ip_event_date',
   ));
 
   if ($result == FALSE) {

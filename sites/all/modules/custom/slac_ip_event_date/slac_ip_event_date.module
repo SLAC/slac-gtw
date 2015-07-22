@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Customizes the Date field widget form for Events.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function slac_ip_event_date_form_alter(&$form, &$form_state, $form_id) {
+  $types = array(
+    'access_information',
+    'event',
+  );
+  if (isset($form['#node_edit_form']) && in_array($form['type']['#value'], $types)) {
+    $path = drupal_get_path('module', 'slac_ip_event_date');
+    $form['#attached']['js'][] = $path . '/js/slac_ip_event_date.js';
+  }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function slac_ip_event_date_field_widget_form_alter(&$element, &$form_state, $context) {
+  if (isset($element['#field_name']) && $element['#field_name'] == 'field_event_date') {
+    $element['#after_build'][] = 'slac_ip_event_date_field_after_build';
+  }
+}
+
+/**
+ * Form element after_build callback function.
+ *
+ * Reverses the visibility states of the from/to time inputs when the 'All Day'
+ * checkbox is checked. 'All Day' is relabeled 'Single Day' in
+ * Drupal.behaviors.slacIpEventDate.
+ *
+ * @see slac_ip_event_date_field_widget_form_alter().
+ */
+function slac_ip_event_date_field_after_build($element, &$form_state) {
+  $element['all_day']['#default_value'] = TRUE;
+
+  // Reverse the visibility states for the start/end times.
+  $name = $element['all_day']['#name'];
+  $element['value']['time']['#states']['visible'] = array(
+    ':input[name="' . $name . '"]' => array('checked' => TRUE),
+  );
+  $element['value2']['time']['#states']['visible'] = array(
+    ':input[name="' . $name . '"]' => array('checked' => TRUE),
+  );
+
+  return $element;
+}
