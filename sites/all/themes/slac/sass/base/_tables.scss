@@ -45,9 +45,14 @@ table {
 }
 
 caption {
-  display: table-caption;
-  text-align: center;
-  white-space: nowrap;
+  display: block;
+  margin: 0 auto;
+
+  @include breakpoint($tablet-large) {
+    display: table-caption;
+    text-align: center;
+    white-space: nowrap;
+  }
 }
 
 // Adds borders to headers and cells
