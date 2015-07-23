@@ -440,6 +440,25 @@ function slac_ip_core_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'clone node'.
+  $permissions['clone node'] = array(
+    'name' => 'clone node',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'clone',
+  );
+
+  // Exported permission: 'clone own nodes'.
+  $permissions['clone own nodes'] = array(
+    'name' => 'clone own nodes',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+    ),
+    'module' => 'clone',
+  );
+
   // Exported permission: 'create url aliases'.
   $permissions['create url aliases'] = array(
     'name' => 'create url aliases',
