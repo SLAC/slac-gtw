@@ -19,9 +19,9 @@ function t_event_type_install() {
   $term_names = array(
     'Conferences & Workshops',
     'Public Events & Tours',
-    'Staff Celebrations ',
-    'Summer School Programs ',
-    'Talks, Seminars & Colloquia',
+    'Staff Celebrations, Events & Meetings',
+    'Recreation, Health & Wellness',
+    'Talks & Seminars',
     'Training & Development',
   );
   _t_event_type_populate_vocabulary('event_type', $term_names);
@@ -54,5 +54,31 @@ function t_event_type_update_7101 () {
   if (!empty($terms)) {
     $term = reset($terms);
     taxonomy_term_delete($term->tid);
+  }
+}
+
+/**
+ * Rename several Event Type terms.
+ */
+function t_event_type_update_7102 () {
+
+  $vocab_name = 'event_type';
+
+  // Array of term names to update. key = old name, val = new name.
+  $term_names = array(
+    'Summer School Programs' => 'Recreation, Health & Wellness',
+    'Staff Celebrations' => 'Staff Celebrations, Events & Meetings',
+    'Talks, Seminars & Colloquia' => 'Talks & Seminars',
+  );
+
+  foreach ($term_names as $old_name => $new_name) {
+    $term = taxonomy_get_term_by_name($old_name, $vocab_name);
+
+    if (!empty($term)) {
+      $term = reset($term);
+      $term->name = $new_name;
+
+      taxonomy_term_save($term);
+    }
   }
 }
