@@ -505,6 +505,32 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->uuid = '3a98c25b-f230-4840-ae8a-d14df30a9fa5';
     $display->content['new-3a98c25b-f230-4840-ae8a-d14df30a9fa5'] = $pane;
     $display->panels['coltworowthree'][0] = 'new-3a98c25b-f230-4840-ae8a-d14df30a9fa5';
+    $pane = new stdClass();
+    $pane->pid = 'new-9315ddc3-e834-470c-8a89-dc366f3c01b7';
+    $pane->panel = 'coltworowthree';
+    $pane->type = 'slac_ip_panes_events';
+    $pane->subtype = 'slac_ip_panes_events';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'brown-bodered-white',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '9315ddc3-e834-470c-8a89-dc366f3c01b7';
+    $display->content['new-9315ddc3-e834-470c-8a89-dc366f3c01b7'] = $pane;
+    $display->panels['coltworowthree'][1] = 'new-9315ddc3-e834-470c-8a89-dc366f3c01b7';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
