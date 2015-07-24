@@ -7947,8 +7947,12 @@ body {
   background: #e76d00;
 }
 
-.node-type-access-information .general-left a.page-icon {
+.node-type-access-information a.page-icon {
   background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
+  padding-left: 26px;
+}
+.node-type-access-information a.page-icon:before {
+  display: none;
 }
 .node-type-access-information .pane-slac-ip-panes-access-notice-link {
   margin-bottom: 2em;

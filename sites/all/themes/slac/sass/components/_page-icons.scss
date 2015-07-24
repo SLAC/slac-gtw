@@ -47,10 +47,12 @@
 
 // access notice specific icon
 .node-type-access-information {
-  .general-left {
+  a.page-icon {
+    background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
+    padding-left: 26px;
 
-    a.page-icon {
-      background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
+    &:before {
+      display: none;
     }
   }
 
