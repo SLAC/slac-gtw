@@ -99,7 +99,7 @@ function ct_news_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -385,7 +385,7 @@ function ct_news_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -742,7 +742,7 @@ function ct_news_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -851,7 +851,7 @@ function ct_news_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -921,7 +921,7 @@ function ct_news_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 18,
+      'weight' => 5,
     ),
   );
 
@@ -991,7 +991,7 @@ function ct_news_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -1060,7 +1060,7 @@ function ct_news_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 13,
+      'weight' => 18,
     ),
   );
 
@@ -1128,7 +1128,7 @@ It is set to \'On\' and hidden in the node creation form.',
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 23,
+      'weight' => 22,
     ),
   );
 
@@ -1310,7 +1310,7 @@ It is set to \'On\' and hidden in the node creation form.',
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 11,
+      'weight' => 13,
     ),
   );
 
@@ -1469,7 +1469,7 @@ It is set to \'On\' and hidden in the node creation form.',
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
