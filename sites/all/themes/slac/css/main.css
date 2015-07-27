@@ -6378,6 +6378,8 @@ body {
 }
 .jcarousel-container-horizontal .title-body {
   display: block;
+  height: 92px;
+  overflow: hidden;
   padding: 0.6rem;
   background: #ffffff;
   width: 100%;
@@ -6388,7 +6390,7 @@ body {
     font-size: 12px;
     font-size: 0.75rem;
     background: rgba(54, 116, 163, 0.75);
-    max-height: 100px;
+    height: inherit;
     color: #dfdfdf;
     line-height: 1.4;
     overflow: hidden;

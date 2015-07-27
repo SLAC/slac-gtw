@@ -29,6 +29,8 @@
 
   .title-body {
     display: block;
+    height: 92px;
+    overflow: hidden;
     padding: 0.6rem;
     background: $white;
     width: 100%;
@@ -37,7 +39,7 @@
     @include breakpoint($tablet-small) {
       @include font-size(12px);
       background: $overlay-blue;
-      max-height: 100px;
+      height: inherit;
       color: $grey-filters-border;
       line-height: 1.4;
       overflow: hidden;
