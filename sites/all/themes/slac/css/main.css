@@ -7895,57 +7895,64 @@ body {
   color: #ffffff;
 }
 
-.node-type-event .general-left a.page-icon,
-.node-type-news .general-left a.page-icon,
-.node-type-access-information .general-left a.page-icon {
+.node-type-event a.page-icon,
+.node-type-news a.page-icon,
+.node-type-access-information a.page-icon {
   font-size: 18px;
   font-size: 1.125rem;
   display: inline;
   color: #316dae;
-  padding-left: 25px;
-  padding-bottom: 2px;
   font-weight: bold;
+}
+.node-type-event a.page-icon:before,
+.node-type-news a.page-icon:before,
+.node-type-access-information a.page-icon:before {
+  display: block;
+  content: "";
   width: 16px;
   height: 16px;
+  margin-top: 3px;
+  float: left;
+  margin-right: 10px;
+  background: #838383;
 }
-.node-type-event .general-left a.page-icon.conferences-workshops,
-.node-type-news .general-left a.page-icon.conferences-workshops,
-.node-type-access-information .general-left a.page-icon.conferences-workshops {
-  background: url("../images/icon-blue.png") 0 2px no-repeat;
+.node-type-event a.page-icon.conferences-workshops:before,
+.node-type-news a.page-icon.conferences-workshops:before,
+.node-type-access-information a.page-icon.conferences-workshops:before {
+  background: #4780d1;
 }
-.node-type-event .general-left a.page-icon.public-events-tours,
-.node-type-news .general-left a.page-icon.public-events-tours,
-.node-type-access-information .general-left a.page-icon.public-events-tours {
-  background: url("../images/icon-green.png") 0 2px no-repeat;
+.node-type-event a.page-icon.public-events-tours:before,
+.node-type-news a.page-icon.public-events-tours:before,
+.node-type-access-information a.page-icon.public-events-tours:before {
+  background: #35b635;
 }
-.node-type-event .general-left a.page-icon.staff-celebrations-events-meetings,
-.node-type-news .general-left a.page-icon.staff-celebrations-events-meetings,
-.node-type-access-information .general-left a.page-icon.staff-celebrations-events-meetings {
-  background: url("../images/icon-purple.png") 0 2px no-repeat;
+.node-type-event a.page-icon.staff-celebrations-events-meetings:before,
+.node-type-news a.page-icon.staff-celebrations-events-meetings:before,
+.node-type-access-information a.page-icon.staff-celebrations-events-meetings:before {
+  background: #7e00aa;
 }
-.node-type-event .general-left a.page-icon.recreation-health-wellness,
-.node-type-news .general-left a.page-icon.recreation-health-wellness,
-.node-type-access-information .general-left a.page-icon.recreation-health-wellness {
-  background: url("../images/icon-pink.png") 0 2px no-repeat;
+.node-type-event a.page-icon.recreation-health-wellness:before,
+.node-type-news a.page-icon.recreation-health-wellness:before,
+.node-type-access-information a.page-icon.recreation-health-wellness:before {
+  background: #ff2eba;
 }
-.node-type-event .general-left a.page-icon.talks-seminars,
-.node-type-news .general-left a.page-icon.talks-seminars,
-.node-type-access-information .general-left a.page-icon.talks-seminars {
-  background: url("../images/icon-yellow.png") 0 2px no-repeat;
+.node-type-event a.page-icon.talks-seminars:before,
+.node-type-news a.page-icon.talks-seminars:before,
+.node-type-access-information a.page-icon.talks-seminars:before {
+  background: #e9ce43;
 }
-.node-type-event .general-left a.page-icon.training-development,
-.node-type-news .general-left a.page-icon.training-development,
-.node-type-access-information .general-left a.page-icon.training-development {
-  background: url("../images/icon-orange.png") 0 2px no-repeat;
-}
-.node-type-event .general-left a.page-icon.none,
-.node-type-news .general-left a.page-icon.none,
-.node-type-access-information .general-left a.page-icon.none {
-  background: url("../images/icon-grey.png") 0 2px no-repeat;
+.node-type-event a.page-icon.training-development:before,
+.node-type-news a.page-icon.training-development:before,
+.node-type-access-information a.page-icon.training-development:before {
+  background: #e76d00;
 }
 
-.node-type-access-information .general-left a.page-icon {
+.node-type-access-information a.page-icon {
   background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
+  padding-left: 26px;
+}
+.node-type-access-information a.page-icon:before {
+  display: none;
 }
 .node-type-access-information .pane-slac-ip-panes-access-notice-link {
   margin-bottom: 2em;

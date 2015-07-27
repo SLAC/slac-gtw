@@ -1,55 +1,58 @@
+// color coding by event type
 .node-type-event,
 .node-type-news,
 .node-type-access-information {
-  .general-left {
+  a.page-icon {
+    @include font-size(18px);
+    display: inline;
+    color: $blue;
+    font-weight: bold;
 
-    a.page-icon {
-      @include font-size(18px);
-      display: inline;
-      color: $blue;
-      padding-left: 25px;
-      padding-bottom: 2px;
-      font-weight: bold;
+    &:before {
+      display: block;
+      content: "";
       width: 16px;
       height: 16px;
+      margin-top: 3px;
+      float: left;
+      margin-right: 10px;
+      background: color(grey);
+    }
 
-      &.conferences-workshops {
-        background: url('../images/icon-blue.png') 0 2px no-repeat;
-      }
+    &.conferences-workshops:before {
+      background: color(blue);
+    }
 
-      &.public-events-tours {
-        background: url('../images/icon-green.png') 0 2px no-repeat;
-      }
+    &.public-events-tours:before {
+      background: color(green);
+    }
 
-      &.staff-celebrations-events-meetings {
-        background: url('../images/icon-purple.png') 0 2px no-repeat;
-      }
+    &.staff-celebrations-events-meetings:before {
+      background: color(purple);
+    }
 
-      &.recreation-health-wellness {
-        background: url('../images/icon-pink.png') 0 2px no-repeat;
-      }
+    &.recreation-health-wellness:before {
+      background: color(pink);
+    }
 
-      &.talks-seminars {
-        background: url('../images/icon-yellow.png') 0 2px no-repeat;
-      }
+    &.talks-seminars:before {
+      background: color(yellow);
+    }
 
-      &.training-development {
-        background: url('../images/icon-orange.png') 0 2px no-repeat;
-      }
-
-      &.none {
-        background: url('../images/icon-grey.png') 0 2px no-repeat;
-      }
+    &.training-development:before {
+      background: color(orange);
     }
   }
 }
 
 // access notice specific icon
 .node-type-access-information {
-  .general-left {
+  a.page-icon {
+    background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
+    padding-left: 26px;
 
-    a.page-icon {
-      background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
+    &:before {
+      display: none;
     }
   }
 
