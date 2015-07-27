@@ -481,31 +481,6 @@ function slac_igp_config_default_page_manager_pages() {
     $display->content['new-b3a7a5ca-2d77-4982-bd20-2b73650db455'] = $pane;
     $display->panels['coltworowfour'][0] = 'new-b3a7a5ca-2d77-4982-bd20-2b73650db455';
     $pane = new stdClass();
-    $pane->pid = 'new-3a98c25b-f230-4840-ae8a-d14df30a9fa5';
-    $pane->panel = 'coltworowthree';
-    $pane->type = 'block';
-    $pane->subtype = 'views-calendar-block';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'brown-bodered-white',
-    );
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '3a98c25b-f230-4840-ae8a-d14df30a9fa5';
-    $display->content['new-3a98c25b-f230-4840-ae8a-d14df30a9fa5'] = $pane;
-    $display->panels['coltworowthree'][0] = 'new-3a98c25b-f230-4840-ae8a-d14df30a9fa5';
-    $pane = new stdClass();
     $pane->pid = 'new-9315ddc3-e834-470c-8a89-dc366f3c01b7';
     $pane->panel = 'coltworowthree';
     $pane->type = 'slac_ip_panes_events';
@@ -526,11 +501,11 @@ function slac_igp_config_default_page_manager_pages() {
       'css_class' => 'brown-bodered-white',
     );
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '9315ddc3-e834-470c-8a89-dc366f3c01b7';
     $display->content['new-9315ddc3-e834-470c-8a89-dc366f3c01b7'] = $pane;
-    $display->panels['coltworowthree'][1] = 'new-9315ddc3-e834-470c-8a89-dc366f3c01b7';
+    $display->panels['coltworowthree'][0] = 'new-9315ddc3-e834-470c-8a89-dc366f3c01b7';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
