@@ -361,7 +361,7 @@ function ct_news_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'og_tag_importer_og_site_name';
-  $strongarm->value = '';
+  $strongarm->value = 'field_shared_byline';
   $export['og_tag_importer_og_site_name'] = $strongarm;
 
   $strongarm = new stdClass();
