@@ -173,6 +173,12 @@
   border-top: 0px;
 }
 
+@include breakpoint($tablet-large) {
+  .calendar-calendar .day-view #single-day-container div.first {
+    border-top: 2px solid color(grey-blue);
+  }
+}
+
 .calendar-calendar .week-view #single-day-container div.last,
 .calendar-calendar .day-view #single-day-container div.last {
   border-bottom: 0px;
@@ -470,7 +476,7 @@
 }
 
 .calendar-calendar div.single-day .d_16 .view-item .calendar {
-  height: 190px;
+  height: auto;
 }
 
 .calendar-calendar div.single-day .d_17 .view-item .calendar {

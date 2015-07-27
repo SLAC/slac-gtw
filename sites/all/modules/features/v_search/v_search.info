@@ -1,5 +1,5 @@
 name = Search
-description = Views for Search.
+description = Views for Search and customization to the view's filters.
 core = 7.x
 package = Views
 version = 7.x-1.0-dev

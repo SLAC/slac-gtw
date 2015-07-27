@@ -930,7 +930,7 @@ table.calendar-legend tr.even .stripe {
 
   }
 
-  @include breakpoint($desktop) {
+  @include breakpoint($tablet-large) {
     width: 40%;
     height: 1px;
     margin: 0 auto;
@@ -1049,10 +1049,11 @@ ul.calendar-links,
 }
 
 // calendar for desktop
-@include breakpoint($desktop) {
+@include breakpoint($tablet-large) {
   .page-calendar .tabs-primary {
     margin-right: 0;
     padding-right: 0;
+    top: 174px;
   }
 
   .calendar-month-view {
@@ -1091,7 +1092,7 @@ ul.calendar-links,
 .calendar .time {
   display: block;
   font-weight: bold;
-  color: color(event-time-grey);
+  color: $color-gray-cod;
 }
 
 .calendar .type-access_information .time {
@@ -1108,9 +1109,12 @@ ul.calendar-links,
   top: 7px;
 }
 
-.day-view .single-day .link-ical,
+.day-view .single-day .link-ical {
+  top: 8px;
+}
+
 .day-view .multi-day .link-ical {
-  top: 12px;
+  top: 10px;
 }
 
 .day-view .multi-day.last .date-display-single {
@@ -1124,6 +1128,11 @@ ul.calendar-links,
 
   .day-view .single-day .type-access_information .link-ical,
   .day-view .single-day .type-event .link-ical {
+    top: 9px;
+  }
+
+  .day-view .multi-day .type-access_information .link-ical,
+  .day-view .multi-day .type-event .link-ical {
     top: 12px;
   }
 }

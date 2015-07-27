@@ -76,10 +76,13 @@
 // =======================================================
 // Hiding the print button on all mobile and tablet devices
 // =======================================================
+/* ----------- iPhone 4 and 4S ----------- */
 
-@media
-  (min-device-width: 320px)
-  and (max-device-width: 1280px) {
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
   .js-print-button {
     display: none;
   }
@@ -93,7 +96,253 @@
   }
 }
 
-@media (max-width: $tablet-small) {
+/* ----------- iPhone 5 and 5S ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
+    }
+  }
+}
+
+/* ----------- iPhone 6 ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+ .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
+    }
+  }
+}
+
+/* ----------- iPhone 6+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+ .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
+    }
+  }
+}
+
+/* ----------- Galaxy S3 ----------- */
+
+/* Portrait and Landscape */
+@media screen
+  and (device-width: 320px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 2) {
+ .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
+    }
+  }
+}
+
+/* ----------- Galaxy S4 ----------- */
+
+/* Portrait and Landscape */
+@media screen
+  and (device-width: 320px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 3) {
+ .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
+    }
+  }
+}
+
+/* ----------- Galaxy S5 ----------- */
+
+/* Portrait and Landscape */
+@media screen
+  and (device-width: 360px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 3) {
+ .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
+    }
+  }
+}
+
+/* ----------- HTC One ----------- */
+
+/* Portrait and Landscape */
+@media screen
+  and (device-width: 360px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 3) {
+ .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
+    }
+  }
+}
+
+
+/* ----------- iPad mini ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
+    }
+  }
+}
+
+/* ----------- iPad 1 and 2 ----------- */
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
+    }
+  }
+}
+
+/* ----------- iPad 3 and 4 ----------- */
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
+    }
+  }
+}
+
+/* ----------- Asus Nexus 7 ----------- */
+
+/* Portrait and Landscape */
+@media screen
+  and (device-width: 601px)
+  and (device-height: 906px)
+  and (-webkit-min-device-pixel-ratio: 1.331)
+  and (-webkit-max-device-pixel-ratio: 1.332) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
+    }
+  }
+}
+
+/* ----------- Kindle Fire HD 7" ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 800px)
+  and (max-device-width: 1280px)
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
+    }
+  }
+}
+
+/* ----------- Kindle Fire HD 8.9" ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 1200px)
+  and (max-device-width: 1600px)
+  and (-webkit-min-device-pixel-ratio: 1.5) {
   .js-print-button {
     display: none;
   }

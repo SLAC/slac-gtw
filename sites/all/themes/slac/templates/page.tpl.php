@@ -140,6 +140,8 @@
   </div> <!-- /.main-wrapper -->
   </div> <!-- /#main -->
 
+</div><!-- /#page -->
+
   <div class="footer-wrapper">
     <div class="footer-inner">
       <?php print render($page['footer']); ?>
@@ -150,7 +152,5 @@
       </div>
     </div>
   </div><!-- /.footer-wrapper -->
-
-</div><!-- /#page -->
 
 <?php print render($page['bottom']); ?>

@@ -399,9 +399,15 @@ table th.active {
 }
 
 caption {
-  display: table-caption;
-  text-align: center;
-  white-space: nowrap;
+  display: block;
+  margin: 0 auto;
+}
+@media (min-width: 60em) {
+  caption {
+    display: table-caption;
+    text-align: center;
+    white-space: nowrap;
+  }
 }
 
 table[border],
@@ -410,6 +416,7 @@ table[border] tr td {
   border: 3px solid #e2e2e2;
 }
 
+table[border="0"],
 table[border="0"] th,
 table[border="0"] tr td {
   border: none;
@@ -1126,8 +1133,8 @@ blockquote p {
 }
 
 .page-access .title {
-  padding-left: 50px;
-  background: url(../images/access-notice-icon.svg) 20px 6px no-repeat;
+  padding-left: 30px;
+  background: url(../images/access-notice-icon.svg) 0 3px no-repeat;
   margin-bottom: 0.5rem;
 }
 @media (min-width: 70em) {
@@ -1144,10 +1151,11 @@ blockquote p {
     box-sizing: border-box;
     word-wrap: break-word;
     padding-left: 50px;
+    background-position: 20px 3px;
   }
 }
 .lt-ie9 .page-access .title {
-  background: url(../images/access-notice-icon.png) 20px 6px no-repeat;
+  background: url(../images/access-notice-icon.png) 20px 3px no-repeat;
 }
 @media (min-width: 60em) {
   .page-access .general-left {
@@ -1441,7 +1449,7 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 }
 .calendar-calendar td.weekend {
   width: 8%;
-  background: #eeeeee;
+  background: #e8e8e8;
 }
 
 .calendar-calendar .week-view .full {
@@ -2192,7 +2200,7 @@ table.calendar-legend tr.even .stripe {
     padding: .2rem;
   }
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   .date-nav-wrapper .date-heading {
     width: 40%;
     height: 1px;
@@ -2315,10 +2323,11 @@ ul.calendar-links,
   background: #ffffff;
 }
 
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   .page-calendar .tabs-primary {
     margin-right: 0;
     padding-right: 0;
+    top: 174px;
   }
 
   .calendar-month-view .date-today {
@@ -2336,10 +2345,10 @@ ul.calendar-links,
   background: #ffffff;
 }
 .page-calendar .selectize-dropdown .option:hover {
-  background: #eeeeee;
+  background: #e8e8e8;
 }
 .page-calendar .selectize-dropdown .selected {
-  background: #eeeeee !important;
+  background: #e8e8e8 !important;
 }
 .page-calendar .selectize-dropdown:hover {
   background: #ffffff;
@@ -2348,7 +2357,7 @@ ul.calendar-links,
 .calendar .time {
   display: block;
   font-weight: bold;
-  color: #252525;
+  color: #1e1e1e;
 }
 
 .calendar .type-access_information .time {
@@ -2365,9 +2374,12 @@ ul.calendar-links,
   top: 7px;
 }
 
-.day-view .single-day .link-ical,
+.day-view .single-day .link-ical {
+  top: 8px;
+}
+
 .day-view .multi-day .link-ical {
-  top: 12px;
+  top: 10px;
 }
 
 .day-view .multi-day.last .date-display-single {
@@ -2381,6 +2393,11 @@ ul.calendar-links,
 
   .day-view .single-day .type-access_information .link-ical,
   .day-view .single-day .type-event .link-ical {
+    top: 9px;
+  }
+
+  .day-view .multi-day .type-access_information .link-ical,
+  .day-view .multi-day .type-event .link-ical {
     top: 12px;
   }
 }
@@ -2564,6 +2581,11 @@ ul.calendar-links,
   border-top: 0px;
 }
 
+@media (min-width: 60em) {
+  .calendar-calendar .day-view #single-day-container div.first {
+    border-top: 2px solid #d6dee2;
+  }
+}
 .calendar-calendar .week-view #single-day-container div.last,
 .calendar-calendar .day-view #single-day-container div.last {
   border-bottom: 0px;
@@ -2863,7 +2885,7 @@ ul.calendar-links,
 }
 
 .calendar-calendar div.single-day .d_16 .view-item .calendar {
-  height: 190px;
+  height: auto;
 }
 
 .calendar-calendar div.single-day .d_17 .view-item .calendar {
@@ -3303,7 +3325,7 @@ ul.calendar-links,
   margin-right: 6px;
 }
 .events-calendar .selectize-dropdown .option:hover {
-  background: #e6e6e6;
+  background: #e0e0e0;
 }
 .events-calendar .selectize-dropdown .option.selected:before {
   content: "\2611";
@@ -3312,7 +3334,7 @@ ul.calendar-links,
   margin-right: 4px;
 }
 .events-calendar .selectize-dropdown .selected {
-  background: #e6e6e6 !important;
+  background: #e0e0e0 !important;
 }
 .events-calendar .selectize-dropdown:hover {
   background: #ffffff;
@@ -3349,10 +3371,10 @@ ul.calendar-links,
   color: #6c676c;
 }
 .my-content-dropdown.selectize-control.single .selectize-dropdown .option:hover {
-  background: #e6e6e6;
+  background: #e0e0e0;
 }
 .my-content-dropdown.selectize-control.single .selectize-dropdown .selected {
-  background: #e6e6e6;
+  background: #e0e0e0;
 }
 .my-content-dropdown.selectize-control.single .selectize-dropdown:hover {
   background: #ffffff;
@@ -3362,7 +3384,7 @@ ul.calendar-links,
   margin-right: 0;
 }
 .my-content-dropdown.selectize-control.single .selectize-dropdown .option:hover {
-  background: #e6e6e6;
+  background: #e0e0e0;
 }
 .my-content-dropdown.selectize-control.single .selectize-dropdown .option.selected:before {
   content: "";
@@ -3370,7 +3392,7 @@ ul.calendar-links,
 
 .events-calendar .type-access_information,
 .events-calendar .type-event {
-  background: #e4e4e4;
+  background: #e8e8e8;
   margin: 0.2rem 0 0.5rem 0;
   padding: 0.2rem 0.4rem;
   border-left: 4px solid #838383;
@@ -3386,12 +3408,12 @@ ul.calendar-links,
 .events-calendar .type-event .type-access_information {
   padding-top: 0;
 }
-.events-calendar .type-access_information.event-summer-school-programs,
-.events-calendar .type-event.event-summer-school-programs {
+.events-calendar .type-access_information.event-recreation-health--wellness,
+.events-calendar .type-event.event-recreation-health--wellness {
   border-color: #ff2eba;
 }
-.events-calendar .type-access_information.event-talks-seminars--colloquia,
-.events-calendar .type-event.event-talks-seminars--colloquia {
+.events-calendar .type-access_information.event-talks--seminars,
+.events-calendar .type-event.event-talks--seminars {
   border-color: #e9ce43;
 }
 .events-calendar .type-access_information.event-public-events--tours,
@@ -3402,8 +3424,8 @@ ul.calendar-links,
 .events-calendar .type-event.event-conferences--workshops {
   border-color: #4780d1;
 }
-.events-calendar .type-access_information.event-staff-celebrations,
-.events-calendar .type-event.event-staff-celebrations {
+.events-calendar .type-access_information.event-staff-celebrations-events--meetings,
+.events-calendar .type-event.event-staff-celebrations-events--meetings {
   border-color: #7e00aa;
 }
 .events-calendar .type-access_information.event-training--development,
@@ -3429,8 +3451,8 @@ ul.calendar-links,
 .events-calendar .dayview .type-access_information .time,
 .events-calendar .dayview .type-event .time {
   padding: 3px 6px 4px 6px;
-  border-top: 2px solid #838383;
-  background: #c8cac8;
+  border-top: 2px solid #8a8a8a;
+  background: #dbdbdb;
   height: 16px;
 }
 .events-calendar .weekview .type-access_information .title a,
@@ -3454,13 +3476,13 @@ ul.calendar-links,
   border-color: #de0105;
   background: #fce9e9 url(../images/access-notice-icon-smaller.png) 5px 4px no-repeat;
 }
-.events-calendar .weekview .event-summer-school-programs .time,
-.events-calendar .dayview .event-summer-school-programs .time {
+.events-calendar .weekview .event-recreation-health--wellness .time,
+.events-calendar .dayview .event-recreation-health--wellness .time {
   border-color: #ff2eba;
   background: #f9e1f2;
 }
-.events-calendar .weekview .event-talks-seminars--colloquia .time,
-.events-calendar .dayview .event-talks-seminars--colloquia .time {
+.events-calendar .weekview .event-talks--seminars .time,
+.events-calendar .dayview .event-talks--seminars .time {
   border-color: #e9ce43;
   background: #fff8df;
 }
@@ -3474,8 +3496,8 @@ ul.calendar-links,
   border-color: #4780d1;
   background: #e6eef9;
 }
-.events-calendar .weekview .event-staff-celebrations .time,
-.events-calendar .dayview .event-staff-celebrations .time {
+.events-calendar .weekview .event-staff-celebrations-events--meetings .time,
+.events-calendar .dayview .event-staff-celebrations-events--meetings .time {
   border-color: #7e00aa;
   background: #eddaf3;
 }
@@ -3510,7 +3532,17 @@ ul.calendar-links,
 }
 @media (min-width: 60em) {
   .events-calendar .weekview .type-access_information {
-    margin: 0.2rem;
+    margin: 0.2rem 0;
+  }
+  .events-calendar .week-view .full td,
+  .events-calendar .month-view .full td {
+    padding: 0 0.5rem 1rem;
+  }
+  .events-calendar .month-view .full .inner .monthview {
+    margin-bottom: 0.6rem;
+  }
+  .events-calendar .week-view .full .inner .weekview {
+    margin-bottom: 0.6rem;
   }
 }
 
@@ -3794,6 +3826,9 @@ ul.calendar-links,
     left: -125px;
     text-align: right;
   }
+  .calendar-calendar .day-view .time {
+    width: 115px;
+  }
   .calendar-calendar .title {
     position: relative;
     top: -6px;
@@ -3818,16 +3853,16 @@ ul.calendar-links,
   .calendar-calendar .dayview .type-event {
     border-top: 3px solid;
   }
-  .calendar-calendar .weekview .type-access_information.event-summer-school-programs,
-  .calendar-calendar .weekview .type-event.event-summer-school-programs,
-  .calendar-calendar .dayview .type-access_information.event-summer-school-programs,
-  .calendar-calendar .dayview .type-event.event-summer-school-programs {
+  .calendar-calendar .weekview .type-access_information.event-recreation-health--wellness,
+  .calendar-calendar .weekview .type-event.event-recreation-health--wellness,
+  .calendar-calendar .dayview .type-access_information.event-recreation-health--wellness,
+  .calendar-calendar .dayview .type-event.event-recreation-health--wellness {
     border-color: #ff2eba;
   }
-  .calendar-calendar .weekview .type-access_information.event-talks-seminars--colloquia,
-  .calendar-calendar .weekview .type-event.event-talks-seminars--colloquia,
-  .calendar-calendar .dayview .type-access_information.event-talks-seminars--colloquia,
-  .calendar-calendar .dayview .type-event.event-talks-seminars--colloquia {
+  .calendar-calendar .weekview .type-access_information.event-talks--seminars,
+  .calendar-calendar .weekview .type-event.event-talks--seminars,
+  .calendar-calendar .dayview .type-access_information.event-talks--seminars,
+  .calendar-calendar .dayview .type-event.event-talks--seminars {
     border-color: #e9ce43;
   }
   .calendar-calendar .weekview .type-access_information.event-public-events--tours,
@@ -3842,10 +3877,10 @@ ul.calendar-links,
   .calendar-calendar .dayview .type-event.event-conferences--workshops {
     border-color: #4780d1;
   }
-  .calendar-calendar .weekview .type-access_information.event-staff-celebrations,
-  .calendar-calendar .weekview .type-event.event-staff-celebrations,
-  .calendar-calendar .dayview .type-access_information.event-staff-celebrations,
-  .calendar-calendar .dayview .type-event.event-staff-celebrations {
+  .calendar-calendar .weekview .type-access_information.event-staff-celebrations-events--meetings,
+  .calendar-calendar .weekview .type-event.event-staff-celebrations-events--meetings,
+  .calendar-calendar .dayview .type-access_information.event-staff-celebrations-events--meetings,
+  .calendar-calendar .dayview .type-event.event-staff-celebrations-events--meetings {
     border-color: #7e00aa;
   }
   .calendar-calendar .weekview .type-access_information.event-training--development,
@@ -4023,19 +4058,23 @@ div.date-views-pager div.next-year {
 .date-nav-wrapper .item-list .pager li.date-today {
   display: none;
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   .date-nav-wrapper .item-list .pager li.date-today {
     display: block;
-    width: 194px;
-    padding-top: .3rem;
+    padding-top: 14px;
     text-align: center;
   }
 }
 .date-nav-wrapper .item-list .pager li {
   padding-top: 0;
 }
+@media (min-width: 60em) {
+  .date-nav-wrapper .item-list .pager li {
+    padding-top: 10px;
+  }
+}
 .date-nav-wrapper .item-list .pager li span {
-  color: #bfbfbf;
+  color: #636363;
 }
 .date-nav-wrapper .item-list .pager li a {
   background: none;
@@ -4047,12 +4086,10 @@ div.date-views-pager div.next-year {
   background: transparent;
   text-decoration: none;
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   .date-nav-wrapper .item-list .pager {
     display: inline-block;
-    width: 202px;
     height: 34px;
-    background: #eaeef0;
     position: relative;
     bottom: .4rem;
   }
@@ -4071,6 +4108,11 @@ div.date-views-pager div.next-year {
   right: auto;
   border-right: 4px solid #ffffff;
 }
+@media (min-width: 60em) {
+  .date-nav-wrapper .date-prev {
+    border-right: none;
+  }
+}
 
 .date-nav-wrapper .item-list .pager li.date-prev a {
   display: block;
@@ -4081,7 +4123,10 @@ div.date-views-pager div.next-year {
 }
 @media (min-width: 60em) {
   .date-nav-wrapper .item-list .pager li.date-prev a {
-    background-position: 10px 8px;
+    background: #eaeef0 url(../images/calendar-arrows.png) 50% -4px no-repeat;
+    border: 1px solid #ababab;
+    margin-right: 0.6rem;
+    height: 14px;
   }
 }
 
@@ -4093,9 +4138,10 @@ div.date-views-pager div.next-year {
   z-index: 1;
   border-left: 4px solid #ffffff;
 }
-@media (min-width: 70em) {
+@media (min-width: 60em) {
   .date-nav-wrapper .date-next {
     left: 140px;
+    border-left: none;
   }
 }
 
@@ -4108,8 +4154,20 @@ div.date-views-pager div.next-year {
 }
 @media (min-width: 60em) {
   .date-nav-wrapper .item-list .pager li.date-next a {
-    background-position: -36px 8px;
+    background: #eaeef0 url(../images/calendar-arrows.png) 50% -67px no-repeat;
+    border: 1px solid #ababab;
+    margin-left: 0.4rem;
+    height: 14px;
   }
+}
+
+.date-nav-wrapper .item-list .pager li.date-today a,
+.date-nav-wrapper .item-list .pager li.date-today span {
+  background: #eaeef0;
+  padding: 0.4070rem 1rem;
+  margin-left: 4rem;
+  margin-right: 0.2rem;
+  border: 1px solid #ababab;
 }
 
 .node-type-event #content,
@@ -4547,7 +4605,9 @@ div.date-views-pager div.next-year {
     margin-bottom: 0.4rem;
   }
 }
-@media (min-device-width: 320px) and (max-device-width: 1280px) {
+/* ----------- iPhone 4 and 4S ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
   .js-print-button {
     display: none;
   }
@@ -4559,7 +4619,177 @@ div.date-views-pager div.next-year {
     border-right: none;
   }
 }
-@media (max-width: 40em) {
+/* ----------- iPhone 5 and 5S ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
+  }
+}
+/* ----------- iPhone 6 ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
+  }
+}
+/* ----------- iPhone 6+ ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
+  }
+}
+/* ----------- Galaxy S3 ----------- */
+/* Portrait and Landscape */
+@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
+  }
+}
+/* ----------- Galaxy S4 ----------- */
+/* Portrait and Landscape */
+@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
+  }
+}
+/* ----------- Galaxy S5 ----------- */
+/* Portrait and Landscape */
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
+  }
+}
+/* ----------- HTC One ----------- */
+/* Portrait and Landscape */
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
+  }
+}
+/* ----------- iPad mini ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
+  }
+}
+/* ----------- iPad 1 and 2 ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
+  }
+}
+/* ----------- iPad 3 and 4 ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
+  }
+}
+/* ----------- Asus Nexus 7 ----------- */
+/* Portrait and Landscape */
+@media screen and (device-width: 601px) and (device-height: 906px) and (-webkit-min-device-pixel-ratio: 1.331) and (-webkit-max-device-pixel-ratio: 1.332) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
+  }
+}
+/* ----------- Kindle Fire HD 7" ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
+  }
+}
+/* ----------- Kindle Fire HD 8.9" ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1.5) {
   .js-print-button {
     display: none;
   }
@@ -4607,6 +4837,7 @@ div.date-views-pager div.next-year {
   margin: 0;
   padding: .2rem 1rem;
   border-bottom: 3px solid #d6dee2;
+  color: #424242;
 }
 
 #boxes-box-calendar_legend:after {
@@ -4653,22 +4884,22 @@ div.date-views-pager div.next-year {
   margin-right: 6px;
   margin-top: 0;
 }
-.events-color-legend .event-summer-school-programs:before {
+.events-color-legend .event-recreation-health--wellness:before {
   background: #ff2eba;
 }
-.events-color-legend .event-conference-workshops:before {
+.events-color-legend .event-conferences-workshops:before {
   background: #4780d1;
 }
 .events-color-legend .event-public-event-tours:before {
   background: #35b635;
 }
-.events-color-legend .event-talks-seminars-colloquia:before {
+.events-color-legend .event-talks--seminars:before {
   background: #e9ce43;
 }
 .events-color-legend .event-training-development:before {
   background: #e76d00;
 }
-.events-color-legend .event-staff-celebrations:before {
+.events-color-legend .event-staff-celebrations-events-meetings:before {
   background: #7e00aa;
 }
 .events-color-legend .event-none:before {
@@ -4736,6 +4967,8 @@ div.date-views-pager div.next-year {
 }
 .node-type-webform .form-actions {
   width: 100%;
+  padding: 0.3rem;
+  box-sizing: border-box;
   border: 1px dotted #b1c0c7;
 }
 @media (min-width: 40em) {
@@ -4747,7 +4980,9 @@ div.date-views-pager div.next-year {
 }
 .node-type-webform input[type="submit"] {
   background: #316dae;
+  width: 100%;
   margin: 0;
+  padding: 0.4rem;
 }
 .node-type-webform input[type="submit"]:hover, .node-type-webform input[type="submit"]:focus {
   background: #4786cb;
@@ -4755,7 +4990,7 @@ div.date-views-pager div.next-year {
 }
 @media (min-width: 40em) {
   .node-type-webform input[type="submit"] {
-    margin: 0.3rem;
+    padding: 0.4rem 1.5rem;
   }
 }
 .node-type-webform .webform-client-form {
@@ -5510,6 +5745,30 @@ fieldset.collapsed {
   }
 }
 
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.l-page {
+  min-height: 100%;
+  margin-bottom: -146px;
+}
+
+.l-page:after {
+  content: "";
+  display: block;
+}
+
+.footer-wrapper,
+.l-page:after {
+  height: 146px;
+}
+
 .front .content-container {
   padding-top: 0;
 }
@@ -5597,7 +5856,7 @@ fieldset.collapsed {
   font-size: 0.75rem;
   line-height: 1.2;
   color: #7c6235;
-  margin-bottom: -3px;
+  margin-bottom: -2px;
   text-transform: uppercase;
 }
 
@@ -5831,33 +6090,6 @@ fieldset.collapsed {
     font-size: 11px;
     font-size: 0.6875rem;
     color: #316dae;
-    list-style: inherit;
-    list-style-position: inside;
-  }
-  .frontpage-top-links .top-links-list .list-link-item,
-  .frontpage-top-links .organization-index-list .list-link-item,
-  .frontpage-directorate-links .top-links-list .list-link-item,
-  .frontpage-directorate-links .organization-index-list .list-link-item {
-    float: left;
-    width: 49%;
-    background: none;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  .frontpage-top-links .top-links-list .list-link-item a,
-  .frontpage-top-links .organization-index-list .list-link-item a,
-  .frontpage-directorate-links .top-links-list .list-link-item a,
-  .frontpage-directorate-links .organization-index-list .list-link-item a {
-    padding-left: 0;
-  }
-}
-@media (min-width: 70em) {
-  .frontpage-top-links .top-links-list,
-  .frontpage-top-links .organization-index-list,
-  .frontpage-directorate-links .top-links-list,
-  .frontpage-directorate-links .organization-index-list {
-    padding-left: 0;
-    list-style: none;
   }
   .frontpage-top-links .top-links-list .list-link-item,
   .frontpage-top-links .organization-index-list .list-link-item,
@@ -5868,8 +6100,10 @@ fieldset.collapsed {
     width: 100%;
     margin-top: 0.45rem;
     margin-bottom: 0.45rem;
+    float: left;
+    width: 47%;
     margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
   }
   .frontpage-top-links .top-links-list .list-link-item a,
   .frontpage-top-links .organization-index-list .list-link-item a,
@@ -5880,6 +6114,106 @@ fieldset.collapsed {
     display: block;
     background: none;
     padding: 0.3rem 0.5rem;
+  }
+  .frontpage-top-links .top-links-list .list-link-item.views-row-odd,
+  .frontpage-top-links .organization-index-list .list-link-item.views-row-odd,
+  .frontpage-directorate-links .top-links-list .list-link-item.views-row-odd,
+  .frontpage-directorate-links .organization-index-list .list-link-item.views-row-odd {
+    margin-right: 6%;
+  }
+  .frontpage-top-links .top-links-list .list-link-item a,
+  .frontpage-top-links .organization-index-list .list-link-item a,
+  .frontpage-directorate-links .top-links-list .list-link-item a,
+  .frontpage-directorate-links .organization-index-list .list-link-item a {
+    padding-left: 1rem;
+  }
+}
+@media (min-width: 70em) {
+  .frontpage-top-links .blue-striped-list,
+  .frontpage-top-links .blue-dashed-list,
+  .frontpage-directorate-links .blue-striped-list,
+  .frontpage-directorate-links .blue-dashed-list {
+    padding-bottom: 0.5rem;
+  }
+  .frontpage-top-links .blue-striped-list:after,
+  .frontpage-top-links .blue-dashed-list:after,
+  .frontpage-directorate-links .blue-striped-list:after,
+  .frontpage-directorate-links .blue-dashed-list:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .frontpage-top-links .top-links-list,
+  .frontpage-directorate-links .top-links-list {
+    font-size: 11px;
+    font-size: 0.6875rem;
+    color: #316dae;
+    padding-left: 1.5rem;
+  }
+  .frontpage-top-links .top-links-list .list-link-item,
+  .frontpage-directorate-links .top-links-list .list-link-item {
+    background: none;
+    list-style: disc;
+    float: left;
+    width: 47%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .frontpage-top-links .top-links-list .list-link-item.views-row-odd,
+  .frontpage-directorate-links .top-links-list .list-link-item.views-row-odd {
+    margin-right: 6%;
+  }
+  .frontpage-top-links .top-links-list .list-link-item a,
+  .frontpage-directorate-links .top-links-list .list-link-item a {
+    padding-left: 0;
+  }
+}
+@media (min-width: 70em) {
+  .frontpage-top-links .blue-dashed-list,
+  .frontpage-directorate-links .blue-dashed-list {
+    padding-bottom: 0.5rem;
+  }
+  .frontpage-top-links .blue-dashed-list:after,
+  .frontpage-directorate-links .blue-dashed-list:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .frontpage-top-links .organization-index-list,
+  .frontpage-directorate-links .organization-index-list {
+    font-size: 11px;
+    font-size: 0.6875rem;
+    color: #316dae;
+  }
+  .frontpage-top-links .organization-index-list .list-link-item,
+  .frontpage-directorate-links .organization-index-list .list-link-item {
+    background: #e9f2f9;
+    border: none;
+    width: 100%;
+    margin-top: 0.45rem;
+    margin-bottom: 0.45rem;
+    background: #eaeef0;
+    float: left;
+    width: 46%;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    border: 1px dashed #316dae;
+  }
+  .frontpage-top-links .organization-index-list .list-link-item a,
+  .frontpage-directorate-links .organization-index-list .list-link-item a {
+    font-size: 11px;
+    font-size: 0.6875rem;
+    display: block;
+    background: none;
+    padding: 0.3rem 0.5rem;
+  }
+  .frontpage-top-links .organization-index-list .list-link-item.views-row-odd,
+  .frontpage-directorate-links .organization-index-list .list-link-item.views-row-odd {
+    margin-right: 6%;
+  }
+  .frontpage-top-links .organization-index-list .list-link-item a,
+  .frontpage-directorate-links .organization-index-list .list-link-item a {
+    padding-left: 1rem;
   }
 }
 .frontpage-top-links .view-footer,
@@ -5930,7 +6264,7 @@ fieldset.collapsed {
   .frontpage-people-finder .pane-title {
     margin-top: 0;
     line-height: 1;
-    margin-bottom: -2px;
+    margin-bottom: -1px;
   }
 }
 
@@ -6205,7 +6539,7 @@ fieldset.collapsed {
   .frontpage-calendar .pane-title {
     margin-top: 0;
     line-height: 1;
-    margin-bottom: -2px;
+    margin-bottom: -1px;
   }
 }
 .frontpage-calendar .views-field-nothing-1 {
@@ -7330,6 +7664,7 @@ fieldset.collapsed {
   }
 
   .main-navigation {
+    height: 33px;
     background: #316dae;
     position: relative;
     z-index: 4;
@@ -7371,7 +7706,7 @@ fieldset.collapsed {
     font-size: 0.875rem;
     line-height: 1;
     display: inline-block;
-    padding: 0.5625rem 1.9375rem;
+    padding: 0.58rem 1.9375rem;
     text-transform: uppercase;
     color: #fff;
     background: transparent;
@@ -7560,57 +7895,64 @@ fieldset.collapsed {
   color: #ffffff;
 }
 
-.node-type-event .general-left a.page-icon,
-.node-type-news .general-left a.page-icon,
-.node-type-access-information .general-left a.page-icon {
+.node-type-event a.page-icon,
+.node-type-news a.page-icon,
+.node-type-access-information a.page-icon {
   font-size: 18px;
   font-size: 1.125rem;
   display: inline;
   color: #316dae;
-  padding-left: 25px;
-  padding-bottom: 2px;
   font-weight: bold;
+}
+.node-type-event a.page-icon:before,
+.node-type-news a.page-icon:before,
+.node-type-access-information a.page-icon:before {
+  display: block;
+  content: "";
   width: 16px;
   height: 16px;
+  margin-top: 3px;
+  float: left;
+  margin-right: 10px;
+  background: #838383;
 }
-.node-type-event .general-left a.page-icon.conferences-workshops,
-.node-type-news .general-left a.page-icon.conferences-workshops,
-.node-type-access-information .general-left a.page-icon.conferences-workshops {
-  background: url("../images/icon-blue.png") 0 2px no-repeat;
+.node-type-event a.page-icon.conferences-workshops:before,
+.node-type-news a.page-icon.conferences-workshops:before,
+.node-type-access-information a.page-icon.conferences-workshops:before {
+  background: #4780d1;
 }
-.node-type-event .general-left a.page-icon.public-events-tours,
-.node-type-news .general-left a.page-icon.public-events-tours,
-.node-type-access-information .general-left a.page-icon.public-events-tours {
-  background: url("../images/icon-green.png") 0 2px no-repeat;
+.node-type-event a.page-icon.public-events-tours:before,
+.node-type-news a.page-icon.public-events-tours:before,
+.node-type-access-information a.page-icon.public-events-tours:before {
+  background: #35b635;
 }
-.node-type-event .general-left a.page-icon.staff-celebrations,
-.node-type-news .general-left a.page-icon.staff-celebrations,
-.node-type-access-information .general-left a.page-icon.staff-celebrations {
-  background: url("../images/icon-purple.png") 0 2px no-repeat;
+.node-type-event a.page-icon.staff-celebrations-events-meetings:before,
+.node-type-news a.page-icon.staff-celebrations-events-meetings:before,
+.node-type-access-information a.page-icon.staff-celebrations-events-meetings:before {
+  background: #7e00aa;
 }
-.node-type-event .general-left a.page-icon.summer-school-programs,
-.node-type-news .general-left a.page-icon.summer-school-programs,
-.node-type-access-information .general-left a.page-icon.summer-school-programs {
-  background: url("../images/icon-pink.png") 0 2px no-repeat;
+.node-type-event a.page-icon.recreation-health-wellness:before,
+.node-type-news a.page-icon.recreation-health-wellness:before,
+.node-type-access-information a.page-icon.recreation-health-wellness:before {
+  background: #ff2eba;
 }
-.node-type-event .general-left a.page-icon.talks-seminars-colloquia,
-.node-type-news .general-left a.page-icon.talks-seminars-colloquia,
-.node-type-access-information .general-left a.page-icon.talks-seminars-colloquia {
-  background: url("../images/icon-yellow.png") 0 2px no-repeat;
+.node-type-event a.page-icon.talks-seminars:before,
+.node-type-news a.page-icon.talks-seminars:before,
+.node-type-access-information a.page-icon.talks-seminars:before {
+  background: #e9ce43;
 }
-.node-type-event .general-left a.page-icon.training-development,
-.node-type-news .general-left a.page-icon.training-development,
-.node-type-access-information .general-left a.page-icon.training-development {
-  background: url("../images/icon-orange.png") 0 2px no-repeat;
-}
-.node-type-event .general-left a.page-icon.none,
-.node-type-news .general-left a.page-icon.none,
-.node-type-access-information .general-left a.page-icon.none {
-  background: url("../images/icon-grey.png") 0 2px no-repeat;
+.node-type-event a.page-icon.training-development:before,
+.node-type-news a.page-icon.training-development:before,
+.node-type-access-information a.page-icon.training-development:before {
+  background: #e76d00;
 }
 
-.node-type-access-information .general-left a.page-icon {
+.node-type-access-information a.page-icon {
   background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
+  padding-left: 26px;
+}
+.node-type-access-information a.page-icon:before {
+  display: none;
 }
 .node-type-access-information .pane-slac-ip-panes-access-notice-link {
   margin-bottom: 2em;

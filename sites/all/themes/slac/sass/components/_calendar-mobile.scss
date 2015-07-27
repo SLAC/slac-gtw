@@ -309,6 +309,10 @@
       text-align: right;
     }
 
+    .day-view .time {
+      width: 115px;
+    }
+
     .title {
       position: relative;
       top: -6px;
@@ -336,11 +340,11 @@
     .dayview .type-event {
       border-top: 3px solid;
 
-      &.event-summer-school-programs {
+      &.event-recreation-health--wellness {
         border-color: color(pink);
       }
 
-      &.event-talks-seminars--colloquia {
+      &.event-talks--seminars {
         border-color: color(yellow);
       }
 
@@ -352,7 +356,7 @@
         border-color: color(blue);
       }
 
-      &.event-staff-celebrations {
+      &.event-staff-celebrations-events--meetings {
         border-color: color(purple);
       }
 

@@ -236,6 +236,7 @@ function _slac_ip_core_source_or_alias($entity) {
   else {
     $url = $entity->path['source'];
   }
+  $url = '/' . $url;
 
   return $url;
 }

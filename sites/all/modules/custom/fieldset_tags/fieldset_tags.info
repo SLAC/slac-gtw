@@ -1,4 +1,4 @@
-name = Fielset Tags
+name = Fieldset Tags
 description = Tag widget to show vocabulary as fieldsets.
 dependencies[] = taxonomy
 dependencies[] = field
