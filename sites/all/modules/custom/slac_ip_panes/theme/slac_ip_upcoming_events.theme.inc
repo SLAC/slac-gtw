@@ -40,8 +40,3 @@ function template_preprocess_slac_ip_upcoming_events_event(&$variables) {
   $location = field_view_field('node', $node, 'field_shared_location', $display_settings);
   $variables['location'] = drupal_render($location);
 }
-
-//function theme_slac_ip_upcoming_events_day($variables) {
-//  $content = '';
-//  return $content;
-//}

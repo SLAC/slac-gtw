@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Install functions for the SLAC IP Panes module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function slac_ip_panes_uninstall() {
+  db_delete('variable')
+    ->condition('name', 'slac_ip_panes_%', 'LIKE')
+    ->execute();
+
+  cache_clear_all('variables', 'cache_bootstrap');
+}

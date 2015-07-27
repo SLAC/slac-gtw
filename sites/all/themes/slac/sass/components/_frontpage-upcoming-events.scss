@@ -52,6 +52,10 @@
     .views-row-last {
       background: url('../images/dotted-bottom-border.png') no-repeat 0 bottom;
     }
+
+    .more a:after {
+      content: " »";
+    }
   }
 
   h3 {

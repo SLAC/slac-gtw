@@ -45,8 +45,7 @@ function slac_ip_upcoming_events_render($subtype, $conf, $args, $context) {
   $query->entityCondition('entity_type', 'node')
     ->entityCondition('bundle', 'event')
     ->fieldCondition('field_event_date', 'value2', $now, '>')
-    ->fieldOrderBy('field_event_date', 'value', 'ASC')
-    ->range(0, 3);
+    ->fieldOrderBy('field_event_date', 'value', 'ASC');
   $result = $query->execute();
 
   // If there are no nodes, return early.
@@ -55,7 +54,7 @@ function slac_ip_upcoming_events_render($subtype, $conf, $args, $context) {
     return $block;
   }
 
-  // Prepare the list of rendered event items, gropued by month, day.
+  // Prepare the list of rendered event items, grouped by month, day.
   $events_content = _slac_ip_upcoming_events_render_events_content($result);
 
   $content = _slac_ip_upcoming_events_render_block_content($events_content);
@@ -80,6 +79,9 @@ function slac_ip_upcoming_events_render($subtype, $conf, $args, $context) {
 function _slac_ip_upcoming_events_render_events_content($result) {
   $events_content = array();
   $now = new DateTime('now');
+  $max_days = variable_get('slac_ip_panes_upcoming_events_max_days', 3);
+  $day_count = 0;
+  $max_per_day = variable_get('slac_ip_panes_upcoming_events_max_per_day', 2);
 
   foreach ($result['node'] as $nid => $node) {
     $node = node_load($nid);
@@ -101,13 +103,41 @@ function _slac_ip_upcoming_events_render_events_content($result) {
       $field['value'] = $date->format('Y-m-d H:i:s');
     }
 
+    $year = $date->format('Y');
     $month = $date->format('M');
+    $week_number = $date->format('W');
     $day = $date->format('j');
 
-    $vars = array(
-      'node' => $node,
-    );
-    $events_content[$month][$day][] = theme('slac_ip_upcoming_events_event', $vars);
+    $day_event_count = 0;
+    if (isset($events_content[$month][$day])) {
+      $day_event_count = count($events_content[$month][$day]);
+    }
+    else {
+      $day_count += 1;
+      // If the day max has been reached, stop here (events were selected with
+      // ascending date ordering.)
+      if ($day_count > $max_days) {
+        break;
+      }
+    }
+
+    if ($day_event_count == $max_per_day) {
+      // Add a 'More events' link and no more items for this day.
+
+      $link = l(t('More events'), 'calendar/' . $year . '-W' .$week_number);
+      $events_content['#more'][$month][$day] = $link;
+    }
+    elseif ($day_event_count > $max_per_day) {
+      // The max was already reached and the 'More events' link already added.
+      continue;
+    }
+    else {
+      // Otherwise, render the day and add to the list.
+      $vars = array(
+        'node' => $node,
+      );
+      $events_content[$month][$day][] = theme('slac_ip_upcoming_events_event', $vars);
+    }
   }
 
   return $events_content;
@@ -125,11 +155,19 @@ function _slac_ip_upcoming_events_render_events_content($result) {
 function _slac_ip_upcoming_events_render_block_content($events_content) {
   $content = '';
 
-  foreach ($events_content as $month => $day_items) {
+  foreach ($events_content as $month_key => $day_items) {
+    if (strpos($month_key, '#') === 0) {
+      // Skip metadata added in the render function
+      // _slac_ip_upcoming_events_render_events_content().
+      continue;
+    }
+
     foreach ($day_items as $day => $day_rows) {
+      $more = (isset($events_content['#more'][$month_key][$day]));
+
       $content .= '<div class="views-row-grouped">';
       $content .= '  <h3>';
-      $content .= '    <span class="month">' . $month . '</span>';
+      $content .= '    <span class="month">' . $month_key . '</span>';
       $content .= '    <span class="day">' . $day . '</span>';
       $content .= '  </h3>';
 
@@ -137,9 +175,17 @@ function _slac_ip_upcoming_events_render_block_content($events_content) {
       for ($i = 0; $i < $count; $i++) {
         $class = 'views-row';
         $class .= ($i == 0) ? ' views-row-first' : '';
-        $class .= ($i == $count - 1) ? ' views-row-last' : '';
+        if (!$more) {
+          // The 'view more' row in views counts as the last row.
+          $class .= ($i == $count - 1) ? ' views-row-last' : '';
+        }
 
         $content .= '<div class="' . $class . '">' . $day_rows[$i] . '</div>';
+      }
+
+      if ($more) {
+        $content .= '<div class="more views-row views-row-last">'
+          . $events_content['#more'][$month_key][$day] . '</div>';
       }
 
       $content .= '</div>';
