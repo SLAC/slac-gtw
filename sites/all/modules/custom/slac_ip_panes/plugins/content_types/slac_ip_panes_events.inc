@@ -103,44 +103,97 @@ function _slac_ip_upcoming_events_render_events_content($result) {
       $field['value'] = $date->format('Y-m-d H:i:s');
     }
 
-    $year = $date->format('Y');
-    $month = $date->format('M');
-    $week_number = $date->format('W');
-    $day = $date->format('j');
+    $days_to_render = _list_days_to_render($node, $date, $now);
 
-    $day_event_count = 0;
-    if (isset($events_content[$month][$day])) {
-      $day_event_count = count($events_content[$month][$day]);
-    }
-    else {
-      $day_count += 1;
-      // If the day max has been reached, stop here (events were selected with
-      // ascending date ordering.)
-      if ($day_count > $max_days) {
-        break;
+    // Make a row for each date this Event should appear under, respecting max
+    // counts for days to display and events per day.
+    foreach ($days_to_render as $date) {
+      $year = $date->format('Y');
+      $month = $date->format('M');
+      $week_number = $date->format('W');
+      $day = $date->format('j');
+
+      $day_event_count = 0;
+      if (isset($events_content[$month][$day])) {
+        $day_event_count = count($events_content[$month][$day]);
       }
-    }
+      else {
+        $day_count += 1;
+        // If the day max has been reached, stop here (events were selected with
+        // ascending date ordering.)
+        if ($day_count > $max_days) {
+          break;
+        }
+      }
 
-    if ($day_event_count == $max_per_day) {
-      // Add a 'More events' link and no more items for this day.
-
-      $link = l(t('More events'), 'calendar/' . $year . '-W' .$week_number);
-      $events_content['#more'][$month][$day] = $link;
-    }
-    elseif ($day_event_count > $max_per_day) {
-      // The max was already reached and the 'More events' link already added.
-      continue;
-    }
-    else {
-      // Otherwise, render the day and add to the list.
-      $vars = array(
-        'node' => $node,
-      );
-      $events_content[$month][$day][] = theme('slac_ip_upcoming_events_event', $vars);
+      if ($day_event_count == $max_per_day) {
+        // Add a 'More events' link and do not add more items for this day.
+        $link = l(t('More events'), 'calendar/' . $year . '-W' .$week_number);
+        $events_content['#more'][$month][$day] = $link;
+      }
+      elseif ($day_event_count > $max_per_day) {
+        // The max was already reached and the 'More events' link already added.
+        continue;
+      }
+      else {
+        // Otherwise, render the day and add to the list.
+        $vars = array(
+          'node' => $node,
+        );
+        $events_content[$month][$day][] = theme('slac_ip_upcoming_events_event', $vars);
+      }
     }
   }
 
   return $events_content;
+}
+
+/**
+ * Helper function that lists all the days this Event should appear under.
+ *
+ * @param $node
+ *   The Event node.
+ * @param $start_date
+ *   The first date to render under. The returned list will always contain this
+ *   date at least.
+ * @param $now
+ *   The date object for today for comparison.
+ *
+ * @return array
+ *   The array of dates to render this Event in.
+ */
+function _list_days_to_render($node, $start_date, $now) {
+  $max_days = variable_get('slac_ip_panes_upcoming_events_max_days', 3);
+
+  $days_to_render = array(clone $start_date,);
+
+  $date_field = field_get_items('node', $node, 'field_event_date');
+
+  // If the Event occurs on future days as wall, add rows for them.
+  try {
+    $date2 = new DateTime($date_field[0]['value2']);
+  }
+  catch (Exception $e) {
+    return $days_to_render;
+  }
+
+  $diff = $now->diff($date2);
+
+  if ($diff->d > 0) {
+    $one_day = new DateInterval('P1D');
+
+    // Don't bother going over max days.
+    $num_days = $diff->d;
+    if ($diff->d > $max_days) {
+      $num_days = $max_days;
+    }
+    for ($i = 0; $i <= $num_days; $i++) {
+      $start_date->add($one_day);
+      $days_to_render[] = clone $start_date;
+    }
+  }
+
+  return $days_to_render;
 }
 
 /**
