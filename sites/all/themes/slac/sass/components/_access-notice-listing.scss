@@ -1,17 +1,18 @@
 .page-access {
 
   .title {
-    padding-left: 50px;
-    background: url(../images/access-notice-icon.svg) 20px 6px no-repeat;
+    padding-left: 30px;
+    background: url(../images/access-notice-icon.svg) 0 3px no-repeat;
     margin-bottom: 0.5rem;
 
     @include breakpoint($desktop) {
       @include move-page-title;
       padding-left: 50px;
+      background-position: 20px 3px;
     }
 
     .lt-ie9 & {
-      background: url(../images/access-notice-icon.png) 20px 6px no-repeat;
+      background: url(../images/access-notice-icon.png) 20px 3px no-repeat;
     }
   }
 

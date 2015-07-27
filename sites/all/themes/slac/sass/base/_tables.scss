@@ -45,9 +45,14 @@ table {
 }
 
 caption {
-  display: table-caption;
-  text-align: center;
-  white-space: nowrap;
+  display: block;
+  margin: 0 auto;
+
+  @include breakpoint($tablet-large) {
+    display: table-caption;
+    text-align: center;
+    white-space: nowrap;
+  }
 }
 
 // Adds borders to headers and cells
@@ -58,6 +63,7 @@ table[border] tr td {
 }
 
 // No borders if border value is zero
+table[border="0"],
 table[border="0"] th,
 table[border="0"] tr td {
   border: none;

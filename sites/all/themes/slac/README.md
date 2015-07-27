@@ -10,6 +10,7 @@
   4. [Grid and Layout](#markdown-header-grid-and-layout)
   5. [Responsive Design](#markdown-header-responsive-design)
   6. [Events Calendar](#markdown-header-events-calendar)
+  7. [Event nodes color coding](#markdown-header-event-nodes-color-coding)
 
 ## Theme’s front-end tools setup
 
@@ -178,7 +179,7 @@ sass/
 |
 |– utilities/
 |   |– _breakpoints.scss
-|   |– _events-color-legend.scss
+|   |– _events-color-codes.scss
 |   |– _mixins.scss
 |
 |- main.scss
@@ -306,7 +307,7 @@ The events calendar located under _/calendar_ presented many development and the
 
 Events are color-coded based on their type.  For this we created a simply color map to be used on each event.  Event types are applied through a taxonomy terms.  By appending the taxonomy machine name to each event as a css class we are able to target the color-coding with Sass.
 
-The color map can be found under `/sass/utilities/_events-color-legend.scss` and it looks like this:
+The color map can be found under `/sass/utilities/_events-color-codes.scss` and it looks like this:
 ```sass
 $color: (
   red: #de0105,
@@ -435,3 +436,16 @@ Important to note, if a new event type is added to the list of existing event ty
 As far as responsive theming for calendar, we used the same technique as we've done on tables.  After all, most of the calendar is built using tables.
 
 **[⬆ back to top](#markdown-header-table-of-contents)**
+
+
+## Event nodes color coding ##
+
+Similarly to color coding calendar events, applying the right color code to event nodes can be accomplished by first adding a new event type taxonomy term to the Event Type vocabulary.
+
+When an event is created using the newly added event type term, its machine name will be added as a CSS class to the node's event type field.  You can then use this CSS class to apply the right color code to that event type.
+
+  1. Edit `/utilities/_events-color-codes.scss` and add your new color code
+  2. Edit `/components/_page-icons.scss` and add the new CSS class generated from the taxonomy term.  Be sure to use the same format as the other events in the list (i.e. `&.new-css-class:before`)
+  3. Add a background property with the corresponding color added in step one above.
+
+  **[⬆ back to top](#markdown-header-table-of-contents)**

@@ -3,7 +3,7 @@
   // global styles for calendar events
   .type-access_information,
   .type-event {
-    background: color(event-item-grey);
+    background: $color-gray-mercury;
     margin: 0.2rem 0 0.5rem 0;
     padding: 0.2rem 0.4rem;
     border-left: 4px solid color(grey);
@@ -18,11 +18,11 @@
   }
 
     // individual styles
-    &.event-summer-school-programs {
+    &.event-recreation-health--wellness {
       border-color: color(pink);
     }
 
-    &.event-talks-seminars--colloquia {
+    &.event-talks--seminars {
       border-color: color(yellow);
     }
 
@@ -34,7 +34,7 @@
       border-color: color(blue);
     }
 
-    &.event-staff-celebrations {
+    &.event-staff-celebrations-events--meetings {
       border-color: color(purple);
     }
 
@@ -60,7 +60,7 @@
 
       .time {
         padding: 3px 6px 4px 6px;
-        border-top: 2px solid color(grey);
+        border-top: 2px solid $color-gray;
         background: color(grey-light);
         height: 16px;
       }
@@ -81,12 +81,12 @@
       background: color(red-light) url(../images/access-notice-icon-smaller.png) 5px 4px no-repeat;
     }
 
-    .event-summer-school-programs .time {
+    .event-recreation-health--wellness .time {
       border-color: color(pink);
       background: color(pink-light);
     }
 
-    .event-talks-seminars--colloquia .time {
+    .event-talks--seminars .time {
       border-color: color(yellow);
       background: color(yellow-light);
     }
@@ -101,7 +101,7 @@
       background: color(blue-light);
     }
 
-    .event-staff-celebrations .time {
+    .event-staff-celebrations-events--meetings .time {
       border-color: color(purple);
       background: color(purple-light);
     }
@@ -149,7 +149,20 @@
 
   @include breakpoint($tablet-large) {
     .weekview .type-access_information {
-      margin: 0.2rem;
+      margin: 0.2rem 0;
+    }
+
+    .week-view .full td,
+    .month-view .full td {
+      padding: 0 0.5rem 1rem;
+    }
+
+    .month-view .full .inner .monthview {
+      margin-bottom: 0.6rem;
+    }
+
+    .week-view .full .inner .weekview {
+      margin-bottom: 0.6rem;
     }
   }
 }
