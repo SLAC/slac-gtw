@@ -69,6 +69,8 @@ function slac_ip_upcoming_events_render($subtype, $conf, $args, $context) {
  * Helper function that prepares the list of rendered events grouped into
  * days by month.
  *
+ * If an Event starts in the past, the item will be modified to display today.
+ *
  * @param $result
  *   The EFQ result with nodes to render event items for.
  *
@@ -77,6 +79,7 @@ function slac_ip_upcoming_events_render($subtype, $conf, $args, $context) {
  */
 function _slac_ip_upcoming_events_render_events_content($result) {
   $events_content = array();
+  $now = new DateTime('now');
 
   foreach ($result['node'] as $nid => $node) {
     $node = node_load($nid);
@@ -87,6 +90,15 @@ function _slac_ip_upcoming_events_render_events_content($result) {
     }
     catch (Exception $e) {
       continue;
+    }
+
+    $diff = $now->diff($date);
+
+    // If the start date is on a past day, display for today instead.
+    if ($diff->invert && $diff->d != 0) {
+      $date->add(new DateInterval('P' . $diff->d . 'D'));
+      $field = &$node->field_event_date[$node->language][0];
+      $field['value'] = $date->format('Y-m-d H:i:s');
     }
 
     $month = $date->format('M');
