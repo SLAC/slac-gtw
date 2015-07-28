@@ -62,7 +62,7 @@
     html += '<div id="flea_market_flag_confirm" class="report-as-inappropriate" style="display:none;">';
     html += '  <h4 class="report-inappropriate-title">Report Flea Market Ad as Inappropriate</h4>';
     html += '  <button class="close top-close">X</button>';
-    html += '  <p class="report-message">Flagged ad content will be reviewed by the Office of Communications to determine whether SLAC\'s appropriate use policy of the web have been violated.</p>';
+    html += '  <p class="report-message">Flagged ad content will be reviewed by the Office of Communications to determine whether SLAC\'s <a href="https://intranet.slac.stanford.edu/about-flea-market">Flea Market guidelines</a> have been violated.</p>';
     html += '  <p class="flag-wrapper flag-flea-market-inappropriate flag-flea-market-inappropriate-' + nid + '">';
     html += '    <a href="' + href + '" class="submit report-button">Submit</a>';
     html += '    <span>or</span>';
