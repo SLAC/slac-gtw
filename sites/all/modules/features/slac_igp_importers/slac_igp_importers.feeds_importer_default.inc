@@ -424,15 +424,16 @@ function slac_igp_importers_feeds_importer_default() {
             'unique' => FALSE,
           ),
           6 => array(
+            'source' => 'tags',
+            'target' => 'slac_igp_feed_field_shared_tags',
+            'term_search' => '0',
+            'autocreate' => 1,
+            'parent_term' => 'Retired Tags- Do Not Use',
+          ),
+          7 => array(
             'source' => 'Blank source 1',
             'target' => 'promote',
             'unique' => FALSE,
-          ),
-          7 => array(
-            'source' => 'tags',
-            'target' => 'field_shared_tags',
-            'term_search' => '0',
-            'autocreate' => 1,
           ),
           8 => array(
             'source' => 'Blank source 2',
