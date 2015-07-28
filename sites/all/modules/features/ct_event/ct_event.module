@@ -91,3 +91,14 @@ function ct_event_preprocess_field(&$vars) {
     );
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alters the node title on the event form.
+ *
+ */
+function ct_event_form_event_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['title']['#title'] = 'Event Title';
+}
+

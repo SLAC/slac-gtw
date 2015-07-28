@@ -33,7 +33,6 @@ features[features_api][] = api:2
 features[field_instance][] = node-access_information-body
 features[field_instance][] = node-access_information-field_event_date
 features[field_instance][] = node-access_information-field_news_news_type
-features[field_instance][] = node-access_information-field_shared_byline
 features[field_instance][] = node-access_information-field_shared_contact_email
 features[field_instance][] = node-access_information-field_shared_contact_name
 features[field_instance][] = node-access_information-field_shared_contact_phone
