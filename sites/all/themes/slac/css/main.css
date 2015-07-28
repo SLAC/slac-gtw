@@ -1401,7 +1401,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 
 .calendar-calendar .day-view {
   border: 3px solid #d6dee2;
-  border-top: none;
   border-left: none;
   border-bottom: none;
 }
