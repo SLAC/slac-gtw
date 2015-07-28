@@ -46,6 +46,13 @@ function v_event_views_default_views() {
   $handler->display->display_options['footer']['area']['content'] = '<a href="https://news.slac.stanford.edu/calendar/all">View All Upcoming Events</a><br />
 <a href="https://news.slac.stanford.edu/create/announcement ">Submit An Event</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'There are no upcoming events at this time.';
+  $handler->display->display_options['empty']['area']['format'] = 'full_html';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -158,6 +165,10 @@ Date: [field_event_date] \\n
 Time: [field_event_date_1] \\n
 URL: [nothing_3] \\n';
   $handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;
+  /* Field: Content: Existing / New */
+  $handler->display->display_options['fields']['field_shared_new_existing']['id'] = 'field_shared_new_existing';
+  $handler->display->display_options['fields']['field_shared_new_existing']['table'] = 'field_data_field_shared_new_existing';
+  $handler->display->display_options['fields']['field_shared_new_existing']['field'] = 'field_shared_new_existing';
   /* Sort criterion: Content: Date -  start date (field_event_date) */
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
   $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
@@ -187,18 +198,6 @@ URL: [nothing_3] \\n';
   $handler->display->display_options['filters']['field_event_date_value2']['expose']['identifier'] = 'field_event_date_value2';
   $handler->display->display_options['filters']['field_event_date_value2']['granularity'] = 'minute';
   $handler->display->display_options['filters']['field_event_date_value2']['default_date'] = 'now';
-
-  /* Display: Front Page Upcoming */
-  $handler = $view->new_display('block', 'Front Page Upcoming', 'block');
-  $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Footer: Global: Text area */
-  $handler->display->display_options['footer']['area']['id'] = 'area';
-  $handler->display->display_options['footer']['area']['table'] = 'views';
-  $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="/calendar">View All Upcoming Events</a>
-<a href="http://training.slac.stanford.edu/calendar.asp">View SLAC Training Calendar</a>
-<a href="/node/add/event/slac ">Submit Event</a>';
-  $handler->display->display_options['footer']['area']['format'] = 'full_html';
 
   /* Display: iCal Feed */
   $handler = $view->new_display('feed', 'iCal Feed', 'feed_1');
