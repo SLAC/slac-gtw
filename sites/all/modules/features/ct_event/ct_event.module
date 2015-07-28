@@ -102,3 +102,13 @@ function ct_event_form_event_node_form_alter(&$form, &$form_state, $form_id) {
   $form['title']['#title'] = 'Event Title';
 }
 
+/**
+ * Implements hook_node_view().
+ *
+ * When viewing an Event node, the "Calendar" menu item will be active.
+ */
+function ct_event_node_view($node, $view_mode, $langcode) {
+  if ($node->type == 'event' && $view_mode == 'full') {
+    menu_tree_set_path('main-menu', 'calendar');
+  }
+}
