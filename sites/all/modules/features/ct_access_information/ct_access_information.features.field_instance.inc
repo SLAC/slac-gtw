@@ -743,7 +743,11 @@ function ct_access_information_field_default_field_instances() {
   // Exported field_instance: 'node-access_information-field_shared_new_existing'
   $field_instances['node-access_information-field_shared_new_existing'] = array(
     'bundle' => 'access_information',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'Enter Details',
+      ),
+    ),
     'deleted' => 0,
     'description' => 'Select ‘Enter Details’ option to create a new web page. Select ‘Link to Existing URL’ to redirect users to an already existing web page instead.',
     'display' => array(
