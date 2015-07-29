@@ -1,3 +1,8 @@
+.section-staff-resources .l-main,
+.section-staff-resources .content-container {
+  background: #fbf9f9 !important;
+}
+
 /* A-Z page */
 .view-id-staff_resource_modern .view-content {
   clear: left;
@@ -199,6 +204,7 @@
     padding: 0;
   }
   .ui-accordion .ui-accordion-header a {
+    display: block;
     height: 16px;
     background: #fff url("../images/small-list-arrow-down.jpg") no-repeat right center;
     max-width: 100%;
@@ -221,7 +227,8 @@
     width: 90%;
     padding: 0 2.5% 20px 7.5%;
   }
-  .ui-accordion .ui-accordion-content .views-row {
+  .ui-accordion .ui-accordion-content .views-row,
+  .ui-accordion .ui-accordion-content .top-links-list li {
     background: url("../images/blue-right-list-arrow.jpg") no-repeat left 7px;
     padding: 2px 0 2px 11px;
     margin: 0;
@@ -229,9 +236,13 @@
     clear: both;
     display: block;
   }
-  .ui-accordion .ui-accordion-content .views-row a {
-    color: #20659A;
-    font-size: 12px;
+  .ui-accordion .ui-accordion-content .views-row a,
+  .ui-accordion .ui-accordion-content .top-links-list li a {
+    color: #20659A !important;
+    font-size: 12px !important;
+  }
+  .ui-accordion .ui-accordion-content .top-links-list {
+    padding-left: 0;
   }
   .ui-accordion .ui-accordion-content .view-footer {
     display: none;
@@ -244,6 +255,13 @@
     margin-bottom: 40px;
     float: left;
     clear: none;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+  .staff-main > div ul {
+    padding: 13px 8% 20px 2%;
   }
   .staff-main .rowonecoltwo ul {
     min-height: 312px;
@@ -260,6 +278,7 @@
   }
   .staff-main .inside ul {
     min-height: inherit;
+    padding: 13px 8% 20px 2%;
   }
 
   .rowtwocolone {
@@ -274,5 +293,29 @@
 
   .rowtwocoltwo {
     clear: both;
+  }
+}
+@media all and (min-width: 900px) {
+  .staff-main .rowonecolone,
+  .staff-main .rowonecoltwo,
+  .staff-main .rowonecolthree,
+  .staff-main .rowtwocolone,
+  .staff-main .rowtwocoltwo,
+  .staff-main .rowtwocolthree {
+    width: 33%;
+    float: left;
+    margin-left: 0;
+    padding-left: 1%;
+    padding-right: 1%;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+  .staff-main .rowonecolone ul,
+  .staff-main .rowonecoltwo ul,
+  .staff-main .rowonecolthree ul,
+  .staff-main .rowtwocolone ul,
+  .staff-main .rowtwocoltwo ul,
+  .staff-main .rowtwocolthree ul {
+    padding: 13px 8% 20px;
   }
 }
