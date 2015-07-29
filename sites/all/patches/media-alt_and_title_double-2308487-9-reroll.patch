@@ -1,0 +1,46 @@
+diff --git a/sites/all/modules/contrib/media/media.module b/sites/all/modules/contrib/media/media.module
+index f8cb098..da077a0 100644
+--- a/sites/all/modules/contrib/media/media.module
++++ b/sites/all/modules/contrib/media/media.module
+@@ -1076,10 +1076,10 @@ function media_file_displays_alter(&$displays, $file, $view_mode) {
+ 
+   // Load alt and title text from fields.
+   if (!empty($alt)) {
+-    $file->alt = token_replace($alt, array('file' => $file), $replace_options);
++    $file->alt = decode_entities(token_replace($alt, array('file' => $file), $replace_options));
+   }
+   if (!empty($title)) {
+-    $file->title = token_replace($title, array('file' => $file), $replace_options);
++    $file->title = decode_entities(token_replace($title, array('file' => $file), $replace_options));
+   }
+ }
+ 
+diff --git a/sites/all/modules/contrib/media/modules/media_wysiwyg/includes/media_wysiwyg.filter.inc b/sites/all/modules/contrib/media/modules/media_wysiwyg/includes/media_wysiwyg.filter.inc
+index 0a16b87..52673c3 100644
+--- a/sites/all/modules/contrib/media/modules/media_wysiwyg/includes/media_wysiwyg.filter.inc
++++ b/sites/all/modules/contrib/media/modules/media_wysiwyg/includes/media_wysiwyg.filter.inc
+@@ -153,6 +153,11 @@ function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE) {
+           }
+         }
+       }
++      foreach (array('title', 'alt') as $field_type) {
++        if (isset($settings['attributes'][$field_type])) {
++          $settings['attributes'][$field_type] = decode_entities($settings['attributes'][$field_type]);
++        }
++      }
+     }
+   }
+   catch (Exception $e) {
+diff --git a/sites/all/modules/contrib/media/modules/media_wysiwyg/js/media_wysiwyg.filter.js b/sites/all/modules/contrib/media/modules/media_wysiwyg/js/media_wysiwyg.filter.js
+index ff8efb2..704f3dc 100644
+--- a/sites/all/modules/contrib/media/modules/media_wysiwyg/js/media_wysiwyg.filter.js
++++ b/sites/all/modules/contrib/media/modules/media_wysiwyg/js/media_wysiwyg.filter.js
+@@ -177,7 +177,7 @@
+       if (info.attributes) {
+         $.each(Drupal.settings.media.wysiwyg_allowed_attributes, function(i, a) {
+           if (info.attributes[a]) {
+-            element.attr(a, info.attributes[a]);
++            element.attr(a, $('<textarea />').html(info.attributes[a]).text());
+           }
+         });
+         delete(info.attributes);

@@ -153,6 +153,11 @@ function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE) {
           }
         }
       }
+      foreach (array('title', 'alt') as $field_type) {
+        if (isset($settings['attributes'][$field_type])) {
+          $settings['attributes'][$field_type] = decode_entities($settings['attributes'][$field_type]);
+        }
+      }
     }
   }
   catch (Exception $e) {
