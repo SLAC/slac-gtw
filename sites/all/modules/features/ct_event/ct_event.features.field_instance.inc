@@ -787,7 +787,11 @@ function ct_event_field_default_field_instances() {
   // Exported field_instance: 'node-event-field_shared_new_existing'
   $field_instances['node-event-field_shared_new_existing'] = array(
     'bundle' => 'event',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'Enter Details',
+      ),
+    ),
     'deleted' => 0,
     'description' => 'Select ‘Enter Details’ option to create a new web page. Select ‘Link to Existing URL’ to redirect users to an already existing web page instead.',
     'display' => array(
