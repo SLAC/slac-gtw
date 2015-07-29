@@ -5559,6 +5559,77 @@ body {
     margin-right: 0;
   }
 }
+.front-main-column .title-body {
+  display: block;
+  height: 112px;
+  overflow: hidden;
+  padding: 20px;
+  padding-top: 18px;
+  background: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 1.4;
+}
+@media (min-width: 40em) {
+  .front-main-column .title-body {
+    font-size: 12px;
+    font-size: 0.75rem;
+    background: #316dae;
+    background: rgba(54, 116, 163, 0.75);
+    height: inherit;
+    color: #dfdfdf;
+    position: absolute;
+    bottom: 0;
+  }
+  .front-main-column .title-body:hover, .front-main-column .title-body:focus {
+    background: #3674a3;
+  }
+}
+.front-main-column .frontpage-slac-science .title-body {
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  right: 0;
+}
+@media all and (max-width: 60em) {
+  .front-main-column .frontpage-slac-science .title-body .body {
+    display: none;
+  }
+}
+.front-main-column .title a {
+  font-size: 19px;
+  font-size: 1.1875rem;
+  display: block;
+  color: #316dae;
+  text-decoration: none;
+}
+.front-main-column .title a:hover {
+  text-decoration: underline;
+}
+@media (min-width: 40em) {
+  .front-main-column .title a {
+    color: #f6f6f6;
+  }
+}
+.front-main-column .body a {
+  color: #dcdcdc;
+}
+@media all and (max-width: 40em) {
+  .front-main-column .frontpage-slac-science .title-body {
+    display: block;
+    height: inherit;
+    background: #316dae;
+    background: rgba(54, 116, 163, 0.75);
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    right: 0;
+  }
+  .front-main-column .frontpage-slac-science .title-body a {
+    color: #ffffff;
+  }
+}
+
 .frontpage-news-list .pane-title a {
   font-size: 13px;
   font-size: 0.8125rem;
@@ -5952,36 +6023,6 @@ body {
     margin-bottom: 0;
   }
 }
-@media (min-width: 40em) {
-  .frontpage-slac-science .title-body {
-    position: absolute;
-    bottom: 7px;
-    left: 0;
-    right: 0;
-    display: block;
-    background: rgba(54, 116, 163, 0.75);
-    padding: 0.6rem;
-  }
-  .frontpage-slac-science .title-body a {
-    font-size: 19px;
-    font-size: 1.1875rem;
-    color: #ffffff;
-  }
-  .frontpage-slac-science .title-body .body a {
-    font-size: 12px;
-    font-size: 0.75rem;
-    display: block;
-    line-height: 1.4;
-  }
-}
-.frontpage-slac-science .body {
-  display: none;
-}
-@media (min-width: 60em) {
-  .frontpage-slac-science .body {
-    display: block;
-  }
-}
 
 .jcarousel-item .body {
   display: none;
@@ -5994,46 +6035,6 @@ body {
 
 .jcarousel-container-horizontal {
   overflow: hidden;
-}
-.jcarousel-container-horizontal .title a {
-  font-size: 19px;
-  font-size: 1.1875rem;
-  display: block;
-  line-height: 1.4;
-  color: #316dae;
-  text-decoration: none;
-}
-.jcarousel-container-horizontal .title a:hover {
-  text-decoration: underline;
-}
-@media (min-width: 40em) {
-  .jcarousel-container-horizontal .title a {
-    color: #f6f6f6;
-  }
-}
-.jcarousel-container-horizontal .title-body {
-  display: block;
-  height: 92px;
-  overflow: hidden;
-  padding: 0.6rem;
-  background: #ffffff;
-  width: 100%;
-  box-sizing: border-box;
-}
-@media (min-width: 40em) {
-  .jcarousel-container-horizontal .title-body {
-    font-size: 12px;
-    font-size: 0.75rem;
-    background: rgba(54, 116, 163, 0.75);
-    height: inherit;
-    color: #dfdfdf;
-    line-height: 1.4;
-    position: absolute;
-    bottom: 0;
-  }
-}
-.jcarousel-container-horizontal .title-body .body a {
-  color: #dcdcdc;
 }
 
 .jcarousel-item {
