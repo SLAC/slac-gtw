@@ -1088,3 +1088,12 @@ function slac_igp_deployment_update_7053() {
     throw new DrupalUpdateException($message);
   }
 }
+
+/**
+ * Remove unused Teaser field from News.
+ */
+function slac_igp_deployment_update_7054() {
+  $field_name = 'field_news_teaser';
+  field_delete_field($field_name);
+  field_purge_batch(1);
+}
