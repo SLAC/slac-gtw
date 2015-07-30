@@ -38,6 +38,12 @@ function v_news_archive_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'news_archive';
   $handler->display->display_options['row_options']['links'] = FALSE;
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = 'NOTE: This archive only includes content published since May 23, 2011. For older content, see the <em><a href="http://today.slac.stanford.edu/a/">SLAC Today Archives</a></em>.';
+  $handler->display->display_options['footer']['area']['format'] = 'full_html';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';

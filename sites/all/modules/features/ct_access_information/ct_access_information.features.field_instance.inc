@@ -90,7 +90,75 @@ function ct_access_information_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 7,
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-access_information-field_access_start_publishing'
+  $field_instances['node-access_information-field_access_start_publishing'] = array(
+    'bundle' => 'access_information',
+    'default_value' => array(
+      0 => array(
+        'value' => 5,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Enter the number of days before the Access Restrictions start that you want to start publishing this notice (it automatically stops publishing on the Access Restriction end date).',
+    'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
+      'news_archive' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_access_start_publishing',
+    'label' => 'Start Publishing Date',
+    'required' => 1,
+    'settings' => array(
+      'max' => 365,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => 'days',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 4,
     ),
   );
 
@@ -175,7 +243,7 @@ function ct_access_information_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 17,
+      'weight' => 4,
     ),
   );
 
@@ -235,75 +303,7 @@ function ct_access_information_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 2,
-    ),
-  );
-
-  // Exported field_instance: 'node-access_information-field_shared_byline'
-  $field_instances['node-access_information-field_shared_byline'] = array(
-    'bundle' => 'access_information',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'access_listing' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 12,
-      ),
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 8,
-      ),
-      'news_archive' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 6,
-      ),
-      'search_result' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 14,
-      ),
-      'slac_term_listing' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 12,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_shared_byline',
-    'label' => 'Byline',
-    'required' => 0,
-    'settings' => array(
-      'linkit' => array(
-        'button_text' => 'Search',
-        'enable' => 0,
-        'profile' => '',
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -365,7 +365,7 @@ function ct_access_information_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'email_textfield',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -433,7 +433,7 @@ function ct_access_information_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -495,7 +495,7 @@ function ct_access_information_field_default_field_instances() {
         'placeholder' => '',
       ),
       'type' => 'telephone_default',
-      'weight' => 13,
+      'weight' => 14,
     ),
   );
 
@@ -564,7 +564,7 @@ function ct_access_information_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -667,7 +667,7 @@ function ct_access_information_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -736,14 +736,18 @@ function ct_access_information_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 15,
+      'weight' => 5,
     ),
   );
 
   // Exported field_instance: 'node-access_information-field_shared_new_existing'
   $field_instances['node-access_information-field_shared_new_existing'] = array(
     'bundle' => 'access_information',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'Enter Details',
+      ),
+    ),
     'deleted' => 0,
     'description' => 'Select ‘Enter Details’ option to create a new web page. Select ‘Link to Existing URL’ to redirect users to an already existing web page instead.',
     'display' => array(
@@ -796,7 +800,7 @@ function ct_access_information_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -865,7 +869,7 @@ function ct_access_information_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
@@ -1167,7 +1171,7 @@ function ct_access_information_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 9,
+      'weight' => 11,
     ),
   );
 
@@ -1230,7 +1234,7 @@ function ct_access_information_field_default_field_instances() {
         'type' => 60,
       ),
       'type' => 'fieldset_tags',
-      'weight' => 14,
+      'weight' => 15,
     ),
   );
 
@@ -1238,10 +1242,10 @@ function ct_access_information_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Access Restrictions Dates');
   t('Body');
-  t('Byline');
   t('Contact Email');
   t('Contact Name');
   t('Contact Phone');
+  t('Enter the number of days before the Access Restrictions start that you want to start publishing this notice (it automatically stops publishing on the Access Restriction end date).');
   t('Existing / New');
   t('Existing URL');
   t('If this Item is being promoted as news, this is the title that will display when it appears in News listings.');
@@ -1255,6 +1259,7 @@ function ct_access_information_field_default_field_instances() {
   t('Related Files');
   t('Related Links');
   t('Select ‘Enter Details’ option to create a new web page. Select ‘Link to Existing URL’ to redirect users to an already existing web page instead.');
+  t('Start Publishing Date');
   t('Tags');
 
   return $field_instances;

@@ -147,7 +147,7 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = 'Welcome to the SLAC Flea Market. Click on an item to see more information.';
+  $handler->display->display_options['header']['area']['content'] = 'Welcome to the SLAC Flea Market, a place for SLAC staff to post personal items for sale or for rent, wanted items or to advertise non-SLAC events. For more information, please see the <a href="https://intranet.slac.stanford.edu/about-flea-market">About SLAC Flea Market</a> page.';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
@@ -257,8 +257,7 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<p>Welcome to the SLAC Flea Market. Ads posted here remain viewable for 10 days. Click on the item title to see more information.</p>
-<p>To remove your post: Return to the ad you created and click the "Edit" tab at the top. Then, at the bottom of the page, select "Delete."';
+  $handler->display->display_options['header']['area']['content'] = 'Welcome to My Flea Market, a list of all flea market ads you have saved or published. For more information, please see the <a href="https://intranet.slac.stanford.edu/about-flea-market">About SLAC Flea Market</a> page.';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Text area */

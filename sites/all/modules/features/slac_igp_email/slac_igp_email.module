@@ -8,21 +8,7 @@ include_once 'slac_igp_email.features.inc';
 define('VIEW_MODE_TEASER', 'teaser');
 define('VIEW_MODE_LINK', 'link');
 define('DIRECTOR_COLUMN', 'DIRECTOR\'S COLUMNS');
-define('IMAGE_SOURCE_FIELD', 'field_shared_image');
 
-
-/**
- * Implements hook_og_tag_importer_import_alter
- * adding image source when importing og content
- */
-function slac_igp_email_og_tag_importer_import_alter(&$wrapper, &$data) {
-	foreach ($data as $field_name => $values) {
-		$field_info = field_info_field($field_name);
-		if ($field_info['module']	== 'image') {
-			$wrapper->{IMAGE_SOURCE_FIELD}->set(array('url' => $values[0]));	
-		}
-	}
-}
 
 /**
  * Implements hook_field_formatter_info

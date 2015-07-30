@@ -148,7 +148,13 @@ function og_tag_importer_import_tags($og_tags) {
       $field_info = field_info_field($field_name);
       switch($field_info['module']) {
         case 'link':
-          $wrapper->{$field_name}->set(array('url' => $values[0]));
+          if ($field_info['cardinality'] == 1) {
+            $input = array('url' => $values[0]);
+          }
+          else {
+            $input = array(array('url' => $values[0]));
+          }
+          $wrapper->{$field_name}->set($input);
         break;
         case 'image':
           // we will need to save the image value first, assuming we are getting an image url
@@ -162,6 +168,14 @@ function og_tag_importer_import_tags($og_tags) {
           	$input = array($image);	
           }          
           $wrapper->{$field_name}->set($input);
+        break;
+        case 'text':
+          if ($field_info['type'] == 'text') {
+            $wrapper->{$field_name}->set($values[0]);
+          }
+          elseif (array_key_exists('value', $field_info['columns'])) {
+            $wrapper->{$field_name}->set(array('value' => implode("\n\n", $values)));
+          }
         break;
         default:
           if (array_key_exists('value', $field_info['columns'])) {

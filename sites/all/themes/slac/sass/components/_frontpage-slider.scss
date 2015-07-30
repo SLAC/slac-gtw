@@ -8,47 +8,6 @@
 
 .jcarousel-container-horizontal {
   overflow: hidden;
-
-  .title {
-    a {
-      @include font-size(19px);
-      display: block;
-      line-height: 1.4;
-      color: $blue;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-
-      @include breakpoint($tablet-small) {
-        color: $slider-title;
-      }
-    }
-  }
-
-  .title-body {
-    display: block;
-    padding: 0.6rem;
-    background: $white;
-    width: 100%;
-    box-sizing: border-box;
-
-    @include breakpoint($tablet-small) {
-      @include font-size(12px);
-      background: $overlay-blue;
-      max-height: 100px;
-      color: $grey-filters-border;
-      line-height: 1.4;
-      overflow: hidden;
-      position: absolute;
-      bottom: 0;
-    }
-
-    .body a {
-      color: $slider-teaser;
-    }
-  }
 }
 
 .jcarousel-item {

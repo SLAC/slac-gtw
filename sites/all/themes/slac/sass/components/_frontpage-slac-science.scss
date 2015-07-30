@@ -18,35 +18,4 @@
       margin-bottom: 0;
     }
   }
-
-  @include breakpoint($tablet-small) {
-    .title-body {
-      position: absolute;
-      bottom: 7px;
-      left: 0;
-      right: 0;
-      display: block;
-      background: $overlay-blue;
-      padding: 0.6rem;
-
-      a {
-        @include font-size(19px);
-        color: $white;
-      }
-
-      .body a {
-        @include font-size(12px);
-        display: block;
-        line-height: 1.4;
-      }
-    }
-  }
-
-  .body {
-    display: none;
-
-    @include breakpoint($tablet-large) {
-      display: block;
-    }
-  }
 }

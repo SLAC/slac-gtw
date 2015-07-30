@@ -422,7 +422,7 @@ function v_search_views_default_views() {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
-  $handler->display->display_options['footer']['area']['content'] = '<em>NOTE: This pages searches only content published since May 23, 2011. For older content see the <a href="#">SLAC Today Archives.</a></em>';
+  $handler->display->display_options['footer']['area']['content'] = 'NOTE: This site only searches content published since May 23, 2011. For older content, see the <em><a href="http://today.slac.stanford.edu/a/">SLAC Today Archives</a></em>.';
   $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
