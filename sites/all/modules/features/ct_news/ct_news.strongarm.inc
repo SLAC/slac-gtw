@@ -195,8 +195,8 @@ function ct_news_strongarm() {
             'visible' => TRUE,
           ),
           'headline' => array(
-            'weight' => '-5',
-            'visible' => TRUE,
+            'weight' => '0',
+            'visible' => FALSE,
           ),
           'link' => array(
             'weight' => '-5',
@@ -225,8 +225,8 @@ function ct_news_strongarm() {
             'visible' => TRUE,
           ),
           'headline' => array(
-            'weight' => '-3',
-            'visible' => TRUE,
+            'weight' => '2',
+            'visible' => FALSE,
           ),
           'link' => array(
             'weight' => '-3',
@@ -255,8 +255,8 @@ function ct_news_strongarm() {
             'visible' => TRUE,
           ),
           'headline' => array(
-            'weight' => '-4',
-            'visible' => TRUE,
+            'weight' => '1',
+            'visible' => FALSE,
           ),
           'link' => array(
             'weight' => '-4',
@@ -277,7 +277,7 @@ function ct_news_strongarm() {
             'visible' => FALSE,
           ),
           'headline' => array(
-            'weight' => '-5',
+            'weight' => '16',
             'visible' => FALSE,
           ),
           'link' => array(

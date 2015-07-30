@@ -41,7 +41,9 @@ function v_featured_news_pane_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['label'] = 'News Articles Node Queue';
   $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
-    'news_articles' => 'news_articles',
+    'featured_news' => 'featured_news',
+    'lab_news' => 0,
+    'slac_science_news' => 0,
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';

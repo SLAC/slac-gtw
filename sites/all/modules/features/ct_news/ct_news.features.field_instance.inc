@@ -25,10 +25,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'hidden',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 5,
+        'type' => 'hidden',
+        'weight' => 6,
       ),
       'link' => array(
         'label' => 'above',
@@ -119,7 +118,7 @@ function ct_news_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 19,
       ),
       'link' => array(
         'label' => 'above',
@@ -195,10 +194,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 11,
+        'type' => 'hidden',
+        'weight' => 13,
       ),
       'link' => array(
         'label' => 'above',
@@ -262,10 +260,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 3,
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'link' => array(
         'label' => 'above',
@@ -334,7 +331,7 @@ function ct_news_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 18,
       ),
       'link' => array(
         'label' => 'above',
@@ -404,10 +401,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
+        'type' => 'hidden',
+        'weight' => 3,
       ),
       'link' => array(
         'label' => 'above',
@@ -474,10 +470,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'email',
         'settings' => array(),
-        'type' => 'email_default',
-        'weight' => 8,
+        'type' => 'hidden',
+        'weight' => 10,
       ),
       'link' => array(
         'label' => 'above',
@@ -543,10 +538,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 7,
+        'type' => 'hidden',
+        'weight' => 9,
       ),
       'link' => array(
         'label' => 'above',
@@ -618,10 +612,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_plain',
-        'weight' => 9,
+        'type' => 'hidden',
+        'weight' => 11,
       ),
       'link' => array(
         'label' => 'above',
@@ -689,7 +682,7 @@ function ct_news_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 22,
       ),
       'link' => array(
         'label' => 'above',
@@ -760,13 +753,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 4,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
       ),
       'link' => array(
         'label' => 'above',
@@ -870,10 +859,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 2,
+        'type' => 'hidden',
+        'weight' => 4,
       ),
       'link' => array(
         'label' => 'above',
@@ -946,7 +934,7 @@ function ct_news_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 21,
       ),
       'link' => array(
         'label' => 'above',
@@ -1012,7 +1000,7 @@ function ct_news_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 20,
       ),
       'link' => array(
         'label' => 'above',
@@ -1087,7 +1075,7 @@ It is set to \'On\' and hidden in the node creation form.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 17,
       ),
       'link' => array(
         'label' => 'above',
@@ -1146,10 +1134,9 @@ It is set to \'On\' and hidden in the node creation form.',
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 12,
+        'type' => 'hidden',
+        'weight' => 15,
       ),
       'link' => array(
         'label' => 'above',
@@ -1237,10 +1224,9 @@ It is set to \'On\' and hidden in the node creation form.',
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'link',
         'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 19,
+        'type' => 'hidden',
+        'weight' => 14,
       ),
       'link' => array(
         'label' => 'above',
@@ -1329,10 +1315,9 @@ It is set to \'On\' and hidden in the node creation form.',
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 10,
+        'type' => 'hidden',
+        'weight' => 12,
       ),
       'link' => array(
         'label' => 'above',
@@ -1397,10 +1382,9 @@ It is set to \'On\' and hidden in the node creation form.',
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 6,
+        'type' => 'hidden',
+        'weight' => 8,
       ),
       'link' => array(
         'label' => 'above',
