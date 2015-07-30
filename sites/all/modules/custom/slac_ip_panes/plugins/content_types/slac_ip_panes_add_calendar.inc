@@ -39,7 +39,7 @@ function slac_ip_panes_add_calendar_render($subtype, $conf, $args, $context) {
   $pane = new stdClass();
   $pane->title = '';
   $pane->content = '<div class="calendar-button">' .
-      l(t('Add to Calendar'), 'node/' . $node->nid . '/ical') . '</div>';
+      l(t('Add to Calendar'), 'node/' . $node->nid . '/ical.ics') . '</div>';
 
   return $pane;
 }
