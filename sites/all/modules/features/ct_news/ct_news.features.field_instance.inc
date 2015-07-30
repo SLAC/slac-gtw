@@ -51,7 +51,7 @@ function ct_news_field_default_field_instances() {
         'settings' => array(
           'more_link' => 0,
           'more_text' => 'Read more',
-          'summary_handler' => 'full',
+          'summary_handler' => 'trim',
           'trim_length' => 235,
           'trim_link' => 0,
           'trim_options' => array(
