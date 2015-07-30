@@ -193,7 +193,7 @@ class SlacStoryMigration extends SlacNodeMigration {
     // Field mappings.
     $this->addFieldMapping('field_news_subtitle', 'field_title_sub');
     $this->addFieldMapping('field_shared_byline', 'field_byline');
-    $this->addFieldMapping('field_news_teaser', 'field_teaser');
+    $this->addFieldMapping('body:summary', 'field_teaser');
 
     // Video field mappings.
     $this->addFieldMapping('field_shared_video', 'field_video_reference')
