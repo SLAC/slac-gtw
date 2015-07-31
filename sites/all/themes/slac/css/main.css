@@ -6210,9 +6210,6 @@ body {
   border-left: 1px dashed #b1c0c7;
   padding: 0.625rem 0 0.625rem 0.625rem;
 }
-.frontpage-calendar .views-row-grouped .views-row:hover {
-  text-decoration: underline;
-}
 .frontpage-calendar .views-row-grouped .views-row-last {
   background: url("../images/dotted-bottom-border.png") no-repeat 0 bottom;
 }
