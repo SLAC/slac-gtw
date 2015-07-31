@@ -7,6 +7,15 @@
 include_once 'ct_flea_market_item.features.inc';
 
 /**
+ * Implements hook_ctools_plugin_directory().
+ */
+function ct_flea_market_item_ctools_plugin_directory($owner, $plugin) {
+  if ($owner == 'ctools' && !empty($plugin)) {
+    return "plugins/$plugin";
+  }
+}
+
+/**
  * Implements hook_ctools_render_alter().
  */
 function ct_flea_market_item_ctools_render_alter(&$info, &$page, &$context) {
@@ -40,3 +49,4 @@ function ct_flea_market_item_form_remove_option($form, &$form_state) {
   unset($options['needs_review']);
   return $form;
 }
+
