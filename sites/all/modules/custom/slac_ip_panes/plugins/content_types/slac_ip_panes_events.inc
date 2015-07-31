@@ -108,9 +108,7 @@ function _slac_ip_upcoming_events_render_events_content($result) {
     // Make a row for each date this Event should appear under, respecting max
     // counts for days to display and events per day.
     foreach ($days_to_render as $date) {
-      $year = $date->format('Y');
       $month = $date->format('M');
-      $week_number = $date->format('W');
       $day = $date->format('j');
 
       $day_event_count = 0;
@@ -127,8 +125,10 @@ function _slac_ip_upcoming_events_render_events_content($result) {
       }
 
       if ($day_event_count == $max_per_day) {
+        $url_date = $date->format('Y-m-d');
+
         // Add a 'More events' link and do not add more items for this day.
-        $link = l(t('More events'), 'calendar/' . $year . '-W' .$week_number);
+        $link = l(t('More events'), 'calendar/day/' . $url_date);
         $events_content['#more'][$month][$day] = $link;
       }
       elseif ($day_event_count > $max_per_day) {
