@@ -77,7 +77,6 @@ function slac_igp_deployment_install() {
     'v_calendar',
     'v_content_taxonomy_listing',
     'v_event',
-    'v_featured_news_pane',
     'v_flea_market',
     'v_my_content',
     'v_news',
@@ -478,16 +477,9 @@ function slac_igp_deployment_update_7010() {
 }
 
 /**
- * Enable the v_featured_news_pane feature.
+ * REMOVED: Enable the v_featured_news_pane feature.
  */
 function slac_igp_deployment_update_7011() {
-  $result = module_enable(array(
-    'v_featured_news_pane',
-  ));
-
-  if ($result == FALSE) {
-    throw new DrupalUpdateException('An error occurred while enabling modules.');
-  }
 }
 
 /**
@@ -908,7 +900,7 @@ function slac_igp_deployment_update_7039() {
 }
 
 /**
- * Removed: Place the new Calender Legend box.
+ * REMOVED: Place the new Calender Legend box.
  */
 function slac_igp_deployment_update_7040() {
 }
