@@ -46,3 +46,28 @@ function v_my_content_form_views_exposed_form_alter(&$form, &$form_state) {
     }
   }
 }
+
+/**
+ * Implementation of hook_menu().
+ *
+ * Creates menu item to redirect anonymous users to the user log in form.
+ */
+function v_my_content_menu() {
+  $items = array();
+  $items['my-content-redirect'] = array(
+    'title' => 'Redirect ', 
+    'page callback' => '_my_content_redirect', 
+    'access callback' => 'user_is_anonymous', 
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Page callback to redirect users to the log in form 
+ */
+function _my_content_redirect() {
+  drupal_goto('user', array('query' => array('destination' => 'my-content')));
+}
+
