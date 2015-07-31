@@ -4716,16 +4716,16 @@ div.date-views-pager div.next-year {
   padding: 1em;
 }
 
-.pane-flag-link {
+.pane-flag-link, .pane-anonymous-flag {
   margin-top: 1.5rem;
   line-height: 1;
 }
-.pane-flag-link .flag {
+.pane-flag-link .flag, .pane-anonymous-flag .flag {
   display: inline-block;
   text-indent: 14px;
   background: url(../images/blue-flag.png) 0 4px no-repeat;
 }
-.pane-flag-link .flag.unflag-action, .pane-flag-link .flag.unflag-disabled {
+.pane-flag-link .flag.unflag-action, .pane-flag-link .flag.unflag-disabled, .pane-anonymous-flag .flag.unflag-action, .pane-anonymous-flag .flag.unflag-disabled {
   background: url(../images/red-flag.png) 0 4px no-repeat;
   color: red;
 }
