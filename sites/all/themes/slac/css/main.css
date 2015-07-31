@@ -6235,9 +6235,7 @@ body {
 }
 .frontpage-calendar .views-field-title {
   line-height: 1.3;
-}
-.frontpage-calendar .time-location {
-  font-weight: initial;
+  font-weight: bold;
 }
 .frontpage-calendar .time-location div {
   display: inline;
