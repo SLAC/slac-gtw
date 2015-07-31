@@ -62,21 +62,20 @@
     width: 18%;
     text-transform: uppercase;
     text-align: center;
+    font-weight: normal;
   }
 
   .views-field-title,
   .time-location {
-    font-weight: bold;
     width: 85%;
   }
 
   .views-field-title {
     line-height: 1.3;
+    font-weight: bold;
   }
 
   .time-location {
-    font-weight: initial;
-
     div {
       display: inline;
     }
