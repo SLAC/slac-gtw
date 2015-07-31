@@ -5475,7 +5475,7 @@ body {
 }
 
 .brown-bodered-white {
-  border-color: #7c6235;
+  border-color: #D1c9b9;
 }
 
 .frontpage-calendar .pane-title,
@@ -6227,10 +6227,10 @@ body {
   width: 18%;
   text-transform: uppercase;
   text-align: center;
+  font-weight: normal;
 }
 .frontpage-calendar .views-field-title,
 .frontpage-calendar .time-location {
-  font-weight: bold;
   width: 85%;
 }
 .frontpage-calendar .views-field-title {
