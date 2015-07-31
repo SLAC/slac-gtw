@@ -39,12 +39,12 @@ function slac_ip_upcoming_events_edit_form($form, &$form_state) {
 function slac_ip_upcoming_events_render($subtype, $conf, $args, $context) {
   $block = new stdClass();
   $block->title = $conf['override_title'] ? $conf['override_title_text'] : t('Upcoming Events');
-  $now = date('c');
+  $today = date('Y-m-d');
 
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
     ->entityCondition('bundle', 'event')
-    ->fieldCondition('field_event_date', 'value2', $now, '>')
+    ->fieldCondition('field_event_date', 'value2', $today, '>=')
     ->fieldOrderBy('field_event_date', 'value', 'ASC');
   $result = $query->execute();
 
@@ -103,7 +103,7 @@ function _slac_ip_upcoming_events_render_events_content($result) {
       $field['value'] = $date->format('Y-m-d H:i:s');
     }
 
-    $days_to_render = _list_days_to_render($node, $date, $now);
+    $days_to_render = _list_days_to_render($node, $date);
 
     // Make a row for each date this Event should appear under, respecting max
     // counts for days to display and events per day.
@@ -162,7 +162,7 @@ function _slac_ip_upcoming_events_render_events_content($result) {
  * @return array
  *   The array of dates to render this Event in.
  */
-function _list_days_to_render($node, $start_date, $now) {
+function _list_days_to_render($node, $start_date) {
   $max_days = variable_get('slac_ip_panes_upcoming_events_max_days', 3);
 
   $days_to_render = array(clone $start_date,);
@@ -177,7 +177,7 @@ function _list_days_to_render($node, $start_date, $now) {
     return $days_to_render;
   }
 
-  $diff = $now->diff($date2);
+  $diff = $start_date->diff($date2);
 
   if ($diff->d > 0) {
     $one_day = new DateInterval('P1D');
@@ -187,7 +187,7 @@ function _list_days_to_render($node, $start_date, $now) {
     if ($diff->d > $max_days) {
       $num_days = $max_days;
     }
-    for ($i = 0; $i <= $num_days; $i++) {
+    for ($i = 0; $i < $num_days; $i++) {
       $start_date->add($one_day);
       $days_to_render[] = clone $start_date;
     }
