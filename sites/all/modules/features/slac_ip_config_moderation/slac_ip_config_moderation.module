@@ -53,16 +53,17 @@ function slac_ip_config_moderation_node_access($node, $op, $account) {
     $current_state = $node->workbench_moderation['current'];
     $perm = "create draft for $node->type nodes in $current_state->state state";
 
-    if (user_access($perm, $account)) {
+    // This needs to be checked as well because node_node_access() never
+    // returns a NODE_ACCESS_DENY, so if slac_ip_config's function returns
+    // allow, the node can be edited.
+    $user_can_edit = node_node_access($node, $op, $account);
+
+    if (user_access($perm, $account) && $user_can_edit) {
       return NODE_ACCESS_ALLOW;
     }
-    else {
-      return NODE_ACCESS_DENY;
-    }
   }
-  else {
-    return NODE_ACCESS_IGNORE;
-  }
+
+  return NODE_ACCESS_IGNORE;
 }
 
 /**
