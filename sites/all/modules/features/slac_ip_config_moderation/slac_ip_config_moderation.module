@@ -49,9 +49,10 @@ function slac_ip_config_moderation_permission() {
  * perform an additional permission check for the edit operation.
  */
 function slac_ip_config_moderation_node_access($node, $op, $account) {
+  $type = is_string($node) ? $node : $node->type;
+
   if ($op == 'update' && isset($node->workbench_moderation['current'])) {
     $state = $node->workbench_moderation['current']->state;
-    $type = $node->type;
     $perm = 'create draft for ' . $type . ' nodes in ' . $state . ' state';
 
     if (user_access($perm, $account) && $account->uid == $node->uid) {
