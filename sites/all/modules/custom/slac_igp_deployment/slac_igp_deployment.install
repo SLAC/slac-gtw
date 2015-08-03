@@ -57,7 +57,6 @@ function slac_igp_deployment_install() {
     'slac_ip_content_admin',
     'slac_ip_event_date',
     'slac_ip_media',
-    'slac_ip_menus',
     'slac_ip_panes',
     'slac_nodequeue_automation',
     'slac_nodequeue_expire',
@@ -92,8 +91,10 @@ function slac_igp_deployment_install() {
     'migrate_d2d',
   ));
 
-  // Revert slac_ip_menus so that the new menu block will have a DB record.
-  _slac_igp_deployment_revert('slac_ip_menus');
+  // Set up new menus and update existing menus.
+  _slac_igp_deployment_menu_setup();
+  
+  // Remove old menu links no longer needed.
   _slac_igp_deployment_remove_legacy_menu_items();
 
   // Ensure new blocks are available to be placed.
@@ -337,6 +338,81 @@ function _slac_igp_deployment_update_footer_menu() {
 }
 
 /**
+ * Sets up menu links.
+ */
+function _slac_igp_deployment_menu_setup() {
+
+  // Creates maps-and-directions menu.
+  $maps_menu = array( 
+    'menu_name' => 'menu-maps-and-directions',
+    'title' => 'Maps and Directions',
+    'description' => 'Event menu links for the right sidebar.',
+  );
+  menu_save($maps_menu);
+  
+  // Creates  menu-top-menu.
+  $top_menu = array( 
+    'menu_name' => 'menu-top-menu',
+    'title' => 'Top Menu',
+    'description' => 'Menu links that appear at the top of the page near the Search form.',
+  );
+  menu_save($top_menu); 
+
+  $items = array(
+    array(
+      'menu_name' => 'menu-maps-and-directions',
+      'link_path' => 'https://www6.slac.stanford.edu/visiting-slac/maps-directions-visitormap.aspx',
+      'router_path' => '',
+      'link_title' => 'SLAC Campus Map',
+      'external' => 1,
+      'weight' => 2,
+    ),
+    array(
+      'menu_name' => 'menu-maps-and-directions',
+      'link_path' => 'https://www6.slac.stanford.edu/sites/www6.slac.stanford.edu/files/stanford_visitor_map.pdf',
+      'router_path' => '',
+      'link_title' => 'Stanford University Campus Map',
+      'external' => 1,
+      'weight' => 3,
+    ),
+    array(
+      'menu_name' => 'menu-maps-and-directions',
+      'link_path' => 'https://www6.slac.stanford.edu/visiting-slac/maps-directions-meetingrooms.aspx',
+      'router_path' => '',
+      'link_title' => 'SLAC Meeting Rooms Map',
+      'external' => 1,
+      'weight' => 1,
+    ),
+    array(
+      'menu_name' => 'menu-top-menu',
+      'link_path' => 'http://slac.stanford.edu',
+      'router_path' => '',
+      'link_title' => 'SLAC Public Home',
+      'external' => 1,
+      'has_children' => 0,
+      'weight' => 0,
+    ),
+    array(
+      'menu_name' => 'menu-top-menu',
+      'link_path' => 'http://www.stanford.edu',
+      'router_path' => '',
+      'link_title' => 'Stanford University',
+      'external' => 1,
+      'weight' => 0,
+      'customized' => 1,
+    ),
+  );
+
+  foreach ($items as $key => $item) {
+    menu_link_save($item);
+  }
+
+  // Update the menu router information.
+  menu_rebuild();
+
+}
+
+/**
  *
  * Update hooks.
  *
@@ -374,19 +450,9 @@ function slac_igp_deployment_update_7002() {
 }
 
 /**
- * Enable the slac_ip_menus feature and place the new menu block.
+ * Place top menu blocks. 
  */
 function slac_igp_deployment_update_7003() {
-  $result = module_enable(array(
-    'slac_ip_menus',
-  ));
-
-  if ($result == FALSE) {
-    throw new DrupalUpdateException('An error occurred while enabling slac_ip_menus.');
-  }
-
-  _slac_igp_deployment_revert('slac_ip_menus');
-
   _slac_igp_deployment_place_top_menu_block();
 }
 
@@ -647,7 +713,7 @@ function slac_igp_deployment_update_7022() {
     array(
       'mlid' => 1403,
       'title' => 'SLAC Campus Map',
-      'path' => '<front',
+      'path' => '<front>',
     ),
     array(
       'mlid' => 1402,
