@@ -133,6 +133,7 @@ function slac_igp_deployment_install() {
   _slac_igp_deployment_update_dashboard_menu();
   _slac_igp_deployment_remove_legacy_views();
   _slac_igp_deployment_remove_legacy_image_styles();
+  _slac_igp_deployment_update_footer_menu();
 }
 
 /**
@@ -313,6 +314,26 @@ function _slac_igp_deployment_place_main_menu_block() {
     ->condition('delta', 'main-menu', '=')
     ->condition('theme', 'slac', '=')
     ->execute();
+}
+
+/**
+ * Adds new menu link to footer menu.
+ */
+function _slac_igp_deployment_update_footer_menu() {
+
+  // Update the menu router information.
+  menu_rebuild();
+
+  // Create a menu link in the footer menu allowing anonymous users to view a link to a restricted path.
+  $item = array(
+    'link_title' => 'view my content',
+    'link_path' => 'my-content-redirect',
+    'menu_name' => 'menu-footer',
+  );
+  menu_link_save($item);
+
+  // Update the menu router information.
+  menu_rebuild();
 }
 
 /**
@@ -1088,4 +1109,11 @@ function slac_igp_deployment_update_7054() {
   $field_name = 'field_news_teaser';
   field_delete_field($field_name);
   field_purge_batch(1);
+}
+
+/**
+ * Adds view my content link to footer menu.
+ */
+function slac_igp_deployment_update_7055() {
+  _slac_igp_deployment_update_footer_menu();
 }
