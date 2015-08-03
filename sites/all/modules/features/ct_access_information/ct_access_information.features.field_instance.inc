@@ -30,6 +30,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 2,
       ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
       'news_archive' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -45,7 +51,7 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(
           'more_link' => 0,
           'more_text' => 'Read more',
-          'summary_handler' => 'full',
+          'summary_handler' => 'trim',
           'trim_length' => 235,
           'trim_link' => 0,
           'trim_options' => array(
@@ -116,6 +122,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 10,
+      ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
       ),
       'news_archive' => array(
         'label' => 'hidden',
@@ -194,6 +206,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 0,
       ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
       'news_archive' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -266,6 +284,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 17,
       ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 20,
+      ),
       'news_archive' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -325,6 +349,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 15,
+      ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
       ),
       'news_archive' => array(
         'label' => 'hidden',
@@ -387,6 +417,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 13,
+      ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
       ),
       'news_archive' => array(
         'label' => 'hidden',
@@ -456,6 +492,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 14,
       ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
       'news_archive' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -518,6 +560,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 1,
+      ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'news_archive' => array(
         'label' => 'hidden',
@@ -589,6 +637,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 7,
+      ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
       ),
       'news_archive' => array(
         'label' => 'hidden',
@@ -691,6 +745,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 6,
       ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
       'news_archive' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -763,6 +823,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 9,
       ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
       'news_archive' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -822,6 +888,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 16,
+      ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 19,
       ),
       'news_archive' => array(
         'label' => 'hidden',
@@ -891,6 +963,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 11,
+      ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
       ),
       'news_archive' => array(
         'label' => 'hidden',
@@ -964,6 +1042,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 12,
       ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
       'news_archive' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -1024,6 +1108,12 @@ function ct_access_information_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 4,
+      ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 9,
       ),
       'news_archive' => array(
         'label' => 'hidden',
@@ -1109,6 +1199,12 @@ function ct_access_information_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 3,
       ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
+      ),
       'news_archive' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -1193,6 +1289,12 @@ function ct_access_information_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
+        'weight' => 5,
+      ),
+      'headline' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 5,
       ),
       'news_archive' => array(

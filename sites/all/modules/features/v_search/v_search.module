@@ -37,6 +37,11 @@ function v_search_form_views_exposed_form_alter(&$form, &$form_state, $form_id) 
     // Order the secondary filters to match the comp instead of the logical
     // grouping.
     $secondary = $form['secondary'];
+
+    // Reorder content type filters
+    $event = $secondary['type']['#options']['event'];
+    unset($secondary['type']['#options']['event']);
+    array_unshift($secondary['type']['#options'], $event);
     $offset = array_search('created-from', array_keys($secondary));
     $type_filter = $secondary['type'];
     unset($secondary['type']);
