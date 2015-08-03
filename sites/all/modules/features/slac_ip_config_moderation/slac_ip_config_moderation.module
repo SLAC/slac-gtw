@@ -45,24 +45,22 @@ function slac_ip_config_moderation_permission() {
 /**
  * Implements hook_node_access().
  *
- * If the node has a moderation state, perform an additional permission check
- * for the edit operation.
+ * If the node has a moderation state, and is owned by the current user,
+ * perform an additional permission check for the edit operation.
  */
 function slac_ip_config_moderation_node_access($node, $op, $account) {
-  if ($op == 'update' && isset($node->workbench_moderation['current'])) {
-    $current_state = $node->workbench_moderation['current'];
-    $perm = "create draft for $node->type nodes in $current_state->state state";
+  $type = is_string($node) ? $node : $node->type;
 
-    if (user_access($perm, $account)) {
+  if ($op == 'update' && isset($node->workbench_moderation['current'])) {
+    $state = $node->workbench_moderation['current']->state;
+    $perm = 'create draft for ' . $type . ' nodes in ' . $state . ' state';
+
+    if (user_access($perm, $account) && $account->uid == $node->uid) {
       return NODE_ACCESS_ALLOW;
     }
-    else {
-      return NODE_ACCESS_DENY;
-    }
   }
-  else {
-    return NODE_ACCESS_IGNORE;
-  }
+
+  return NODE_ACCESS_IGNORE;
 }
 
 /**
