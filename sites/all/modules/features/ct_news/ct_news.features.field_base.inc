@@ -85,26 +85,5 @@ function ct_news_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_news_teaser'
-  $field_bases['field_news_teaser'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_news_teaser',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 160,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
   return $field_bases;
 }

@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Featured News Pane feature.
- */
-
-include_once 'v_featured_news_pane.features.inc';

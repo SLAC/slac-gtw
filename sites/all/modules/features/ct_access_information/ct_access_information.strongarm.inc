@@ -132,7 +132,7 @@ function ct_access_information_strongarm() {
         'custom_settings' => FALSE,
       ),
       'headline' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
@@ -188,6 +188,10 @@ function ct_access_information_strongarm() {
             'weight' => '1',
             'visible' => TRUE,
           ),
+          'headline' => array(
+            'weight' => '3',
+            'visible' => FALSE,
+          ),
         ),
         'author' => array(
           'default' => array(
@@ -212,6 +216,10 @@ function ct_access_information_strongarm() {
           ),
           'slac_term_listing' => array(
             'weight' => '4',
+            'visible' => FALSE,
+          ),
+          'headline' => array(
+            'weight' => '7',
             'visible' => FALSE,
           ),
         ),
@@ -240,6 +248,10 @@ function ct_access_information_strongarm() {
             'weight' => '2',
             'visible' => TRUE,
           ),
+          'headline' => array(
+            'weight' => '2',
+            'visible' => FALSE,
+          ),
         ),
         'content_type' => array(
           'search_result' => array(
@@ -264,6 +276,10 @@ function ct_access_information_strongarm() {
           ),
           'slac_term_listing' => array(
             'weight' => '3',
+            'visible' => FALSE,
+          ),
+          'headline' => array(
+            'weight' => '6',
             'visible' => FALSE,
           ),
         ),

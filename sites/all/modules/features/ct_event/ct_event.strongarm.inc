@@ -114,13 +114,16 @@ function ct_event_strongarm() {
         'custom_settings' => FALSE,
       ),
       'headline' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'news_archive' => array(
         'custom_settings' => TRUE,
       ),
       'slac_term_listing' => array(
         'custom_settings' => TRUE,
+      ),
+      'access_listing' => array(
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
@@ -160,6 +163,10 @@ function ct_event_strongarm() {
             'weight' => '1',
             'visible' => TRUE,
           ),
+          'headline' => array(
+            'weight' => '8',
+            'visible' => FALSE,
+          ),
         ),
         'author' => array(
           'default' => array(
@@ -180,6 +187,10 @@ function ct_event_strongarm() {
           ),
           'slac_term_listing' => array(
             'weight' => '4',
+            'visible' => FALSE,
+          ),
+          'headline' => array(
+            'weight' => '9',
             'visible' => FALSE,
           ),
         ),
@@ -204,6 +215,10 @@ function ct_event_strongarm() {
             'weight' => '2',
             'visible' => TRUE,
           ),
+          'headline' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
         ),
         'content_type' => array(
           'search_result' => array(
@@ -224,6 +239,10 @@ function ct_event_strongarm() {
           ),
           'slac_term_listing' => array(
             'weight' => '3',
+            'visible' => FALSE,
+          ),
+          'headline' => array(
+            'weight' => '7',
             'visible' => FALSE,
           ),
         ),

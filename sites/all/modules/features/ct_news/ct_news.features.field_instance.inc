@@ -25,10 +25,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'hidden',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 5,
+        'type' => 'hidden',
+        'weight' => 6,
       ),
       'link' => array(
         'label' => 'above',
@@ -51,7 +50,7 @@ function ct_news_field_default_field_instances() {
         'settings' => array(
           'more_link' => 0,
           'more_text' => 'Read more',
-          'summary_handler' => 'full',
+          'summary_handler' => 'trim',
           'trim_length' => 235,
           'trim_link' => 0,
           'trim_options' => array(
@@ -119,7 +118,7 @@ function ct_news_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 19,
       ),
       'link' => array(
         'label' => 'above',
@@ -195,10 +194,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 11,
+        'type' => 'hidden',
+        'weight' => 13,
       ),
       'link' => array(
         'label' => 'above',
@@ -262,10 +260,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 3,
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'link' => array(
         'label' => 'above',
@@ -317,78 +314,6 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_news_teaser'
-  $field_instances['node-news-field_news_teaser'] = array(
-    'bundle' => 'news',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Please provide a one-sentence summary of this announcement.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 13,
-      ),
-      'headline' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 14,
-      ),
-      'link' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'news_archive' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 16,
-      ),
-      'search_result' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 18,
-      ),
-      'slac_term_listing' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 17,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'type' => 'text_trimmed',
-        'weight' => 3,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_news_teaser',
-    'label' => 'Teaser',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 6,
-    ),
-  );
-
   // Exported field_instance: 'node-news-field_shared_byline'
   $field_instances['node-news-field_shared_byline'] = array(
     'bundle' => 'news',
@@ -404,10 +329,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
+        'type' => 'hidden',
+        'weight' => 3,
       ),
       'link' => array(
         'label' => 'above',
@@ -474,10 +398,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'email',
         'settings' => array(),
-        'type' => 'email_default',
-        'weight' => 8,
+        'type' => 'hidden',
+        'weight' => 10,
       ),
       'link' => array(
         'label' => 'above',
@@ -543,10 +466,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 7,
+        'type' => 'hidden',
+        'weight' => 9,
       ),
       'link' => array(
         'label' => 'above',
@@ -618,10 +540,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_plain',
-        'weight' => 9,
+        'type' => 'hidden',
+        'weight' => 11,
       ),
       'link' => array(
         'label' => 'above',
@@ -689,7 +610,7 @@ function ct_news_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 22,
       ),
       'link' => array(
         'label' => 'above',
@@ -760,13 +681,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 4,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
       ),
       'link' => array(
         'label' => 'above',
@@ -870,10 +787,9 @@ function ct_news_field_default_field_instances() {
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 2,
+        'type' => 'hidden',
+        'weight' => 4,
       ),
       'link' => array(
         'label' => 'above',
@@ -946,7 +862,7 @@ function ct_news_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 21,
       ),
       'link' => array(
         'label' => 'above',
@@ -1012,7 +928,7 @@ function ct_news_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 20,
       ),
       'link' => array(
         'label' => 'above',
@@ -1087,7 +1003,7 @@ It is set to \'On\' and hidden in the node creation form.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 17,
       ),
       'link' => array(
         'label' => 'above',
@@ -1146,10 +1062,9 @@ It is set to \'On\' and hidden in the node creation form.',
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 12,
+        'type' => 'hidden',
+        'weight' => 15,
       ),
       'link' => array(
         'label' => 'above',
@@ -1237,10 +1152,9 @@ It is set to \'On\' and hidden in the node creation form.',
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'link',
         'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 19,
+        'type' => 'hidden',
+        'weight' => 14,
       ),
       'link' => array(
         'label' => 'above',
@@ -1329,10 +1243,9 @@ It is set to \'On\' and hidden in the node creation form.',
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 10,
+        'type' => 'hidden',
+        'weight' => 12,
       ),
       'link' => array(
         'label' => 'above',
@@ -1397,10 +1310,9 @@ It is set to \'On\' and hidden in the node creation form.',
       ),
       'headline' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 6,
+        'type' => 'hidden',
+        'weight' => 8,
       ),
       'link' => array(
         'label' => 'above',
@@ -1488,14 +1400,12 @@ It is set to \'On\' and hidden in the node creation form.',
   t('Location');
   t('News Type');
   t('Note to the Editors');
-  t('Please provide a one-sentence summary of this announcement.');
   t('Promote As News');
   t('Related Files');
   t('Related Links');
   t('Select ‘Enter Details’ option to create a new web page. Select ‘Link to Existing URL’ to redirect users to an already existing web page instead.');
   t('Subtitle');
   t('Tags');
-  t('Teaser');
   t('This field is present in the News type so that it can be set on all nodes and then this value can be used to filter out non-promoted Event, Access nodes in the views that display all three node types.
 
 It is set to \'On\' and hidden in the node creation form.');
