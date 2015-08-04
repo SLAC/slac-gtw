@@ -47,6 +47,10 @@ function slac_ip_config_moderation_permission() {
  *
  * If the node has a moderation state, and is owned by the current user,
  * perform an additional permission check for the edit operation.
+ *
+ * Though most access checks will only allow or ignore, this check must return
+ * NODE_ACCESS_DENY to prevent draft creation/editing if the permission is not
+ * set because the node actually can be edited by its owner otherwise.
  */
 function slac_ip_config_moderation_node_access($node, $op, $account) {
   $type = is_string($node) ? $node : $node->type;
@@ -57,6 +61,9 @@ function slac_ip_config_moderation_node_access($node, $op, $account) {
 
     if (user_access($perm, $account) && $account->uid == $node->uid) {
       return NODE_ACCESS_ALLOW;
+    }
+    else {
+      return NODE_ACCESS_DENY;
     }
   }
 
