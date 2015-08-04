@@ -44,6 +44,7 @@ function slac_ip_upcoming_events_render($subtype, $conf, $args, $context) {
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
     ->entityCondition('bundle', 'event')
+    ->propertyCondition('status', NODE_PUBLISHED)
     ->fieldCondition('field_event_date', 'value2', $today, '>=')
     ->fieldOrderBy('field_event_date', 'value', 'ASC');
   $result = $query->execute();
