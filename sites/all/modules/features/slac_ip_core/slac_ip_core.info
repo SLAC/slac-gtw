@@ -23,6 +23,7 @@ dependencies[] = node
 dependencies[] = nodequeue
 dependencies[] = path
 dependencies[] = pathauto
+dependencies[] = publication_date
 dependencies[] = redirect
 dependencies[] = rules
 dependencies[] = shortcut
