@@ -92,14 +92,15 @@ function slac_ip_core_form_node_form_alter(&$form, &$form_state, $form_id) {
 /**
  * Form validation handler for slac_ip_core_form_node_form_alter().
  *
- * Empties the News Type field if the node is saved with 'Promote As News'
- * unchecked.
+ * Empties the News Type and News Title fields if the node is saved with
+ * 'Promote As News' unchecked.
  *
  * @see slac_ip_core_form_node_form_alter()
  */
 function slac_ip_core_node_form_validate($form, &$form_state) {
   $key = 'field_shared_promote_news';
   $lang = $form_state['values']['language'];
+
   if ($form_state['values'][$key][$lang][0]['value'] != 1) {
     $empty_value = array(
       $lang => array(
@@ -109,6 +110,7 @@ function slac_ip_core_node_form_validate($form, &$form_state) {
       ),
     );
     form_set_value($form['field_news_news_type'], $empty_value, $form_state);
+    form_set_value($form['field_shared_news_title'], $empty_value, $form_state);
   }
 }
 
