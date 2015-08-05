@@ -73,6 +73,8 @@ function slac_ip_core_date_format_types() {
  * Implements hook_form_BASE_FORM_ID_alter().
  *
  * Updates the Body summary description and behavior on node forms.
+ *
+ * Adds custom validation for nodes with 'Promote As News' functionality.
  */
 function slac_ip_core_form_node_form_alter(&$form, &$form_state, $form_id) {
   if (isset($form['body'])) {
@@ -80,6 +82,35 @@ function slac_ip_core_form_node_form_alter(&$form, &$form_state, $form_id) {
     $summary = &$form['body'][$lang][0]['summary'];
     $summary['#description'] = t('Provide a one-sentence summary of this announcement. If left blank, a truncated version of the full text will be used as the summary.');
     $summary['#attached']['js'][] = drupal_get_path('module', 'slac_ip_core') . '/js/text.js';
+  }
+
+  if (isset($form['field_shared_promote_news'])) {
+    $form['#validate'][] = 'slac_ip_core_node_form_validate';
+  }
+}
+
+/**
+ * Form validation handler for slac_ip_core_form_node_form_alter().
+ *
+ * Empties the News Type and News Title fields if the node is saved with
+ * 'Promote As News' unchecked.
+ *
+ * @see slac_ip_core_form_node_form_alter()
+ */
+function slac_ip_core_node_form_validate($form, &$form_state) {
+  $key = 'field_shared_promote_news';
+  $lang = $form_state['values']['language'];
+
+  if ($form_state['values'][$key][$lang][0]['value'] != 1) {
+    $empty_value = array(
+      $lang => array(
+        0 => array(
+          'value' => '',
+        ),
+      ),
+    );
+    form_set_value($form['field_news_news_type'], $empty_value, $form_state);
+    form_set_value($form['field_shared_news_title'], $empty_value, $form_state);
   }
 }
 
