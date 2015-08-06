@@ -6,16 +6,37 @@
  */
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * Adds custom behaviors and custom validation for nodes with event date field.
  */
-function slac_ip_event_date_form_alter(&$form, &$form_state, $form_id) {
-  $types = array(
-    'access_information',
-    'event',
-  );
-  if (isset($form['#node_edit_form']) && in_array($form['type']['#value'], $types)) {
+function slac_ip_event_date_form_node_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['field_event_date'])) {
     $path = drupal_get_path('module', 'slac_ip_event_date');
     $form['#attached']['js'][] = $path . '/js/slac_ip_event_date.js';
+
+    $form['#validate'][] = 'slac_ip_event_date_node_form_validate';
+  }
+}
+
+/**
+ * Form validation handler for slac_ip_event_date_form_node_form_alter().
+ *
+ * Validates single day event dates to ensure the end time is after the start
+ * time by at least a minute. The default validation allows them to be equal.
+ *
+ * @see slac_ip_event_date_form_node_form_alter()
+ */
+function slac_ip_event_date_node_form_validate($form, &$form_state) {
+  $lang = $form_state['values']['language'];
+  $date_values = $form_state['values']['field_event_date'][$lang][0];
+
+  if ($date_values['all_day'] == 0) {
+    // Do not allow start and end times to be equal, they should be at least a
+    // minute apart.
+    if ($date_values['value'] == $date_values['value2']) {
+      form_set_error('field_event_date', t('The end time must occur after the start time.'));
+    }
   }
 }
 
