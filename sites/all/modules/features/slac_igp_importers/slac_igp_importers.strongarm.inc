@@ -35,10 +35,94 @@ function slac_igp_importers_strongarm() {
       'link' => array(
         'custom_settings' => FALSE,
       ),
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'ical' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'headline' => array(
+        'custom_settings' => FALSE,
+      ),
+      'news_archive' => array(
+        'custom_settings' => FALSE,
+      ),
+      'access_listing' => array(
+        'custom_settings' => FALSE,
+      ),
+      'slac_term_listing' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
-      'display' => array(),
+      'display' => array(
+        'content_type' => array(
+          'default' => array(
+            'weight' => '-5',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-5',
+            'visible' => TRUE,
+          ),
+        ),
+        'created' => array(
+          'default' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
+          ),
+        ),
+        'published_at' => array(
+          'default' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+        ),
+        'author' => array(
+          'default' => array(
+            'weight' => '-2',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-2',
+            'visible' => TRUE,
+          ),
+        ),
+        'title' => array(
+          'default' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__calendar_feed'] = $strongarm;
@@ -52,10 +136,94 @@ function slac_igp_importers_strongarm() {
       'link' => array(
         'custom_settings' => FALSE,
       ),
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'ical' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'headline' => array(
+        'custom_settings' => FALSE,
+      ),
+      'news_archive' => array(
+        'custom_settings' => FALSE,
+      ),
+      'access_listing' => array(
+        'custom_settings' => FALSE,
+      ),
+      'slac_term_listing' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
-      'display' => array(),
+      'display' => array(
+        'content_type' => array(
+          'default' => array(
+            'weight' => '-5',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-5',
+            'visible' => TRUE,
+          ),
+        ),
+        'created' => array(
+          'default' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
+          ),
+        ),
+        'published_at' => array(
+          'default' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+        ),
+        'author' => array(
+          'default' => array(
+            'weight' => '-2',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-2',
+            'visible' => TRUE,
+          ),
+        ),
+        'title' => array(
+          'default' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__news_feed'] = $strongarm;

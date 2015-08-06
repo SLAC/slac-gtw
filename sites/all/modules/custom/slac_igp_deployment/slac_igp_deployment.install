@@ -27,40 +27,45 @@ function slac_igp_deployment_install() {
 
   // Enable new modules/features.
   module_enable(array(
+    // new contrib modules
     'better_exposed_filters',
     'calendar',
     'conditional_fields',
     'date_popup_authored',
-    'flag',
-    'jquery_update',
-    'pathauto',
-    'select_or_other',
-    'scheduler',
-    'metatag',
-    'token',
     'fe_block',
     'fe_nodequeue',
     'file_entity',
+    'flag',
+    'jquery_update',
     'linkit',
     'media',
     'media_vimeo',
     'media_youtube',
     'menu_trail_by_path',
+    'metatag',
     'clone', //node_clone
+    'pathauto',
     'prepopulate',
+    'publication_date',
+    'select_or_other',
+    'scheduler',
     'scheduler_workbench',
     'smart_trim',
+    'token',
     'unpublish_button',
-    'slac_ip_core',
-    'slac_ip_config_moderation',
-    'slac_ip_config_search',
-    'slac_ip_content_admin',
+    // new custom modules
+    'fieldset_tags',
     'slac_ip_event_date',
-    'slac_ip_media',
     'slac_ip_panes',
     'slac_nodequeue_automation',
     'slac_nodequeue_expire',
     'slac_search',
+    // new features
+    'slac_ip_core',
+    'slac_ip_config_moderation',
+    'slac_ip_config_search',
+    'slac_ip_content_admin',
+    'slac_ip_media',
     'ct_access_information',
     'ct_basic_page',
     'ct_event',
@@ -84,6 +89,7 @@ function slac_igp_deployment_install() {
     't_event_type',
     'v_terms_on_node',
     'v_top_links',
+    // workbench, migrate
     'workbench',
     'migrate',
     'migrate_ui',
@@ -1182,4 +1188,18 @@ function slac_igp_deployment_update_7054() {
  */
 function slac_igp_deployment_update_7055() {
   _slac_igp_deployment_update_footer_menu();
+}
+
+/**
+ * Enable the publication_date module.
+ */
+function slac_igp_deployment_update_7056() {
+  $result = module_enable(array(
+    'publication_date',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
 }

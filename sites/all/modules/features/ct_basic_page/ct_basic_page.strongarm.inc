@@ -184,6 +184,20 @@ function ct_basic_page_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'published_at' => array(
+          'default' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+        ),
       ),
     ),
   );

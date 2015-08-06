@@ -311,7 +311,8 @@
     }
   }
 
-  .node-created {
+  .node-created,
+  .node-published-at {
     @include node-created;
   }
 
