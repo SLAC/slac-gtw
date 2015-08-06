@@ -294,3 +294,16 @@ function publication_date_menu() {
 
   return $items;
 }
+
+/**
+ * Implements hook_migrate_api().
+ */
+function publication_date_migrate_api() {
+  $api = array(
+    'api' => 2,
+    'destination handlers' => array(
+      'MigratePublicationDateHandler',
+    ),
+  );
+  return $api;
+}
