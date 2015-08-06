@@ -3378,6 +3378,7 @@ ul.calendar-links,
   .link-ical,
   .weekview .type-access_information .link-ical,
   .weekview .type-event .link-ical {
+    z-index: 1;
     top: 10px;
   }
 
@@ -3469,6 +3470,7 @@ ul.calendar-links,
     top: -6px;
   }
   .calendar-calendar .weekview .title {
+    z-index: 0;
     top: -10px;
   }
   .calendar-calendar .type-access_information,
