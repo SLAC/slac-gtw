@@ -3981,7 +3981,8 @@ div.date-views-pager div.next-year {
 .node-type-news .general-left .pane-node-body p:first-child {
   margin-top: 0;
 }
-.node-type-news .general-left .pane-node-created {
+.node-type-news .general-left .pane-node-created,
+.node-type-news .general-left .pane-node-published-at {
   margin-bottom: 0.625rem;
   margin-top: 2rem;
   display: block;
@@ -4165,8 +4166,11 @@ div.date-views-pager div.next-year {
     display: none;
   }
   .node-type-event .general-left .pane-node-created,
+  .node-type-event .general-left .pane-node-published-at,
   .node-type-access-information .general-left .pane-node-created,
-  .node-type-news .general-left .pane-node-created {
+  .node-type-access-information .general-left .pane-node-published-at,
+  .node-type-news .general-left .pane-node-created,
+  .node-type-news .general-left .pane-node-published-at {
     font-weight: normal;
   }
   .node-type-event .general-left .field-name-field-shared-image,
@@ -5691,6 +5695,7 @@ body {
     padding-right: 4px;
   }
 }
+.view-slac-news .item-list ul .views-field-created,
 .view-slac-news .item-list ul .views-field-published-at {
   font-size: 11px;
   font-size: 0.6875rem;
@@ -6775,7 +6780,9 @@ body {
   margin-bottom: .5rem;
 }
 .view-events-by-term .node-created,
-.view-content-taxonomy-listing .node-created {
+.view-events-by-term .node-published-at,
+.view-content-taxonomy-listing .node-created,
+.view-content-taxonomy-listing .node-published-at {
   font-size: 12px;
   font-size: 0.75rem;
   font-weight: bold;
@@ -7440,7 +7447,7 @@ body {
     float: left;
   }
 }
-.page-news .general-left .node-created {
+.page-news .general-left .node-date {
   font-size: 12px;
   font-size: 0.75rem;
   font-weight: bold;
@@ -7923,7 +7930,8 @@ body {
     margin-right: 2rem;
   }
 }
-.view-search .node-created {
+.view-search .node-created,
+.view-search .node-published-at {
   font-size: 12px;
   font-size: 0.75rem;
   font-weight: bold;
@@ -8132,7 +8140,8 @@ h1.title {
   .page-taxonomy-term .views-row:last-child article {
     border: none;
   }
-  .page-taxonomy-term .node-created {
+  .page-taxonomy-term .node-created,
+  .page-taxonomy-term .node-published-at {
     margin-bottom: 0.5rem;
   }
   .page-taxonomy-term .field-name-field-shared-image {

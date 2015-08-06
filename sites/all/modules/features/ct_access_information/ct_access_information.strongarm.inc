@@ -166,7 +166,7 @@ function ct_access_information_strongarm() {
         'created' => array(
           'default' => array(
             'weight' => '-5',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
           'news_archive' => array(
             'weight' => '1',
@@ -280,6 +280,32 @@ function ct_access_information_strongarm() {
           ),
           'headline' => array(
             'weight' => '6',
+            'visible' => FALSE,
+          ),
+        ),
+        'published_at' => array(
+          'headline' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'news_archive' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'default' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'access_listing' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'slac_term_listing' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '-3',
             'visible' => FALSE,
           ),
         ),

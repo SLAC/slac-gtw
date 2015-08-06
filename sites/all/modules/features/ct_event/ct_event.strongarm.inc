@@ -246,6 +246,28 @@ function ct_event_strongarm() {
             'visible' => FALSE,
           ),
         ),
+        'published_at' => array(
+          'default' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'headline' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'news_archive' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'slac_term_listing' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+        ),
       ),
     ),
   );
