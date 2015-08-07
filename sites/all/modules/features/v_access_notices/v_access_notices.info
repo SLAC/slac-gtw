@@ -1,5 +1,5 @@
 name = Access Notices
-description = Views configuration for the Access Notices content pane and RSS feed.
+description = Views config for the Access Notices content page pane, front page ACCESS INFORMATION pane, and RSS feed.
 core = 7.x
 package = Views
 version = 7.x-1.0-dev
@@ -8,5 +8,7 @@ dependencies[] = views
 dependencies[] = views_content
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
+features[views_view][] = access_information
 features[views_view][] = access_notice_listing
 features_exclude[dependencies][ctools] = ctools
+features_exclude[dependencies][slac_igp_feed] = slac_igp_feed
