@@ -79,6 +79,8 @@
   .views-row {
     margin-left: 0;
     a {
+      display: block;
+      line-height: normal;
       background: none;
       padding-right: 0;
     }
@@ -158,6 +160,7 @@
       a {
         padding: 3px 8px;
         display: block;
+        line-height: normal;
         background: url('../images/right-list-arrow.jpg') no-repeat 0 9px;
       }
     }
