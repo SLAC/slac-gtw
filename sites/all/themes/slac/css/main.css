@@ -5565,8 +5565,6 @@ body {
 }
 .front-main-column .title-body {
   display: block;
-  height: 112px;
-  overflow: hidden;
   padding: 20px;
   padding-top: 18px;
   background: #ffffff;
@@ -5604,6 +5602,8 @@ body {
   font-size: 19px;
   font-size: 1.1875rem;
   display: block;
+  height: 75px;
+  overflow: hidden;
   color: #316dae;
   text-decoration: none;
 }
@@ -5613,6 +5613,7 @@ body {
 @media (min-width: 40em) {
   .front-main-column .title a {
     color: #f6f6f6;
+    height: inherit;
   }
 }
 .front-main-column .body a {

@@ -1,8 +1,6 @@
 .front-main-column {
   .title-body {
     display: block;
-    height: 112px;
-    overflow: hidden;
     padding: 20px;
     padding-top: 18px;
     background: $white;
@@ -43,6 +41,8 @@
     a {
       @include font-size(19px);
       display: block;
+      height: 75px;
+      overflow: hidden;
       color: $blue;
       text-decoration: none;
 
@@ -52,6 +52,7 @@
 
       @include breakpoint($tablet-small) {
         color: $slider-title;
+        height: inherit;
       }
     }
   }
