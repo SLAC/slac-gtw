@@ -230,6 +230,38 @@ function slac_date_display_range($variables) {
 }
 
 /**
+ * Implements template_preprocess_field().
+ *
+ * Adds a template var for the URL to link to for News Title.
+ */
+function slac_preprocess_field(&$vars, $hook) {
+  if ($vars['element']['#field_name'] == 'field_shared_news_title') {
+    $element = $vars['element'];
+    $lang = $element['#language'];
+
+    // Check the setting of field_shared_new_existing.
+    $node = $vars['element']['#object'];
+    if (isset($node->field_shared_new_existing)) {
+      if ($node->field_shared_new_existing[$lang][0]['value'] == 'Link to Existing URL') {
+        $url = $node->field_shared_existing_url[$lang][0]['safe_value'];
+      }
+    }
+
+    // If an external URL isn't set, use the node path.
+    if (!isset($url)) {
+      if (isset($element['#object']->path['alias'])) {
+        $url = '/' . $element['#object']->path['alias'];
+      }
+      else {
+        $url = '/' . $element['#object']->path['source'];
+      }
+    }
+
+    $vars['news_title_url'] = $url;
+  }
+}
+
+/**
  * Override or insert variables for theme_field().
  */
 function slac_process_field(&$vars) {
