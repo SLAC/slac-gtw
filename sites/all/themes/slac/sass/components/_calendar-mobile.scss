@@ -205,6 +205,7 @@
   .link-ical,
   .weekview .type-access_information .link-ical,
   .weekview .type-event .link-ical {
+    z-index: 1;
     top: 10px;
   }
 
@@ -319,6 +320,7 @@
     }
 
     .weekview .title {
+      z-index: 0;
       top: -10px;
     }
 
