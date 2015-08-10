@@ -37,6 +37,7 @@
  * - $field_type_css: The css-compatible field type.
  * - $classes_array: Array of html class attribute values. It is flattened
  *   into a string within the variable $classes.
+ * - $news_title_url: The URL to link to. Set in slac_preprocess_field().
  *
  * @see template_preprocess_field()
  * @see theme_field()
@@ -44,10 +45,6 @@
  * @ingroup themeable
  */
 
-$alias = NULL;
-if (isset($element['#object']->path['alias'])) {
-  $alias = $element['#object']->path['alias'];
-}
 ?>
 <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <?php if (!$label_hidden): ?>
@@ -56,8 +53,8 @@ if (isset($element['#object']->path['alias'])) {
   <div class="field-items"<?php print $content_attributes; ?>>
     <?php foreach ($items as $delta => $item): ?>
       <h3 class="field-item <?php print $delta % 2 ? 'odd' : 'even'; ?>"<?php print $item_attributes[$delta]; ?>>
-        <?php if ($alias): ?>
-          <a href="/<?php print $alias; ?>"><?php print render($item); ?></a>
+        <?php if ($news_title_url): ?>
+          <a href="<?php print $news_title_url; ?>"><?php print render($item); ?></a>
         <?php else: ?>
           <?php print render($item); ?>
         <?php endif; ?>
