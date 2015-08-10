@@ -127,11 +127,14 @@ function slac_igp_deployment_install() {
   // Revert other pre-existing, updated features.
   _slac_igp_deployment_revert('slac_igp_feed');
 
-  // Disable Search, Comment, and old admin view modules.
+  // Disable the Search, Comment, and old "feed" and admin view modules, and
+  // the Context module.
   module_disable(array(
     'search',
     'comment',
+    'slac_igp_feed',
     'slac_igp_workflow',
+    'context',
   ));
 
   // Remove/update legacy items.
@@ -1202,4 +1205,15 @@ function slac_igp_deployment_update_7056() {
     $message = __FUNCTION__ . ' An error occurred while enabling modules.';
     throw new DrupalUpdateException($message);
   }
+}
+
+/**
+ * Disable the old "feed" view feature, now dismantled and slated for removal.
+ * Also disables the unused Context module.
+ */
+function slac_igp_deployment_update_7057() {
+  module_disable(array(
+    'slac_igp_feed',
+    'context',
+  ));
 }
