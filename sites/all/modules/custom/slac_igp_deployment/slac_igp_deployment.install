@@ -81,6 +81,7 @@ function slac_igp_deployment_install() {
     'v_calendar',
     'v_content_taxonomy_listing',
     'v_event',
+    'v_featured_news_pane',
     'v_flea_market',
     'v_my_content',
     'v_news',
@@ -1217,3 +1218,18 @@ function slac_igp_deployment_update_7057() {
     'context',
   ));
 }
+
+/**
+ * Enable the v_featured_news_pane module.
+ */
+function slac_igp_deployment_update_7058() {
+  $result = module_enable(array(
+    'v_featured_news_pane',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
+}
+
