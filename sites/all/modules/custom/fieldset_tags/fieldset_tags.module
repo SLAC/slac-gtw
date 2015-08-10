@@ -81,7 +81,7 @@ function fieldset_tags_field_widget_form(&$form, &$form_state, $field, $instance
 function _fieldset_tags_terms_form_element($parent, $children, $global_default_values) {
   $element = array(
     '#type' => 'fieldset',
-    '#title' => $parent->name,
+    '#title' => check_plain($parent->name),
     '#tree' => TRUE,
     '#collapsible' => TRUE,
   );
@@ -89,7 +89,7 @@ function _fieldset_tags_terms_form_element($parent, $children, $global_default_v
   $default_values = array();
   foreach ($children as $term) {
     $tid = $term->tid;
-    $options[$tid] = $term->name;
+    $options[$tid] = check_plain($term->name);
     if (in_array($tid, $global_default_values)) {
       $default_values[$tid] = $tid;
     }
