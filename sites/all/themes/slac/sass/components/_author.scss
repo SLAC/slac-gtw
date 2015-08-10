@@ -1,13 +1,15 @@
 .pane-slac-ip-node-author {
   @include clearfix;
-  margin-top: .5rem;
+  margin-top: 0.4rem;
   margin-bottom: 2rem;
+
   .pane-title {
     @include font-size(16px);
     margin: 0;
     line-height: 1.5;
     float: left;
   }
+
   .username {
     margin-left: .3rem;
   }
