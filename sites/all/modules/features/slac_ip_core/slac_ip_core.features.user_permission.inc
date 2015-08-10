@@ -445,6 +445,7 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'clone node',
     'roles' => array(
       'administrator' => 'administrator',
+      'editor' => 'editor',
     ),
     'module' => 'clone',
   );
