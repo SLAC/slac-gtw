@@ -3876,6 +3876,11 @@ div.date-views-pager div.next-year {
   font-weight: bold;
   margin-bottom: 0.75rem;
 }
+.node-type-event .general-left .field-name-field-shared-byline,
+.node-type-news .general-left .field-name-field-shared-byline,
+.node-type-access-information .general-left .field-name-field-shared-byline {
+  margin-bottom: 0;
+}
 .node-type-event .general-left .date-display-single,
 .node-type-news .general-left .date-display-single,
 .node-type-access-information .general-left .date-display-single {
@@ -3944,7 +3949,7 @@ div.date-views-pager div.next-year {
 .node-type-news .general-left .pane-node-field-shared-byline {
   width: 72%;
   float: left;
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.5rem;
   margin-right: 2rem;
 }
 .node-type-news .general-left .email-button,
@@ -3986,10 +3991,16 @@ div.date-views-pager div.next-year {
 }
 .node-type-news .general-left .pane-node-created,
 .node-type-news .general-left .pane-node-published-at {
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.5rem;
   margin-top: 2rem;
   display: block;
   clear: both;
+}
+.node-type-news .general-left .pane-node-published-at,
+.node-type-news .general-left .field-name-field-shared-location,
+.node-type-news .general-left .field-name-field-shared-byline {
+  font-size: 14px;
+  font-size: 0.875rem;
 }
 .node-type-news .general-right {
   padding-top: 0;
@@ -4248,6 +4259,20 @@ div.date-views-pager div.next-year {
   }
 }
 /* ----------- iPhone 4 and 4S ----------- */
+@media only screen and (max-width: 40em) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+  }
+  .email-button a {
+    border-right: none;
+    padding-right: 0 !important;
+    margin-right: 0;
+  }
+}
 /* Portrait and Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
   .js-print-button {

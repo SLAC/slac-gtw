@@ -50,6 +50,10 @@
       margin-bottom: 0.75rem;
     }
 
+    .field-name-field-shared-byline {
+      margin-bottom: 0;
+    }
+
     .date-display-single {
       margin-bottom: 0.25rem;
     }
@@ -112,7 +116,7 @@
     .pane-node-field-shared-byline {
       width: 72%;
       float: left;
-      margin-bottom: 0.625rem;
+      margin-bottom: 0.5rem;
       margin-right: 2rem;
     }
 
@@ -161,10 +165,16 @@
 
     .pane-node-created,
     .pane-node-published-at {
-      margin-bottom: 0.625rem;
+      margin-bottom: 0.5rem;
       margin-top: 2rem;
       display: block;
       clear: both;
+    }
+
+    .pane-node-published-at,
+    .field-name-field-shared-location,
+    .field-name-field-shared-byline {
+      @include font-size(14px);
     }
   }
 
