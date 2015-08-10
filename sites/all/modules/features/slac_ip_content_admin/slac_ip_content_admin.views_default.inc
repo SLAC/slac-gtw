@@ -461,12 +461,12 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['is_current']['field'] = 'is_current';
   $handler->display->display_options['filters']['is_current']['value'] = '1';
   $handler->display->display_options['filters']['is_current']['group'] = 2;
-  /* Filter criterion: Workbench Moderation: Type is moderated */
-  $handler->display->display_options['filters']['workbench_moderation_moderated_type']['id'] = 'workbench_moderation_moderated_type';
-  $handler->display->display_options['filters']['workbench_moderation_moderated_type']['table'] = 'node';
-  $handler->display->display_options['filters']['workbench_moderation_moderated_type']['field'] = 'workbench_moderation_moderated_type';
-  $handler->display->display_options['filters']['workbench_moderation_moderated_type']['value'] = '0';
-  $handler->display->display_options['filters']['workbench_moderation_moderated_type']['group'] = 2;
+  /* Filter criterion: Workbench Moderation: State */
+  $handler->display->display_options['filters']['state_1']['id'] = 'state_1';
+  $handler->display->display_options['filters']['state_1']['table'] = 'workbench_moderation_node_history';
+  $handler->display->display_options['filters']['state_1']['field'] = 'state';
+  $handler->display->display_options['filters']['state_1']['operator'] = 'empty';
+  $handler->display->display_options['filters']['state_1']['group'] = 2;
 
   /* Display: All Content */
   $handler = $view->new_display('system', 'All Content', 'system_1');
