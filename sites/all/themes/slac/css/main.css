@@ -7597,6 +7597,7 @@ body {
 .node-type-access-information a.page-icon {
   background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
   padding-left: 26px;
+  padding-top: 4px;
 }
 .node-type-access-information a.page-icon:before {
   display: none;
@@ -8027,6 +8028,8 @@ h1.title {
 .node-type-event .pane-node-field-shared-tags h2,
 .node-type-news .pane-node-field-shared-tags h2,
 .node-type-access-information .pane-node-field-shared-tags h2 {
+  font-size: 14px;
+  font-size: 0.875rem;
   display: block;
   float: none;
   padding: 0;
