@@ -44,7 +44,7 @@
   .panel-pane.pane-slac-ip-panes-email,
   .pane-slac-ip-panes-print {
     position: relative;
-    top: 2px;
+    top: 6px;
     float: right;
     border: none;
 
@@ -55,7 +55,7 @@
     }
 
     @include breakpoint($desktop) {
-      top: 48px;
+      top: 38px;
       margin-right: 95px;
 
       a {
@@ -80,7 +80,7 @@
   }
 
   .pane-slac-ip-panes-print {
-    top: 48px;
+    top: 38px;
     margin-right: -176px;
     display: none;
 

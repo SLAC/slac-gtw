@@ -4810,7 +4810,7 @@ div.date-views-pager div.next-year {
 .node-type-flea-market-post .panel-pane.pane-slac-ip-panes-email,
 .node-type-flea-market-post .pane-slac-ip-panes-print {
   position: relative;
-  top: 2px;
+  top: 6px;
   float: right;
   border: none;
 }
@@ -4823,7 +4823,7 @@ div.date-views-pager div.next-year {
 @media (min-width: 70em) {
   .node-type-flea-market-post .panel-pane.pane-slac-ip-panes-email,
   .node-type-flea-market-post .pane-slac-ip-panes-print {
-    top: 48px;
+    top: 38px;
     margin-right: 95px;
   }
   .node-type-flea-market-post .panel-pane.pane-slac-ip-panes-email a,
@@ -4843,7 +4843,7 @@ div.date-views-pager div.next-year {
   color: #424242;
 }
 .node-type-flea-market-post .pane-slac-ip-panes-print {
-  top: 48px;
+  top: 38px;
   margin-right: -176px;
   display: none;
 }
