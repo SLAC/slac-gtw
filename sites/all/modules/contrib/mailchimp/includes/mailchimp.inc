@@ -2,9 +2,6 @@
 
 class MailChimp extends MCAPI {
 
-  /**
-   * Override MCAPI::callServer() to leverage Drupal's core HTTP handling.
-   */
   public function callServer($method, $params) {
     $dc = "us1";
     if (strstr($this->api_key, "-")) {
@@ -20,7 +17,7 @@ class MailChimp extends MCAPI {
 
     $this->errorMessage = "";
     $this->errorCode = "";
-    $post_vars = http_build_query($params, NULL, '&');
+    $post_vars = http_build_query($params, NULL ,'&');
 
     $response = drupal_http_request(
       $protocol . $host . $this->apiUrl["path"] . '?method=' . $method,
@@ -31,11 +28,10 @@ class MailChimp extends MCAPI {
           'Content-type' => 'application/x-www-form-urlencoded',
           'Host' => $host,
           'Accept-Language' => language_default()->language,
-          'User-Agent' => 'MCAPI/' . $this->version,
-        ),
-        'timeout' => $this->getTimeout(),
-      )
-    );
+          'User-Agent' => 'MCAPI/' . $this->version
+      ),
+      'timeout' => $this->getTimeout()
+    ));
 
     if (!empty($response->error)) {
       $this->errorMessage = $response->error;
@@ -43,10 +39,10 @@ class MailChimp extends MCAPI {
       return FALSE;
     }
 
-    foreach ($response->headers as $h) {
-      if (substr($h, 0, 26) === "X-MailChimp-API-Error-Code") {
+    foreach($response->headers as $h){
+      if (substr($h,0,26)==="X-MailChimp-API-Error-Code"){
         $this->errorMessage = "No error message was found";
-        $this->errorCode = trim(substr($h, 27));
+        $this->errorCode = trim(substr($h,27));
         return FALSE;
       }
     }
