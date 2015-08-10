@@ -72,11 +72,12 @@ function slac_ip_core_date_format_types() {
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
  *
- * Updates the Body summary description and behavior on node forms.
- *
- * Adds custom validation for nodes with 'Promote As News' functionality.
+ * Adds custom behaviors, descriptions, and validation to node add/edit forms.
  */
 function slac_ip_core_form_node_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+
+  // Update the Body summary description and behavior.
   if (isset($form['body'])) {
     $lang = $form['language']['#value'];
     $summary = &$form['body'][$lang][0]['summary'];
@@ -84,6 +85,12 @@ function slac_ip_core_form_node_form_alter(&$form, &$form_state, $form_id) {
     $summary['#attached']['js'][] = drupal_get_path('module', 'slac_ip_core') . '/js/text.js';
   }
 
+  // Hide the node revision log message field for normal Auth user.
+  if ((count($user->roles) == 1 && in_array('authenticated user', $user->roles)) && $user->uid != 1) {
+    $form['revision_information']['log']['#access'] = FALSE;
+  }
+
+  // Add custom validation for nodes with 'Promote As News' functionality.
   if (isset($form['field_shared_promote_news'])) {
     $form['#validate'][] = 'slac_ip_core_node_form_validate';
   }
