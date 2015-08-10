@@ -79,6 +79,22 @@
 // =======================================================
 /* ----------- iPhone 4 and 4S ----------- */
 
+@media only screen and (max-width: $tablet-small) {
+  .js-print-button {
+    display: none;
+  }
+
+  .email-button {
+    right: 0 !important;
+
+    a {
+      border-right: none;
+      padding-right: 0 !important;
+      margin-right: 0;
+    }
+  }
+}
+
 /* Portrait and Landscape */
 @media only screen
   and (min-device-width: 320px)
