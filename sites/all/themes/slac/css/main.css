@@ -316,8 +316,8 @@ h6 {
 }
 
 h1 {
-  font-size: 24px;
-  font-size: 1.5rem;
+  font-size: 27.2px;
+  font-size: 1.7rem;
 }
 
 h2 {
@@ -3586,6 +3586,7 @@ ul.calendar-links,
 .field-name-field-file-shared-caption {
   font-size: 12px;
   font-size: 0.75rem;
+  color: #636363;
   font-style: italic;
   max-width: 370px;
 }
@@ -3815,7 +3816,6 @@ div.date-views-pager div.next-year {
   font-size: 1rem;
   background: #ffffff !important;
   color: #2b2b2b;
-  line-height: 1.4;
 }
 .node-type-event #content .contextual-links-region,
 .node-type-news #content .contextual-links-region,
@@ -6738,7 +6738,7 @@ body {
 .node-type-news .general-right ul a,
 .node-type-access-information .general-right ul a {
   display: block;
-  padding: 0.25rem 0;
+  line-height: 1.9;
 }
 .node-type-event .general-right .field-name-field-shared-related-files li a,
 .node-type-news .general-right .field-name-field-shared-related-files li a,
@@ -7448,8 +7448,8 @@ body {
   }
 }
 .page-news .general-left .pane-title {
-  font-size: 24px;
-  font-size: 1.5rem;
+  font-size: 27.2px;
+  font-size: 1.7rem;
   margin-top: 0;
   line-height: 1;
 }
