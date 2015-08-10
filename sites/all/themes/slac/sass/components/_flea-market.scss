@@ -6,6 +6,10 @@
   @include breakpoint($tablet-large) {
     font-size: initial;
   }
+
+  a {
+    margin-right: 0.3rem;
+  }
 }
 
 .node-type-flea-market-post {
@@ -34,6 +38,7 @@
 
   .pane-node-created {
     font-weight: bold;
+    margin-top: 0.2rem;
   }
 
   .panel-pane.pane-slac-ip-panes-email,
@@ -41,6 +46,7 @@
     position: relative;
     top: 2px;
     float: right;
+    border: none;
 
     a {
       border: none;
@@ -53,10 +59,16 @@
       margin-right: 95px;
 
       a {
+        margin-right: 0;
+        padding-right: 1rem;
         border-right: 1px solid lighten($color-gray-tundora, 35%);
-        margin-right: 1.5rem;
-        padding-right: 1.5rem;
       }
+    }
+  }
+
+  @include breakpoint($desktop) {
+    .pane-slac-ip-panes-print a {
+      border: none;
     }
   }
 
@@ -69,7 +81,7 @@
 
   .pane-slac-ip-panes-print {
     top: 48px;
-    margin-right: -200px;
+    margin-right: -176px;
     display: none;
 
     @include breakpoint($desktop) {

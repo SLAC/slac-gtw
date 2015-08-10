@@ -1267,7 +1267,7 @@ blockquote p {
 }
 
 .pane-slac-ip-node-author {
-  margin-top: .5rem;
+  margin-top: .4rem;
   margin-bottom: 2rem;
 }
 .pane-slac-ip-node-author:after {
@@ -4749,16 +4749,18 @@ div.date-views-pager div.next-year {
 }
 
 .pane-flag-link, .pane-anonymous-flag {
+  font-size: 13px;
+  font-size: 0.8125rem;
   margin-top: 1.5rem;
   line-height: 1;
 }
 .pane-flag-link .flag, .pane-anonymous-flag .flag {
   display: inline-block;
   text-indent: 14px;
-  background: url(../images/blue-flag.png) 0 4px no-repeat;
+  background: url(../images/blue-flag.png) 0 2px no-repeat;
 }
 .pane-flag-link .flag.unflag-action, .pane-flag-link .flag.unflag-disabled, .pane-anonymous-flag .flag.unflag-action, .pane-anonymous-flag .flag.unflag-disabled {
-  background: url(../images/red-flag.png) 0 4px no-repeat;
+  background: url(../images/red-flag.png) 0 2px no-repeat;
   color: red;
 }
 
@@ -4772,6 +4774,9 @@ div.date-views-pager div.next-year {
   .page-breadcrumb {
     font-size: initial;
   }
+}
+.page-breadcrumb a {
+  margin-right: 0.3rem;
 }
 
 .node-type-flea-market-post .pane-node-field-shared-contact-name,
@@ -4800,12 +4805,14 @@ div.date-views-pager div.next-year {
 }
 .node-type-flea-market-post .pane-node-created {
   font-weight: bold;
+  margin-top: 0.2rem;
 }
 .node-type-flea-market-post .panel-pane.pane-slac-ip-panes-email,
 .node-type-flea-market-post .pane-slac-ip-panes-print {
   position: relative;
   top: 2px;
   float: right;
+  border: none;
 }
 .node-type-flea-market-post .panel-pane.pane-slac-ip-panes-email a,
 .node-type-flea-market-post .pane-slac-ip-panes-print a {
@@ -4821,9 +4828,14 @@ div.date-views-pager div.next-year {
   }
   .node-type-flea-market-post .panel-pane.pane-slac-ip-panes-email a,
   .node-type-flea-market-post .pane-slac-ip-panes-print a {
+    margin-right: 0;
+    padding-right: 1rem;
     border-right: 1px solid #9b9b9b;
-    margin-right: 1.5rem;
-    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 70em) {
+  .node-type-flea-market-post .pane-slac-ip-panes-print a {
+    border: none;
   }
 }
 .node-type-flea-market-post .pane-slac-ip-node-author .pane-title {
@@ -4832,7 +4844,7 @@ div.date-views-pager div.next-year {
 }
 .node-type-flea-market-post .pane-slac-ip-panes-print {
   top: 48px;
-  margin-right: -200px;
+  margin-right: -176px;
   display: none;
 }
 @media (min-width: 70em) {
