@@ -38,6 +38,9 @@ function slac_ip_config_moderation_permission() {
       );
     }
   }
+  $permissions['view the moderation messages on any node'] = array(
+    'title' => 'View the moderation messages on any node',
+  );
 
   return $permissions;
 }
@@ -126,4 +129,34 @@ function slac_ip_config_moderation_user_is_elevated($user) {
   $roles_intersect = array_intersect($user->roles, $elevated_roles);
 
   return !empty($roles_intersect) || $user->uid == 1;
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * Unset the workbench_moderation node_view_alter so that we can control the visibility
+ * of the workbench moderation messages.
+ */
+function slac_ip_config_moderation_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'node_view') {
+    unset($implementations['workbench_moderation']);
+  }
+}
+
+/**
+ * Implements hook_node_view().
+ *
+ * Display messages about the node's moderation state. This replaces workflow_moderation_node_view so we can better control who can
+ * view messages.
+ */
+function slac_ip_config_moderation_node_view($node, $view_mode = 'full') {
+  
+  // Show moderation state messages if we're on a node page and you are the
+  // node author or have permission to see messages on any node.
+  if (node_is_page($node) && $view_mode == 'full' && empty($node->in_preview)) {
+    global $user;
+    if (user_access('view the moderation messages on any node') || $user->uid == $node->uid) {
+      workbench_moderation_messages('view', $node);
+    }
+  }
 }
