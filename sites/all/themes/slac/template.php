@@ -139,15 +139,39 @@ function slac_menu_link(array $variables) {
  * Override file entity download link.
  *
  * Removes the file size and moves the icon to the end of the link.
+ * Adds custom file icons.
  *
  * @see theme_file_file_link()
  */
 function slac_file_entity_download_link($variables) {
+  $icon_directory = drupal_get_path('theme', 'slac') . '/images/icons';
   $file = $variables['file'];
-  $icon_directory = $variables['icon_directory'];
+  $variables['icon_directory'] = $icon_directory;
+  $mime = check_plain($file->filemime);
+
+  // Adds custom icons for different image types.
+  switch ($mime) {
+    case 'image/gif':
+      $icon_url = '/' . $icon_directory . '/' . 'icon-gif.gif';
+      $icon = '<img class="file-icon" alt="" title="' . $mime . '" src="' . $icon_url . '" />';
+      break;
+  
+    case 'image/png':
+      $icon_url = '/' . $icon_directory . '/' . 'icon-png.gif';
+      $icon = '<img class="file-icon" alt="" title="' . $mime . '" src="' . $icon_url . '" />';
+      break;
+    
+    case 'image/jpg':
+      $icon_url = '/' . $icon_directory . '/' . 'icon-jpg.gif';
+      $icon = '<img class="file-icon" alt="" title="' . $mime . '" src="' . $icon_url . '" />';
+      break;
+
+    default:
+
+      $icon = theme('file_icon', array('file' => $file, 'icon_directory' => $icon_directory));
+  }
 
   $uri = file_entity_download_uri($file);
-  $icon = theme('file_icon', array('file' => $file, 'icon_directory' => $icon_directory));
 
   // Set options as per anchor format described at
   // http://microformats.org/wiki/file-format-examples
