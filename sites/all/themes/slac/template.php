@@ -167,7 +167,6 @@ function slac_file_entity_download_link($variables) {
       break;
 
     default:
-
       $icon = theme('file_icon', array('file' => $file, 'icon_directory' => $icon_directory));
   }
 
