@@ -490,36 +490,6 @@ function v_search_views_default_views() {
     7 => 0,
     3 => 0,
   );
-  /* Filter criterion: Indexed Node: News Type */
-  $handler->display->display_options['filters']['field_news_news_type']['id'] = 'field_news_news_type';
-  $handler->display->display_options['filters']['field_news_news_type']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['filters']['field_news_news_type']['field'] = 'field_news_news_type';
-  $handler->display->display_options['filters']['field_news_news_type']['value'] = array();
-  $handler->display->display_options['filters']['field_news_news_type']['group'] = 1;
-  $handler->display->display_options['filters']['field_news_news_type']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_news_news_type']['expose']['operator_id'] = 'field_news_news_type_op';
-  $handler->display->display_options['filters']['field_news_news_type']['expose']['label'] = 'Limit results to type(s):';
-  $handler->display->display_options['filters']['field_news_news_type']['expose']['operator'] = 'field_news_news_type_op';
-  $handler->display->display_options['filters']['field_news_news_type']['expose']['identifier'] = 'field_news_news_type';
-  $handler->display->display_options['filters']['field_news_news_type']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['field_news_news_type']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    5 => 0,
-    4 => 0,
-    6 => 0,
-    7 => 0,
-    3 => 0,
-  );
-  $handler->display->display_options['filters']['field_news_news_type']['expose']['reduce'] = 0;
-  $handler->display->display_options['filters']['field_news_news_type']['group_info']['label'] = 'News Type';
-  $handler->display->display_options['filters']['field_news_news_type']['group_info']['identifier'] = 'field_news_news_type';
-  $handler->display->display_options['filters']['field_news_news_type']['group_info']['remember'] = FALSE;
-  $handler->display->display_options['filters']['field_news_news_type']['group_info']['group_items'] = array(
-    1 => array(),
-    2 => array(),
-    3 => array(),
-  );
   /* Filter criterion: Indexed Node: Date created */
   $handler->display->display_options['filters']['created_1']['id'] = 'created_1';
   $handler->display->display_options['filters']['created_1']['table'] = 'search_api_index_default_node_index';
@@ -575,6 +545,36 @@ function v_search_views_default_views() {
       'operator' => '<=',
       'value' => '',
     ),
+  );
+  /* Filter criterion: Indexed Node: News Type */
+  $handler->display->display_options['filters']['field_news_news_type']['id'] = 'field_news_news_type';
+  $handler->display->display_options['filters']['field_news_news_type']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['filters']['field_news_news_type']['field'] = 'field_news_news_type';
+  $handler->display->display_options['filters']['field_news_news_type']['value'] = array();
+  $handler->display->display_options['filters']['field_news_news_type']['group'] = 2;
+  $handler->display->display_options['filters']['field_news_news_type']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_news_news_type']['expose']['operator_id'] = 'field_news_news_type_op';
+  $handler->display->display_options['filters']['field_news_news_type']['expose']['label'] = 'Limit results to type(s):';
+  $handler->display->display_options['filters']['field_news_news_type']['expose']['operator'] = 'field_news_news_type_op';
+  $handler->display->display_options['filters']['field_news_news_type']['expose']['identifier'] = 'field_news_news_type';
+  $handler->display->display_options['filters']['field_news_news_type']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_news_news_type']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    5 => 0,
+    4 => 0,
+    6 => 0,
+    7 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_news_news_type']['expose']['reduce'] = 0;
+  $handler->display->display_options['filters']['field_news_news_type']['group_info']['label'] = 'News Type';
+  $handler->display->display_options['filters']['field_news_news_type']['group_info']['identifier'] = 'field_news_news_type';
+  $handler->display->display_options['filters']['field_news_news_type']['group_info']['remember'] = FALSE;
+  $handler->display->display_options['filters']['field_news_news_type']['group_info']['group_items'] = array(
+    1 => array(),
+    2 => array(),
+    3 => array(),
   );
   /* Filter criterion: Indexed Node: Content type */
   $handler->display->display_options['filters']['type']['id'] = 'type';

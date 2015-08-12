@@ -1,0 +1,69 @@
+diff --git a/publication_date.info b/publication_date.info
+index a5496b6..76b39b6 100644
+--- a/publication_date.info
++++ b/publication_date.info
+@@ -3,4 +3,6 @@ description = "Add a field containing the publication date."
+ core = 7.x
+ 
+ files[] = tests/publication_date.test
++files[] = publication_date.migrate.inc
++
+ configure = admin/config/content/publication-date
+diff --git a/publication_date.migrate.inc b/publication_date.migrate.inc
+new file mode 100644
+index 0000000..2b3fa0e
+--- /dev/null
++++ b/publication_date.migrate.inc
+@@ -0,0 +1,31 @@
++<?php
++
++/**
++ * @file
++ * Support for the migrate module.
++ */
++
++/**
++ * Field handler.
++ */
++class MigratePublicationDateHandler extends MigrateDestinationHandler {
++  public function __construct() {
++    $this->registerTypes(array('node'));
++  }
++
++  /**
++   * Make the destination field visible.
++   */
++  public function fields() {
++      return array(
++        'published_at' =>
++          t('publication date'),
++      );
++  }
++
++  public function prepare($entity, stdClass $row) {
++    if (isset($entity->published_at)) {
++      $entity->published_at = strtotime($entity->published_at);
++    }
++  }
++}
+diff --git a/publication_date.module b/publication_date.module
+index 5289b2c..1bf6654 100755
+--- a/publication_date.module
++++ b/publication_date.module
+@@ -294,3 +294,16 @@ function publication_date_menu() {
+ 
+   return $items;
+ }
++
++/**
++ * Implements hook_migrate_api().
++ */
++function publication_date_migrate_api() {
++  $api = array(
++    'api' => 2,
++    'destination handlers' => array(
++      'MigratePublicationDateHandler',
++    ),
++  );
++  return $api;
++}

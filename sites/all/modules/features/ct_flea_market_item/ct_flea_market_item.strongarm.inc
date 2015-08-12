@@ -140,6 +140,12 @@ function ct_flea_market_item_strongarm() {
       'news_archive' => array(
         'custom_settings' => FALSE,
       ),
+      'access_listing' => array(
+        'custom_settings' => FALSE,
+      ),
+      'slac_term_listing' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -210,6 +216,20 @@ function ct_flea_market_item_strongarm() {
           ),
           'teaser' => array(
             'weight' => '-5',
+            'visible' => FALSE,
+          ),
+        ),
+        'published_at' => array(
+          'default' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '-3',
             'visible' => FALSE,
           ),
         ),

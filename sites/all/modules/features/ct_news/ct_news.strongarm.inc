@@ -187,24 +187,24 @@ function ct_news_strongarm() {
             'visible' => FALSE,
           ),
           'news_archive' => array(
-            'weight' => '1',
-            'visible' => TRUE,
+            'weight' => '2',
+            'visible' => FALSE,
           ),
           'search_result' => array(
-            'weight' => '1',
-            'visible' => TRUE,
+            'weight' => '2',
+            'visible' => FALSE,
           ),
           'headline' => array(
             'weight' => '0',
             'visible' => FALSE,
           ),
           'link' => array(
-            'weight' => '-5',
-            'visible' => TRUE,
+            'weight' => '0',
+            'visible' => FALSE,
           ),
           'slac_term_listing' => array(
-            'weight' => '1',
-            'visible' => TRUE,
+            'weight' => '2',
+            'visible' => FALSE,
           ),
         ),
         'author' => array(
@@ -217,11 +217,11 @@ function ct_news_strongarm() {
             'visible' => FALSE,
           ),
           'news_archive' => array(
-            'weight' => '3',
+            'weight' => '7',
             'visible' => FALSE,
           ),
           'search_result' => array(
-            'weight' => '3',
+            'weight' => '4',
             'visible' => TRUE,
           ),
           'headline' => array(
@@ -229,11 +229,11 @@ function ct_news_strongarm() {
             'visible' => FALSE,
           ),
           'link' => array(
-            'weight' => '-3',
+            'weight' => '3',
             'visible' => TRUE,
           ),
           'slac_term_listing' => array(
-            'weight' => '4',
+            'weight' => '5',
             'visible' => FALSE,
           ),
         ),
@@ -247,11 +247,11 @@ function ct_news_strongarm() {
             'visible' => FALSE,
           ),
           'news_archive' => array(
-            'weight' => '2',
+            'weight' => '3',
             'visible' => TRUE,
           ),
           'search_result' => array(
-            'weight' => '2',
+            'weight' => '3',
             'visible' => TRUE,
           ),
           'headline' => array(
@@ -259,21 +259,21 @@ function ct_news_strongarm() {
             'visible' => FALSE,
           ),
           'link' => array(
-            'weight' => '-4',
+            'weight' => '2',
             'visible' => TRUE,
           ),
           'slac_term_listing' => array(
-            'weight' => '2',
+            'weight' => '3',
             'visible' => TRUE,
           ),
         ),
         'content_type' => array(
           'search_result' => array(
-            'weight' => '5',
+            'weight' => '6',
             'visible' => TRUE,
           ),
           'news_archive' => array(
-            'weight' => '-5',
+            'weight' => '5',
             'visible' => FALSE,
           ),
           'headline' => array(
@@ -281,7 +281,7 @@ function ct_news_strongarm() {
             'visible' => FALSE,
           ),
           'link' => array(
-            'weight' => '-5',
+            'weight' => '4',
             'visible' => FALSE,
           ),
           'default' => array(
@@ -289,7 +289,33 @@ function ct_news_strongarm() {
             'visible' => FALSE,
           ),
           'slac_term_listing' => array(
-            'weight' => '3',
+            'weight' => '4',
+            'visible' => FALSE,
+          ),
+        ),
+        'published_at' => array(
+          'news_archive' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+          'slac_term_listing' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+          'search_result' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'link' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+          'headline' => array(
+            'weight' => '-3',
             'visible' => FALSE,
           ),
         ),

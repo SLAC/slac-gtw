@@ -46,11 +46,11 @@
 
     if ($plugin->options['date_id'] == 'month') {
       $is_current = ($now->format('Y-m') == $display_date_arg);
-      $today_link = 'calendar/' . $now->format('Y-m');
+      $today_link = 'calendar/month/' . $now->format('Y-m');
     }
     elseif ($plugin->options['date_id'] == 'week') {
       $is_current = ($now->format('Y-\WW') == $display_date_arg);
-      $today_link = 'calendar/week/' . $now->format('Y-\WW');
+      $today_link = 'calendar/' . $now->format('Y-\WW');
     }
     elseif ($plugin->options['date_id'] == 'day') {
       $is_current = ($now->format('Y-m-d') == $display_date_arg);

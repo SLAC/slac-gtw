@@ -72,14 +72,52 @@ function slac_ip_core_date_format_types() {
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
  *
- * Updates the Body summary description and behavior on node forms.
+ * Adds custom behaviors, descriptions, and validation to node add/edit forms.
  */
 function slac_ip_core_form_node_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+
+  // Update the Body summary description and behavior.
   if (isset($form['body'])) {
     $lang = $form['language']['#value'];
     $summary = &$form['body'][$lang][0]['summary'];
     $summary['#description'] = t('Provide a one-sentence summary of this announcement. If left blank, a truncated version of the full text will be used as the summary.');
     $summary['#attached']['js'][] = drupal_get_path('module', 'slac_ip_core') . '/js/text.js';
+  }
+
+  // Hide the node revision log message field for normal Auth user.
+  if ((count($user->roles) == 1 && in_array('authenticated user', $user->roles)) && $user->uid != 1) {
+    $form['revision_information']['log']['#access'] = FALSE;
+  }
+
+  // Add custom validation for nodes with 'Promote As News' functionality.
+  if (isset($form['field_shared_promote_news'])) {
+    $form['#validate'][] = 'slac_ip_core_node_form_validate';
+  }
+}
+
+/**
+ * Form validation handler for slac_ip_core_form_node_form_alter().
+ *
+ * Empties the News Type and News Title fields if the node is saved with
+ * 'Promote As News' unchecked.
+ *
+ * @see slac_ip_core_form_node_form_alter()
+ */
+function slac_ip_core_node_form_validate($form, &$form_state) {
+  $key = 'field_shared_promote_news';
+  $lang = $form_state['values']['language'];
+
+  if ($form_state['values'][$key][$lang][0]['value'] != 1) {
+    $empty_value = array(
+      $lang => array(
+        0 => array(
+          'value' => '',
+        ),
+      ),
+    );
+    form_set_value($form['field_news_news_type'], $empty_value, $form_state);
+    form_set_value($form['field_shared_news_title'], $empty_value, $form_state);
   }
 }
 
@@ -131,11 +169,11 @@ function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $insta
           // Single day event.
           if (date_is_all_day($value1->format('Y-m-d H:i:s'), $value2->format('Y-m-d H:i:s'))) {
             // Single day, all day.
-            // Format is `Wednesday, August 10, 2016, 7 (All Day)`
+            // Format is `Tuesday, August 9, 2016 (All Day)`
             $markup = t(
                 '!date (All Day)',
                 array(
-                  '!date' => $value1->format('l, F d, Y'),
+                  '!date' => $value1->format('l, F j, Y'),
                 ));
           }
           else {
@@ -144,8 +182,8 @@ function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $insta
 
             // If times are both 'am' or both 'pm', only display on end time.
             // Format examples `Wednesday, August 10, 2016, 3-7 pm`
-            //  `Wednesday, August 10, 2016, 3:15-7:30 pm`
-            $start_fmt = 'l, F d, Y, ' . $start_time_fmt;
+            //  `Tuesday, August 9, 2016, 3:15-7:30 pm`
+            $start_fmt = 'l, F j, Y, ' . $start_time_fmt;
 
             $markup = t(
               '!start-date-!end-time',
@@ -159,13 +197,13 @@ function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $insta
           list($start_time_fmt, $end_time_fmt)
             = _slac_ip_core_get_time_fmt($value1, $value2);
 
-          $start_fmt = 'l, M. d, Y, ' . $start_time_fmt;
+          $start_fmt = 'l, M. j, Y, ' . $start_time_fmt;
 
-          $end_fmt = 'l, M. d, Y, ' . $end_time_fmt;
+          $end_fmt = 'l, M. j, Y, ' . $end_time_fmt;
 
           // Multi-day event.
           // Format is:
-          //   `Wednesday, Aug. 10, 2016, 6 pm - Thursday, Aug. 11, 2016, 9 pm`
+          //   `Tuesday, Aug. 9, 2016, 6 pm - Thursday, Aug. 11, 2016, 9 pm`
           $markup = t(
             '!start-date - !end-date',
             array(
@@ -321,13 +359,18 @@ function slac_ip_core_field_extra_fields() {
           'type' => 'hidden',
         ),
         'created' => array(
-          'label' => t('Post Date'),
-          'weight' => -5,
+          'label' => t('Extra field: Post Date'),
+          'weight' => -4,
+          'type' => 'hidden',
+        ),
+        'published_at' => array(
+          'label' => t('Extra field: Published Date'),
+          'weight' => -3,
           'type' => 'hidden',
         ),
         'author' => array(
-          'label' => t('Author'),
-          'weight' => -3,
+          'label' => t('Extra field: Author'),
+          'weight' => -2,
           'type' => 'hidden',
         ),
       ),
@@ -357,6 +400,11 @@ function slac_ip_core_node_view($node, $view_mode, $langcode) {
     '#node' => $node,
     '#view_mode' => $view_mode
   );
+  $node->content['published_at'] = array(
+    '#theme' => 'slac_ip_core_published_at',
+    '#node' => $node,
+    '#view_mode' => $view_mode
+  );
   // only return this in a non-full page situation
   if (!in_array($view_mode, array('default', 'full'))) {
     $node->content['title'] = array(
@@ -381,6 +429,9 @@ function slac_ip_core_theme($existing, $type, $theme, $path) {
       'variables' => array('node' => NULL),
     ),
     'slac_ip_core_created' => array(
+      'variables' => array('node' => NULL),
+    ),
+    'slac_ip_core_published_at' => array(
       'variables' => array('node' => NULL),
     ),
     'slac_ip_core_title' => array(
@@ -418,8 +469,24 @@ function theme_slac_ip_core_content_type($variables) {
  */
 function theme_slac_ip_core_created($variables) {
   $node = $variables['node'];
-  $output = '<div class="node-created">'
+  $output = '<div class="node-date node-created">'
     . date('F j, Y', $node->created)
+    . '</div>';
+
+  return $output;
+}
+
+/**
+ * Theme callback.
+ * Returns themed output for the Published date of the node. Falls back to the
+ * created date if published is empty.
+ *
+ * @see slac_ip_core_node_view().
+ */
+function theme_slac_ip_core_published_at($variables) {
+  $node = $variables['node'];
+  $output = '<div class="node-date node-published-at">'
+    . date('F j, Y', $node->published_at)
     . '</div>';
 
   return $output;

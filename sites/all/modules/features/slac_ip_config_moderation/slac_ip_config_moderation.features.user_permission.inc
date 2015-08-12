@@ -411,9 +411,21 @@ function slac_ip_config_moderation_user_default_permissions() {
     'name' => 'view moderation messages',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'editor' => 'editor',
     ),
     'module' => 'workbench_moderation',
+  );
+
+  // Exported permission: 'view the moderation messages on any node'.
+  $permissions['view the moderation messages on any node'] = array(
+    'name' => 'view the moderation messages on any node',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+      'manager' => 'manager',
+    ),
+    'module' => 'slac_ip_config_moderation',
   );
 
   return $permissions;

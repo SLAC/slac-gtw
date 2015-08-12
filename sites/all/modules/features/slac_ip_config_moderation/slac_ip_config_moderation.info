@@ -67,6 +67,7 @@ features[user_permission][] = use workbench_moderation needs review tab
 features[user_permission][] = view all unpublished content
 features[user_permission][] = view moderation history
 features[user_permission][] = view moderation messages
+features[user_permission][] = view the moderation messages on any node
 features[workbench_moderation_states][] = draft
 features[workbench_moderation_states][] = needs_review
 features[workbench_moderation_states][] = published

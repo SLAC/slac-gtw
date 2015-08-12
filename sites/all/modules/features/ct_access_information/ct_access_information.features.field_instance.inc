@@ -182,15 +182,9 @@ function ct_access_information_field_default_field_instances() {
     'display' => array(
       'access_listing' => array(
         'label' => 'hidden',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
-        'type' => 'date_default',
+        'module' => 'slac_ip_core',
+        'settings' => array(),
+        'type' => 'slac_event_date_formatter',
         'weight' => 3,
       ),
       'default' => array(

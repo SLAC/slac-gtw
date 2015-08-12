@@ -298,6 +298,7 @@ function v_calendar_views_default_views() {
   $handler = $view->new_display('page', 'Week', 'calendar_week_view');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'events-calendar calendar-week-view';
+  $handler->display->display_options['display_description'] = 'Entry for the "Week" local menu tab.';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'date_views_pager';
   $handler->display->display_options['pager']['options']['date_id'] = 'week';

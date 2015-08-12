@@ -11,8 +11,10 @@
 abstract class SlacNodeMigration extends DrupalNode6Migration {
   public function __construct(array $arguments) {
     parent::__construct($arguments);
-
-
+    
+    // Map created date to publish date field.
+    $this->addFieldMapping('published_at')
+     ->defaultValue('created');
 
     // Image field mappings.
     $this->addFieldMapping('field_shared_image:file_class')
@@ -175,6 +177,9 @@ abstract class SlacNodeMigration extends DrupalNode6Migration {
 
   public function complete($node, stdClass $row) {
     db_query("UPDATE {node_revision} SET status = 1 WHERE vid = :vid", array(':vid' => $node->vid));
+ 
+    // Set node published_at value.
+    db_query("UPDATE {publication_date} SET published_at = :published_at WHERE nid = :nid", array(':nid' => $node->nid, ':published_at' => $row->created));
   }
 }
 
@@ -849,5 +854,12 @@ class SlacNewsArticleMigration extends DrupalNode7Migration {
         'delta' => 0,
       ))
       ->execute();
+  }
+  
+  public function complete($node, stdClass $row) {
+    db_query("UPDATE {node_revision} SET status = 1 WHERE vid = :vid", array(':vid' => $node->vid));
+ 
+    // Set node published_at value.
+    db_query("UPDATE {publication_date} SET published_at = :published_at WHERE nid = :nid", array(':nid' => $node->nid, ':published_at' => $row->created));
   }
 }

@@ -23,6 +23,7 @@
 
   .item-list ul {
     .views-row {
+      @include font-size(11px);
       padding: 0.5rem;
       background: $white url('../images/list-arrow-new.jpg') no-repeat right center;
       margin: 0;
@@ -54,16 +55,12 @@
       }
     }
 
-    .views-field-created {
+    .views-field-created,
+    .views-field-published-at {
       @include font-size(11px);
       font-style: italic;
       color: $color-gray-dove;
       letter-spacing: 0.03rem;
-    }
-
-    div.views-field-title,
-    div.views-field-created {
-      display: inline;
     }
   }
 
