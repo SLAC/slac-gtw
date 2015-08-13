@@ -1,0 +1,6 @@
+name = SLAC IGP Feed
+description = Custom taxonomy mapping for the News Feeds importer.
+core = 7.x
+package = SLAC
+version = 7.x-2.0-dev
+project = slac_igp_feed

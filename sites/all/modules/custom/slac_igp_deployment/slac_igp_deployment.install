@@ -125,15 +125,10 @@ function slac_igp_deployment_install() {
   _slac_igp_deployment_revert('v_news');
   _slac_igp_deployment_revert('v_top_links');
 
-  // Revert other pre-existing, updated features.
-  _slac_igp_deployment_revert('slac_igp_feed');
-
-  // Disable the Search, Comment, and old "feed" and admin view modules, and
-  // the Context module.
+  // Disable the Search, Comment, admin view module, and the Context module.
   module_disable(array(
     'search',
     'comment',
-    'slac_igp_feed',
     'slac_igp_workflow',
     'context',
   ));
@@ -1209,12 +1204,13 @@ function slac_igp_deployment_update_7056() {
 }
 
 /**
- * Disable the old "feed" view feature, now dismantled and slated for removal.
- * Also disables the unused Context module.
+ * Disable the unused Context module.
+ *
+ * Note: This update did disable slac_igp_feed previously, removed that because
+ * it should remain enabled.
  */
 function slac_igp_deployment_update_7057() {
   module_disable(array(
-    'slac_igp_feed',
     'context',
   ));
 }
@@ -1233,3 +1229,16 @@ function slac_igp_deployment_update_7058() {
   }
 }
 
+/**
+ * Re-enable the slac_igp_feed module.
+ */
+function slac_igp_deployment_update_7059() {
+  $result = module_enable(array(
+    'slac_igp_feed',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
+}
