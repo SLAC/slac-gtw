@@ -34,6 +34,7 @@ features[field_base][] = field_news_news_type
 features[field_base][] = field_news_subtitle
 features[field_instance][] = node-news-body
 features[field_instance][] = node-news-field_news_desired_publish_date
+features[field_instance][] = node-news-field_news_image_display
 features[field_instance][] = node-news-field_news_news_type
 features[field_instance][] = node-news-field_news_subtitle
 features[field_instance][] = node-news-field_shared_byline

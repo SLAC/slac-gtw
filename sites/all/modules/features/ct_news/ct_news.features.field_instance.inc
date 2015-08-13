@@ -101,7 +101,7 @@ function ct_news_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 9,
+      'weight' => 8,
     ),
   );
 
@@ -179,6 +179,77 @@ function ct_news_field_default_field_instances() {
       ),
       'type' => 'date_popup',
       'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-news-field_news_image_display'
+  $field_instances['node-news-field_news_image_display'] = array(
+    'bundle' => 'news',
+    'default_value' => array(
+      0 => array(
+        'value' => 'featured_news',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Please choose how the news article image would be displayed in the featured sections on the site.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 19,
+      ),
+      'headline' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'link' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'news_archive' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_news_image_display',
+    'label' => 'Featured Image Display',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 10,
     ),
   );
 
@@ -668,7 +739,7 @@ function ct_news_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -777,7 +848,7 @@ function ct_news_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 10,
+      'weight' => 9,
     ),
   );
 
@@ -916,7 +987,7 @@ function ct_news_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 7,
+      'weight' => 6,
     ),
   );
 
@@ -1411,10 +1482,12 @@ It is set to \'On\' and hidden in the node creation form.',
   t('Enter the date on which you would like this item to be published.');
   t('Existing / New');
   t('Existing URL');
+  t('Featured Image Display');
   t('Image');
   t('Location');
   t('News Type');
   t('Note to the Editors');
+  t('Please choose how the news article image would be displayed in the featured sections on the site.');
   t('Promote As News');
   t('Related Files');
   t('Related Links');

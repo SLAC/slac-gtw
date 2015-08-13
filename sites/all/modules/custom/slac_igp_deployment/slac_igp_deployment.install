@@ -138,7 +138,6 @@ function slac_igp_deployment_install() {
   _slac_igp_deployment_remove_legacy_nodequeue();
   _slac_igp_deployment_update_dashboard_menu();
   _slac_igp_deployment_remove_legacy_views();
-  _slac_igp_deployment_remove_legacy_image_styles();
   _slac_igp_deployment_update_footer_menu();
 }
 
@@ -260,23 +259,6 @@ function _slac_igp_deployment_remove_legacy_views() {
   $view = views_get_view('news');
   if ($view) {
     $view->delete();
-  }
-}
-
-/**
- * Removes a list of legacy image styles.
- */
-function _slac_igp_deployment_remove_legacy_image_styles() {
-  $styles = array(
-    'featured_news' => 'news_-_featured_slideshow',
-    'featured_news_scale' => 'news_-_featured_slideshow',
-  );
-
-  foreach ($styles as $style_name => $replacement) {
-    $image_style = image_style_load($style_name);
-    if ($image_style != FALSE) {
-      image_style_delete($image_style, $replacement);
-    }
   }
 }
 
@@ -1118,10 +1100,9 @@ function slac_igp_deployment_update_7048() {
 }
 
 /**
- * Removes legacy News Article image styles.
+ * REMOVED: Removes legacy News Article image styles.
  */
 function slac_igp_deployment_update_7049() {
-  _slac_igp_deployment_remove_legacy_image_styles();
 }
 
 /**

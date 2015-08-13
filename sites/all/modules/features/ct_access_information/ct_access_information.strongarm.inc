@@ -153,13 +153,13 @@ function ct_access_information_strongarm() {
           'weight' => '0',
         ),
         'metatags' => array(
-          'weight' => '19',
+          'weight' => '21',
         ),
         'path' => array(
-          'weight' => '17',
+          'weight' => '19',
         ),
         'redirect' => array(
-          'weight' => '18',
+          'weight' => '20',
         ),
       ),
       'display' => array(

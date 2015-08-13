@@ -272,7 +272,7 @@ function ct_event_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -338,7 +338,78 @@ function ct_event_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 15,
+      'weight' => 16,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_news_image_display'
+  $field_instances['node-event-field_news_image_display'] = array(
+    'bundle' => 'event',
+    'default_value' => array(
+      0 => array(
+        'value' => 'featured_news',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Please choose how the news article image would be displayed in the featured sections on the site.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 20,
+      ),
+      'headline' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'link' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'news_archive' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_news_image_display',
+    'label' => 'Featured Image Display',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 10,
     ),
   );
 
@@ -480,7 +551,7 @@ function ct_event_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'email_textfield',
-      'weight' => 13,
+      'weight' => 14,
     ),
   );
 
@@ -562,7 +633,7 @@ function ct_event_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -638,7 +709,7 @@ function ct_event_field_default_field_instances() {
         'placeholder' => '',
       ),
       'type' => 'telephone_default',
-      'weight' => 14,
+      'weight' => 15,
     ),
   );
 
@@ -1149,7 +1220,7 @@ function ct_event_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 18,
+      'weight' => 19,
     ),
   );
 
@@ -1316,7 +1387,7 @@ function ct_event_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -1413,7 +1484,7 @@ function ct_event_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -1488,7 +1559,7 @@ function ct_event_field_default_field_instances() {
         'type' => 60,
       ),
       'type' => 'fieldset_tags',
-      'weight' => 17,
+      'weight' => 18,
     ),
   );
 
@@ -1503,6 +1574,7 @@ function ct_event_field_default_field_instances() {
   t('Event Type');
   t('Existing / New');
   t('Existing URL');
+  t('Featured Image Display');
   t('If this Item is being promoted as news, this is the title that will display when it appears in News listings.');
   t('If this option is checked, this item will appear along with other News in news listings.');
   t('Image');
@@ -1510,6 +1582,7 @@ function ct_event_field_default_field_instances() {
   t('News Title');
   t('News Type');
   t('Note to the Editors');
+  t('Please choose how the news article image would be displayed in the featured sections on the site.');
   t('Promote As News');
   t('Related Files');
   t('Related Links');
