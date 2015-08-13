@@ -87,10 +87,10 @@ function ct_event_strongarm() {
   $strongarm->value = array(
     'view_modes' => array(
       'link' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'teaser' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'full' => array(
         'custom_settings' => FALSE,
@@ -156,8 +156,8 @@ function ct_event_strongarm() {
             'visible' => TRUE,
           ),
           'teaser' => array(
-            'weight' => '-5',
-            'visible' => TRUE,
+            'weight' => '4',
+            'visible' => FALSE,
           ),
           'slac_term_listing' => array(
             'weight' => '1',
@@ -165,6 +165,10 @@ function ct_event_strongarm() {
           ),
           'headline' => array(
             'weight' => '8',
+            'visible' => FALSE,
+          ),
+          'link' => array(
+            'weight' => '-5',
             'visible' => FALSE,
           ),
         ),
@@ -182,8 +186,8 @@ function ct_event_strongarm() {
             'visible' => TRUE,
           ),
           'teaser' => array(
-            'weight' => '-3',
-            'visible' => TRUE,
+            'weight' => '7',
+            'visible' => FALSE,
           ),
           'slac_term_listing' => array(
             'weight' => '4',
@@ -191,6 +195,10 @@ function ct_event_strongarm() {
           ),
           'headline' => array(
             'weight' => '9',
+            'visible' => FALSE,
+          ),
+          'link' => array(
+            'weight' => '-3',
             'visible' => FALSE,
           ),
         ),
@@ -208,8 +216,8 @@ function ct_event_strongarm() {
             'visible' => TRUE,
           ),
           'teaser' => array(
-            'weight' => '-4',
-            'visible' => TRUE,
+            'weight' => '5',
+            'visible' => FALSE,
           ),
           'slac_term_listing' => array(
             'weight' => '2',
@@ -217,6 +225,10 @@ function ct_event_strongarm() {
           ),
           'headline' => array(
             'weight' => '0',
+            'visible' => FALSE,
+          ),
+          'link' => array(
+            'weight' => '-4',
             'visible' => FALSE,
           ),
         ),
@@ -230,7 +242,7 @@ function ct_event_strongarm() {
             'visible' => FALSE,
           ),
           'teaser' => array(
-            'weight' => '-5',
+            'weight' => '3',
             'visible' => FALSE,
           ),
           'news_archive' => array(
@@ -243,6 +255,10 @@ function ct_event_strongarm() {
           ),
           'headline' => array(
             'weight' => '7',
+            'visible' => FALSE,
+          ),
+          'link' => array(
+            'weight' => '-5',
             'visible' => FALSE,
           ),
         ),
@@ -264,6 +280,14 @@ function ct_event_strongarm() {
             'visible' => FALSE,
           ),
           'search_result' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+          'link' => array(
             'weight' => '-3',
             'visible' => FALSE,
           ),

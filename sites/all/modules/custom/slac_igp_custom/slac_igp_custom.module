@@ -40,7 +40,8 @@ function slac_igp_custom_theme() {
  * Implements hook_node_view_alter
  */
 function slac_igp_custom_node_view_alter(&$build) {
-  if ($build['#bundle'] === 'news_article') {
+  $content_types = array('news', 'event', 'access_information');
+  if (in_array($build['#bundle'], $content_types)) {
     if ($build['#view_mode'] == 'teaser') {
       $build['#theme'] = 'slac_igp_node_teaser';
       unset($build['links']);
