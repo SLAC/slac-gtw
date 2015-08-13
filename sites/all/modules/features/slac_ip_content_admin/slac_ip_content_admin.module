@@ -21,18 +21,23 @@ function slac_ip_content_admin_menu_alter(&$items) {
 }
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_FORM_ID_alter().
  */
-function slac_ip_content_admin_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id == 'views_exposed_form') {
-    if (strpos($form['#id'], 'views-exposed-form-administration-nodes-slac-') === 0) {
-      $form['date_filter']['min']['#title'] = t('From Post Date');
-      $form['date_filter']['max']['#title'] = t('To Post Date');
+function slac_ip_content_admin_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  // Customize Content Admin views' date filter display.
+  if (strpos($form['#id'], 'views-exposed-form-administration-nodes-slac-') === 0) {
+    $form['date_filter']['min']['#title'] = t('From Post Date');
+    $form['date_filter']['max']['#title'] = t('To Post Date');
 
-      $form['#attached']['css'] = array(
-        drupal_get_path('module', 'slac_ip_content_admin') . '/css/slac_ip_content_admin.css',
-      );
-    }
+    $form['#attached']['css'] = array(
+      drupal_get_path('module', 'slac_ip_content_admin') . '/css/slac_ip_content_admin.css',
+    );
+  }
+
+  // Update the Flagged? filter to match the output for the view: Yes or No.
+  if (isset($form['flagged'])) {
+    $form['flagged']['#options'][1] = t('Yes');
+    $form['flagged']['#options'][0] = t('No');
   }
 }
 
