@@ -17,7 +17,7 @@ function ct_news_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 2;
+  $handler->weight = -27;
   $handler->conf = array(
     'title' => 'News',
     'no_blocks' => 0,
