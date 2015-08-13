@@ -17,7 +17,7 @@ function ct_flea_market_item_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -24;
+  $handler->weight = -23;
   $handler->conf = array(
     'title' => 'Flea Market Item',
     'no_blocks' => 0,
