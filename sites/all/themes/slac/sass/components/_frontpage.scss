@@ -19,7 +19,7 @@
 .frontpage-weather {
   display: none;
 
-  @include breakpoint($tablet-large) {
+  @include breakpoint($tablet-small) {
     display: block;
   }
 }

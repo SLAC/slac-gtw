@@ -54,17 +54,17 @@ $zen-column-count: 12;
 
 @include breakpoint($tablet-large) {
   .front-main-column {
-    @include zen-grid-item(8, 5);
+    @include zen-grid-item(6, 7);
     padding-right: 0;
   }
 
   .front-first-column {
-    @include zen-grid-item(4, 1);
+    @include zen-grid-item(6, 1);
     padding-left: 0;
   }
 
   .front-last-column {
-    @include zen-grid-item(8, 5);
+    @include zen-grid-item(6, 7);
     clear: left;
     padding-bottom: inherit;
   }

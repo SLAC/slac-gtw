@@ -591,8 +591,8 @@ blockquote p {
 @media (min-width: 60em) {
   .front-main-column {
     float: left;
-    width: 66.66667%;
-    margin-left: 33.33333%;
+    width: 50%;
+    margin-left: 50%;
     margin-right: -100%;
     padding-left: 20px;
     padding-right: 20px;
@@ -606,9 +606,9 @@ blockquote p {
 
   .front-first-column {
     float: left;
-    width: 33.33333%;
+    width: 50%;
     margin-left: 0%;
-    margin-right: -33.33333%;
+    margin-right: -50%;
     padding-left: 20px;
     padding-right: 20px;
     -moz-box-sizing: border-box;
@@ -621,8 +621,8 @@ blockquote p {
 
   .front-last-column {
     float: left;
-    width: 66.66667%;
-    margin-left: 33.33333%;
+    width: 50%;
+    margin-left: 50%;
     margin-right: -100%;
     padding-left: 20px;
     padding-right: 20px;
@@ -5453,7 +5453,7 @@ body {
 .frontpage-weather {
   display: none;
 }
-@media (min-width: 60em) {
+@media (min-width: 40em) {
   .frontpage-weather {
     display: block;
   }
