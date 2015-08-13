@@ -41,8 +41,6 @@
     a {
       @include font-size(19px);
       display: block;
-      height: 75px;
-      overflow: hidden;
       color: $blue;
       text-decoration: none;
 
@@ -52,7 +50,6 @@
 
       @include breakpoint($tablet-small) {
         color: $slider-title;
-        height: inherit;
       }
     }
   }
