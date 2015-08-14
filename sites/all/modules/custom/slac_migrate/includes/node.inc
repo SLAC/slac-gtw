@@ -785,6 +785,11 @@ class SlacNewsArticleMigration extends DrupalNode7Migration {
    */
   function prepare($entity, $row) {
 
+    // If there is a existing url we set the new / existing value.
+    if (isset($entity->field_shared_existing_url)) {
+      $entity->field_shared_new_existing[LANGUAGE_NONE][0]['value'] = 'Link to Existing URL';
+    }
+
     // There's no user migration as expected by migrate so manually mapping uids.
     $entity->uid = $row->uid;
     $entity->revision = isset($entity->nid) ? FALSE : TRUE;
