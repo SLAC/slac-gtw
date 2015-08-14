@@ -65,9 +65,24 @@
   .book-navigation,
   .forum-topic-navigation,
   .pager,
-  .feed-icons { /* Hide sidebars and nav elements */
+  .feed-icons,
+  #header,
+  .main-navigation,
+  .contextual-links-wrapper { /* Hide sidebars and nav elements */
     visibility: hidden;
     display: none;
+  }
+
+  // Hide UI elements
+  .pane-slac-ip-panes-email,
+  .pane-slac-ip-panes-print {
+    visibility: hidden;
+    display: none;
+  }
+
+  // Remove positioning needed for screen elements.
+  .l-main {
+    padding: 0;
   }
 
 } /* End @media print */
