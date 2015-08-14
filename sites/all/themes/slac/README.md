@@ -453,6 +453,6 @@ When an event is created using the newly added event type term, its machine name
 
 ## Color box theming ##
 
-The default styling and functionality of the colorbox js plugin and module is being overridded with a custom style in the slac_colorbox directory in this theme. Changes should be made there if required.
+The default styling and functionality of the colorbox js plugin and module is being overridden with a custom style in the slac_colorbox directory in this theme. Changes should be made there if required.
 
   **[⬆ back to top](#markdown-header-table-of-contents)**
