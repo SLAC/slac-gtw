@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the SLAC IGP FEED feature.
+ * Code for the SLAC IGP FEED customizations module.
  */
 
 /**
@@ -19,78 +19,6 @@ define('SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_ID', 1);
  */
 define('SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_GUID', 2);
 
-
-include_once 'slac_igp_feed.features.inc';
-
-/**
- * Implements hook_views_api_alter
- */
-function slac_igp_feed_views_api_alter(&$list) {
-  // looking for views template in the module directory
-  $list['slac_igp_feed']['template path'] = drupal_get_path('module', 'slac_igp_feed') . '/templates';
-}
-
-/**
- * Implements hook_preprocess_views_view
- * We manipulate the grouped result so only the next 3 grouped
- * days items will appear, each day should only display 2 entries
- */
-function slac_igp_feed_preprocess_views_view(&$vars) {
-  $view = $vars['view'];
-  if ($view->name === 'calendar') {
-    $library = libraries_load('slac_igp_importers');
-    if (empty($library['loaded'])) {
-      return;
-    }
-    
-    if ($vars['rows'] == '') {
-      return;
-    }
-    
-    $html = str_get_html($vars['rows']);
-    $ret = $html->find('div[class=views-row-grouped]');
-    if (count($ret) > 3) {
-      // only display 3 upcoming grouped days
-      $ret = array_slice($ret, 0, 3);
-    }
-    
-    $more = array();
-    foreach ($ret as $key => $group) {
-      $title[$key] = $group->find('h3', 0)->plaintext;
-      $group_items = $group->find('div[class=views-row]');
-      if (count($group_items) > 2) {
-        // for each grouped day, only 2 events will show
-        $ret[$key] = array_slice($group_items, 0, 2);
-        // $additional = count($group_items) - 2;
-        // $text = ($additional > 1) ? $additional . ' more events' : $additional . ' more event';
-        //$more[$key] = l( 'More events', 'http://news.slac.stanford.edu/calendar/all/' . date('Y-m-d', strtotime($title[$key] . ' ' . date('Y'))));  /*removing to fix bug -vf*/
-        $more[$key] = l( 'More events', 'http://news.slac.stanford.edu/calendar/all/');
-      } else {
-        $ret[$key] = $group_items;
-      }
-    }
-    
-    $output = '';
-    foreach ($ret as $key => $views_rows) {
-      $output .= '<div class="views-row-grouped">';
-      $title_date = explode(' ', $title[$key]);
-      $month = '<span class="month">' . $title_date[0] . '</span>';
-      $day = '<span class="day">' . $title_date[1] . '</span>';
-      $output .= '<h3>' . $month . $day . '</h3>';
-      foreach ($views_rows as $row) {
-        $output .= $row->__toString();
-      }
-      if (array_key_exists($key, $more)) {
-        $output .= '<span class="more views-row views-row-last">' . $more[$key] . ' &raquo;</span>';
-      }
-      $output .= '</div>';
-    }
-    
-    if ($output !== '') {
-      $vars['rows'] = $output;
-    }
-  }
-}
 
 /**
  * Implements hook_feeds_processor_targets_alter().
@@ -110,7 +38,6 @@ function slac_igp_feed_feeds_processor_targets_alter(&$targets, $entity_type, $b
     }
   }
 }
-
 
 /**
  * Callback for mapping. Here is where the actual mapping happens.
@@ -227,7 +154,6 @@ function slac_igp_feed_feeds_set_target($source, $entity, $target, $terms, $mapp
   $entity->$field_name = $field;
 }
 
-
 /**
  * Mapping configuration summary for taxonomy.module.
  *
@@ -254,7 +180,6 @@ function slac_igp_feed_feeds_summary_callback($mapping, $target, $form, $form_st
   }
   return t('Search taxonomy terms by: <strong>@search</strong>', array('@search' => $options[$mapping['term_search']]));
 }
-
 
 /**
  * Settings form callback.
@@ -305,4 +230,3 @@ function _slac_igp_feed_feeds_form_callback_options() {
     SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_GUID => 'GUID',
   );
 }
-

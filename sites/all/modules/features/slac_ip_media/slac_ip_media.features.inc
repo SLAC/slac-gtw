@@ -38,6 +38,45 @@ function slac_ip_media_image_default_styles() {
     ),
   );
 
+  // Exported image style: featured_news.
+  $styles['featured_news'] = array(
+    'label' => 'featured_news',
+    'effects' => array(
+      3 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 580,
+          'height' => 361,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: featured_news_scale.
+  $styles['featured_news_scale'] = array(
+    'label' => 'featured_news_scale',
+    'effects' => array(
+      1 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '',
+          'height' => 361,
+          'upscale' => 1,
+        ),
+        'weight' => 1,
+      ),
+      2 => array(
+        'name' => 'advance_resize',
+        'data' => array(
+          'width' => 580,
+          'height' => 361,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
   // Exported image style: lightbox_expanded.
   $styles['lightbox_expanded'] = array(
     'label' => 'Lightbox Expanded (975px wide)',

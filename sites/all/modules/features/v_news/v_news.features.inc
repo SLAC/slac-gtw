@@ -103,27 +103,3 @@ function v_news_fe_nodequeue_export_fields() {
 
   return $nodequeues;
 }
-
-/**
- * Implements hook_image_default_styles().
- */
-function v_news_image_default_styles() {
-  $styles = array();
-
-  // Exported image style: news_-_featured_slideshow.
-  $styles['news_-_featured_slideshow'] = array(
-    'label' => 'News - Featured Slideshow',
-    'effects' => array(
-      4 => array(
-        'name' => 'image_scale_and_crop',
-        'data' => array(
-          'width' => 580,
-          'height' => 361,
-        ),
-        'weight' => 1,
-      ),
-    ),
-  );
-
-  return $styles;
-}

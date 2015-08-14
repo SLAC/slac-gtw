@@ -85,6 +85,14 @@
       }
     }
 
+    > a {
+      margin-bottom: 0.8rem;
+
+      @include breakpoint($tablet-small) {
+        margin-bottom: initial;
+      }
+    }
+
     @include breakpoint($tablet-small) {
       @include view-footer;
       margin: 0 1rem;

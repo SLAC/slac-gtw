@@ -5642,8 +5642,6 @@ body {
   font-size: 19px;
   font-size: 1.1875rem;
   display: block;
-  height: 75px;
-  overflow: hidden;
   color: #316dae;
   text-decoration: none;
 }
@@ -5653,7 +5651,6 @@ body {
 @media (min-width: 40em) {
   .front-main-column .title a {
     color: #f6f6f6;
-    height: inherit;
   }
 }
 .front-main-column .body a {
@@ -5762,6 +5759,14 @@ body {
 }
 .view-slac-news .view-footer a:hover, .view-slac-news .view-footer a:focus {
   text-decoration: none;
+}
+.view-slac-news .view-footer > a {
+  margin-bottom: 0.8rem;
+}
+@media (min-width: 40em) {
+  .view-slac-news .view-footer > a {
+    margin-bottom: initial;
+  }
 }
 @media (min-width: 40em) {
   .view-slac-news .view-footer {
@@ -6858,6 +6863,9 @@ body {
 .view-my-content .date-updated-time,
 .view-my-content .date-created-time {
   font-weight: normal;
+}
+.view-my-content select {
+  text-transform: none;
 }
 @media all and (max-width: 70em) {
   .view-my-content .view-filters {

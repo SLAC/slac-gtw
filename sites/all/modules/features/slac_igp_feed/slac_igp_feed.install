@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Installation for the SLAC IGP FEED feature.
- */
-
-include_once 'slac_igp_feed.features.inc';
