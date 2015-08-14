@@ -4720,16 +4720,22 @@ div.date-views-pager div.next-year {
   .page-taxonomy-term .feed-icon {
     display: block;
   }
-
-  .feed-icon {
-    float: right;
-    margin-top: -23px;
+  .page-taxonomy-term .view-content-taxonomy-listing {
+    position: relative;
   }
-  .logged-in .feed-icon {
-    margin-top: -22px;
+  .page-taxonomy-term > .feed-icon {
+    display: block;
   }
-
-  .feed-icon__bottom {
+  .page-taxonomy-term a.feed-icon {
+    display: block;
+    position: absolute;
+    top: -44px;
+    right: 0;
+  }
+  .page-taxonomy-term .tabs ~ .contextual-links-region a.feed-icon {
+    top: -132px;
+  }
+  .page-taxonomy-term .feed-icon__bottom {
     display: none;
   }
 }
@@ -6800,23 +6806,6 @@ body {
   display: inline;
 }
 
-.page-taxonomy-term .title {
-  float: left;
-  width: 50%;
-  margin-left: 8.33333%;
-  margin-right: -58.33333%;
-  padding-left: 20px;
-  padding-right: 20px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-.page-taxonomy-term.logged-in .title {
-  margin-top: 80px;
-}
-
 .view-events-by-term .views-row,
 .view-content-taxonomy-listing .views-row {
   margin-bottom: 2rem;
@@ -8161,6 +8150,25 @@ h1.title {
 }
 .node-type-access-information .general-left .panel-pane.pane-node-field-shared-contact-phone {
   margin-top: 0 !important;
+}
+
+.page-taxonomy-term .title {
+  float: left;
+  width: 50%;
+  margin-left: 8.33333%;
+  margin-right: -58.33333%;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+.page-taxonomy-term ul.primary {
+  display: block;
+  clear: both;
+  margin-bottom: 0;
 }
 
 @media all and (max-width: 60em) {
