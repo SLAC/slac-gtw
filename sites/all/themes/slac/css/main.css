@@ -5760,6 +5760,14 @@ body {
 .view-slac-news .view-footer a:hover, .view-slac-news .view-footer a:focus {
   text-decoration: none;
 }
+.view-slac-news .view-footer > a {
+  margin-bottom: 0.8rem;
+}
+@media (min-width: 40em) {
+  .view-slac-news .view-footer > a {
+    margin-bottom: initial;
+  }
+}
 @media (min-width: 40em) {
   .view-slac-news .view-footer {
     padding-top: 0.5rem;
