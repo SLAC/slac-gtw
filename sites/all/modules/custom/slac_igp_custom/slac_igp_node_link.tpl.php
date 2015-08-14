@@ -84,8 +84,8 @@
  */
 ?>
   <?php $link = $node_url; ?>
-  <?php if (array_key_exists('field_link', $content)): ?>
-    <?php $link = strip_tags(render($content['field_link'])); ?>
+  <?php if (array_key_exists('field_shared_existing_url', $content)): ?>
+    <?php $link = check_url($content['field_shared_existing_url'][0]['#markup']); ?>
   <?php endif; ?>
   <?php if ($title_prefix || $title_suffix || $display_submitted || !$page && $title): ?>
       <?php print render($title_prefix); ?>

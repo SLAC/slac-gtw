@@ -164,10 +164,12 @@ function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $insta
       foreach ($items as $delta => $item) {
         list($value1, $value2) = _slac_ip_core_create_datetimes($item);
         $interval = $value1->diff($value2);
+        $is_all_day = date_is_all_day($value1->format('Y-m-d H:i:s'), $value2->format('Y-m-d H:i:s'));
 
         if ($interval->days == 0) {
           // Single day event.
-          if (date_is_all_day($value1->format('Y-m-d H:i:s'), $value2->format('Y-m-d H:i:s'))) {
+
+          if ($is_all_day) {
             // Single day, all day.
             // Format is `Tuesday, August 9, 2016 (All Day)`
             $markup = t(
@@ -177,12 +179,14 @@ function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $insta
                 ));
           }
           else {
+            // Single day with start, end times.
+            // If times are both 'am' or both 'pm', only display it on end time.
+            // Format examples:
+            //  `Wednesday, August 10, 2016, 3-7 pm`
+            //  `Tuesday, August 9, 2016, 3:15-7:30 pm`
             list($start_time_fmt, $end_time_fmt)
                 = _slac_ip_core_get_time_fmt($value1, $value2);
 
-            // If times are both 'am' or both 'pm', only display on end time.
-            // Format examples `Wednesday, August 10, 2016, 3-7 pm`
-            //  `Tuesday, August 9, 2016, 3:15-7:30 pm`
             $start_fmt = 'l, F j, Y, ' . $start_time_fmt;
 
             $markup = t(
@@ -194,22 +198,39 @@ function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $insta
           }
         }
         else {
-          list($start_time_fmt, $end_time_fmt)
-            = _slac_ip_core_get_time_fmt($value1, $value2);
+          // Multiple day event.
 
-          $start_fmt = 'l, M. j, Y, ' . $start_time_fmt;
+          if ($is_all_day) {
+            // Multi-day event, all day.
+            // Format is:
+            //   `Tuesday, Aug. 9, 2016, (All Day) - Thursday, Aug. 11, 2016, (All Day)`
+            $start_fmt = 'l, M. j, Y';
+            $end_fmt = 'l, M. j, Y';
 
-          $end_fmt = 'l, M. j, Y, ' . $end_time_fmt;
+            $markup = t(
+              '!start-date, (All Day) - !end-date, (All Day)',
+              array(
+                '!start-date' => $value1->format($start_fmt),
+                '!end-date' => $value2->format($end_fmt),
+              ));
+          }
+          else {
+            // Multi-day event with start, end times.
+            // Format is:
+            //   `Tuesday, Aug. 9, 2016, 6 pm - Thursday, Aug. 11, 2016, 9 pm`
+            list($start_time_fmt, $end_time_fmt)
+              = _slac_ip_core_get_time_fmt($value1, $value2);
 
-          // Multi-day event.
-          // Format is:
-          //   `Tuesday, Aug. 9, 2016, 6 pm - Thursday, Aug. 11, 2016, 9 pm`
-          $markup = t(
-            '!start-date - !end-date',
-            array(
-              '!start-date' => $value1->format($start_fmt),
-              '!end-date' => $value2->format($end_fmt),
-            ));
+            $start_fmt = 'l, M. j, Y, ' . $start_time_fmt;
+            $end_fmt = 'l, M. j, Y, ' . $end_time_fmt;
+
+            $markup = t(
+              '!start-date - !end-date',
+              array(
+                '!start-date' => $value1->format($start_fmt),
+                '!end-date' => $value2->format($end_fmt),
+              ));
+          }
         }
 
         $element[$delta] = array('#markup' => $markup);

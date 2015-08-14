@@ -160,6 +160,7 @@ function v_news_views_default_views() {
   $handler->display->display_options['fields']['field_shared_image']['alter']['path'] = '[field_shared_new_existing]';
   $handler->display->display_options['fields']['field_shared_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_shared_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_shared_image']['type'] = 'image_igp';
   $handler->display->display_options['fields']['field_shared_image']['settings'] = array(
     'image_style' => 'news_-_featured_slideshow',
     'image_link' => '',
@@ -314,6 +315,7 @@ function v_news_views_default_views() {
   $handler->display->display_options['fields']['field_shared_image']['alter']['path'] = '[field_shared_new_existing]';
   $handler->display->display_options['fields']['field_shared_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_shared_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_shared_image']['type'] = 'image_igp';
   $handler->display->display_options['fields']['field_shared_image']['settings'] = array(
     'image_style' => 'news_-_featured_slideshow',
     'image_link' => '',

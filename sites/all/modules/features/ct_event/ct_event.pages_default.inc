@@ -17,7 +17,7 @@ function ct_event_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 2;
+  $handler->weight = -25;
   $handler->conf = array(
     'title' => 'Event',
     'no_blocks' => 0,

@@ -63,10 +63,23 @@
   .book-navigation,
   .forum-topic-navigation,
   .pager,
-  .feed-icons {
+  .feed-icons,
+  #header,
+  .main-navigation,
+  .contextual-links-wrapper {
     /* Hide sidebars and nav elements */
     visibility: hidden;
     display: none;
+  }
+
+  .pane-slac-ip-panes-email,
+  .pane-slac-ip-panes-print {
+    visibility: hidden;
+    display: none;
+  }
+
+  .l-main {
+    padding: 0;
   }
 }
 /* End @media print */
