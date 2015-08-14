@@ -99,13 +99,8 @@ function slac_ip_config_moderation_menu_alter(&$items) {
 function slac_ip_config_moderation_node_view_access($op, $node) {
   global $user;
 
-  // Check moderation status.
-  if (isset($node->workbench_moderation['current'])) {
-    $is_published = ($node->workbench_moderation['current']->state == 'published');
-
-    if ($is_published && !slac_ip_config_moderation_user_is_elevated($user)) {
-      return FALSE;
-    }
+  if (!slac_ip_config_moderation_user_is_elevated($user)) {
+    return FALSE;
   }
 
   // Do not bypass normal access.
