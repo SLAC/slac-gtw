@@ -1,13 +1,3 @@
-.page-taxonomy-term {
-  .title {
-    @include move-page-title;
-  }
-
-  &.logged-in .title {
-    margin-top: 80px;
-  }
-}
-
 .view-events-by-term,
 .view-content-taxonomy-listing {
 
