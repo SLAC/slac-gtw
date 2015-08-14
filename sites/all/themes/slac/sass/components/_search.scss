@@ -10,6 +10,7 @@
   @include breakpoint($tablet-large) {
     @include zen-grid-item(11, 2);
     @include font-size(24px);
+    padding-left: 0;
   }
 }
 
