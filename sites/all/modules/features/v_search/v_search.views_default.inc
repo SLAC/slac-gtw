@@ -449,6 +449,14 @@ function v_search_views_default_views() {
     1 => 'AND',
     2 => 'OR',
   );
+  /* Filter criterion: Indexed Node: Status */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['status']['group'] = 1;
   /* Filter criterion: Search: Fulltext search */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_default_node_index';
@@ -546,6 +554,11 @@ function v_search_views_default_views() {
       'value' => '',
     ),
   );
+  /* Filter criterion: Global: Fields comparison */
+  $handler->display->display_options['filters']['fields_compare']['id'] = 'fields_compare';
+  $handler->display->display_options['filters']['fields_compare']['table'] = 'views';
+  $handler->display->display_options['filters']['fields_compare']['field'] = 'fields_compare';
+  $handler->display->display_options['filters']['fields_compare']['group'] = 1;
   /* Filter criterion: Indexed Node: News Type */
   $handler->display->display_options['filters']['field_news_news_type']['id'] = 'field_news_news_type';
   $handler->display->display_options['filters']['field_news_news_type']['table'] = 'search_api_index_default_node_index';
