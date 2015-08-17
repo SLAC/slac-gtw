@@ -105,6 +105,7 @@ features[taxonomy][] = tags
 features[taxonomy][] = top_links
 features[user_permission][] = administer meta tags
 features[user_permission][] = administer scheduler
+features[user_permission][] = administer taxonomy
 features[user_permission][] = edit meta tags
 features[user_permission][] = schedule (un)publishing of nodes
 features[user_permission][] = view scheduled content
