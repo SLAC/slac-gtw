@@ -7253,7 +7253,7 @@ body {
   }
   #block-system-main-menu .menu {
     padding-left: 0;
-    margin-top: 5rem;
+    margin-top: 2.125rem;
     margin-bottom: 1rem;
     position: relative;
     z-index: 10;
@@ -7263,7 +7263,7 @@ body {
   }
   #block-system-main-menu li {
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     list-style-type: none;
     list-style-image: none;
   }
