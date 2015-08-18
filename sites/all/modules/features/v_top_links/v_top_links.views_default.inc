@@ -30,7 +30,12 @@ function v_top_links_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['row_class'] = 'list-link-item';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['class'] = 'top-links-list';
+  $handler->display->display_options['style_options']['wrapper_class'] = '';
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
