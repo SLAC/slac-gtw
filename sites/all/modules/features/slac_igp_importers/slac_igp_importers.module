@@ -126,7 +126,6 @@ function _slac_igp_importers_feeds_event($source, $result) {
   }
   
   $library = libraries_load('slac_igp_importers');
-  // dpm($result->items);
 
   foreach ($result->items as $key => $item) {
     // Try to get the location information from this event
@@ -255,6 +254,11 @@ function slac_igp_importers_feeds_presave($source, $entity, $item) {
 
   // Set workbench_moderation state to published.
   $entity->workbench_moderation_state_new = 'published';
+
+  // Set the new existing to existing since this item has a source url.
+  if (!empty($item['url'])) {
+    $entity->field_shared_new_existing[LANGUAGE_NONE][0]['value'] = 'Link to Existing URL';
+  }
 
   // Set News CT's news type.
   if (in_array('Lab News', $item['tags'])) {
