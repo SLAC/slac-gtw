@@ -51,6 +51,7 @@ function slac_igp_deployment_install() {
     'scheduler',
     'scheduler_workbench',
     'smart_trim',
+    'stanford_date_timepicker',
     'token',
     'unpublish_button',
     // new custom modules
