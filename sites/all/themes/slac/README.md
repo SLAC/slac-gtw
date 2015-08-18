@@ -11,6 +11,7 @@
   5. [Responsive Design](#markdown-header-responsive-design)
   6. [Events Calendar](#markdown-header-events-calendar)
   7. [Event nodes color coding](#markdown-header-event-nodes-color-coding)
+  8. [Color box theming](#markdown-header-color-box)
 
 ## Theme’s front-end tools setup
 
@@ -447,5 +448,11 @@ When an event is created using the newly added event type term, its machine name
   1. Edit `/utilities/_events-color-codes.scss` and add your new color code
   2. Edit `/components/_page-icons.scss` and add the new CSS class generated from the taxonomy term.  Be sure to use the same format as the other events in the list (i.e. `&.new-css-class:before`)
   3. Add a background property with the corresponding color added in step one above.
+
+  **[⬆ back to top](#markdown-header-table-of-contents)**
+
+## Color box theming ##
+
+The default styling and functionality of the colorbox js plugin and module is being overridden with a custom style in the slac_colorbox directory in this theme. Changes should be made there if required.
 
   **[⬆ back to top](#markdown-header-table-of-contents)**

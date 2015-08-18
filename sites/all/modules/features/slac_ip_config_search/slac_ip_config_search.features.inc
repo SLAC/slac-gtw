@@ -89,6 +89,7 @@ function slac_ip_config_search_default_search_api_index() {
         "field_shared_tags:name" : { "type" : "list\\u003Cstring\\u003E" },
         "promote" : { "type" : "boolean" },
         "search_api_language" : { "type" : "string" },
+        "status" : { "type" : "boolean" },
         "sticky" : { "type" : "boolean" },
         "title" : { "type" : "text", "boost" : "5.0" },
         "type" : { "type" : "string" }
@@ -189,6 +190,12 @@ function slac_ip_config_search_default_search_api_server() {
             "table" : "search_api_db_default_node_index_field_shared_tags_name",
             "column" : "value",
             "type" : "list\\u003Cstring\\u003E",
+            "boost" : "1.0"
+          },
+          "status" : {
+            "table" : "search_api_db_default_node_index",
+            "column" : "status",
+            "type" : "boolean",
             "boost" : "1.0"
           }
         }

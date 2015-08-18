@@ -1,3 +1,15 @@
+.page-taxonomy-term {
+  .title {
+    @include move-page-title;
+  }
+
+  ul.primary {
+    display: block;
+    clear: both;
+    margin-bottom: 0;
+  }
+}
+
 @media all and (max-width: $tablet-large) {
   .page-taxonomy-term {
     .l-general-one-col {

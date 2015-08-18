@@ -7,20 +7,32 @@
 }
 
 @include breakpoint($tablet-large) {
-  .page-taxonomy-term .feed-icon {
-    display: block;
-  }
-
-  .feed-icon {
-    float: right;
-    margin-top: -23px;
-
-    .logged-in & {
-      margin-top: -22px;
+  .page-taxonomy-term {
+    .feed-icon {
+      display: block;
     }
-  }
 
-  .feed-icon__bottom {
-    display: none;
+    .view-content-taxonomy-listing {
+      position: relative;
+    }
+
+    > .feed-icon {
+      display: block;
+    }
+
+    a.feed-icon {
+      display: block;
+      position: absolute;
+      top: -44px;
+      right: 0;
+    }
+
+    .tabs ~ .contextual-links-region a.feed-icon {
+      top: -132px;
+    }
+
+    .feed-icon__bottom {
+      display: none;
+    }
   }
 }
