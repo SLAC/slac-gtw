@@ -20,6 +20,7 @@ dependencies[] = node
 dependencies[] = options
 dependencies[] = page_manager
 dependencies[] = slac_igp_config
+dependencies[] = slac_ip_existingurl
 dependencies[] = smart_trim
 dependencies[] = strongarm
 dependencies[] = t_event_type
