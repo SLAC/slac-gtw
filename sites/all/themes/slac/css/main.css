@@ -1114,16 +1114,6 @@ blockquote p {
     border-bottom: 3px solid #d6dee2;
   }
 }
-.page-access .general-right .menu {
-  padding-left: 2rem;
-}
-.page-access .general-right .menu li {
-  list-style-type: disc;
-}
-.page-access .general-right .menu a {
-  display: block;
-  padding: .2rem 0;
-}
 .page-access .general-right .feed-icon {
   float: none;
   margin: 0;
@@ -6690,57 +6680,39 @@ body {
   }
 }
 
-.node-type-event .general-right ul a,
-.node-type-news .general-right ul a,
-.node-type-access-information .general-right ul a {
+.general-right ul a {
   display: block;
   line-height: 1.9;
 }
-.node-type-event .general-right .field-name-field-shared-related-files li a,
-.node-type-news .general-right .field-name-field-shared-related-files li a,
-.node-type-access-information .general-right .field-name-field-shared-related-files li a {
+.general-right .field-name-field-shared-related-files li a {
   display: inline-block;
 }
-.node-type-event .general-right .field-type-file span.file,
-.node-type-news .general-right .field-type-file span.file,
-.node-type-access-information .general-right .field-type-file span.file {
+.general-right .field-type-file span.file {
   display: block;
   padding: 0.2rem 0;
 }
-.node-type-event .general-right ul,
-.node-type-news .general-right ul,
-.node-type-access-information .general-right ul {
+.general-right ul {
   font-size: 12px;
   font-size: 0.75rem;
   padding-left: 2rem;
   list-style-type: disc;
 }
-.node-type-event .general-right .view-featured-news ul,
-.node-type-news .general-right .view-featured-news ul,
-.node-type-access-information .general-right .view-featured-news ul {
+.general-right .view-featured-news ul {
   padding-left: 0;
 }
-.node-type-event .general-right .view-featured-news ul a,
-.node-type-news .general-right .view-featured-news ul a,
-.node-type-access-information .general-right .view-featured-news ul a {
+.general-right .view-featured-news ul a {
   line-height: 1.6;
 }
-.node-type-event .general-right .panel-pane.pane-node-field-shared-related-files,
-.node-type-news .general-right .panel-pane.pane-node-field-shared-related-files,
-.node-type-access-information .general-right .panel-pane.pane-node-field-shared-related-files {
+.general-right .panel-pane.pane-node-field-shared-related-files {
   margin-bottom: 0;
 }
-.node-type-event .general-right .pane-combined-related-items ul li,
-.node-type-news .general-right .pane-combined-related-items ul li,
-.node-type-access-information .general-right .pane-combined-related-items ul li {
+.general-right .pane-combined-related-items ul li {
   margin: 0;
   padding: 0;
   list-style-type: disc;
   list-style-position: outside;
 }
-.node-type-event .general-right .pane-combined-related-items ul a,
-.node-type-news .general-right .pane-combined-related-items ul a,
-.node-type-access-information .general-right .pane-combined-related-items ul a {
+.general-right .pane-combined-related-items ul a {
   display: inline;
 }
 
