@@ -7166,6 +7166,10 @@ body {
   .front .main-navigation .region-navigation {
     background: transparent;
   }
+  .mobile-menu-open .main-navigation .region-navigation {
+    background: #ffffff;
+    margin-bottom: 1rem;
+  }
 }
 @media all and (max-width: 60em) and (min-width: 60em) {
   .main-navigation .region-navigation {
