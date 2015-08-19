@@ -8107,6 +8107,7 @@ h1.title {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   word-wrap: break-word;
+  padding-left: 0;
 }
 .page-taxonomy-term ul.primary {
   display: block;
