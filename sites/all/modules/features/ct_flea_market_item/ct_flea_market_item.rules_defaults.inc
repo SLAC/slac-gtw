@@ -20,6 +20,7 @@ function ct_flea_market_item_default_rules_configuration() {
             "to" : "communications@slac.stanford.edu",
             "subject" : "A Flea Market item has been flagged as inappropriate on [site:name].",
             "message" : "The Flea Market item at: [flagged-node:url] by [flagged-node:author] has been flagged as inappropriate.",
+            "from" : "communications@slac.stanford.edu",
             "language" : [ "" ]
           }
         }
