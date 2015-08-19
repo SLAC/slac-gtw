@@ -52,24 +52,6 @@ $zen-column-count: 12;
   }
 }
 
-@include breakpoint($tablet-large) {
-  .front-main-column {
-    @include zen-grid-item(8, 5);
-    padding-right: 0;
-  }
-
-  .front-first-column {
-    @include zen-grid-item(4, 1);
-    padding-left: 0;
-  }
-
-  .front-last-column {
-    @include zen-grid-item(8, 5);
-    clear: left;
-    padding-bottom: inherit;
-  }
-}
-
 @include breakpoint($desktop) {
   .front-main-column {
     @include zen-grid-item(5, 4);

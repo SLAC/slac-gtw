@@ -45,7 +45,7 @@ function slac_ip_media_image_default_styles() {
       3 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 580,
+          'width' => 650,
           'height' => 361,
         ),
         'weight' => 1,
@@ -69,7 +69,7 @@ function slac_ip_media_image_default_styles() {
       2 => array(
         'name' => 'advance_resize',
         'data' => array(
-          'width' => 580,
+          'width' => 650,
           'height' => 361,
         ),
         'weight' => 2,
