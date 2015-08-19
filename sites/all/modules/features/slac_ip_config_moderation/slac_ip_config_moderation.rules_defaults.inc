@@ -119,14 +119,6 @@ function slac_ip_config_moderation_default_rules_configuration() {
             "message" : "Your SLAC Today [node:content-type] item, \\u0022[node:title],\\u0022 has been published. You can view the item at: [node:url].\\r\\n\\r\\nTo make changes to your submission, please contact SLAC\\u2019s internal communications coordinator at mjhorton@slac.stanford.edu or ext. 4289.\\r\\n\\r\\nPlease note that SLAC Communications edits all submissions for style and clarity. See About SLAC Today (https:\\/\\/intranet.slac.stanford.edu\\/about-slac-today) for submission guidelines.\\r\\n\\r\\nThank you,\\r\\nSLAC Communications",
             "language" : [ "" ]
           }
-        },
-        { "mail" : {
-            "to" : "communications@slac.stanford.edu",
-            "subject" : "\\u0022[node:title],\\u201d has been reviewed and approved for publication.",
-            "message" : "You can view the published version at:\\r\\n[node:url].\\r\\n\\r\\nThank you,\\r\\nSLAC Communications",
-            "from" : "communications@slac.stanford.edu",
-            "language" : [ "" ]
-          }
         }
       ]
     }
@@ -156,14 +148,6 @@ function slac_ip_config_moderation_default_rules_configuration() {
             "to" : [ "node:author:mail" ],
             "subject" : "Your SLAC Today [node:content-type] item, \\u0022[node:title],\\u0022 has been submitted for publication. ",
             "message" : "Your SLAC Today [node:content-type] item, \\u0022[node:title],\\u0022 has been submitted for publication. We will review your item and publish it or contact you with any issues within two business days, most likely sooner.\\r\\n\\r\\nYou can view the submitted item at: [node:url].\\r\\n\\r\\nIf your submission is urgent or you need to make changes, please contact SLAC\\u2019s internal communications coordinator at mjhorton@slac.stanford.edu or ext. 4289.\\r\\n\\r\\nPlease note that SLAC Communications edits all submissions for style and clarity. We will contact you if additional information or significant changes are needed. See About SLAC Today (https:\\/\\/intranet.slac.stanford.edu\\/about-slac-today) for submission guidelines.\\r\\n\\r\\nThank you,\\r\\nSLAC Communications",
-            "from" : "communications@slac.stanford.edu",
-            "language" : [ "" ]
-          }
-        },
-        { "mail" : {
-            "to" : "communications@slac.stanford.edu",
-            "subject" : "\\u0022[node:title],\\u0022 has been submitted for publication.",
-            "message" : "You can view the submitted version at:\\r\\n[node:url].\\r\\n\\r\\nThank you,\\r\\n\\r\\nSLAC Communications",
             "from" : "communications@slac.stanford.edu",
             "language" : [ "" ]
           }
