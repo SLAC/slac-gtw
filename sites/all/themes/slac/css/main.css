@@ -5885,10 +5885,8 @@ body {
   }
   .frontpage-top-links .top-links-list,
   .frontpage-directorate-links .top-links-list {
-    font-size: 11px;
-    font-size: 0.6875rem;
     color: #316dae;
-    padding-left: 1.5rem;
+    padding-left: 8px;
   }
   .frontpage-top-links .top-links-list .list-link-item,
   .frontpage-directorate-links .top-links-list .list-link-item {
@@ -5905,7 +5903,10 @@ body {
   }
   .frontpage-top-links .top-links-list .list-link-item a,
   .frontpage-directorate-links .top-links-list .list-link-item a {
+    font-size: 12px;
+    font-size: 0.75rem;
     padding-left: 0;
+    line-height: 1.2;
   }
 }
 @media (min-width: 70em) {
