@@ -61,6 +61,11 @@
         background: transparent;
       }
 
+      .mobile-menu-open & {
+        background: $white;
+        margin-bottom: 1rem;
+      }
+
       @include breakpoint($tablet-large) {
         background: $white;
       }
