@@ -588,53 +588,6 @@ blockquote p {
     padding-bottom: 2rem;
   }
 }
-@media (min-width: 60em) {
-  .front-main-column {
-    float: left;
-    width: 66.66667%;
-    margin-left: 33.33333%;
-    margin-right: -100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    padding-right: 0;
-  }
-
-  .front-first-column {
-    float: left;
-    width: 33.33333%;
-    margin-left: 0%;
-    margin-right: -33.33333%;
-    padding-left: 20px;
-    padding-right: 20px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    padding-left: 0;
-  }
-
-  .front-last-column {
-    float: left;
-    width: 66.66667%;
-    margin-left: 33.33333%;
-    margin-right: -100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    clear: left;
-    padding-bottom: inherit;
-  }
-}
 @media (min-width: 70em) {
   .front-main-column {
     float: left;
@@ -1160,16 +1113,6 @@ blockquote p {
   .page-access .general-right .pane-title {
     border-bottom: 3px solid #d6dee2;
   }
-}
-.page-access .general-right .menu {
-  padding-left: 2rem;
-}
-.page-access .general-right .menu li {
-  list-style-type: disc;
-}
-.page-access .general-right .menu a {
-  display: block;
-  padding: .2rem 0;
 }
 .page-access .general-right .feed-icon {
   float: none;
@@ -5453,7 +5396,7 @@ body {
 .frontpage-weather {
   display: none;
 }
-@media (min-width: 60em) {
+@media (min-width: 40em) {
   .frontpage-weather {
     display: block;
   }
@@ -5885,10 +5828,8 @@ body {
   }
   .frontpage-top-links .top-links-list,
   .frontpage-directorate-links .top-links-list {
-    font-size: 11px;
-    font-size: 0.6875rem;
     color: #316dae;
-    padding-left: 1.5rem;
+    padding-left: 8px;
   }
   .frontpage-top-links .top-links-list .list-link-item,
   .frontpage-directorate-links .top-links-list .list-link-item {
@@ -5905,7 +5846,10 @@ body {
   }
   .frontpage-top-links .top-links-list .list-link-item a,
   .frontpage-directorate-links .top-links-list .list-link-item a {
+    font-size: 12px;
+    font-size: 0.75rem;
     padding-left: 0;
+    line-height: 1.2;
   }
 }
 @media (min-width: 70em) {
@@ -5998,7 +5942,7 @@ body {
   display: block;
   clear: both;
   padding: 0.4rem 0 0 0.9rem;
-  background: url("../images/arrow-dot-line.png") no-repeat left 15px;
+  background: url("../images/arrow-dot-line.png") no-repeat left 12px;
 }
 @media (min-width: 70em) {
   .frontpage-people-finder .pane-title {
@@ -6736,57 +6680,39 @@ body {
   }
 }
 
-.node-type-event .general-right ul a,
-.node-type-news .general-right ul a,
-.node-type-access-information .general-right ul a {
+.general-right ul a {
   display: block;
   line-height: 1.9;
 }
-.node-type-event .general-right .field-name-field-shared-related-files li a,
-.node-type-news .general-right .field-name-field-shared-related-files li a,
-.node-type-access-information .general-right .field-name-field-shared-related-files li a {
+.general-right .field-name-field-shared-related-files li a {
   display: inline-block;
 }
-.node-type-event .general-right .field-type-file span.file,
-.node-type-news .general-right .field-type-file span.file,
-.node-type-access-information .general-right .field-type-file span.file {
+.general-right .field-type-file span.file {
   display: block;
   padding: 0.2rem 0;
 }
-.node-type-event .general-right ul,
-.node-type-news .general-right ul,
-.node-type-access-information .general-right ul {
+.general-right ul {
   font-size: 12px;
   font-size: 0.75rem;
   padding-left: 2rem;
   list-style-type: disc;
 }
-.node-type-event .general-right .view-featured-news ul,
-.node-type-news .general-right .view-featured-news ul,
-.node-type-access-information .general-right .view-featured-news ul {
+.general-right .view-featured-news ul {
   padding-left: 0;
 }
-.node-type-event .general-right .view-featured-news ul a,
-.node-type-news .general-right .view-featured-news ul a,
-.node-type-access-information .general-right .view-featured-news ul a {
+.general-right .view-featured-news ul a {
   line-height: 1.6;
 }
-.node-type-event .general-right .panel-pane.pane-node-field-shared-related-files,
-.node-type-news .general-right .panel-pane.pane-node-field-shared-related-files,
-.node-type-access-information .general-right .panel-pane.pane-node-field-shared-related-files {
+.general-right .panel-pane.pane-node-field-shared-related-files {
   margin-bottom: 0;
 }
-.node-type-event .general-right .pane-combined-related-items ul li,
-.node-type-news .general-right .pane-combined-related-items ul li,
-.node-type-access-information .general-right .pane-combined-related-items ul li {
+.general-right .pane-combined-related-items ul li {
   margin: 0;
   padding: 0;
   list-style-type: disc;
   list-style-position: outside;
 }
-.node-type-event .general-right .pane-combined-related-items ul a,
-.node-type-news .general-right .pane-combined-related-items ul a,
-.node-type-access-information .general-right .pane-combined-related-items ul a {
+.general-right .pane-combined-related-items ul a {
   display: inline;
 }
 
@@ -7240,6 +7166,10 @@ body {
   .front .main-navigation .region-navigation {
     background: transparent;
   }
+  .mobile-menu-open .main-navigation .region-navigation {
+    background: #ffffff;
+    margin-bottom: 1rem;
+  }
 }
 @media all and (max-width: 60em) and (min-width: 60em) {
   .main-navigation .region-navigation {
@@ -7253,7 +7183,7 @@ body {
   }
   #block-system-main-menu .menu {
     padding-left: 0;
-    margin-top: 5rem;
+    margin-top: 2.125rem;
     margin-bottom: 1rem;
     position: relative;
     z-index: 10;
@@ -7263,7 +7193,7 @@ body {
   }
   #block-system-main-menu li {
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     list-style-type: none;
     list-style-image: none;
   }
@@ -8153,6 +8083,7 @@ h1.title {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   word-wrap: break-word;
+  padding-left: 0;
 }
 .page-taxonomy-term ul.primary {
   display: block;

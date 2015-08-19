@@ -597,5 +597,40 @@ function slac_igp_config_strongarm() {
   $strongarm->value = '1';
   $export['scheduler_date_popup_minute_increment'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'stanford_date_timepicker_activation_class';
+  $strongarm->value = '';
+  $export['stanford_date_timepicker_activation_class'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'stanford_date_timepicker_default_date_format';
+  $strongarm->value = 'yy-mm-dd';
+  $export['stanford_date_timepicker_default_date_format'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'stanford_date_timepicker_default_separator';
+  $strongarm->value = ' ';
+  $export['stanford_date_timepicker_default_separator'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'stanford_date_timepicker_default_time_format';
+  $strongarm->value = 'hh:mm';
+  $export['stanford_date_timepicker_default_time_format'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'stanford_date_timepicker_minute_increment';
+  $strongarm->value = '5';
+  $export['stanford_date_timepicker_minute_increment'] = $strongarm;
+
   return $export;
 }

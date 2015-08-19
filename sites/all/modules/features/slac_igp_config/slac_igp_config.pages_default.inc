@@ -394,16 +394,16 @@ function slac_igp_config_default_page_manager_pages() {
     $display->content['new-c0566837-ec4a-41dd-afae-060a6b4a249d'] = $pane;
     $display->panels['colthreerowthree'][0] = 'new-c0566837-ec4a-41dd-afae-060a6b4a249d';
     $pane = new stdClass();
-    $pane->pid = 'new-c5c9d0dc-e5bc-4dd3-967e-5ac45635e581';
+    $pane->pid = 'new-bc4e5504-cb69-47e6-a13f-9c8596c38cd8';
     $pane->panel = 'colthreerowtwo';
     $pane->type = 'views';
-    $pane->subtype = 'staff_resource_modern';
+    $pane->subtype = 'top_links';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'override_pager_settings' => 0,
       'use_pager' => 0,
-      'nodes_per_page' => '18',
+      'nodes_per_page' => '0',
       'pager_id' => '0',
       'offset' => '0',
       'more_link' => 0,
@@ -412,9 +412,10 @@ function slac_igp_config_default_page_manager_pages() {
       'link_to_view' => 0,
       'args' => '',
       'url' => '',
-      'display' => 'block_3',
+      'display' => 'block',
       'override_title' => 0,
       'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -427,9 +428,9 @@ function slac_igp_config_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'c5c9d0dc-e5bc-4dd3-967e-5ac45635e581';
-    $display->content['new-c5c9d0dc-e5bc-4dd3-967e-5ac45635e581'] = $pane;
-    $display->panels['colthreerowtwo'][0] = 'new-c5c9d0dc-e5bc-4dd3-967e-5ac45635e581';
+    $pane->uuid = 'bc4e5504-cb69-47e6-a13f-9c8596c38cd8';
+    $display->content['new-bc4e5504-cb69-47e6-a13f-9c8596c38cd8'] = $pane;
+    $display->panels['colthreerowtwo'][0] = 'new-bc4e5504-cb69-47e6-a13f-9c8596c38cd8';
     $pane = new stdClass();
     $pane->pid = 'new-0c2839e1-4c81-4f99-a2e1-c5fcad80f627';
     $pane->panel = 'coltworowfive';

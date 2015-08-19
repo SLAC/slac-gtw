@@ -20,17 +20,6 @@
   }
 
   #content {
-    a[href]:after { /* Add visible URL after links. */
-      content: " (" attr(href) ")";
-      font-weight: normal;
-      font-size: $base-font-size;
-    }
-
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after { /* Only display useful links. */
-      content: "";
-    }
-
     abbr[title]:after { /* Add visible title after abbreviations. */
       content: " (" attr(title) ")";
     }

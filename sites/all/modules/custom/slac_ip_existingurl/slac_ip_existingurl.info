@@ -1,0 +1,5 @@
+name = SLAC IP Custom ExistingURL Field Formatter
+description = Provides custom field formatters for News 'Existing URL' link output.
+core = 7.x
+package = SLAC IP
+dependencies[] = image

@@ -1,6 +1,7 @@
 .page-taxonomy-term {
   .title {
     @include move-page-title;
+    padding-left: 0;
   }
 
   ul.primary {
