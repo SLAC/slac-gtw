@@ -5998,7 +5998,7 @@ body {
   display: block;
   clear: both;
   padding: 0.4rem 0 0 0.9rem;
-  background: url("../images/arrow-dot-line.png") no-repeat left 15px;
+  background: url("../images/arrow-dot-line.png") no-repeat left 12px;
 }
 @media (min-width: 70em) {
   .frontpage-people-finder .pane-title {
