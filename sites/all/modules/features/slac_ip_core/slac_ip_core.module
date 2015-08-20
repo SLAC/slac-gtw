@@ -81,6 +81,8 @@ function slac_ip_core_form_node_form_alter(&$form, &$form_state, $form_id) {
   if (isset($form['body'])) {
     $lang = $form['language']['#value'];
     $summary = &$form['body'][$lang][0]['summary'];
+    $summary['#rows'] = 1;
+    $summary['#attributes'] = array('maxlength' => 160);
     $summary['#description'] = t('Provide a one-sentence summary of this announcement. If left blank, a truncated version of the full text will be used as the summary.');
     $summary['#attached']['js'][] = drupal_get_path('module', 'slac_ip_core') . '/js/text.js';
   }

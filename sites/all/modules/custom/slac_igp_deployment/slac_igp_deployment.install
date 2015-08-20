@@ -51,11 +51,13 @@ function slac_igp_deployment_install() {
     'scheduler',
     'scheduler_workbench',
     'smart_trim',
+    'stanford_date_timepicker',
     'token',
     'unpublish_button',
     // new custom modules
     'fieldset_tags',
     'slac_ip_event_date',
+    'slac_ip_existingurl',
     'slac_ip_panes',
     'slac_nodequeue_automation',
     'slac_nodequeue_expire',
@@ -1223,3 +1225,32 @@ function slac_igp_deployment_update_7059() {
     throw new DrupalUpdateException($message);
   }
 }
+
+/**
+ * Enable the slac_ip_existingurl formatter module.
+ */
+function slac_igp_deployment_update_7060() {
+  $result = module_enable(array(
+    'slac_ip_existingurl',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
+}
+
+/**
+ * Enable the Stanford date time picker module.
+ */
+function slac_igp_deployment_update_7061() {
+  $result = module_enable(array(
+    'stanford_date_timepicker',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
+}
+

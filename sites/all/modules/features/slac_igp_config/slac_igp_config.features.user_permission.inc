@@ -28,6 +28,15 @@ function slac_igp_config_user_default_permissions() {
     'module' => 'scheduler',
   );
 
+  // Exported permission: 'administer stanford date timepicker'.
+  $permissions['administer stanford date timepicker'] = array(
+    'name' => 'administer stanford date timepicker',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'stanford_date_timepicker',
+  );
+
   // Exported permission: 'administer taxonomy'.
   $permissions['administer taxonomy'] = array(
     'name' => 'administer taxonomy',

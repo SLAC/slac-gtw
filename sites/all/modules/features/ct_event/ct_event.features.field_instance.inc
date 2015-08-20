@@ -45,11 +45,21 @@ function ct_event_field_default_field_instances() {
       ),
       'news_archive' => array(
         'label' => 'hidden',
-        'module' => 'text',
+        'module' => 'smart_trim',
         'settings' => array(
+          'more_link' => 0,
+          'more_text' => 'Read more',
+          'summary_handler' => 'trim',
           'trim_length' => 300,
+          'trim_link' => 0,
+          'trim_options' => array(
+            'text' => 0,
+          ),
+          'trim_preserve_tags' => '',
+          'trim_suffix' => '...',
+          'trim_type' => 'chars',
         ),
-        'type' => 'text_summary_or_trimmed',
+        'type' => 'smart_trim_format',
         'weight' => 4,
       ),
       'search_result' => array(
@@ -828,32 +838,29 @@ function ct_event_field_default_field_instances() {
       ),
       'news_archive' => array(
         'label' => 'hidden',
-        'module' => 'image',
+        'module' => 'slac_ip_existingurl',
         'settings' => array(
-          'image_link' => 'content',
           'image_style' => 'news_archive_list_item',
         ),
-        'type' => 'image',
+        'type' => 'slac_existingurl_image_formatter',
         'weight' => 0,
       ),
       'search_result' => array(
         'label' => 'hidden',
-        'module' => 'image',
+        'module' => 'slac_ip_existingurl',
         'settings' => array(
-          'image_link' => 'content',
           'image_style' => 'news_archive_list_item',
         ),
-        'type' => 'image',
+        'type' => 'slac_existingurl_image_formatter',
         'weight' => 0,
       ),
       'slac_term_listing' => array(
         'label' => 'hidden',
-        'module' => 'image',
+        'module' => 'slac_ip_existingurl',
         'settings' => array(
-          'image_link' => 'content',
           'image_style' => 'term_listing_thumbnail',
         ),
-        'type' => 'image',
+        'type' => 'slac_existingurl_image_formatter',
         'weight' => 0,
       ),
       'teaser' => array(
@@ -1096,9 +1103,9 @@ function ct_event_field_default_field_instances() {
       ),
       'news_archive' => array(
         'label' => 'hidden',
-        'module' => 'text',
+        'module' => 'slac_ip_existingurl',
         'settings' => array(),
-        'type' => 'text_plain',
+        'type' => 'slac_existingurl_formatter',
         'weight' => 2,
       ),
       'search_result' => array(
