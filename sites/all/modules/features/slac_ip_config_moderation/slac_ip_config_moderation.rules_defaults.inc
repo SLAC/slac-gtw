@@ -110,6 +110,7 @@ function slac_ip_config_moderation_default_rules_configuration() {
             }
           }
         },
+        { "NOT contents_previous_state" : { "node" : [ "node" ], "moderation_state" : "published" } },
         { "contents_current_state" : { "node" : [ "node" ], "moderation_state" : "published" } }
       ],
       "DO" : [
