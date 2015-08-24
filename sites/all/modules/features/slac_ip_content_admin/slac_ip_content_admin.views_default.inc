@@ -337,6 +337,7 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['promote']['id'] = 'promote';
   $handler->display->display_options['filters']['promote']['table'] = 'node';
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
+  $handler->display->display_options['filters']['promote']['value'] = 'All';
   $handler->display->display_options['filters']['promote']['group'] = 1;
   $handler->display->display_options['filters']['promote']['exposed'] = TRUE;
   $handler->display->display_options['filters']['promote']['expose']['operator_id'] = '';
@@ -346,6 +347,10 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['promote']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
+    5 => 0,
+    4 => 0,
+    6 => 0,
+    7 => 0,
     3 => 0,
   );
   /* Filter criterion: Content: Title */
@@ -788,6 +793,7 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['promote']['id'] = 'promote';
   $handler->display->display_options['filters']['promote']['table'] = 'node';
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
+  $handler->display->display_options['filters']['promote']['value'] = 'All';
   $handler->display->display_options['filters']['promote']['group'] = 1;
   $handler->display->display_options['filters']['promote']['exposed'] = TRUE;
   $handler->display->display_options['filters']['promote']['expose']['operator_id'] = '';
@@ -797,6 +803,10 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['promote']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
+    5 => 0,
+    4 => 0,
+    6 => 0,
+    7 => 0,
     3 => 0,
   );
   /* Filter criterion: Content: Title */
@@ -1235,6 +1245,7 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['promote']['id'] = 'promote';
   $handler->display->display_options['filters']['promote']['table'] = 'node';
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
+  $handler->display->display_options['filters']['promote']['value'] = 'All';
   $handler->display->display_options['filters']['promote']['group'] = 1;
   $handler->display->display_options['filters']['promote']['exposed'] = TRUE;
   $handler->display->display_options['filters']['promote']['expose']['operator_id'] = '';
@@ -1244,6 +1255,10 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['promote']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
+    5 => 0,
+    4 => 0,
+    6 => 0,
+    7 => 0,
     3 => 0,
   );
   /* Filter criterion: Content: Title */
@@ -1594,6 +1609,7 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['promote']['id'] = 'promote';
   $handler->display->display_options['filters']['promote']['table'] = 'node';
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
+  $handler->display->display_options['filters']['promote']['value'] = 'All';
   $handler->display->display_options['filters']['promote']['group'] = 1;
   $handler->display->display_options['filters']['promote']['exposed'] = TRUE;
   $handler->display->display_options['filters']['promote']['expose']['operator_id'] = '';
@@ -1603,6 +1619,10 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['promote']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
+    5 => 0,
+    4 => 0,
+    6 => 0,
+    7 => 0,
     3 => 0,
   );
   /* Filter criterion: Content: Title */
@@ -2031,6 +2051,7 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['promote']['id'] = 'promote';
   $handler->display->display_options['filters']['promote']['table'] = 'node';
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
+  $handler->display->display_options['filters']['promote']['value'] = 'All';
   $handler->display->display_options['filters']['promote']['group'] = 1;
   $handler->display->display_options['filters']['promote']['exposed'] = TRUE;
   $handler->display->display_options['filters']['promote']['expose']['operator_id'] = '';
@@ -2040,6 +2061,10 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['promote']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
+    5 => 0,
+    4 => 0,
+    6 => 0,
+    7 => 0,
     3 => 0,
   );
   /* Filter criterion: Content: Title */
