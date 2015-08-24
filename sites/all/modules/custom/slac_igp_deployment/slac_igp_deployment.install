@@ -39,6 +39,7 @@ function slac_igp_deployment_install() {
     'jquery_update',
     'linkit',
     'media',
+    'media_colorbox',
     'media_vimeo',
     'media_youtube',
     'menu_trail_by_path',
@@ -1254,3 +1255,16 @@ function slac_igp_deployment_update_7061() {
   }
 }
 
+/**
+ * Enable the media_colorbox module.
+ */
+function slac_igp_deployment_update_7062() {
+  $result = module_enable(array(
+    'media_colorbox',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
+}
