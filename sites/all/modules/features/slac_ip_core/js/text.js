@@ -14,6 +14,9 @@
         var $bodyFullField = $body.find('div[class*="form-item-body-"][class$="-value"], .filter-wrapper');
         var $radio = $body.siblings('#edit-field-shared-new-existing');
 
+        // Remove the 2nd required asterisk added by states api.
+        $bodyFullField.find('label .form-required:nth-child(2n)').remove();
+
         // If the summary is hidden by field, show it anyway.
         if ($summary.is(':hidden')) {
           $body.find('.link-edit-summary').click();
@@ -33,4 +36,4 @@
     }
   };
 
-})(jQuery);
+}(jQuery));
