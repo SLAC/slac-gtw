@@ -110,6 +110,7 @@ function slac_ip_config_moderation_default_rules_configuration() {
             }
           }
         },
+        { "NOT contents_previous_state" : { "node" : [ "node" ], "moderation_state" : "published" } },
         { "contents_current_state" : { "node" : [ "node" ], "moderation_state" : "published" } }
       ],
       "DO" : [
@@ -117,6 +118,7 @@ function slac_ip_config_moderation_default_rules_configuration() {
             "to" : [ "node:author:mail" ],
             "subject" : "Your SLAC Today [node:content-type] item, \\u0022[node:title],\\u0022 has been published.",
             "message" : "Your SLAC Today [node:content-type] item, \\u0022[node:title],\\u0022 has been published. You can view the item at: [node:url].\\r\\n\\r\\nTo make changes to your submission, please contact SLAC\\u2019s internal communications coordinator at mjhorton@slac.stanford.edu or ext. 4289.\\r\\n\\r\\nPlease note that SLAC Communications edits all submissions for style and clarity. See About SLAC Today (https:\\/\\/intranet.slac.stanford.edu\\/about-slac-today) for submission guidelines.\\r\\n\\r\\nThank you,\\r\\nSLAC Communications",
+            "from" : "communications@slac.stanford.edu",
             "language" : [ "" ]
           }
         }

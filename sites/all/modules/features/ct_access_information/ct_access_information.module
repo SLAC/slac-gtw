@@ -76,9 +76,6 @@ function ct_access_information_custom_add() {
  */
 function ct_access_information_form_access_information_node_form_alter(&$form, &$form_state, $form_id) {
   $form['title']['#title'] = 'Access Title';
-  $form['#attached']['js'] = array(
-    drupal_get_path('module', 'ct_access_information') . '/js/ct_access_information.js',
-  );
 }
 
 /**

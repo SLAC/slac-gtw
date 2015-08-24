@@ -87,6 +87,21 @@ function slac_ip_core_form_node_form_alter(&$form, &$form_state, $form_id) {
     $summary['#attached']['js'][] = drupal_get_path('module', 'slac_ip_core') . '/js/text.js';
   }
 
+  // Remove the default #required from body if New / Existing functionality
+  // is used on the node and add custom validation.
+  if (isset($form['field_shared_new_existing'])) {
+    $form['body'][$lang]['#required'] = FALSE;
+    $form['body'][$lang][0]['#required'] = FALSE;
+    $form['#validate'][] = 'slac_ip_core_node_form_validate_new_existing';
+
+    // Make the body optional if 'Link to Existing URL' is chosen.
+    $form['body']['#states']['optional'] = array(
+      ':input[name^="field_shared_new_existing"]' => array(
+        'value' => t('Link to Existing URL'),
+      ),
+    );
+  }
+
   // Hide the node revision log message field for normal Auth user.
   if ((count($user->roles) == 1 && in_array('authenticated user', $user->roles)) && $user->uid != 1) {
     $form['revision_information']['log']['#access'] = FALSE;
@@ -95,6 +110,27 @@ function slac_ip_core_form_node_form_alter(&$form, &$form_state, $form_id) {
   // Add custom validation for nodes with 'Promote As News' functionality.
   if (isset($form['field_shared_promote_news'])) {
     $form['#validate'][] = 'slac_ip_core_node_form_validate';
+  }
+}
+
+/**
+ * Form validation handler for slac_ip_core_form_node_form_alter().
+ *
+ * Removes the required state from body if 'Link to Existing URL' is chosen.
+ *
+ * @see slac_ip_core_form_node_form_alter()
+ */
+function slac_ip_core_node_form_validate_new_existing($form, &$form_state) {
+  $values = $form_state['values'];
+  $lang = $form_state['values']['language'];
+  $new_existing = $values['field_shared_new_existing'][$lang][0]['value'];
+
+  // The Body field is only required to have a value if this node is set to
+  // 'Enter Details' for New / Existing.
+  if ($new_existing == t('Enter Details')) {
+    if (empty($form_state['values']['body'][$lang][0]['value'])) {
+      form_set_error('body', t('The Body field is required.'));
+    }
   }
 }
 
