@@ -265,7 +265,7 @@ function slac_ip_media_file_default_displays() {
   $file_display->weight = -42;
   $file_display->status = TRUE;
   $file_display->settings = array(
-    'image_style' => 'large',
+    'image_style' => 'news_large_body_image',
   );
   $export['video__default__media_vimeo_image'] = $file_display;
 
@@ -295,7 +295,7 @@ function slac_ip_media_file_default_displays() {
   $file_display->weight = -49;
   $file_display->status = TRUE;
   $file_display->settings = array(
-    'image_style' => 'large',
+    'image_style' => 'news_large_body_image',
   );
   $export['video__default__media_youtube_image'] = $file_display;
 
