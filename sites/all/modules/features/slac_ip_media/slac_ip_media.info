@@ -77,6 +77,7 @@ features[image][] = lightbox_expanded
 features[image][] = news_and_events_sidebar_image
 features[image][] = news_archive_list_item
 features[image][] = news_large_body_image
+features[image][] = teaser
 features[image][] = term_listing_thumbnail
 features[user_permission][] = access media browser
 features[user_permission][] = add media from remote sources

@@ -141,6 +141,22 @@ function slac_ip_media_image_default_styles() {
     ),
   );
 
+  // Exported image style: teaser.
+  $styles['teaser'] = array(
+    'label' => 'teaser',
+    'effects' => array(
+      1 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 300,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: term_listing_thumbnail.
   $styles['term_listing_thumbnail'] = array(
     'label' => 'Term Listing Thumbnail',
