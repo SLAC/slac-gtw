@@ -70,6 +70,28 @@ function slac_ip_core_date_format_types() {
 }
 
 /**
+ * Override or insert variables for theme_field().
+ */
+function slac_ip_core_process_field(&$vars) {
+  $element = $vars['element'];
+  // Field type image
+  if ($element['#field_type'] == 'image') {
+    // Reduce the number of images displayed in certain view modes to one.
+    $view_modes = array(
+      'access_listing',
+      'news_archive',
+      'slac_term_listing',
+      'search_result',
+      'teaser',
+    );
+    if (in_array($element['#view_mode'], $view_modes)) {
+      $item = reset($vars['items']);
+      $vars['items'] = array($item);
+    }
+  }
+}
+
+/**
  * Implements hook_form_BASE_FORM_ID_alter().
  *
  * Adds custom behaviors, descriptions, and validation to node add/edit forms.
