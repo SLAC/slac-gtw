@@ -169,14 +169,6 @@ function slac_ip_core_field_formatter_info() {
       'description' => t('Format a term name as a CSS classname.'),
       'field types' => array('taxonomy_term_reference'),
     ),
-    'slac_event_date_formatter' => array(
-      'label' => t('SLAC Custom Event Date Format'),
-      'field types' => array('datetime'),
-    ),
-    'slac_event_time_formatter' => array(
-      'label' => t('SLAC Custom Event Time Format'),
-      'field types' => array('datetime'),
-    ),
     'slac_existing_node_url_formatter' => array(
       'label' => t('SLAC Event Node URL Format'),
       'field types' => array('list_text'),
@@ -195,109 +187,6 @@ function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $insta
       foreach ($items as $delta => $item) {
         $term = taxonomy_term_load($item['tid']);
         $element[$delta] = array('#markup' => drupal_html_class($term->name));
-      }
-      break;
-
-    case 'slac_event_date_formatter':
-      foreach ($items as $delta => $item) {
-        list($value1, $value2) = _slac_ip_core_create_datetimes($item);
-        $interval = $value1->diff($value2);
-        $is_all_day = date_is_all_day($value1->format('Y-m-d H:i:s'), $value2->format('Y-m-d H:i:s'));
-
-        if ($interval->days == 0) {
-          // Single day event.
-
-          if ($is_all_day) {
-            // Single day, all day.
-            // Format is `Tuesday, August 9, 2016 (All Day)`
-            $markup = t(
-                '!date (All Day)',
-                array(
-                  '!date' => $value1->format('l, F j, Y'),
-                ));
-          }
-          else {
-            // Single day with start, end times.
-            // If times are both 'am' or both 'pm', only display it on end time.
-            // Format examples:
-            //  `Wednesday, August 10, 2016, 3-7 pm`
-            //  `Tuesday, August 9, 2016, 3:15-7:30 pm`
-            list($start_time_fmt, $end_time_fmt)
-                = _slac_ip_core_get_time_fmt($value1, $value2);
-
-            $start_fmt = 'l, F j, Y, ' . $start_time_fmt;
-
-            $markup = t(
-              '!start-date-!end-time',
-              array(
-                '!start-date' => $value1->format($start_fmt),
-                '!end-time' => $value2->format($end_time_fmt),
-              ));
-          }
-        }
-        else {
-          // Multiple day event.
-
-          if ($is_all_day) {
-            // Multi-day event, all day.
-            // Format is:
-            //   `Tuesday, Aug. 9, 2016, (All Day) - Thursday, Aug. 11, 2016, (All Day)`
-            $start_fmt = 'l, M. j, Y';
-            $end_fmt = 'l, M. j, Y';
-
-            $markup = t(
-              '!start-date, (All Day) - !end-date, (All Day)',
-              array(
-                '!start-date' => $value1->format($start_fmt),
-                '!end-date' => $value2->format($end_fmt),
-              ));
-          }
-          else {
-            // Multi-day event with start, end times.
-            // Format is:
-            //   `Tuesday, Aug. 9, 2016, 6 pm - Thursday, Aug. 11, 2016, 9 pm`
-            list($start_time_fmt, $end_time_fmt)
-              = _slac_ip_core_get_time_fmt($value1, $value2);
-
-            $start_fmt = 'l, M. j, Y, ' . $start_time_fmt;
-            $end_fmt = 'l, M. j, Y, ' . $end_time_fmt;
-
-            $markup = t(
-              '!start-date - !end-date',
-              array(
-                '!start-date' => $value1->format($start_fmt),
-                '!end-date' => $value2->format($end_fmt),
-              ));
-          }
-        }
-
-        $element[$delta] = array('#markup' => $markup);
-      }
-      break;
-
-    case 'slac_event_time_formatter':
-      foreach ($items as $delta => $item) {
-        list($value1, $value2) = _slac_ip_core_create_datetimes($item);
-
-        // Single day event.
-        if (date_is_all_day($value1->format('Y-m-d H:i:s'), $value2->format('Y-m-d H:i:s'))) {
-          // Single day, all day.
-          // Format is `(All Day)`
-          $markup = t('(All Day)');
-        }
-        else {
-          list($start_fmt, $end_fmt)
-              = _slac_ip_core_get_time_fmt($value1, $value2);
-
-          $markup = t(
-            '!start-time-!end-time',
-            array(
-              '!start-time' => $value1->format($start_fmt),
-              '!end-time' => $value2->format($end_fmt),
-            ));
-        }
-
-        $element[$delta] = array('#markup' => $markup);
       }
       break;
 
@@ -350,58 +239,6 @@ function _slac_ip_core_source_or_alias($entity) {
   $url = '/' . $url;
 
   return $url;
-}
-
-/**
- * Helper function to determine the format strings for displaying an interval
- * between two DateTime values.
- *
- * @param $value1
- * @param $value2
- *   Start and end time values.
- *
- * @return array
- *   Array of two date format strings for displaying these time values as an
- *   interval.
- */
-function _slac_ip_core_get_time_fmt($value1, $value2) {
-
-  // Only minutes past the hour should be displayed.
-  $start_min = $value1->format('i');
-  $end_min = $value2->format('i');
-  $start_fmt = ($start_min == '00') ? 'g' : 'g:i';
-  $end_fmt = ($end_min == '00') ? 'g a' : 'g:i a';
-
-  // If times are both 'am' or both 'pm', only display on end time.
-  // Format examples `3-7 pm`, `3:15-7:30 pm`
-  if ($value1->format('a') != $value2->format('a')) {
-    // Times span am/pm, add to start time as well.
-    // Format examples: `Wednesday, August 10, 2016, 3 am-7 pm`
-    //  `Wednesday, August 10, 2016, 3:30 am-7:15 pm`
-    $start_fmt .= ' a';
-  }
-
-  return array($start_fmt, $end_fmt);
-}
-
-/**
- * Helper function to construct DateTime objects from a datetime field item.
- *
- * @param $item
- *   The datetime field item array.
- *
- * @return array
- *   An array of constructed DateTime objects for both field values.
- */
-function _slac_ip_core_create_datetimes($item) {
-  $tz_db = new DateTimeZone($item['timezone_db']);
-  $tz = new DateTimeZone($item['timezone']);
-  $value1 = new DateTime($item['value'], $tz_db);
-  $value1->setTimezone($tz);
-  $value2 = new DateTime($item['value2'], $tz_db);
-  $value2->setTimezone($tz);
-
-  return array($value1, $value2);
 }
 
 /**

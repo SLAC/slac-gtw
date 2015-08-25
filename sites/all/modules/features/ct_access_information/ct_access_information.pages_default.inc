@@ -183,7 +183,7 @@ function ct_access_information_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'hidden',
-      'formatter' => 'date_default',
+      'formatter' => 'slac_event_date_detail_formatter',
       'delta_limit' => 0,
       'delta_offset' => '0',
       'delta_reversed' => FALSE,
@@ -193,6 +193,7 @@ function ct_access_information_default_page_manager_handlers() {
         'multiple_from' => '',
         'multiple_to' => '',
         'fromto' => 'value',
+        'key' => 'value',
       ),
       'context' => 'argument_entity_id:node_1',
       'override_title' => 1,
@@ -219,7 +220,7 @@ function ct_access_information_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'hidden',
-      'formatter' => 'date_default',
+      'formatter' => 'slac_event_date_detail_formatter',
       'delta_limit' => 0,
       'delta_offset' => '0',
       'delta_reversed' => FALSE,
@@ -229,6 +230,7 @@ function ct_access_information_default_page_manager_handlers() {
         'multiple_from' => '',
         'multiple_to' => '',
         'fromto' => 'value2',
+        'key' => 'value2',
       ),
       'context' => 'argument_entity_id:node_1',
       'override_title' => 1,

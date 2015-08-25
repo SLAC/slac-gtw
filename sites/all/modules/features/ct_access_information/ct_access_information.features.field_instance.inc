@@ -204,7 +204,7 @@ function ct_access_information_field_default_field_instances() {
     'display' => array(
       'access_listing' => array(
         'label' => 'hidden',
-        'module' => 'slac_ip_core',
+        'module' => 'slac_ip_event_date',
         'settings' => array(),
         'type' => 'slac_event_date_formatter',
         'weight' => 3,
