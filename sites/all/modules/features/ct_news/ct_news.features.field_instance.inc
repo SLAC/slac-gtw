@@ -42,10 +42,10 @@ function ct_news_field_default_field_instances() {
           'more_link' => 0,
           'more_text' => 'Read more',
           'summary_handler' => 'trim',
-          'trim_length' => 300,
+          'trim_length' => 160,
           'trim_link' => 0,
           'trim_options' => array(
-            'text' => 0,
+            'text' => 'text',
           ),
           'trim_preserve_tags' => '',
           'trim_suffix' => '...',
