@@ -105,7 +105,7 @@
 
       // Apply the Selectize plugin to the new select element.
       $selectize = $combinedSelect.selectize({
-        openOnFocus: true,
+        openOnFocus: false, // handled in $.on function below
         maxItems: null,
         hideSelected: false,
         closeAfterSelect: false,
@@ -236,8 +236,22 @@
       updateSelectizeDisplay($selectize.val());
 
       // Open the dropdown control when the input area is clicked as well.
-      $selectizeInput.click(function () {
-        selectizeControl.open();
+      // Toggle the dropdown closed if the selectize is clicked again.
+      $selectizeInput.on('click', function () {
+        if (selectizeControl.$dropdown_content.is(':visible')) {
+          selectizeControl.close();
+        }
+        else {
+          selectizeControl.open();
+        }
+      });
+
+      // Handle input focus manually so the dropdown is not triggered twice
+      // causing it to immediately close.
+      $selectizeInput.on('focus', function () {
+        if (!selectizeControl.$dropdown_content.is(':visible')) {
+          selectizeControl.open();
+        }
       });
 
       // Workaround for the dropdown being empty the first time the input area
@@ -276,6 +290,7 @@
         // Submit the filter form to apply the new values.
         $viewForm.find('.form-submit').click();
       });
+
     }
   };
 
