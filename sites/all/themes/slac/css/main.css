@@ -299,10 +299,13 @@ a:link:focus {
 }
 
 img,
-embed,
-iframe {
+embed {
   max-width: 100%;
   height: auto;
+}
+
+iframe {
+  max-width: 100%;
 }
 
 h1,
@@ -5829,7 +5832,7 @@ body {
   .frontpage-top-links .top-links-list,
   .frontpage-directorate-links .top-links-list {
     color: #316dae;
-    padding-left: 8px;
+    padding-left: 14px;
   }
   .frontpage-top-links .top-links-list .list-link-item,
   .frontpage-directorate-links .top-links-list .list-link-item {

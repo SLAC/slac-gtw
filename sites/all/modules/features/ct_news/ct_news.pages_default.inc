@@ -499,7 +499,7 @@ function ct_news_default_page_manager_handlers() {
         'multiple_file_behavior' => 'tags',
         'width' => '',
         'height' => '',
-        'file_view_mode' => 'teaser',
+        'file_view_mode' => 'colorbox',
       ),
       'context' => 'argument_entity_id:node_1',
       'override_title' => 1,
