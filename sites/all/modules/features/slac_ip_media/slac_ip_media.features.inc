@@ -45,8 +45,8 @@ function slac_ip_media_image_default_styles() {
       3 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 650,
-          'height' => 361,
+          'width' => 657,
+          'height' => 438,
         ),
         'weight' => 1,
       ),
@@ -61,7 +61,7 @@ function slac_ip_media_image_default_styles() {
         'name' => 'image_scale',
         'data' => array(
           'width' => '',
-          'height' => 361,
+          'height' => 438,
           'upscale' => 1,
         ),
         'weight' => 1,
@@ -69,8 +69,8 @@ function slac_ip_media_image_default_styles() {
       2 => array(
         'name' => 'advance_resize',
         'data' => array(
-          'width' => 650,
-          'height' => 361,
+          'width' => 657,
+          'height' => 438,
         ),
         'weight' => 2,
       ),
