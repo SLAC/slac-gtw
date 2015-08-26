@@ -812,7 +812,7 @@ function ct_access_information_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'teaser',
         ),
         'type' => 'image',
         'weight' => 0,
