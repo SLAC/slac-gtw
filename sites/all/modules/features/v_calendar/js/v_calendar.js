@@ -105,7 +105,7 @@
 
       // Apply the Selectize plugin to the new select element.
       $selectize = $combinedSelect.selectize({
-        openOnFocus: true,
+        openOnFocus: false, // handled in $.on function below
         maxItems: null,
         hideSelected: false,
         closeAfterSelect: false,
@@ -180,9 +180,9 @@
           var lenTypes = currentTypeValues.length;
 
           var selectionLengthsMatch = (len === lenTypes);
+          // Test if every current selection is already in the values list.
           var selectionsAllInValues = (values.every(function (v) {
-            var inTypes = (currentTypeValues.indexOf(v) !== -1);
-            return inTypes;
+            return (currentTypeValues.indexOf(v) !== -1);
           }));
 
           // If the user opened the filter widget, but didn't actually change
@@ -236,8 +236,22 @@
       updateSelectizeDisplay($selectize.val());
 
       // Open the dropdown control when the input area is clicked as well.
-      $selectizeInput.click(function () {
-        selectizeControl.open();
+      // Toggle the dropdown closed if the selectize is clicked again.
+      $selectizeInput.on('click', function () {
+        if (selectizeControl.$dropdown_content.is(':visible')) {
+          selectizeControl.close();
+        }
+        else {
+          selectizeControl.open();
+        }
+      });
+
+      // Handle input focus manually so the dropdown is not triggered twice
+      // causing it to immediately close.
+      $selectizeInput.on('focus', function () {
+        if (!selectizeControl.$dropdown_content.is(':visible')) {
+          selectizeControl.open();
+        }
       });
 
       // Workaround for the dropdown being empty the first time the input area
@@ -248,7 +262,7 @@
       setTimeout(function () {
         selectizeControl.close();
         selectizeControl.$dropdown_content.show();
-      });
+      }, 0);
 
       // Set the initial state of the custom checkbox based on the state of the
       // view filter.
@@ -276,6 +290,7 @@
         // Submit the filter form to apply the new values.
         $viewForm.find('.form-submit').click();
       });
+
     }
   };
 

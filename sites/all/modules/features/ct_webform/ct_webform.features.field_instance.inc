@@ -31,7 +31,7 @@ function ct_webform_field_default_field_instances() {
           'more_link' => 0,
           'more_text' => 'Read more',
           'summary_handler' => 'trim',
-          'trim_length' => 235,
+          'trim_length' => 160,
           'trim_link' => 0,
           'trim_options' => array(
             'text' => 'text',

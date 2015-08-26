@@ -253,27 +253,6 @@ function slac_date_display_range($variables) {
 }
 
 /**
- * Override or insert variables for theme_field().
- */
-function slac_process_field(&$vars) {
-  $element = $vars['element'];
-  // Field type image
-  if ($element['#field_type'] == 'image') {
-    // Reduce the number of images displayed in certain view modes to one.
-    $view_modes = array(
-      'access_listing',
-      'news_archive',
-      'slac_term_listing',
-      'search_result',
-    );
-    if (in_array($element['#view_mode'], $view_modes)) {
-      $item = reset($vars['items']);
-      $vars['items'] = array($item);
-    }
-  }
-}
-
-/**
  * Override or insert variables for theme_views_view().
  */
 function slac_preprocess_views_view(&$vars) {
