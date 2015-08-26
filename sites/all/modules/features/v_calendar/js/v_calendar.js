@@ -180,9 +180,9 @@
           var lenTypes = currentTypeValues.length;
 
           var selectionLengthsMatch = (len === lenTypes);
+          // Test if every current selection is already in the values list.
           var selectionsAllInValues = (values.every(function (v) {
-            var inTypes = (currentTypeValues.indexOf(v) !== -1);
-            return inTypes;
+            return (currentTypeValues.indexOf(v) !== -1);
           }));
 
           // If the user opened the filter widget, but didn't actually change
@@ -262,7 +262,7 @@
       setTimeout(function () {
         selectizeControl.close();
         selectizeControl.$dropdown_content.show();
-      });
+      }, 0);
 
       // Set the initial state of the custom checkbox based on the state of the
       // view filter.
