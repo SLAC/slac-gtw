@@ -3636,7 +3636,7 @@ div.date-views-pager div.next-year {
 }
 @media (min-width: 60em) {
   .date-nav-wrapper .item-list .pager li {
-    padding-top: 10px;
+    padding-top: 12px;
   }
 }
 .date-nav-wrapper .item-list .pager li span {
@@ -3657,7 +3657,7 @@ div.date-views-pager div.next-year {
     display: inline-block;
     height: 34px;
     position: relative;
-    bottom: .4rem;
+    bottom: .45rem;
   }
 }
 
@@ -3689,10 +3689,10 @@ div.date-views-pager div.next-year {
 }
 @media (min-width: 60em) {
   .date-nav-wrapper .item-list .pager li.date-prev a {
-    background: #eaeef0 url(../images/calendar-arrows.png) 50% -4px no-repeat;
+    background: #eaeef0 url(../images/calendar-arrows.png) 50% -6px no-repeat;
     border: 1px solid #ababab;
     margin-right: 0.6rem;
-    height: 14px;
+    height: 10px;
   }
 }
 
@@ -3720,18 +3720,21 @@ div.date-views-pager div.next-year {
 }
 @media (min-width: 60em) {
   .date-nav-wrapper .item-list .pager li.date-next a {
-    background: #eaeef0 url(../images/calendar-arrows.png) 50% -67px no-repeat;
+    background: #eaeef0 url(../images/calendar-arrows.png) 50% -69px no-repeat;
     border: 1px solid #ababab;
-    margin-left: 0.4rem;
-    height: 14px;
+    margin-left: 1rem;
+    height: 10px;
   }
 }
 
 .date-nav-wrapper .item-list .pager li.date-today a,
 .date-nav-wrapper .item-list .pager li.date-today span {
+  font-size: 14px;
+  font-size: 0.875rem;
+  text-transform: uppercase;
   background: #eaeef0;
-  padding: 0.4070rem 1rem;
-  margin-left: 4rem;
+  padding: 0.3435rem 1rem;
+  margin-left: 4.25rem;
   margin-right: 0.2rem;
   border: 1px solid #ababab;
 }
