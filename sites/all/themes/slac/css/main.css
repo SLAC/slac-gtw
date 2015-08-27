@@ -2325,6 +2325,8 @@ ul.calendar-links,
   }
 }
 .events-calendar p:first-of-type label {
+  font-size: 12px;
+  font-size: 0.75rem;
   display: block;
   width: 200px;
   position: relative;
