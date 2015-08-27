@@ -1249,6 +1249,12 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   display: none;
 }
 
+.page-calendar {
+  /**
+   * styles for primary tabs used by calendar
+   * as navigation for day, week and month views
+   */
+}
 .page-calendar #main {
   margin-top: 0;
 }
@@ -1259,7 +1265,7 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   position: relative;
   top: 115px;
   border: none;
-  width: 236px;
+  width: 270px;
   margin-right: auto;
   margin-left: auto;
   z-index: 10;
@@ -1271,41 +1277,34 @@ input[type="submit"]:hover, input[type="submit"]:focus,
 }
 .page-calendar .tabs-primary li {
   border-radius: 0;
-  background: #ffffff;
-  border: 1px solid #ababab;
+  border: none;
   margin: 0;
   margin-left: -1px;
 }
 .page-calendar .tabs-primary li:hover {
   background: #6a6a6a;
-  border: 1px solid #ababab;
-}
-.page-calendar .tabs-primary li.is-active {
-  background: #636363;
-  color: #ffffff;
-  border: 1px solid #6a6a6a;
-}
-.page-calendar .tabs-primary li.is-active a {
-  color: #ffffff;
 }
 .page-calendar .tabs-primary li a,
 .page-calendar .tabs-primary li a:link {
   font-size: 14px;
   font-size: 0.875rem;
-  border: none;
-  border-radius: 0;
+  display: block;
+  width: 60px;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
   background-image: none;
-  background-color: transparent;
+  background: #ffffff;
+  border: 1px solid #737373;
+  border-radius: 0;
   text-shadow: none;
   font-weight: normal;
   text-transform: uppercase;
-  padding: .2rem 1rem;
 }
-.page-calendar .tabs-primary li a:hover, .page-calendar .tabs-primary li a:focus,
+.page-calendar .tabs-primary li a:hover, .page-calendar .tabs-primary li a:focus, .page-calendar .tabs-primary li a.is-active,
 .page-calendar .tabs-primary li a:link:hover,
-.page-calendar .tabs-primary li a:link:focus {
-  background: #636363;
-  border-color: #ababab;
+.page-calendar .tabs-primary li a:link:focus,
+.page-calendar .tabs-primary li a:link.is-active {
+  background: #737373;
   color: #ffffff;
 }
 
