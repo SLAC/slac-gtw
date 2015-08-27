@@ -206,6 +206,12 @@ function ct_webform_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'published_at' => array(
+          'search_result' => array(
+            'weight' => '-3',
+            'visible' => TRUE,
+          ),
+        ),
       ),
     ),
   );

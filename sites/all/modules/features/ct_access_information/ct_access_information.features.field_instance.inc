@@ -49,10 +49,10 @@ function ct_access_information_field_default_field_instances() {
           'more_link' => 0,
           'more_text' => 'Read more',
           'summary_handler' => 'trim',
-          'trim_length' => 300,
+          'trim_length' => 160,
           'trim_link' => 0,
           'trim_options' => array(
-            'text' => 0,
+            'text' => 'text',
           ),
           'trim_preserve_tags' => '',
           'trim_suffix' => '...',
@@ -204,7 +204,7 @@ function ct_access_information_field_default_field_instances() {
     'display' => array(
       'access_listing' => array(
         'label' => 'hidden',
-        'module' => 'slac_ip_core',
+        'module' => 'slac_ip_event_date',
         'settings' => array(),
         'type' => 'slac_event_date_formatter',
         'weight' => 3,

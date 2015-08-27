@@ -2,8 +2,11 @@
 
 /**
  * @file
- * Customizes the Date field widget form for Events.
+ * Customizes the Date field widget form for Events and provides custom date
+ * field formatters.
  */
+
+require_once dirname(__FILE__) . '/slac_ip_event_date.field.inc';
 
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
