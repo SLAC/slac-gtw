@@ -15,6 +15,11 @@ function slac_ip_event_date_field_formatter_info() {
       'description' => t('Custom, dynamic Event Date format for displaying a full date with range of times or range of dates and times.'),
       'field types' => array('datetime'),
     ),
+    'slac_event_access_date_formatter' => array(
+      'label' => t('SLAC Custom Access Notice Date Format'),
+      'description' => t('Custom, dynamic Access Notice Date format for displaying a full date with range of times or range of dates and times.'),
+      'field types' => array('datetime'),
+    ),
     'slac_event_time_formatter' => array(
       'label' => t('SLAC Custom Event Time Format'),
       'description' => t('Custom, dynamic Event Date format for displaying only the time.'),
@@ -69,11 +74,21 @@ function slac_ip_event_date_field_formatter_settings_summary($field, $instance, 
     case 'slac_event_date_formatter':
       $summary = t('Displays full range for start, end date of the date field.')
         . $br . t('Format examples:')
-        . $br . '`Tuesday, August 9, 2016 (All Day)`,'
+        . $br . '`Monday, February 16, 2015 (All Day)`,'
         . $br . '`Wednesday, August 10, 2016, 3-7 pm`'
         . $br . '`Tuesday, August 9, 2016, 3:15-7:30 pm`,'
-        . $br . '`Tuesday, Aug. 9, 2016, (All Day) - Thursday, Aug. 11, 2016, (All Day)`,'
-        . $br . '`Tuesday, Aug. 9, 2016, 6 pm - Thursday, Aug. 11, 2016, 9 pm`';
+        . $br . '`Tuesday, May 9, 2016, (All Day) - Thursday, Aug. 11, 2016, (All Day)`,'
+        . $br . '`Tuesday, May 9, 2015, 6 pm - Thursday, Aug. 11, 2016, 9 pm`';
+      break;
+
+    case 'slac_event_access_date_formatter':
+      $summary = t('Displays full range for start, end date of the date field.')
+        . $br . t('Format examples:')
+        . $br . '`Monday, February 16, 2015 (All Day)`,'
+        . $br . '`Wednesday, August 10, 2016, 3-7 pm`'
+        . $br . '`Tuesday, August 9, 2016, 3:15-7:30 pm`,'
+        . $br . '`Tuesday, May 9, 2016, (All Day) - Thursday, Aug. 11, 2016, (All Day)`,'
+        . $br . '`8 am, Monday, Feb. 9, 2015 to 7 am, Saturday, March 14, 2015`';
       break;
 
     case 'slac_event_time_formatter':
@@ -107,6 +122,10 @@ function slac_ip_event_date_field_formatter_view($entity_type, $entity, $field, 
   switch ($display['type']) {
     case 'slac_event_date_formatter':
       $element = _slac_event_date_formatter($items);
+      break;
+
+    case 'slac_event_access_date_formatter':
+      $element = _slac_event_access_date_formatter($items);
       break;
 
     case 'slac_event_time_formatter':
@@ -182,12 +201,16 @@ function _slac_event_date_formatter($items) {
     else {
       // Multiple day event.
 
+      // Both these formats have arbitrary month abbreviations.
+      $month_fmt1 = _slac_ip_event_date_get_month_fmt($value1);
+      $month_fmt2 = _slac_ip_event_date_get_month_fmt($value2);
+
       if (date_is_all_day($v1str, $v2str)) {
         // Multi-day event, all day.
         // Format is:
-        //   `Tuesday, Aug. 9, 2016, (All Day) - Thursday, Aug. 11, 2016, (All Day)`
-        $start_fmt = 'l, M. j, Y';
-        $end_fmt = 'l, M. j, Y';
+        //   `Tuesday, May 9, 2015, (All Day) - Thursday, Aug. 11, 2016, (All Day)`
+        $start_fmt = 'l, ' . $month_fmt1 . ' j, Y';
+        $end_fmt = 'l, ' . $month_fmt2 . ' j, Y';
 
         $markup = t(
           '!start-date, (All Day) - !end-date, (All Day)',
@@ -199,13 +222,13 @@ function _slac_event_date_formatter($items) {
       else {
         // Multi-day event with start, end times.
         // Format is:
-        //   `Tuesday, Aug. 9, 2016, 6 pm - Thursday, Aug. 11, 2016, 9 pm`
+        //   `Tuesday, May 9, 2015, 6 pm - Thursday, Aug. 11, 2016, 9 pm`
         $formats = _slac_ip_event_date_get_time_fmts($value1, $value2);
         $start_time_fmt = $formats['value'];
         $end_time_fmt = $formats['value2'];
 
-        $start_fmt = 'l, M. j, Y, ' . $start_time_fmt;
-        $end_fmt = 'l, M. j, Y, ' . $end_time_fmt;
+        $start_fmt = 'l, ' . $month_fmt1 . ' j, Y, ' . $start_time_fmt;
+        $end_fmt = 'l, ' . $month_fmt2 . ' j, Y, ' . $end_time_fmt;
 
         $markup = t(
           '!start-date - !end-date',
@@ -220,6 +243,107 @@ function _slac_event_date_formatter($items) {
   }
 
   return $element;
+}
+
+/**
+ * Helper function for slac_ip_event_date_field_formatter_view().
+ * Processes items for the "slac_event_access_date_formatter" format.
+ *
+ * @param array $items
+ *   The list of items to process passed from the formatter view hook.
+ *
+ * @return array
+ *   The list of processed elements to be returned by the formatter view hook.
+ *
+ * @see slac_ip_event_date_field_formatter_view()
+ */
+function _slac_event_access_date_formatter($items) {
+  $element = array();
+
+  foreach ($items as $delta => $item) {
+    $date_values = _slac_ip_event_date_create_datetimes($item);
+    $value1 = $date_values['value'];
+    $value2 = $date_values['value2'];
+
+    $interval = $value1->diff($value2);
+
+    // Format datetime strings for use with date_is_all_day().
+    $v1str = $value1->format('Y-m-d H:i:s');
+    $v2str = $value2->format('Y-m-d H:i:s');
+
+    if ($interval->days == 0) {
+      // Single day event for Access is the same as for Event.
+      return _slac_event_date_formatter($items);
+    }
+    else {
+      // Multiple day event.
+
+      // Both these formats have arbitrary month abbreviations.
+      $month_fmt1 = _slac_ip_event_date_get_month_fmt($value1);
+      $month_fmt2 = _slac_ip_event_date_get_month_fmt($value2);
+
+      if (date_is_all_day($v1str, $v2str)) {
+        // All day format is the same as Event.
+        return _slac_event_date_formatter($items);
+      }
+      else {
+        // Multi-day event with start, end times.
+        // Format is:
+        //   `8 am, Monday, Feb. 9, 2015 to 7 am, Saturday, March 14, 2015`
+        $formats = _slac_ip_event_date_get_time_fmts($value1, $value2);
+        $start_time_fmt = $formats['value'];
+        $end_time_fmt = $formats['value2'];
+
+        $start_fmt = $start_time_fmt . ', l, ' . $month_fmt1 . ' j, Y';
+        $end_fmt = $end_time_fmt . ', l, ' . $month_fmt2 . ' j, Y';
+
+        $markup = t(
+          '!start-date to !end-date',
+          array(
+            '!start-date' => $value1->format($start_fmt),
+            '!end-date' => $value2->format($end_fmt),
+          ));
+      }
+    }
+
+    $element[$delta] = array('#markup' => $markup);
+  }
+
+  return $element;
+}
+
+/**
+ * Helper function for printing an arbitrary month format based on date.
+ *
+ * @param $date
+ *   The date object to get the proper month format string for.
+ *
+ * @return string
+ *   The format string to use with date() to output this date's month, or
+ *   literal "Sept.".
+ */
+function _slac_ip_event_date_get_month_fmt($date) {
+  //Jan., Feb., Aug., Oct., Nov., and Dec.
+  $abbrev_months = array(1, 2, 8, 10, 11, 12);
+  // Sept. is an exception
+
+  $month = $date->format('n');
+
+  if (in_array($month, $abbrev_months)) {
+    // M, A short textual representation of a month, three letters.
+    $fmt = 'M.';
+  }
+  elseif ($month == 9) {
+    // Literal "Sept." has to be escaped to it doesn't get parsed as date
+    // formatting options.
+    $fmt = t('\S\ep\t.');
+  }
+  else {
+    // F, A full textual representation of a month, such as January or March.
+    $fmt = 'F';
+  }
+
+  return $fmt;
 }
 
 /**
