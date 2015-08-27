@@ -5538,8 +5538,7 @@ body {
 }
 .front-main-column .title-body {
   display: block;
-  padding: 20px;
-  padding-top: 18px;
+  padding: 11px 20px;
   background: #ffffff;
   width: 100%;
   box-sizing: border-box;
