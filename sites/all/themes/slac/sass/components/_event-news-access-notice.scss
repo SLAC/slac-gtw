@@ -212,6 +212,7 @@
       box-sizing: border-box;
       width: 100%;
       background: $color-gray-porcelain;
+      font-weight: bold;
 
       @include breakpoint($tablet-large) {
         width: 78.6%;
