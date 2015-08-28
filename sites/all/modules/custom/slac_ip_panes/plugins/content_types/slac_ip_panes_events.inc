@@ -88,10 +88,11 @@ function _slac_ip_upcoming_events_render_events_content($result) {
     $node = node_load($nid);
     $date_field = field_get_items('node', $node, 'field_event_date');
 
-    try {
-      $date = new DateTime($date_field[0]['value']);
-    }
-    catch (Exception $e) {
+    // Create a DateTime object using the date field TZ values.
+    $date = _slac_ip_panes_events_create_datetime($date_field[0], 'value');
+    if ($date == NULL) {
+      // Error was logged if an exception occured in
+      // _slac_ip_panes_events_create_datetime(), skip this item.
       continue;
     }
 
@@ -157,10 +158,8 @@ function _slac_ip_upcoming_events_render_events_content($result) {
  * @param $start_date
  *   The first date to render under. The returned list will always contain this
  *   date at least.
- * @param $now
- *   The date object for today for comparison.
  *
- * @return array
+ * @return DateTime[] array
  *   The array of dates to render this Event in.
  */
 function _list_days_to_render($node, $start_date) {
@@ -171,10 +170,8 @@ function _list_days_to_render($node, $start_date) {
   $date_field = field_get_items('node', $node, 'field_event_date');
 
   // If the Event occurs on future days as wall, add rows for them.
-  try {
-    $date2 = new DateTime($date_field[0]['value2']);
-  }
-  catch (Exception $e) {
+  $date2 = _slac_ip_panes_events_create_datetime($date_field[0], 'value2');
+  if ($date2 == NULL) {
     return $days_to_render;
   }
 
@@ -247,4 +244,32 @@ function _slac_ip_upcoming_events_render_block_content($events_content) {
   }
 
   return $content;
+}
+
+/**
+ * Helper function to construct a DateTime object from a datetime field item.
+ *
+ * @param array $item
+ *   The datetime field item.
+ * @param string $key
+ *   The datetime item key to create an object from.
+ *
+ * @return DateTime|null
+ *   The DateTime object for the passed field value, or null if there was an
+ *   error.
+ */
+function _slac_ip_panes_events_create_datetime($item, $key = 'value') {
+  try {
+    $tz_db = new DateTimeZone($item['timezone_db']);
+    $tz = new DateTimeZone($item['timezone']);
+    $value = new DateTime($item[$key], $tz_db);
+    $value->setTimezone($tz);
+  }
+  catch (Exception $e) {
+    $message = 'There was an exception while creating a DateTime: %msg';
+    watchdog('slac_ip_panes', $message, array('%msg' => $e->getMessage()), WATCHDOG_ERROR);
+    $value = NULL;
+  }
+
+  return $value;
 }

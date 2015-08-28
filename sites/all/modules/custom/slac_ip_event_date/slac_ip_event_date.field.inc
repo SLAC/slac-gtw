@@ -500,18 +500,27 @@ function _slac_ip_event_date_get_time_fmts($value1, $value2) {
  *   An array of constructed DateTime objects for both field values.
  */
 function _slac_ip_event_date_create_datetimes($item) {
-  $tz_db = new DateTimeZone($item['timezone_db']);
-  $tz = new DateTimeZone($item['timezone']);
-  $value = new DateTime($item['value'], $tz_db);
-  $value->setTimezone($tz);
-  $value2 = new DateTime($item['value2'], $tz_db);
-  $value2->setTimezone($tz);
+  $value = NULL;
+  $value2 = NULL;
+
+  try {
+    $tz_db = new DateTimeZone($item['timezone_db']);
+    $tz = new DateTimeZone($item['timezone']);
+    $value = new DateTime($item['value'], $tz_db);
+    $value->setTimezone($tz);
+    $value2 = new DateTime($item['value2'], $tz_db);
+    $value2->setTimezone($tz);
+  }
+  catch (Exception $e) {
+    $message = 'There was an exception while creating a DateTime: %msg';
+    watchdog('slac_ip_event_date', $message, array('%msg' => $e->getMessage()), WATCHDOG_ERROR);
+  }
 
   // Key the date objects the same way Date module keys the datetime field
-  // values.
+  // values, if DateTime construction failed, ensure these return valid objects.
   $values = array(
-    'value' => $value,
-    'value2' => $value2,
+    'value' => ($value) ? $value : new DateTime(),
+    'value2' => ($value2) ? $value2 : new DateTime(),
   );
 
   return $values;
