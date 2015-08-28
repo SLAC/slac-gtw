@@ -58,11 +58,11 @@ function v_news_archive_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sort criterion: Node: Published at */
+  $handler->display->display_options['sorts']['published_at_1']['id'] = 'published_at_1';
+  $handler->display->display_options['sorts']['published_at_1']['table'] = 'publication_date';
+  $handler->display->display_options['sorts']['published_at_1']['field'] = 'published_at';
+  $handler->display->display_options['sorts']['published_at_1']['order'] = 'DESC';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -106,17 +106,17 @@ function v_news_archive_views_default_views() {
     7 => 0,
     3 => 0,
   );
-  /* Filter criterion: Content: Post date */
-  $handler->display->display_options['filters']['created']['id'] = 'created';
-  $handler->display->display_options['filters']['created']['table'] = 'node';
-  $handler->display->display_options['filters']['created']['field'] = 'created';
-  $handler->display->display_options['filters']['created']['operator'] = 'between';
-  $handler->display->display_options['filters']['created']['group'] = 1;
-  $handler->display->display_options['filters']['created']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['created']['expose']['operator_id'] = 'created_op';
-  $handler->display->display_options['filters']['created']['expose']['operator'] = 'created_op';
-  $handler->display->display_options['filters']['created']['expose']['identifier'] = 'created';
-  $handler->display->display_options['filters']['created']['expose']['remember_roles'] = array(
+  /* Filter criterion: Node: Published at */
+  $handler->display->display_options['filters']['published_at']['id'] = 'published_at';
+  $handler->display->display_options['filters']['published_at']['table'] = 'publication_date';
+  $handler->display->display_options['filters']['published_at']['field'] = 'published_at';
+  $handler->display->display_options['filters']['published_at']['operator'] = 'between';
+  $handler->display->display_options['filters']['published_at']['group'] = 1;
+  $handler->display->display_options['filters']['published_at']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['published_at']['expose']['operator_id'] = 'published_at_op';
+  $handler->display->display_options['filters']['published_at']['expose']['operator'] = 'published_at_op';
+  $handler->display->display_options['filters']['published_at']['expose']['identifier'] = 'published_at';
+  $handler->display->display_options['filters']['published_at']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     5 => 0,
