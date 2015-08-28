@@ -158,8 +158,6 @@ function _slac_ip_upcoming_events_render_events_content($result) {
  * @param $start_date
  *   The first date to render under. The returned list will always contain this
  *   date at least.
- * @param $now
- *   The date object for today for comparison.
  *
  * @return DateTime[] array
  *   The array of dates to render this Event in.
@@ -251,7 +249,7 @@ function _slac_ip_upcoming_events_render_block_content($events_content) {
 /**
  * Helper function to construct a DateTime object from a datetime field item.
  *
- * @param array $field_item
+ * @param array $item
  *   The datetime field item.
  * @param string $key
  *   The datetime item key to create an object from.
