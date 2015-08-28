@@ -78,7 +78,7 @@ function v_news_archive_views_exposed_form_validate($form, &$form_state) {
       'max' => $max,
     );
 
-    form_set_value($form['created'], $created, $form_state);
+    form_set_value($form['published_at'], $created, $form_state);
   }
   elseif (!empty($values['v_news_archive_year'])) {
     // Only Year selected.
@@ -88,7 +88,7 @@ function v_news_archive_views_exposed_form_validate($form, &$form_state) {
       'min' => $year . '-1',
       'max' => ($year + 1) . '-1',
     );
-    form_set_value($form['created'], $created, $form_state);
+    form_set_value($form['published_at'], $created, $form_state);
   }
   elseif (!empty($values['v_news_archive_month'])) {
     // Only Month selected, assume current year.
@@ -109,7 +109,7 @@ function v_news_archive_views_exposed_form_validate($form, &$form_state) {
       'max' => $max,
     );
 
-    form_set_value($form['created'], $created, $form_state);
+    form_set_value($form['published_at'], $created, $form_state);
   }
 }
 
