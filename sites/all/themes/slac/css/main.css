@@ -1382,6 +1382,11 @@ input[type="submit"]:hover, input[type="submit"]:focus,
   border-bottom: none;
 }
 
+.week-view .date-day td:first-child,
+.week-view .date-day td:last-child {
+  background: #e8e8e8;
+}
+
 .calendar-calendar .mini {
   border: none;
 }
