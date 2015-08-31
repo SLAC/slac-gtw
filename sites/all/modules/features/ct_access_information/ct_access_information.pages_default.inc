@@ -431,6 +431,33 @@ function ct_access_information_default_page_manager_handlers() {
     $display->content['new-a2bd58aa-a059-465b-9a61-896fb94df5a7'] = $pane;
     $display->panels['left'][12] = 'new-a2bd58aa-a059-465b-9a61-896fb94df5a7';
     $pane = new stdClass();
+    $pane->pid = 'new-6912f1b9-4827-4e9f-81b1-ecc1e67ee030';
+    $pane->panel = 'left';
+    $pane->type = 'node_links';
+    $pane->subtype = 'node_links';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'build_mode' => 'full',
+      'identifier' => '',
+      'link' => 1,
+      'context' => 'argument_entity_id:node_1',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 13;
+    $pane->locks = array();
+    $pane->uuid = '6912f1b9-4827-4e9f-81b1-ecc1e67ee030';
+    $display->content['new-6912f1b9-4827-4e9f-81b1-ecc1e67ee030'] = $pane;
+    $display->panels['left'][13] = 'new-6912f1b9-4827-4e9f-81b1-ecc1e67ee030';
+    $pane = new stdClass();
     $pane->pid = 'new-5b4630cf-1685-44ca-8678-e123336de9cc';
     $pane->panel = 'right';
     $pane->type = 'entity_field';

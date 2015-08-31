@@ -809,7 +809,7 @@ function ct_news_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'news_large_body_image',
+          'image_style' => 'teaser',
         ),
         'type' => 'image',
         'weight' => 0,

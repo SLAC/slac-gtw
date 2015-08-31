@@ -206,7 +206,7 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'slac_ip_event_date',
         'settings' => array(),
-        'type' => 'slac_event_date_formatter',
+        'type' => 'slac_event_access_date_formatter',
         'weight' => 3,
       ),
       'default' => array(
@@ -812,7 +812,7 @@ function ct_access_information_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'teaser',
         ),
         'type' => 'image',
         'weight' => 0,

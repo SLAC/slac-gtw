@@ -395,6 +395,33 @@ function ct_event_default_page_manager_handlers() {
     $display->content['new-c478a69c-067c-40ac-847b-a7ad8f1923df'] = $pane;
     $display->panels['left'][11] = 'new-c478a69c-067c-40ac-847b-a7ad8f1923df';
     $pane = new stdClass();
+    $pane->pid = 'new-7657cc42-d90f-4bfe-bcbf-3e566bd3f937';
+    $pane->panel = 'left';
+    $pane->type = 'node_links';
+    $pane->subtype = 'node_links';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'build_mode' => 'full',
+      'identifier' => '',
+      'link' => 1,
+      'context' => 'argument_entity_id:node_1',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 12;
+    $pane->locks = array();
+    $pane->uuid = '7657cc42-d90f-4bfe-bcbf-3e566bd3f937';
+    $display->content['new-7657cc42-d90f-4bfe-bcbf-3e566bd3f937'] = $pane;
+    $display->panels['left'][12] = 'new-7657cc42-d90f-4bfe-bcbf-3e566bd3f937';
+    $pane = new stdClass();
     $pane->pid = 'new-5b4630cf-1685-44ca-8678-e123336de9cc';
     $pane->panel = 'right';
     $pane->type = 'entity_field';

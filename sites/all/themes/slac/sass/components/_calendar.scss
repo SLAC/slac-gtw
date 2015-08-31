@@ -35,11 +35,15 @@
     display: none;
   }
 
+  /**
+   * styles for primary tabs used by calendar
+   * as navigation for day, week and month views
+   */
   .tabs-primary {
     position: relative;
     top: 115px;
     border: none;
-    width: 236px;
+    width: 270px;
     margin-right: auto;
     margin-left: auto;
     z-index: 10;
@@ -50,42 +54,33 @@
 
     li {
       border-radius: 0;
-      background: $white;
-      border: 1px solid $color-gray-silver-chalice;
+      border: none;
       margin: 0;
       margin-left: -1px;
 
       &:hover {
         background: $grey;
-        border: 1px solid $color-gray-silver-chalice;
-      }
-
-      &.is-active {
-        background: $color-gray-dove;
-        color: $white;
-        border: 1px solid $grey;
-
-        a {
-          color: $white;
-        }
       }
 
       a,
       a:link {
         @include font-size(14px);
-        border: none;
-        border-radius: 0;
+        display: block;
+        width: 60px;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
         background-image: none;
-        background-color: transparent;
+        background: $white;
+        border: 1px solid $grey-calendar-views;
+        border-radius: 0;
         text-shadow: none;
         font-weight: normal;
         text-transform: uppercase;
-        padding: .2rem 1rem;
 
         &:hover,
-        &:focus {
-          background: $color-gray-dove;
-          border-color: $color-gray-silver-chalice;
+        &:focus,
+        &.is-active {
+          background: $grey-calendar-views;
           color: $white;
         }
       }
@@ -166,6 +161,11 @@
 }
 .calendar-calendar .week-view .date-day td {
   border-bottom: none;
+}
+
+.week-view .date-day td:first-child,
+.week-view .date-day td:last-child {
+  background: color(weekend-grey);
 }
 
 // simplify the mini calendar by removing borders
@@ -1142,6 +1142,7 @@ ul.calendar-links,
   p:first-of-type {
 
     label {
+      @include font-size(12px);
       display: block;
       width: 200px;
       position: relative;

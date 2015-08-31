@@ -109,6 +109,32 @@ function slac_ip_media_image_default_styles() {
     ),
   );
 
+  // Exported image style: news_and_events_sidebar_video.
+  $styles['news_and_events_sidebar_video'] = array(
+    'label' => 'News and Events Sidebar Video (324px wide)',
+    'effects' => array(
+      3 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 324,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 0,
+      ),
+      2 => array(
+        'name' => 'canvasactions_file2canvas',
+        'data' => array(
+          'xpos' => 'center',
+          'ypos' => 'center',
+          'alpha' => 100,
+          'path' => 'sites/all/modules/features/slac_ip_media/images/play-button.png',
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: news_archive_list_item.
   $styles['news_archive_list_item'] = array(
     'label' => 'News Archive List Item',

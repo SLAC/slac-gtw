@@ -406,6 +406,33 @@ function ct_flea_market_item_default_page_manager_handlers() {
     $display->content['new-671bf82c-db85-4bc1-8c45-c08b17a3a1e8'] = $pane;
     $display->panels['left'][12] = 'new-671bf82c-db85-4bc1-8c45-c08b17a3a1e8';
     $pane = new stdClass();
+    $pane->pid = 'new-1353cdea-3595-423b-b3e6-1fd5bd3bc3ce';
+    $pane->panel = 'left';
+    $pane->type = 'node_links';
+    $pane->subtype = 'node_links';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'build_mode' => 'full',
+      'identifier' => '',
+      'link' => 1,
+      'context' => 'argument_entity_id:node_1',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 13;
+    $pane->locks = array();
+    $pane->uuid = '1353cdea-3595-423b-b3e6-1fd5bd3bc3ce';
+    $display->content['new-1353cdea-3595-423b-b3e6-1fd5bd3bc3ce'] = $pane;
+    $display->panels['left'][13] = 'new-1353cdea-3595-423b-b3e6-1fd5bd3bc3ce';
+    $pane = new stdClass();
     $pane->pid = 'new-9ed6f47e-ac57-428d-81ec-1e32a6da6497';
     $pane->panel = 'right';
     $pane->type = 'entity_field';
