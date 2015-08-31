@@ -219,6 +219,7 @@
       $selectizeInput = $selectize.parent().find('.selectize-input');
       $selectizeInput.find('input').prop('disabled', true);
       selectizeControl = $selectize[0].selectize;
+      selectizeControl.isOpen = false;
 
       // Add custom click handler to allow de-select of selected options.
       selectizeControl.$dropdown_content.on('click', function (e) {
@@ -235,22 +236,34 @@
       // handled in the render, or onChange callback functions.
       updateSelectizeDisplay($selectize.val());
 
-      // Open the dropdown control when the input area is clicked as well.
-      // Toggle the dropdown closed if the selectize is clicked again.
-      $selectizeInput.on('click', function () {
-        if (selectizeControl.$dropdown_content.is(':visible')) {
+      // Handle input focus manually so the dropdown is not triggered twice
+      // causing it to immediately close.
+      $selectizeInput.bind('click', function () {
+        if (selectizeControl.isOpen) {
+          $selectizeInput.blur();
           selectizeControl.close();
+          selectizeControl.isOpen = false;
         }
         else {
+          $selectizeInput.focus();
           selectizeControl.open();
+          selectizeControl.isOpen = true;
         }
       });
 
-      // Handle input focus manually so the dropdown is not triggered twice
-      // causing it to immediately close.
-      $selectizeInput.on('focus', function () {
-        if (!selectizeControl.$dropdown_content.is(':visible')) {
-          selectizeControl.open();
+      // Workaround for iOS Safari not handling click events on document or
+      // body, instead, remove focus from the dropdown if there is a touch
+      // event on them.
+      $(document).bind('touchstart', function (e) {
+        if (selectizeControl.$dropdown_content.has($(e.target)).length > 0) {
+          // Don't close the dropdown if it's being used.
+          return;
+        }
+
+        if (selectizeControl.isOpen) {
+          $selectizeInput.blur();
+          selectizeControl.close();
+          selectizeControl.isOpen = false;
         }
       });
 
