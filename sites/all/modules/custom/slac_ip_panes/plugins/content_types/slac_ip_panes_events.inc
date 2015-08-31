@@ -155,7 +155,7 @@ function _slac_ip_upcoming_events_render_events_content($result) {
  *
  * @param $node
  *   The Event node.
- * @param $start_date
+ * @param DateTime $start_date
  *   The first date to render under. The returned list will always contain this
  *   date at least.
  *
