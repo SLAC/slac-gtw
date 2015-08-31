@@ -75,7 +75,7 @@ function slac_ip_event_date_field_formatter_settings_summary($field, $instance, 
       $summary = t('Displays full range for start, end date of the date field.')
         . $br . t('Format examples:')
         . $br . '`Monday, February 16, 2015 (All Day)`,'
-        . $br . '`Wednesday, August 10, 2016, 3-7 pm`'
+        . $br . '`Wednesday, August 10, 2016, 3-7 pm`,'
         . $br . '`Tuesday, August 9, 2016, 3:15-7:30 pm`,'
         . $br . '`Tuesday, May 9, 2016, (All Day) - Thursday, Aug. 11, 2016, (All Day)`,'
         . $br . '`Tuesday, May 9, 2015, 6 pm - Thursday, Aug. 11, 2016, 9 pm`';
@@ -85,7 +85,7 @@ function slac_ip_event_date_field_formatter_settings_summary($field, $instance, 
       $summary = t('Displays full range for start, end date of the date field.')
         . $br . t('Format examples:')
         . $br . '`Monday, February 16, 2015 (All Day)`,'
-        . $br . '`Wednesday, August 10, 2016, 3-7 pm`'
+        . $br . '`Wednesday, August 10, 2016, 3-7 pm`,'
         . $br . '`Tuesday, August 9, 2016, 3:15-7:30 pm`,'
         . $br . '`Tuesday, May 9, 2016, (All Day) - Thursday, Aug. 11, 2016, (All Day)`,'
         . $br . '`8 am, Monday, Feb. 9, 2015 to 7 am, Saturday, March 14, 2015`';
