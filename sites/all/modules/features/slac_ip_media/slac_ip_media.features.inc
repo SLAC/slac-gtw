@@ -128,7 +128,7 @@ function slac_ip_media_image_default_styles() {
           'xpos' => 'center',
           'ypos' => 'center',
           'alpha' => 100,
-          'path' => 'sites/all/themes/slac/images/play-button.png',
+          'path' => 'sites/all/modules/features/slac_ip_media/images/play-button.png',
         ),
         'weight' => 1,
       ),
