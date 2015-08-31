@@ -163,6 +163,11 @@
   border-bottom: none;
 }
 
+.week-view .date-day td:first-child,
+.week-view .date-day td:last-child {
+  background: color(weekend-grey);
+}
+
 // simplify the mini calendar by removing borders
 .calendar-calendar .mini {
   border: none;
