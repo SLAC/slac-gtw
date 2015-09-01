@@ -72,32 +72,40 @@ function slac_igp_email_field_formatter_settings_summary($field, $instance, $vie
    return $summary;
 }
 
+/**
+ * Implements hook_preprocess_image().
+ *
+ * Adds attributes for teaser view mode that is used in mailchimp emails.
+ */
+function slac_igp_email_preprocess_image(&$vars) {
+  if (isset($vars['style_name']) && $vars['style_name'] == 'teaser') {
+    $attributes = array(
+      'align' => 'left',
+      'hspace' => '20'
+    );
+    $vars['attributes'] = $attributes;
+  }
+}
 
 /**
- * Implements hook_field_formatter_view().
+ * Implements hook_preprocess_field().
+ *
+ * Sets the alt and title text for images if they aren't set.
+ * Only affects the teaser view mode which is used in mailchimp
+ * emails
  */
-function slac_igp_email_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
-  $elements = array();
-  $settings = $display['settings'];
-    
-  foreach ($items as $delta => $item) {
-    if ($display['type'] == 'link_image') {
-      $elements[$delta] = array(
-        '#theme' => 'image',
-        '#alt' => (isset($item['url'])) ? $item['url'] : '',
-        '#title' => (isset($item['url'])) ? $item['url'] : '',
-        '#path' => $item['url'],
-        '#attributes' => array('align' => 'left', 'hspace' => '20'),
-      );
-      if (isset($settings['width']) && $settings['width'] != 0) {
-        $elements[$delta]['#width'] = $settings['width'];
-      } 
-      if (isset($settings['height']) && $settings['height'] != 0) {
-        $elements[$delta]['#height'] = $settings['height'];
+function slac_igp_email_preprocess_field(&$vars) {
+  $element = $vars['element'];
+  if ($element['#field_name'] == 'field_shared_image' && $element['#view_mode'] == 'teaser') {
+    foreach ($vars['items'] as $delta => $item) {
+      if (empty($item['#item']['field_file_image_alt_text'])) {
+        $vars['items'][$delta]['#item']['alt'] = $item['#item']['filename'];
+      }
+      if (empty($item['#item']['field_file_image_title_text'])) {
+        $vars['items'][$delta]['#item']['title'] = $item['#item']['filename'];
       }
     }
   }
-  return $elements;
 }
 
 /**
@@ -406,10 +414,10 @@ function _slac_igp_email_generate_items_views($type, $last_campaign = array()) {
 function _slac_igp_email_check_in_view($nid) {
   // @[views_name]|[view_display]
   $mapping = array(
-    'news|block', // feature news
-    'news|block_1', // lab news,
-    'news|block_2', // slac science (featured)
-    'news|block_3', // slac science
+    'slac_news|block', // feature news
+    'slac_news|block_1', // lab news,
+    'slac_news|block_2', // slac science (featured)
+    'slac_news|block_3', // slac science
   );
   $items = array();
   foreach ($mapping as $view_meta) {

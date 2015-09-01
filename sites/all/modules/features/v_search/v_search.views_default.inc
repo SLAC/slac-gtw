@@ -250,7 +250,7 @@ function v_search_views_default_views() {
       'any_label' => NULL,
       'filter_rewrite_values' => NULL,
     ),
-    'created_1' => array(
+    'published_at_1' => array(
       'bef_format' => 'bef_datepicker',
       'more_options' => array(
         'is_secondary' => 1,
@@ -298,7 +298,7 @@ function v_search_views_default_views() {
       'any_label' => NULL,
       'filter_rewrite_values' => NULL,
     ),
-    'created' => array(
+    'published_at' => array(
       'bef_format' => 'bef_datepicker',
       'more_options' => array(
         'is_secondary' => 1,
@@ -435,11 +435,11 @@ function v_search_views_default_views() {
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  /* Sort criterion: Indexed Node: Date created */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sort criterion: Indexed Node: Published at */
+  $handler->display->display_options['sorts']['published_at']['id'] = 'published_at';
+  $handler->display->display_options['sorts']['published_at']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['sorts']['published_at']['field'] = 'published_at';
+  $handler->display->display_options['sorts']['published_at']['order'] = 'DESC';
   /* Sort criterion: Search: Relevance */
   $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_default_node_index';
@@ -498,19 +498,19 @@ function v_search_views_default_views() {
     7 => 0,
     3 => 0,
   );
-  /* Filter criterion: Indexed Node: Date created */
-  $handler->display->display_options['filters']['created_1']['id'] = 'created_1';
-  $handler->display->display_options['filters']['created_1']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['filters']['created_1']['field'] = 'created';
-  $handler->display->display_options['filters']['created_1']['operator'] = '>=';
-  $handler->display->display_options['filters']['created_1']['group'] = 1;
-  $handler->display->display_options['filters']['created_1']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['created_1']['expose']['operator_id'] = 'created_1_op';
-  $handler->display->display_options['filters']['created_1']['expose']['label'] = 'From:';
-  $handler->display->display_options['filters']['created_1']['expose']['operator'] = 'created_1_op';
-  $handler->display->display_options['filters']['created_1']['expose']['identifier'] = 'created-from';
-  $handler->display->display_options['filters']['created_1']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['created_1']['expose']['remember_roles'] = array(
+  /* Filter criterion: Indexed Node: Published at */
+  $handler->display->display_options['filters']['published_at_1']['id'] = 'published_at';
+  $handler->display->display_options['filters']['published_at_1']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['filters']['published_at_1']['field'] = 'published_at';
+  $handler->display->display_options['filters']['published_at_1']['operator'] = '>=';
+  $handler->display->display_options['filters']['published_at_1']['group'] = 1;
+  $handler->display->display_options['filters']['published_at_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['published_at_1']['expose']['operator_id'] = 'published_at_op';
+  $handler->display->display_options['filters']['published_at_1']['expose']['label'] = 'From:';
+  $handler->display->display_options['filters']['published_at_1']['expose']['operator'] = 'published_at_op';
+  $handler->display->display_options['filters']['published_at_1']['expose']['identifier'] = 'published_at';
+  $handler->display->display_options['filters']['published_at_1']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['published_at_1']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     5 => 0,
@@ -519,19 +519,19 @@ function v_search_views_default_views() {
     7 => 0,
     3 => 0,
   );
-  /* Filter criterion: Indexed Node: Date created */
-  $handler->display->display_options['filters']['created']['id'] = 'created';
-  $handler->display->display_options['filters']['created']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['filters']['created']['field'] = 'created';
-  $handler->display->display_options['filters']['created']['operator'] = '<=';
-  $handler->display->display_options['filters']['created']['group'] = 1;
-  $handler->display->display_options['filters']['created']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['created']['expose']['operator_id'] = 'created_op';
-  $handler->display->display_options['filters']['created']['expose']['label'] = 'To:';
-  $handler->display->display_options['filters']['created']['expose']['operator'] = 'created_op';
-  $handler->display->display_options['filters']['created']['expose']['identifier'] = 'created-to';
-  $handler->display->display_options['filters']['created']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['created']['expose']['remember_roles'] = array(
+  /* Filter criterion: Indexed Node: Published at */
+  $handler->display->display_options['filters']['published_at']['id'] = 'published_at_1';
+  $handler->display->display_options['filters']['published_at']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['filters']['published_at']['field'] = 'published_at';
+  $handler->display->display_options['filters']['published_at']['operator'] = '<=';
+  $handler->display->display_options['filters']['published_at']['group'] = 1;
+  $handler->display->display_options['filters']['published_at']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['published_at']['expose']['operator_id'] = 'published_at_1_op';
+  $handler->display->display_options['filters']['published_at']['expose']['label'] = 'To:';
+  $handler->display->display_options['filters']['published_at']['expose']['operator'] = 'published_at_1_op';
+  $handler->display->display_options['filters']['published_at']['expose']['identifier'] = 'published_at_1';
+  $handler->display->display_options['filters']['published_at']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['published_at']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     5 => 0,
@@ -540,9 +540,9 @@ function v_search_views_default_views() {
     7 => 0,
     3 => 0,
   );
-  $handler->display->display_options['filters']['created']['group_info']['label'] = 'Select date range';
-  $handler->display->display_options['filters']['created']['group_info']['identifier'] = 'created';
-  $handler->display->display_options['filters']['created']['group_info']['group_items'] = array(
+  $handler->display->display_options['filters']['published_at']['group_info']['label'] = 'Select date range';
+  $handler->display->display_options['filters']['published_at']['group_info']['identifier'] = 'created';
+  $handler->display->display_options['filters']['published_at']['group_info']['group_items'] = array(
     1 => array(
       'title' => '',
       'operator' => '>=',

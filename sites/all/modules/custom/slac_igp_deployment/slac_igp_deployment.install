@@ -36,6 +36,8 @@ function slac_igp_deployment_install() {
     'fe_nodequeue',
     'file_entity',
     'flag',
+    'imagecache_actions',
+    'imagecache_canvasactions',
     'jquery_update',
     'linkit',
     'media',
@@ -1268,3 +1270,20 @@ function slac_igp_deployment_update_7062() {
     throw new DrupalUpdateException($message);
   }
 }
+
+/**
+ * Enable the imagecache_actions and imagecache_canvasactions modules.
+ */
+function slac_igp_deployment_update_7063() {
+  $result = module_enable(array(
+    'imagecache_actions',
+    'imagecache_canvasactions',
+  ));
+
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
+}
+
+

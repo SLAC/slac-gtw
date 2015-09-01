@@ -112,12 +112,11 @@ function slac_ip_core_form_node_form_alter(&$form, &$form_state, $form_id) {
   // Remove the default #required from body if New / Existing functionality
   // is used on the node and add custom validation.
   if (isset($form['field_shared_new_existing'])) {
-    $form['body'][$lang]['#required'] = FALSE;
     $form['body'][$lang][0]['#required'] = FALSE;
     $form['#validate'][] = 'slac_ip_core_node_form_validate_new_existing';
 
     // Make the body optional if 'Link to Existing URL' is chosen.
-    $form['body']['#states']['optional'] = array(
+    $form['body'][$lang][0]['#states']['optional'] = array(
       ':input[name^="field_shared_new_existing"]' => array(
         'value' => t('Link to Existing URL'),
       ),
@@ -151,7 +150,7 @@ function slac_ip_core_node_form_validate_new_existing($form, &$form_state) {
   // 'Enter Details' for New / Existing.
   if ($new_existing == t('Enter Details')) {
     if (empty($form_state['values']['body'][$lang][0]['value'])) {
-      form_set_error('body', t('The Body field is required.'));
+      form_set_error("body][$lang][0][value", t('The Body field is required.'));
     }
   }
 }

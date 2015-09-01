@@ -17,7 +17,7 @@ define('FEATURED_NEWS', 'featured_news');
  * and if the node is promoted or not.
  */
 function slac_nodequeue_automation_node_insert($node) {
-  if ($node->type == 'news' && $node->is_new) {
+  if (slac_nodequeue_automation_is_news_or_promoted($node) && $node->is_new) {
     $promoted = (bool) $node->promote;
     $news_type = _slac_nodequeue_automation_get_field_value($node, 'field_news_news_type');
 
@@ -37,10 +37,39 @@ function slac_nodequeue_automation_node_insert($node) {
 }
 
 /**
+ * Check if a node is news or promoted as news.
+ *
+ * @param $node
+ *  The node object.
+ *
+ * @return Boolean
+ *  Returns TRUE if the node is promoted as news 
+ *  or is a news node. If not it returns FALSE.
+ */
+function slac_nodequeue_automation_is_news_or_promoted($node) {
+  $content_type = $node->type;
+  $content_types = array('news', 'event', 'access_information');
+  if (!in_array($content_type, $content_types)) {
+    return FALSE;
+  }
+  if ($content_type == 'news') {
+    return TRUE;
+  }
+
+  // Check to see if the event or access information is promoted as news.
+  if ($node->field_shared_promote_news[$node->language][0]['value']) {
+    return TRUE; 
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
  * Implements hook_node_update().
  */
 function slac_nodequeue_automation_node_update($node) {
-  if ($node->type != 'news') {
+  if (!slac_nodequeue_automation_is_news_or_promoted($node)) {
     return;
   }
 
