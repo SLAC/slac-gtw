@@ -1,7 +1,20 @@
+/**
+ * @file
+ * Javascript behaviors for the v_calendar feature.
+ *
+ * Adds two behaviors unless the page is the Views UI: calendarFilters, and
+ * calendarAccessNoticeToggle.
+ */
+
 (function ($) {
   'use strict';
 
-  // This will maintain the state of the filters dropwown between
+  // Don't attach these behaviors in the Views UI.
+  if ($('#views-ui-edit-form').length !== 0) {
+    return;
+  }
+
+  // This will maintain the open/closed state of the filters dropwown between
   // attachBehaviors calls.
   var selectizeIsOpen = false;
 
@@ -12,10 +25,11 @@
   Drupal.behaviors.calendarFilters = {
     attach: function (context, settings) {
 
-      // Don't do anything in the Views UI.
-      if ($('#views-ui-edit-form').length !== 0) {
+      // Views attaches behaviors twice on ajax, don't process the second one.
+      if ($(context).is('form')) {
         return;
       }
+
 
       /**
        * Adds passed select values to an array to be used in the Selectize
@@ -51,24 +65,14 @@
       var $selectizeInput; // The area where the selected filters are displayed.
 
       // Select the view form elements to manipulate with the replacement
-      // selectize UI and checkbox.
-      var $viewForm;
-      if ($(context).is('.view-id-calendar_view')) {
-        $viewForm = $('.views-exposed-form', context);
-      }
-      else {
-        $viewForm = $('.view-id-calendar_view .views-exposed-form', context);
-      }
+      // selectize UI.
+      var $viewForm = $('.views-exposed-form', context);
+
       var $typeSelect = $viewForm.find('.form-item-tid select');
-      var $accessSelect = $viewForm.find('.form-item-type select');
 
       // Create a new select element to use for creating a Selectize widget
       // based on the views term filters.
       var $combinedSelect = $('<select />');
-
-      // Create a new checkbox to control the 'Show Access Notices' filter.
-      var $showAccessElements = $('<p><label><input type="checkbox" /> Show Access Notices</label></p>');
-      var $showAccessInput = $showAccessElements.find('input');
 
       // Set up options and items arrays for Selectize initialization and for
       // using in option value comparisons later.
@@ -112,8 +116,9 @@
        * Selectize values have changed.
        *
        * @param {string[]} values
+       *   The values to update the view filter select element to.
        */
-      function updateViewsFilters (values) {
+      function updateViewsFilters (values, $typeSelect) {
         var len;
         var currentTypeValues = $typeSelect.val() || [];
         var lenTypes = currentTypeValues.length;
@@ -199,7 +204,7 @@
           }
         },
         onChange: function (values) {
-          var setValues = values;
+          var setValues = values || [];
 
           // If either of the 'View All' options is chosen, remove any selected
           // filters in that optgroup.
@@ -214,9 +219,8 @@
 
             selectizeControl.refreshOptions();
             updateSelectizeDisplay(setValues);
-
-            updateViewsFilters(setValues);
           }
+          updateViewsFilters(setValues, $typeSelect);
         },
         onDropdownClose: function () {
           selectizeIsOpen = false;
@@ -225,6 +229,12 @@
           item: function () {
             var currentVal = this.getValue() || [];
             var len = currentVal.length;
+
+            // Remove other selected items, this will only display a single
+            // summary value.
+            if ($selectizeInput !== undefined) {
+              $selectizeInput.find('div').hide();
+            }
 
             // Add a selected item to display the current amount of enabled
             // filter values.
@@ -245,13 +255,13 @@
         var itemSelectedIndex = selectizeControl.items.indexOf(itemValue);
         if (itemSelectedIndex !== -1) {
           selectizeControl.items.splice(itemSelectedIndex, 1);
-          selectizeControl.setValue(selectizeControl.items, true);
+          selectizeControl.setValue(selectizeControl.items, false);
           updateSelectizeDisplay(selectizeControl.items);
         }
       });
 
       // Update the display to the initial state, afterwards this will be
-      // handled in the render, or onChange callback functions.
+      // handled in the above click handler, or the onChange callback.
       updateSelectizeDisplay($selectize.val());
 
       // Handle input focus manually so the dropdown is not triggered twice
@@ -299,33 +309,62 @@
         }, 0);
       }
 
-      // Set the initial state of the custom checkbox based on the state of the
-      // view filter.
-      if ($accessSelect.val() === 'All') {
-        $showAccessInput.prop('checked', true);
-      }
-      else {
-        $showAccessInput.prop('checked', false);
-      }
+    }
+  };
+
+  /**
+   * Creates a custom show/hide toggle checkbox for Access Notice calendar
+   * items.
+   */
+  Drupal.behaviors.calendarAccessNoticeToggle = {
+    attach: function (context, settings) {
+
+      var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)accesschecked\s*=\s*([^;]*).*$)|^.*$/, '$1');
+
+      // Select the view form elements to add the checkbox to.
+      var $viewForm = $('.views-exposed-form', context);
+      var $accessItems = $('.view-content .type-access_information', context);
+
+      // Create a new checkbox to control the 'Show Access Notices' filter.
+      var $showAccessElements = $('<p><label><input type="checkbox" /> Show Access Notices</label></p>');
+      var $showAccessInput = $showAccessElements.find('input');
 
       // Add checkbox toggle for the "Show Access Notices" filter above the view
       // header.
       $viewForm.parents('.view-id-calendar_view')
-        .find('.view-header')
-        .before($showAccessElements);
+          .find('.view-header')
+          .before($showAccessElements);
 
       // Update the filter when the checkbox is toggled.
-      $showAccessInput.click(function () {
+      $showAccessInput.change(function () {
         var isChecked = $(this).prop('checked');
-        // See the Calendar View filters for the reasoning behind these values.
-        // The filter is set up negated so that when 'access_information' is
-        // selected, they will not show, otherwise the filter is cleared (All).
-        $accessSelect.val((isChecked) ? 'All' : 'access_information');
-        $accessSelect.trigger('change');
 
-        // Submit the filter form to apply the new values.
-        $viewForm.find('.form-submit').click();
+        if (isChecked) {
+          // Show Access Notice items.
+          $accessItems.show();
+
+          // Set the cookie value.
+          document.cookie = 'accesschecked=true;path=/';
+        }
+        else {
+          // Hide Access Notice items.
+          $accessItems.hide();
+          document.cookie = 'accesschecked=false;path=/';
+        }
       });
+
+      // Set the initial state of the custom checkbox and view contents based on
+      // the state of the user's cookie.
+      if ($showAccessInput.val() !== undefined) {
+        if (cookieValue === 'true') {
+          $showAccessInput.prop('checked', true);
+        }
+        else {
+          $showAccessInput.prop('checked', false);
+          // Hide Access Notice items.
+          $accessItems.hide();
+        }
+      }
 
     }
   };
