@@ -180,6 +180,13 @@
         padding-left: 0;
       }
     }
+
+    /**
+     * ie10 and 11 conditional styles
+     */
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        height: 32px;
+    }
   }
 
   #block-system-main-menu {
@@ -187,7 +194,7 @@
 
     .menu li {
       display: inline-block;
-      margin-right: -4px;
+      margin-right: -5px;
       list-style-type: none;
       list-style-image: none;
 
