@@ -223,7 +223,8 @@ function _slac_event_date_formatter($items) {
         // Multi-day event with start, end times.
         // Format is:
         //   `Tuesday, May 9, 2015, 6 pm - Thursday, Aug. 11, 2016, 9 pm`
-        $formats = _slac_ip_event_date_get_time_fmts($value1, $value2);
+        $both_ampm = TRUE;
+        $formats = _slac_ip_event_date_get_time_fmts($value1, $value2, $both_ampm);
         $start_time_fmt = $formats['value'];
         $end_time_fmt = $formats['value2'];
 
@@ -290,7 +291,8 @@ function _slac_event_access_date_formatter($items) {
         // Multi-day event with start, end times.
         // Format is:
         //   `8 am, Monday, Feb. 9, 2015 to 7 am, Saturday, March 14, 2015`
-        $formats = _slac_ip_event_date_get_time_fmts($value1, $value2);
+        $both_ampm = TRUE;
+        $formats = _slac_ip_event_date_get_time_fmts($value1, $value2, $both_ampm);
         $start_time_fmt = $formats['value'];
         $end_time_fmt = $formats['value2'];
 
@@ -315,7 +317,7 @@ function _slac_event_access_date_formatter($items) {
 /**
  * Helper function for printing an arbitrary month format based on date.
  *
- * @param $date
+ * @param DateTime $date
  *   The date object to get the proper month format string for.
  *
  * @return string
@@ -378,7 +380,8 @@ function _slac_event_time_formatter($items) {
     }
     else {
       // See _slac_ip_event_date_get_time_fmt() for format examples.
-      $formats = _slac_ip_event_date_get_time_fmts($value1, $value2);
+      $both_ampm = FALSE;
+      $formats = _slac_ip_event_date_get_time_fmts($value1, $value2, $both_ampm);
       $start_time_fmt = $formats['value'];
       $end_time_fmt = $formats['value2'];
 
@@ -455,15 +458,18 @@ function _slac_event_date_detail_formatter($items, $display) {
  * Helper function to determine the format strings for displaying an interval
  * between two DateTime values.
  *
- * @param $value1
- * @param $value2
+ * @param DateTime $value1
+ * @param DateTime $value2
  *   Start and end time values.
+ * @param bool $both_ampm
+ *   Whether to variably only show am/pm on the end time. If true, they will be
+ *   displayed for both.
  *
  * @return array
  *   Array of two date format strings for displaying these time values as an
  *   interval.
  */
-function _slac_ip_event_date_get_time_fmts($value1, $value2) {
+function _slac_ip_event_date_get_time_fmts($value1, $value2, $both_ampm = FALSE) {
 
   // Only minutes past the hour should be displayed.
   $start_min = $value1->format('i');
@@ -473,7 +479,11 @@ function _slac_ip_event_date_get_time_fmts($value1, $value2) {
 
   // If times are both 'am' or both 'pm', only display on end time.
   // Format examples `3-7 pm`, `3:15-7:30 pm`
-  if ($value1->format('a') != $value2->format('a')) {
+  // Unless the "both" flag is set, then just display them.
+  if ($both_ampm) {
+    $start_fmt .= ' a';
+  }
+  elseif ($value1->format('a') != $value2->format('a')) {
     // Times span am/pm, add to start time as well.
     // Format examples: `Wednesday, August 10, 2016, 3 am-7 pm`
     //  `Wednesday, August 10, 2016, 3:30 am-7:15 pm`
@@ -496,7 +506,7 @@ function _slac_ip_event_date_get_time_fmts($value1, $value2) {
  * @param $item
  *   The datetime field item array.
  *
- * @return array
+ * @return DateTime[]
  *   An array of constructed DateTime objects for both field values.
  */
 function _slac_ip_event_date_create_datetimes($item) {
