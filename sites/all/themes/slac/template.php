@@ -224,6 +224,15 @@ function slac_preprocess_node(&$variables, $hook) {
     $view_mode_preprocess($variables, $hook);
   }
 }
+/**
+ * Implements theme_field().
+ */
+function slac_field($variables) {
+  if ($variables['element']['#field_name'] == 'field_shared_news_title' && $variables['element']['#view_mode'] == 'news_archive') {
+    $output = '<h3 class="node-title">' . $variables['element'][0]['#markup'] . '</h3>';
+    return $output;
+  }
+}
 
 /**
  * Override the range separator for all date fields.
