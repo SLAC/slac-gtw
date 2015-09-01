@@ -7282,6 +7282,9 @@ body {
     background: #316dae;
     position: relative;
     z-index: 4;
+    /**
+     * ie10 and 11 conditional styles
+     */
   }
   .main-navigation:after {
     content: "";
@@ -7301,13 +7304,20 @@ body {
   .main-navigation .inner-wrapper .region-navigation {
     padding-left: 0;
   }
+}
+@media all and (min-width: 60em) and (-ms-high-contrast: none), (min-width: 60em) and (-ms-high-contrast: active) {
+  .main-navigation {
+    height: 32px;
+  }
+}
 
+@media (min-width: 60em) {
   #block-system-main-menu {
     clear: both;
   }
   #block-system-main-menu .menu li {
     display: inline-block;
-    margin-right: -4px;
+    margin-right: -5px;
     list-style-type: none;
     list-style-image: none;
   }
