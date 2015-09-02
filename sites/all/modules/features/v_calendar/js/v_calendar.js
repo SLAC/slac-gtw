@@ -1,6 +1,10 @@
 (function ($) {
   'use strict';
 
+  // This will maintain the state of the filters dropwown between
+  // attachBehaviors calls.
+  var selectizeIsOpen = false;
+
   /**
    * Creates a custom widget for Calendar event filters based on the view
    * filters, which are hidden.
@@ -67,7 +71,7 @@
       var $showAccessInput = $showAccessElements.find('input');
 
       // Set up options and items arrays for Selectize initialization and for
-      // using in option value comparissons later.
+      // using in option value comparisons later.
       var optionsItems = [];
       var optionsType = createOptionsList($typeSelect, 'all', 'type');
       var typeValues = optionsType.map(function (i) {return i.value;});
@@ -93,13 +97,47 @@
         });
         var len = currentValues.length;
 
-        $selectizeInput.find('div').hide();
-
         if (len === 0) {
           $selectizeInput.prepend('<div>Calendar Filters: All</div>');
         }
         else {
           $selectizeInput.prepend('<div>Calendar Filters: ' + (len) + '</div>');
+        }
+      }
+
+      /**
+       * Updates the values of the actual view filter select elements when the
+       * Selectize values have changed.
+       *
+       * @param {string[]} values
+       */
+      function updateViewsFilters (values) {
+        var len;
+        var currentTypeValues = $typeSelect.val() || [];
+        var lenTypes = currentTypeValues.length;
+
+        // Don't consider "all" values.
+        values = values.filter(function (v) {
+          return (v !== 'all' && v !== 'all2');
+        });
+
+        len = values.length;
+
+        var selectionLengthsMatch = (len === lenTypes);
+        // Test if every current selection is already in the values list.
+        var selectionsAllInValues = (values.every(function (v) {
+          return (currentTypeValues.indexOf(v) !== -1);
+        }));
+
+        // If the user opened the filter widget, but didn't actually change
+        // the current selections, don't update anything.
+        if (!(selectionLengthsMatch && selectionsAllInValues)) {
+          $typeSelect.val(values.filter(function (v) {
+            return typeValues.indexOf(v) !== -1;
+          }));
+
+          // Submit the filter form to apply the new values.
+          $viewForm.find('.form-submit').click();
         }
       }
 
@@ -120,6 +158,15 @@
         optgroupValueField: 'value',
         optgroupLabelField: 'label',
         optgroupField: 'group',
+        onInitialize: function () {
+          // If the Selectize was open, start open again.
+          // ie. after views ajax refresh from a filter update.
+          if (selectizeIsOpen) {
+            setTimeout(function () {
+              selectizeControl.open();
+            }, 0);
+          }
+        },
         onDelete: function () {
           return false;
         },
@@ -163,49 +210,17 @@
 
             selectizeControl.refreshOptions();
             updateSelectizeDisplay(setValues);
+
+            updateViewsFilters(setValues);
           }
         },
         onDropdownClose: function () {
-          // Update the values of the actual view filter select elements when the
-          // Selectize value changes.
-          var values = $selectize.val() || [];
-
-          // Don't consider "all" values.
-          values = values.filter(function (v) {
-            return (v !== 'all' && v !== 'all2');
-          });
-
-          var len = values.length;
-          var currentTypeValues = $typeSelect.val() || [];
-          var lenTypes = currentTypeValues.length;
-
-          var selectionLengthsMatch = (len === lenTypes);
-          // Test if every current selection is already in the values list.
-          var selectionsAllInValues = (values.every(function (v) {
-            return (currentTypeValues.indexOf(v) !== -1);
-          }));
-
-          // If the user opened the filter widget, but didn't actually change
-          // the current selections, don't update anything.
-          if (!(selectionLengthsMatch && selectionsAllInValues)) {
-            $typeSelect.val(values.filter(function (v) {
-              return typeValues.indexOf(v) !== -1;
-            }));
-
-            // Submit the filter form to apply the new values.
-            $viewForm.find('.form-submit').click();
-          }
+          selectizeIsOpen = false;
         },
         render: {
           item: function () {
             var currentVal = this.getValue() || [];
             var len = currentVal.length;
-
-            // Remove other selected items, this will only display a single
-            // summary value.
-            if ($selectizeInput !== undefined) {
-              $selectizeInput.find('div').hide();
-            }
 
             // Add a selected item to display the current amount of enabled
             // filter values.
@@ -219,7 +234,6 @@
       $selectizeInput = $selectize.parent().find('.selectize-input');
       $selectizeInput.find('input').prop('disabled', true);
       selectizeControl = $selectize[0].selectize;
-      selectizeControl.isOpen = false;
 
       // Add custom click handler to allow de-select of selected options.
       selectizeControl.$dropdown_content.on('click', function (e) {
@@ -239,15 +253,15 @@
       // Handle input focus manually so the dropdown is not triggered twice
       // causing it to immediately close.
       $selectizeInput.bind('click', function () {
-        if (selectizeControl.isOpen) {
+        if (selectizeIsOpen) {
           $selectizeInput.blur();
           selectizeControl.close();
-          selectizeControl.isOpen = false;
+          selectizeIsOpen = false;
         }
         else {
           $selectizeInput.focus();
           selectizeControl.open();
-          selectizeControl.isOpen = true;
+          selectizeIsOpen = true;
         }
       });
 
@@ -260,22 +274,24 @@
           return;
         }
 
-        if (selectizeControl.isOpen) {
+        if (selectizeIsOpen) {
           $selectizeInput.blur();
           selectizeControl.close();
-          selectizeControl.isOpen = false;
+          selectizeIsOpen = false;
         }
       });
 
-      // Workaround for the dropdown being empty the first time the input area
-      // is clicked, hide it, then open the dropdown while it is hidden, then
-      // after this function is done, close it and un-hide.
-      selectizeControl.$dropdown_content.hide();
-      selectizeControl.open();
-      setTimeout(function () {
-        selectizeControl.close();
-        selectizeControl.$dropdown_content.show();
-      }, 0);
+      if (!selectizeIsOpen) {
+        // Workaround for the dropdown being empty the first time the input area
+        // is clicked, hide it, then open the dropdown while it is hidden, then
+        // after this function is done, close it and un-hide.
+        selectizeControl.$dropdown_content.hide();
+        selectizeControl.open();
+        setTimeout(function () {
+          selectizeControl.close();
+          selectizeControl.$dropdown_content.show();
+        }, 0);
+      }
 
       // Set the initial state of the custom checkbox based on the state of the
       // view filter.
