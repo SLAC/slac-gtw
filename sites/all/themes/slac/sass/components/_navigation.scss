@@ -165,7 +165,7 @@
 
   .main-navigation {
     @include clearfix;
-    height: 33px;
+    height: 32px;
     background: $blue;
     position: relative;
     z-index: 4;
@@ -179,13 +179,6 @@
       .region-navigation {
         padding-left: 0;
       }
-    }
-
-    /**
-     * ie10 and 11 conditional styles
-     */
-    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-        height: 32px;
     }
   }
 
