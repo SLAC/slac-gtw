@@ -97,6 +97,8 @@
         });
         var len = currentValues.length;
 
+        $selectizeInput.find('div').hide();
+
         if (len === 0) {
           $selectizeInput.prepend('<div>Calendar Filters: All</div>');
         }
@@ -135,6 +137,8 @@
           $typeSelect.val(values.filter(function (v) {
             return typeValues.indexOf(v) !== -1;
           }));
+
+          $typeSelect.trigger('change');
 
           // Submit the filter form to apply the new values.
           $viewForm.find('.form-submit').click();
@@ -267,18 +271,20 @@
 
       // Workaround for iOS Safari not handling click events on document or
       // body, instead, remove focus from the dropdown if there is a touch
-      // event on them.
-      $(document).bind('touchstart', function (e) {
-        if (selectizeControl.$dropdown_content.has($(e.target)).length > 0) {
-          // Don't close the dropdown if it's being used.
-          return;
-        }
+      // event outside the dropdown.
+      $('body').once('calendarFiltersTouchStart', function () {
+        $(document).on('touchstart', 'body', function (e) {
+          if ($(e.target).parents('.selectize-dropdown-content').length > 0) {
+            // Don't close the dropdown if it's being used.
+            return;
+          }
 
-        if (selectizeIsOpen) {
-          $selectizeInput.blur();
-          selectizeControl.close();
-          selectizeIsOpen = false;
-        }
+          if (selectizeIsOpen) {
+            $selectizeInput.blur();
+            selectizeControl.close();
+            selectizeIsOpen = false;
+          }
+        });
       });
 
       if (!selectizeIsOpen) {
@@ -315,6 +321,7 @@
         // The filter is set up negated so that when 'access_information' is
         // selected, they will not show, otherwise the filter is cleared (All).
         $accessSelect.val((isChecked) ? 'All' : 'access_information');
+        $accessSelect.trigger('change');
 
         // Submit the filter form to apply the new values.
         $viewForm.find('.form-submit').click();
