@@ -200,56 +200,6 @@ function v_search_views_default_views() {
       'any_label' => NULL,
       'filter_rewrite_values' => NULL,
     ),
-    'field_news_news_type_1' => array(
-      'bef_format' => 'bef',
-      'more_options' => array(
-        'bef_select_all_none' => 0,
-        'bef_collapsible' => 0,
-        'is_secondary' => 1,
-        'any_label' => '',
-        'bef_filter_description' => '',
-        'tokens' => array(
-          'available' => array(
-            0 => 'global_types',
-            'secondary_label' => NULL,
-            'collapsible_label' => NULL,
-            'combine_rewrite' => NULL,
-            'reset_label' => NULL,
-            'bef_filter_description' => NULL,
-            'any_label' => NULL,
-            'filter_rewrite_values' => NULL,
-          ),
-          'secondary_label' => NULL,
-          'collapsible_label' => NULL,
-          'combine_rewrite' => NULL,
-          'reset_label' => NULL,
-          'bef_filter_description' => NULL,
-          'any_label' => NULL,
-          'filter_rewrite_values' => NULL,
-        ),
-        'rewrite' => array(
-          'filter_rewrite_values' => '',
-          'secondary_label' => NULL,
-          'collapsible_label' => NULL,
-          'combine_rewrite' => NULL,
-          'reset_label' => NULL,
-          'bef_filter_description' => NULL,
-          'any_label' => NULL,
-        ),
-        'secondary_label' => NULL,
-        'collapsible_label' => NULL,
-        'combine_rewrite' => NULL,
-        'reset_label' => NULL,
-        'filter_rewrite_values' => NULL,
-      ),
-      'secondary_label' => NULL,
-      'collapsible_label' => NULL,
-      'combine_rewrite' => NULL,
-      'reset_label' => NULL,
-      'bef_filter_description' => NULL,
-      'any_label' => NULL,
-      'filter_rewrite_values' => NULL,
-    ),
     'published_at_1' => array(
       'bef_format' => 'bef_datepicker',
       'more_options' => array(
@@ -499,7 +449,7 @@ function v_search_views_default_views() {
     3 => 0,
   );
   /* Filter criterion: Indexed Node: Published at */
-  $handler->display->display_options['filters']['published_at_1']['id'] = 'published_at';
+  $handler->display->display_options['filters']['published_at_1']['id'] = 'published_at_1';
   $handler->display->display_options['filters']['published_at_1']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['filters']['published_at_1']['field'] = 'published_at';
   $handler->display->display_options['filters']['published_at_1']['operator'] = '>=';
@@ -508,7 +458,7 @@ function v_search_views_default_views() {
   $handler->display->display_options['filters']['published_at_1']['expose']['operator_id'] = 'published_at_op';
   $handler->display->display_options['filters']['published_at_1']['expose']['label'] = 'From:';
   $handler->display->display_options['filters']['published_at_1']['expose']['operator'] = 'published_at_op';
-  $handler->display->display_options['filters']['published_at_1']['expose']['identifier'] = 'published_at';
+  $handler->display->display_options['filters']['published_at_1']['expose']['identifier'] = 'published-from';
   $handler->display->display_options['filters']['published_at_1']['expose']['multiple'] = TRUE;
   $handler->display->display_options['filters']['published_at_1']['expose']['remember_roles'] = array(
     2 => '2',
@@ -520,7 +470,7 @@ function v_search_views_default_views() {
     3 => 0,
   );
   /* Filter criterion: Indexed Node: Published at */
-  $handler->display->display_options['filters']['published_at']['id'] = 'published_at_1';
+  $handler->display->display_options['filters']['published_at']['id'] = 'published_at';
   $handler->display->display_options['filters']['published_at']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['filters']['published_at']['field'] = 'published_at';
   $handler->display->display_options['filters']['published_at']['operator'] = '<=';
@@ -529,7 +479,7 @@ function v_search_views_default_views() {
   $handler->display->display_options['filters']['published_at']['expose']['operator_id'] = 'published_at_1_op';
   $handler->display->display_options['filters']['published_at']['expose']['label'] = 'To:';
   $handler->display->display_options['filters']['published_at']['expose']['operator'] = 'published_at_1_op';
-  $handler->display->display_options['filters']['published_at']['expose']['identifier'] = 'published_at_1';
+  $handler->display->display_options['filters']['published_at']['expose']['identifier'] = 'published-to';
   $handler->display->display_options['filters']['published_at']['expose']['multiple'] = TRUE;
   $handler->display->display_options['filters']['published_at']['expose']['remember_roles'] = array(
     2 => '2',

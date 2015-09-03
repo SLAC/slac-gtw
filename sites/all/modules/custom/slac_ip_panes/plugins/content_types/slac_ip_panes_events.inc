@@ -39,13 +39,17 @@ function slac_ip_upcoming_events_edit_form($form, &$form_state) {
 function slac_ip_upcoming_events_render($subtype, $conf, $args, $context) {
   $block = new stdClass();
   $block->title = $conf['override_title'] ? $conf['override_title_text'] : t('Upcoming Events');
-  $today = date('Y-m-d');
+
+  // Make a datetime string based on 'now' converted to UTC.
+  $today = new DateTime('now');
+  $today->setTimezone(new DateTimeZone('UTC'));
+  $end_time = $today->format('Y-m-d H:i:s');
 
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
     ->entityCondition('bundle', 'event')
     ->propertyCondition('status', NODE_PUBLISHED)
-    ->fieldCondition('field_event_date', 'value2', $today, '>=')
+    ->fieldCondition('field_event_date', 'value2', $end_time, '>=')
     ->fieldOrderBy('field_event_date', 'value', 'ASC');
   $result = $query->execute();
 

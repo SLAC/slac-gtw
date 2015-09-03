@@ -39,7 +39,7 @@ function ct_flea_market_item_flag_default_flags() {
     'link_type' => 'toggle',
     'weight' => 0,
     'show_in_links' => array(
-      'full' => 'full',
+      'full' => 0,
       'teaser' => 0,
       'rss' => 0,
       'ical' => 0,

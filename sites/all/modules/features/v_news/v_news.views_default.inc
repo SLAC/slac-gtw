@@ -65,12 +65,22 @@ function v_news_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['path'] = '[field_shared_new_existing]';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: News Title */
+  $handler->display->display_options['fields']['field_shared_news_title']['id'] = 'field_shared_news_title';
+  $handler->display->display_options['fields']['field_shared_news_title']['table'] = 'field_data_field_shared_news_title';
+  $handler->display->display_options['fields']['field_shared_news_title']['field'] = 'field_shared_news_title';
+  $handler->display->display_options['fields']['field_shared_news_title']['label'] = '';
+  $handler->display->display_options['fields']['field_shared_news_title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_shared_news_title']['alter']['path'] = '[field_shared_new_existing]';
+  $handler->display->display_options['fields']['field_shared_news_title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_shared_news_title']['empty'] = '[title]';
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
@@ -179,6 +189,18 @@ function v_news_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: News Title */
+  $handler->display->display_options['fields']['field_shared_news_title']['id'] = 'field_shared_news_title';
+  $handler->display->display_options['fields']['field_shared_news_title']['table'] = 'field_data_field_shared_news_title';
+  $handler->display->display_options['fields']['field_shared_news_title']['field'] = 'field_shared_news_title';
+  $handler->display->display_options['fields']['field_shared_news_title']['label'] = '';
+  $handler->display->display_options['fields']['field_shared_news_title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_shared_news_title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_shared_news_title']['alter']['path'] = '[field_shared_new_existing]';
+  $handler->display->display_options['fields']['field_shared_news_title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_shared_news_title']['empty'] = '[title]';
+  $handler->display->display_options['fields']['field_shared_news_title']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_shared_news_title']['type'] = 'text_plain';
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -211,7 +233,7 @@ function v_news_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing_1']['label'] = '';
   $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<div class="title-body">
-<div class="title">[title]</div>
+<div class="title">[field_shared_news_title]</div>
 <div class="body">[body]</div>
 </div>';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
@@ -328,12 +350,24 @@ function v_news_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_shared_new_existing]';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: News Title */
+  $handler->display->display_options['fields']['field_shared_news_title']['id'] = 'field_shared_news_title';
+  $handler->display->display_options['fields']['field_shared_news_title']['table'] = 'field_data_field_shared_news_title';
+  $handler->display->display_options['fields']['field_shared_news_title']['field'] = 'field_shared_news_title';
+  $handler->display->display_options['fields']['field_shared_news_title']['label'] = '';
+  $handler->display->display_options['fields']['field_shared_news_title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_shared_news_title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_shared_news_title']['alter']['path'] = '[field_shared_new_existing]';
+  $handler->display->display_options['fields']['field_shared_news_title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_shared_news_title']['empty'] = '[title]';
+  $handler->display->display_options['fields']['field_shared_news_title']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_shared_news_title']['settings'] = array(
+    'image_style' => '',
+  );
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -366,7 +400,7 @@ function v_news_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing_1']['label'] = '';
   $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<div class="title-body">
-<div class="title">[title]</div>
+<div class="title">[field_shared_news_title]</div>
 <div class="body">[body]</div>
 </div>';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;

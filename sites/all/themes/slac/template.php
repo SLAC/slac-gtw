@@ -226,6 +226,17 @@ function slac_preprocess_node(&$variables, $hook) {
 }
 
 /**
+ * Implements theme_field().
+ */
+function slac_field__field_shared_news_title($variables) {
+  $view_mode = $variables['element']['#view_mode'];
+  if ($view_mode == 'news_archive') {
+    $existing = $variables['items'][0]['#markup'];
+    return '<h3 class="node-title">' . $existing . '</h3>';
+  }
+}
+
+/**
  * Override the range separator for all date fields.
  */
 function slac_date_display_range($variables) {
