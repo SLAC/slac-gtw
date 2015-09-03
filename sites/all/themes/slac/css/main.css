@@ -7278,7 +7278,7 @@ body {
   }
 
   .main-navigation {
-    height: 33px;
+    height: 32px;
     background: #316dae;
     position: relative;
     z-index: 4;
@@ -7307,7 +7307,7 @@ body {
   }
   #block-system-main-menu .menu li {
     display: inline-block;
-    margin-right: -4px;
+    margin-right: -5px;
     list-style-type: none;
     list-style-image: none;
   }
