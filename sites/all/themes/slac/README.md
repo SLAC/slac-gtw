@@ -8,10 +8,11 @@
   2. [Watching for Sass changes](#markdown-header-watching-for-sass-changes)
   3. [Theme's structure and organization](#markdown-header-themes-structure-and-organization)
   4. [Grid and Layout](#markdown-header-grid-and-layout)
-  5. [Responsive Design](#markdown-header-responsive-design)
-  6. [Events Calendar](#markdown-header-events-calendar)
-  7. [Event nodes color coding](#markdown-header-event-nodes-color-coding)
-  8. [Color box theming](#markdown-header-color-box)
+  5. [Changing the Grid’s configuration](#markdown-header-changing-the-grids-configuration)
+  6. [Responsive Design](#markdown-header-responsive-design)
+  7. [Events Calendar](#markdown-header-events-calendar)
+  8. [Event nodes color coding](#markdown-header-event-nodes-color-coding)
+  9. [Color box theming](#markdown-header-color-box)
 
 ## Theme’s front-end tools setup
 
@@ -257,6 +258,37 @@ All pages default to 1 column at 100% width on mobile devices with 20px of paddi
 
 **[⬆ back to top](#markdown-header-table-of-contents)**
 
+
+## Changing the Grid’s configuration
+Changing the grid configuration is an easy task thanks the Zen-Grids and Saas.  This means we don’t need to add special CSS classes to our markup like other grid systems require.  To change the grid configuration on any given page, follow these steps:
+
+1. Using your favorite text editor, Open /sass/layouts/_layout.scss
+2. Find the existing rule you would like to change (if one exists), or create a new one
+```
+.front-main-column {
+  @include zen-grid-item(5, 4);
+}
+
+.front-first-column {
+  @include zen-grid-item(3, 1);
+  padding-left: 0;
+}
+
+.front-last-column {
+  @include zen-grid-item(4, 9);
+  padding-right: 0;
+  clear: right;
+}
+```
+
+The Saas rule above handles grid configurations for the three regions in the homepage (.front-main-column, .front-first-column & .front-last-column)  See column diagram above.
+The @include zen-grid-item(x, y) declaration is a Sass mixin that determines the number of columns a region spans (x), and the starting point for that region (y).
+In the example above, .front-main-column spans for 5 columns and starts at column 4.
+The .front-first-column region spans for 3 columns and starts at column 1.
+the .front-last-column region spans for 4 columns and it starts at column 9.
+
+
+**[⬆ back to top](#markdown-header-table-of-contents)**
 
 ## Responsive Design
 
