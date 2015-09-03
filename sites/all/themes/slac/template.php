@@ -224,13 +224,15 @@ function slac_preprocess_node(&$variables, $hook) {
     $view_mode_preprocess($variables, $hook);
   }
 }
+
 /**
  * Implements theme_field().
  */
-function slac_field($variables) {
-  if ($variables['element']['#field_name'] == 'field_shared_news_title' && $variables['element']['#view_mode'] == 'news_archive') {
-    $output = '<h3 class="node-title">' . $variables['element'][0]['#markup'] . '</h3>';
-    return $output;
+function slac_field__field_shared_news_title($variables) {
+  $view_mode = $variables['element']['#view_mode'];
+  if ($view_mode == 'news_archive') {
+    $existing = $variables['items'][0]['#markup'];
+    return '<h3 class="node-title">' . $existing . '</h3>';
   }
 }
 
