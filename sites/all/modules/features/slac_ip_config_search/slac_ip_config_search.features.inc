@@ -20,9 +20,16 @@ function slac_ip_config_search_default_search_api_index() {
       "cron_limit" : "50",
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {
-          "status" : 0,
+          "status" : 1,
           "weight" : "-10",
-          "settings" : { "default" : "1", "bundles" : [] }
+          "settings" : {
+            "default" : "1",
+            "bundles" : {
+              "calendar_feed" : "calendar_feed",
+              "news_article" : "news_article",
+              "news_feed" : "news_feed"
+            }
+          }
         },
         "search_api_alter_node_access" : { "status" : 1, "weight" : "0", "settings" : [] },
         "search_api_alter_node_status" : { "status" : 1, "weight" : "0", "settings" : [] },
