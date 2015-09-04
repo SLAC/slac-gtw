@@ -5,13 +5,15 @@ Drupal.behaviors.initColorboxDefaultStyle = {
     $(context).bind('cbox_complete', function () {
       if (settings.colorbox.colorbox_original_image === 1) {
         // Remove a previously added download link if it exists.
-        if ($('#cboxDownload').length !== 0) {
-          $('#cboxDownload').remove();
+        var $cboxDownload = $('#cboxDownload');
+        if ($cboxDownload.length !== 0) {
+          $cboxDownload.remove();
         }
 
         // Add the download link if this box has an image.
-        if ($('#cboxLoadedContent > img').attr('src')) {
-          var fullHref = $('#cboxLoadedContent > img').attr('src').replace(/styles\/large\/public\//,'');
+        var $cboxLoadedContentImg = $('#cboxLoadedContent > img');
+        if ($cboxLoadedContentImg.length !== 0 && $cboxLoadedContentImg.attr('src')) {
+          var fullHref = $cboxLoadedContentImg.attr('src').replace(/styles\/large\/public\//,'');
           var fullLink = $('<a/>');
           fullLink.attr('href', fullHref);
           fullLink.attr('target', 'new');
@@ -34,13 +36,23 @@ Drupal.behaviors.initColorboxDefaultStyle = {
 
           $('#cboxClose').before(fullLink);
           $('.download_link').wrap('<div id="cboxDownload"></div>');
+
+          // Show the #cboxTitle which contins the image caption in case it was
+          // previously hidden while showing a video.
+          $('#cboxContent #cboxTitle', context).show();
         }
         else {
-          $('#cboxDownload').remove();
+          // There is no image, remove the download link, if there is one, and
+          // remove the #cboxTitle element to it doesn't overly the video
+          // caption.
+
+          $cboxDownload.remove();
+
+          $('#cboxContent #cboxTitle', context).hide();
         }
       }
     });
   }
 };
 
-})(jQuery);
+}(jQuery));
