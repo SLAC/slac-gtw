@@ -62,3 +62,29 @@ function slac_ip_media_download($url) {
   // Don't return a page, or cache anything.
   drupal_exit();
 }
+
+/**
+ * Implements hook_preprocess_image().
+ *
+ * Rewrites the teaser image style to use public
+ * domain path.
+ */
+function slac_ip_media_preprocess_image(&$variables) {
+
+  if ($variables['style_name'] == 'teaser') {
+
+    // Path to publicly availible domain.
+    $domain = 'http://www.slac.stanford.edu/slac/drupal/';
+    $file_temporary_path = variable_get('file_temporary_path');
+
+    if (preg_match("/[0-9]+/u", $file_temporary_path, $matches)) {
+      $afid = $matches[0];
+    }
+    if (isset($afid)) {
+      $replacement_path = $domain . $afid;
+      $existing_path = $variables['path'];
+      $public_path = preg_replace("/^.*files/u", $replacement_path, $existing_path);
+      $variables['path'] = $public_path;
+    }
+  }
+}
