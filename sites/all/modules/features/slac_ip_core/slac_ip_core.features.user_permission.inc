@@ -626,6 +626,107 @@ function slac_ip_core_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'set access_information published on date'.
+  $permissions['set access_information published on date'] = array(
+    'name' => 'set access_information published on date',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publication_date',
+  );
+
+  // Exported permission: 'set any published on date'.
+  $permissions['set any published on date'] = array(
+    'name' => 'set any published on date',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+      'manager' => 'manager',
+    ),
+    'module' => 'publication_date',
+  );
+
+  // Exported permission: 'set calendar_feed published on date'.
+  $permissions['set calendar_feed published on date'] = array(
+    'name' => 'set calendar_feed published on date',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publication_date',
+  );
+
+  // Exported permission: 'set event published on date'.
+  $permissions['set event published on date'] = array(
+    'name' => 'set event published on date',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publication_date',
+  );
+
+  // Exported permission: 'set flea_market_post published on date'.
+  $permissions['set flea_market_post published on date'] = array(
+    'name' => 'set flea_market_post published on date',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publication_date',
+  );
+
+  // Exported permission: 'set news published on date'.
+  $permissions['set news published on date'] = array(
+    'name' => 'set news published on date',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publication_date',
+  );
+
+  // Exported permission: 'set news_article published on date'.
+  $permissions['set news_article published on date'] = array(
+    'name' => 'set news_article published on date',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publication_date',
+  );
+
+  // Exported permission: 'set news_feed published on date'.
+  $permissions['set news_feed published on date'] = array(
+    'name' => 'set news_feed published on date',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publication_date',
+  );
+
+  // Exported permission: 'set page published on date'.
+  $permissions['set page published on date'] = array(
+    'name' => 'set page published on date',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publication_date',
+  );
+
+  // Exported permission: 'set panel published on date'.
+  $permissions['set panel published on date'] = array(
+    'name' => 'set panel published on date',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publication_date',
+  );
+
+  // Exported permission: 'set webform published on date'.
+  $permissions['set webform published on date'] = array(
+    'name' => 'set webform published on date',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publication_date',
+  );
+
   // Exported permission: 'switch shortcut sets'.
   $permissions['switch shortcut sets'] = array(
     'name' => 'switch shortcut sets',
