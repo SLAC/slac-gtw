@@ -18,6 +18,11 @@
   // attachBehaviors calls.
   var selectizeIsOpen = false;
 
+  // This var has to be in closure to both Drupal.behaviors.calendarFilters and
+  // the iOS touch event workaround callback so that when attachBehaviors runs
+  // again, the new object is available to both functions.
+  var $selectize;
+
   /**
    * Creates a custom widget for Calendar event filters based on the view
    * filters, which are hidden.
@@ -60,7 +65,6 @@
         return options;
       }
 
-      var $selectize;
       var selectizeControl;
       var $selectizeInput; // The area where the selected filters are displayed.
 
@@ -117,6 +121,9 @@
        *
        * @param {string[]} values
        *   The values to update the view filter select element to.
+       * @param {jQuery} $typeSelect
+       *   The jQuery collection for the select element in the filters form to
+       *   set values in.
        */
       function updateViewsFilters (values, $typeSelect) {
         var len;
@@ -284,17 +291,20 @@
       // event outside the dropdown.
       $('body').once('calendarFiltersTouchStart', function () {
         $(document).on('touchstart', 'body', function (e) {
-          if ($(e.target).parents('.selectize-dropdown-content').length > 0) {
-            // Don't close the dropdown if it's being used.
-            return;
-          }
+          var $selectizeInput = $selectize.find('.selectize-input');
+          var selectizeControl = $selectize[0].selectize;
 
-          if (selectizeIsOpen) {
+          // Don't close the dropdown if it's being used.
+          var $filteredParents = $(e.target).parents('.selectize-dropdown-content');
+          var selectizeClicked = ($filteredParents.length > 0);
+
+          if (!selectizeClicked && selectizeIsOpen) {
             $selectizeInput.blur();
             selectizeControl.close();
             selectizeIsOpen = false;
           }
         });
+        $('body').click();
       });
 
       if (!selectizeIsOpen) {
