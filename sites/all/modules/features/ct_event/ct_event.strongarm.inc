@@ -149,11 +149,11 @@ function ct_event_strongarm() {
           ),
           'news_archive' => array(
             'weight' => '1',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
           'search_result' => array(
             'weight' => '1',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
           'teaser' => array(
             'weight' => '4',
@@ -161,7 +161,7 @@ function ct_event_strongarm() {
           ),
           'slac_term_listing' => array(
             'weight' => '1',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
           'headline' => array(
             'weight' => '8',
@@ -178,11 +178,11 @@ function ct_event_strongarm() {
             'visible' => FALSE,
           ),
           'news_archive' => array(
-            'weight' => '6',
+            'weight' => '9',
             'visible' => FALSE,
           ),
           'search_result' => array(
-            'weight' => '3',
+            'weight' => '4',
             'visible' => TRUE,
           ),
           'teaser' => array(
@@ -190,7 +190,7 @@ function ct_event_strongarm() {
             'visible' => FALSE,
           ),
           'slac_term_listing' => array(
-            'weight' => '4',
+            'weight' => '6',
             'visible' => FALSE,
           ),
           'headline' => array(
@@ -208,11 +208,11 @@ function ct_event_strongarm() {
             'visible' => TRUE,
           ),
           'news_archive' => array(
-            'weight' => '3',
+            'weight' => '7',
             'visible' => FALSE,
           ),
           'search_result' => array(
-            'weight' => '2',
+            'weight' => '3',
             'visible' => TRUE,
           ),
           'teaser' => array(
@@ -220,7 +220,7 @@ function ct_event_strongarm() {
             'visible' => FALSE,
           ),
           'slac_term_listing' => array(
-            'weight' => '2',
+            'weight' => '3',
             'visible' => TRUE,
           ),
           'headline' => array(
@@ -234,7 +234,7 @@ function ct_event_strongarm() {
         ),
         'content_type' => array(
           'search_result' => array(
-            'weight' => '5',
+            'weight' => '6',
             'visible' => TRUE,
           ),
           'default' => array(
@@ -246,11 +246,11 @@ function ct_event_strongarm() {
             'visible' => FALSE,
           ),
           'news_archive' => array(
-            'weight' => '-5',
+            'weight' => '5',
             'visible' => FALSE,
           ),
           'slac_term_listing' => array(
-            'weight' => '3',
+            'weight' => '5',
             'visible' => FALSE,
           ),
           'headline' => array(
@@ -272,16 +272,16 @@ function ct_event_strongarm() {
             'visible' => FALSE,
           ),
           'news_archive' => array(
-            'weight' => '-3',
-            'visible' => FALSE,
+            'weight' => '2',
+            'visible' => TRUE,
           ),
           'slac_term_listing' => array(
-            'weight' => '-3',
-            'visible' => FALSE,
+            'weight' => '2',
+            'visible' => TRUE,
           ),
           'search_result' => array(
-            'weight' => '-3',
-            'visible' => FALSE,
+            'weight' => '2',
+            'visible' => TRUE,
           ),
           'teaser' => array(
             'weight' => '6',
