@@ -271,40 +271,57 @@
       // handled in the above click handler, or the onChange callback.
       updateSelectizeDisplay($selectize.val());
 
-      // Handle input focus manually so the dropdown is not triggered twice
+      // Handle input focusing manually so the dropdown is not triggered twice
       // causing it to immediately close.
-      $selectizeInput.bind('click', function () {
-        if (selectizeIsOpen) {
-          $selectizeInput.blur();
-          selectizeControl.close();
-          selectizeIsOpen = false;
-        }
-        else {
-          $selectizeInput.focus();
-          selectizeControl.open();
-          selectizeIsOpen = true;
-        }
-      });
 
-      // Workaround for iOS Safari not handling click events on document or
-      // body, instead, remove focus from the dropdown if there is a touch
-      // event outside the dropdown.
+      // touchstart event is needed to workaround iOS-Safari not handling click
+      // events on document or body, remove focus from the dropdown if there is
+      // a touch or click event outside the dropdown.
       $('body').once('calendarFiltersTouchStart', function () {
-        $(document).on('touchstart', 'body', function (e) {
+        var touchDevice = false;
+
+        $(document).on('click touchstart', 'body', function (e) {
+
+          // Only process the event once, if touchstart occurs, return without
+          // doing anything on click.
+          if (e.type === 'touchstart') {
+            touchDevice = true;
+          }
+          else if (touchDevice) {
+            // If this event is handled during touchstart, click doesn't need
+            // handling here.
+            return;
+          }
+
+          var $clicked = $(e.target);
           var $selectizeInput = $selectize.find('.selectize-input');
           var selectizeControl = $selectize[0].selectize;
 
           // Don't close the dropdown if it's being used.
-          var $filteredParents = $(e.target).parents('.selectize-dropdown-content');
-          var selectizeClicked = ($filteredParents.length > 0);
+          var $dropdownParents = $clicked.parents('.selectize-dropdown-content');
+          var dropdownClicked = ($dropdownParents.length > 0);
 
-          if (!selectizeClicked && selectizeIsOpen) {
+          var $selectizeParents = $clicked.parents('.selectize-control');
+          var selectizeClicked = ($selectizeParents.length > 0);
+
+          if (!dropdownClicked && selectizeIsOpen) {
             $selectizeInput.blur();
             selectizeControl.close();
             selectizeIsOpen = false;
           }
+          else if (!dropdownClicked && selectizeClicked) {
+            if (selectizeIsOpen) {
+              $selectizeInput.blur();
+              selectizeControl.close();
+              selectizeIsOpen = false;
+            }
+            else {
+              $selectizeInput.focus();
+              selectizeControl.open();
+              selectizeIsOpen = true;
+            }
+          }
         });
-        $('body').click();
       });
 
       if (!selectizeIsOpen) {
