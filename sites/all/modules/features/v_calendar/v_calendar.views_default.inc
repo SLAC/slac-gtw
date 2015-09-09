@@ -196,6 +196,7 @@ function v_calendar_views_default_views() {
     7 => 0,
     3 => 0,
   );
+  $handler->display->display_options['filters']['tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['tid']['type'] = 'select';
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'event_type';
   /* Filter criterion: Content: Published */
@@ -212,22 +213,23 @@ function v_calendar_views_default_views() {
     'access_information' => 'access_information',
   );
   $handler->display->display_options['filters']['type_2']['group'] = 2;
-  /* Filter criterion: Show Access Notices (Content: Type) */
+  /* Filter criterion: not used, needed for the Event Type to be able to submit empty */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['ui_name'] = 'Show Access Notices (Content: Type)';
-  $handler->display->display_options['filters']['type']['operator'] = 'not in';
+  $handler->display->display_options['filters']['type']['ui_name'] = 'not used, needed for the Event Type to be able to submit empty';
   $handler->display->display_options['filters']['type']['value'] = array(
     'access_information' => 'access_information',
+    'event' => 'event',
   );
   $handler->display->display_options['filters']['type']['group'] = 2;
   $handler->display->display_options['filters']['type']['exposed'] = TRUE;
   $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
-  $handler->display->display_options['filters']['type']['expose']['label'] = 'Show Access Notices';
+  $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
+  $handler->display->display_options['filters']['type']['expose']['description'] = 'not used, needed for the Event Type to be able to submit empty';
   $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
   $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
-  $handler->display->display_options['filters']['type']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['type']['expose']['multiple'] = TRUE;
   $handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
