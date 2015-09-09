@@ -44,6 +44,7 @@ function slac_ip_content_admin_views_default_views() {
     'title' => 'title',
     'changed' => 'changed',
     'created' => 'created',
+    'published_at' => 'published_at',
     'state' => 'state',
     'type' => 'type',
     'status' => 'status',
@@ -51,7 +52,7 @@ function slac_ip_content_admin_views_default_views() {
     'edit_node' => 'edit_node',
     'delete_node' => 'edit_node',
   );
-  $handler->display->display_options['style_options']['default'] = 'created';
+  $handler->display->display_options['style_options']['default'] = 'published_at';
   $handler->display->display_options['style_options']['info'] = array(
     'views_bulk_operations' => array(
       'align' => '',
@@ -73,6 +74,13 @@ function slac_ip_content_admin_views_default_views() {
       'empty_column' => 0,
     ),
     'created' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'desc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'published_at' => array(
       'sortable' => 1,
       'default_sort_order' => 'desc',
       'align' => '',
@@ -290,13 +298,14 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
   $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y H:i a';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'slac_ip_access_date';
-  /* Field: Content: Post date */
-  $handler->display->display_options['fields']['created']['id'] = 'created';
-  $handler->display->display_options['fields']['created']['table'] = 'node';
-  $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y H:i a';
-  $handler->display->display_options['fields']['created']['second_date_format'] = 'slac_ip_access_date';
+  /* Field: Node: Published at */
+  $handler->display->display_options['fields']['published_at']['id'] = 'published_at';
+  $handler->display->display_options['fields']['published_at']['table'] = 'publication_date';
+  $handler->display->display_options['fields']['published_at']['field'] = 'published_at';
+  $handler->display->display_options['fields']['published_at']['label'] = 'Post date';
+  $handler->display->display_options['fields']['published_at']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['published_at']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['published_at']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Workbench Moderation: State */
   $handler->display->display_options['fields']['state']['id'] = 'state';
   $handler->display->display_options['fields']['state']['table'] = 'workbench_moderation_node_history';
@@ -491,6 +500,7 @@ function slac_ip_content_admin_views_default_views() {
     'title' => 'title',
     'changed' => 'changed',
     'created' => 'created',
+    'published_at' => 'published_at',
     'state' => 'state',
     'field_news_news_type' => 'field_news_news_type',
     'status' => 'status',
@@ -498,7 +508,7 @@ function slac_ip_content_admin_views_default_views() {
     'edit_node' => 'edit_node',
     'delete_node' => 'edit_node',
   );
-  $handler->display->display_options['style_options']['default'] = 'created';
+  $handler->display->display_options['style_options']['default'] = 'published_at';
   $handler->display->display_options['style_options']['info'] = array(
     'views_bulk_operations' => array(
       'align' => '',
@@ -520,6 +530,13 @@ function slac_ip_content_admin_views_default_views() {
       'empty_column' => 0,
     ),
     'created' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'desc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'published_at' => array(
       'sortable' => 1,
       'default_sort_order' => 'desc',
       'align' => '',
@@ -723,13 +740,14 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
   $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y H:i a';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'slac_ip_access_date';
-  /* Field: Content: Post date */
-  $handler->display->display_options['fields']['created']['id'] = 'created';
-  $handler->display->display_options['fields']['created']['table'] = 'node';
-  $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y H:i a';
-  $handler->display->display_options['fields']['created']['second_date_format'] = 'slac_ip_access_date';
+  /* Field: Node: Published at */
+  $handler->display->display_options['fields']['published_at']['id'] = 'published_at';
+  $handler->display->display_options['fields']['published_at']['table'] = 'publication_date';
+  $handler->display->display_options['fields']['published_at']['field'] = 'published_at';
+  $handler->display->display_options['fields']['published_at']['label'] = 'Post date';
+  $handler->display->display_options['fields']['published_at']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['published_at']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['published_at']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Workbench Moderation: State */
   $handler->display->display_options['fields']['state']['id'] = 'state';
   $handler->display->display_options['fields']['state']['table'] = 'workbench_moderation_node_history';
@@ -949,8 +967,9 @@ function slac_ip_content_admin_views_default_views() {
     'name' => 'name',
     'edit_node' => 'edit_node',
     'delete_node' => 'edit_node',
+    'published_at' => 'published_at',
   );
-  $handler->display->display_options['style_options']['default'] = 'created';
+  $handler->display->display_options['style_options']['default'] = 'published_at';
   $handler->display->display_options['style_options']['info'] = array(
     'views_bulk_operations' => array(
       'align' => '',
@@ -1012,6 +1031,13 @@ function slac_ip_content_admin_views_default_views() {
       'empty_column' => 0,
     ),
     'delete_node' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'published_at' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'desc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -1175,13 +1201,14 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
   $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y H:i a';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'slac_ip_access_date';
-  /* Field: Content: Post date */
-  $handler->display->display_options['fields']['created']['id'] = 'created';
-  $handler->display->display_options['fields']['created']['table'] = 'node';
-  $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y H:i a';
-  $handler->display->display_options['fields']['created']['second_date_format'] = 'slac_ip_access_date';
+  /* Field: Node: Published at */
+  $handler->display->display_options['fields']['published_at']['id'] = 'published_at';
+  $handler->display->display_options['fields']['published_at']['table'] = 'publication_date';
+  $handler->display->display_options['fields']['published_at']['field'] = 'published_at';
+  $handler->display->display_options['fields']['published_at']['label'] = 'Post date';
+  $handler->display->display_options['fields']['published_at']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['published_at']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['published_at']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Workbench Moderation: State */
   $handler->display->display_options['fields']['state']['id'] = 'state';
   $handler->display->display_options['fields']['state']['table'] = 'workbench_moderation_node_history';
@@ -1543,13 +1570,14 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
   $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y H:i a';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'slac_ip_access_date';
-  /* Field: Content: Post date */
-  $handler->display->display_options['fields']['created']['id'] = 'created';
-  $handler->display->display_options['fields']['created']['table'] = 'node';
-  $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y H:i a';
-  $handler->display->display_options['fields']['created']['second_date_format'] = 'slac_ip_access_date';
+  /* Field: Node: Published at */
+  $handler->display->display_options['fields']['published_at']['id'] = 'published_at';
+  $handler->display->display_options['fields']['published_at']['table'] = 'publication_date';
+  $handler->display->display_options['fields']['published_at']['field'] = 'published_at';
+  $handler->display->display_options['fields']['published_at']['label'] = 'Post date';
+  $handler->display->display_options['fields']['published_at']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['published_at']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['published_at']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Workbench Moderation: State */
   $handler->display->display_options['fields']['state']['id'] = 'state';
   $handler->display->display_options['fields']['state']['table'] = 'workbench_moderation_node_history';
@@ -1740,13 +1768,14 @@ function slac_ip_content_admin_views_default_views() {
     'title' => 'title',
     'changed' => 'changed',
     'created' => 'created',
+    'published_at' => 'published_at',
     'flagged' => 'flagged',
     'status' => 'status',
     'name' => 'name',
     'edit_node' => 'edit_node',
     'delete_node' => 'edit_node',
   );
-  $handler->display->display_options['style_options']['default'] = 'created';
+  $handler->display->display_options['style_options']['default'] = 'published_at';
   $handler->display->display_options['style_options']['info'] = array(
     'views_bulk_operations' => array(
       'align' => '',
@@ -1768,6 +1797,13 @@ function slac_ip_content_admin_views_default_views() {
       'empty_column' => 0,
     ),
     'created' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'desc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'published_at' => array(
       'sortable' => 1,
       'default_sort_order' => 'desc',
       'align' => '',
@@ -1984,13 +2020,14 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
   $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/j/Y H:i a';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'slac_ip_access_date';
-  /* Field: Content: Post date */
-  $handler->display->display_options['fields']['created']['id'] = 'created';
-  $handler->display->display_options['fields']['created']['table'] = 'node';
-  $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y H:i a';
-  $handler->display->display_options['fields']['created']['second_date_format'] = 'slac_ip_access_date';
+  /* Field: Node: Published at */
+  $handler->display->display_options['fields']['published_at']['id'] = 'published_at';
+  $handler->display->display_options['fields']['published_at']['table'] = 'publication_date';
+  $handler->display->display_options['fields']['published_at']['field'] = 'published_at';
+  $handler->display->display_options['fields']['published_at']['label'] = 'Post date';
+  $handler->display->display_options['fields']['published_at']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['published_at']['custom_date_format'] = 'n/j/Y H:i a';
+  $handler->display->display_options['fields']['published_at']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Flags: Flagged */
   $handler->display->display_options['fields']['flagged']['id'] = 'flagged';
   $handler->display->display_options['fields']['flagged']['table'] = 'flagging';
