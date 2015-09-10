@@ -71,7 +71,7 @@ function slac_ip_media_download($url) {
  */
 function slac_ip_media_preprocess_image(&$variables) {
 
-  if ($variables['style_name'] == 'teaser') {
+  if (isset($variables['style_name']) && $variables['style_name'] == 'teaser') {
 
     // Path to publicly availible domain.
     $domain = 'http://www.slac.stanford.edu/slac/drupal/';
