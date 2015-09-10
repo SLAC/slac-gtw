@@ -90,7 +90,7 @@ function v_news_views_default_views() {
   $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['created']['custom_date_format'] = 'm/d/Y';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'n/j/Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'slac_ip_access_date';
   /* Field: Node: Published at */
   $handler->display->display_options['fields']['published_at']['id'] = 'published_at';
@@ -101,7 +101,7 @@ function v_news_views_default_views() {
   $handler->display->display_options['fields']['published_at']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['published_at']['empty'] = '[created]';
   $handler->display->display_options['fields']['published_at']['date_format'] = 'custom';
-  $handler->display->display_options['fields']['published_at']['custom_date_format'] = 'm/d/Y';
+  $handler->display->display_options['fields']['published_at']['custom_date_format'] = 'n/j/Y';
   $handler->display->display_options['fields']['published_at']['second_date_format'] = 'slac_ip_access_date';
   /* Sort criterion: Nodequeue: Position */
   $handler->display->display_options['sorts']['position']['id'] = 'position';
