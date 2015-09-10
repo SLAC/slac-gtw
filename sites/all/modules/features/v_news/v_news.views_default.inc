@@ -35,6 +35,7 @@ function v_news_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
     'title' => 'title',
+    'field_shared_news_title' => 'field_shared_news_title',
     'created' => 'created',
     'published_at' => 'published_at',
   );

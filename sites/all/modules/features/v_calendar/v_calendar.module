@@ -9,24 +9,14 @@ include_once 'v_calendar.features.inc';
 /**
  * Implements hook_form_FORM_ID_alter().
  *
- * Formats the Calendar views' "Show Access Notices" filter in a way that makes
- * sense for its actual configuration (a show/hide toggle) in case JS is
- * disabled. It will be replaced with a checkbox toggle otherwise.
+ * Adds custom Selectize behavior to combine the term filters into one widget.
+ * Also adds a "Show Access Notices" checkbox to function as a show/hide toggle.
  */
 function v_calendar_form_views_exposed_form_alter(&$form, &$form_state) {
   if (strpos($form['#id'], 'views-exposed-form-calendar-view-') !== FALSE) {
-    $form['type']['#options']['All'] = 'Yes';
-    $form['type']['#options']['access_information'] = 'No';
-    // Default to 'Off'.
-    $form['type']['#default_value'] = 'access_information';
-
-    // Add custom Selectize behaviors to combine term filters into one widget.
-    // Also adds the "js" class name to the HTML element so the views form can
-    // be hidden for JS users.
-    $form['#attached']['js'] = array(
-      drupal_get_path('module', 'v_calendar') . '/js/v_calendar.js' => array(
-        'scope' => 'header',
-      ),
+    $js_path = drupal_get_path('module', 'v_calendar') . '/js/v_calendar.js';
+    $form['#attached']['js'][$js_path] = array(
+      'scope' => 'header',
     );
   }
 }
