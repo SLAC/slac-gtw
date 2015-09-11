@@ -1286,4 +1286,16 @@ function slac_igp_deployment_update_7063() {
   }
 }
 
+/**
+ * Enable the imagecache_actions and imagecache_canvasactions modules.
+ */
+function slac_igp_deployment_update_7064() {
+  $result = module_enable(array(
+    'imageinfo_cache',
+  ));
 
+  if ($result == FALSE) {
+    $message = __FUNCTION__ . ' An error occurred while enabling modules.';
+    throw new DrupalUpdateException($message);
+  }
+}
