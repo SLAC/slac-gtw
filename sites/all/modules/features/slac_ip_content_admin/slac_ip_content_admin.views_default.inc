@@ -396,7 +396,7 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['date_filter']['year_range'] = '-0:+1';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
-    'node.created' => 'node.created',
+    'node.published_at' => 'node.published_at',
   );
   /* Filter criterion: Workbench Moderation: State */
   $handler->display->display_options['filters']['state']['id'] = 'state';
@@ -861,7 +861,7 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['date_filter']['year_range'] = '-0:+1';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
-    'node.created' => 'node.created',
+    'node.published_at' => 'node.published_at',
   );
   /* Filter criterion: Workbench Moderation: State */
   $handler->display->display_options['filters']['state']['id'] = 'state';
@@ -1322,7 +1322,7 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['date_filter']['year_range'] = '-0:+1';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
-    'node.created' => 'node.created',
+    'node.published_at' => 'node.published_at',
   );
   /* Filter criterion: Workbench Moderation: State */
   $handler->display->display_options['filters']['state']['id'] = 'state';
@@ -1687,7 +1687,7 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['date_filter']['year_range'] = '-0:+1';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
-    'node.created' => 'node.created',
+    'node.published_at' => 'node.published_at',
   );
   /* Filter criterion: Workbench Moderation: State */
   $handler->display->display_options['filters']['state']['id'] = 'state';
@@ -2138,7 +2138,7 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['date_filter']['year_range'] = '-0:+1';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
-    'node.created' => 'node.created',
+    'node.published_at' => 'node.published_at',
   );
   /* Filter criterion: Flags: Flagged */
   $handler->display->display_options['filters']['flagged']['id'] = 'flagged';
