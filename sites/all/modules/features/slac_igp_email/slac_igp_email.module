@@ -280,19 +280,22 @@ function slac_igp_email_preprocess_slac_igp_director_column(&$vars) {
     $keys = array_keys($term);
     $tid = $keys[0];
   }
-  $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'node')
-    ->entityCondition('bundle', array('access_information', 'event', 'news'), 'IN')
-    ->propertyCondition('status', 1)
-    ->fieldCondition('field_shared_tags', 'tid', $tid)
-    ->fieldCondition('field_shared_promote_news', 'value', 1, '=')
-    ->propertyOrderBy('created', 'DESC')
-    ->range(0, 1);
-  $result = $query->execute();
-  if (!empty($result)) {
-    $node = current($result['node']);
+  $select = db_select('node', 'n');
+  $select->join('publication_date', 'p', 'n.nid = p.nid');
+  $select->join('field_data_field_shared_tags','tags','n.nid = tags.entity_id');
+  $select->join('field_data_field_shared_promote_news','promote_news','n.nid = promote_news.entity_id');
+  $select->addField('n', 'nid');
+  $select->condition('n.status', 1);
+  $select->condition('n.type', array('access_information', 'event', 'news'), 'IN');
+  $select->condition('tags.field_shared_tags_tid', $tid);
+  $select->condition('promote_news.field_shared_promote_news_value', 1);
+  $select->orderBy('p.published_at', 'DESC');
+  $select->range(0, 1);
+  $results = $select->execute()->fetchAll();
+  if (!empty($results)) {
+    $node = current($result);
     $vars['director_column'] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=teaser]';
-  }  
+  }
 }
 
 /**
@@ -312,7 +315,7 @@ function slac_igp_email_preprocess_slac_igp_email(&$vars) {
   // initiate empty arrays
   $vars['featured_news'] = array();
   $vars['news'] = array();
-  
+
   $config = $vars['config'];
   if (empty($config)) {
     return;
@@ -345,26 +348,28 @@ function _slac_igp_email_generate_items($type, $last_campaign = array()) {
   } else {
     $mode = VIEW_MODE_LINK;
   }
-  $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'node')
-    ->entityCondition('bundle', array('access_information', 'event', 'news'), 'IN')
-    ->propertyCondition('status', 1)
-    ->fieldCondition('field_shared_promote_news', 'value', 1, '=');
-
+  $select = db_select('node', 'n');
+  $select->join('publication_date', 'p', 'n.nid = p.nid');
+  $select->join('field_data_field_shared_promote_news','promote_news','n.nid = promote_news.entity_id');
+  $select->addField('n', 'nid');
+  $select->condition('n.status', 1);
+  $select->condition('n.type', array('access_information', 'event', 'news'), 'IN');
+  $select->condition('promote_news.field_shared_promote_news_value', 1);
   if ($type == 'promoted') {
-    $query->propertyCondition('promote', 1);
-  } else {
-    $query->propertyCondition('promote', 0);
+    $select->condition('n.promote', 1);
+  }
+  else {
+    $select->condition('n.promote', 0);
   }
   if (!empty($last_campaign)) {
-    $query->propertyCondition('created', $last_campaign['timestamp'], '>');
+    $select->condition('p.published_at', $last_campaign['timestamp'], '>');
   }
-  $query->propertyOrderBy('created', 'DESC');
-  $query->range(0, 10);
-  $result = $query->execute();
+  $select->orderBy('p.published_at', 'DESC');
+  $select->range(0, 10);
+  $results = $select->execute()->fetchAll();
   if (!empty($result)) {
-    foreach ($result['node'] as $item) {
-      $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
+    foreach ($result as $key => $node) {
+      $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=' . $mode . ']';
     }
   }
   return $data;
@@ -378,28 +383,29 @@ function _slac_igp_email_generate_items_views($type, $last_campaign = array()) {
   } else {
     $mode = VIEW_MODE_LINK;
   }
-  $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'node')
-    ->entityCondition('bundle', array('access_information', 'event', 'news'), 'IN')
-    ->propertyCondition('status', 1)
-    ->fieldCondition('field_shared_promote_news', 'value', 1, '=');
-
+  $select = db_select('node', 'n');
+  $select->join('publication_date', 'p', 'n.nid = p.nid');
+  $select->join('field_data_field_shared_promote_news','promote_news','n.nid = promote_news.entity_id');
+  $select->addField('n', 'nid');
+  $select->condition('n.status', 1);
+  $select->condition('n.type', array('access_information', 'event', 'news'), 'IN');
+  $select->condition('promote_news.field_shared_promote_news_value', 1);
   if ($type == 'promoted') {
-    $query->propertyCondition('promote', 1);
-  } else {
-    $query->propertyCondition('promote', 0);
+    $select->condition('n.promote', 1);
+  }
+  else {
+    $select->condition('n.promote', 0);
   }
   if (!empty($last_campaign)) {
-    $query->propertyCondition('created', $last_campaign['timestamp'], '>');
+    $select->condition('p.published_at', $last_campaign['timestamp'], '>');
   }
-  $query->propertyOrderBy('created', 'DESC');
-  $query->range(0, 10);
-  $result = $query->execute();
+  $select->orderBy('p.published_at', 'DESC');
+  $select->range(0, 10);
+  $results = $select->execute()->fetchAll();
   if (!empty($result)) {
-    foreach ($result['node'] as $item) {
-      // check to see if the given item belongs to any of the news views displays
-      if (_slac_igp_email_check_in_view($item->nid) === TRUE) {
-        $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
+    foreach ($result as $key => $node) {
+      if (_slac_igp_email_check_in_view($node->nid) === TRUE) {
+        $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=' . $mode . ']';
       }
     }
   }
