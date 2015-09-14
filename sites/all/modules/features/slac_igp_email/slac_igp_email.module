@@ -293,7 +293,7 @@ function slac_igp_email_preprocess_slac_igp_director_column(&$vars) {
   $select->range(0, 1);
   $results = $select->execute()->fetchAll();
   if (!empty($results)) {
-    $node = current($result);
+    $node = current($results);
     $vars['director_column'] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=teaser]';
   }
 }
@@ -367,8 +367,8 @@ function _slac_igp_email_generate_items($type, $last_campaign = array()) {
   $select->orderBy('p.published_at', 'DESC');
   $select->range(0, 10);
   $results = $select->execute()->fetchAll();
-  if (!empty($result)) {
-    foreach ($result as $key => $node) {
+  if (!empty($results)) {
+    foreach ($results as $key => $node) {
       $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=' . $mode . ']';
     }
   }
@@ -402,8 +402,8 @@ function _slac_igp_email_generate_items_views($type, $last_campaign = array()) {
   $select->orderBy('p.published_at', 'DESC');
   $select->range(0, 10);
   $results = $select->execute()->fetchAll();
-  if (!empty($result)) {
-    foreach ($result as $key => $node) {
+  if (!empty($results)) {
+    foreach ($results as $key => $node) {
       if (_slac_igp_email_check_in_view($node->nid) === TRUE) {
         $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=' . $mode . ']';
       }
