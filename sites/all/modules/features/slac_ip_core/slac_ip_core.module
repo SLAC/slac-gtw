@@ -455,3 +455,19 @@ function slac_ip_core_author($variables) {
 
   return '<div class="node-author">' . $user->name . '</div>';
 }
+
+/**
+ * Helper funtion that returns the publication
+ * date for a node.
+ */
+function slac_ip_core_get_publication_date($nid) {
+  $select = db_select('publication_date', 'p');
+  $select->addField('p', 'published_at');
+  $select->condition('nid', $nid);
+  $select->range(0, 1);
+  $result = $select->execute()->fetchField();
+  if (!empty($result)) {
+    return $result;
+  }
+  return FLASE;
+}

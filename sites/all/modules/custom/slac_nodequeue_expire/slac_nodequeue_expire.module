@@ -29,8 +29,13 @@ function slac_nodequeue_expire_cron() {
       $nodes = nodequeue_load_nodes($subqueue->sqid, $queue->reverse, $config['exclude'], 1000, FALSE);
 
       foreach ($nodes as $node) {
+        $date = $node->created;
+        $published_at = slac_ip_core_get_publication_date($node->nid);
+        if ($published_at) {
+         $date = $published_at;
+        }
         // Check for date interval greater than the configuration.
-        if (REQUEST_TIME - $node->created > $config['date'] * $week_seconds) {
+        if (REQUEST_TIME - $date > $config['date'] * $week_seconds) {
           nodequeue_subqueue_remove_node($subqueue->sqid, $node->nid);
         }
       }
@@ -48,7 +53,15 @@ function slac_nodequeue_expire_form_alter(&$form, &$form_state, $form_id) {
   if (substr($form_id, 0, strrpos($form_id, '_')) !== 'nodequeue_arrange_subqueue_form') {
     return;
   }
-
+  foreach ($form['nodes'] as $key => $value) {
+    if (is_int($key)) {
+      $timestamp = slac_ip_core_get_publication_date($key);
+      if ($timestamp) {
+        $date = format_date($timestamp, 'custom', t('o/n/j - g:Ha', array(), array('context' => 'php date format')));
+        $form['nodes'][$key]['date']['#markup'] = $date;
+      }
+    }
+  }
   $var_name = _slac_nodequeue_expire_varname($form['nodes']['#queue']['name'], $form['nodes']['#subqueue']['sqid']);
   $config = variable_get($var_name, array());
 
@@ -62,7 +75,7 @@ function slac_nodequeue_expire_form_alter(&$form, &$form_state, $form_id) {
 
   $form['subqueue_expiration']['example'] = array(
     '#prefix' => '<div class="messages status">',
-    '#markup' => t('For example, if you choose 2 weeks for the %date option and excluding 3 items from the top, it means that anything created older than 2 weeks will be periodically removed from the queue but 3 items on the top of this queue will remain there regardless of their posted date.', array('%date' => 'Dating back to')),
+    '#markup' => t('For example, if you choose 2 weeks for the %date option and excluding 3 items from the top, it means that anything published older than 2 weeks will be periodically removed from the queue but 3 items on the top of this queue will remain there regardless of their posted date.', array('%date' => 'Dating back to')),
     '#suffix' => '</div>',
   );
 
@@ -107,7 +120,7 @@ function slac_nodequeue_expire_validate($form, &$form_state) {
     form_set_error('subqueue_expiration][subqueue_expiration_exclude', t('You must select number of items to exclude as well.'));
   }
   if (!empty($v['subqueue_expiration_exclude']) && empty($v['subqueue_expiration_date'])) {
-    form_set_error('subqueue_expiration][subqueue_expiration_date', t('You must select created date as well.'));
+    form_set_error('subqueue_expiration][subqueue_expiration_date', t('You must select published date as well.'));
   }
 }
 
