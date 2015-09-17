@@ -420,10 +420,11 @@ function _slac_igp_email_generate_items_views($type, $last_campaign = array()) {
 function _slac_igp_email_check_in_view($nid) {
   // @[views_name]|[view_display]
   $mapping = array(
-    'slac_news|block', // feature news
+    'slac_news|block', //
     'slac_news|block_1', // lab news,
     'slac_news|block_2', // slac science (featured)
-    'slac_news|block_3', // slac science
+    'slac_news|block_3', // feature news slide show
+    'slac_news|attachment_1', // slac science
   );
   $items = array();
   foreach ($mapping as $view_meta) {
