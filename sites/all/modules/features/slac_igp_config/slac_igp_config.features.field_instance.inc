@@ -38,11 +38,19 @@ function slac_igp_config_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'hidden',
-        'module' => 'text',
+        'module' => 'smart_trim',
         'settings' => array(
+          'more_link' => FALSE,
+          'more_text' => 'Read more',
+          'summary_handler' => 'full',
           'trim_length' => 600,
+          'trim_link' => FALSE,
+          'trim_options' => array(),
+          'trim_preserve_tags' => '',
+          'trim_suffix' => '...',
+          'trim_type' => 'chars',
         ),
-        'type' => 'text_summary_or_trimmed',
+        'type' => 'smart_trim_format',
         'weight' => 1,
       ),
     ),
@@ -421,6 +429,63 @@ function slac_igp_config_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'node-news_article-field_slac_migrate_tag_store'
+  $field_instances['node-news_article-field_slac_migrate_tag_store'] = array(
+    'bundle' => 'news_article',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Used in News Article migration',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 8,
+      ),
+      'headline' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'link' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_slac_migrate_tag_store',
+    'label' => 'Tag Store',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 3,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 41,
     ),
   );
 
@@ -925,8 +990,10 @@ function slac_igp_config_field_default_field_instances() {
   t('Link');
   t('Please choose how the news article image would be displayed in the featured sections on the site.');
   t('Promoted');
+  t('Tag Store');
   t('Tags');
   t('Type');
+  t('Used in News Article migration');
 
   return $field_instances;
 }

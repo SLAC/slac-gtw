@@ -559,6 +559,25 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'file',
   );
 
+  // Exported field_base: 'field_slac_migrate_tag_store'
+  $field_bases['field_slac_migrate_tag_store'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_slac_migrate_tag_store',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
   // Exported field_base: 'field_sr_organization'
   $field_bases['field_sr_organization'] = array(
     'active' => 1,

@@ -116,7 +116,38 @@ function slac_igp_config_strongarm() {
           'weight' => '0',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'content_type' => array(
+          'teaser' => array(
+            'weight' => '-5',
+            'visible' => TRUE,
+          ),
+        ),
+        'created' => array(
+          'teaser' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
+          ),
+        ),
+        'published_at' => array(
+          'teaser' => array(
+            'weight' => '-3',
+            'visible' => TRUE,
+          ),
+        ),
+        'author' => array(
+          'teaser' => array(
+            'weight' => '-2',
+            'visible' => TRUE,
+          ),
+        ),
+        'title' => array(
+          'teaser' => array(
+            'weight' => '-4',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__news_article'] = $strongarm;
