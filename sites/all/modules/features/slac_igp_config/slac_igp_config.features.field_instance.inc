@@ -43,7 +43,7 @@ function slac_igp_config_field_default_field_instances() {
           'more_link' => FALSE,
           'more_text' => 'Read more',
           'summary_handler' => 'full',
-          'trim_length' => 600,
+          'trim_length' => 160,
           'trim_link' => FALSE,
           'trim_options' => array(),
           'trim_preserve_tags' => '',
