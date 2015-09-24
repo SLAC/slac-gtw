@@ -49,7 +49,7 @@ function ct_access_information_field_default_field_instances() {
           'more_link' => 0,
           'more_text' => 'Read more',
           'summary_handler' => 'trim',
-          'trim_length' => 160,
+          'trim_length' => 250,
           'trim_link' => 0,
           'trim_options' => array(
             'text' => 'text',
@@ -93,7 +93,7 @@ function ct_access_information_field_default_field_instances() {
           'more_link' => FALSE,
           'more_text' => 'Read more',
           'summary_handler' => 'full',
-          'trim_length' => 160,
+          'trim_length' => 250,
           'trim_link' => FALSE,
           'trim_options' => array(),
           'trim_preserve_tags' => '',
