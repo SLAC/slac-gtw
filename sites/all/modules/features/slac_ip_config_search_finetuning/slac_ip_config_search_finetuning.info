@@ -1,0 +1,13 @@
+name = SLAC IP Config Search Finetuning
+description = Fine-tuning of search to improve results accuracy and improve performance (SLAC web team)
+core = 7.x
+package = SLAC
+version = 7.x-1.0
+project = slac_ip_config_search_finetuning
+dependencies[] = fe_block
+dependencies[] = search_api
+dependencies[] = search_api_views
+dependencies[] = slac_ip_config_search
+dependencies[] = slac_search
+features[fe_block_settings][] = slac_search-form
+features[features_api][] = api:2
