@@ -48,4 +48,3 @@ features[variable][] = node_preview_webform
 features[variable][] = node_submitted_webform
 features[variable][] = webform_node_types
 features_exclude[dependencies][metatag] = metatag
-project path = sites/all/modules/features

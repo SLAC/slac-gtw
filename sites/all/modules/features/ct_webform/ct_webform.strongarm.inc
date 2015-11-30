@@ -211,6 +211,10 @@ function ct_webform_strongarm() {
             'weight' => '-3',
             'visible' => TRUE,
           ),
+          'default' => array(
+            'weight' => '-3',
+            'visible' => FALSE,
+          ),
         ),
       ),
     ),

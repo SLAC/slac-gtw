@@ -426,8 +426,7 @@ function v_search_views_default_views() {
     3 => 0,
   );
   $handler->display->display_options['filters']['search_api_views_fulltext']['fields'] = array(
-    'body:value' => 'body:value',
-    'title' => 'title',
+    'search_api_aggregation_1' => 'search_api_aggregation_1',
   );
   /* Filter criterion: Tags: Name (indexed) */
   $handler->display->display_options['filters']['field_shared_tags_name']['id'] = 'field_shared_tags_name';
