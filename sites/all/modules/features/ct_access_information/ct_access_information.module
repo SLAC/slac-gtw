@@ -1,0 +1,90 @@
+<?php
+/**
+ * @file
+ * Code for the Access Information feature.
+ */
+
+include_once 'ct_access_information.features.inc';
+
+/**
+ * Implements hook_menu().
+ */
+function ct_access_information_menu() {
+  $items['node/add/access-information/slac'] = array(
+    'title' => 'Create a new Access Notice',
+    'page callback' => 'ct_access_information_custom_add',
+    'access callback' => 'node_access',
+    'access arguments' => array('create', 'access_information'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Page callback. Displays a page with links for different choices used for
+ * creating an Access Notice node.
+ */
+function ct_access_information_custom_add() {
+  $content = '<p>' . t('This page provides links for creating Access Notices. If you need to create an Event instead, please use the appropriate link under "Other Options."') . '</p>';
+
+  $access_items = array(
+    l(t('Create an Access Notice'), 'node/add/access-information'),
+    l(t('Create an Access Notice promoted as News'),
+      'node/add/access-information',
+      array(
+        'query' => array(
+          'edit[field_shared_promote_news][und]' => '1',
+        ),
+      )),
+  );
+
+  $list = array(
+    'items' => $access_items,
+    'title' => t('Access Notice Options'),
+  );
+
+  $content .= theme('item_list', $list);
+
+  $other_items = array(
+    l(t('Create an Event'), 'node/add/event'),
+    l(t('Create an Event promoted as News'),
+      'node/add/event',
+      array(
+        'query' => array(
+          'edit[field_shared_promote_news][und]' => '1',
+        ),
+      )),
+    l(t('Create a standalone News article'), 'node/add/news'),
+  );
+
+  $list = array(
+    'items' => $other_items,
+    'title' => t('Other Options'),
+  );
+
+  $content .= theme('item_list', $list);
+
+  return $content;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alters the node title on the Access information form.
+ *
+ */
+function ct_access_information_form_access_information_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['title']['#title'] = 'Access Title';
+}
+
+/**
+ * Implements hook_node_view().
+ *
+ * When viewing an Access Notice node, the "Calendar" menu item will be active.
+ */
+function ct_access_information_node_view($node, $view_mode, $langcode) {
+  if ($node->type == 'access_information' && $view_mode == 'full') {
+    menu_tree_set_path('main-menu', 'calendar');
+  }
+}

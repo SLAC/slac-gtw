@@ -1,11 +1,15 @@
 <?php
+/**
+ * @file
+ * Hook implementations and API for the taxonomy term status module.
+ */
 
 /**
  * Implements hook_help().
  */
 function termstatus_help($path, $arg) {
   switch ($path) {
-    // Main module help for the block module
+    // Main module help for the block module.
     case 'admin/help#termstatus':
       return '<p>' . t('Provides a checkbox on the term edit form in order to set the publishing state.') . '</p>';
   }
@@ -58,14 +62,24 @@ function termstatus_action_info() {
       'label' => t('Publish taxonomy term'),
       'configurable' => FALSE,
       'behavior' => array('changes_property'),
-      'triggers' => array('taxonomy_term_presave', 'taxonomy_term_insert', 'taxonomy_term_update', 'taxonomy_term_delete'),
+      'triggers' => array(
+        'taxonomy_term_presave',
+        'taxonomy_term_insert',
+        'taxonomy_term_update',
+        'taxonomy_term_delete',
+      ),
     ),
     'termstatus_unpublish_action' => array(
       'type' => 'taxonomy_term',
       'label' => t('Unpublish taxonomy term'),
       'configurable' => FALSE,
       'behavior' => array('changes_property'),
-      'triggers' => array('taxonomy_term_presave', 'taxonomy_term_insert', 'taxonomy_term_update', 'taxonomy_term_delete'),
+      'triggers' => array(
+        'taxonomy_term_presave',
+        'taxonomy_term_insert',
+        'taxonomy_term_update',
+        'taxonomy_term_delete',
+      ),
     ),
   );
 }
@@ -88,6 +102,11 @@ function termstatus_entity_property_info_alter(&$entity_info) {
  * Implements hook_form_FORM_ID_alter().
  */
 function termstatus_form_taxonomy_form_term_alter(&$form, &$form_state, $form_id) {
+  // Do not show termstatus settings on delete confirmation form.
+  if (!empty($form_state['confirm_delete'])) {
+    return;
+  }
+
   $term = $form_state['term'];
 
   $form['termstatus'] = array(
@@ -123,18 +142,27 @@ function termstatus_form_taxonomy_form_vocabulary_alter(&$form, &$form_state, $f
   $form['termstatus']['termstatus_default_status'] = array(
     '#type' => 'checkbox',
     '#title' => t('Published'),
-    '#default_value' => variable_get('taxonomy_termstatus_default_' . $vocabulary->machine_name, TRUE),
+    '#default_value' => variable_get('termstatus_default_' . $vocabulary->machine_name, TRUE),
     '#description' => t('Users with the <em>Administer vocabularies and terms</em> permission will be able to override this option for each term.'),
   );
   $form['#submit'][] = 'termstatus_form_taxonomy_form_vocabulary_submit';
 }
 
 /**
- * Form submit handler for taxonomy vocabulary form
+ * Form submit handler for taxonomy vocabulary form.
  */
 function termstatus_form_taxonomy_form_vocabulary_submit($form, &$form_state) {
   $vocabulary = $form_state['vocabulary'];
-  variable_set('taxonomy_termstatus_default_' . $vocabulary->machine_name, $form_state['values']['termstatus_default_status']);
+  variable_set('termstatus_default_' . $vocabulary->machine_name, $form_state['values']['termstatus_default_status']);
+}
+
+/**
+ * Implemens hook_preprocess_HOOK().
+ */
+function termstatus_preprocess_taxonomy_term(&$variables) {
+  if (isset($variables['term']->status) && empty($variables['term']->status)) {
+    $variables['classes_array'][] = 'term-unpublished';
+  }
 }
 
 /**
@@ -180,14 +208,15 @@ function termstatus_taxonomy_term_delete($term) {
 function termstatus_query_term_access_alter(QueryAlterableInterface $query) {
   $tables =& $query->getTables();
 
-  if (variable_get('taxonomy_term_status_enable', FALSE) &&
+  if (variable_get('termstatus_enable', FALSE) &&
+    !user_access('administer taxonomy') &&
     !user_access('view unpublished taxonomy terms') &&
     !$query->hasTag('status_unpublished')) {
-    // Extract taxonomy_term_data tables
+    // Extract taxonomy_term_data tables.
     foreach ($tables as $alias => $table) {
       if ($table['table'] == 'taxonomy_term_data') {
         // Add one inner join to termstatus for each taxonomy_term_data
-        // instance
+        // instance.
         $query->leftjoin('termstatus', 'termstatus_' . $alias,
           $alias . '.tid = termstatus_' . $alias . '.tid');
         $query->condition('termstatus_' . $alias . '.status', 1, '=');
@@ -200,7 +229,8 @@ function termstatus_query_term_access_alter(QueryAlterableInterface $query) {
  * Return true if the given account has access to the specified term.
  */
 function termstatus_term_access($term, $account = NULL) {
-  if (variable_get('taxonomy_term_status_enable', FALSE) &&
+  if (variable_get('termstatus_enable', FALSE) &&
+    !user_access('administer taxonomy', $account) &&
     !user_access('view unpublished taxonomy terms', $account)) {
     $result = db_query('SELECT status FROM {termstatus} where tid = :tid',
       array(':tid' => $term->tid));
@@ -212,7 +242,36 @@ function termstatus_term_access($term, $account = NULL) {
 }
 
 /**
- * Action callback: publish a term
+ * Implements hook_menu_alter().
+ *
+ * Inject a menu access callback for taxonomy term pages.
+ */
+function termstatus_menu_alter(&$items) {
+  $orig_callback = isset($items['taxonomy/term/%taxonomy_term']['access callback']) ? $items['taxonomy/term/%taxonomy_term']['access callback'] : 'user_access';
+  $orig_arguments = $items['taxonomy/term/%taxonomy_term']['access arguments'];
+  $items['taxonomy/term/%taxonomy_term']['access callback'] = 'termstatus_menu_access';
+  $items['taxonomy/term/%taxonomy_term']['access arguments'] = array(2, $orig_callback, $orig_arguments);
+}
+
+/**
+ * Menu access callback. Return true if access to term is granted.
+ */
+function termstatus_menu_access($term, $orig_callback, $orig_arguments) {
+  if ($orig_callback && !call_user_func_array($orig_callback, $orig_arguments)) {
+    return FALSE;
+  }
+
+  if (variable_get('termstatus_enable', FALSE) &&
+    !user_access('administer taxonomy') &&
+    !user_access('view unpublished taxonomy terms')) {
+    return !empty($term->status);
+  }
+
+  return TRUE;
+}
+
+/**
+ * Action callback: publish a term.
  */
 function termstatus_publish_action($term, $context = array()) {
   $term->status = 1;
@@ -220,7 +279,7 @@ function termstatus_publish_action($term, $context = array()) {
 }
 
 /**
- * action callback: unpublish a term
+ * Action callback: unpublish a term.
  */
 function termstatus_unpublish_action($term, $context = array()) {
   $term->status = 0;
@@ -228,7 +287,7 @@ function termstatus_unpublish_action($term, $context = array()) {
 }
 
 /**
- * Save the status record of a term
+ * Save the status record of a term.
  */
 function termstatus_term_save($term) {
   $status = termstatus_term_getstatus($term);
@@ -241,7 +300,7 @@ function termstatus_term_save($term) {
 }
 
 /**
- * Remove the status record of a term
+ * Remove the status record of a term.
  */
 function termstatus_term_delete($tid) {
   db_delete('termstatus')->condition('tid', $tid)->execute();
@@ -252,5 +311,5 @@ function termstatus_term_delete($tid) {
  */
 function termstatus_term_getstatus($term) {
   return isset($term->status) ? $term->status :
-    variable_get('taxonomy_termstatus_default_' . $term->vocabulary_machine_name, TRUE);
+    variable_get('termstatus_default_' . $term->vocabulary_machine_name, TRUE);
 }

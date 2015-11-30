@@ -1,0 +1,24 @@
+.view-events-by-term,
+.view-content-taxonomy-listing {
+
+  .views-row {
+    margin-bottom: 2rem;
+  }
+
+  .field-name-field-shared-image {
+    @include float-left;
+  }
+
+  .node-created,
+  .node-published-at {
+    @include node-created;
+  }
+
+  .node-title {
+    @include node-title;
+  }
+
+  .field-type-text .field-item {
+    @include body-teaser;
+  }
+}

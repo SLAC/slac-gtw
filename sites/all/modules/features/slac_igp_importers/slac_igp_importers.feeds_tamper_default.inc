@@ -32,7 +32,7 @@ function slac_igp_importers_feeds_tamper_default() {
   $feeds_tamper->source = 'Blank source 2';
   $feeds_tamper->plugin_id = 'default_value';
   $feeds_tamper->settings = array(
-    'default_value' => 'Internal',
+    'default_value' => 'Lab News',
   );
   $feeds_tamper->weight = 0;
   $feeds_tamper->description = 'Set default value';

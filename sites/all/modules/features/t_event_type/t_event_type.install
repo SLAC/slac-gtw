@@ -1,0 +1,84 @@
+<?php
+
+/**
+* @file
+* Update functions for the event type vocabulary.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function t_event_type_install() {
+
+  $vocab = new stdClass();
+  $vocab->name = 'Event Type';
+  $vocab->machine_name = 'event_type';
+  taxonomy_vocabulary_save($vocab);
+
+  // Populate the event_type vocabulary with terms.
+  $term_names = array(
+    'Conferences & Workshops',
+    'Public Events & Tours',
+    'Staff Celebrations, Events & Meetings',
+    'Recreation, Health & Wellness',
+    'Talks & Seminars',
+    'Training & Development',
+  );
+  _t_event_type_populate_vocabulary('event_type', $term_names);
+
+}
+
+/**
+ * Populates a given taxonomy vocabulary with an array of term names.
+ */
+function _t_event_type_populate_vocabulary($vocab_name, $term_names) {
+  $vocabulary = taxonomy_vocabulary_machine_name_load($vocab_name);
+  $weight = 0;
+  foreach($term_names as $term_name) {
+    $term = (object) array(
+      'name' => $term_name,
+      'vid' => $vocabulary->vid,
+      'weight' => $weight,
+    );
+    taxonomy_term_save($term);
+    $weight += 5;
+    $terms[$term_name] = $term->tid;
+  }
+}
+
+/**
+ * Remove the 'None' term from the Event Type vocab.
+ */
+function t_event_type_update_7101 () {
+  $terms = taxonomy_get_term_by_name('None', 'event_type');
+  if (!empty($terms)) {
+    $term = reset($terms);
+    taxonomy_term_delete($term->tid);
+  }
+}
+
+/**
+ * Rename several Event Type terms.
+ */
+function t_event_type_update_7102 () {
+
+  $vocab_name = 'event_type';
+
+  // Array of term names to update. key = old name, val = new name.
+  $term_names = array(
+    'Summer School Programs' => 'Recreation, Health & Wellness',
+    'Staff Celebrations' => 'Staff Celebrations, Events & Meetings',
+    'Talks, Seminars & Colloquia' => 'Talks & Seminars',
+  );
+
+  foreach ($term_names as $old_name => $new_name) {
+    $term = taxonomy_get_term_by_name($old_name, $vocab_name);
+
+    if (!empty($term)) {
+      $term = reset($term);
+      $term->name = $new_name;
+
+      taxonomy_term_save($term);
+    }
+  }
+}

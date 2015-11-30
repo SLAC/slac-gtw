@@ -1,0 +1,199 @@
+<?php
+
+/**
+* @file
+* Update functions for the SLAC Event content type.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function ct_event_install() {
+  // The feature has to revert itself here, or the new shared fields will not
+  // be available to copy data into.
+  $feature = features_get_features('ct_event');
+  features_revert(array('ct_event' => $feature->components));
+
+  // Copy existing location fields to new shared field.
+  _ct_event_copy_location_data();
+  _ct_event_delete_field_event_location();
+
+  // Copy existing link fields to new shared field.
+  _ct_event_copy_link_data();
+  _ct_event_delete_field_link();
+
+  // Populate the event_series vocabulary with terms.
+  $term_names = array(
+    'Accelerator Division Colloquium, Other Accelerator-Related',
+    'Advanced Instrumentation Seminar',
+    'Astrophysics Colloquium',
+    'Cosmology Seminar',
+    'Departmental Colloquia',
+    'Experimental Seminar',
+    'KIPAC Tea Talk',
+    'LCLS-PULSE Seminar',
+    'Photon Science Seminar',
+    'PULSE Seminar',
+    'SIMES Seminar',
+    'SLAC Association for Students Seminars',
+    'SLAC Colloquia',
+    'SLAC Engineering Seminar',
+    'SLAC Public Lecture',
+    'SSRL Presents',
+    'Stanford Physics / Applied Physics',
+    'Theory Seminar',
+    'Women’s Interchange at SLAC',
+    'Other',
+  );
+  _ct_event_populate_vocabulary('event_series', $term_names);
+
+}
+
+/**
+ * Copies location data from field_event_location to field_shared location.
+ */
+function _ct_event_copy_location_data() {
+  $query = new EntityFieldQuery();
+
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'event')
+    ->fieldCondition('field_event_location', 'value', 'NULL', '!=')
+    ->addMetaData('account', user_load(1)); // Run the query as user 1.
+
+  $result = $query->execute();
+
+  if (isset($result['node'])) {
+    foreach ($result['node'] as $node_stub) {
+      $node = node_load($node_stub->nid);
+
+      $node->field_shared_location = $node->field_event_location;
+      node_save($node);
+    }
+  }
+}
+
+/**
+ * Removes the event location field.
+ */
+function _ct_event_delete_field_event_location() {
+  $instance = field_info_instance('node', 'field_event_location', 'event');
+  if ($instance !== NULL) {
+    field_delete_instance($instance);
+  }
+}
+
+/**
+ * Copy location data from field_event_location to field_shared location and
+ * remove the old field.
+ */
+function ct_event_update_7001() {
+  _ct_event_copy_location_data();
+  _ct_event_delete_field_event_location();
+}
+
+/**
+ * Copies link data from field_link to field_shared_related_links.
+ */
+function _ct_event_copy_link_data() {
+  $query = new EntityFieldQuery();
+
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'event')
+    ->fieldCondition('field_link', 'url', 'NULL', '!=')
+    ->addMetaData('account', user_load(1)); // Run the query as user 1.
+
+  $result = $query->execute();
+
+  if (isset($result['node'])) {
+    foreach ($result['node'] as $node_stub) {
+      $node = node_load($node_stub->nid);
+
+      $node->field_shared_related_links = $node->field_link;
+      node_save($node);
+    }
+  }
+}
+
+/**
+ * Removes the event link field.
+ */
+function _ct_event_delete_field_link() {
+  $instance = field_info_instance('node', 'field_link', 'event');
+  if ($instance !== NULL) {
+    field_delete_instance($instance);
+  }
+}
+
+/**
+ * Copy links data from field_link to field_shared_related_links
+ * remove the old field.
+ */
+function ct_event_update_7002() {
+  _ct_event_copy_link_data();
+  _ct_event_delete_field_link();
+}
+
+/**
+ * Populates a given taxonomy vocabulary with an array of term names.
+ */
+function _ct_event_populate_vocabulary($vocab_name, $term_names) {
+  $vocabulary = taxonomy_vocabulary_machine_name_load($vocab_name);
+  $weight = 0;
+  foreach($term_names as $term_name) {
+    $term = (object) array(
+      'name' => $term_name,
+      'vid' => $vocabulary->vid,
+      'weight' => $weight,
+    );
+    taxonomy_term_save($term);
+    $weight += 5;
+    $terms[$term_name] = $term->tid;
+  }
+}
+
+/**
+ * Populate the event_series vocabulary with terms.
+ */
+function ct_event_update_7003() {
+  $term_names = array(
+    'Accelerator Division Colloquium, Other Accelerator-Related',
+    'Advanced Instrumentation Seminar',
+    'Astrophysics Colloquium',
+    'Cosmology Seminar',
+    'Departmental Colloquia',
+    'Experimental Seminar',
+    'KIPAC Tea Talk',
+    'LCLS-PULSE Seminar',
+    'Photon Science Seminar',
+    'SIMES Seminar',
+    'SLAC Association for Students Seminars',
+    'SLAC Colloquia',
+    'SLAC Public Lecture',
+    'SSRL Presents',
+    'Stanford Physics / Applied Physics',
+    'Theory Seminar',
+    'Women’s Interchange at SLAC',
+    'Other',
+  );
+  _ct_event_populate_vocabulary('event_series', $term_names);
+}
+
+/**
+ * Add terms to the event_series vocabulary.
+ */
+function ct_event_update_7004() {
+  $term_names = array(
+    'PULSE Seminar',
+    'SLAC Engineering Seminar',
+  );
+  $vocabulary = taxonomy_vocabulary_machine_name_load('event_series');
+
+  foreach($term_names as $term_name) {
+    $term = (object) array(
+      'name' => $term_name,
+      'vid' => $vocabulary->vid,
+      'weight' => -20,
+    );
+    taxonomy_term_save($term);
+  }
+}

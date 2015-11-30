@@ -8,21 +8,7 @@ include_once 'slac_igp_email.features.inc';
 define('VIEW_MODE_TEASER', 'teaser');
 define('VIEW_MODE_LINK', 'link');
 define('DIRECTOR_COLUMN', 'DIRECTOR\'S COLUMNS');
-define('IMAGE_SOURCE_FIELD', 'field_news_image_source');
 
-
-/**
- * Implements hook_og_tag_importer_import_alter
- * adding image source when importing og content
- */
-function slac_igp_email_og_tag_importer_import_alter(&$wrapper, &$data) {
-	foreach ($data as $field_name => $values) {
-		$field_info = field_info_field($field_name);
-		if ($field_info['module']	== 'image') {
-			$wrapper->{IMAGE_SOURCE_FIELD}->set(array('url' => $values[0]));	
-		}
-	}
-}
 
 /**
  * Implements hook_field_formatter_info
@@ -86,32 +72,40 @@ function slac_igp_email_field_formatter_settings_summary($field, $instance, $vie
    return $summary;
 }
 
+/**
+ * Implements hook_preprocess_image().
+ *
+ * Adds attributes for teaser view mode that is used in mailchimp emails.
+ */
+function slac_igp_email_preprocess_image(&$vars) {
+  if (isset($vars['style_name']) && $vars['style_name'] == 'teaser') {
+    $attributes = array(
+      'align' => 'left',
+      'hspace' => '20'
+    );
+    $vars['attributes'] = $attributes;
+  }
+}
 
 /**
- * Implements hook_field_formatter_view().
+ * Implements hook_preprocess_field().
+ *
+ * Sets the alt and title text for images if they aren't set.
+ * Only affects the teaser view mode which is used in mailchimp
+ * emails
  */
-function slac_igp_email_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
-  $elements = array();
-  $settings = $display['settings'];
-    
-  foreach ($items as $delta => $item) {
-    if ($display['type'] == 'link_image') {
-      $elements[$delta] = array(
-        '#theme' => 'image',
-        '#alt' => (isset($item['url'])) ? $item['url'] : '',
-        '#title' => (isset($item['url'])) ? $item['url'] : '',
-        '#path' => $item['url'],
-        '#attributes' => array('align' => 'left', 'hspace' => '20'),
-      );
-      if (isset($settings['width']) && $settings['width'] != 0) {
-        $elements[$delta]['#width'] = $settings['width'];
-      } 
-      if (isset($settings['height']) && $settings['height'] != 0) {
-        $elements[$delta]['#height'] = $settings['height'];
+function slac_igp_email_preprocess_field(&$vars) {
+  $element = $vars['element'];
+  if ($element['#field_name'] == 'field_shared_image' && $element['#view_mode'] == 'teaser') {
+    foreach ($vars['items'] as $delta => $item) {
+      if (empty($item['#item']['field_file_image_alt_text'])) {
+        $vars['items'][$delta]['#item']['alt'] = $item['#item']['filename'];
+      }
+      if (empty($item['#item']['field_file_image_title_text'])) {
+        $vars['items'][$delta]['#item']['title'] = $item['#item']['filename'];
       }
     }
   }
-  return $elements;
 }
 
 /**
@@ -286,19 +280,22 @@ function slac_igp_email_preprocess_slac_igp_director_column(&$vars) {
     $keys = array_keys($term);
     $tid = $keys[0];
   }
-  $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'node')
-    ->entityCondition('bundle', 'news_article')
-    ->propertyCondition('status', 1)
-    ->fieldCondition('field_tags', 'tid', $tid)
-    ->propertyOrderBy('created', 'DESC')
-    ->range(0, 1);
-  $result = $query->execute();
-  
-  if (!empty($result)) {
-    $node = current($result['node']);
+  $select = db_select('node', 'n');
+  $select->join('publication_date', 'p', 'n.nid = p.nid');
+  $select->join('field_data_field_shared_tags','tags','n.nid = tags.entity_id');
+  $select->join('field_data_field_shared_promote_news','promote_news','n.nid = promote_news.entity_id');
+  $select->addField('n', 'nid');
+  $select->condition('n.status', 1);
+  $select->condition('n.type', array('access_information', 'event', 'news'), 'IN');
+  $select->condition('tags.field_shared_tags_tid', $tid);
+  $select->condition('promote_news.field_shared_promote_news_value', 1);
+  $select->orderBy('p.published_at', 'DESC');
+  $select->range(0, 1);
+  $results = $select->execute()->fetchAll();
+  if (!empty($results)) {
+    $node = current($results);
     $vars['director_column'] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=teaser]';
-  }  
+  }
 }
 
 /**
@@ -318,7 +315,7 @@ function slac_igp_email_preprocess_slac_igp_email(&$vars) {
   // initiate empty arrays
   $vars['featured_news'] = array();
   $vars['news'] = array();
-  
+
   $config = $vars['config'];
   if (empty($config)) {
     return;
@@ -341,83 +338,6 @@ function slac_igp_email_preprocess_slac_igp_email(&$vars) {
 
 /**
  * Generate daily email items from the last campaign
- * (With the additional filtering by the nodequeue)
- * (Deprecated -> using views logic to generate items in daily email)
- * @params    
- * $type    type of news item
- */
-function _slac_igp_email_generate_items_additional($type, $last_campaign = array()) {
-  $data = array();
-  if ($type == 'promoted') {
-    $mode = VIEW_MODE_TEASER;
-  } else {
-    $mode = VIEW_MODE_LINK;
-  }
-
-  module_load_include('inc', 'slac_igp_feed', 'slac_igp_feed.nodequeue');
-
-  if ($type == 'promoted') {
-    $subqueues = array(
-      'promoted' => slac_igp_feed_get_subqueue('Featured News'),
-    );
-  } else {
-    $subqueues = array(
-      'internal' => slac_igp_feed_get_subqueue('Lab News'),
-      'external' => slac_igp_feed_get_subqueue('SLAC Science'),
-    );
-  }
-
-  foreach ($subqueues as $news_type => $subqueue) {
-    $query = new EntityFieldQuery();
-    $query->entityCondition('entity_type', 'node')
-      ->entityCondition('bundle', 'news_article')
-      ->propertyCondition('status', 1);
-
-    if ($news_type == 'promoted') {
-      $query->propertyCondition('promote', 1);
-    } else {
-      // adding field condition to restrict the node retrieved to lab or slac science
-      $query->propertyCondition('promote', 0);
-      $query->fieldCondition('field_news_type', 'value', $news_type);
-    }
-
-    if (!empty($last_campaign)) {
-      $query->propertyCondition('created', $last_campaign['timestamp'], '>');
-    }
-    $query->propertyOrderBy('created', 'DESC');
-    $query->range(0, 10);
-
-    $result = $query->execute();
-    if (empty($result)) {
-      continue;
-    }
-    // check the specific subqueue expiration settings and its exclusion
-    $expiration_setting = variable_get(_slac_igp_feed_subqueue_expiration_varname($subqueue->qid, $subqueue->sqid), '');
-    // now we have only the news type corresponding to this subqueue
-    foreach ($result['node'] as $item) {
-      $node_position = nodequeue_get_subqueue_position($subqueue->sqid, $item->nid);
-      // case 1, no expiration setting has been saved
-      if (empty($expiration_setting)) {
-        $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
-      }
-      // saved but exclusion setting is not set
-      elseif ($expiration_setting['exclude'] == 0 || $expiration_setting['exclude'] == '') {
-        $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
-      }
-      // saved and exclusion setting is set
-      else {
-        // if this node is 6th place and expiration setting exclude 5
-        if (!empty($node_position) && $node_position <= $expiration_setting['exclude']) {
-          $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
-        }
-      }
-    }
-  }
-  return $data;
-}
-
-/**
- * Generate daily email items from the last campaign
  * @params
  * $type    type of news item
  */
@@ -428,25 +348,28 @@ function _slac_igp_email_generate_items($type, $last_campaign = array()) {
   } else {
     $mode = VIEW_MODE_LINK;
   }
-  $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'node')
-    ->entityCondition('bundle', 'news_article')
-    ->propertyCondition('status', 1);
-
+  $select = db_select('node', 'n');
+  $select->join('publication_date', 'p', 'n.nid = p.nid');
+  $select->join('field_data_field_shared_promote_news','promote_news','n.nid = promote_news.entity_id');
+  $select->addField('n', 'nid');
+  $select->condition('n.status', 1);
+  $select->condition('n.type', array('access_information', 'event', 'news'), 'IN');
+  $select->condition('promote_news.field_shared_promote_news_value', 1);
   if ($type == 'promoted') {
-    $query->propertyCondition('promote', 1);
-  } else {
-    $query->propertyCondition('promote', 0);
+    $select->condition('n.promote', 1);
+  }
+  else {
+    $select->condition('n.promote', 0);
   }
   if (!empty($last_campaign)) {
-    $query->propertyCondition('created', $last_campaign['timestamp'], '>');
+    $select->condition('p.published_at', $last_campaign['timestamp'], '>');
   }
-  $query->propertyOrderBy('created', 'DESC');
-  $query->range(0, 10);
-  $result = $query->execute();
-  if (!empty($result)) {
-    foreach ($result['node'] as $item) {
-      $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
+  $select->orderBy('p.published_at', 'DESC');
+  $select->range(0, 10);
+  $results = $select->execute()->fetchAll();
+  if (!empty($results)) {
+    foreach ($results as $key => $node) {
+      $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=' . $mode . ']';
     }
   }
   return $data;
@@ -460,27 +383,29 @@ function _slac_igp_email_generate_items_views($type, $last_campaign = array()) {
   } else {
     $mode = VIEW_MODE_LINK;
   }
-  $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'node')
-    ->entityCondition('bundle', 'news_article')
-    ->propertyCondition('status', 1);
-
+  $select = db_select('node', 'n');
+  $select->join('publication_date', 'p', 'n.nid = p.nid');
+  $select->join('field_data_field_shared_promote_news','promote_news','n.nid = promote_news.entity_id');
+  $select->addField('n', 'nid');
+  $select->condition('n.status', 1);
+  $select->condition('n.type', array('access_information', 'event', 'news'), 'IN');
+  $select->condition('promote_news.field_shared_promote_news_value', 1);
   if ($type == 'promoted') {
-    $query->propertyCondition('promote', 1);
-  } else {
-    $query->propertyCondition('promote', 0);
+    $select->condition('n.promote', 1);
+  }
+  else {
+    $select->condition('n.promote', 0);
   }
   if (!empty($last_campaign)) {
-    $query->propertyCondition('created', $last_campaign['timestamp'], '>');
+    $select->condition('p.published_at', $last_campaign['timestamp'], '>');
   }
-  $query->propertyOrderBy('created', 'DESC');
-  $query->range(0, 10);
-  $result = $query->execute();
-  if (!empty($result)) {
-    foreach ($result['node'] as $item) {
-      // check to see if the given item belongs to any of the news views displays
-      if (_slac_igp_email_check_in_view($item->nid) === TRUE) {
-        $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $item->nid . '|view_mode=' . $mode . ']';
+  $select->orderBy('p.published_at', 'DESC');
+  $select->range(0, 10);
+  $results = $select->execute()->fetchAll();
+  if (!empty($results)) {
+    foreach ($results as $key => $node) {
+      if (_slac_igp_email_check_in_view($node->nid) === TRUE) {
+        $data[] = '[mailchimp_campaign|entity_type=node|entity_id=' . $node->nid . '|view_mode=' . $mode . ']';
       }
     }
   }
@@ -495,10 +420,11 @@ function _slac_igp_email_generate_items_views($type, $last_campaign = array()) {
 function _slac_igp_email_check_in_view($nid) {
   // @[views_name]|[view_display]
   $mapping = array(
-    'news|block', // feature news
-    'news|block_1', // lab news,
-    'news|block_2', // slac science (featured)
-    'news|block_3', // slac science
+    'slac_news|block', //
+    'slac_news|block_1', // lab news,
+    'slac_news|block_2', // slac science (featured)
+    'slac_news|block_3', // feature news slide show
+    'slac_news|attachment_1', // slac science
   );
   $items = array();
   foreach ($mapping as $view_meta) {

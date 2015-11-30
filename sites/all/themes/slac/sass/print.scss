@@ -20,17 +20,6 @@
   }
 
   #content {
-    a[href]:after { /* Add visible URL after links. */
-      content: " (" attr(href) ")";
-      font-weight: normal;
-      font-size: $base-font-size;
-    }
-
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after { /* Only display useful links. */
-      content: "";
-    }
-
     abbr[title]:after { /* Add visible title after abbreviations. */
       content: " (" attr(title) ")";
     }
@@ -65,9 +54,24 @@
   .book-navigation,
   .forum-topic-navigation,
   .pager,
-  .feed-icons { /* Hide sidebars and nav elements */
+  .feed-icons,
+  #header,
+  .main-navigation,
+  .contextual-links-wrapper { /* Hide sidebars and nav elements */
     visibility: hidden;
     display: none;
+  }
+
+  // Hide UI elements
+  .pane-slac-ip-panes-email,
+  .pane-slac-ip-panes-print {
+    visibility: hidden;
+    display: none;
+  }
+
+  // Remove positioning needed for screen elements.
+  .l-main {
+    padding: 0;
   }
 
 } /* End @media print */

@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * @file
+ * Customizes the Date field widget form for Events and provides custom date
+ * field formatters.
+ */
+
+require_once dirname(__FILE__) . '/slac_ip_event_date.field.inc';
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * Adds custom behaviors and custom validation for nodes with event date field.
+ */
+function slac_ip_event_date_form_node_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['field_event_date'])) {
+    $path = drupal_get_path('module', 'slac_ip_event_date');
+    $form['#attached']['js'][] = $path . '/js/slac_ip_event_date.js';
+
+    $form['#validate'][] = 'slac_ip_event_date_node_form_validate';
+  }
+}
+
+/**
+ * Form validation handler for slac_ip_event_date_form_node_form_alter().
+ *
+ * Validates single day event dates to ensure the end time is after the start
+ * time by at least a minute. The default validation allows them to be equal.
+ *
+ * @see slac_ip_event_date_form_node_form_alter()
+ */
+function slac_ip_event_date_node_form_validate($form, &$form_state) {
+  $lang = $form_state['values']['language'];
+  $date_values = $form_state['values']['field_event_date'][$lang][0];
+
+  if ($date_values['all_day'] == 0) {
+    // Do not allow the end time to occur before the start time or allow them
+    // to be equal, they should be at least a minute apart.
+    if ($date_values['value2'] <= $date_values['value']) {
+      $message = t('The end time must occur after the start time.');
+      form_set_error('field_event_date', $message);
+    }
+  }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function slac_ip_event_date_field_widget_form_alter(&$element, &$form_state, $context) {
+  if (isset($element['#field_name']) && $element['#field_name'] == 'field_event_date') {
+    $element['#after_build'][] = 'slac_ip_event_date_field_after_build';
+  }
+}
+
+/**
+ * Form element after_build callback function.
+ *
+ * Reverses the visibility states of the from/to time inputs when the 'All Day'
+ * checkbox is checked. 'All Day' is relabeled 'Single Day' in
+ * Drupal.behaviors.slacIpEventDate.
+ *
+ * @see slac_ip_event_date_field_widget_form_alter().
+ */
+function slac_ip_event_date_field_after_build($element, &$form_state) {
+  $element['all_day']['#default_value'] = TRUE;
+
+  // Reverse the visibility states for the start/end times.
+  $name = $element['all_day']['#name'];
+  $element['value']['time']['#states']['visible'] = array(
+    ':input[name="' . $name . '"]' => array('checked' => TRUE),
+  );
+  $element['value2']['time']['#states']['visible'] = array(
+    ':input[name="' . $name . '"]' => array('checked' => TRUE),
+  );
+
+  return $element;
+}

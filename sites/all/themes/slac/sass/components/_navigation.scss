@@ -1,0 +1,264 @@
+// mobile menu
+@media all and (max-width: $tablet-large) {
+  header[role="banner"] {
+    background: $header-blue url(../images/menu-search-toggle-bg.png) 100% 0 repeat-y;
+
+    .logo {
+      display: block;
+      position: relative;
+      z-index: 2;
+      padding: 0;
+      padding-left: .6rem;
+      margin: 0;
+
+      a {
+        float: none;
+      }
+    }
+  }
+
+  .mobile-menu-toggle {
+    @include font-size(13px);
+    text-transform: uppercase;
+    letter-spacing: .04rem;
+    position: absolute;
+    top: 16px;
+    right: 10px;
+    display: block;
+    color: $white;
+    width: 75px;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+
+    .hamburger-icon {
+      display: block;
+      width: 20px;
+      float: left;
+      margin-right: 5px;
+      margin-top: 3px;
+    }
+
+    .icon-menu {
+      display: block;
+      border: 1px solid #fff;
+      margin-bottom: .2rem;
+    }
+  }
+
+  .main-navigation {
+    background: $white;
+
+    .region-navigation {
+      @include zen-grid-item(12, 1);
+      margin: 0;
+      padding: 0;
+      background: $white;
+
+      .front & {
+        background: transparent;
+      }
+
+      .mobile-menu-open & {
+        background: $white;
+        margin-bottom: 1rem;
+      }
+
+      @include breakpoint($tablet-large) {
+        background: $white;
+      }
+    }
+  }
+
+  #block-system-main-menu {
+    margin-top: 8px;
+
+    .menu {
+      padding-left: 0;
+      margin-top: 2.125rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 10;
+
+      li {
+        padding: 0;
+      }
+    }
+
+    li {
+      display: block;
+      margin-bottom: 8px;
+      list-style-type: none;
+      list-style-image: none;
+
+      a {
+        @include font-size(14px);
+        line-height: 1;
+        display: block;
+        padding: .6rem;
+        text-indent: 2rem;
+        text-transform: uppercase;
+        color: $blue;
+        background: $light-blue url(../images/right-arrow.png) 1rem .5rem no-repeat;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      &.is-active-trail a {
+        background: $white;
+        color: $blue;
+      }
+    }
+  }
+}
+
+@include breakpoint($tablet-small) {
+  header[role="banner"] {
+    .date {
+      display: block;
+      position: absolute;
+      z-index: 10;
+    }
+  }
+}
+
+// Top Menu and Main Menu for desktop
+#block-menu-menu-top-menu {
+  display: none;
+
+  @include breakpoint($tablet-large) {
+    display: block;
+    text-align: right;
+
+    .menu {
+      vertical-align: top;
+      line-height: 1;
+
+      li {
+        display: inline-block;
+        line-height: 1;
+        padding: 0;
+        margin-right: 0.875rem;
+
+        &:first-child a {
+          padding-right: 0.875rem;
+          border-right: 1px solid $blue;
+        }
+      }
+
+      a {
+        @include font-size(11px);
+        text-transform: uppercase;
+        padding: 0;
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+@include breakpoint($tablet-large) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+
+  .main-navigation {
+    @include clearfix;
+    height: 32px;
+    background: $blue;
+    position: relative;
+    z-index: 4;
+
+    .inner-wrapper {
+      width: 100%;
+      max-width: 1432px;
+      margin: auto;
+      @include clearfix;
+
+      .region-navigation {
+        padding-left: 0;
+      }
+    }
+  }
+
+  #block-system-main-menu {
+    clear: both;
+
+    .menu li {
+      display: inline-block;
+      margin-right: -5px;
+      list-style-type: none;
+      list-style-image: none;
+
+      &.last{
+        padding-right: 0;
+        background: transparent;
+      }
+
+      a {
+        @include font-size(14px);
+        line-height: 1;
+        display: inline-block;
+        padding: 0.58rem 1.9375rem;
+        text-transform: uppercase;
+        color: #fff;
+        background: transparent;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover,
+        &:focus {
+          background: $white;
+          color: $blue;
+          outline: none;
+        }
+      }
+
+      &.is-active-trail a {
+        background: $white;
+        color: $blue;
+      }
+    }
+  }
+}
+
+// Hide the menu by default when the toggle is available.
+#block-system-main-menu {
+  .menu {
+    @include breakpoint($mobile) {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+    @include breakpoint($tablet-large) {
+      display: block;
+    }
+  }
+}
+
+
+// Hide the My Content drop down navigation on all but mobile.
+.page-my-content {
+  @include breakpoint($mobile) {
+    .tabs-primary {
+      display: none;
+    }
+
+    .tabs-mobile {
+      display: block;
+    }
+  }
+
+  @include breakpoint($tablet-small) {
+    .tabs-primary {
+      display: block;
+    }
+
+    .tabs-mobile {
+      display: none;
+    }
+  }
+}

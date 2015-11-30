@@ -1,0 +1,232 @@
+<?php
+/**
+ * @file
+ * Code for the SLAC IGP FEED customizations module.
+ */
+
+/**
+ * Search by term name.
+ */
+define('SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_NAME', 0);
+
+/**
+ * Search by term id.
+ */
+define('SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_ID', 1);
+
+/**
+ * Search by GUID.
+ */
+define('SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_GUID', 2);
+
+
+/**
+ * Implements hook_feeds_processor_targets_alter().
+ */
+function slac_igp_feed_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_name) {
+  foreach (field_info_instances($entity_type, $bundle_name) as $name => $instance) {
+    $info = field_info_field($name);
+    if ($info['type'] == 'taxonomy_term_reference') {
+      $targets['slac_igp_feed_' . $name] = array(
+        'name' => "SLAC " . check_plain($instance['label']),
+        'callback' => 'slac_igp_feed_feeds_set_target',
+        'description' => t('The SLAC  @label field of the entity.', array('@label' => $instance['label'])),
+        'summary_callback' => 'slac_igp_feed_feeds_summary_callback',
+        'form_callback' => 'slac_igp_feed_feeds_form_callback',
+        'field' => $name,
+      );
+    }
+  }
+}
+
+/**
+ * Callback for mapping. Here is where the actual mapping happens.
+ */
+function slac_igp_feed_feeds_set_target($source, $entity, $target, $terms, $mapping = array()) {
+
+  // Get the field name out of the mapper target.
+  $field_name = str_replace('slac_igp_feed_', '', $target); 
+
+  // Allow mapping the string '0' to a term name.
+  if (empty($terms) && $terms != 0) {
+    return;
+  }
+
+  // Handle non-multiple values.
+  if (!is_array($terms)) {
+    $terms = array($terms);
+  }
+
+  // Add in default values.
+  $mapping += array(
+    'term_search' => SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_NAME,
+    'autocreate' => FALSE,
+  );
+
+  $info = field_info_field($field_name);
+  $cache = &drupal_static(__FUNCTION__);
+  if (!isset($cache['allowed_values'][$field_name])) {
+    $cache['allowed_values'][$field_name] = taxonomy_allowed_values($info);
+  }
+
+  if (!isset($cache['allowed_vocabularies'][$field_name])) {
+    foreach ($info['settings']['allowed_values'] as $tree) {
+      if ($vocabulary = taxonomy_vocabulary_machine_name_load($tree['vocabulary'])) {
+        $cache['allowed_vocabularies'][$field_name][$vocabulary->vid] = $vocabulary->machine_name;
+      }
+    }
+  }
+  if (!empty($mapping['parent_term'])) { 
+  
+    // Convert the Term name to a tid.
+    $parent_term = taxonomy_get_term_by_name($mapping['parent_term'], $vocabulary->machine_name);
+    $parent_term = reset($parent_term);
+    $parent = $parent_term->tid; 
+  }
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'taxonomy_term')
+    ->entityCondition('bundle', $cache['allowed_vocabularies'][$field_name])
+    ->range(0, 1);
+
+
+  $field = isset($entity->$field_name) ? $entity->$field_name : array('und' => array());
+
+  // Allow for multiple mappings to the same target.
+  $delta = count($field['und']);
+
+  // Iterate over all values.
+  foreach ($terms as $term) {
+
+    if ($info['cardinality'] == $delta) {
+      break;
+    }
+
+    $tid = FALSE;
+
+    // FeedsTermElement already is a term.
+    if ($term instanceof FeedsTermElement) {
+      $tid = $term->tid;
+    }
+    else {
+      switch ($mapping['term_search']) {
+
+        // Lookup by name.
+        case SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_NAME:
+          $name_query = clone $query;
+          if ($tids = $name_query->propertyCondition('name', $term)->execute()) {
+            $tid = key($tids['taxonomy_term']);
+          }
+          elseif ($mapping['autocreate']) {
+            $term = (object) array(
+              'name' => $term,
+              'vid' => key($cache['allowed_vocabularies'][$field_name]),
+              'parent' => $parent, 
+              'vocabulary_machine_name' => reset($cache['allowed_vocabularies'][$field_name]),
+            );
+            taxonomy_term_save($term);
+            $tid = $term->tid;
+            // Add to the list of allowed values.
+            $cache['allowed_values'][$field_name][$tid] = $term->name;
+          }
+          break;
+
+        // Lookup by tid.
+        case SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_ID:
+          if (is_numeric($term)) {
+            $tid = $term;
+          }
+          break;
+
+        // Lookup by GUID.
+        case SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_GUID:
+          $tid = taxonomy_feeds_term_lookup_term_by_guid($term);
+          break;
+      }
+    }
+
+    if ($tid && isset($cache['allowed_values'][$field_name][$tid])) {
+      $field['und'][$delta]['tid'] = $tid;
+      $delta++;
+    }
+  }
+
+  $entity->$field_name = $field;
+}
+
+/**
+ * Mapping configuration summary for taxonomy.module.
+ *
+ * @param array $mapping
+ *   Associative array of the mapping settings.
+ * @param array $target
+ *   Array of target settings, as defined by the processor or
+ *   hook_feeds_processor_targets_alter().
+ * @param array $form
+ *   The whole mapping form.
+ * @param array $form_state
+ *   The form state of the mapping form.
+ *
+ * @return string
+ *   Returns, as a string that may contain HTML, the summary to display while
+ *   the full form isn't visible.
+ *   If the return value is empty, no summary and no option to view the form
+ *   will be displayed.
+ */
+function slac_igp_feed_feeds_summary_callback($mapping, $target, $form, $form_state) {
+  $options = _slac_igp_feed_feeds_form_callback_options();
+  if (empty($mapping['term_search'])) {
+    return t('Search taxonomy terms by: <strong>@search</strong>', array('@search' => $options[SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_NAME]));
+  }
+  return t('Search taxonomy terms by: <strong>@search</strong>', array('@search' => $options[$mapping['term_search']]));
+}
+
+/**
+ * Settings form callback.
+ *
+ * @return array
+ *   The per mapping configuration form. Once the form is saved, $mapping will
+ *   be populated with the form values.
+ */
+function slac_igp_feed_feeds_form_callback($mapping, $target, $form, $form_state) {
+  return array(
+    'term_search' => array(
+      '#type' => 'select',
+      '#title' => t('Search taxonomy terms by'),
+      '#options' => _slac_igp_feed_feeds_form_callback_options(),
+      '#default_value' => !empty($mapping['term_search']) ? $mapping['term_search'] : SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_NAME,
+    ),
+    'autocreate' => array(
+      '#type' => 'checkbox',
+      '#title' => t('Auto create'),
+      '#description' => t("Create the term if it doesn't exist."),
+      '#default_value' => !empty($mapping['autocreate']) ? $mapping['autocreate'] : 0,
+      '#states' => array(
+        'visible' => array(
+          ':input[name$="[settings][term_search]"]' => array('value' => SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_NAME),
+        ),
+      ),
+    ),
+    'parent_term' => array(
+      '#type' => 'textfield',
+      '#title' => t('Parent Term'),
+      '#default_value' => !empty($mapping['parent_term']) ? $mapping['parent_term'] : '',  
+      '#size' => 60, 
+      '#maxlength' => 128, 
+    ),
+  );
+}
+
+/**
+ * Returns the list of available term search methods.
+ *
+ * @return array
+ *   An array of taxonomy search option titles.
+ */
+function _slac_igp_feed_feeds_form_callback_options() {
+  return array(
+    SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_NAME => 'Term name',
+    SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_ID => 'Term ID',
+    SLAC_IGP_FEED_TAXONOMY_SEARCH_TERM_GUID => 'GUID',
+  );
+}

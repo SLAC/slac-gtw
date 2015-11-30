@@ -1,0 +1,12 @@
+diff --git a/includes/views/flag.views.inc b/includes/views/flag.views.inc
+index 076878c..99ce207 100644
+--- a/includes/views/flag.views.inc
++++ b/includes/views/flag.views.inc
+@@ -98,6 +98,7 @@ function flag_views_data() {
+     'real field' => 'uid',
+     'field' => array(
+       'handler' => 'flag_handler_field_flagged',
++      'click sortable' => TRUE,
+       'label' => t('Flagged'),
+       'help' => t('A boolean field to show whether the flag is set or not.'),
+     ),

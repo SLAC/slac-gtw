@@ -1,0 +1,113 @@
+.frontpage-top-links,
+.frontpage-directorate-links {
+
+  .top-links-list,
+  .organization-index-list {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .list-link-item {
+    @include blue-striped-list;
+  }
+}
+
+.frontpage-top-links,
+.frontpage-directorate-links {
+
+  @include breakpoint($tablet-large) {
+    .blue-striped-list,
+    .blue-dashed-list {
+      @include clearfix;
+      padding-bottom: 0.5rem;
+    }
+
+    .top-links-list,
+    .organization-index-list {
+      @include font-size(11px);
+      color: $blue;
+
+      .list-link-item {
+        @include blue-striped-list;
+        float: left;
+        width: 47%;
+        margin-top: 0;
+        margin-bottom: 0.8rem;
+
+        &.views-row-odd {
+          margin-right: 6%;
+        }
+
+        a {
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+
+  @include breakpoint($desktop) {
+    .blue-striped-list,
+    .blue-dashed-list {
+      @include clearfix;
+      padding-bottom: 0.5rem;
+    }
+
+    .top-links-list {
+      color: $blue;
+      padding-left: 14px;
+
+      .list-link-item {
+        background: none;
+        list-style: disc;
+        float: left;
+        width: 47%;
+        margin-top: 0;
+        margin-bottom: 0;
+
+        &.views-row-odd {
+          margin-right: 6%;
+        }
+
+        a {
+          @include font-size(12px);
+          padding-left: 0;
+          line-height: 1.2;
+        }
+      }
+    }
+  }
+
+  @include breakpoint($desktop) {
+    .blue-dashed-list {
+      @include clearfix;
+      padding-bottom: 0.5rem;
+    }
+
+    .organization-index-list {
+      @include font-size(11px);
+      color: $blue;
+
+      .list-link-item {
+        @include blue-striped-list;
+        background: $color-gray-porcelain;
+        float: left;
+        width: 46%;
+        margin-top: 0;
+        margin-bottom: 0.8rem;
+        border: 1px dashed $blue;
+
+        &.views-row-odd {
+          margin-right: 6%;
+        }
+
+        a {
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+
+  .view-footer {
+    display: none;
+  }
+}

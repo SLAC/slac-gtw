@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * @file
+ * Provides custom panes.
+ */
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function slac_ip_panes_ctools_plugin_directory($owner, $plugin) {
+  if ($owner == 'ctools' && !empty($plugin)) {
+    return "plugins/$plugin";
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function slac_ip_panes_menu() {
+  $items = array();
+
+  $items['admin/config/slac-ip-panes'] = array(
+    'title' => 'SLAC IP Panes Settings',
+    'type' => MENU_NORMAL_ITEM,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('slac_ip_panes_settings_upcoming_events'),
+    'file' => 'includes/slac_ip_panes.admin.inc',
+    'access arguments' => array('administer site configuration'),
+  );
+  $items['admin/config/slac-ip-panes/upcoming-events'] = array(
+    'title' => 'Upcoming Events Settings',
+    'description' => t('Pane settings for the front page Upcoming Events'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function slac_ip_panes_theme($existing, $type, $theme, $path) {
+  $theme_path = drupal_get_path('module', 'slac_ip_panes') . '/theme';
+  $theme_file = 'slac_ip_upcoming_events.theme.inc';
+  return array(
+    'slac_ip_upcoming_events' => array(
+      'variables' => array(
+        'content' => NULL,
+      ),
+      'path' => $theme_path,
+      'template' => 'slac_ip_upcoming_events',
+    ),
+    'slac_ip_upcoming_events_event' => array(
+      'variables' => array(
+        'node' => NULL,
+      ),
+      'path' => $theme_path,
+      'template' => 'slac_ip_upcoming_events_event',
+      'file' => $theme_file,
+    ),
+  );
+}

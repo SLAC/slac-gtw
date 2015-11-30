@@ -1,0 +1,32 @@
+<?php
+/**
+ * @file
+ * Code for the Webform feature.
+ */
+
+include_once 'ct_webform.features.inc';
+
+/**
+ * Implements hook_node_view().
+ */
+function ct_webform_node_view($node, $view_mode, $langcode) {
+  // Add a message about required fields to a webform node that has at least
+  // one mandatory component.
+  if ($node->type == 'webform') {
+    $has_mandatory = FALSE;
+    foreach ($node->webform['components'] as $component) {
+      if ($component['mandatory'] == '1') {
+        $has_mandatory = TRUE;
+        break;
+      }
+    }
+
+    if ($has_mandatory) {
+      $node->content['test'] = array(
+        '#markup' => '<p class="key-required"><span class="required">*</span> '
+            . t('Required Field') . '</p>',
+        '#weight' => $node->content['webform']['#weight'] + 1,
+      );
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<?php
+/**
+ * @file
+ * Code for the SLAC IP Config Search feature.
+ */
+
+include_once 'slac_ip_config_search.features.inc';
+/**
+ * @file
+ * Code for the SLAC IP Config Search feature.
+ */
+

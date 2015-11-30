@@ -1,0 +1,15 @@
+name = SLAC IP Config Search
+description = Configuration and permissions for Search.
+core = 7.x
+package = SLAC
+version = 7.x-1.0-dev
+project = slac_ip_config_search
+dependencies[] = entity
+dependencies[] = features
+dependencies[] = search_api
+dependencies[] = search_api_db
+dependencies[] = search_api_views
+features[features_api][] = api:2
+features[search_api_index][] = default_node_index
+features[search_api_server][] = drupal
+features[user_permission][] = administer search_api

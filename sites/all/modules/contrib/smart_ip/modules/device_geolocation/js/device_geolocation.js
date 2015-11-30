@@ -75,7 +75,7 @@
                 address['latitude']  = latitude;
                 address['longitude'] = longitude;
                 $.ajax({
-                  url:  Drupal.settings.basePath + 'geolocate-user',
+                  url:  Drupal.settings.basePath + '?q=geolocate-user',
                   type: 'POST',
                   dataType: 'json',
                   data: address
@@ -84,15 +84,17 @@
             }
             else {
               $.ajax({
-                url:  Drupal.settings.basePath + 'geolocate-user',
+                url:  Drupal.settings.basePath + '?q=geolocate-user',
                 type: 'POST',
                 dataType: 'json',
                 data: ({
                   latitude:  latitude,
-                  longitude: latitude
+                  longitude: longitude
                 })
               });
-              console.log('Geocoder failed due to: ' + status);
+              if (window.console) {
+                console.log('Geocoder failed due to: ' + status);
+              }
             }
           });
         }

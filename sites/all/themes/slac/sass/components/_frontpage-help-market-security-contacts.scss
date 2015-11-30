@@ -1,0 +1,67 @@
+.frontpage-help-market,
+.pane-views-flea-market-block,
+.frontpage-security-contacts {
+  @include font-size(11px);
+    padding: 0.6rem 0;
+
+  p {
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+  }
+
+  .views-row-first {
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .view-footer {
+    display: none;
+  }
+}
+
+@include breakpoint($desktop) {
+  .pane-views-flea-market-block {
+    padding: 0;
+
+    .pane-content {
+      padding-top: 0;
+    }
+  }
+}
+
+.pane-views-flea-market-block {
+  .views-row {
+    padding: 0.5rem 0.3rem;
+    border-bottom: 1px dashed $homepage-dashed-line;
+  }
+
+  .view-footer {
+    display: block;
+  }
+}
+
+// ===================================
+// Floating IT Helpdesk, Flea Market, Site Security
+// Compliance Helpline and social icons on desktop
+@include breakpoint($desktop) {
+  .frontpage-help-market,
+  .frontpage-security-contacts {
+    @include font-size(11px);
+    width: 48%;
+    float: left;
+    margin-right: 3%;
+
+    .view-footer {
+      display: block;
+      border-top: 1px dashed $blue;
+    }
+
+    .views-row-last {
+      border: none;
+    }
+  }
+
+  .frontpage-security-contacts {
+    margin-right: 0;
+  }
+}

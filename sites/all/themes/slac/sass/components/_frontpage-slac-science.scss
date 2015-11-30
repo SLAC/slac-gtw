@@ -1,0 +1,21 @@
+.frontpage-slac-science {
+  .pane-title {
+    @include frontpage-news-headings;
+
+    @include breakpoint($tablet-small) {
+      margin-bottom: 0;
+      background: $grey url(../images/lines.png) -40px -20px repeat-x;
+      color: $white;
+      line-height: 2;
+    }
+  }
+
+  .view-content .views-row-1 {
+    position: relative;
+    margin-bottom: 1rem;
+
+    @include breakpoint($tablet-small) {
+      margin-bottom: 0;
+    }
+  }
+}

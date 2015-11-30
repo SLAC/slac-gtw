@@ -1,11 +1,15 @@
 <?php
+/**
+ * @file
+ * Administrative interface for the taxonomy term status module.
+ */
 
 /**
- * Term status settings form
+ * Term status settings form.
  */
 function termstatus_settings($form, &$form_state) {
   $count = _termstatus_count_nullstatus();
-  $enabled = variable_get('taxonomy_term_status_enable', FALSE);
+  $enabled = variable_get('termstatus_enable', FALSE);
 
   if ($count) {
     $form['message'] = array(
@@ -13,7 +17,7 @@ function termstatus_settings($form, &$form_state) {
     );
   }
 
-  $form['taxonomy_term_status_enable'] = array(
+  $form['termstatus_enable'] = array(
     '#type' => 'checkbox',
     '#title' => t('Enable term status'),
     '#description' => t('If enabled, unpublished taxonomy terms are hidden'),
@@ -32,7 +36,7 @@ function termstatus_settings($form, &$form_state) {
 }
 
 /**
- * Submit callback
+ * Submit callback.
  */
 function termstatus_rebuild_submit($form, &$form_state) {
   _termstatus_rebuild();
@@ -43,9 +47,7 @@ function termstatus_rebuild_submit($form, &$form_state) {
  * Return the number of taxonomy terms which do not have any status record.
  */
 function _termstatus_count_nullstatus() {
-  $count = db_query('SELECT COUNT(*) FROM {taxonomy_term_data} AS td' .
-    ' LEFT JOIN {termstatus} AS ts ON td.tid = ts.tid' .
-    ' WHERE ts.status IS NULL')->fetchField();
+  $count = db_query('SELECT COUNT(*) FROM {taxonomy_term_data} AS td LEFT JOIN {termstatus} AS ts ON td.tid = ts.tid WHERE ts.status IS NULL')->fetchField();
   return $count;
 }
 

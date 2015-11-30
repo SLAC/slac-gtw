@@ -1,0 +1,154 @@
+.events-calendar {
+  .selectize-control {
+    .selectize-input {
+      cursor: pointer;
+      border: 3px solid color(grey-blue);
+      font-weight: bold;
+      padding: .3rem;
+      background: url(../images/down-arrow.png) 95% 12px no-repeat;
+
+      &:hover,
+      &:focus {
+        border-color: color(grey-blue-dark);
+
+        .selectize-dropdown-content {
+          border: 3px solid color(grey-blue);
+        }
+      }
+
+    }
+
+    &.multi .selectize-input > div {
+      background: none;
+      border: none;
+      margin: 0;
+      color: $color-gray-dove;
+
+      &.active {
+        background: none;
+      }
+    }
+
+    &.multi .selectize-input > div[data-value] {
+      display: none;
+    }
+
+    @include breakpoint($tablet-small) {
+      width: 250px;
+    }
+  }
+
+  .selectize-dropdown-content {
+    border: 3px solid color(grey-blue);
+    border-top: none;
+    max-height: 620px;
+
+    &:hover {
+      border-color: color(grey-blue-dark);
+    }
+  }
+
+  .selectize-dropdown {
+    font-weight: bold;
+
+    .option {
+      color: color(grey-blue-dark);
+      font-weight: bold;
+      background: $white;
+
+      &:before {
+        content: "\25A1";
+        @include font-size(26px);
+        margin-right: 6px;
+      }
+
+      &:hover {
+        background: darken(color(weekend-grey), 3%);
+      }
+
+      &.selected:before {
+        content: "\2611";
+        @include font-size(22px);
+        margin-right: 4px;
+      }
+    }
+
+    .selected {
+      background: darken(color(weekend-grey), 3%) !important;
+    }
+
+    &:hover {
+      background: $white;
+    }
+  }
+}
+
+// My Content Page Selectize Dropdown
+.my-content-dropdown.selectize-control.single {
+  color: $grey-dropdown;
+
+  .selectize-input {
+    width: 280px;
+    border: 3px solid color(grey-blue);
+    background: url(../images/down-arrow.png) 95% 12px no-repeat;
+
+    &:hover,
+    &:focus {
+      background: url(../images/down-arrow.png) 95% 12px no-repeat;
+    }
+
+    &.dropdown-active {
+      width: 280px;
+      background: url(../images/down-arrow.png) 95% 12px no-repeat;
+    }
+  }
+
+  .selectize-dropdown-content {
+    border: 3px solid color(grey-blue);
+    border-top: none;
+    font-weight: bold;
+
+    &:hover,
+    &:focus {
+      border: 3px solid color(grey-blue);
+      border-top: none;
+    }
+  }
+
+  .selectize-dropdown {
+    width: 280px;
+
+    .option {
+      color: $grey-dropdown;
+
+      &:hover {
+        background: darken(color(weekend-grey), 3%);
+      }
+    }
+
+    .selected {
+      background: darken(color(weekend-grey), 3%);
+    }
+
+    &:hover {
+      background: $white;
+    }
+  }
+
+  .selectize-dropdown {
+    .option {
+      &:before {
+        content: "";
+        margin-right: 0;
+      }
+
+      &:hover {
+        background: darken(color(weekend-grey), 3%);
+      }
+
+      &.selected:before {
+        content: "";
+      }
+    }
+  }
+}

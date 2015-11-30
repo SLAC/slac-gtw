@@ -1,0 +1,69 @@
+<?php
+/**
+ * @file
+ * Code for the Event feature.
+ */
+
+include_once 'v_search.features.inc';
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function v_search_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  if ($form['#id'] == 'views-exposed-form-search-page' && $_GET['q'] == 'search') {
+
+    // We need to limit the exposed content types filters to specific types but
+    // this means that all of the options will be selected by default. We are
+    // overriding it here.
+    $form['secondary']['type']['#default_value'] = FALSE;
+    $form['secondary']['second_submit'] = array(
+      '#name' => '',
+      '#type' => 'submit',
+      '#value' => 'Search',
+      '#id' => 'edit-second-submit-search',
+      '#access' => TRUE,
+    );
+
+    // Wrap the full text search and submit in container div.
+    $form['search']['search_container'] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => array(
+          'search-wrapper',
+        ),
+      ),
+    );
+
+    // Reorder the secondary filters to match the comp instead of the logical
+    // grouping. Also, reorder the Type options to match the comp instead of
+    // alphabetic ordering.
+    $secondary = $form['secondary'];
+
+    // Reorder content type filters, preserving keys.
+    $event = $secondary['type']['#options']['event'];
+    unset($secondary['type']['#options']['event']);
+    $secondary['type']['#options'] = array('event' => t('Event')) + $secondary['type']['#options'];
+
+    // Place the Type filter before the Date range filter.
+    $offset = array_search('published-from', array_keys($secondary));
+    $type_filter = $secondary['type'];
+    unset($secondary['type']);
+    $form['secondary'] = array_slice($secondary, 0, $offset, TRUE) +
+      array('type' => $type_filter) +
+      array_slice($secondary, $offset, NULL, TRUE);
+    $form['secondary']['published-from']['#prefix'] = '<div class="exposed-date-label">Select date range:</div>';
+
+    // Reorder the form values and unset the originals.
+    $form['search']['search_container']['search_api_views_fulltext'] = $form['search_api_views_fulltext'];
+    unset($form['search_api_views_fulltext']);
+    $form['search']['search_container']['submit'] = $form['submit'];
+    unset($form['submit']);
+    $form['search']['secondary'] = $form['secondary'];
+    unset($form['secondary']);
+    $form['#attached']['js'] = array(
+      drupal_get_path('module', 'v_search') . '/js/highlight-results.js' => array(
+        'type' => 'file',
+      ),
+    );
+  }
+}

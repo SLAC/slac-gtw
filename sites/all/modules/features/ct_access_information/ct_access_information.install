@@ -1,0 +1,69 @@
+<?php
+
+/**
+* @file
+* Update functions for the SLAC Access Information content type.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function ct_access_information_install() {
+  // The feature has to revert itself here, or the new shared fields will not
+  // be available to copy data into.
+  $feature = features_get_features('ct_access_information');
+  features_revert(array('ct_access_information' => $feature->components));
+
+  // Copy existing link fields to new shared field.
+  _ct_access_information_copy_link_data();
+  _ct_access_information_delete_field_link();
+}
+
+/**
+ * Copies link data from field_link to field_shared_related_links.
+ */
+function _ct_access_information_copy_link_data() {
+  $query = new EntityFieldQuery();
+
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'access_information')
+    ->fieldCondition('field_link', 'url', 'NULL', '!=')
+    ->addMetaData('account', user_load(1)); // Run the query as user 1.
+
+  $result = $query->execute();
+
+  if (isset($result['node'])) {
+    foreach ($result['node'] as $node_stub) {
+      $node = node_load($node_stub->nid);
+
+      $node->field_shared_related_links = $node->field_link;
+      node_save($node);
+    }
+  }
+}
+
+/**
+ * Removes the event link field.
+ */
+function _ct_access_information_delete_field_link() {
+  $instance = field_info_instance('node', 'field_link', 'access_information');
+  if ($instance !== NULL) {
+    field_delete_instance($instance);
+  }
+}
+
+/**
+ * Copy links data from field_link to field_shared_related_links
+ * remove the old field.
+ */
+function ct_access_information_update_7001() {
+  _ct_access_information_copy_link_data();
+  _ct_access_information_delete_field_link();
+}
+
+/**
+ * Remove the Start Publishing Date field.
+ */
+function ct_access_information_update_7002() {
+  field_delete_field('field_access_start_publishing');
+}

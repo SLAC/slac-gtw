@@ -1,0 +1,15 @@
+.general-right {
+  .pane-title {
+    @include font-size(12px);
+    border-bottom: 3px solid $color-gray-loblolly;
+    text-transform: uppercase;
+    color: $color-gray-tundora;
+    margin-bottom: 0.6rem;
+    padding-bottom: .1rem;
+  }
+
+  .colorbox {
+    display: block;
+    text-align: center;
+  }
+}

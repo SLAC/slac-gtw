@@ -198,9 +198,15 @@ function colorbox_admin_settings() {
   $form['colorbox_custom_settings']['colorbox_scrolling'] = array(
     '#type' => 'radios',
     '#title' => t('Scrollbars'),
-    '#options' => array(0 => t('Off'), 1 => t('On')),
+    '#options' => array(1 => t('On'), 0 => t('Off')),
     '#default_value' => variable_get('colorbox_scrolling', 1),
     '#description' => t('If false, Colorbox will hide scrollbars for overflowing content. This could be used on conjunction with the resize method for a smoother transition if you are appending content to an already open instance of Colorbox.'),
+  );
+  $form['colorbox_custom_settings']['colorbox_original_image'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Add original image link'),
+    '#default_value' => variable_get('colorbox_original_image', 0),
+    '#description' => t('If this is checked, a icon will be added to the colorbox, that will link the user to the original image in a new tab.CAUTION: This only works with the default drupal colorbox theme.'),
   );
 
   $js_hide = variable_get('colorbox_slideshow', 0) ? '' : ' js-hide';
@@ -249,6 +255,25 @@ function colorbox_admin_settings() {
     '#title' => t('Advanced settings'),
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
+  );
+  $form['colorbox_advanced_settings']['colorbox_mobile_detect'] = array(
+    '#type' => 'radios',
+    '#title' => t('Mobile detection'),
+    '#options' => array(1 => t('On'), 0 => t('Off')),
+    '#default_value' => variable_get('colorbox_mobile_detect', 1),
+    '#description' => t('If on (default) Colorbox will not be active for devices with a the max width set below.'),
+  );
+  $form['colorbox_advanced_settings']['colorbox_mobile_device_width'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Device with'),
+    '#default_value' => variable_get('colorbox_mobile_device_width', '480px'),
+    '#size' => 30,
+    '#description' => t('Set the mobile device max with. Default: 480px.'),
+    '#states' => array(
+      'visible' => array(
+        ':input[name="colorbox_mobile_detect"]' => array('value' => '1'),
+      ),
+    ),
   );
   $form['colorbox_advanced_settings']['colorbox_caption_trim'] = array(
     '#type' => 'radios',

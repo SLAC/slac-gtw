@@ -1,0 +1,76 @@
+.front-main-column {
+  .title-body {
+    display: block;
+    padding: 11px 20px;
+    background: $white;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.4;
+
+    @include breakpoint($tablet-small) {
+      @include font-size(12px);
+      background: $blue;
+      background: $overlay-blue;
+      height: inherit;
+      color: $grey-filters-border;
+      position: absolute;
+      bottom: 0;
+
+      &:hover,
+      &:focus {
+        background: $overlay-hover;
+      }
+    }
+  }
+
+  .frontpage-slac-science .title-body {
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    right: 0;
+
+    @media all and(max-width: $tablet-large) {
+      .body {
+        display: none;
+      }
+    }
+  }
+
+  .title {
+    a {
+      @include font-size(19px);
+      display: block;
+      color: $blue;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @include breakpoint($tablet-small) {
+        color: $slider-title;
+      }
+    }
+  }
+
+  .body a {
+    color: $slider-teaser;
+  }
+
+  @media all and(max-width: $tablet-small) {
+    .frontpage-slac-science .title-body {
+      display: block;
+      height: inherit;
+      background: $blue;
+      background: $overlay-blue;
+      position: absolute;
+      bottom: 7px;
+      left: 0;
+      right: 0;
+
+      a {
+        color: $white;
+      }
+    }
+  }
+}

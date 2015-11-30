@@ -1,0 +1,103 @@
+.region-content-bottom {
+  background: $white;
+  padding-top: 2rem;
+}
+
+#block-boxes-calendar-legend {
+  @include font-size(14px);
+  margin-left: 20px;
+  padding-left: 0;
+  border: 3px solid color(grey-blue);
+  width: 90%;
+  max-width: 300px;
+
+  @include breakpoint($tablet-small) {
+    max-width: 500px;
+  }
+
+  @include breakpoint($desktop) {
+    margin-left: 1.25rem;
+  }
+
+  @include breakpoint($calendar-full) {
+    margin-left: 10%;
+  }
+
+  .block-title {
+    @include font-size(14px);
+    background: color(grey-blue-light);
+    margin: 0;
+    padding: .2rem 1rem;
+    border-bottom: 3px solid color(grey-blue);
+    color: color(event-description-grey);
+  }
+}
+
+#boxes-box-calendar_legend {
+  @include clearfix;
+}
+
+.events-color-legend {
+  @include clearfix;
+  padding: 1rem;
+
+  li {
+    width: 100%;
+    padding: .2rem 0;
+    list-style: none;
+
+    @include breakpoint($tablet-small) {
+      width: 48%;
+      float: left;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      width: 15px;
+      height: 15px;
+      margin-top: 2px;
+      margin-left: 3px;
+      margin-right: 7px;
+      background: transparent;
+      float: left;
+    }
+  }
+
+  .event-access-notices:before {
+    background: url(../images/access-notice-icon.png) 0 0 no-repeat;
+    width: 20px;
+    height: 20px;
+    margin-left: 0;
+    margin-right: 6px;
+    margin-top: 0;
+  }
+
+  .event-recreation-health--wellness:before {
+    background: color(pink);
+  }
+
+  .event-conferences-workshops:before {
+    background: color(blue);
+  }
+
+  .event-public-event-tours:before {
+    background: color(green);
+  }
+
+  .event-talks--seminars:before {
+    background: color(yellow);
+  }
+
+  .event-training-development:before {
+    background: color(orange);
+  }
+
+  .event-staff-celebrations-events-meetings:before {
+    background: color(purple);
+  }
+
+  .event-none:before {
+    background: color(grey);
+  }
+}

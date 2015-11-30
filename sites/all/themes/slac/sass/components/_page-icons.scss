@@ -1,0 +1,63 @@
+// color coding by event type
+.node-type-event,
+.node-type-news,
+.node-type-access-information {
+  a.page-icon {
+    @include font-size(18px);
+    display: inline;
+    color: $blue;
+    font-weight: bold;
+
+    &:before {
+      display: block;
+      content: "";
+      width: 16px;
+      height: 16px;
+      margin-top: 3px;
+      float: left;
+      margin-right: 10px;
+      background: color(grey);
+    }
+
+    &.conferences-workshops:before {
+      background: color(blue);
+    }
+
+    &.public-events-tours:before {
+      background: color(green);
+    }
+
+    &.staff-celebrations-events-meetings:before {
+      background: color(purple);
+    }
+
+    &.recreation-health-wellness:before {
+      background: color(pink);
+    }
+
+    &.talks-seminars:before {
+      background: color(yellow);
+    }
+
+    &.training-development:before {
+      background: color(orange);
+    }
+  }
+}
+
+// access notice specific icon
+.node-type-access-information {
+  a.page-icon {
+    background: url(../images/access-notice-icon.svg) 0 0 no-repeat;
+    padding-left: 26px;
+    padding-top: 4px;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .pane-slac-ip-panes-access-notice-link {
+    margin-bottom: 2em;
+  }
+}

@@ -1,0 +1,7 @@
+name = SLAC IP Event Date
+description = Customizes the Date field widget form for Events and Access notices.
+core = 7.x
+package = SLAC
+version = 7.x-1.0
+dependencies[] = field
+dependencies[] = date

@@ -1,0 +1,53 @@
+select {
+  @include font-size(10px);
+  padding: 5px 40px 5px 5px;
+  text-transform: uppercase;
+  border: 1px solid $blue;
+  background: $white;
+  border-radius: 0;
+  border-image: none;
+  color: $color-gray;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
+
+  // removes IE 10/11 default dropdown img
+  &::-ms-expand {
+    display: none;
+  }
+
+  .lte-ie9 & {
+    padding-right: 4px;
+    background: none;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="checkbox"],
+input[type="password"],
+textarea {
+  border: 1px solid $blue;
+  color: $color-gray;
+}
+
+fieldset {
+  padding: 1rem;
+  border: 3px solid lighten($grey, 50%);
+  background: lighten($grey, 57%);
+
+  &.collapsed {
+    background: transparent;
+    border: none;
+  }
+
+  @include breakpoint($tablet-large) {
+    width: 800px;
+  }
+}

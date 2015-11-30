@@ -253,14 +253,14 @@ function slac_igp_importers_feeds_importer_default() {
         'authorize' => 1,
         'mappings' => array(
           0 => array(
-            'source' => 'title',
-            'target' => 'title',
-            'unique' => FALSE,
-          ),
-          1 => array(
             'source' => 'guid',
             'target' => 'guid',
             'unique' => 1,
+          ),
+          1 => array(
+            'source' => 'title',
+            'target' => 'title',
+            'unique' => FALSE,
           ),
           2 => array(
             'source' => 'timestamp',
@@ -404,56 +404,47 @@ function slac_igp_importers_feeds_importer_default() {
             'unique' => 0,
           ),
           2 => array(
-            'source' => 'author_name',
-            'target' => 'field_news_author',
-            'unique' => FALSE,
-          ),
-          3 => array(
             'source' => 'description',
             'target' => 'body',
             'unique' => FALSE,
           ),
-          4 => array(
+          3 => array(
             'source' => 'url',
-            'target' => 'field_link:url',
+            'target' => 'field_shared_existing_url',
+            'unique' => FALSE,
+          ),
+          4 => array(
+            'source' => 'enclosure',
+            'target' => 'field_shared_image:uri',
             'unique' => FALSE,
           ),
           5 => array(
-            'source' => 'enclosure',
-            'target' => 'field_news_image:uri',
-            'unique' => FALSE,
-          ),
-          6 => array(
             'source' => 'timestamp',
             'target' => 'created',
             'unique' => FALSE,
           ),
-          7 => array(
+          6 => array(
             'source' => 'tags',
-            'target' => 'field_tags',
+            'target' => 'slac_igp_feed_field_shared_tags',
             'term_search' => '0',
             'autocreate' => 1,
+            'parent_term' => 'Retired Tags- Do Not Use',
           ),
-          8 => array(
+          7 => array(
             'source' => 'Blank source 1',
             'target' => 'promote',
             'unique' => FALSE,
           ),
-          9 => array(
+          8 => array(
             'source' => 'Blank source 2',
-            'target' => 'field_news_type',
-            'unique' => FALSE,
-          ),
-          10 => array(
-            'source' => 'enclosure',
-            'target' => 'field_news_image_source:url',
+            'target' => 'field_news_news_type',
             'unique' => FALSE,
           ),
         ),
         'update_existing' => '2',
         'input_format' => 'filtered_html',
         'skip_hash_check' => 0,
-        'bundle' => 'news_article',
+        'bundle' => 'news',
       ),
     ),
     'content_type' => 'news_feed',

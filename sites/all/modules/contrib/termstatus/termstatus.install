@@ -9,17 +9,19 @@
  * Implemets hook_enable().
  *
  * Disable term status per default in order to protect people from having all
- * their terms disappear when enabling the module.
+ * their terms disappear when enabling the module. Do not disable the module
+ * when installing into a pristine system - i.e. when there are no terms.
  */
 function termstatus_enable() {
-  variable_set('taxonomy_term_status_enable', FALSE);
+  $any_tid = db_query('SELECT tid FROM {taxonomy_term_data} LIMIT 1')->fetchField();
+  variable_set('termstatus_enable', empty($any_tid));
 }
 
 /**
  * Implements hook_uninstall().
  */
 function termstatus_uninstall() {
-  variable_del('taxonomy_term_status_enable');
+  variable_del('termstatus_enable');
 }
 
 /**
@@ -27,23 +29,25 @@ function termstatus_uninstall() {
  */
 function termstatus_requirements($phase) {
   $requirements = array();
-  // Ensure translations don't break at install time
+  // Ensure translations don't break at install time.
   $t = get_t();
 
-  // Check if term status is enabled
-  if (!variable_get('taxonomy_term_status_enable', FALSE)) {
-    $requirements['taxonomy_term_status'] = array(
-      'title' => $t('Taxonomy Term Status'),
-      'value' => $t('Term status is not configured yet. First visit the <a href="@config_link">configuration page</a> in order to build the status records and then enable it.', array('@config_link' => url('admin/config/system/termstatus'))),
-      'severity' => REQUIREMENT_WARNING,
-    );
-  }
-  else {
-    $requirements['taxonomy_term_status'] = array(
-      'title' => $t('Taxonomy Term Status'),
-      'value' => $t('Term status is configured and active. If the site is experiencing problems with visibility of taxonomy terms, you may have to rebuild the term status records using the <a href="@config_link">configuration page</a>.', array('@config_link' => url('admin/config/system/termstatus'))),
-      'severity' => REQUIREMENT_OK,
-    );
+  if ($phase != 'install') {
+    // Check if term status is enabled.
+    if (!variable_get('termstatus_enable', FALSE)) {
+      $requirements['taxonomy_term_status'] = array(
+        'title' => $t('Taxonomy Term Status'),
+        'value' => $t('Term status is not configured yet. First visit the <a href="@config_link">configuration page</a> in order to build the status records and then enable it.', array('@config_link' => url('admin/config/system/termstatus'))),
+        'severity' => REQUIREMENT_WARNING,
+      );
+    }
+    else {
+      $requirements['taxonomy_term_status'] = array(
+        'title' => $t('Taxonomy Term Status'),
+        'value' => $t('Term status is configured and active. If the site is experiencing problems with visibility of taxonomy terms, you may have to rebuild the term status records using the <a href="@config_link">configuration page</a>.', array('@config_link' => url('admin/config/system/termstatus'))),
+        'severity' => REQUIREMENT_OK,
+      );
+    }
   }
 
   return $requirements;
@@ -80,4 +84,22 @@ function termstatus_schema() {
   );
 
   return $schema;
+}
+
+/**
+ * Remove taxonomy_ prefix from variable names.
+ */
+function termstatus_update_7000() {
+  if (variable_get('taxonomy_term_status_enable', FALSE)) {
+    variable_set('termstatus_enable', TRUE);
+  }
+  variable_del('taxonomy_term_status_enable');
+
+  $termstatus_vars = db_query("SELECT name FROM {variable} WHERE name LIKE 'taxonomy_termstatus_%'")->fetchCol();
+
+  foreach ($termstatus_vars as $old_name) {
+    $new_name = substr($old_name, 9);
+    variable_set($new_name, variable_get($old_name));
+    variable_del($old_name);
+  }
 }

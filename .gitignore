@@ -6,3 +6,6 @@ site/*/default.settings.php
 sites/*/files
 sites/*/private
 /robots.txt
+.DS_Store
+.idea
+sites/*/themes/*/.sass-cache/

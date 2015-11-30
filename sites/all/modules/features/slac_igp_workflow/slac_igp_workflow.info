@@ -1,14 +1,9 @@
-name = SLAC IGP Workflow
-description = Simple workflow that allows admins to publish news contents imported accordingly
+name = SLAC IGP Workflow - defunct
+description = Dismantled IGP feature. Slated for removal after the Prod deployment.
 core = 7.x
 package = SLAC
-php = 5.2.4
-version = 7.x-1.0
+version = 7.x-2.0-beta1
 project = slac_igp_workflow
-dependencies[] = admin_views
-dependencies[] = views
-dependencies[] = views_bulk_operations
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
-features[views_view][] = administration_nodes_slac
 features_exclude[dependencies][ctools] = ctools

@@ -1,0 +1,128 @@
+<?php
+/**
+ * @file
+ * Code for the News Archive feature.
+ */
+
+include_once 'v_news_archive.features.inc';
+
+/**
+ * Implements hook_form_alter().
+ */
+function v_news_archive_form_alter(&$form, &$form_state, $form_id) {
+  $view_id = 'views-exposed-form-news-archive-panel-pane-1';
+  if ($form_id == 'views_exposed_form' && $form['#id'] == $view_id) {
+    // Update the default option of the News type select from '- Any -'.
+    $form['field_news_news_type_value']['#options']['All'] = t('All News');
+
+    // Find the position of the Submit element in the array so the new items
+    // can be inserted above it.
+    $submit_position = array_search('submit', array_keys($form));
+
+    $year_list = _v_news_archive_get_year_range();
+    // Make the year select use the year number for both key and value.
+    $year_options = array_combine($year_list, $year_list);
+
+    $custom_elements = array(
+      'v_news_archive_year' => array(
+        '#type' => 'select',
+        '#title' => 'Year',
+        '#title_display' => 'invisible',
+        '#options' => array(
+          '' => t('Year'),
+        ) + $year_options,
+        '#default_value' => '',
+      ),
+      'v_news_archive_month' => array(
+        '#type' => 'select',
+        '#title' => 'Month',
+        '#title_display' => 'invisible',
+        '#options' => array(
+          '' => t('Month'),
+        ) + drupal_map_assoc(range(1, 12), 'map_month'),
+      ),
+    );
+
+    // Insert the new elements before the Submit button.
+    $orig_form = $form;
+    $form = array_slice($orig_form, 0, $submit_position, TRUE) +
+        $custom_elements +
+        array_slice($orig_form, $submit_position, NULL, TRUE);
+    $form['#validate'][] = 'v_news_archive_views_exposed_form_validate';
+  }
+}
+
+/**
+ * Form validation function.
+ * @see v_news_archive_form_alter().
+ *
+ * Sets the date range filters to the values needed given the selected Year
+ * and/or Month.
+ */
+function v_news_archive_views_exposed_form_validate($form, &$form_state) {
+  $values = $form_state['values'];
+  if (!empty($values['v_news_archive_year']) && !empty($values['v_news_archive_month'])) {
+    // Year and month both selected.
+    $year = $values['v_news_archive_year'];
+    $month = $values['v_news_archive_month'];
+
+    if ($month == 12) {
+      $max = ($year + 1) . '-1';
+    }
+    else {
+      $max =  $year . '-' . ($month + 1);
+    }
+
+    $created = array(
+      'min' => $year . '-' . $month,
+      'max' => $max,
+    );
+
+    form_set_value($form['published_at'], $created, $form_state);
+  }
+  elseif (!empty($values['v_news_archive_year'])) {
+    // Only Year selected.
+    $year = $values['v_news_archive_year'];
+
+    $created = array(
+      'min' => $year . '-1',
+      'max' => ($year + 1) . '-1',
+    );
+    form_set_value($form['published_at'], $created, $form_state);
+  }
+  elseif (!empty($values['v_news_archive_month'])) {
+    // Only Month selected, assume current year.
+    $now = new DateTime();
+    $current_year = $now->format('Y');
+
+    $month = $values['v_news_archive_month'];
+    $input['v_news_archive_year'] = $current_year;
+
+    if ($month == 12) {
+      $max = ($current_year + 1) . '-1';
+    }
+    else {
+      $max = $current_year . '-' . ($month + 1);
+    }
+    $created = array(
+      'min' => $current_year . '-' . $month,
+      'max' => $max,
+    );
+
+    form_set_value($form['published_at'], $created, $form_state);
+  }
+}
+
+/**
+ * Creates an array of years to choose from to filter the News Archive by.
+ *
+ * @return array
+ *   The list of year options to choose from.
+ */
+function _v_news_archive_get_year_range() {
+  $now = new DateTime();
+  $current_year = $now->format('Y');
+
+  // Hard set range from current year to 2011.
+  return range($current_year, 2011);
+}

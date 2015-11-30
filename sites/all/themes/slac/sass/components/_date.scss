@@ -1,0 +1,189 @@
+// Original styles came from date module
+/* Pager plugin css */
+div.date-views-pager {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.date-views-pager li {
+  float: left;
+  text-align: left;
+  width: 20%;
+}
+
+div.date-views-pager div.current-page {
+  font-weight: bold;
+  text-align: center;
+}
+
+div.date-views-pager div.next-month,
+div.date-views-pager div.next-year {
+  text-align: right;
+}
+
+/* Views filter form css */
+.views-group-box div.date-views-filter-fieldset {
+  margin-left: 0;
+}
+
+.views-group-box fieldset.date-views-filter-fieldset {
+  padding-top: 0;
+}
+
+.views-group-box fieldset.date-views-filter-fieldset .container-inline-date > .form-item {
+  border-width: 0;
+  margin: 9px 3px 0 3px;
+  display: block;
+}
+
+.views-group-box fieldset.date-views-filter-fieldset .container-inline-date .date-padding {
+  padding: 0;
+}
+
+.date-views-filter-wrapper {
+  min-width: 250px;
+}
+
+.date-views-filter input {
+  float: left !important; /* LTR */
+  margin-right: 2px !important; /* LTR */
+  min-width: 12em;
+  padding: 0 !important;
+  width: 12em;
+}
+
+// Style Header
+
+// Give the navigation bar a little extra padding below so it will clear the new contextual links overlay of the teasers below it.
+.date-nav {
+  clear: both;
+  padding-bottom: 1.5em;
+  width: 100%;
+}
+
+.date-nav-wrapper .clear-block {
+  margin-bottom: 10px;
+}
+
+.date-nav-wrapper  {
+  .item-list .pager {
+    margin: 0;
+
+    li.date-today {
+      display: none;
+
+      @include breakpoint($tablet-large) {
+        display: block;
+        padding-top: 14px;
+        text-align: center;
+      }
+    }
+  }
+
+  .item-list .pager li {
+    padding-top: 0;
+
+    @include breakpoint($tablet-large) {
+      padding-top: 12px;
+    }
+
+    span {
+      color: $color-gray-dove;
+    }
+
+    a {
+      background: none;
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      &:hover,
+      &:focus {
+        color: $blue;
+        background: transparent;
+        text-decoration: none;
+      }
+    }
+  }
+
+  @include breakpoint($tablet-large) {
+    .item-list .pager {
+      display: inline-block;
+      height: 34px;
+      position: relative;
+      bottom: .45rem;
+    }
+  }
+}
+
+.date-nav-wrapper .date-prev {
+  position: absolute;
+  left: 0px;
+  text-align: left;
+  top: 0px;
+  z-index: 1;
+}
+
+.date-nav-wrapper .date-prev {
+  left: 0;
+  right: auto;
+  border-right: 4px solid $white;
+
+  @include breakpoint($tablet-large) {
+    border-right: none;
+  }
+}
+
+.date-nav-wrapper .item-list .pager li.date-prev a {
+  display: block;
+  width: 16px;
+  height: 18px;
+  font-size: 0;
+  background: url(../images/pager-arrows.png) 4px 7px no-repeat;
+
+  @include breakpoint($tablet-large) {
+    background: $color-gray-porcelain url(../images/calendar-arrows.png) 50% -6px no-repeat;
+    border: 1px solid $color-gray-silver-chalice;
+    margin-right: 0.6rem;
+    height: 10px;
+  }
+}
+
+.date-nav-wrapper .date-next {
+  position: absolute;
+  right: 0px;
+  text-align: right;
+  top: 0px;
+  z-index: 1;
+  border-left: 4px solid $white;
+
+  @include breakpoint($tablet-large) {
+    left: 140px;
+    border-left: none;
+  }
+}
+
+.date-nav-wrapper .item-list .pager li.date-next a {
+  display: block;
+  width: 16px;
+  height: 18px;
+  font-size: 0;
+  background: url(../images/pager-arrows.png) -38px 7px no-repeat;
+
+  @include breakpoint($tablet-large) {
+    background: $color-gray-porcelain url(../images/calendar-arrows.png) 50% -69px no-repeat;
+    border: 1px solid $color-gray-silver-chalice;
+    margin-left: 1rem;
+    height: 10px;
+  }
+}
+
+.date-nav-wrapper .item-list .pager li.date-today a,
+.date-nav-wrapper .item-list .pager li.date-today span {
+    @include font-size(14px);
+    text-transform: uppercase;
+    background: color(grey-blue-light);
+    padding: 0.3435rem 1rem;
+    margin-left: 4.25rem;
+    margin-right: 0.2rem;
+    border: 1px solid $color-gray-silver-chalice;
+}

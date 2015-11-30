@@ -1,0 +1,6 @@
+name = SLAC IP Custom Panel Panes
+description = Provides custom Panel Panes for SLAC IP
+core = 7.x
+package = SLAC IP
+configure = admin/config/slac-ip-panes
+dependencies[] = ctools

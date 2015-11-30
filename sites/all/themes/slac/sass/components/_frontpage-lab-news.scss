@@ -1,0 +1,118 @@
+.frontpage-news-list {
+  .pane-title a {
+    @include frontpage-news-headings;
+  }
+
+  @include breakpoint($tablet-small) {
+    .pane-title {
+      margin-bottom: 0;
+
+      a {
+        background: $grey url(../images/lines.png) -40px -20px repeat-x;
+        color: $white;
+        line-height: 2;
+      }
+    }
+  }
+}
+
+.view-slac-news {
+  .pane-content {
+    padding: 0;
+  }
+
+  .item-list ul {
+    .views-row {
+      @include font-size(11px);
+      padding: 0.5rem;
+      background: $white url('../images/list-arrow-new.jpg') no-repeat right center;
+      margin: 0;
+      margin-bottom: 1rem;
+
+      @include breakpoint($tablet-small) {
+        background: none;
+        margin: 0;
+        margin-bottom: 0.3rem;
+        padding: 0 1rem 0 0;
+        line-height: 1;
+        list-style: disc;
+        color: $blue;
+      }
+
+      a {
+        @include font-size(12px);
+        line-height: 1.4;
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        padding-right: 3.75rem;
+
+        @include breakpoint($tablet-small) {
+          display: inline;
+          width: 98%;
+          padding-right: 4px;
+        }
+      }
+    }
+
+    .views-field-created,
+    .views-field-published-at {
+      @include font-size(11px);
+      font-style: italic;
+      color: $color-gray-dove;
+      letter-spacing: 0.03rem;
+    }
+  }
+
+  @include breakpoint($tablet-small) {
+    .item-list ul {
+      padding-left: 2rem;
+    }
+  }
+
+  .view-footer {
+    a {
+      @include font-size(14px);
+      padding: 0.5rem;
+      display: block;
+      background: $light-blue url('../images/mobile-menu-arrow.png') no-repeat 98% center;
+      color: $blue;
+      font-weight: bold;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+
+    > a {
+      margin-bottom: 0.8rem;
+
+      @include breakpoint($tablet-small) {
+        margin-bottom: initial;
+      }
+    }
+
+    @include breakpoint($tablet-small) {
+      @include view-footer;
+      margin: 0 1rem;
+      padding-bottom: 1rem;
+      border-top: 1px dashed $homepage-dashed-line;
+
+      a {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+@include breakpoint($tablet-small) {
+  .pane-slac-news {
+    background: $white;
+
+    .item-list {
+      padding-top: 0.5rem;
+    }
+  }
+}

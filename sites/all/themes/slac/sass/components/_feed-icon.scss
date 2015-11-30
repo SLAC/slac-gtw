@@ -1,0 +1,38 @@
+.feed-icon__bottom {
+  display: block;
+}
+
+.page-taxonomy-term .feed-icon {
+  display: none;
+}
+
+@include breakpoint($tablet-large) {
+  .page-taxonomy-term {
+    .feed-icon {
+      display: block;
+    }
+
+    .view-content-taxonomy-listing {
+      position: relative;
+    }
+
+    > .feed-icon {
+      display: block;
+    }
+
+    a.feed-icon {
+      display: block;
+      position: absolute;
+      top: -44px;
+      right: 0;
+    }
+
+    .tabs ~ .contextual-links-region a.feed-icon {
+      top: -132px;
+    }
+
+    .feed-icon__bottom {
+      display: none;
+    }
+  }
+}

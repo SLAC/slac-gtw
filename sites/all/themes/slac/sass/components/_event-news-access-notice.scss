@@ -1,0 +1,343 @@
+// Styles here address theming of event, news and access notice
+
+.node-type-event,
+.node-type-news,
+.node-type-access-information {
+  #content {
+    @include font-size(16px);
+    background: $white !important;
+    color: $event-body;
+    .contextual-links-region {
+      padding: 0;
+    }
+  }
+
+  #header {
+    margin-bottom: 0;
+  }
+
+  .general-left {
+    .pane-node-field-event-type {
+      margin-bottom: 2rem;
+    }
+
+    .pane-node-body {
+      border-top: solid 3px $color-gray-loblolly;
+      margin-top: 2.5rem;
+    }
+
+    h1 {
+      margin-bottom: .6rem;
+      margin-top: 0;
+      line-height: 1.2;
+    }
+
+    .pane-terms-on-node-panel-pane-terms-on-node .pane-title,
+    .pane-node-field-shared-contact-name .pane-title {
+      @include font-size(14px);
+      margin-bottom: 0;
+    }
+
+    .date-display-start,
+    .date-display-end,
+    .date-display-single,
+    .field-name-field-shared-location,
+    .field-name-field-shared-byline {
+      @include font-size(16px);
+      color: $color-gray-tundora;
+      font-weight: bold;
+      margin-bottom: 0.75rem;
+    }
+
+    .field-name-field-shared-byline {
+      margin-bottom: 0;
+    }
+
+    .date-display-single {
+      margin-bottom: 0.25rem;
+    }
+
+    .field-name-field-shared-location {
+      margin-bottom: 1rem;
+    }
+
+    .field-name-field-shared-contact-name,
+    .field-name-field-shared-contact-email,
+    .field-name-field-shared-contact-phone {
+      margin-bottom: .2rem;
+    }
+
+    .pane-node-body {
+      border-top: solid 3px $color-gray-loblolly;
+      margin-top: 2.5rem;
+    }
+  }
+
+  .general-right {
+    padding-top: 3.8rem;
+
+    div > .pane-title {
+      margin-top: 0;
+      line-height: 1;
+    }
+
+    .panel-pane {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .general-right .inside {
+    border-left: none;
+  }
+}
+
+// news overrides
+.node-type-news {
+  #content {
+    @include font-size(16px);
+
+    .field-name-field-shared-location {
+      font-weight: normal;
+    }
+
+    .field-name-field-news-subtitle {
+      @include font-size(20px);
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .general-left {
+    .pane-node-title {
+      margin-bottom: 1rem;
+    }
+
+    .pane-node-field-shared-byline {
+      width: 72%;
+      float: left;
+      margin-bottom: 0.5rem;
+      margin-right: 2rem;
+    }
+
+    .email-button,
+    .js-print-button {
+      padding-top: 0.2rem;
+    }
+
+    > .inside {
+      position: relative;
+    }
+
+    .email-button {
+      position: absolute;
+      right: 70px;
+
+      a {
+        padding-right: 1rem;
+      }
+    }
+
+    .js-print-button {
+      position: absolute;
+      right: 10px;
+      padding-left: 1rem;
+      padding-right: 0;
+
+      a {
+        padding-right: 0;
+        margin-right: 0;
+      }
+    }
+
+    .field-name-field-shared-image {
+      @include float-left;
+      margin-top: .25rem;
+    }
+
+    .pane-node-body {
+      border-top: none;
+      margin-top: 0;
+      p:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .pane-node-created,
+    .pane-node-published-at {
+      margin-bottom: 0.5rem;
+      margin-top: 2rem;
+      display: block;
+      clear: both;
+    }
+
+    .pane-node-published-at,
+    .field-name-field-shared-location,
+    .field-name-field-shared-byline {
+      @include font-size(14px);
+    }
+  }
+
+  .general-right {
+    padding-top: 0;
+
+    .pane-node-field-shared-image,
+    .pane-node-field-shared-video {
+      .field-item + .field-item {
+        border-top: dashed 2px $color-gray-loblolly;
+        margin-top: 2rem;
+        padding-top: 2rem;
+      }
+    }
+
+    .pane-node-field-shared-image + .pane-node-field-shared-video {
+      border-top: dashed 2px $color-gray-loblolly;
+      padding-top: 2rem;
+    }
+  }
+}
+
+// access notice overrides
+.node-type-access-information {
+  .general-left {
+    .pane-node-body {
+      border-top: none;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    .pane-node-field-event-date,
+    .pane-node-field-shared-location {
+      box-sizing: border-box;
+      width: 100%;
+      background: $color-gray-porcelain;
+      font-weight: bold;
+
+      @include breakpoint($tablet-large) {
+        width: 78.6%;
+      }
+
+      .pane-title {
+        @include font-size(12px);
+        padding: 0.625rem;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        margin-top: 0;
+        text-transform: uppercase;
+        line-height: 1;
+        font-weight: bold;
+        color: $color-gray-tundora;
+
+        @include breakpoint($tablet-large) {
+          width: 5rem;
+          margin: 0;
+          padding: 1rem 0.625rem 0.625rem 0;
+          float: left;
+          text-align: right;
+        }
+      }
+
+      .field {
+        padding: 0.3rem 0.625rem 0.625rem;
+
+        @include breakpoint($tablet-large) {
+          margin-left: 5.625rem;
+          padding: 0.625rem;
+          border-left: 3px solid $white;
+        }
+
+        span,
+        div.field-item {
+          padding: 0;
+        }
+      }
+    }
+
+    .panel-pane:nth-child(6n) {
+      margin-top: 3.5rem;
+      margin-bottom: 0.285rem;
+
+      @include breakpoint($tablet-large) {
+        margin-bottom: 0.1875rem;
+      }
+    }
+
+    .pane-node-field-shared-contact-name h2 {
+      float: none;
+      font-weight: bold;
+      text-align: left;
+      width: 100%;
+      padding: 0;
+      margin-top: 2rem;
+    }
+
+    .field-name-field-shared-location {
+      margin-bottom: 0;
+    }
+
+    .pane-node-field-shared-location {
+      margin-top: 0.1875rem;
+    }
+
+    .panel-pane {
+      &.pane-node-field-shared-location,
+      &.field-name-field-event-date,
+      &.pane-node-field-event-date {
+        border-left: 5px solid $access-notice-table-border;
+        margin-bottom: 0.385rem;
+
+        @include breakpoint($tablet-large) {
+          margin-bottom: 0.1875rem;
+        }
+      }
+    }
+
+    .panel-pane {
+      div.field-item {
+        display: block;
+        padding: 0.75rem 0 0.75rem 0.875rem;
+      }
+
+      &.pane-node-body .field-item {
+        padding: 0;
+      }
+
+      &.pane-node-field-shared-contact-name div.field-item {
+        padding: 0;
+      }
+
+      &.pane-node-field-shared-contact-email {
+        margin-top: 0;
+        .field-item {
+          padding: 0;
+        }
+      }
+
+      &.pane-node-field-shared-contact-phone .field-item {
+        padding: 0;
+      }
+    }
+  }
+}
+
+// event overrides
+.node-type-event {
+  .pane-node-body .field-name-body {
+    padding-top: 1rem;
+  }
+
+  .pane-node-field-event-date {
+    margin-bottom: 0.5rem;
+    color: $color-gray-tundora;
+    font-weight: bold;
+  }
+
+  .general-left .pane-node-body {
+    margin-top: 3.5rem;
+  }
+
+  .pane-node-body .field-name-body {
+    padding-top: 0.5rem;
+  }
+}

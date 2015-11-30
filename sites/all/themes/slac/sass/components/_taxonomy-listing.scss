@@ -1,0 +1,59 @@
+.page-taxonomy-term {
+  .title {
+    @include move-page-title;
+    padding-left: 0;
+  }
+
+  ul.primary {
+    display: block;
+    clear: both;
+    margin-bottom: 0;
+  }
+}
+
+@media all and (max-width: $tablet-large) {
+  .page-taxonomy-term {
+    .l-general-one-col {
+      margin-top: 0;
+    }
+
+    .title {
+      @include zen-grid-item(12, 1);
+      float: none;
+      margin-left: 0;
+      padding-left: 0;
+      margin-bottom: 2rem;
+    }
+
+    .node-title {
+      margin-top: 0;
+    }
+
+    article {
+      margin-bottom: 2rem;
+      border-bottom: 4px solid color(grey-blue);
+    }
+
+    .views-row:last-child article {
+      border: none;
+    }
+
+    .node-created,
+    .node-published-at {
+      margin-bottom: 0.5rem;
+    }
+
+    .field-name-field-shared-image {
+      float: none;
+    }
+
+    .pager {
+      text-align: center;
+    }
+
+    .feed-icon__bottom {
+      display: block;
+      margin-bottom: 2rem;
+    }
+  }
+}

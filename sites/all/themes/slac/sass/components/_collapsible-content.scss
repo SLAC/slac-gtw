@@ -1,0 +1,38 @@
+
+// Views filters will expand/collapse in the mobile layout.
+@include breakpoint($mobile) {
+  .view-filters {
+    .button-expand {
+      display: inline;
+    }
+
+    form {
+      display: none;
+    }
+
+    &.expanded {
+      form {
+        display: block;
+      }
+    }
+  }
+
+  // The advanced search filters are always displayed.
+  .view-id-search .view-filters {
+    form {
+      display: block;
+    }
+  }
+}
+
+@include breakpoint($tablet-large) {
+  .view-filters {
+    .button-expand {
+      display: none;
+    }
+
+    form {
+      display: block;
+    }
+  }
+}

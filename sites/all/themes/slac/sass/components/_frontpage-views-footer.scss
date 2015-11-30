@@ -1,0 +1,8 @@
+.frontpage-calendar,
+.frontpage-access-info,
+.frontpage-help-market {
+  .view-footer {
+    @include view-footer;
+    clear: both;
+  }
+}

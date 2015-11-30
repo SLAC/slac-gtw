@@ -1,0 +1,88 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  .view-staff-resource-modern & {
+    width: inherit;
+  }
+
+  tbody {
+    border: none;
+  }
+
+  td {
+    vertical-align: top;
+  }
+
+// overrides system styles
+  tr,
+  tr.odd,
+  tr.even {
+    background-color: $white;
+    border: none;
+
+    .view-staff-resource-modern & {
+      background-color: transparent;
+    }
+  }
+
+  tr.odd {
+    background-color: $color-gray-mercury;
+  }
+
+  th {
+    border: none;
+  }
+
+  td,
+  th {
+    padding: 1rem;
+
+    &.active {
+      background-color: transparent;
+    }
+  }
+}
+
+caption {
+  display: block;
+  margin: 0 auto;
+
+  @include breakpoint($tablet-large) {
+    display: table-caption;
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+// Adds borders to headers and cells
+table[border],
+table[border] th,
+table[border] tr td {
+  border: 3px solid $default-table-borders;
+}
+
+// No borders if border value is zero
+table[border="0"],
+table[border="0"] th,
+table[border="0"] tr td {
+  border: none;
+}
+
+table th {
+  color: $red;
+
+  .page-my-content &,
+  .page-flea-market & {
+    color: inherit;
+  }
+}
+
+table tr td:first-child {
+  width: 235px;
+
+  .page-my-content &,
+  .page-flea-market & {
+    width: inherit;
+  }
+}

@@ -19,15 +19,25 @@ stylesheets[all][] = css/staff-page.css
 stylesheets[all][] = css/feedback-page.css
 stylesheets[all][] = css/media-600.css
 stylesheets[all][] = css/media-900.css
+stylesheets[all][] = css/main.css
+stylesheets[all][] = slac_colorbox/colorbox_slac_colorbox.css
+
+;------Unset System Stylesheets ----------
+stylesheets[all][] = system.theme.css
+stylesheets[all][] = css/calendar_multiday.css
+stylesheets[all][] = css/calendar-overlap.css
+stylesheets[all][] = css/date_views.css
+
 
 scripts[] = js/jquery.placeholder.js
 scripts[] = js/script.js
 scripts[] = js/modernizr.js
+scripts[] = slac_colorbox/colorbox_slac_colorbox.js
 
 plugins[panels][styles] = plugins/styles
 plugins[panels][layouts] = plugins/layouts
 
-;stylesheets[all][] = css/print.css
+stylesheets[all][] = css/print.css
 ;stylesheets[all][] = system.menus.css
 ;stylesheets[all][] = css/layouts/responsive-sidebars.css
 ;stylesheets[all][] = css/blocks.css
@@ -46,6 +56,7 @@ regions[navigation]     = Navigation bar
 regions[highlighted]    = Highlighted
 regions[help]           = Help
 regions[content]        = Content
+regions[content_bottom] = Content Bottom
 regions[sidebar_first]  = First sidebar
 regions[sidebar_second] = Second sidebar
 regions[footer]         = Footer

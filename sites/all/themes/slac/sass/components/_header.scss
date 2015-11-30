@@ -1,0 +1,310 @@
+@import "zen";
+
+$zen-gutter-width: 40px;
+$zen-column-count: 12;
+
+.l-page {
+  @include zen-grid-container();
+}
+
+.content-container {
+  padding-bottom: 2rem;
+
+  .page-calendar & {
+    margin-top: -5px;
+
+  }
+
+  .events-calendar {
+    margin-top: -3.5rem;
+  }
+
+  @include breakpoint($tablet-large) {
+    .page-calendar & {
+      position: relative;
+      z-index: 3;
+      margin-top: -22px;
+      padding-top: 0;
+    }
+
+    .events-calendar {
+      margin-top: 0;
+    }
+  }
+}
+
+.l-general-one-col {
+  margin-top: 3.125rem;
+}
+
+#header {
+  width: 100%;
+  height: 52px;
+  margin: 0 auto;
+  padding: 0;
+
+  @include breakpoint($tablet-large) {
+    width: 98%;
+    padding: 0 1%;
+  }
+
+  .block-slac-search .contextual-links-wrapper {
+    display: none;
+  }
+
+  .header-wrapper {
+    clear: both;
+    display: table;
+    content: "";
+  }
+
+  .logo a {
+    display: block;
+    width: 118px;
+    height: 102px;
+    background: url(../logo.png) 0 0 no-repeat;
+    background-image: url(../logo.svg), none;
+    background-size: 90px auto;
+    float: right;
+    position: relative;
+    z-index: 5;
+
+    @include breakpoint($tablet-small) {
+      float: left;
+    }
+
+    @include breakpoint($tablet-large) {
+      float: right;
+      background-size: 100% auto;
+    }
+
+    span {
+      display: block;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+  }
+
+  .date {
+    display: none;
+
+    @include breakpoint($tablet-small) {
+      @include font-size(11px);
+      display: block;
+      width: 6.875rem;
+      float: left;
+      font-weight: bold;
+      color: $white;
+      position: relative;
+      left: 0;
+      top: 1rem;
+    }
+
+    @include breakpoint($tablet-large) {
+      color: $color-gray-tundora;
+      top: 0.3rem;
+      left: 10.94rem;
+    }
+
+    @include breakpoint($desktop) {
+      color: $color-gray-tundora;
+      top: 0.3rem;
+      left: 0;
+    }
+  }
+
+  .header__region {
+    @include breakpoint($tablet-large) {
+      @include zen-nested-container();
+      padding-top: 12px;
+    }
+
+    #block-system-main-menu {
+      margin-top: 8px;
+    }
+  }
+}
+
+.header__region {
+  input[type="text"] {
+    @include font-size(14px);
+    display: block;
+    float: left;
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 2px;
+    padding: 4px 10px;
+    width: 250px;
+    border: 1px solid $blue;
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      height: 18px;
+    }
+
+    @media all and (min-width: 800px) {
+      width: 110px;
+
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        height: 17px;
+      }
+    }
+
+    @media all and (min-width: 1100px) {
+      width: 140px;
+    }
+
+    @media all and (min-width: 1240px) {
+      width: 180px;
+    }
+  }
+
+  input::-webkit-input-placeholder {
+    text-transform: uppercase;
+    @include font-size(9px);
+    padding-top: 4px;
+  }
+
+  input:-moz-placeholder {
+    text-transform: uppercase;
+    @include font-size(9px);
+    padding-top: 4px;
+  }
+
+  input::-moz-placeholder {
+    text-transform: uppercase;
+    @include font-size(9px);
+    padding-top: 4px;
+  }
+
+  input:-ms-input-placeholder {
+    text-transform: uppercase;
+    @include font-size(9px);
+    padding-top: 4px;
+  }
+
+  input:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  input:focus:-moz-placeholder {
+    color: transparent;
+  }
+
+  input:focus::-moz-placeholder {
+    color: transparent;
+  }
+
+  input:focus:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  input[type="submit"] {
+    @include font-size(12px);
+    float: left;
+    margin-left: 2px;
+    background: $blue;
+    border: none;
+    color: $white;
+    padding: 6px 10px;
+    text-transform: uppercase;
+  }
+
+  select {
+    @include font-size(10px);
+    text-transform: uppercase;
+    border: 1px solid $blue;
+    background: $white;
+    border-radius: 0;
+    border-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  select option {
+    border: 1px solid $blue;
+    color: $blue;
+    font-weight: normal;
+  }
+}
+
+// /selectize styles
+.container-inline .selectize-control {
+  display: block;
+  float: left;
+
+  .selectize-input {
+    @include font-size(9px);
+    background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
+    text-transform: uppercase;
+    border: 1px solid $blue;
+    background: $white;
+    width: 100%;
+    border-radius: 0;
+    border-image: none;
+    color: $color-gray;
+    padding: 4px 80px 2px 4px;
+    overflow: hidden;
+    height: 27px;
+
+    > .item {
+      display: inline-block;
+      white-space: nowrap;
+    }
+  }
+
+  .selectize-dropdown .selectize-dropdown-content {
+    border: 1px solid $blue;
+    @include font-size(10px);
+    color: lighten($grey, 20%);
+    text-transform: uppercase;
+    background: transparent;
+    box-shadow: none;
+
+    .option {
+      border-bottom: 1px solid $blue;
+      background: transparent;
+      text-align: left;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .selected,
+    :hover {
+      background: lighten($grey, 50%);
+      color: $blue;
+    }
+  }
+
+  div {
+    display: block;
+  }
+}
+
+.selectize-dropdown {
+  border: none;
+}
+
+.selectize-control.single .selectize-input {
+  background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
+  width: 135px;
+
+  > input {
+    display: none !important;
+  }
+
+  &.dropdown-active {
+      background: $white url(../images/dropdown-bg.png) calc(100% - 2px) 50% no-repeat;
+      width: 135px;
+  }
+}
+
+.selectize-control.plugin-drag_drop .ui-sortable-placeholder::after,
+.selectize-input::after,
+.selectize-input.dropdown-active::before,
+.selectize-control.single .selectize-input:after {
+  content: none;
+}

@@ -1,0 +1,19 @@
+.field-name-field-file-shared-caption {
+  @include caption;
+}
+
+.general-left .field-name-field-file-shared-caption {
+  max-width: 370px;
+}
+
+.file-video .field-name-field-file-shared-caption {
+  max-width: 640px;
+}
+
+#cboxTitle {
+  color: $color-gray-tundora !important;
+}
+
+#cboxCurrent {
+  color: $color-gray !important;
+}

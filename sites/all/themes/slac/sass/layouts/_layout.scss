@@ -1,0 +1,240 @@
+@import "zen";
+
+$zen-gutter-width: 40px;
+$zen-column-count: 12;
+
+.header-wrapper {
+  width: 100%;
+  max-width: 1432px;
+  margin: auto;
+}
+
+.l-main {
+  @include zen-grid-item(12, 1);
+  max-width: 1432px;
+  float: none;
+  margin: 0 auto;
+  @include clearfix;
+  padding-top: 37px;
+
+  @include breakpoint($tablet-large) {
+    padding-top: 47px;
+
+    .page-calendar & {
+      padding-top: 0;
+    }
+  }
+}
+
+.main-navigation {
+
+  .region-navigation {
+    @include zen-grid-item(10, 3);
+  }
+}
+
+// frontpage
+@include breakpoint($tablet-small) {
+  .front-main-column {
+    @include zen-grid-item(7, 6);
+    padding-right: 0;
+  }
+
+  .front-first-column {
+    @include zen-grid-item(5, 1);
+    padding-left: 0;
+  }
+
+  .front-last-column {
+    @include zen-grid-item(7, 6);
+    clear: both;
+    padding-bottom: 2rem;
+  }
+}
+
+@include breakpoint($desktop) {
+  .front-main-column {
+    @include zen-grid-item(5, 4);
+  }
+
+  .front-first-column {
+    @include zen-grid-item(3, 1);
+    padding-left: 0;
+  }
+
+  .front-last-column {
+    @include zen-grid-item(4, 9);
+    padding-right: 0;
+    clear: right;
+  }
+}
+// end of frontpage
+
+
+.content-container {
+  @include zen-grid-container();
+
+  .general-left {
+    width: 100%;
+    clear: both;
+
+    @include breakpoint($tablet-large) {
+      @include zen-grid-item(8, 1);
+      padding-left: 0;
+      clear: none;
+    }
+
+    @include breakpoint($desktop) {
+      @include zen-grid-item(7, 2);
+    }
+  }
+
+  .general-right {
+    width: 100%;
+    clear: both;
+
+    @include breakpoint($tablet-large) {
+      @include zen-grid-item(4, 9);
+      padding-right: 0;
+      clear: none;
+    }
+
+    @include breakpoint($desktop) {
+      @include zen-grid-item(3, 9);
+    }
+
+    .inside {
+      border-left: none;
+      padding-left: 0;
+    }
+  }
+}
+
+@include breakpoint($tablet-large) {
+  .logo {
+    @include zen-grid-item(2, 1);
+  }
+}
+
+.header__region {
+  @include breakpoint($desktop) {
+    @include zen-grid-item(10, 3);
+  }
+}
+
+@media all and (max-width: $tablet-large) {
+  .search-wrapper {
+    .form-type-textfield {
+      @include zen-grid-item(10, 1);
+      padding-left: 0;
+
+      .form-submit {
+        @include zen-grid-item(2, 11);
+      }
+    }
+  }
+}
+
+.section-search .title {
+  @include zen-grid-item(12, 1);
+}
+
+.l-general-one-col {
+  @include zen-grid-item(12, 1);
+  padding-left: 0;
+  padding-right: 0;
+
+  @include breakpoint($tablet-large) {
+    .page-flea-market & {
+      @include zen-grid-item(12, 1);
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  @include breakpoint($huge) {
+    .page-flea-market & {
+      @include zen-grid-item(10, 2);
+    }
+  }
+}
+
+// taxonomy term listing
+// feedback webform
+// search results
+.page-taxonomy-term .l-general-one-col,
+.node-type-webform .content-container,
+.view-search {
+  @include zen-grid-item(12, 1);
+  padding-left: 0;
+  padding-right: 0;
+
+  @include breakpoint($tablet-large) {
+    @include zen-grid-item(10, 2);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// Calendar
+.events-calendar {
+  @include zen-grid-item(12, 1);
+  padding-left: 0;
+  padding-right: 0;
+
+  @include breakpoint($calendar-full) {
+    @include zen-grid-item(10, 2);
+  }
+}
+
+.region-content-bottom {
+  @include clearfix;
+  @include zen-grid-item(12, 1);
+  max-width: 1432px;
+  float: none;
+  padding: 0;
+  margin: 0 auto 4rem auto;
+}
+
+.footer-inner {
+  @include clearfix;
+  @include zen-grid-item(12, 1);
+}
+
+@include breakpoint($tablet-large) {
+
+  .footer-inner {
+    max-width: 1432px;
+    float: none;
+    margin: 0 auto;
+  }
+
+  .region-footer {
+    @include zen-grid-item(8, 1);
+    padding-bottom: 14px;
+    overflow: hidden;
+  }
+
+  .footer-logos {
+    @include zen-grid-item(4, 9);
+    text-align: right;
+    margin-top: 3rem;
+  }
+}
+
+@include breakpoint($extra-large) {
+  .footer-inner {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .region-footer {
+    @include zen-grid-item(6, 1);
+    padding-left: 0;
+  }
+
+  .footer-logos {
+    @include zen-grid-item(3, 10);
+    padding-right: 0;
+  }
+}

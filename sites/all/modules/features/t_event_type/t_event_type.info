@@ -1,0 +1,13 @@
+name = Event Type
+description = Provides Event Type taxonomy vocabulary
+core = 7.x
+package = Taxonomy
+version = 7.x-1.0-dev
+project = t_event_type
+dependencies[] = features
+dependencies[] = taxonomy
+features[features_api][] = api:2
+features[taxonomy][] = event_type
+features[user_permission][] = delete terms in event_type
+features[user_permission][] = edit terms in event_type
+project path = sites/all/modules/features

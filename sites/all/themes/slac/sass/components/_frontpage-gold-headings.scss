@@ -1,0 +1,17 @@
+.frontpage-calendar,
+.frontpage-access-info,
+.frontpage-weather,
+.frontpage-people-finder,
+.frontpage-top-links,
+.frontpage-projects,
+.frontpage-directorate-links,
+.frontpage-help-market,
+.frontpage-security-contacts {
+  .pane-title {
+    @include font-size(12px);
+    line-height: 1.2;
+    color: $gold;
+    margin-bottom: -2px;
+    text-transform: uppercase;
+  }
+}

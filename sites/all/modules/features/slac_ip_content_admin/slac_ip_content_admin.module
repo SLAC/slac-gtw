@@ -1,0 +1,63 @@
+<?php
+/**
+ * @file
+ * Code for the SLAC IP Content Admin feature.
+ */
+
+include_once 'slac_ip_content_admin.features.inc';
+
+/**
+ * Implements hook_menu_alter().
+ *
+ * Alters the webform admin listing menu item so that it will not appear as a
+ * local task, but will still be in the Content menu.
+ *
+ * Alters the tab for 'Content' to reflect that it is for 'All Content'.
+ */
+function slac_ip_content_admin_menu_alter(&$items) {
+  $items['admin/content/webform']['type'] = MENU_NORMAL_ITEM;
+
+  $items['admin/content/node']['title'] = t('All Content');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function slac_ip_content_admin_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  // Customize Content Admin views' date filter display.
+  if (strpos($form['#id'], 'views-exposed-form-administration-nodes-slac-') === 0) {
+    $form['date_filter']['min']['#title'] = t('From Post Date');
+    $form['date_filter']['max']['#title'] = t('To Post Date');
+
+    $form['#attached']['css'] = array(
+      drupal_get_path('module', 'slac_ip_content_admin') . '/css/slac_ip_content_admin.css',
+    );
+  }
+
+  // Update the Flagged? filter to match the output for the view: Yes or No.
+  if (isset($form['flagged'])) {
+    $form['flagged']['#options'][1] = t('Yes');
+    $form['flagged']['#options'][0] = t('No');
+  }
+}
+
+/**
+ * Implements hook_views_query_alter().
+ *
+ * Updates the Content Type sort in the Content admin view to sort as if it were
+ * 'basic_page' instead of the actual machine name: 'page'.
+ */
+function slac_ip_content_admin_views_query_alter(&$view, &$query) {
+  if ($view->name == 'administration_nodes_slac') {
+    if ($query->orderby[0]['field'] == 'node_type') {
+      $dir = $query->orderby[0]['direction'];
+      $query->orderby = array(array(
+        'field' => 'CASE node_type
+            WHEN \'page\' THEN \'basic_page\'
+            ELSE node_type
+          END',
+        'direction' => $dir,
+      ));
+    }
+  }
+}

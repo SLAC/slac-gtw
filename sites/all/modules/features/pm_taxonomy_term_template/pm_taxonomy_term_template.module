@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Taxonomy term template feature.
+ */
+
+include_once 'pm_taxonomy_term_template.features.inc';

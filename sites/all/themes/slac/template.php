@@ -101,130 +101,6 @@
  *   http://drupal.org/node/223440 and http://drupal.org/node/1089656
  */
 
-
-/**
- * Override or insert variables into the maintenance page template.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("maintenance_page" in this case.)
- */
-/* -- Delete this line if you want to use this function
-function STARTERKIT_preprocess_maintenance_page(&$variables, $hook) {
-  // When a variable is manipulated or added in preprocess_html or
-  // preprocess_page, that same work is probably needed for the maintenance page
-  // as well, so we can just re-use those functions to do that work here.
-  STARTERKIT_preprocess_html($variables, $hook);
-  STARTERKIT_preprocess_page($variables, $hook);
-}
-// */
-
-/**
- * Override or insert variables into the html templates.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("html" in this case.)
- */
-/* -- Delete this line if you want to use this function
-function STARTERKIT_preprocess_html(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
-
-  // The body tag's classes are controlled by the $classes_array variable. To
-  // remove a class from $classes_array, use array_diff().
-  //$variables['classes_array'] = array_diff($variables['classes_array'], array('class-to-remove'));
-}
-// */
-
-/**
- * Override or insert variables into the page templates.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("page" in this case.)
- */
-/* -- Delete this line if you want to use this function
-function STARTERKIT_preprocess_page(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
-}
-// */
-
-/**
- * Override or insert variables into the node templates.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("node" in this case.)
- */
-/* -- Delete this line if you want to use this function
-function STARTERKIT_preprocess_node(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
-
-  // Optionally, run node-type-specific preprocess functions, like
-  // STARTERKIT_preprocess_node_page() or STARTERKIT_preprocess_node_story().
-  $function = __FUNCTION__ . '_' . $variables['node']->type;
-  if (function_exists($function)) {
-    $function($variables, $hook);
-  }
-}
-// */
-
-/**
- * Override or insert variables into the comment templates.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("comment" in this case.)
- */
-/* -- Delete this line if you want to use this function
-function STARTERKIT_preprocess_comment(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
-}
-// */
-
-/**
- * Override or insert variables into the region templates.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("region" in this case.)
- */
-/* -- Delete this line if you want to use this function
-function STARTERKIT_preprocess_region(&$variables, $hook) {
-  // Don't use Zen's region--sidebar.tpl.php template for sidebars.
-  //if (strpos($variables['region'], 'sidebar_') === 0) {
-  //  $variables['theme_hook_suggestions'] = array_diff($variables['theme_hook_suggestions'], array('region__sidebar'));
-  //}
-}
-// */
-
-/**
- * Override or insert variables into the block templates.
- *
- * @param $variables
- *   An array of variables to pass to the theme template.
- * @param $hook
- *   The name of the template being rendered ("block" in this case.)
- */
-/* -- Delete this line if you want to use this function
-function STARTERKIT_preprocess_block(&$variables, $hook) {
-  // Add a count to all the blocks in the region.
-  // $variables['classes_array'][] = 'count-' . $variables['block_id'];
-
-  // By default, Zen will use the block--no-wrapper.tpl.php for the main
-  // content. This optional bit of code undoes that:
-  //if ($variables['block_html_id'] == 'block-system-main') {
-  //  $variables['theme_hook_suggestions'] = array_diff($variables['theme_hook_suggestions'], array('block__no_wrapper'));
-  //}
-}
-// */
-
 /**
  * Preprocess quicktabs
  */
@@ -233,7 +109,7 @@ function slac_preprocess_qt_quicktabs(&$variables) {
   $element = $variables['element'];
   if ($element['#options']['attributes']['id'] === 'quicktabs-staff_resources') {
     foreach ($element['tabs']['tablinks'] as $key => $data) {
-      $element['container']['divs'][$key]['#prefix'] .= '<h3>' . $data['#title'] . '</h3>'; 
+      $element['container']['divs'][$key]['#prefix'] .= '<h3>' . $data['#title'] . '</h3>';
     }
   }
   $variables['element'] = $element;
@@ -257,4 +133,240 @@ function slac_menu_link(array $variables) {
   $variables['element']['#attributes']['class'][] = $menu_name;
 
   return theme_menu_link($variables);
+}
+
+/**
+ * Override file entity download link.
+ *
+ * Removes the file size and moves the icon to the end of the link.
+ * Adds custom file icons.
+ *
+ * @see theme_file_file_link()
+ */
+function slac_file_entity_download_link($variables) {
+  $icon_directory = drupal_get_path('theme', 'slac') . '/images/icons';
+  $file = $variables['file'];
+  $variables['icon_directory'] = $icon_directory;
+  $mime = check_plain($file->filemime);
+
+  // Adds custom icons for different image types.
+  switch ($mime) {
+    case 'image/gif':
+      $icon_url = '/' . $icon_directory . '/' . 'icon-gif.gif';
+      $icon = '<img class="file-icon" alt="" title="' . $mime . '" src="' . $icon_url . '" />';
+      break;
+  
+    case 'image/png':
+      $icon_url = '/' . $icon_directory . '/' . 'icon-png.gif';
+      $icon = '<img class="file-icon" alt="" title="' . $mime . '" src="' . $icon_url . '" />';
+      break;
+    
+    case 'image/jpg':
+      $icon_url = '/' . $icon_directory . '/' . 'icon-jpg.gif';
+      $icon = '<img class="file-icon" alt="" title="' . $mime . '" src="' . $icon_url . '" />';
+      break;
+
+    default:
+      $icon = theme('file_icon', array('file' => $file, 'icon_directory' => $icon_directory));
+  }
+
+  $uri = file_entity_download_uri($file);
+
+  // Set options as per anchor format described at
+  // http://microformats.org/wiki/file-format-examples
+  $uri['options']['attributes']['type'] = $file->filemime . '; length=' . $file->filesize;
+  if (empty($variables['file']->description)) {
+
+    // Provide the default link text. Remove the 'Download ' string that is in the
+    // default output.
+    $variables['text'] = '[file:name]';
+
+    // Perform un-sanitized token replacement if $uri['options']['html'] is empty
+    // since then l() will escape the link text.
+    $variables['text'] = token_replace($variables['text'], array('file' => $file), array('clear' => TRUE, 'sanitize' => empty($uri['options']['html'])));
+  }
+  else {
+    $variables['text'] = $variables['file']->description;
+  }
+  $output = '<span class="file">';
+  $output .= l($variables['text'], $uri['path'], $uri['options']) . ' ' . $icon;
+  $output .= '</span>';
+
+  return $output;
+}
+
+/**
+ * Implements template_preprocess_html().
+ */
+function slac_preprocess_html(&$variables) {
+  $user = $variables['user'];
+  if ($user->uid == 1 || in_array('editor', $user->roles)) {
+    $variables['classes_array'][] = 'can-moderate';
+  }
+}
+
+/**
+* @implements hook_preprocess_node()
+*/
+function slac_preprocess_node(&$variables, $hook) {
+  $view_mode = $variables['view_mode'];
+  $content_type = $variables['type'];
+  $variables['theme_hook_suggestions'][] = 'node__' . $view_mode;
+  $variables['theme_hook_suggestions'][] = 'node__' . $content_type . '_' . $view_mode;
+
+  $view_mode_preprocess = 'slac_preprocess_node_' . $content_type . '_' . $view_mode;
+  if (function_exists($view_mode_preprocess)) {
+    $view_mode_preprocess($variables, $hook);
+  }
+
+  $view_mode_preprocess = 'slac_preprocess_node_' . $view_mode;
+  if (function_exists($view_mode_preprocess)) {
+    $view_mode_preprocess($variables, $hook);
+  }
+}
+
+/**
+ * Implements theme_field().
+ */
+function slac_field__field_shared_news_title($variables) {
+  $view_mode = $variables['element']['#view_mode'];
+  if ($view_mode == 'news_archive') {
+    $existing = $variables['items'][0]['#markup'];
+    return '<h3 class="node-title">' . $existing . '</h3>';
+  }
+}
+
+/**
+ * Override the range separator for all date fields.
+ */
+function slac_date_display_range($variables) {
+  $date1 = $variables['date1'];
+  $date2 = $variables['date2'];
+  $timezone = $variables['timezone'];
+  $attributes_start = $variables['attributes_start'];
+  $attributes_end = $variables['attributes_end'];
+
+  $start_date = '<span class="date-display-start"' . drupal_attributes($attributes_start) . '>' . $date1 . '</span>';
+  $end_date = '<span class="date-display-end"' . drupal_attributes($attributes_end) . '>' . $date2 . $timezone . '</span>';
+
+  // If microdata attributes for the start date property have been passed in,
+  // add the microdata in meta tags.
+  if (!empty($variables['add_microdata'])) {
+    $start_date .= '<meta' . drupal_attributes($variables['microdata']['value']['#attributes']) . '/>';
+    $end_date .= '<meta' . drupal_attributes($variables['microdata']['value2']['#attributes']) . '/>';
+  }
+
+  // Wrap the result with the attributes.
+  return t('!start-date - !end-date', array(
+    '!start-date' => $start_date,
+    '!end-date' => $end_date,
+  ));
+}
+
+/**
+ * Override or insert variables for theme_views_view().
+ */
+function slac_preprocess_views_view(&$vars) {
+  $view = &$vars['view'];
+  if ($view->name == 'news_archive') {
+    // Update the title based on the News type filter.
+    if (isset($view->exposed_data['field_news_news_type_value'])) {
+      $type = $view->exposed_data['field_news_news_type_value'];
+      if ($type !== 'All') {
+        // Update the title.
+        $view->build_info['title'] = $type;
+      }
+    }
+  }
+}
+
+/**
+ * Adds a Panels pane template suggestion for the front page.
+ */
+function slac_preprocess_panels_pane(&$vars) {
+  if ($vars['is_front']) {
+    $vars['theme_hook_suggestions'][] = 'panels_pane__front';
+  }
+}
+
+/**
+ * Themes the calendar title.
+ */
+function slac_date_nav_title($params) {
+  $granularity = $params['granularity'];
+  $view = $params['view'];
+  $date_info = $view->date_info;
+  $link = !empty($params['link']) ? $params['link'] : FALSE;
+  $format = !empty($params['format']) ? $params['format'] : NULL;
+  $format_with_year = variable_get('date_views_' . $granularity . 'format_with_year', 'l, F j, Y');
+  $format_without_year = variable_get('date_views_' . $granularity . 'format_without_year', 'l, F j');
+  switch ($granularity) {
+    case 'year':
+      $title = $date_info->year;
+      $date_arg = $date_info->year;
+      break;
+    case 'month':
+      // Title as full month name and year. eg. "November 2014".
+      $title = $date_info->min_date->format('F Y');
+      $date_arg = $date_info->year . '-' . date_pad($date_info->month);
+      break;
+    case 'day':
+      $format = !empty($format) ? $format : (empty($date_info->mini) ? $format_with_year : $format_without_year);
+      $desktop_date = date_format_date($date_info->min_date, 'custom', $format);
+      // Day view has a slightly different date display in mobile layouts.
+      $mobile_date = $date_info->min_date->format('D, M j, Y');
+      $title = '<span class="desktop">' . $desktop_date . '</span>' .
+          '<span class="mobile">' . $mobile_date . '</span>';
+      $date_arg = $date_info->year . '-' . date_pad($date_info->month) . '-' . date_pad($date_info->day);
+      break;
+    case 'week':
+      $y1 = $date_info->min_date->format('Y');
+      $m1 = $date_info->min_date->format('M');
+      $end_date = new DateTime($date_info->max_date);
+      $end_date->sub(new DateInterval('P1D'));
+      $y2 = $end_date->format('Y');
+      $m2 = $end_date->format('M');
+
+      if ($y1 != $y2) {
+        $fmt1 = 'F j Y';
+        $fmt2 = 'F j Y';
+      }
+      elseif ($m1 != $m2) {
+        $fmt1 = 'F j';
+        $fmt2 = 'F j, Y';
+      }
+      else {
+        $fmt1 = 'F j';
+        $fmt2 = 'j, Y';
+      }
+      // Week view has a slightly different date display in mobile layouts.
+      $title1 = $date_info->min_date->format($fmt1) . ' - ' . $end_date->format($fmt2);
+      list($fmt1, $fmt2) = str_replace('F', 'M', array($fmt1, $fmt2));
+      $title2 = $date_info->min_date->format($fmt1) . '-' . $end_date->format($fmt2);
+      $title = '<span class="desktop">' . $title1 . '</span>' .
+        '<span class="mobile">' . $title2 . '</span>';
+      $date_arg = $date_info->year . '-W' . date_pad($date_info->week);
+      break;
+  }
+  if (!empty($date_info->mini) || $link) {
+    // Month navigation titles are used as links in the mini view.
+    $attributes = array('title' => t('View full page month'));
+    $url = date_pager_url($view, $granularity, $date_arg, TRUE);
+    return l($title, $url, array('attributes' => $attributes));
+  }
+  else {
+    return $title;
+  }
+}
+
+/**
+ * Implements template_preprocess_views_view_table().
+ */
+function slac_preprocess_views_view_table(&$vars) {
+  // Add raw label values for use in responsive layouts.
+  $view = $vars['view'];
+
+  foreach ($view->field as $key => $field) {
+    $vars['header_raw'][$key] = $field->options['label'];
+  }
 }

@@ -1,0 +1,151 @@
+<?php
+
+/**
+ * @file
+ * Adds a configurable automatic expiration system to nodequeues.
+ */
+
+/**
+ * Implements hook_cron().
+ *
+ * Automatically expires contents from the queue when the configured period has
+ * elapsed.
+ */
+function slac_nodequeue_expire_cron() {
+  // Get the configurations for all queues and subqueues.
+  $qids = nodequeue_get_all_qids();
+  $queues = nodequeue_load_queues($qids);
+  $subqueues = nodequeue_load_subqueues_by_queue($qids);
+  $week_seconds = 604800;
+
+  foreach ($subqueues as $subqueue) {
+    $queue = $queues[$subqueue->qid];
+    $var_name = _slac_nodequeue_expire_varname($queue->name, $subqueue->sqid);
+    $config = variable_get($var_name, array());
+
+    if (!empty($config) && ($config['date'] !== '' && $config['exclude'] !== '')) {
+      // 1. Load all the nids from the subqueue.
+      // 2. Exclude the configured number of nodes from the top.
+      $nodes = nodequeue_load_nodes($subqueue->sqid, $queue->reverse, $config['exclude'], 1000, FALSE);
+
+      foreach ($nodes as $node) {
+        $date = $node->created;
+        $published_at = slac_ip_core_get_publication_date($node->nid);
+        if ($published_at) {
+         $date = $published_at;
+        }
+        // Check for date interval greater than the configuration.
+        if (REQUEST_TIME - $date > $config['date'] * $week_seconds) {
+          nodequeue_subqueue_remove_node($subqueue->sqid, $node->nid);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Adds configuration options to nodequeue view forms for automatically expiring
+ * nodes from the queue.
+ */
+function slac_nodequeue_expire_form_alter(&$form, &$form_state, $form_id) {
+  if (substr($form_id, 0, strrpos($form_id, '_')) !== 'nodequeue_arrange_subqueue_form') {
+    return;
+  }
+  foreach ($form['nodes'] as $key => $value) {
+    if (is_int($key)) {
+      $timestamp = slac_ip_core_get_publication_date($key);
+      if ($timestamp) {
+        $date = format_date($timestamp, 'custom', t('o/n/j - g:Ha', array(), array('context' => 'php date format')));
+        $form['nodes'][$key]['date']['#markup'] = $date;
+      }
+    }
+  }
+  $var_name = _slac_nodequeue_expire_varname($form['nodes']['#queue']['name'], $form['nodes']['#subqueue']['sqid']);
+  $config = variable_get($var_name, array());
+
+  $form['subqueue_expiration'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Expiration settings'),
+    '#description' => t('The configuration below will allow older items in the queue to expire and be removed from the queue, you also have the ability to exclude this for the top [X] number of items in the queue.'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+
+  $form['subqueue_expiration']['example'] = array(
+    '#prefix' => '<div class="messages status">',
+    '#markup' => t('For example, if you choose 2 weeks for the %date option and excluding 3 items from the top, it means that anything published older than 2 weeks will be periodically removed from the queue but 3 items on the top of this queue will remain there regardless of their posted date.', array('%date' => 'Dating back to')),
+    '#suffix' => '</div>',
+  );
+
+  $form['subqueue_expiration']['subqueue_expiration_date'] = array(
+    '#type' => 'select',
+    '#title' => 'Dating back to',
+    '#description' => t('Select how old an item is (based on Post Date) before we take it out of the queue.'),
+    '#options' => array(
+      '' => t('--Please select--'),
+      1 => t('1 Week'),
+      2 => t('2 Weeks'),
+      3 => t('3 Weeks'),
+      4 => t('4 Weeks'),
+    ),
+    '#default_value' => (!empty($config)) ? $config['date'] : '',
+  );
+
+  $options = array('' => t('--Please Select--'));
+  for($i = 1; $i <= 20; $i++) {
+    $options[$i] = $i;
+  }
+
+  $form['subqueue_expiration']['subqueue_expiration_exclude'] = array(
+    '#type' => 'select',
+    '#title' => 'Exclude top items',
+    '#description' => t('Select how many item(s) on the top of the queue that should remain in the queue (excluded from the expiration settings.)'),
+    '#options' => $options,
+    '#default_value' => (!empty($config)) ? $config['exclude'] : '',
+  );
+
+  $form['actions']['submit']['#submit'][] = 'slac_nodequeue_expire_submit';
+  $form['#validate'][] = 'slac_nodequeue_expire_validate';
+}
+
+/**
+ * Form validation callback.
+ * @see slac_nodequeue_expire_form_alter().
+ */
+function slac_nodequeue_expire_validate($form, &$form_state) {
+  $v = $form_state['values']['subqueue_expiration'];
+  if (!empty($v['subqueue_expiration_date']) && empty($v['subqueue_expiration_exclude'])) {
+    form_set_error('subqueue_expiration][subqueue_expiration_exclude', t('You must select number of items to exclude as well.'));
+  }
+  if (!empty($v['subqueue_expiration_exclude']) && empty($v['subqueue_expiration_date'])) {
+    form_set_error('subqueue_expiration][subqueue_expiration_date', t('You must select published date as well.'));
+  }
+}
+
+/**
+ * Form submission callback.
+ * @see slac_nodequeue_expire_form_alter().
+ */
+function slac_nodequeue_expire_submit($form, &$form_state) {
+  $config = array(
+    'date' => $form_state['values']['subqueue_expiration']['subqueue_expiration_date'],
+    'exclude' => $form_state['values']['subqueue_expiration']['subqueue_expiration_exclude'],
+  );
+  $var_name = _slac_nodequeue_expire_varname($form['nodes']['#queue']['name'], $form['nodes']['#subqueue']['sqid']);
+  variable_set($var_name, $config);
+}
+
+/**
+ * Helper function that returns a variable name for the subqueue expiration
+ * configuration based on the queue's machine name and the subqueue id.
+ */
+function _slac_nodequeue_expire_varname($queue_name, $sqid) {
+  $parts = array(
+    'nodequeue_subqueue_expiration',
+    $queue_name,
+    $sqid,
+  );
+  return implode('_', $parts);
+}

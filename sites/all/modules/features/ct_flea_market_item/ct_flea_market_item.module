@@ -1,0 +1,74 @@
+<?php
+/**
+ * @file
+ * Code for the Flea Market Item feature.
+ */
+
+include_once 'ct_flea_market_item.features.inc';
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function ct_flea_market_item_ctools_plugin_directory($owner, $plugin) {
+  if ($owner == 'ctools' && !empty($plugin)) {
+    return "plugins/$plugin";
+  }
+}
+
+/**
+ * Implements hook_ctools_render_alter().
+ */
+function ct_flea_market_item_ctools_render_alter(&$info, &$page, &$context) {
+  $handler = $context['handler'];
+  if ($handler->task == 'node_view' && $handler->export_module == 'ct_flea_market_item') {
+    $path = drupal_get_path('module', 'ct_flea_market_item');
+    drupal_add_js($path . '/js/ct_flea_market_item.js');
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ct_flea_market_item_form_flea_market_post_node_form_alter(&$form, &$form_state) {
+  $form['#after_build'][] = 'ct_flea_market_item_form_remove_option';
+}
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Removes the Needs review state filter option from my content. 
+ */
+function ct_flea_market_item_form_views_exposed_form_alter(&$form, &$form_state) {
+  if ($form['#id'] == 'views-exposed-form-my-content-page-5') {
+    unset($form['state']['#options']['needs_review']);
+  } 
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Removes the Needs review state filter option from flea market worbench moderation form.
+ */
+function ct_flea_market_item_form_workbench_moderation_moderate_form_alter(&$form, &$form_state) {
+  if ($form['node']['#value']->type == 'flea_market_post') {
+    unset($form['state']['#options']['needs_review']);
+  }
+}
+
+/**
+ * Form #after_build callback.
+ * Removes the 'Needs review' option from the Moderation state field.
+ *
+ * @see ct_flea_market_item_form_flea_market_post_node_form_alter().
+ */
+function ct_flea_market_item_form_remove_option($form, &$form_state) {
+  if (isset($form['options']['workbench_moderation_state_new']['#options'])) {
+    $options =& $form['options']['workbench_moderation_state_new']['#options'];
+  }
+  else {
+    $options =& $form['revision_information']['workbench_moderation_state_new']['#options'];
+  }
+  unset($options['needs_review']);
+  return $form;
+}

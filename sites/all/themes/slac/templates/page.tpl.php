@@ -70,14 +70,14 @@
  */
 ?>
 
-<div id="page">
+<div id="page" class="l-page">
 
   <header id="header" role="banner">
     <div class="header-wrapper">
-      
+
     <?php if ($logo): ?>
       <div class="logo">
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><span>Slac Today</span></a>
       </div>
     <?php endif; ?>
 
@@ -100,10 +100,20 @@
     </div>
   </header>
 
-  <div id="main">
+  <?php if($page['navigation']): ?>
+    <nav class="main-navigation">
+      <div class="inner-wrapper">
+        <?php print render($page['navigation']); ?>
+      </div>
+    </nav>
+  <?php endif; ?>
 
-    <div class="content-wrapper" class="column" role="main">
-      <div id="content" class="column" role="main">
+  <div id="main" class="l-main">
+  <div class="main-wrapper">
+
+    <div class="content-wrapper column" role="main">
+
+      <div id="content" class="column content-container" role="main">
         <?php print render($page['highlighted']); ?>
         <!-- <?php print $breadcrumb; ?> -->
         <a id="main-content"></a>
@@ -120,23 +130,27 @@
         <?php endif; ?>
         <?php print render($page['content']); ?>
         <?php print $feed_icons; ?>
-      </div>
-    </div><!-- /#content -->
+      </div><!-- /#content -->
+
+      <?php if ($page['content_bottom']): ?>
+      <?php print render($page['content_bottom']); ?>
+      <?php endif; ?>
+    </div><!-- /.content-wrapper -->
+
+  </div> <!-- /.main-wrapper -->
+  </div> <!-- /#main -->
+
+</div><!-- /#page -->
 
   <div class="footer-wrapper">
     <div class="footer-inner">
       <?php print render($page['footer']); ?>
       <div class="footer-logos">
-        <a href="http://science.energy.gov/"><img src="/sites/all/themes/slac/images/footer-logo-energy.jpg" alt=""></a>
-        <a href="http://www.stanford.edu/"><img src="/sites/all/themes/slac/images/footer-logo-stanford.jpg" alt=""></a>
-      </div>
-      <div class="footer-logos mobile">
-        <a href="http://science.energy.gov/"><img src="/sites/all/themes/slac/images/footer-logo-energy-small.jpg" alt=""></a>
-        <a href="http://www.stanford.edu/"><img src="/sites/all/themes/slac/images/footer-logo-stanford-small.jpg" alt=""></a>
+        <a class="stanford-u" title="Stanford University" href="http://www.stanford.edu/"><span>Stanford University</span></a>
+
+        <a class="dept-of-energy" title="U.S. Department of Energy" href="http://science.energy.gov/"><span>US Department of Energy</span></a>
       </div>
     </div>
-  </div>
-
-</div><!-- /#page -->
+  </div><!-- /.footer-wrapper -->
 
 <?php print render($page['bottom']); ?>

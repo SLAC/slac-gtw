@@ -1,0 +1,109 @@
+.page-news {
+
+  #page-title {
+    display: none;
+  }
+
+  .views-exposed-form .views-exposed-widget {
+    float: none;
+    padding-top: 0;
+  }
+
+  .general-left {
+    margin-bottom: 3rem;
+
+    .views-row {
+      @include font-size($base-font-size);
+      background: none;
+      padding-left: 0;
+
+      @include breakpoint($tablet-large) {
+        margin-bottom: 2.5rem;
+      }
+    }
+
+    .pane-title {
+      @include font-size($h1-font-size);
+      margin-top: 0;
+      line-height: 1;
+    }
+
+    .node-title,
+    .field-name-field-shared-news-title h3 {
+      @include font-size($h3-font-size);
+      margin: .2rem 0;
+    }
+
+    .view-news-archive {
+      @include content-listing(1rem, 1rem);
+
+      @include breakpoint($tablet-large) {
+        article {
+          border: none;
+        }
+      }
+    }
+
+    .field-type-image {
+      float: none;
+      margin-right: 2rem;
+
+      @include breakpoint($tablet-large) {
+        float: left;
+      }
+    }
+
+    .node-date {
+      @include font-size($base-font-size - 4px);
+      font-weight: bold;
+    }
+
+    .field-item > p {
+      margin-top: 0;
+    }
+
+    .field-name-field-news-teaser .field-item {
+      margin-top: .5rem;
+    }
+
+    .item-list .pager {
+      padding-left: 0;
+    }
+  }
+
+  .general-right {
+
+    .pane-title {
+      line-height: 1;
+      margin-top: 0;
+
+      @media all and (max-width: $tablet-large) {
+        border-bottom: 4px solid color(grey-blue);
+      }
+    }
+
+    select {
+      width: 150px;
+      @include clearfix;
+      float: none !important;
+      margin-bottom: 1rem;
+    }
+
+    input[type="submit"].form-submit {
+      margin-top: 0;
+      width: 150px;
+    }
+  }
+
+  @media all and(max-width: $tablet-large) {
+    .general-right {
+      .views-exposed-widgets {
+        text-align: center;
+      }
+
+      .form-submit {
+        margin: 0 auto;
+      }
+    }
+  }
+}

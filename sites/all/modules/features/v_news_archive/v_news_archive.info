@@ -1,0 +1,13 @@
+name = News Archive
+description = View configuration and customization for the News Archive listing.
+core = 7.x
+package = Views
+version = 7.x-1.0-dev
+project = v_news_archive
+dependencies[] = views
+dependencies[] = views_content
+stylesheets[all][] = v_news_archive.css
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = news_archive
+features_exclude[dependencies][ctools] = ctools

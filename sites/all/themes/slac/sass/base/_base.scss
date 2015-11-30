@@ -1,0 +1,85 @@
+body {
+  font-family: $arial;
+  @include font-size($base-font-size);
+  line-height: $base-line-height;
+  font-weight: normal;
+  background: $color-gray-mercury;
+  color: $color-gray-tundora;
+}
+
+a,
+a:link {
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+.not-front #content {
+  background: $white;
+}
+
+img,
+embed {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-gray-cod;
+  font-weight: bold;
+}
+
+h1 {
+  @include font-size($h1-font-size);
+}
+
+h2 {
+  @include font-size($h2-font-size);
+}
+
+ul, ol {
+  list-style-image: none;
+  padding-left: 2rem;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+hr {
+  border: dotted $color-gray-loblolly;
+  border-width: 3px 0 0;
+  clear: both;
+  height: 0;
+  margin: 1rem 0 1rem;
+}
+
+.general-left {
+  h2 {
+    @include font-size(20px);
+    margin-bottom: .4rem;
+    line-height: 1.4;
+  }
+
+  p {
+    margin-top: .5rem;
+  }
+
+  ul li a {
+    font-size: inherit;
+  }
+}

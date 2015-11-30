@@ -1,0 +1,473 @@
+<?php
+/**
+ * @file
+ * Code for the SLAC IP Core feature.
+ */
+
+include_once 'slac_ip_core.features.inc';
+
+/**
+ * Implements hook_entity_info().
+ *
+ * Defines new custom view modes for nodes.
+ */
+function slac_ip_core_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['headline'] = array(
+    'label' => t('Headline'),
+    'custom settings' => FALSE,
+  );
+  $entity_info['node']['view modes']['news_archive'] = array(
+    'label' => t('News Archive'),
+    'custom settings' => FALSE,
+  );
+  $entity_info['node']['view modes']['access_listing'] = array(
+    'label' => t('Access Listing'),
+    'custom settings' => FALSE,
+  );
+  // Keying the following with just 'term_listing' breaks the Term context
+  // in Panels.
+  $entity_info['node']['view modes']['slac_term_listing'] = array(
+    'label' => t('SLAC Term Listing'),
+    'custom settings' => FALSE,
+  );
+
+  // The Search module provides a view mode of the same name so we don't need
+  // to define this if the search module is enabled.
+  if (!module_exists('search')) {
+    $entity_info['node']['view modes']['search_result'] = array(
+      'label' => t('Search result'),
+      'custom settings' => FALSE,
+    );
+  }
+}
+
+/**
+ * Implements hook_date_formats().
+ */
+function slac_ip_core_date_formats() {
+  return array(
+    array(
+      'type' => 'slac_ip_access_date',
+      'format' => 'g:i a, l, M j, Y',
+      'locales' => array(),
+    ),
+    array(
+      'type' => 'slac_ip_published_date',
+      'format' => 'F j, Y',
+      'locales' => array(),
+    ),
+  );
+}
+
+/**
+ * Implements hook_date_format_types().
+ */
+function slac_ip_core_date_format_types() {
+  return array(
+    'slac_ip_access_date' => t('SLAC Access Info.: g:i a, l, M j, Y'),
+    'slac_ip_published_date' => t('SLAC published date: F j, Y'),
+  );
+}
+
+/**
+ * Override or insert variables for theme_field().
+ */
+function slac_ip_core_process_field(&$vars) {
+  $element = $vars['element'];
+  // Field type image
+  if ($element['#field_type'] == 'image') {
+    // Reduce the number of images displayed in certain view modes to one.
+    $view_modes = array(
+      'access_listing',
+      'news_archive',
+      'slac_term_listing',
+      'search_result',
+      'teaser',
+    );
+    if (in_array($element['#view_mode'], $view_modes)) {
+      $item = reset($vars['items']);
+      $vars['items'] = array($item);
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * Adds custom behaviors, descriptions, and validation to node add/edit forms.
+ */
+function slac_ip_core_form_node_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+
+  // Update the Body summary description and behavior.
+  if (isset($form['body'])) {
+    $lang = $form['language']['#value'];
+    $summary = &$form['body'][$lang][0]['summary'];
+    $summary['#rows'] = 1;
+    $summary['#attributes'] = array('maxlength' => 160);
+    $summary['#description'] = t('Provide a one-sentence summary of this announcement. If left blank, a truncated version of the full text will be used as the summary.');
+    $summary['#attached']['js'][] = drupal_get_path('module', 'slac_ip_core') . '/js/text.js';
+  }
+
+  // Remove the default #required from body if New / Existing functionality
+  // is used on the node and add custom validation.
+  if (isset($form['field_shared_new_existing'])) {
+    $form['body'][$lang][0]['#required'] = FALSE;
+    $form['#validate'][] = 'slac_ip_core_node_form_validate_new_existing';
+
+    // Make the body optional if 'Link to Existing URL' is chosen.
+    $form['body'][$lang][0]['#states']['optional'] = array(
+      ':input[name^="field_shared_new_existing"]' => array(
+        'value' => t('Link to Existing URL'),
+      ),
+    );
+  }
+
+  // Hide the node revision log message field for normal Auth user.
+  if ((count($user->roles) == 1 && in_array('authenticated user', $user->roles)) && $user->uid != 1) {
+    $form['revision_information']['log']['#access'] = FALSE;
+  }
+
+  // Add custom validation for nodes with 'Promote As News' functionality.
+  if (isset($form['field_shared_promote_news'])) {
+    $form['#validate'][] = 'slac_ip_core_node_form_validate';
+  }
+}
+
+/**
+ * Form validation handler for slac_ip_core_form_node_form_alter().
+ *
+ * Removes the required state from body if 'Link to Existing URL' is chosen.
+ *
+ * @see slac_ip_core_form_node_form_alter()
+ */
+function slac_ip_core_node_form_validate_new_existing($form, &$form_state) {
+  $values = $form_state['values'];
+  $lang = $form_state['values']['language'];
+  $new_existing = $values['field_shared_new_existing'][$lang][0]['value'];
+
+  // The Body field is only required to have a value if this node is set to
+  // 'Enter Details' for New / Existing.
+  if ($new_existing == t('Enter Details')) {
+    if (empty($form_state['values']['body'][$lang][0]['value'])) {
+      form_set_error("body][$lang][0][value", t('The Body field is required.'));
+    }
+  }
+}
+
+/**
+ * Form validation handler for slac_ip_core_form_node_form_alter().
+ *
+ * Empties the News Type and News Title fields if the node is saved with
+ * 'Promote As News' unchecked.
+ *
+ * @see slac_ip_core_form_node_form_alter()
+ */
+function slac_ip_core_node_form_validate($form, &$form_state) {
+  $key = 'field_shared_promote_news';
+  $lang = $form_state['values']['language'];
+
+  if ($form_state['values'][$key][$lang][0]['value'] != 1) {
+    $empty_value = array(
+      $lang => array(
+        0 => array(
+          'value' => '',
+        ),
+      ),
+    );
+    form_set_value($form['field_news_news_type'], $empty_value, $form_state);
+    form_set_value($form['field_shared_news_title'], $empty_value, $form_state);
+  }
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function slac_ip_core_field_formatter_info() {
+  return array(
+    'slac_classname_formatter' => array(
+      'label' => t('SLAC CSS Classname'),
+      'description' => t('Format a term name as a CSS classname.'),
+      'field types' => array('taxonomy_term_reference'),
+    ),
+    'slac_existing_node_url_formatter' => array(
+      'label' => t('SLAC Event Node URL Format'),
+      'field types' => array('list_text'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function slac_ip_core_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  switch ($display['type']) {
+    case 'slac_classname_formatter':
+      foreach ($items as $delta => $item) {
+        $term = taxonomy_term_load($item['tid']);
+        $element[$delta] = array('#markup' => drupal_html_class($term->name));
+      }
+      break;
+
+    case 'slac_existing_node_url_formatter':
+      if (empty($items)) {
+        $url = _slac_ip_core_source_or_alias($entity);
+        $element[0] = array('#markup' => $url);
+      }
+      else {
+        foreach ($items as $delta => $item) {
+          $url = '';
+
+          if ($item['value'] == 'Link to Existing URL') {
+            $field_name = 'field_shared_existing_url';
+            $field = field_get_items($entity_type, $entity, $field_name);
+            $url = $field[$delta]['safe_value'];
+          }
+
+          if (empty($url)) {
+            $url = _slac_ip_core_source_or_alias($entity);
+          }
+
+          $element[$delta] = array('#markup' => $url);
+        }
+      }
+
+      break;
+
+  }
+
+  return $element;
+}
+
+/**
+ * Returns the path alias to the entity, if set, otherwise the entity source
+ * path.
+ *
+ * @param $entity
+ *   The entity to return the path for.
+ *
+ * @return string
+ */
+function _slac_ip_core_source_or_alias($entity) {
+  if (!empty($entity->path['alias'])) {
+    $url = $entity->path['alias'];
+  }
+  else {
+    $url = $entity->path['source'];
+  }
+  $url = '/' . $url;
+
+  return $url;
+}
+
+/**
+ * Implements hook_field_extra_fields().
+ */
+function slac_ip_core_field_extra_fields() {
+  $extra = array();
+  foreach (node_type_get_types() as $type) {
+    $extra['node'][$type->type] = array(
+      'display' => array(
+        'content_type' => array(
+          'label' => t('Extra field: Content type'),
+          'weight' => -5,
+          'type' => 'hidden',
+        ),
+        'created' => array(
+          'label' => t('Extra field: Post Date'),
+          'weight' => -4,
+          'type' => 'hidden',
+        ),
+        'published_at' => array(
+          'label' => t('Extra field: Published Date'),
+          'weight' => -3,
+          'type' => 'hidden',
+        ),
+        'author' => array(
+          'label' => t('Extra field: Author'),
+          'weight' => -2,
+          'type' => 'hidden',
+        ),
+      ),
+    );
+    if ($type->has_title) {
+      $extra['node'][$type->type]['display']['title'] = array(
+        'label' => t('Extra field: !title', array('!title' => $type->title_label)),
+        'weight' => -4,
+        'type' => 'hidden',
+      );
+    }
+  }
+  return $extra;
+}
+
+/**
+ * Implements hook_node_view().
+ */
+function slac_ip_core_node_view($node, $view_mode, $langcode) {
+  $node->content['content_type'] = array(
+    '#theme' => 'slac_ip_core_content_type',
+    '#node' => $node,
+    '#view_mode' => $view_mode
+  );
+  $node->content['created'] = array(
+    '#theme' => 'slac_ip_core_created',
+    '#node' => $node,
+    '#view_mode' => $view_mode
+  );
+  $node->content['published_at'] = array(
+    '#theme' => 'slac_ip_core_published_at',
+    '#node' => $node,
+    '#view_mode' => $view_mode
+  );
+  // only return this in a non-full page situation
+  if (!in_array($view_mode, array('default', 'full'))) {
+    $node->content['title'] = array(
+      '#theme' => 'slac_ip_core_title',
+      '#node' => $node,
+      '#view_mode' => $view_mode,
+    );
+  }
+  $node->content['author'] = array(
+    '#theme' => 'slac_ip_core_author',
+    '#node' => $node,
+    '#view_mode' => $view_mode,
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function slac_ip_core_theme($existing, $type, $theme, $path) {
+  return array(
+    'slac_ip_core_content_type' => array(
+      'variables' => array('node' => NULL),
+    ),
+    'slac_ip_core_created' => array(
+      'variables' => array('node' => NULL),
+    ),
+    'slac_ip_core_published_at' => array(
+      'variables' => array('node' => NULL),
+    ),
+    'slac_ip_core_title' => array(
+      'variables' => array('node' => NULL),
+    ),
+    'slac_ip_core_author' => array(
+      'variables' => array('node' => NULL),
+    ),
+  );
+}
+
+/**
+ * Theme callback.
+ * Returns themed output for the Content Type of the node.
+ *
+ * @see slac_ip_core_node_view().
+ */
+function theme_slac_ip_core_content_type($variables) {
+  $node = $variables['node'];
+  $types = node_type_get_types();
+  $human_name = $types[$node->type]->name;
+
+  $output = '<div class="node-content-type">'
+    . $human_name
+    . '</div>';
+
+  return $output;
+}
+
+/**
+ * Theme callback.
+ * Returns themed output for the created date of the node.
+ *
+ * @see slac_ip_core_node_view().
+ */
+function theme_slac_ip_core_created($variables) {
+  $node = $variables['node'];
+  $output = '<div class="node-date node-created">'
+    . date('F j, Y', $node->created)
+    . '</div>';
+
+  return $output;
+}
+
+/**
+ * Theme callback.
+ * Returns themed output for the Published date of the node. Falls back to the
+ * created date if published is empty.
+ *
+ * @see slac_ip_core_node_view().
+ */
+function theme_slac_ip_core_published_at($variables) {
+  $node = $variables['node'];
+  $date = $node->created;
+  if (!empty($node->published_at)) {
+    $date = $node->published_at;
+  }
+  $output = '<div class="node-date node-published-at">'
+    . date('F j, Y', $date)
+    . '</div>';
+
+  return $output;
+}
+
+/**
+ * Theme callback.
+ * Returns themed output for the title property of the node.
+ *
+ * Changes the link URL for nodes that have the 'Existing / New', 'Existing URL'
+ * fields.
+ *
+ * @see slac_ip_core_node_view().
+ */
+function theme_slac_ip_core_title($variables) {
+  $node = $variables['node'];
+  $path = '';
+
+  if (!empty($node->field_shared_existing_url) && !empty($node->field_shared_new_existing)) {
+    $field_shared_new_existing = field_get_items('node', $node, 'field_shared_new_existing');
+    $shared_new_existing = $field_shared_new_existing[0]['value'];
+    if ($shared_new_existing == 'Link to Existing URL') {
+      $field_shared_existing_url = field_get_items('node', $node, 'field_shared_existing_url');
+      $path = $field_shared_existing_url[0]['safe_value'];
+    }
+  }
+
+  if (empty($path)) {
+    $entity_uri = entity_uri('node', $node);
+    $path = $entity_uri['path'];
+  }
+
+  return '<h3 class="node-title">' . l($node->title, $path) . '</h3>';
+}
+
+/**
+ * Theme callback.
+ * Returns themed output for the author of the node.
+ *
+ * @see slac_ip_core_node_view().
+ */
+function slac_ip_core_author($variables) {
+  $node = $variables['node'];
+  $user = user_load($node->uid);
+
+  return '<div class="node-author">' . $user->name . '</div>';
+}
+
+/**
+ * Helper funtion that returns the publication
+ * date for a node.
+ */
+function slac_ip_core_get_publication_date($nid) {
+  $select = db_select('publication_date', 'p');
+  $select->addField('p', 'published_at');
+  $select->condition('nid', $nid);
+  $select->range(0, 1);
+  $result = $select->execute()->fetchField();
+  if (!empty($result)) {
+    return $result;
+  }
+  return FLASE;
+}

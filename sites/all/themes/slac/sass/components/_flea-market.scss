@@ -1,0 +1,524 @@
+.page-breadcrumb {
+  @include font-size(24px);
+  float: left;
+  margin-right: 6px;
+
+  @include breakpoint($tablet-large) {
+    font-size: initial;
+  }
+
+  a {
+    margin-right: 0.3rem;
+  }
+}
+
+.node-type-flea-market-post {
+  .pane-node-field-shared-contact-name,
+  .pane-node-field-shared-contact-email,
+  .pane-node-field-shared-contact-phone {
+    display: none;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    @include breakpoint($tablet-small) {
+      margin-bottom: 0;
+    }
+  }
+
+  .pane-node-field-flea-market-item-type {
+    @include font-size(24px);
+    color: $color-gray;
+
+    @include breakpoint($tablet-large) {
+      font-size: initial;
+    }
+  }
+
+  .pane-node-created {
+    font-weight: bold;
+    margin-top: 0.2rem;
+  }
+
+  .panel-pane.pane-slac-ip-panes-email,
+  .pane-slac-ip-panes-print {
+    position: relative;
+    top: 6px;
+    float: right;
+    border: none;
+
+    a {
+      border: none;
+      margin-right: 0;
+      padding-right: 0;
+    }
+
+    @include breakpoint($desktop) {
+      top: 38px;
+      margin-right: 95px;
+
+      a {
+        margin-right: 0;
+        padding-right: 1rem;
+        border-right: 1px solid lighten($color-gray-tundora, 35%);
+      }
+    }
+  }
+
+  @include breakpoint($desktop) {
+    .pane-slac-ip-panes-print a {
+      border: none;
+    }
+  }
+
+  .pane-slac-ip-node-author {
+    .pane-title {
+      margin-right: 0.4rem;
+      color: $color-gray-tundora;
+    }
+  }
+
+  .pane-slac-ip-panes-print {
+    top: 38px;
+    margin-right: -176px;
+    display: none;
+
+    @include breakpoint($desktop) {
+      display: block;
+    }
+  }
+
+  .pane-node-field-shared-contact-name {
+    .pane-title {
+      @include font-size(16px);
+      margin-bottom: 0;
+    }
+  }
+
+  .general-left {
+    @include breakpoint($tablet-large) {
+      .pane-node-field-shared-contact-name,
+      .pane-node-field-shared-contact-email,
+      .pane-node-field-shared-contact-phone {
+        display: block;
+      }
+    }
+  }
+
+  .general-right {
+    margin-top: 30px;
+
+    .pane-node-field-shared-contact-name,
+    .pane-node-field-shared-contact-email,
+    .pane-node-field-shared-contact-phone {
+      display: block;
+    }
+    .pane-title {
+      margin-top: 2rem;
+      border: none;
+      text-transform: none;
+    }
+
+    @include breakpoint($tablet-large) {
+      .pane-node-field-shared-contact-name,
+      .pane-node-field-shared-contact-email,
+      .pane-node-field-shared-contact-phone {
+        display: none;
+      }
+    }
+  }
+}
+
+// report as inappropriate dialog box
+.report-as-inappropriate {
+  background: $color-gray-mercury;
+  padding: 1rem;
+  margin-top: 1rem;
+
+  .report-inappropriate-title {
+    width: 92%;
+    margin: 0;
+    line-height: 1;
+
+    @include breakpoint($desktop) {
+      width: initial;
+    }
+  }
+
+  .report-message {
+    @include font-size(14px);
+    line-height: 1.4;
+    margin-top: -0.5rem;
+  }
+
+  .top-close {
+    position: relative;
+    top: -28px;
+    left: 97%;
+    border: none;
+    background: transparent;
+  }
+
+  .report-button {
+    display: block;
+    text-align: center;
+    padding: 4px 20px;
+    text-indent: 0;
+    background: $blue;
+    color: $white;
+    width: 180px;
+    margin: 0 auto 1rem auto;
+
+    @include breakpoint($tablet-small) {
+      display: inline-block;
+      margin-right: 2rem;
+      margin-bottom: 0;
+      width: inherit;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      background: lighten($blue, 10%);
+    }
+  }
+
+  .bottom-close {
+    @include font-size(14px);
+    padding: 3px 10px;
+    display: block;
+    margin: 1rem auto;
+    line-height: 1.4;
+    background: $white;
+    border: none;
+    color: $blue;
+
+    @include breakpoint($tablet-small) {
+      display: inline-block;
+      margin: 0 0 0 2rem;
+    }
+  }
+
+  .close-x {
+    display: inline-block;
+    color: $color-gray-dove;
+    margin-right: 12px;
+  }
+
+  .flag-flea-market-inappropriate {
+    margin-bottom: .5rem;
+    text-align: center;
+
+    @include breakpoint($desktop) {
+      text-align: initial;
+    }
+  }
+}
+
+// flea market item listing
+.page-flea-market-my-items {
+  .views-field-title {
+    width: 25%;
+  }
+
+  .views-field-body {
+    width: 35%;
+  }
+}
+
+.page-flea-market {
+  .my-flea-market-nav {
+    @include breakpoint($tablet-large) {
+      width: 200px;
+      text-align: right;
+      right: 0;
+      top: -46px;
+      position: absolute;
+      z-index: 30;
+    }
+
+    ul {
+      padding-left: 0;
+
+      li {
+        list-style: none;
+      }
+    }
+
+    span {
+      display: none;
+
+      @include breakpoint($tablet-large) {
+        display: initial;
+      }
+    }
+
+    a {
+      display: block;
+      padding: .4rem .5rem;
+      background: $color-gray-mercury url(../images/right-arrow.png) 98% .5rem no-repeat;
+      color: $blue;
+      text-decoration: none;
+      margin-bottom: .5rem;
+
+      @include breakpoint($tablet-large) {
+        background: $color-gray-mercury;
+      }
+
+      &:hover,
+      &:focus {
+        background: $color-gray-silver-chalice url(../images/right-arrow.png) 98% -1.75rem no-repeat;
+        color: $white;
+
+        @include breakpoint($tablet-large) {
+          background: $color-gray-silver-chalice;
+        }
+      }
+    }
+  }
+
+  .l-general-one-col {
+    margin-top: 0;
+
+    @include breakpoint($tablet-large) {
+      margin-top: 1.75rem;
+    }
+  }
+
+  .view-header,
+  .view-empty {
+    margin: 1.5rem 0;
+
+    @include breakpoint($tablet-large) {
+      width: 70%;
+    }
+
+    @include breakpoint($desktop) {
+      width: 75%;
+    }
+  }
+
+  .main-content > .inside {
+    position: relative;
+  }
+
+  .title {
+    padding-left: 0;
+
+    @include breakpoint($tablet-large) {
+      @include zen-grid-item(6, 1);
+      padding-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    @include breakpoint($huge) {
+      @include zen-grid-item(6, 2);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .views-field-changed {
+    min-width: 125px;
+    font-weight: bold;
+
+    .date-updated-time {
+      font-weight: normal;
+
+      @include breakpoint($tablet-large) {
+        display: block;
+      }
+    }
+  }
+
+  thead tr > .views-field-changed {
+    padding-left: 0;
+  }
+
+  .views-field-field-flea-market-item-type {
+    min-width: 100px;
+    font-weight: bold;
+  }
+
+  .views-field-edit-node {
+    min-width: 90px;
+  }
+
+  .view-flea-market-listing {
+    margin-bottom: 2rem;
+
+    p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+  }
+
+  table {
+    margin-bottom: 4rem;
+
+    td {
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  // Responsive Tables
+  // http://blog.apps.npr.org/2014/05/09/responsive-data-tables.html
+  @media all and (max-width: $tablet-large) {
+    table,
+    tbody {
+      display: block;
+      width: 100%;
+    }
+
+    thead {
+      display: none;
+    }
+
+    table tr,
+    table th,
+    table td {
+      display: block;
+      padding: 0;
+      text-align: left;
+      white-space: normal;
+    }
+  }
+}
+
+@media all and (max-width: $tablet-large) {
+  .main-flea-market-list {
+    table tr {
+      padding: 1rem 0;
+      border-bottom: 4px solid color(grey-blue);
+
+      &.odd {
+        background: $white;
+      }
+    }
+
+    table th[data-title]:before,
+    table td[data-title]:before {
+      display: none;
+    }
+
+    table td {
+      border: none;
+      margin-bottom: 6px;
+    }
+
+    table td:empty {
+      display: none;
+    }
+
+    table td:first-child {
+      margin-bottom: 6px;
+    }
+
+    table td:first-child:before {
+      content: '';
+    }
+
+    .view-header {
+      display: none;
+    }
+
+    .views-field-name a,
+    .views-field-body,
+    .views-field-state {
+      display: none;
+    }
+
+    .views-field-changed {
+      font-weight: normal;
+    }
+
+    .date-updated-time {
+      display: none;
+
+      @include breakpoint($tablet-large) {
+        display: block;
+        font-weight: normal;
+      }
+    }
+
+    .views-field-title {
+      width: 100%;
+    }
+  }
+}
+
+// My Flea Market List - Responsive
+.page-flea-market-my-items {
+  &.logged-in {
+    .views-field-edit-node {
+      display: block;
+    }
+  }
+
+  .view-header {
+    display: block;
+    margin: 1.5rem 0;
+  }
+}
+
+@media all and (max-width: $tablet-large) {
+  .my-flea-market-list {
+    tr td {
+      font-weight: bold;
+
+      a {
+        font-weight: normal;
+      }
+    }
+
+    table tr {
+      border-bottom: 4px solid color(grey-blue);
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+
+      &.odd {
+        background: $white;
+      }
+
+      td {
+        padding: 0.4rem 0;
+      }
+    }
+
+    tr td:before {
+      @include font-size(14px);
+      color: $grey-labels;
+      display: block;
+      width: 120px;
+      float: left;
+      font-weight: normal;
+    }
+
+    .views-field-title {
+      width: calc(100% - 120px);
+      padding-left: 120px;
+      text-align: left;
+
+      &:before {
+        margin-left: -120px;
+      }
+    }
+
+    .views-field-state {
+      display: block;
+    }
+
+    .views-field-body,
+    .views-field-edit-node {
+      display: none;
+    }
+
+    .date-updated-time {
+      font-weight: normal;
+    }
+  }
+}

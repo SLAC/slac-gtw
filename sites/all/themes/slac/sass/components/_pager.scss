@@ -1,0 +1,50 @@
+// overrides legacy styles
+.general-left .item-list .pager li {
+  background: none;
+  display: inline-block;
+  padding: 0 3px;
+  margin-bottom: 1rem;
+}
+
+// new pager styles
+.item-list .pager {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  text-align: left;
+
+  @media all and (max-width: $tablet-large) {
+    .section-search & {
+      text-align: center;
+    }
+  }
+
+  li {
+    font-weight: normal;
+    padding-right: .2rem;
+    padding-left: .2rem;
+    background: none;
+    margin-left: 0;
+    display: inline-block;
+    margin-bottom: 1rem;
+
+    a {
+      padding: .5rem .6rem;
+      color: lighten($blue, 15%);
+      font-weight: normal;
+      background: $color-gray-mercury;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        background: lighten($blue, 20%);
+        color: $white;
+      }
+    }
+
+    &.pager-current {
+      padding: .3rem .6rem;
+      background: lighten($blue, 20%);
+      color: $white;
+    }
+  }
+}

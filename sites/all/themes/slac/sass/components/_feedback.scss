@@ -1,0 +1,107 @@
+.node-type-webform {
+  h1.title,
+  .tabs-primary {
+    @include zen-grid-item(12, 1);
+    float: none;
+    padding-left: 0;
+    padding-right: 0;
+
+    @include breakpoint($tablet-large) {
+      @include zen-grid-item(10, 2);
+      float: none;
+    }
+  }
+
+  @include breakpoint($tablet-large) {
+    .tabs-primary {
+      margin-left: 9.7%;
+    }
+  }
+
+  article {
+    margin: 0;
+    width: 100%;
+
+    @include breakpoint($tablet-large) {
+      @include zen-grid-item(10, 2);
+      float: none;
+    }
+  }
+
+  .form-actions {
+    width: 100%;
+    padding: 0.3rem;
+    box-sizing: border-box;
+    border: 1px dotted $color-gray-loblolly;
+
+    @include breakpoint($tablet-small) {
+      width: auto;
+      float: left;
+      margin: 0;
+    }
+  }
+
+  input[type="submit"] {
+    background: $blue;
+    width: 100%;
+    margin: 0;
+    padding: 0.4rem;
+
+    &:hover,
+    &:focus {
+      background: lighten($blue, 10%);
+      outline: none;
+    }
+
+    @include breakpoint($tablet-small) {
+      padding: 0.4rem 1.5rem;
+    }
+  }
+
+  .webform-client-form {
+    max-width: 640px;
+    background: $feedback-form-background;
+    border: 3px solid $feedback-form-border;
+    padding: 0 1rem 2rem 1rem;
+    overflow: hidden;
+
+    @include breakpoint($tablet-large) {
+      padding: 0 4% 2rem 6%;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: normal;
+      margin-bottom: 3px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      background: $white;
+      border: 1px solid $feedback-form-border;
+      max-width: 380px;
+      width: 92%;
+      padding: 0.2rem 0.5rem;
+      outline: none;
+
+      @include breakpoint($tablet-large) {
+        width: 96%;
+      }
+    }
+
+    select {
+      max-width: 320px;
+      padding: 0.5rem;
+      background: $white url(../images/down-arrow.png) 98% center no-repeat;
+    }
+
+    textarea {
+      width: 100%;
+      max-width: inherit;
+      padding: 0.3rem 0.7rem;
+      min-height: 11.25rem;
+    }
+  }
+}

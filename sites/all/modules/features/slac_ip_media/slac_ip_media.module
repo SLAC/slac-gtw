@@ -1,0 +1,90 @@
+<?php
+/**
+ * @file
+ * Code for the SLAC IP Media configuration feature.
+ */
+
+include_once 'slac_ip_media.features.inc';
+/**
+ * @file
+ * Code for the SLAC IP Media feature.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function slac_ip_media_menu() {
+  $items['slac/media-download'] = array(
+    'page callback' => 'slac_ip_media_download',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Page callback.
+ *
+ * Provides a custom download solution for browsers that do not support the
+ * download attribute of the A element.
+ *
+ * @see sites/all/themes/slac/slac_colorbox/colorbox_slac_colorbox.js
+ */
+function slac_ip_media_download($url) {
+  global $base_url;
+  $params = drupal_get_query_parameters();
+
+  if (empty($params['url'])) {
+    return MENU_NOT_FOUND;
+  }
+
+  $url = $params['url'];
+
+  if (strpos($url, 'files/styles/lightbox_expanded/public/') === FALSE) {
+    // If the image is not in the public files dir, return access denied; this
+    // callback should not allow download of anything else.
+    return MENU_ACCESS_DENIED;
+  }
+
+  $components = parse_url($url);
+
+  if ($components == FALSE) {
+    // If the URL cannot be read, give up.
+    return MENU_NOT_FOUND;
+  }
+
+  // Set content attachment headers and output the file.
+  header('Content-Type: application/octet-stream');
+  header('Content-Transfer-Encoding: Binary');
+  header('Content-disposition: attachment; filename="' . basename($components['path']) . '"');
+  readfile($base_url . $components['path']);
+
+  // Don't return a page, or cache anything.
+  drupal_exit();
+}
+
+/**
+ * Implements hook_preprocess_image().
+ *
+ * Rewrites the teaser image style to use public
+ * domain path.
+ */
+function slac_ip_media_preprocess_image(&$variables) {
+
+  if (isset($variables['style_name']) && $variables['style_name'] == 'teaser') {
+
+    // Path to publicly availible domain.
+    $domain = 'http://www.slac.stanford.edu/slac/drupal/';
+    $file_temporary_path = variable_get('file_temporary_path');
+
+    if (preg_match("/[0-9]+/u", $file_temporary_path, $matches)) {
+      $afid = $matches[0];
+    }
+    if (isset($afid)) {
+      $replacement_path = $domain . $afid;
+      $existing_path = $variables['path'];
+      $public_path = preg_replace("/^.*files/u", $replacement_path, $existing_path);
+      $variables['path'] = $public_path;
+    }
+  }
+}
