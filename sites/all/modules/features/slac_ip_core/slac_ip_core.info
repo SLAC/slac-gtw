@@ -123,7 +123,6 @@ features[variable][] = clone_reset_calendar_feed
 features[variable][] = clone_reset_event
 features[variable][] = clone_reset_flea_market_post
 features[variable][] = clone_reset_news
-features[variable][] = clone_reset_news_article
 features[variable][] = clone_reset_news_feed
 features[variable][] = clone_reset_page
 features[variable][] = clone_reset_panel

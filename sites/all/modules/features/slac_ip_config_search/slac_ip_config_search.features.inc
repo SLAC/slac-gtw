@@ -25,6 +25,7 @@ function slac_ip_config_search_default_search_api_index() {
           "settings" : {
             "default" : "1",
             "bundles" : {
+              "page" : "page",
               "calendar_feed" : "calendar_feed",
               "news_article" : "news_article",
               "news_feed" : "news_feed",
@@ -51,16 +52,13 @@ function slac_ip_config_search_default_search_api_index() {
                   "field_shared_location",
                   "field_shared_news_title",
                   "field_event_series",
-                  "field_news_author",
-                  "field_shared_byline",
                   "field_news_subtitle",
+                  "field_shared_byline",
                   "body:value",
                   "body:summary",
-                  "field_shared_related_files:description",
-                  "field_news_image:alt",
-                  "field_news_image:title"
+                  "field_shared_related_files:description"
                 ],
-                "description" : "A Fulltext aggregation of the following fields: Title, Author, Subtitle, Contact Name, Location, News Title, Event Series, Author, Byline, Subtitle, The main body text \\u00bb Text, The main body text \\u00bb Summary, Related Files \\u00bb The file description, Image \\u00bb The \\u0026quot;Alt\\u0026quot; attribute text, Image \\u00bb The \\u0026quot;Title\\u0026quot; attribute text."
+                "description" : "A Fulltext aggregation of the following fields: Title, Author, Subtitle, Contact Name, Location, News Title, Event Series, Subtitle, Byline, The main body text \\u00bb Text, The main body text \\u00bb Summary, Related Files \\u00bb The file description."
               }
             }
           }
@@ -113,9 +111,6 @@ function slac_ip_config_search_default_search_api_index() {
         "created" : { "type" : "date" },
         "field_event_series" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_event_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "field_news_author" : { "type" : "text" },
-        "field_news_image:alt" : { "type" : "text" },
-        "field_news_image:title" : { "type" : "text" },
         "field_news_news_type" : { "type" : "string" },
         "field_news_subtitle" : { "type" : "text" },
         "field_shared_byline" : { "type" : "text" },
@@ -137,7 +132,6 @@ function slac_ip_config_search_default_search_api_index() {
           "type" : "list\\u003Cinteger\\u003E",
           "entity_type" : "taxonomy_vocabulary"
         },
-        "field_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "promote" : { "type" : "boolean" },
         "published_at" : { "type" : "date" },
         "search_api_aggregation_1" : { "type" : "text", "boost" : "5.0" },
@@ -241,12 +235,6 @@ function slac_ip_config_search_default_search_api_server() {
             "type" : "date",
             "boost" : "1.0"
           },
-          "field_tags" : {
-            "table" : "search_api_db_default_node_index_field_tags",
-            "column" : "value",
-            "type" : "list\\u003Cinteger\\u003E",
-            "boost" : "1.0"
-          },
           "search_api_aggregation_1" : {
             "table" : "search_api_db_default_node_index_text",
             "type" : "text",
@@ -276,16 +264,6 @@ function slac_ip_config_search_default_search_api_server() {
             "type" : "integer",
             "boost" : "1.0"
           },
-          "field_news_image:alt" : {
-            "table" : "search_api_db_default_node_index_text",
-            "type" : "text",
-            "boost" : "1.0"
-          },
-          "field_news_image:title" : {
-            "table" : "search_api_db_default_node_index_text",
-            "type" : "text",
-            "boost" : "1.0"
-          },
           "title" : {
             "table" : "search_api_db_default_node_index_text",
             "type" : "text",
@@ -308,11 +286,6 @@ function slac_ip_config_search_default_search_api_server() {
             "boost" : "1.0"
           },
           "field_shared_news_title" : {
-            "table" : "search_api_db_default_node_index_text",
-            "type" : "text",
-            "boost" : "1.0"
-          },
-          "field_news_author" : {
             "table" : "search_api_db_default_node_index_text",
             "type" : "text",
             "boost" : "1.0"

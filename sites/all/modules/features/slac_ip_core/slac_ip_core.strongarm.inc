@@ -87,13 +87,6 @@ function slac_ip_core_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'clone_reset_news_article';
-  $strongarm->value = 0;
-  $export['clone_reset_news_article'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'clone_reset_news_feed';
   $strongarm->value = 0;
   $export['clone_reset_news_feed'] = $strongarm;

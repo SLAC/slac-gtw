@@ -36,7 +36,7 @@ function v_news_strongarm() {
   $strongarm->name = 'nodequeue_subqueue_expiration_slac_science_news_6';
   $strongarm->value = array(
     'date' => '2',
-    'exclude' => '4',
+    'exclude' => '5',
   );
   $export['nodequeue_subqueue_expiration_slac_science_news_6'] = $strongarm;
 

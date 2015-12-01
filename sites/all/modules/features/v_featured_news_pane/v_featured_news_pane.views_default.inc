@@ -83,6 +83,49 @@ function v_featured_news_pane_views_default_views() {
   $handler->display->display_options['allow']['title_override'] = 'title_override';
   $handler->display->display_options['allow']['exposed_form'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 0;
+
+  /* Display: Featured News alt */
+  $handler = $view->new_display('panel_pane', 'Featured News alt', 'panel_pane_1');
+  $handler->display->display_options['display_description'] = 'A list of Featured News nodes added to the News Article node queue.';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Existing URL */
+  $handler->display->display_options['fields']['field_shared_existing_url']['id'] = 'field_shared_existing_url';
+  $handler->display->display_options['fields']['field_shared_existing_url']['table'] = 'field_data_field_shared_existing_url';
+  $handler->display->display_options['fields']['field_shared_existing_url']['field'] = 'field_shared_existing_url';
+  $handler->display->display_options['fields']['field_shared_existing_url']['label'] = '';
+  $handler->display->display_options['fields']['field_shared_existing_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_shared_existing_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_shared_existing_url']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_shared_existing_url']['settings'] = array(
+    'image_style' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href="[field_shared_existing_url]" alt="[title]">[title]</a>';
+  $handler->display->display_options['fields']['title']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 0;
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 0;
   $export['featured_news'] = $view;
 
   return $export;
