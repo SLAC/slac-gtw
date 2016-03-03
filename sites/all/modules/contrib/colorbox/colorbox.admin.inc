@@ -202,12 +202,6 @@ function colorbox_admin_settings() {
     '#default_value' => variable_get('colorbox_scrolling', 1),
     '#description' => t('If false, Colorbox will hide scrollbars for overflowing content. This could be used on conjunction with the resize method for a smoother transition if you are appending content to an already open instance of Colorbox.'),
   );
-  $form['colorbox_custom_settings']['colorbox_original_image'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Add original image link'),
-    '#default_value' => variable_get('colorbox_original_image', 0),
-    '#description' => t('If this is checked, a icon will be added to the colorbox, that will link the user to the original image in a new tab.CAUTION: This only works with the default drupal colorbox theme.'),
-  );
 
   $js_hide = variable_get('colorbox_slideshow', 0) ? '' : ' js-hide';
   $form['colorbox_custom_settings']['colorbox_slideshow_settings']['wrapper_start'] = array(
