@@ -129,7 +129,7 @@ function slac_nodequeue_automation_node_update($node) {
   }
 
   // Remove from old queue and add to new queue, if something has changed.
-  if ($old_queue_name != new_queue_name) {
+  if ($old_queue_name != $new_queue_name) {
     if ($old_queue_name != NULL) {
        watchdog( "NODE-QUEUES", "Remove from queue: $old_queue_name  NODE:($node->nid) $node->title");      
        _slac_nodequeue_automation_node_remove($node->nid, $old_queue_name);
