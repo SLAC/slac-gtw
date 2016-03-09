@@ -469,5 +469,5 @@ function slac_ip_core_get_publication_date($nid) {
   if (!empty($result)) {
     return $result;
   }
-  return FLASE;
+  return FALSE;
 }
