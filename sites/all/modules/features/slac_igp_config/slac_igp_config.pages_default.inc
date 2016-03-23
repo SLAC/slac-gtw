@@ -425,6 +425,7 @@ function slac_igp_config_default_page_manager_pages() {
       'css_id' => '',
       'css_class' => 'brown-bodered-white blue-striped-list mobile',
     );
+  /*
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
@@ -450,6 +451,7 @@ function slac_igp_config_default_page_manager_pages() {
       'css_id' => '',
       'css_class' => 'brown-bodered-white',
     );
+  */
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
