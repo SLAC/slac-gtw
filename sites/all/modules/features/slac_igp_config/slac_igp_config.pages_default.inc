@@ -394,7 +394,7 @@ function slac_igp_config_default_page_manager_pages() {
     $display->content['new-c0566837-ec4a-41dd-afae-060a6b4a249d'] = $pane;
     $display->panels['colthreerowthree'][0] = 'new-c0566837-ec4a-41dd-afae-060a6b4a249d';
     $pane = new stdClass();
-    $pane->pid = 'new-bc4e5504-cb69-47e6-a13f-9c8596c38cd8';
+    $pane->pid = 'new-7f02be89-f2e3-4237-b4c9-0e64ee05d381';
     $pane->panel = 'colthreerowtwo';
     $pane->type = 'views';
     $pane->subtype = 'top_links';
@@ -425,39 +425,12 @@ function slac_igp_config_default_page_manager_pages() {
       'css_id' => '',
       'css_class' => 'brown-bodered-white blue-striped-list mobile',
     );
-  /*
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'bc4e5504-cb69-47e6-a13f-9c8596c38cd8';
-    $display->content['new-bc4e5504-cb69-47e6-a13f-9c8596c38cd8'] = $pane;
-    $display->panels['colthreerowtwo'][0] = 'new-bc4e5504-cb69-47e6-a13f-9c8596c38cd8';
-    $pane = new stdClass();
-    $pane->pid = 'new-0c2839e1-4c81-4f99-a2e1-c5fcad80f627';
-    $pane->panel = 'coltworowfive';
-    $pane->type = 'block';
-    $pane->subtype = 'weather_block-weather_block';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'brown-bodered-white',
-    );
-  */
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '0c2839e1-4c81-4f99-a2e1-c5fcad80f627';
-    $display->content['new-0c2839e1-4c81-4f99-a2e1-c5fcad80f627'] = $pane;
-    $display->panels['coltworowfive'][0] = 'new-0c2839e1-4c81-4f99-a2e1-c5fcad80f627';
+    $pane->uuid = '7f02be89-f2e3-4237-b4c9-0e64ee05d381';
+    $display->content['new-7f02be89-f2e3-4237-b4c9-0e64ee05d381'] = $pane;
+    $display->panels['colthreerowtwo'][0] = 'new-7f02be89-f2e3-4237-b4c9-0e64ee05d381';
     $pane = new stdClass();
     $pane->pid = 'new-b3a7a5ca-2d77-4982-bd20-2b73650db455';
     $pane->panel = 'coltworowfour';

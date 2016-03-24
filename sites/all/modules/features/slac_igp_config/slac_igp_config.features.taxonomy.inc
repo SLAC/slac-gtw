@@ -45,7 +45,7 @@ function slac_igp_config_taxonomy_default_vocabularies() {
       'name' => 'Staff Resource',
       'machine_name' => 'staff_resource',
       'description' => 'Staff resource to handle new modern view and A-Z index',
-      'hierarchy' => 0,
+      'hierarchy' => 1,
       'module' => 'taxonomy',
       'weight' => 0,
     ),

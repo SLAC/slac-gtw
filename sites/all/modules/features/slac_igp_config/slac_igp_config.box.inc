@@ -144,7 +144,15 @@ Building 50 <br />
   $box->description = 'SLAC Projects';
   $box->options = array(
     'body' => array(
-      'value' => '<div class="img"><img alt="" src="/sites/all/themes/slac/images/linac-thumb.png"></div><ul><li><a href="http://www-project.slac.stanford.edu/susbproject/">SUSB Building Project</a></li><li><a href="http://www-project.slac.stanford.edu/rsbproject/">RSB Building Project</a></li><li><a href="https://news.slac.stanford.edu/tags/programs-facilities/infrastructure-safety/slac-enterprise-resource-planning">Project Delta - ERP Site</a></li><li><a href="https://slacspace.slac.stanford.edu/sites/lcls/lcls-2/Pages/default.aspx">LCLS-II</a></li><li><a href="https://portal.slac.stanford.edu/sites/ard_public/facet/Pages/default.aspx">FACET Upgrade</a></li><li><a href="http://lsst.org/lsst/about/team"><span style="font-family: Arial, sans-serif; line-height: normal;">LSST</span></a></li></ul>',
+      'value' => '<div class="img"><img alt="" src="/sites/all/themes/slac/images/linac-thumb.png"></div>
+<ul>
+	<li>&nbsp;</li>
+	<li><a href="https://slacspace.slac.stanford.edu/sites/lcls/lcls-2/Pages/default.aspx">LCLS-II</a></li>
+	<li><a href="https://portal.slac.stanford.edu/sites/ard_public/facet/Pages/default.aspx">FACET Upgrade</a></li>
+	<li><a href="http://lsst.org/lsst/about/team"><span style="font-family: Arial, sans-serif; line-height: normal;">LSST</span></a></li>
+	<li><a href="http://cdms.berkeley.edu/"><span style="font-family: Arial, sans-serif; line-height: normal;">SuperCDMS SNOLAB</span></a></li>
+</ul>
+',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
