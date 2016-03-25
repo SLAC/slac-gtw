@@ -10,13 +10,7 @@ define('FEATURED_NEWS_DISPLAY', 'field_news_image_display');
  */
 function slac_igp_custom_theme() {
   return array(
-    'slac_igp_weather' => array(
-      'variables' => array(
-        'weather' => NULL,
-        'location' => NULL,
-      ),
-      'template' => 'slac_igp_weather',
-    ),
+
     'slac_igp_node_teaser' => array(
       'render element' => 'elements',
       'preprocess functions' => array(
@@ -58,8 +52,20 @@ function slac_igp_custom_node_view_alter(&$build) {
 /**
  * Implements hook_block_view_alter
  * Altering weather and traffic block
+ *
+ *
+ * Place the following in the slac_igp_custom_theme() array above.
+ *     'slac_igp_weather' => array(
+          'variables' => array(
+          'weather' => NULL,
+          'location' => NULL,
+        ),
+        'template' => 'slac_igp_weather',
+),
+ * uncomment slac_igp_custom_block_view_alter
  */
-function slac_igp_custom_block_view_alter(&$data, $block) {
+
+/*function slac_igp_custom_block_view_alter(&$data, $block) {
   if ($block->delta === 'weather_block') {
       $path = base_path() . drupal_get_path('module', 'weather_block');
       $location = weather_set_location();
@@ -84,10 +90,12 @@ function slac_igp_custom_block_view_alter(&$data, $block) {
       }
   }
 }
-
+*/
 /**
  * Preprocess function for the weather block
+ * Uncomment for original weather block
  */
+/*
 function slac_igp_custom_preprocess_slac_igp_weather(&$vars) {
   $weather = $vars['weather'];
   if (!$weather) {
@@ -151,7 +159,7 @@ function slac_igp_custom_preprocess_slac_igp_weather(&$vars) {
   $vars['current'] = $current;
 }
 
-
+*/
 /**
  * Implements hook_help
  */
