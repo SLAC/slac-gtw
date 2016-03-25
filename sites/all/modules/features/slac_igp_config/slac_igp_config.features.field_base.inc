@@ -10,7 +10,7 @@
 function slac_igp_config_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'body'
+  // Exported field_base: 'body'.
   $field_bases['body'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -31,7 +31,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_link'
+  // Exported field_base: 'field_link'.
   $field_bases['field_link'] = array(
     'active' => 1,
     'cardinality' => 5,
@@ -60,7 +60,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_news_author'
+  // Exported field_base: 'field_news_author'.
   $field_bases['field_news_author'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -81,7 +81,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_news_image'
+  // Exported field_base: 'field_news_image'.
   $field_bases['field_news_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -103,7 +103,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_news_image_display'
+  // Exported field_base: 'field_news_image_display'.
   $field_bases['field_news_image_display'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -128,7 +128,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_news_image_source'
+  // Exported field_base: 'field_news_image_source'.
   $field_bases['field_news_image_source'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -157,7 +157,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_news_type'
+  // Exported field_base: 'field_news_type'.
   $field_bases['field_news_type'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -182,7 +182,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_resource_authenticated'
+  // Exported field_base: 'field_resource_authenticated'.
   $field_bases['field_resource_authenticated'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -207,7 +207,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_resource_promoted'
+  // Exported field_base: 'field_resource_promoted'.
   $field_bases['field_resource_promoted'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -232,7 +232,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_shared_byline'
+  // Exported field_base: 'field_shared_byline'.
   $field_bases['field_shared_byline'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -253,7 +253,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_shared_contact_email'
+  // Exported field_base: 'field_shared_contact_email'.
   $field_bases['field_shared_contact_email'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -268,7 +268,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'email',
   );
 
-  // Exported field_base: 'field_shared_contact_name'
+  // Exported field_base: 'field_shared_contact_name'.
   $field_bases['field_shared_contact_name'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -289,7 +289,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_shared_contact_phone'
+  // Exported field_base: 'field_shared_contact_phone'.
   $field_bases['field_shared_contact_phone'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -304,7 +304,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'telephone',
   );
 
-  // Exported field_base: 'field_shared_existing_url'
+  // Exported field_base: 'field_shared_existing_url'.
   $field_bases['field_shared_existing_url'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -325,7 +325,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_shared_image'
+  // Exported field_base: 'field_shared_image'.
   $field_bases['field_shared_image'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -347,7 +347,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_shared_location'
+  // Exported field_base: 'field_shared_location'.
   $field_bases['field_shared_location'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -368,7 +368,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_shared_new_existing'
+  // Exported field_base: 'field_shared_new_existing'.
   $field_bases['field_shared_new_existing'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -393,7 +393,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_shared_news_title'
+  // Exported field_base: 'field_shared_news_title'.
   $field_bases['field_shared_news_title'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -414,7 +414,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_shared_note_editors'
+  // Exported field_base: 'field_shared_note_editors'.
   $field_bases['field_shared_note_editors'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -433,7 +433,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_shared_promote_news'
+  // Exported field_base: 'field_shared_promote_news'.
   $field_bases['field_shared_promote_news'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -458,7 +458,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_shared_related_files'
+  // Exported field_base: 'field_shared_related_files'.
   $field_bases['field_shared_related_files'] = array(
     'active' => 1,
     'cardinality' => 5,
@@ -481,7 +481,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_shared_related_links'
+  // Exported field_base: 'field_shared_related_links'.
   $field_bases['field_shared_related_links'] = array(
     'active' => 1,
     'cardinality' => 5,
@@ -510,7 +510,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_shared_tags'
+  // Exported field_base: 'field_shared_tags'.
   $field_bases['field_shared_tags'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -536,7 +536,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_shared_video'
+  // Exported field_base: 'field_shared_video'.
   $field_bases['field_shared_video'] = array(
     'active' => 1,
     'cardinality' => 3,
@@ -559,7 +559,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_slac_migrate_tag_store'
+  // Exported field_base: 'field_slac_migrate_tag_store'.
   $field_bases['field_slac_migrate_tag_store'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -578,7 +578,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_sr_organization'
+  // Exported field_base: 'field_sr_organization'.
   $field_bases['field_sr_organization'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -604,7 +604,7 @@ function slac_igp_config_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_tags'
+  // Exported field_base: 'field_tags'.
   $field_bases['field_tags'] = array(
     'active' => 1,
     'cardinality' => -1,

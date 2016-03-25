@@ -10,7 +10,7 @@
 function slac_igp_config_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-news_article-body'
+  // Exported field_instance: 'node-news_article-body'.
   $field_instances['node-news_article-body'] = array(
     'bundle' => 'news_article',
     'default_value' => NULL,
@@ -74,7 +74,7 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news_article-field_link'
+  // Exported field_instance: 'node-news_article-field_link'.
   $field_instances['node-news_article-field_link'] = array(
     'bundle' => 'news_article',
     'default_value' => NULL,
@@ -144,7 +144,7 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news_article-field_news_author'
+  // Exported field_instance: 'node-news_article-field_news_author'.
   $field_instances['node-news_article-field_news_author'] = array(
     'bundle' => 'news_article',
     'default_value' => NULL,
@@ -196,7 +196,7 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news_article-field_news_image'
+  // Exported field_instance: 'node-news_article-field_news_image'.
   $field_instances['node-news_article-field_news_image'] = array(
     'bundle' => 'news_article',
     'deleted' => 0,
@@ -255,7 +255,7 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news_article-field_news_image_display'
+  // Exported field_instance: 'node-news_article-field_news_image_display'.
   $field_instances['node-news_article-field_news_image_display'] = array(
     'bundle' => 'news_article',
     'default_value' => array(
@@ -308,7 +308,7 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news_article-field_news_image_source'
+  // Exported field_instance: 'node-news_article-field_news_image_source'.
   $field_instances['node-news_article-field_news_image_source'] = array(
     'bundle' => 'news_article',
     'default_value' => NULL,
@@ -383,7 +383,7 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news_article-field_news_type'
+  // Exported field_instance: 'node-news_article-field_news_type'.
   $field_instances['node-news_article-field_news_type'] = array(
     'bundle' => 'news_article',
     'default_value' => NULL,
@@ -432,7 +432,7 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news_article-field_slac_migrate_tag_store'
+  // Exported field_instance: 'node-news_article-field_slac_migrate_tag_store'.
   $field_instances['node-news_article-field_slac_migrate_tag_store'] = array(
     'bundle' => 'news_article',
     'default_value' => NULL,
@@ -489,7 +489,7 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news_article-field_tags'
+  // Exported field_instance: 'node-news_article-field_tags'.
   $field_instances['node-news_article-field_tags'] = array(
     'bundle' => 'news_article',
     'default_value' => NULL,
@@ -541,7 +541,7 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-organization-field_link'
+  // Exported field_instance: 'taxonomy_term-organization-field_link'.
   $field_instances['taxonomy_term-organization-field_link'] = array(
     'bundle' => 'organization',
     'default_value' => NULL,
@@ -591,7 +591,8 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-organization-field_resource_authenticated'
+  // Exported field_instance:
+  // 'taxonomy_term-organization-field_resource_authenticated'.
   $field_instances['taxonomy_term-organization-field_resource_authenticated'] = array(
     'bundle' => 'organization',
     'default_value' => array(
@@ -626,7 +627,8 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-organization_directorate-field_link'
+  // Exported field_instance:
+  // 'taxonomy_term-organization_directorate-field_link'.
   $field_instances['taxonomy_term-organization_directorate-field_link'] = array(
     'bundle' => 'organization_directorate',
     'default_value' => NULL,
@@ -676,7 +678,7 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-related_links-field_link'
+  // Exported field_instance: 'taxonomy_term-related_links-field_link'.
   $field_instances['taxonomy_term-related_links-field_link'] = array(
     'bundle' => 'related_links',
     'default_value' => NULL,
@@ -726,7 +728,7 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-research_resource-field_link'
+  // Exported field_instance: 'taxonomy_term-research_resource-field_link'.
   $field_instances['taxonomy_term-research_resource-field_link'] = array(
     'bundle' => 'research_resource',
     'default_value' => NULL,
@@ -776,7 +778,8 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-research_resource-field_resource_authenticated'
+  // Exported field_instance:
+  // 'taxonomy_term-research_resource-field_resource_authenticated'.
   $field_instances['taxonomy_term-research_resource-field_resource_authenticated'] = array(
     'bundle' => 'research_resource',
     'default_value' => NULL,
@@ -807,7 +810,7 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-staff_resource-field_link'
+  // Exported field_instance: 'taxonomy_term-staff_resource-field_link'.
   $field_instances['taxonomy_term-staff_resource-field_link'] = array(
     'bundle' => 'staff_resource',
     'default_value' => NULL,
@@ -857,7 +860,8 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-staff_resource-field_resource_authenticated'
+  // Exported field_instance:
+  // 'taxonomy_term-staff_resource-field_resource_authenticated'.
   $field_instances['taxonomy_term-staff_resource-field_resource_authenticated'] = array(
     'bundle' => 'staff_resource',
     'default_value' => array(
@@ -892,7 +896,8 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-staff_resource-field_resource_promoted'
+  // Exported field_instance:
+  // 'taxonomy_term-staff_resource-field_resource_promoted'.
   $field_instances['taxonomy_term-staff_resource-field_resource_promoted'] = array(
     'bundle' => 'staff_resource',
     'default_value' => array(
@@ -929,7 +934,7 @@ function slac_igp_config_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-top_links-field_link'
+  // Exported field_instance: 'taxonomy_term-top_links-field_link'.
   $field_instances['taxonomy_term-top_links-field_link'] = array(
     'bundle' => 'top_links',
     'default_value' => NULL,

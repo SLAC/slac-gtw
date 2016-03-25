@@ -432,6 +432,84 @@ function slac_igp_config_default_page_manager_pages() {
     $display->content['new-7f02be89-f2e3-4237-b4c9-0e64ee05d381'] = $pane;
     $display->panels['colthreerowtwo'][0] = 'new-7f02be89-f2e3-4237-b4c9-0e64ee05d381';
     $pane = new stdClass();
+    $pane->pid = 'new-67c3ac4b-30c7-4111-bcf4-f32ab5599da4';
+    $pane->panel = 'coltworowfive';
+    $pane->type = 'block';
+    $pane->subtype = 'wunderground_weather-wunderground_weather_current_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'brown-bodered-white',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '67c3ac4b-30c7-4111-bcf4-f32ab5599da4';
+    $display->content['new-67c3ac4b-30c7-4111-bcf4-f32ab5599da4'] = $pane;
+    $display->panels['coltworowfive'][0] = 'new-67c3ac4b-30c7-4111-bcf4-f32ab5599da4';
+    $pane = new stdClass();
+    $pane->pid = 'new-50b096ab-d10e-4777-945e-6a27fc745b38';
+    $pane->panel = 'coltworowfive';
+    $pane->type = 'block';
+    $pane->subtype = 'wunderground_weather-wunderground_weather_forecast_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'brown-bodered-white',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '50b096ab-d10e-4777-945e-6a27fc745b38';
+    $display->content['new-50b096ab-d10e-4777-945e-6a27fc745b38'] = $pane;
+    $display->panels['coltworowfive'][1] = 'new-50b096ab-d10e-4777-945e-6a27fc745b38';
+    $pane = new stdClass();
+    $pane->pid = 'new-c7259d6c-713e-454e-a6d5-83af2f6cc87e';
+    $pane->panel = 'coltworowfive';
+    $pane->type = 'block';
+    $pane->subtype = 'boxes-weather_traffic';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'brown-bodered-white',
+    );
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = 'c7259d6c-713e-454e-a6d5-83af2f6cc87e';
+    $display->content['new-c7259d6c-713e-454e-a6d5-83af2f6cc87e'] = $pane;
+    $display->panels['coltworowfive'][2] = 'new-c7259d6c-713e-454e-a6d5-83af2f6cc87e';
+    $pane = new stdClass();
     $pane->pid = 'new-b3a7a5ca-2d77-4982-bd20-2b73650db455';
     $pane->panel = 'coltworowfour';
     $pane->type = 'block';
