@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SLAC weather blocks feature.
+ */
+
+include_once 'slac_weather_blocks.features.inc';

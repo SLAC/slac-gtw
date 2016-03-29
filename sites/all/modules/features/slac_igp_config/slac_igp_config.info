@@ -112,7 +112,6 @@ features[user_permission][] = administer scheduler
 features[user_permission][] = administer stanford date timepicker
 features[user_permission][] = administer taxonomy
 features[user_permission][] = edit meta tags
-features[user_permission][] = schedule (un)publishing of nodes
 features[user_permission][] = view scheduled content
 features[variable][] = comment_anonymous_news_article
 features[variable][] = comment_default_mode_news_article

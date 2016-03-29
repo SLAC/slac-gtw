@@ -98,7 +98,6 @@ function flag_views_data() {
     'real field' => 'uid',
     'field' => array(
       'handler' => 'flag_handler_field_flagged',
-      'click sortable' => TRUE,
       'label' => t('Flagged'),
       'help' => t('A boolean field to show whether the flag is set or not.'),
     ),
@@ -138,6 +137,27 @@ function flag_views_data() {
     ),
     'argument' => array(
       'handler' => 'views_handler_argument_numeric',
+    ),
+  );
+
+  $data['flagging']['flagging_id'] = array(
+    'title' => t('Flagging ID'),
+    'field' => array(
+      'handler' => 'views_handler_field_numeric',
+      'click sortable' => TRUE,
+      'help' => t('Display the flagging ID.'),
+    ),
+    'sort' => array(
+      'handler' => 'views_handler_sort',
+      'help' => t('Sort by the flagging ID.'),
+    ),
+    'filter' => array(
+      'handler' => 'views_handler_filter_numeric',
+      'help' => t('Filter by the flagging ID.'),
+    ),
+    'argument' => array(
+      'handler' => 'views_handler_argument_numeric',
+      'help' => t('The unique ID of the flagging.'),
     ),
   );
 

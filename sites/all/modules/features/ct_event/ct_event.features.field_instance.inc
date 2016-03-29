@@ -10,7 +10,7 @@
 function ct_event_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-event-body'
+  // Exported field_instance: 'node-event-body'.
   $field_instances['node-event-body'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -125,7 +125,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_date'
+  // Exported field_instance: 'node-event-field_event_date'.
   $field_instances['node-event-field_event_date'] = array(
     'bundle' => 'event',
     'deleted' => 0,
@@ -140,6 +140,7 @@ function ct_event_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 1,
@@ -153,6 +154,7 @@ function ct_event_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 0,
@@ -222,7 +224,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_series'
+  // Exported field_instance: 'node-event-field_event_series'.
   $field_instances['node-event-field_event_series'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -294,7 +296,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_type'
+  // Exported field_instance: 'node-event-field_event_type'.
   $field_instances['node-event-field_event_type'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -360,7 +362,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_news_image_display'
+  // Exported field_instance: 'node-event-field_news_image_display'.
   $field_instances['node-event-field_news_image_display'] = array(
     'bundle' => 'event',
     'default_value' => array(
@@ -431,7 +433,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_news_news_type'
+  // Exported field_instance: 'node-event-field_news_news_type'.
   $field_instances['node-event-field_news_news_type'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -497,7 +499,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_shared_contact_email'
+  // Exported field_instance: 'node-event-field_shared_contact_email'.
   $field_instances['node-event-field_shared_contact_email'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -573,7 +575,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_shared_contact_name'
+  // Exported field_instance: 'node-event-field_shared_contact_name'.
   $field_instances['node-event-field_shared_contact_name'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -655,7 +657,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_shared_contact_phone'
+  // Exported field_instance: 'node-event-field_shared_contact_phone'.
   $field_instances['node-event-field_shared_contact_phone'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -731,7 +733,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_shared_existing_url'
+  // Exported field_instance: 'node-event-field_shared_existing_url'.
   $field_instances['node-event-field_shared_existing_url'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -814,7 +816,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_shared_image'
+  // Exported field_instance: 'node-event-field_shared_image'.
   $field_instances['node-event-field_shared_image'] = array(
     'bundle' => 'event',
     'deleted' => 0,
@@ -926,7 +928,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_shared_location'
+  // Exported field_instance: 'node-event-field_shared_location'.
   $field_instances['node-event-field_shared_location'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -1008,7 +1010,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_shared_new_existing'
+  // Exported field_instance: 'node-event-field_shared_new_existing'.
   $field_instances['node-event-field_shared_new_existing'] = array(
     'bundle' => 'event',
     'default_value' => array(
@@ -1084,7 +1086,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_shared_news_title'
+  // Exported field_instance: 'node-event-field_shared_news_title'.
   $field_instances['node-event-field_shared_news_title'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -1159,7 +1161,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_shared_note_editors'
+  // Exported field_instance: 'node-event-field_shared_note_editors'.
   $field_instances['node-event-field_shared_note_editors'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -1239,7 +1241,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_shared_promote_news'
+  // Exported field_instance: 'node-event-field_shared_promote_news'.
   $field_instances['node-event-field_shared_promote_news'] = array(
     'bundle' => 'event',
     'default_value' => array(
@@ -1311,7 +1313,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_shared_related_files'
+  // Exported field_instance: 'node-event-field_shared_related_files'.
   $field_instances['node-event-field_shared_related_files'] = array(
     'bundle' => 'event',
     'deleted' => 0,
@@ -1406,7 +1408,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_shared_related_links'
+  // Exported field_instance: 'node-event-field_shared_related_links'.
   $field_instances['node-event-field_shared_related_links'] = array(
     'bundle' => 'event',
     'default_value' => NULL,
@@ -1503,7 +1505,7 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_shared_tags'
+  // Exported field_instance: 'node-event-field_shared_tags'.
   $field_instances['node-event-field_shared_tags'] = array(
     'bundle' => 'event',
     'default_value' => NULL,

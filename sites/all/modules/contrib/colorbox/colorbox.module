@@ -152,6 +152,9 @@ function _colorbox_active() {
   }
   $page_match = variable_get('colorbox_visibility', 0) == 0 ? !$page_match : $page_match;
 
+  // Allow other modules to change the state of colorbox for the current URL.
+  drupal_alter('colorbox_active', $page_match);
+
   return $page_match;
 }
 
@@ -238,10 +241,6 @@ function _colorbox_doheader() {
       drupal_add_css($style . '/colorbox.css');
   }
 
-  // Add the original image variable to the js
-  $colorbox_original_image = variable_get('colorbox_original_image');
-  drupal_add_js(array('colorbox' => array ('colorbox_original_image' => $colorbox_original_image)), 'setting');
-  
   if (variable_get('colorbox_load', 0)) {
     drupal_add_js($path . '/js/colorbox_load.js');
   }

@@ -56,6 +56,7 @@ function media_wysiwyg_parse_css_declarations($declarations) {
  * @see hook_media_wysiwyg_token_to_markup_alter()
  */
 function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE) {
+  static $recursion_stop;
   $settings = array();
   $match = str_replace("[[", "", $match);
   $match = str_replace("]]", "", $match);
@@ -107,6 +108,13 @@ function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE) {
     if (!$file) {
       throw new Exception('Could not load media object');
     }
+    // Check if we've got a recursion. Happens because a file_load() may
+    // triggers file_entity_is_page() which then again triggers a file load.
+    if (isset($recursion_stop[$file->fid])) {
+      return '';
+    }
+    $recursion_stop[$file->fid] = TRUE;
+
     $tag_info['file'] = $file;
 
     // The class attributes is a string, but drupal requires it to be
@@ -117,6 +125,9 @@ function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE) {
 
     // Grab the potentially overrided fields from the file.
     $fields = media_wysiwyg_filter_field_parser($tag_info);
+    foreach ($fields as $key => $value) {
+      $file->{$key} = $value;
+    }
 
     $attributes = is_array($tag_info['attributes']) ? $tag_info['attributes'] : array();
     $attribute_whitelist = variable_get('media_wysiwyg_wysiwyg_allowed_attributes', _media_wysiwyg_wysiwyg_allowed_attributes_default());
@@ -126,14 +137,6 @@ function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE) {
     if (!empty($tag_info['attributes']) && is_array($tag_info['attributes'])) {
       $settings['attributes'] = array_intersect_key($tag_info['attributes'], array_flip($attribute_whitelist));
       $settings['fields'] = $fields;
-
-      // Decode HTML entities when reading attributes from the token, because
-      // we are going to encode them before outputting as HTML.
-      foreach ($settings['attributes'] as $key => $value) {
-        if (is_string($value)) {
-          $settings['attributes'][$key] = html_entity_decode($value);
-        }
-      }
 
       // Many media formatters will want to apply width and height independently
       // of the style attribute or the corresponding HTML attributes, so pull
@@ -151,11 +154,6 @@ function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE) {
           elseif (isset($settings['attributes'][$dimension])) {
             $settings[$dimension] = $settings['attributes'][$dimension];
           }
-        }
-      }
-      foreach (array('title', 'alt') as $field_type) {
-        if (isset($settings['attributes'][$field_type])) {
-          $settings['attributes'][$field_type] = decode_entities($settings['attributes'][$field_type]);
         }
       }
     }
@@ -178,7 +176,7 @@ function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE) {
 
   if ($wysiwyg) {
     $settings['wysiwyg'] = $wysiwyg;
-    // If sending markup to a WYSIWYG, we need to pass the file infomation so
+    // If sending markup to a WYSIWYG, we need to pass the file information so
     // that an inline macro can be generated when the WYSIWYG is detached.
     // The WYSIWYG plugin is expecting this information in the
     // Drupal.settings.mediaDataMap variable.
@@ -191,11 +189,16 @@ function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE) {
     );
     drupal_add_js(array('mediaDataMap' => array($file->fid => $data)), 'setting');
     $element['#attributes']['data-fid'] = $file->fid;
+    $element['#attributes']['data-media-element'] = '1';
     $element['#attributes']['class'][] = 'media-element';
   }
   else {
     // Display the field elements.
     $element = array();
+    // Render the file entity, for sites using the file_entity rendering method.
+    if (variable_get('media_wysiwyg_default_render', 'file_entity') == 'file_entity') {
+      $element['content'] = file_view($file, $tag_info['view_mode']);
+    }
     $element['content']['file'] = media_wysiwyg_get_file_without_label($file, $tag_info['view_mode'], $settings);
     // Overwrite or set the file #alt attribute if it has been set in this
     // instance.
@@ -207,9 +210,12 @@ function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE) {
     if (!empty($element['content']['file']['#attributes']['title'])) {
       $element['content']['file']['#title'] = $element['content']['file']['#attributes']['title'];
     }
-    field_attach_prepare_view('file', array($file->fid => $file), $tag_info['view_mode']);
-    entity_prepare_view('file', array($file->fid => $file));
-    $element['content'] += field_attach_view('file', $file, $tag_info['view_mode']);
+    // For sites using the legacy field_attach rendering method, attach fields.
+    if (variable_get('media_wysiwyg_default_render', 'file_entity') == 'field_attach') {
+      field_attach_prepare_view('file', array($file->fid => $file), $tag_info['view_mode']);
+      entity_prepare_view('file', array($file->fid => $file));
+      $element['content'] += field_attach_view('file', $file, $tag_info['view_mode']);
+    }
     if (count(element_children($element['content'])) > 1) {
       // Add surrounding divs to group them together.
       // We dont want divs when there are no additional fields to allow files
@@ -221,12 +227,18 @@ function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE) {
         'media-' . $element['content']['file']['#view_mode']
       );
     }
+
+    // Conditionally add a pre-render if the media filter output is be cached.
+    $filters = filter_get_filters();
+    if (!isset($filters['media_filter']['cache']) || $filters['media_filter']['cache']) {
+      $element['#pre_render'][] = 'media_wysiwyg_pre_render_cached_filter';
+    }
   }
   drupal_alter('media_wysiwyg_token_to_markup', $element, $tag_info, $settings);
-  return drupal_render($element);
+  $output = drupal_render($element);
+  unset($recursion_stop[$file->fid]);
+  return $output;
 }
-
-
 
 /**
  * Parse the field array from the collapsed AJAX string.
@@ -235,50 +247,25 @@ function media_wysiwyg_filter_field_parser($tag_info) {
   $fields = array();
   if (isset($tag_info['fields'])) {
     foreach($tag_info['fields'] as $field_name => $field_value) {
-      // Decode HTML entities in fields because they will be encoded again
-      // when we output the fields for the user to edit.
-      $field_value = html_entity_decode($field_value);
       if (strpos($field_name, 'field_') === 0) {
         $parsed_field = explode('[', str_replace(']', '', $field_name));
-        if(isset($parsed_field[2])) {
-          if(isset($parsed_field[3])) {
-            $fields[$parsed_field[0]][$parsed_field[1]][$parsed_field[2]][$parsed_field[3]] = $field_value;
-          } else {
-            $fields[$parsed_field[0]][$parsed_field[1]][$parsed_field[2]] = $field_value;
+        $ref = &$fields;
+
+        // Each key of the field needs to be the child of the previous key.
+        foreach ($parsed_field as $key) {
+          if (!isset($ref[$key])) {
+            $ref[$key] = array();
           }
-        } else {
-          $fields[$parsed_field[0]][$parsed_field[1]] = $field_value;
+          $ref = &$ref[$key];
         }
+
+        // The value should be set at the deepest level.
+        // Fields that use rich-text markup will be urlencoded.
+        $ref = urldecode($field_value);
       }
     }
   }
   return $fields;
-}
-/**
- * Builds a map of media tags in the element.
- *
- * Builds a map of the media tags in an element that are being rendered to their
- * rendered HTML. The map is stored in JS, so we can transform them when the
- * editor is being displayed.
- */
-function media_wysiwyg_pre_render_text_format($element) {
-  // filter_process_format() copies properties to the expanded 'value' child
-  // element.
-  if (!isset($element['format'])) {
-    return $element;
-  }
-
-  $field = &$element['value'];
-  $settings = array(
-    'field' => $field['#id'],
-  );
-
-  $tagmap = _media_wysiwyg_generate_tagMap($field['#value']);
-
-  if (isset($tagmap)) {
-    drupal_add_js(array('tagmap' => $tagmap), 'setting');
-  }
-  return $element;
 }
 
 /**
@@ -369,4 +356,17 @@ function media_wysiwyg_get_wysiwyg_allowed_view_modes($file) {
   $view_modes = $enabled_view_modes[$file->type];
   drupal_alter('media_wysiwyg_wysiwyg_allowed_view_modes', $view_modes, $file);
   return $view_modes;
+}
+
+/**
+ * #pre_render callback: Modify the element if the render cache is filtered.
+ */
+function media_wysiwyg_pre_render_cached_filter($element) {
+  // Remove contextual links since they are not compatible with cached filtered
+  // text.
+  if (isset($element['content']['#contextual_links'])) {
+    unset($element['content']['#contextual_links']);
+  }
+
+  return $element;
 }

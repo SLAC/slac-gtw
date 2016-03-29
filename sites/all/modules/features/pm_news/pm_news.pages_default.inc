@@ -52,7 +52,8 @@ function pm_news_default_page_manager_pages() {
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
-    'css' => '',
+    'css' => '#edit-published-at-min,
+.form-item-published-at-max {display:none;}',
     'contexts' => array(),
     'relationships' => array(),
   );

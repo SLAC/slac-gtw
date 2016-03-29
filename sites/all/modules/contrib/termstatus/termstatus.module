@@ -111,7 +111,6 @@ function termstatus_form_taxonomy_form_term_alter(&$form, &$form_state, $form_id
 
   $form['termstatus'] = array(
     '#type' => 'fieldset',
-    '#access' => user_access('administer taxonomy'),
     '#title' => t('Publishing options'),
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
@@ -133,7 +132,6 @@ function termstatus_form_taxonomy_form_vocabulary_alter(&$form, &$form_state, $f
 
   $form['termstatus'] = array(
     '#type' => 'fieldset',
-    '#access' => user_access('administer taxonomy'),
     '#title' => t('Default publishing options'),
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,

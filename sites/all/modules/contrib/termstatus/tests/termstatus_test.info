@@ -3,9 +3,9 @@ description = Taxonomy Term Status Test Stub
 core = 7.x
 hidden = TRUE
 
-; Information added by Drupal.org packaging script on 2013-12-20
-version = "7.x-1.1"
+; Information added by Drupal.org packaging script on 2015-06-30
+version = "7.x-1.2"
 core = "7.x"
 project = "termstatus"
-datestamp = "1387532607"
+datestamp = "1435646885"
 
