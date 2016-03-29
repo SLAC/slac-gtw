@@ -32,7 +32,7 @@ function slac_weather_blocks_default_panels_mini() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'WEATHER & TRAFFIC';
   $display->uuid = '8a8a0a74-c6dc-489b-b9cd-9bef5b1ecfef';
   $display->content = array();
   $display->panels = array();
