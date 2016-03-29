@@ -17,7 +17,9 @@ define('FEATURED_NEWS', 'featured_news');
  * and if the node is promoted or not.
  */
 function slac_nodequeue_automation_node_insert($node) {
-  if (slac_nodequeue_automation_is_news_or_promoted($node) && $node->is_new) {
+
+  // Only add a newly saved  node to the queue, if it's a news article or promoted, is new and is published
+  if (slac_nodequeue_automation_is_news_or_promoted($node) && $node->is_new && $node->status) {
     $promoted = (bool) $node->promote;
     $news_type = _slac_nodequeue_automation_get_field_value($node, 'field_news_news_type');
 
@@ -66,9 +68,29 @@ function slac_nodequeue_automation_is_news_or_promoted($node) {
 }
 
 /**
+ * Test for existence of this node in the given queue (by queue name).
+ */
+function _slac_test_for_node_in_node_queue ($nid, $queue_name) {
+
+  $queue = _slac_nodequeue_automation_get_queue($queue_name);
+  if (!empty($queue)) {
+    $subqueue = _slac_nodequeue_automation_get_subqueue($queue->qid);
+    if ($subqueue != NULL) {
+
+      $queue_pos = nodequeue_get_subqueue_position( $subqueue->sqid, $nid);
+
+      // If this node is not in this subqueue, it returns false, else it returns a non-false value
+      return( nodequeue_get_subqueue_position( $subqueue->sqid, $nid));
+    }
+  }
+  return false;
+}
+
+/**
  * Implements hook_node_update().
  */
 function slac_nodequeue_automation_node_update($node) {
+
   if (!slac_nodequeue_automation_is_news_or_promoted($node)) {
     return;
   }
@@ -81,35 +103,40 @@ function slac_nodequeue_automation_node_update($node) {
   $old_type = _slac_nodequeue_automation_get_field_value($original, 'field_news_news_type');
   $type = _slac_nodequeue_automation_get_field_value($node, 'field_news_news_type');
 
-  // If the node promote flag has changed, update the queues accordingly.
-  if ($promoted != $was_promoted) {
-    if ($promoted) {
-      // Remove from non-promoted queues, add to promoted queue.
-      _slac_nodequeue_automation_node_remove($node->nid, LAB_NEWS);
-      _slac_nodequeue_automation_node_remove($node->nid, SLAC_SCIENCE);
-      _slac_nodequeue_automation_node_add($node->nid, FEATURED_NEWS);
-    }
-    else {
-      // Remove from the promoted queue, add to appropriate News Type queue.
-      _slac_nodequeue_automation_node_remove($node->nid, FEATURED_NEWS);
+  // Calculate the old queue (see which queue this node is in currently, if any)
+  if (_slac_test_for_node_in_node_queue($node->nid, LAB_NEWS)):
+    $old_queue_name = LAB_NEWS;
+  elseif (_slac_test_for_node_in_node_queue($node->nid, SLAC_SCIENCE)):
+    $old_queue_name = SLAC_SCIENCE;
+  elseif (_slac_test_for_node_in_node_queue($node->nid, FEATURED_NEWS)):
+    $old_queue_name = FEATURED_NEWS;
+  else: 
+    $old_queue_name = NULL;
+  endif;
 
-      $queue_name = _slac_nodequeue_automation_get_name_for_type($type);
-      if ($queue_name != NULL) {
-        _slac_nodequeue_automation_node_add($node->nid, $queue_name);
-      }
-    }
+  // Determine what the new queue should be
+  if ( !$node->status ) {
+    $new_queue_name = NULL;   // Node is not published so it shouldn't be in any queue
   }
   else {
-    // If the News Type value has changed, move to the correct queue.
-    if ($old_type != $type) {
-      $queue_name = _slac_nodequeue_automation_get_name_for_type($old_type);
-      if ($queue_name != NULL) {
-        _slac_nodequeue_automation_node_remove($node->nid, $queue_name);
-      }
-      $queue_name = _slac_nodequeue_automation_get_name_for_type($type);
-      if ($queue_name != NULL) {
-        _slac_nodequeue_automation_node_add($node->nid, $queue_name);
-      }
+    if ( $promoted ) {
+      $new_queue_name = FEATURED_NEWS;  // It's promoted, so it should be in Featured News
+    }
+    else {
+      // It's published but not promoted, so it's either in Lab News or SLAC Science queue, based on News type.
+      $new_queue_name = _slac_nodequeue_automation_get_name_for_type($type);
+    }
+  }
+
+  // Remove from old queue and add to new queue, if something has changed.
+  if ($old_queue_name != $new_queue_name) {
+    if ($old_queue_name != NULL) {
+       watchdog( "NODE-QUEUES", "Remove from queue: $old_queue_name  NODE:($node->nid) $node->title");      
+       _slac_nodequeue_automation_node_remove($node->nid, $old_queue_name);
+    }
+    if ($new_queue_name != NULL) {
+       watchdog( "NODE-QUEUES", "Add to queue: $new_queue_name  NODE:($node->nid) $node->title");      
+      _slac_nodequeue_automation_node_add($node->nid, $new_queue_name);
     }
   }
 }
@@ -167,12 +194,22 @@ function _slac_nodequeue_automation_get_field_value($node, $field_name) {
  *   The machine name of the queue to add onto.
  */
 function _slac_nodequeue_automation_node_add($nid, $queue_name) {
+
   $queue = _slac_nodequeue_automation_get_queue($queue_name);
   if (!empty($queue)) {
     $subqueue = _slac_nodequeue_automation_get_subqueue($queue->qid);
 
     if ($subqueue != NULL) {
-      nodequeue_subqueue_add($queue, $subqueue, $nid);
+
+      // Only add it to the queue, if it's not already in the queue
+       watchdog( "NODE-QUEUES", "Node already in queue? $queue_name  NODE:($nid)");
+      if (!_slac_test_for_node_in_node_queue($nid, $queue_name)) {
+        nodequeue_subqueue_add($queue, $subqueue, $nid);
+        watchdog( "NODE-QUEUES", "Added new node: $queue_name  NODE:($nid)");
+      }
+      else {
+        watchdog( "NODE-QUEUES", "Node already exists in queue: $queue_name  NODE:($nid)");
+      }
     }
   }
 }

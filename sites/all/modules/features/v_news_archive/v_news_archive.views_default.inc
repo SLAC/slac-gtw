@@ -75,9 +75,9 @@ function v_news_archive_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'access_information' => 'access_information',
-    'event' => 'event',
-    'news' => 'news',
+      'access_information' => 'access_information',
+      'event' => 'event',
+      'news' => 'news',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Promote As News (field_shared_promote_news) */
@@ -85,7 +85,7 @@ function v_news_archive_views_default_views() {
   $handler->display->display_options['filters']['field_shared_promote_news_value']['table'] = 'field_data_field_shared_promote_news';
   $handler->display->display_options['filters']['field_shared_promote_news_value']['field'] = 'field_shared_promote_news_value';
   $handler->display->display_options['filters']['field_shared_promote_news_value']['value'] = array(
-    1 => '1',
+      1 => '1',
   );
   $handler->display->display_options['filters']['field_shared_promote_news_value']['group'] = 1;
   /* Filter criterion: Content: News Type (field_news_news_type) */
@@ -98,13 +98,13 @@ function v_news_archive_views_default_views() {
   $handler->display->display_options['filters']['field_news_news_type_value']['expose']['operator'] = 'field_news_news_type_value_op';
   $handler->display->display_options['filters']['field_news_news_type_value']['expose']['identifier'] = 'field_news_news_type_value';
   $handler->display->display_options['filters']['field_news_news_type_value']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    5 => 0,
-    4 => 0,
-    6 => 0,
-    7 => 0,
-    3 => 0,
+      2 => '2',
+      1 => 0,
+      5 => 0,
+      4 => 0,
+      6 => 0,
+      7 => 0,
+      3 => 0,
   );
   /* Filter criterion: Node: Published at */
   $handler->display->display_options['filters']['published_at']['id'] = 'published_at';
@@ -117,13 +117,13 @@ function v_news_archive_views_default_views() {
   $handler->display->display_options['filters']['published_at']['expose']['operator'] = 'published_at_op';
   $handler->display->display_options['filters']['published_at']['expose']['identifier'] = 'published_at';
   $handler->display->display_options['filters']['published_at']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    5 => 0,
-    4 => 0,
-    6 => 0,
-    7 => 0,
-    3 => 0,
+      2 => '2',
+      1 => 0,
+      5 => 0,
+      4 => 0,
+      6 => 0,
+      7 => 0,
+      3 => 0,
   );
 
   /* Display: Content pane */
