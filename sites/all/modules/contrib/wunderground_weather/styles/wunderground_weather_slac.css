@@ -1,0 +1,58 @@
+div.pane-content > table > tbody > tr > td > div.is-tomorrow {
+    border-right-style: dotted;
+    border-right-color: #efefef;
+    border-left-style: dotted;
+    border-left-color: #efefef;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+div.pane-content > table > tbody > tr > td {
+    width: 100%;
+}
+div.pane-content > table > tbody > tr  {
+    border-bottom-style: dotted;
+    border-bottom-color: #efefef;
+}
+div.weather-forecast-low-temp {
+    color: #AAAAAA;
+}
+div.contextual-links-region.panel-pane.pane-block.pane-wunderground-weather-wunderground-weather-current-1 > div.pane-content{
+padding-bottom: 0;
+}
+div.current-weather-block-content > div.item-list > ul.current-weather-summary > li > div.weather_temp {
+    font-size: 2em;
+    font-style: strong;
+    float: left;
+}
+div.current-weather-block-content > div.item-list > ul.current-weather-summary > li > div.weather_desc {
+    color: #888888;
+    float: left;
+    padding-top: 0.5em;
+    padding-left: 0.5em;
+}
+div.current-weather-block-content > div.item-list > ul.current-weather-summary > li {
+    margin-left: 0;
+    margin-bottom: 0;
+}
+div.pane-content > h2.pane-title {
+    display: none;
+}
+div.contextual-links-region > div.pane-content > h2 {
+    visibility: hidden;
+}
+div.pane-content > table > tbody > tr.odd {
+background-color: white;
+}
+.pane-wunderground-weather-wunderground-weather-forecast-1 {
+font-size: .75em;
+color: #494949;
+}
+.current-weather-summary {
+color: #494949;
+}
+.current-weather-summary .last {
+font-size: .75em;
+}
+.current-weather-block-content > img {
+float: right;
+}

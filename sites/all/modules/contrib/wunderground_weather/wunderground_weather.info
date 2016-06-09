@@ -10,5 +10,5 @@ project = "wunderground_weather"
 datestamp = "1435141911"
 
 ; styles for SLAC weather customization
-stylesheets[all][] = wunderground_weather_slac.css
+stylesheets[all][] = styles/wunderground_weather_slac.css
 
