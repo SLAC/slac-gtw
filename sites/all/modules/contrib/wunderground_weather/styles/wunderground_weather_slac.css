@@ -56,3 +56,8 @@ font-size: .75em;
 .current-weather-block-content > img {
 float: right;
 }
+.pane-new-weather-traffic {
+border: 1px solid #cdc0b0;
+background-color: white;
+padding: .75rem;
+}
