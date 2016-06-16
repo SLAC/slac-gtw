@@ -119,7 +119,7 @@ function ledger_progress_complete_views_default_views() {
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Efficiency Progress';
+  $handler->display->display_options['title'] = 'Improvement & Collaboration Ledger';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
@@ -130,7 +130,11 @@ function ledger_progress_complete_views_default_views() {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = TRUE;
-  $handler->display->display_options['footer']['area']['content'] = '<em><a href="Improvement-Collaboration">Click Here to see the full ledger of Efficiency Improvements</a> </em>';
+  $handler->display->display_options['footer']['area']['content'] = '<div class="view-footer">
+<a href="/Improvement-Collaboration">View All Ledger Items</a>
+<a href="/node/add/ledger-post">Suggest a Process for Improvement</a>
+<em><a href="#">Link to Efficiency Initiative WebSite Coming Soon</a></em>
+</div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $export['ledger_front_list'] = $view;
 
