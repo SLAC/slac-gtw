@@ -1,51 +1,3 @@
-//---------------- new CSS ------------------
-
-div.pane-content > table > tbody > tr > td {
-    table-layout: auto;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    
-}
-
-.pane-wunderground-weather-wunderground-weather-forecast-1 table td {
-    padding: 0;
-}
-
-.pane-wunderground-weather-wunderground-weather-forecast-1 table, .pane-wunderground-weather-wunderground-weather-forecast-1 tbody {
-      display:table;
-}
-
-div.pane-content > table > tbody > tr > td > div.is-tomorrow, div.pane-content > table > tbody > tr > td > div.not-tomorrow {
-      padding-left:25px; 
-      padding-right:25px;
-      padding-bottom: 10px;
-}
-
-div.pane-content > table > tbody > tr > td > div.is-tomorrow {
-    border-right-style: solid;
-    border-right-color: #efefef;
-    border-left-style: solid;
-    border-left-color: #efefef;
-    padding-left: 25px;
-    padding-right: 25px;
-}
-
-div.pane-content > table > tbody > tr  {
-    border-bottom-style: solid;
-    border-bottom-color: #efefef;
-}
-
-div.weather-forecast-high-temp {
-    color: #494949;
-    float: left;
-    clear: none;
-    margin-right: 11px;
-}
-.current-weather-block-content > img {
-       float: right;
-       padding-right: 5px;
-}
 
 
 //---------------- original CSS ------------------
@@ -53,6 +5,9 @@ div.weather-forecast-high-temp {
 
 div.pane-content > table > tbody > tr > td {
     width: 100%;
+}
+table tr td:first-child {
+ width: 100%;   
 }
 div.weather-forecast-low-temp {
     color: #AAAAAA;
@@ -101,4 +56,57 @@ float: right;
 border: 1px solid #cdc0b0;
 background-color: white;
 padding: .75rem;
+}
+
+
+
+//---------------- new CSS ------------------
+
+div.pane-content > table {
+    table-layout: auto;
+}
+div.pane-content > table > tbody > tr > td {
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    
+}
+
+.pane-wunderground-weather-wunderground-weather-forecast-1 table td {
+    padding: 0;
+}
+
+.pane-wunderground-weather-wunderground-weather-forecast-1 table, .pane-wunderground-weather-wunderground-weather-forecast-1 tbody {
+      display:table;
+}
+
+div.pane-content > table > tbody > tr > td > div.is-tomorrow, div.pane-content > table > tbody > tr > td > div.not-tomorrow {
+      padding-left:25px; 
+      padding-right:25px;
+      padding-bottom: 10px;
+}
+
+div.pane-content > table > tbody > tr > td > div.is-tomorrow {
+    border-right-style: solid;
+    border-right-color: #efefef;
+    border-left-style: solid;
+    border-left-color: #efefef;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+div.pane-content > table > tbody > tr  {
+    border-bottom-style: solid;
+    border-bottom-color: #efefef;
+}
+
+div.weather-forecast-high-temp {
+    color: #494949;
+    float: left;
+    clear: none;
+    margin-right: 11px;
+}
+.current-weather-block-content > img {
+       float: right;
+       padding-right: 5px;
 }

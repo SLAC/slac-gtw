@@ -385,7 +385,7 @@ function theme_wunderground_weather_forecast($variables) {
   $degrees = variable_get('wunderground_weather_degrees', 'celsius');
 
   // SLAC only wants to show today and the next 2 days (3 days weather in total)
-  array_shift( $variables['days'] );
+  array_pop( $variables['days'] );
 
   foreach ($variables['days'] as $day) {
     if (!empty($day)) {
@@ -396,6 +396,17 @@ function theme_wunderground_weather_forecast($variables) {
       // Give it a more human-readable date for 'Today'
       if ($variables['days'][0] == $day ) {
         $date = "Today";
+      }
+
+      // Ensure date is always 6 chars long (to ensure equal sizing of icons)
+      switch (strlen($date)) {
+        case 4:   // highly unlikely to ever have this or lower, but adding just in case
+            $date = $date . "&nbsp;&nbsp;";
+            break;
+        case 5:   
+            $date = $date . "&nbsp;";
+            break;
+        default: break;
       }
 
       // Style differently for the middle column in the row 
