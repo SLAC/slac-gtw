@@ -57,16 +57,6 @@ function slac_igp_config_user_default_permissions() {
     'module' => 'metatag',
   );
 
-  // Exported permission: 'schedule (un)publishing of nodes'.
-  $permissions['schedule (un)publishing of nodes'] = array(
-    'name' => 'schedule (un)publishing of nodes',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'editor' => 'editor',
-    ),
-    'module' => 'scheduler',
-  );
-
   // Exported permission: 'view scheduled content'.
   $permissions['view scheduled content'] = array(
     'name' => 'view scheduled content',

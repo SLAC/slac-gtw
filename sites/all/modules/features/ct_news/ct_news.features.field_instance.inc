@@ -10,7 +10,7 @@
 function ct_news_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-news-body'
+  // Exported field_instance: 'node-news-body'.
   $field_instances['node-news-body'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
@@ -123,7 +123,7 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_news_desired_publish_date'
+  // Exported field_instance: 'node-news-field_news_desired_publish_date'.
   $field_instances['node-news-field_news_desired_publish_date'] = array(
     'bundle' => 'news',
     'deleted' => 0,
@@ -200,7 +200,7 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_news_image_display'
+  // Exported field_instance: 'node-news-field_news_image_display'.
   $field_instances['node-news-field_news_image_display'] = array(
     'bundle' => 'news',
     'default_value' => array(
@@ -271,7 +271,7 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_news_news_type'
+  // Exported field_instance: 'node-news-field_news_news_type'.
   $field_instances['node-news-field_news_news_type'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
@@ -337,7 +337,7 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_news_subtitle'
+  // Exported field_instance: 'node-news-field_news_subtitle'.
   $field_instances['node-news-field_news_subtitle'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
@@ -406,7 +406,7 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_shared_byline'
+  // Exported field_instance: 'node-news-field_shared_byline'.
   $field_instances['node-news-field_shared_byline'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
@@ -475,7 +475,7 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_shared_contact_email'
+  // Exported field_instance: 'node-news-field_shared_contact_email'.
   $field_instances['node-news-field_shared_contact_email'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
@@ -543,7 +543,7 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_shared_contact_name'
+  // Exported field_instance: 'node-news-field_shared_contact_name'.
   $field_instances['node-news-field_shared_contact_name'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
@@ -617,7 +617,7 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_shared_contact_phone'
+  // Exported field_instance: 'node-news-field_shared_contact_phone'.
   $field_instances['node-news-field_shared_contact_phone'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
@@ -685,7 +685,7 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_shared_existing_url'
+  // Exported field_instance: 'node-news-field_shared_existing_url'.
   $field_instances['node-news-field_shared_existing_url'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
@@ -761,7 +761,7 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_shared_image'
+  // Exported field_instance: 'node-news-field_shared_image'.
   $field_instances['node-news-field_shared_image'] = array(
     'bundle' => 'news',
     'deleted' => 0,
@@ -867,7 +867,7 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_shared_location'
+  // Exported field_instance: 'node-news-field_shared_location'.
   $field_instances['node-news-field_shared_location'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
@@ -936,7 +936,7 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_shared_new_existing'
+  // Exported field_instance: 'node-news-field_shared_new_existing'.
   $field_instances['node-news-field_shared_new_existing'] = array(
     'bundle' => 'news',
     'default_value' => array(
@@ -1006,7 +1006,7 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_shared_note_editors'
+  // Exported field_instance: 'node-news-field_shared_note_editors'.
   $field_instances['node-news-field_shared_note_editors'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
@@ -1075,7 +1075,7 @@ function ct_news_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-news-field_shared_promote_news'
+  // Exported field_instance: 'node-news-field_shared_promote_news'.
   $field_instances['node-news-field_shared_promote_news'] = array(
     'bundle' => 'news',
     'default_value' => array(
@@ -1149,7 +1149,7 @@ It is set to \'On\' and hidden in the node creation form.',
     ),
   );
 
-  // Exported field_instance: 'node-news-field_shared_related_files'
+  // Exported field_instance: 'node-news-field_shared_related_files'.
   $field_instances['node-news-field_shared_related_files'] = array(
     'bundle' => 'news',
     'deleted' => 0,
@@ -1238,7 +1238,7 @@ It is set to \'On\' and hidden in the node creation form.',
     ),
   );
 
-  // Exported field_instance: 'node-news-field_shared_related_links'
+  // Exported field_instance: 'node-news-field_shared_related_links'.
   $field_instances['node-news-field_shared_related_links'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
@@ -1329,7 +1329,7 @@ It is set to \'On\' and hidden in the node creation form.',
     ),
   );
 
-  // Exported field_instance: 'node-news-field_shared_tags'
+  // Exported field_instance: 'node-news-field_shared_tags'.
   $field_instances['node-news-field_shared_tags'] = array(
     'bundle' => 'news',
     'default_value' => NULL,
@@ -1397,7 +1397,7 @@ It is set to \'On\' and hidden in the node creation form.',
     ),
   );
 
-  // Exported field_instance: 'node-news-field_shared_video'
+  // Exported field_instance: 'node-news-field_shared_video'.
   $field_instances['node-news-field_shared_video'] = array(
     'bundle' => 'news',
     'deleted' => 0,

@@ -10,7 +10,7 @@
 function ct_news_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_news_desired_publish_date'
+  // Exported field_base: 'field_news_desired_publish_date'.
   $field_bases['field_news_desired_publish_date'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -39,7 +39,7 @@ function ct_news_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_news_news_type'
+  // Exported field_base: 'field_news_news_type'.
   $field_bases['field_news_news_type'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -64,7 +64,7 @@ function ct_news_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_news_subtitle'
+  // Exported field_base: 'field_news_subtitle'.
   $field_bases['field_news_subtitle'] = array(
     'active' => 1,
     'cardinality' => 1,

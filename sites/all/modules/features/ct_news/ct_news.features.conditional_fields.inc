@@ -10,7 +10,7 @@
 function ct_news_conditional_fields_default_fields() {
   $items = array();
 
-  $items[] = array(
+  $items["node:news:0"] = array(
     'entity' => 'node',
     'bundle' => 'news',
     'dependent' => 'field_shared_existing_url',

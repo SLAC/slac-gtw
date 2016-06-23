@@ -1,0 +1,288 @@
+diff --git a/sites/all/modules/contrib/wunderground_weather/wunderground_weather.info b/sites/all/modules/contrib/wunderground_weather/wunderground_weather.info
+index d4b8a80..3f14ebb 100644
+--- a/sites/all/modules/contrib/wunderground_weather/wunderground_weather.info
++++ b/sites/all/modules/contrib/wunderground_weather/wunderground_weather.info
+@@ -9,3 +9,6 @@ core = "7.x"
+ project = "wunderground_weather"
+ datestamp = "1435141911"
+ 
++; styles for SLAC weather customization
++stylesheets[all][] = wunderground_weather_slac.css
++
+diff --git a/sites/all/modules/contrib/wunderground_weather/wunderground_weather.module b/sites/all/modules/contrib/wunderground_weather/wunderground_weather.module
+index 835f55c..2f1d39f 100644
+--- a/sites/all/modules/contrib/wunderground_weather/wunderground_weather.module
++++ b/sites/all/modules/contrib/wunderground_weather/wunderground_weather.module
+@@ -168,22 +168,26 @@ function wunderground_weather_block_info() {
+   return $blocks;
+ }
+ 
++
+ /**
+  * Implements hook_block_view().
+  */
+ function wunderground_weather_block_view($delta) {
+ 
+   $block = array();
++
+   for ($f = 1; $f <= variable_get('wunderground_weather_block_forecast_amount', '1'); $f++) {
+     if ($delta == 'wunderground_weather_forecast_' . $f) {
+-      $block['subject'] = t('Weather forecast !amount', array('!amount' => $f));
++        // Hide default heading for the weather forecast block
++//     $block['subject'] = t('Weather forecast !amount', array('!amount' => $f));
+       $block['content'] = wunderground_weather_get_forecast($f);
+     }
+   }
+ 
+   for ($t = 1; $t <= variable_get('wunderground_weather_block_current_amount', '1'); $t++) {
+     if ($delta == 'wunderground_weather_current_' . $t) {
+-      $block['subject'] = t('Current weather !amount', array('!amount' => $t));
++        // Hide default heading for the current weather block
++ //     $block['subject'] = t('Current weather !amount', array('!amount' => $t));
+       $block['content'] = wunderground_weather_get_current($t);
+     }
+   }
+@@ -195,58 +199,12 @@ function wunderground_weather_block_view($delta) {
+  * Implements hook_block_configure().
+  */
+ function wunderground_weather_block_configure($delta = '') {
+-  $form['draggable']['#theme'] = 'wunderground_weather_field_drag';
+-  $form['draggable']['fields']['#tree'] = TRUE;
+ 
+   // Configuration for forecast blocks.
+   for ($f = 1; $f <= variable_get('wunderground_weather_block_forecast_amount', '1'); $f++) {
+     if ($delta == 'wunderground_weather_forecast_' . $f) {
+       wunderground_weather_block_configure_location_fields($form, 'forecast', $f);
+ 
+-      $date_formats = array();
+-      $date_types = system_get_date_types();
+-
+-      foreach ($date_types as $key => $value) {
+-        $date_formats[$value['type']] = t('@date_format format', array('@date_format' => $value['title'])) . ': ' . format_date(REQUEST_TIME, $value['type']);
+-      }
+-
+-      $form['date'] = array(
+-        '#type' => 'fieldset',
+-        '#title' => t('Dates'),
+-        '#description' => t('Choose a date format'),
+-      );
+-
+-      $form['date']['wunderground_weather_forecast_date_format_' . $f] = array(
+-        '#type' => 'select',
+-        '#title' => t('Date format'),
+-        '#options' => $date_formats,
+-        '#default_value' => variable_get('wunderground_weather_forecast_date_format_' . $f, 'medium'),
+-      );
+-
+-      $serialized_fields = variable_get($delta . '_fields', FALSE);
+-      $block_fields = $serialized_fields ? unserialize($serialized_fields) : wunderground_weather_forecast_fields();
+-      $i = 0;
+-      foreach (wunderground_weather_forecast_fields() as $key => $value) {
+-        $form['draggable']['fields'][$key] = array(
+-          'name' => array(
+-            '#markup' => check_plain($value),
+-          ),
+-          'enabled' => array(
+-            '#type' => 'checkbox',
+-            '#default_value' => isset($block_fields[$key]['#enabled']) ? $block_fields[$key]['#enabled'] : TRUE,
+-          ),
+-          'weight' => array(
+-            '#type' => 'weight',
+-            '#title' => t('Weight'),
+-            '#default_value' => isset($block_fields[$key]['#weight']) ? $block_fields[$key]['#weight'] : $i,
+-            '#delta' => 6,
+-            '#title_display' => 'invisible',
+-          ),
+-          '#weight' => isset($block_fields[$key]['#weight']) ? $block_fields[$key]['#weight'] : $i,
+-        );
+-        ++$i;
+-      }
+-
+       $form['icons'] = array(
+         '#type' => 'fieldset',
+         '#title' => t('Icons'),
+@@ -272,30 +230,6 @@ function wunderground_weather_block_configure($delta = '') {
+ 
+       wunderground_weather_block_configure_location_fields($form, 'current', $t);
+ 
+-      $serialized_fields = variable_get($delta . '_fields', FALSE);
+-      $block_fields = $serialized_fields ? unserialize($serialized_fields) : wunderground_weather_current_fields();
+-      $i = 0;
+-      foreach (wunderground_weather_current_fields() as $key => $value) {
+-        $form['draggable']['fields'][$key] = array(
+-          'name' => array(
+-            '#markup' => check_plain($value),
+-          ),
+-          'enabled' => array(
+-            '#type' => 'checkbox',
+-            '#default_value' => isset($block_fields[$key]['#enabled']) ? $block_fields[$key]['#enabled'] : TRUE,
+-          ),
+-          'weight' => array(
+-            '#type' => 'weight',
+-            '#title' => t('Weight'),
+-            '#default_value' => isset($block_fields[$key]['#weight']) ? $block_fields[$key]['#weight'] : $i,
+-            '#delta' => 6,
+-            '#title_display' => 'invisible',
+-          ),
+-          '#weight' => isset($block_fields[$key]['#weight']) ? $block_fields[$key]['#weight'] : $i,
+-        );
+-        ++$i;
+-      }
+-
+       $form['icons'] = array(
+         '#type' => 'fieldset',
+         '#title' => t('Icons'),
+@@ -450,64 +384,47 @@ function theme_wunderground_weather_forecast($variables) {
+   $rows = array();
+   $degrees = variable_get('wunderground_weather_degrees', 'celsius');
+ 
++  // SLAC only wants to show today and the next 2 days (3 days weather in total)
++  array_shift( $variables['days'] );
++
+   foreach ($variables['days'] as $day) {
+     if (!empty($day)) {
+       // Format date.
+       $date_format = variable_get('wunderground_weather_forecast_date_format_' . $variables['block_number'], 'medium');
+       $date = format_date($day['date']['epoch'], $date_format);
++      
++      // Give it a more human-readable date for 'Today'
++      if ($variables['days'][0] == $day ) {
++        $date = "Today";
++      }
+ 
+-      // Table header.
+-      $header[] = array('data' => $date);
+-      // Build rows.
+-      foreach (element_children($variables['fields'], TRUE) as $field) {
+-        if ($variables['fields'][$field]['#enabled'] == 1) {
+-          switch ($field) {
++      // Style differently for the middle column in the row 
++      if ($variables['days'][1] == $day ) {
++        $day_class = "is-tomorrow";
++      }
++      else {
++        $day_class = "not-tomorrow";
++      }
+ 
+-            case 'image':
+-              $rows[$field][] = theme('image', array(
++      // Table header.
++      $weather_image = theme('image', array(
+                 'path' => $day['icon_url'],
+                 'alt' => t('Weather forecast for !date', array('!date' => $date)),
+                 'title' => t('Weather forecast for !date', array('!date' => $date)),
+                 'attributes' => array(),
+                   ));
+-              break;
+-
+-            case 'temperature':
++ 
++      // Build rows.
++      foreach (element_children($variables['fields'], TRUE) as $field) {
++        if (($variables['fields'][$field]['#enabled'] == 1) && ($field == 'temperature')) {
+               $suffix = $degrees == 'celsius' ? 'C' : 'F';
+-              $rows[$field][] = $day['high'][$degrees] . '&deg;' . $suffix . ' / ' . $day['low'][$degrees] . '&deg;' . $suffix;
+-              break;
+-
+-            case 'conditions':
+-              $rows[$field][] = $day['conditions'];
+-              break;
+-
+-            case 'rain':
+-              $rows[$field][] = $day['pop'] . '% ' . t('rain');
+-              break;
+-
+-            case 'wind':
+-              $windspeed_unit = variable_get('wunderground_weather_windspeed', 'kph');
+-              switch ($windspeed_unit) {
+-                case 'mph':
+-                  $windspeed = $day['avewind']['mph'] . ' ' . t('mph');
+-                  break;
+-
+-                case 'bft':
+-                  $windspeed =  _wunderground_weather_speed_to_beaufort($day['avewind']['kph'], 'kph') . ' ' . t('bft');
+-                  break;
+-
+-                default:
+-                  $windspeed = $day['avewind']['kph'] . ' ' . t('km/h');
+-                  break;
+-              }
+-              $rows[$field][] = $windspeed;
+-              break;
+-          }
++              $rows[$field][] = '<div class="' . $day_class . '"><div class="weather-forecast-img">' . $weather_image . '</div><div class="weather-forecast-date">' . $date . '</div><div class="weather-forecast-high-temp">' . $day['high'][$degrees] . '&deg;'   . '</div>' . ' ' . '<div class="weather-forecast-low-temp">' .$day['low'][$degrees] . '&deg;' . '</div></div>';
+         }
+       }
+     }
+   }
+ 
++
+   // Variables for hook_table.
+   $variables = array(
+     'header' => $header,
+@@ -539,21 +456,6 @@ function wunderground_weather_get_current($block_number) {
+ 
+   // Check if data is received.
+   if ($weather['current_observation']) {
+-    // Calculate windspeed.
+-    $windspeed_unit = variable_get('wunderground_weather_windspeed', 'kph');
+-    switch ($windspeed_unit) {
+-      case 'mph':
+-        $windspeed = $weather['current_observation']['wind_mph'] . ' ' . t('mph');
+-        break;
+-
+-      case 'bft':
+-        $windspeed =  _wunderground_weather_speed_to_beaufort($weather['current_observation']['wind_kph'], 'kph') . ' ' . t('bft');
+-        break;
+-
+-      default:
+-        $windspeed = $weather['current_observation']['wind_kph'] . ' ' . t('km/h');
+-        break;
+-    }
+ 
+     $unit = variable_get('wunderground_weather_distance', 'km');
+     $distance = $weather['current_observation']['visibility_' . $unit];
+@@ -564,33 +466,18 @@ function wunderground_weather_get_current($block_number) {
+     $serialized_fields = variable_get('wunderground_weather_current_' . $block_number . '_fields');
+     $block_fields = unserialize($serialized_fields);
+ 
++    // Display the city/town
++    $location = variable_get('wunderground_weather_location_current_' . $block_number, FALSE);
++    if ($location) {
++
++      preg_match("/(.+),.+/", $location, $match);
++      $city = $match[1];
++      $items['location'] = '<div class="weather-location">' . $city . '</div>';
++    }
++
+     foreach (element_children($block_fields, TRUE) as $field) {
+       if ($block_fields[$field]['#enabled'] == 1) {
+-        switch ($field) {
+-          case 'weather':
+-            $items[$field] = $weather['current_observation']['weather'];
+-            break;
+-
+-          case 'temperature':
+-            $items[$field] = t('Temperature: !temp&deg;', array('!temp' => $weather['current_observation']['temp_' . $degrees_key])) . $suffix;
+-            break;
+-
+-          case 'feels_like':
+-            $items[$field] = t('Feels like: !temp&deg;', array('!temp' => $weather['current_observation']['feelslike_' . $degrees_key])) . $suffix;
+-            break;
+-
+-          case 'wind':
+-            $items[$field] = t('Wind') . ': ' . $windspeed;
+-            break;
+-
+-          case 'visibility':
+-            $items[$field] = t('Visibility') . ': ' . $visibility;
+-            break;
+-
+-          case 'uv':
+-            $items[$field] = t('UV index') . ': ' . $weather['current_observation']['UV'];
+-            break;
+-        }
++        $items['weather'] = '<div class="weather_temp">' . t('!temp&deg;', array('!temp' => round($weather['current_observation']['temp_' . $degrees_key]))) . $suffix  . '</div><div class="weather_desc">' . $weather['current_observation']['weather'] . '</div>';
+       }
+     }
+ 

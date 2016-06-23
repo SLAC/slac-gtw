@@ -248,6 +248,7 @@ function drush_features_list() {
   if (version_compare(DRUSH_VERSION, '6.0', '<')) {
     drush_print_table($rows, TRUE);
   }
+
   return $rows;
 }
 
@@ -346,6 +347,7 @@ function _drush_features_component_filter($all_components, $patterns = array(), 
     // Rewrite * to %. Let users use both as wildcard.
     $pattern = strtr($pattern, array('*' => '%'));
     $sources = array();
+
     if (strpos($pattern, ':') !== FALSE) {
       list($source_pattern, $component_pattern) = explode(':', $pattern, 2);
     }
@@ -353,6 +355,7 @@ function _drush_features_component_filter($all_components, $patterns = array(), 
       $source_pattern = $pattern;
       $component_pattern = '';
     }
+
     // If source is empty, use a pattern.
     if ($source_pattern == '') {
       $source_pattern = '%';

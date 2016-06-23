@@ -9,3 +9,4 @@ sites/*/private
 .DS_Store
 .idea
 sites/*/themes/*/.sass-cache/
+logs/

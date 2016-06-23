@@ -1352,6 +1352,7 @@ function features_form_submit(&$form, &$form_state) {
 
 /**
  * Submit handler for the 'manage features' form rebuild button.
+ * Form for clearing cache after enabling a feature.
  */
 function features_form_rebuild() {
   cache_clear_all('features:features_list', 'cache');
