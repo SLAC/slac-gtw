@@ -6,9 +6,6 @@
 div.pane-content > table > tbody > tr > td {
     width: 100%;
 }
-table tr td:first-child {
- width: 100%;   
-}
 div.weather-forecast-low-temp {
     color: #AAAAAA;
 }
