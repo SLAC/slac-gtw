@@ -91,7 +91,9 @@ function _slac_test_for_node_in_node_queue ($nid, $queue_name) {
  */
 function slac_nodequeue_automation_node_update($node) {
 
-  if (!slac_nodequeue_automation_is_news_or_promoted($node)) {
+  // Don't do anything if this node is not news, promoted, 
+  // or if its original is published already (don't move it in the queue!)
+  if (!slac_nodequeue_automation_is_news_or_promoted($node) || $node->original->status) {
     return;
   }
 
@@ -104,11 +106,11 @@ function slac_nodequeue_automation_node_update($node) {
   $type = _slac_nodequeue_automation_get_field_value($node, 'field_news_news_type');
 
   // Calculate the old queue (see which queue this node is in currently, if any)
-  if (_slac_test_for_node_in_node_queue($node->nid, LAB_NEWS)):
+  if (_slac_test_for_node_in_node_queue($original->nid, LAB_NEWS)):
     $old_queue_name = LAB_NEWS;
-  elseif (_slac_test_for_node_in_node_queue($node->nid, SLAC_SCIENCE)):
+  elseif (_slac_test_for_node_in_node_queue($original->nid, SLAC_SCIENCE)):
     $old_queue_name = SLAC_SCIENCE;
-  elseif (_slac_test_for_node_in_node_queue($node->nid, FEATURED_NEWS)):
+  elseif (_slac_test_for_node_in_node_queue($original->nid, FEATURED_NEWS)):
     $old_queue_name = FEATURED_NEWS;
   else: 
     $old_queue_name = NULL;
@@ -129,6 +131,7 @@ function slac_nodequeue_automation_node_update($node) {
   }
 
   // Remove from old queue and add to new queue, if something has changed.
+  watchdog( "NODE-QUEUES", "NODE ID: $node->nid    OLD QUEUE: '$old_queue_name'  NEW QUEUE: '$new_queue_name'  "); 
   if ($old_queue_name != $new_queue_name) {
     if ($old_queue_name != NULL) {
        watchdog( "NODE-QUEUES", "Remove from queue: $old_queue_name  NODE:($node->nid) $node->title");      
