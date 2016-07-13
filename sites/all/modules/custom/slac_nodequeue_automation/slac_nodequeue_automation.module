@@ -86,14 +86,17 @@ function _slac_test_for_node_in_node_queue ($nid, $queue_name) {
   return false;
 }
 
+
 /**
  * Implements hook_node_update().
  */
 function slac_nodequeue_automation_node_update($node) {
 
-  // Don't do anything if this node is not news, promoted, 
-  // or if its original is published already (don't move it in the queue!)
-  if (!slac_nodequeue_automation_is_news_or_promoted($node) || $node->original->status) {
+  watchdog( "NODE-QUEUES", "CALLED NODE UPDATE HOOK - $node->promote"); 
+
+  // Don't do anything if this node is not news, an event or access item promoted as news, 
+  // or if it is not published already (don't move its original node in the queue!)
+  if (!slac_nodequeue_automation_is_news_or_promoted($node)  || !$node->status) {
     return;
   }
 
@@ -117,17 +120,12 @@ function slac_nodequeue_automation_node_update($node) {
   endif;
 
   // Determine what the new queue should be
-  if ( !$node->status ) {
-    $new_queue_name = NULL;   // Node is not published so it shouldn't be in any queue
+  if ( $promoted ) {
+    $new_queue_name = FEATURED_NEWS;  // It's promoted, so it should be in Featured News
   }
   else {
-    if ( $promoted ) {
-      $new_queue_name = FEATURED_NEWS;  // It's promoted, so it should be in Featured News
-    }
-    else {
-      // It's published but not promoted, so it's either in Lab News or SLAC Science queue, based on News type.
-      $new_queue_name = _slac_nodequeue_automation_get_name_for_type($type);
-    }
+    // It's published but not promoted, so it's either in Lab News or SLAC Science queue, based on News type.
+    $new_queue_name = _slac_nodequeue_automation_get_name_for_type($type);
   }
 
   // Remove from old queue and add to new queue, if something has changed.
