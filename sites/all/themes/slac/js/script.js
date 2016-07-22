@@ -299,6 +299,12 @@
       $('.searchbox').placeholder();
     }
   };
-  var thing = document.querySelectorAll("div.item-list-ledger:nth-child(2) li");
-  $("div.item-list-ledger:nth-child(2) li").css("background-image","url('images/in-progress-icon.png') no-repeat 0 0");
+
+//Ledger Page change
+  Drupal.behaviors.ledgerFront = {
+    attach: function (context, settings) {
+      var $ledgerItem = document.querySelectorAll("div.item-list-ledger:nth-child(2) li");
+      $($ledgerItem).addClass("in-progress");
+    }
+  };
 }(jQuery, Drupal, window));
