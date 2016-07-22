@@ -637,87 +637,6 @@ blockquote p {
     clear: right;
   }
 }
-@media (min-width: 70em) {
-  .view-ledger-front-list {
-    font-size: 0.75rem;
-  }
-
-  .view-ledger-front-list .view-content .item-list-ledger {
-    margin-bottom: 0.5rem;
-    border-bottom: 1px dashed #154E6B;
-  }
-
-  .item-list-ledger h3 {
-    font-style: oblique;
-    font-size: 0.75rem;
-    color: #696969;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .efficiency-site-link {
-    display: block;
-    font-weight: normal;
-    font-size: 0.6875rem;
-    background: url(/sites/all/themes/slac/images/arrow-dot-line.png) no-repeat left center;
-    line-height: 1.5;
-    padding-left: 0.9375rem;
-  }
-
-  .view-footer a {
-    display: block;
-    font-weight: normal;
-    font-size: 0.6875rem;
-    background: url(/sites/all/themes/slac/images/arrow-dot-line.png) no-repeat left center;
-    line-height: 1.5;
-    padding-left: 0.9375rem;
-  }
-
-  .view-ledger-front-list .view-content .item-list-ledger li {
-    list-style-image: url(/sites/all/themes/slac/images/completed-icon.png);
-    padding-left: 0 0 0 20;
-  }
-
-  .view-ledger-front-list .view-header > p {
-    margin-top: .25em;
-  }
-
-  .ledger-background-info {
-    font-size: .85rem;
-    background-color: #EDEDED;
-    border: 2px solid #A9A9A9;
-    border-radius: 4px;
-    margin: 1.5rem;
-    padding: 1rem;
-  }
-
-  .ledger-background-info-heading {
-    font-weight: bold;
-  }
-
-  .view-ledger-front-list .view-content .item-list {
-    margin-bottom: 0.5rem;
-    font-size: 0.75rem;
-    border-bottom: 1px dashed #154E6B;
-  }
-
-  .item-list h3 {
-    font-style: oblique;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .view-footer a {
-    display: block;
-    font-weight: normal;
-    font-size: 11px;
-    font-size: 0.6875rem;
-    line-height: 2.25;
-    background: url(/sites/all/themes/slac/images/arrow-dot-line.png) no-repeat left center;
-    line-height: 1.5;
-    padding-left: 0.9375rem;
-  }
-}
 .content-container:before, .content-container:after {
   content: "";
   display: table;
@@ -5597,6 +5516,177 @@ body {
     padding-left: 0.9375rem;
   }
 }
+@media (min-width: 60em) {
+  .view-ledger-front-list {
+    font-size: 0.75rem;
+  }
+
+  .view-ledger-front-list .view-content .item-list-ledger {
+    margin-bottom: 0.5rem;
+    border-bottom: 1px dashed #154E6B;
+  }
+
+  .item-list-ledger h3 {
+    font-style: oblique;
+    font-size: 0.75rem;
+    color: #696969;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .efficiency-site-link {
+    display: block;
+    font-weight: normal;
+    font-size: 0.6875rem;
+    background: url(/sites/all/themes/slac/images/arrow-dot-line.png) no-repeat left center;
+    line-height: 1.5;
+    padding-left: 0.9375rem;
+  }
+
+  .view-footer a {
+    display: block;
+    font-weight: normal;
+    font-size: 0.6875rem;
+    background: url(/sites/all/themes/slac/images/arrow-dot-line.png) no-repeat left center;
+    line-height: 1.5;
+    padding-left: 0.9375rem;
+  }
+
+  .view-ledger-front-list .view-content .item-list-ledger li {
+    list-style-image: url(/sites/all/themes/slac/images/completed-icon.png);
+    padding-left: 0 0 0 20;
+  }
+
+  .view-ledger-front-list .view-content .item-list-ledger li.in-progress {
+    list-style-image: url(/sites/all/themes/slac/images/in-progress-icon.png);
+    padding-left: 0 0 0 20;
+  }
+
+  .view-ledger-front-list .view-header > p {
+    margin-top: .25em;
+  }
+
+  .ledger-background-info {
+    font-size: .85rem;
+    background-color: #EDEDED;
+    border: 2px solid #A9A9A9;
+    border-radius: 4px;
+    margin: 1.5rem;
+    padding: 1rem;
+  }
+
+  .ledger-background-info-heading {
+    font-weight: bold;
+  }
+
+  .view-ledger-front-list .view-content .item-list {
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    border-bottom: 1px dashed #154E6B;
+  }
+
+  .item-list h3 {
+    font-style: oblique;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .view-footer a {
+    display: block;
+    font-weight: normal;
+    font-size: 11px;
+    font-size: 0.6875rem;
+    line-height: 2.25;
+    background: url(/sites/all/themes/slac/images/arrow-dot-line.png) no-repeat left center;
+    line-height: 1.5;
+    padding-left: 0.9375rem;
+  }
+}
+.view-ledger-front-list {
+  font-size: 0.75rem;
+}
+
+.view-ledger-front-list .view-content .item-list-ledger {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px dashed #154E6B;
+}
+
+.item-list-ledger h3 {
+  font-style: oblique;
+  font-size: 0.75rem;
+  color: #696969;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.efficiency-site-link {
+  display: block;
+  font-weight: normal;
+  font-size: 0.6875rem;
+  background: url(/sites/all/themes/slac/images/arrow-dot-line.png) no-repeat left center;
+  line-height: 1.5;
+  padding-left: 0.9375rem;
+}
+
+.view-footer a {
+  display: block;
+  font-weight: normal;
+  font-size: 0.6875rem;
+  background: url(/sites/all/themes/slac/images/arrow-dot-line.png) no-repeat left center;
+  line-height: 1.5;
+  padding-left: 0.9375rem;
+}
+
+.view-ledger-front-list .view-content .item-list-ledger li {
+  list-style-image: url(/sites/all/themes/slac/images/completed-icon.png);
+  padding-left: 0 0 0 20;
+}
+
+.view-ledger-front-list .view-content .item-list-ledger li.in-progress {
+  list-style-image: url(/sites/all/themes/slac/images/in-progress-icon.png);
+  padding-left: 0 0 0 20;
+}
+
+.view-ledger-front-list .view-header > p {
+  margin-top: .25em;
+}
+
+.ledger-background-info {
+  font-size: .85rem;
+  background-color: #EDEDED;
+  border: 2px solid #A9A9A9;
+  border-radius: 4px;
+  margin: 1.5rem;
+  padding: 1rem;
+}
+
+.ledger-background-info-heading {
+  font-weight: bold;
+}
+
+.view-ledger-front-list .view-content .item-list {
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  border-bottom: 1px dashed #154E6B;
+}
+
+.item-list h3 {
+  font-style: oblique;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.view-footer a {
+  display: block;
+  font-weight: normal;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  line-height: 2.25;
+  background: url(/sites/all/themes/slac/images/arrow-dot-line.png) no-repeat left center;
+  line-height: 1.5;
+  padding-left: 0.9375rem;
+}
+
 .frontpage-access-info .views-row {
   font-size: 11px;
   font-size: 0.6875rem;
