@@ -17,7 +17,7 @@ function ledger_progress_complete_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -22;
+  $handler->weight = -21;
   $handler->conf = array(
     'title' => 'Improvement Ledger',
     'no_blocks' => 0,
@@ -25,7 +25,19 @@ function ledger_progress_complete_default_page_manager_handlers() {
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
-    'css' => '.view-ledger-front-list .view-content .item-list {
+    'css' => '.ledger-background-info {
+font-size: .85rem;
+background-color: #EDEDED;
+border: 2px solid #A9A9A9;
+border-radius: 4px;
+margin: 1.5rem;
+padding: 1rem;
+}
+
+.ledger-background-info-heading {
+font-weight: bold;
+}
+.view-ledger-front-list .view-content .item-list {
 margin-bottom: 0.5rem;
 font-size: 0.75rem;
 border-bottom: 1px dashed #154E6B;
@@ -80,34 +92,6 @@ padding-left: 0.9375rem;
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-39198a4c-c409-4b42-aa71-0316cb0c9dff';
-    $pane->panel = 'left';
-    $pane->type = 'node_title';
-    $pane->subtype = 'node_title';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'link' => 1,
-      'markup' => 'h2',
-      'id' => '',
-      'class' => '',
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 1,
-      'override_title_text' => '<none>',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '39198a4c-c409-4b42-aa71-0316cb0c9dff';
-    $display->content['new-39198a4c-c409-4b42-aa71-0316cb0c9dff'] = $pane;
-    $display->panels['left'][0] = 'new-39198a4c-c409-4b42-aa71-0316cb0c9dff';
-    $pane = new stdClass();
     $pane->pid = 'new-d805d30c-9e05-49b7-92f9-ce6b76a3821d';
     $pane->panel = 'left';
     $pane->type = 'node_body';
@@ -126,11 +110,43 @@ padding-left: 0.9375rem;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = 'd805d30c-9e05-49b7-92f9-ce6b76a3821d';
     $display->content['new-d805d30c-9e05-49b7-92f9-ce6b76a3821d'] = $pane;
-    $display->panels['left'][1] = 'new-d805d30c-9e05-49b7-92f9-ce6b76a3821d';
+    $display->panels['left'][0] = 'new-d805d30c-9e05-49b7-92f9-ce6b76a3821d';
+    $pane = new stdClass();
+    $pane->pid = 'new-edc2017d-4085-4809-ae6b-5f18e8c9a437';
+    $pane->panel = 'left';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_file';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'inline',
+      'formatter' => 'file_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(
+        'text' => 'Ledger Document: [file:name]',
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'edc2017d-4085-4809-ae6b-5f18e8c9a437';
+    $display->content['new-edc2017d-4085-4809-ae6b-5f18e8c9a437'] = $pane;
+    $display->panels['left'][1] = 'new-edc2017d-4085-4809-ae6b-5f18e8c9a437';
     $pane = new stdClass();
     $pane->pid = 'new-813a28c4-eeac-41ab-bf50-63d5f007259c';
     $pane->panel = 'left';
@@ -141,12 +157,11 @@ padding-left: 0.9375rem;
     $pane->configuration = array(
       'admin_title' => 'improvement and collaboration blurb',
       'title' => '<none>',
-      'body' => '<p>Blurb explaining the process, and the criteria for suggestion acceptance.</p>
-<p>link to form to suggest improvments.</p>
-<p>&nbsp;</p>
+      'body' => '<p><span style="font-family: Helvetica; font-size: 15px; font-variant-ligatures: normal; font-variant-position: normal; font-variant-numeric: normal; font-variant-alternates: normal; font-variant-east-asian: normal; line-height: normal;">In response to the feedback from staff, the "Improvement &amp; Collaboration Ledger" is a place to highlight the actions SLAC is taking to streamline what do and how we work together to get things done. The types of processes and activities highlighted in the ledger can vary widely, and are in no way representative of the full expanse of activities happening at SLAC. Instead, the ledger is simply meant as a way to raise lab-wide awareness over a few of the ways SLAC is working to remove administrative roadblocks and frustrations in order to focus our time and energy on work that truly advances the mission of the lab. See&nbsp;</span><a href="/content/about-improvement-collaboration-ledger" style="color: rgb(149, 79, 114); text-decoration: underline; font-family: Helvetica; font-size: 15px; font-variant-ligatures: normal; font-variant-position: normal; font-variant-numeric: normal; font-variant-alternates: normal; font-variant-east-asian: normal; line-height: normal;">About the Improvement &amp; Collaboration Ledger</a><span style="font-family: Helvetica; font-size: 15px; font-variant-ligatures: normal; font-variant-position: normal; font-variant-numeric: normal; font-variant-alternates: normal; font-variant-east-asian: normal; line-height: normal;">&nbsp;and&nbsp;</span><a href="/content/about-efficiency-initiative" style="color: rgb(149, 79, 114); text-decoration: underline; font-family: Helvetica; font-size: 15px; font-variant-ligatures: normal; font-variant-position: normal; font-variant-numeric: normal; font-variant-alternates: normal; font-variant-east-asian: normal; line-height: normal;">About the Efficiency Initiative</a><span style="font-family: Helvetica; font-size: 15px; font-variant-ligatures: normal; font-variant-position: normal; font-variant-numeric: normal; font-variant-alternates: normal; font-variant-east-asian: normal; line-height: normal;">&nbsp;for more information.</span></p>
 ',
       'format' => 'full_html',
       'substitute' => 1,
+      'name' => 'ledger_background_info_blurb',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -154,7 +169,7 @@ padding-left: 0.9375rem;
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'brown-bodered-white blue-dashed-list',
+      'css_class' => '',
     );
     $pane->extras = array();
     $pane->position = 2;

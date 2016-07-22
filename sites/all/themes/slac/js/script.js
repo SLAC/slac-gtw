@@ -299,5 +299,6 @@
       $('.searchbox').placeholder();
     }
   };
-
+  var thing = document.querySelectorAll("div.item-list-ledger:nth-child(2) li");
+  $("div.item-list-ledger:nth-child(2) li").css("background-image","url('images/in-progress-icon.png') no-repeat 0 0");
 }(jQuery, Drupal, window));

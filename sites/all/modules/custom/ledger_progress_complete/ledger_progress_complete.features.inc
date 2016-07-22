@@ -29,7 +29,7 @@ function ledger_progress_complete_views_api($module = NULL, $api = NULL) {
 function ledger_progress_complete_node_info() {
   $items = array(
     'ledger_post' => array(
-      'name' => t('ledger post'),
+      'name' => t('Ledger Post'),
       'base' => 'node_content',
       'description' => t('A content type that allows the user to enter nodes for use in the \'Process Ledger\' pane on the main page.'),
       'has_title' => '1',
