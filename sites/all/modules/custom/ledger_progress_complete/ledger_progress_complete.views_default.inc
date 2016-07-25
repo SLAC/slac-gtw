@@ -157,7 +157,7 @@ function ledger_progress_complete_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<p>The Improvement & Collaboration Ledger highlights actions SLAC is taking to remove administrative frustrations and streamline how we get things done. <a href="https://intranet-stage.slac.stanford.edu/content/about-efficiency-initiative"> More...</a></p>
+  $handler->display->display_options['header']['area']['content'] = '<p>The Improvement & Collaboration Ledger highlights actions SLAC is taking to remove administrative frustrations and streamline how we get things done. <a href="/content/about-improvement-collaboration-ledger">About the Improvement & Collaboration Ledger</a></p>
 ';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['footer'] = FALSE;
@@ -170,7 +170,7 @@ function ledger_progress_complete_views_default_views() {
 <!-- <a href="/all-ledger-items">View All Ledger Items</a>
 <a href="/content/about-improvement-collaboration-ledger">About the Improvement & Collaboration Ledger</a> -->
 <a href="/content/suggest-process-improvement" style="display:none">Suggest a Process for Improvement</a>
-<!-- <a href="/files/About%20the%20Efficiency%20InitiativeRL-AAv2.docx">About the Efficiency Initiative (Website Coming Soon)</a> -->
+<a href="content/about-efficiency-initiative">About the Efficiency Initiative (Website Coming Soon)</a> 
 <a href="https://intranet-stage.slac.stanford.edu/content/efficiency-tools-resources">Efficiency Tools & Resources</a>
 </div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';

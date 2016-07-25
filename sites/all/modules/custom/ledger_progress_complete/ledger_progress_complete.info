@@ -3,6 +3,7 @@ description = A content type that allows the user to enter nodes for use in the 
 core = 7.x
 package = SLAC
 version = 7.x-1.1
+dependencies[] = file
 dependencies[] = media
 dependencies[] = slac_igp_config
 dependencies[] = text

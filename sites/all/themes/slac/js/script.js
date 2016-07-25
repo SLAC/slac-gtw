@@ -303,7 +303,7 @@
 //Ledger Page change
   Drupal.behaviors.ledgerFront = {
     attach: function (context, settings) {
-      var $ledgerItem = document.querySelectorAll("div.item-list-ledger:nth-child(2) li");
+      var $ledgerItem = document.querySelectorAll("div.item-list-ledger:nth-child(1) li");
       $($ledgerItem).addClass("in-progress");
     }
   };

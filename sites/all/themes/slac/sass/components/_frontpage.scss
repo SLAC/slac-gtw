@@ -65,12 +65,16 @@
     padding-left: 0.9375rem;
   }
   .view-ledger-front-list .view-content  .item-list-ledger li {
-    list-style-image: url(/sites/all/themes/slac/images/completed-icon.png);
-    padding-left: 0 0 0 20;
+    background: url(/sites/all/themes/slac/images/completed-icon.png) no-repeat 0 0;
+    list-style-type:none;
+    padding: 0 0 0 20px;
+    margin:6px 0;
   }
   .view-ledger-front-list .view-content  .item-list-ledger li.in-progress  {
-    list-style-image: url(/sites/all/themes/slac/images/in-progress-icon.png);
+    background: url(/sites/all/themes/slac/images/in-progress-icon.png) no-repeat 0 0;
+    list-style-type:none;
     padding-left:0 0 0 20;
+    margin:6px 0;
   }
 
   .view-ledger-front-list .view-header > p {
@@ -141,12 +145,16 @@
     padding-left: 0.9375rem;
   }
   .view-ledger-front-list .view-content  .item-list-ledger li {
-    list-style-image: url(/sites/all/themes/slac/images/completed-icon.png);
-    padding-left: 0 0 0 20;
+    background: url(/sites/all/themes/slac/images/completed-icon.png) no-repeat 0 0;
+    list-style-type:none;
+    padding: 0 0 0 20px;
+    margin:6px 0;
   }
   .view-ledger-front-list .view-content  .item-list-ledger li.in-progress  {
-    list-style-image: url(/sites/all/themes/slac/images/in-progress-icon.png);
+    background: url(/sites/all/themes/slac/images/in-progress-icon.png) no-repeat 0 0;
+    list-style-type:none;
     padding-left:0 0 0 20;
+    margin:6px 0;
   }
 
   .view-ledger-front-list .view-header > p {
@@ -218,12 +226,16 @@
     padding-left: 0.9375rem;
   }
   .view-ledger-front-list .view-content  .item-list-ledger li {
-    list-style-image: url(/sites/all/themes/slac/images/completed-icon.png);
-    padding-left: 0 0 0 20;
+    background: url(/sites/all/themes/slac/images/completed-icon.png) no-repeat 0 0;
+    list-style-type:none;
+    padding: 0 0 0 20px;
+    margin:6px 0;
   }
   .view-ledger-front-list .view-content  .item-list-ledger li.in-progress  {
-    list-style-image: url(/sites/all/themes/slac/images/in-progress-icon.png);
+    background: url(/sites/all/themes/slac/images/in-progress-icon.png) no-repeat 0 0;
+    list-style-type:none;
     padding-left:0 0 0 20;
+    margin:6px 0;
   }
 
   .view-ledger-front-list .view-header > p {

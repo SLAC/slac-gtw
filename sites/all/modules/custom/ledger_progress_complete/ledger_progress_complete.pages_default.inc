@@ -25,38 +25,7 @@ function ledger_progress_complete_default_page_manager_handlers() {
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
     'css_id' => '',
-    'css' => '.ledger-background-info {
-font-size: .85rem;
-background-color: #EDEDED;
-border: 2px solid #A9A9A9;
-border-radius: 4px;
-margin: 1.5rem;
-padding: 1rem;
-}
-
-.ledger-background-info-heading {
-font-weight: bold;
-}
-.view-ledger-front-list .view-content .item-list {
-margin-bottom: 0.5rem;
-font-size: 0.75rem;
-border-bottom: 1px dashed #154E6B;
-}
-.item-list h3 {
-font-style: strong;
-margin-top: 0;
-margin-bottom: 0;
-}
-.view-footer a {
-display: block;
-font-weight: normal;
-font-size: 11px;
-font-size: 0.6875rem;
-line-height: 2.25;
-background: url(/sites/all/themes/slac/images/arrow-dot-line.png) no-repeat left center;
-line-height: 1.5;
-padding-left: 0.9375rem;
-}',
+    'css' => '',
     'contexts' => array(),
     'relationships' => array(),
     'name' => '',
