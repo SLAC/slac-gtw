@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Ledger Progress feature.
+ */
+
+include_once 'ledger_progress_complete.features.inc';
