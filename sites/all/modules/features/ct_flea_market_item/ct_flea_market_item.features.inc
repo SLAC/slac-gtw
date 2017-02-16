@@ -21,10 +21,10 @@ function ct_flea_market_item_ctools_plugin_api($module = NULL, $api = NULL) {
  */
 function ct_flea_market_item_flag_default_flags() {
   $flags = array();
-  // Exported flag: "Flea Market - Inappropriate".
+  // Exported flag: "Community Bulletin Board Post - Inappropriate".
   $flags['flea_market_inappropriate'] = array(
     'entity_type' => 'node',
-    'title' => 'Flea Market - Inappropriate',
+    'title' => 'Community Bulletin Board Post - Inappropriate',
     'global' => 0,
     'types' => array(
       0 => 'flea_market_post',
@@ -73,9 +73,9 @@ function ct_flea_market_item_flag_default_flags() {
 function ct_flea_market_item_node_info() {
   $items = array(
     'flea_market_post' => array(
-      'name' => t('Flea Market Item'),
+      'name' => t('Bulletin Board Post'),
       'base' => 'node_content',
-      'description' => t('An item posting for the Flea market feature.'),
+      'description' => t('An item posting for the Community Bulletin Board feature.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
