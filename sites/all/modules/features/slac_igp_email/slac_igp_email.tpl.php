@@ -6,7 +6,7 @@
  */
 ?>
 <?php if (empty($featured_news) && empty($news)): ?>
-<h3>No new lab or science news today</h3>
+<span>No announcements were added to SLAC Today yesterday. Please visit the SLAC Today home page to see the lab's most recent news and updates.</span>
 <?php endif; ?>
 <div id="featured_news">
 <?php foreach($featured_news as $featured): ?>
