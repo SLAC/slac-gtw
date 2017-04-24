@@ -4721,6 +4721,7 @@ div.date-views-pager div.next-year {
 @media (min-width: 60em) {
   .page-breadcrumb {
     font-size: 1.5rem;
+    line-height: initial;
   }
 }
 .page-breadcrumb a {
@@ -4748,7 +4749,8 @@ div.date-views-pager div.next-year {
 }
 @media (min-width: 60em) {
   .node-type-flea-market-post .pane-node-field-flea-market-item-type {
-    font-size: initial;
+    font-size: 1.5rem;
+    line-height: 2.0em;
   }
 }
 .node-type-flea-market-post .pane-node-created {
