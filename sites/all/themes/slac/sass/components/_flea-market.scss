@@ -4,7 +4,7 @@
   margin-right: 6px;
 
   @include breakpoint($tablet-large) {
-    font-size: initial;
+    font-size: 1.5rem;
   }
 
   a {
