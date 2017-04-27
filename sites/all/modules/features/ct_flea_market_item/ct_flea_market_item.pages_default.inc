@@ -74,7 +74,7 @@ function ct_flea_market_item_default_page_manager_handlers() {
   $pane->configuration = array(
     'admin_title' => 'Flea Market breadcrumb link',
     'title' => '',
-    'body' => '<p><a href="/community-bulletin-board">Community Bulliten Board&nbsp;</a>&gt;</p>
+    'body' => '<p><a href="/community-bulletin-board">Community Bulletin Board&nbsp;</a>&gt;</p>
 ',
     'format' => 'full_html',
     'substitute' => 0,

@@ -4713,14 +4713,17 @@ div.date-views-pager div.next-year {
 }
 
 .page-breadcrumb {
-  font-size: 24px;
-  font-size: 1.5rem;
+  font-size: 14px;
+  font-size: 0.875rem;
   float: left;
   margin-right: 6px;
 }
+.page-breadcrumb p {
+  margin: 0;
+}
 @media (min-width: 60em) {
   .page-breadcrumb {
-    font-size: 1.5rem;
+    font-size: initial;
     line-height: initial;
   }
 }
@@ -4749,8 +4752,8 @@ div.date-views-pager div.next-year {
 }
 @media (min-width: 60em) {
   .node-type-flea-market-post .pane-node-field-flea-market-item-type {
-    font-size: 1.5rem;
-    line-height: 2.0em;
+    font-size: initial;
+    line-height: initial;
   }
 }
 .node-type-flea-market-post .pane-node-created {

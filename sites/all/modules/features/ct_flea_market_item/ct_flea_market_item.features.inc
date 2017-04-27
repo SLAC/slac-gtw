@@ -29,7 +29,7 @@ function ct_flea_market_item_flag_default_flags() {
     'types' => array(
       0 => 'flea_market_post',
     ),
-    'flag_short' => 'Report as inappropriate',
+    'flag_short' => 'Report as Inappropriate',
     'flag_long' => 'Report as inappropriate',
     'flag_message' => '',
     'unflag_short' => 'Reported as inappropriate',

@@ -280,7 +280,7 @@ function ct_flea_market_item_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_flea_market_post_pattern';
-  $strongarm->value = 'fleamarket/[current-date:custom:Y]/[current-date:custom:m]/[node:title]';
+  $strongarm->value = 'bulletin-board/[current-date:custom:Y]/[current-date:custom:m]/[node:title]';
   $export['pathauto_node_flea_market_post_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
