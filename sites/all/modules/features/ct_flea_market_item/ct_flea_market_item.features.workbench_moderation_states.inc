@@ -11,7 +11,7 @@ function ct_flea_market_item_workbench_moderation_export_states() {
   $items = array(
     'draft_flea_market_post' => array(
       'name' => 'draft_flea_market_post',
-      'label' => 'Flea Market Post Draft',
+      'label' => 'Community Bulletin Board Post Draft',
       'description' => 'Work in progress',
       'weight' => -9,
     ),

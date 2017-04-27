@@ -12,7 +12,7 @@ function ct_flea_market_item_workbench_moderation_export_transitions() {
     'draft:published' => array(
       'from_name' => 'draft',
       'to_name' => 'published',
-      'name' => 'Publish Flea Market Item',
+      'name' => 'Publish Community Bulletin Board Item',
     ),
   );
   return $items;

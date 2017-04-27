@@ -13,9 +13,9 @@ function pm_flea_market_default_page_manager_pages() {
   $page->api_version = 1;
   $page->name = 'flea_market';
   $page->task = 'page';
-  $page->admin_title = 'Flea Market';
+  $page->admin_title = 'Community Bulletin Board';
   $page->admin_description = '';
-  $page->path = 'flea-market';
+  $page->path = 'community-bulletin-board';
   $page->access = array(
     'type' => 'none',
     'settings' => NULL,
@@ -35,7 +35,7 @@ function pm_flea_market_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
-    'title' => 'Flea Market Listing',
+    'title' => 'Community Bulletin Board Listing',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -50,7 +50,7 @@ function pm_flea_market_default_page_manager_pages() {
           'name' => 'path_visibility',
           'settings' => array(
             'visibility_setting' => '1',
-            'paths' => 'flea-market',
+            'paths' => 'bulletin-board',
           ),
           'context' => 'empty',
           'not' => FALSE,
@@ -72,7 +72,7 @@ function pm_flea_market_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'Flea Market';
+  $display->title = 'Bulletin Board';
   $display->uuid = '10cc569a-39b8-4ddb-9c82-65476b2563de';
   $display->content = array();
   $display->panels = array();
@@ -86,7 +86,7 @@ function pm_flea_market_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<ul><li><a href="/flea-market/my-items">My Flea Market Items <span>&gt;</span></a></li><li><a href="/node/add/flea-market-post">Submit Flea Market Ad <span>&gt;</span></a></li></ul>',
+      'body' => '<ul><li><a href="/community-bulletin-board/my-items">My Community Bulletin Board Items <span>&gt;</span></a></li><li><a href="/node/add/flea-market-post">Submit Bulletin Board Item <span>&gt;</span></a></li></ul>',
       'format' => 'full_html',
       'substitute' => TRUE,
     );
@@ -136,7 +136,7 @@ function pm_flea_market_default_page_manager_pages() {
   $handler->handler = 'panel_context';
   $handler->weight = 1;
   $handler->conf = array(
-    'title' => 'My Flea Market Items',
+    'title' => 'My Bulletin Board Items',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -151,7 +151,7 @@ function pm_flea_market_default_page_manager_pages() {
           'name' => 'path_visibility',
           'settings' => array(
             'visibility_setting' => '1',
-            'paths' => 'flea-market/my-items',
+            'paths' => 'community-bulletin-board/my-items',
           ),
           'context' => 'empty',
           'not' => FALSE,
@@ -172,7 +172,7 @@ function pm_flea_market_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'My Flea Market Items';
+  $display->title = 'My Bulletin Board Items';
   $display->uuid = '10cc569a-39b8-4ddb-9c82-65476b2563de';
   $display->content = array();
   $display->panels = array();
@@ -186,7 +186,7 @@ function pm_flea_market_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<ul><li><a href="/flea-market">Flea Market Listings &gt;</a></li><li><a href="/node/add/flea-market-post">Submit Flea Market Ad &gt;</a></li></ul>',
+      'body' => '<ul><li><a href="/community-bulletin-board">Bulletin Board Listings &gt;</a></li><li><a href="/node/add/flea-market-post">Submit Bulletin Board Items &gt;</a></li></ul>',
       'format' => 'full_html',
       'substitute' => TRUE,
     );
