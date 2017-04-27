@@ -21,7 +21,7 @@ function slac_igp_config_taxonomy_default_vocabularies() {
       'name' => 'Organization',
       'machine_name' => 'organization',
       'description' => 'Organizations in SLAC',
-      'hierarchy' => 1,
+      'hierarchy' => 0,
       'module' => 'taxonomy',
       'weight' => 0,
     ),
@@ -58,7 +58,7 @@ function slac_igp_config_taxonomy_default_vocabularies() {
       'weight' => 0,
     ),
     'top_links' => array(
-      'name' => 'Top links',
+      'name' => 'Featured Links',
       'machine_name' => 'top_links',
       'description' => 'Top links that will appear on the home page',
       'hierarchy' => 0,

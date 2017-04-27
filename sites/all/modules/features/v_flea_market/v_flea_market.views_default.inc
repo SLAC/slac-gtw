@@ -68,10 +68,10 @@ function v_flea_market_views_default_views() {
     'flea_market_post' => 'flea_market_post',
   );
 
-  /* Display: Flea Market - Front */
+  /* Display: Bulletin Board - Front */
   $handler = $view->new_display('block', 'Bulletin Board - Front', 'block');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Flea Market';
+  $handler->display->display_options['title'] = 'Community Bulletin Board';
   $handler->display->display_options['display_description'] = 'Front page Bulletin Board list.';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
@@ -238,13 +238,13 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['filters']['published']['field'] = 'published';
   $handler->display->display_options['filters']['published']['value'] = '1';
 
-  /* Display: Main Flea Market List pane */
+  /* Display: Main Bulletin Board List pane */
   $handler = $view->new_display('panel_pane', 'Main Bulletin Board List pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'main-flea-market-list';
   $handler->display->display_options['inherit_panels_path'] = '1';
 
-  /* Display: My Flea Market List pane */
+  /* Display: My Bulletin Board List pane */
   $handler = $view->new_display('panel_pane', 'My Bulletin Board List pane', 'panel_pane_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['css_class'] = FALSE;
