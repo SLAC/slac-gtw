@@ -13,6 +13,6 @@
   <?php print $access; ?>
 </div>
 <div class="item">
-  <h4 class="h4">Community Bulletin Board</h4>
+  <h4 class="h4">COMMUNITY BULLETIN BOARD</h4>
   <?php print $flea_market; ?>
 </div>
