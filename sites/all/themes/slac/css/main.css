@@ -4928,7 +4928,7 @@ div.date-views-pager div.next-year {
 }
 
 @media (min-width: 60em) {
-  .page-flea-market .my-flea-market-nav {
+  .page-community-bulletin-board .my-flea-market-nav {
     width: 200px;
     text-align: right;
     right: 0;
@@ -4937,21 +4937,21 @@ div.date-views-pager div.next-year {
     z-index: 30;
   }
 }
-.page-flea-market .my-flea-market-nav ul {
+.page-community-bulletin-board .my-flea-market-nav ul {
   padding-left: 0;
 }
-.page-flea-market .my-flea-market-nav ul li {
+.page-community-bulletin-board .my-flea-market-nav ul li {
   list-style: none;
 }
-.page-flea-market .my-flea-market-nav span {
+.page-community-bulletin-board .my-flea-market-nav span {
   display: none;
 }
 @media (min-width: 60em) {
-  .page-flea-market .my-flea-market-nav span {
+  .page-community-bulletin-board .my-flea-market-nav span {
     display: initial;
   }
 }
-.page-flea-market .my-flea-market-nav a {
+.page-community-bulletin-board .my-flea-market-nav a {
   display: block;
   padding: .4rem .5rem;
   background: #e8e8e8 url(../images/right-arrow.png) 98% 0.5rem no-repeat;
@@ -4960,51 +4960,51 @@ div.date-views-pager div.next-year {
   margin-bottom: .5rem;
 }
 @media (min-width: 60em) {
-  .page-flea-market .my-flea-market-nav a {
+  .page-community-bulletin-board .my-flea-market-nav a {
     background: #e8e8e8;
   }
 }
-.page-flea-market .my-flea-market-nav a:hover, .page-flea-market .my-flea-market-nav a:focus {
+.page-community-bulletin-board .my-flea-market-nav a:hover, .page-community-bulletin-board .my-flea-market-nav a:focus {
   background: #ababab url(../images/right-arrow.png) 98% -1.75rem no-repeat;
   color: #ffffff;
 }
 @media (min-width: 60em) {
-  .page-flea-market .my-flea-market-nav a:hover, .page-flea-market .my-flea-market-nav a:focus {
+  .page-community-bulletin-board .my-flea-market-nav a:hover, .page-community-bulletin-board .my-flea-market-nav a:focus {
     background: #ababab;
   }
 }
-.page-flea-market .l-general-one-col {
+.page-community-bulletin-board .l-general-one-col {
   margin-top: 0;
 }
 @media (min-width: 60em) {
-  .page-flea-market .l-general-one-col {
+  .page-community-bulletin-board .l-general-one-col {
     margin-top: 1.75rem;
   }
 }
-.page-flea-market .view-header,
-.page-flea-market .view-empty {
+.page-community-bulletin-board .view-header,
+.page-community-bulletin-board .view-empty {
   margin: 1.5rem 0;
 }
 @media (min-width: 60em) {
-  .page-flea-market .view-header,
-  .page-flea-market .view-empty {
+  .page-community-bulletin-board .view-header,
+  .page-community-bulletin-board .view-empty {
     width: 70%;
   }
 }
 @media (min-width: 70em) {
-  .page-flea-market .view-header,
-  .page-flea-market .view-empty {
+  .page-community-bulletin-board .view-header,
+  .page-community-bulletin-board .view-empty {
     width: 75%;
   }
 }
-.page-flea-market .main-content > .inside {
+.page-community-bulletin-board .main-content > .inside {
   position: relative;
 }
-.page-flea-market .title {
+.page-community-bulletin-board .title {
   padding-left: 0;
 }
 @media (min-width: 60em) {
-  .page-flea-market .title {
+  .page-community-bulletin-board .title {
     float: left;
     width: 50%;
     margin-left: 0%;
@@ -5022,7 +5022,7 @@ div.date-views-pager div.next-year {
   }
 }
 @media (min-width: 80em) {
-  .page-flea-market .title {
+  .page-community-bulletin-board .title {
     float: left;
     width: 50%;
     margin-left: 8.33333%;
@@ -5038,53 +5038,53 @@ div.date-views-pager div.next-year {
     margin-bottom: 0;
   }
 }
-.page-flea-market .views-field-changed {
+.page-community-bulletin-board .views-field-changed {
   min-width: 125px;
   font-weight: bold;
 }
-.page-flea-market .views-field-changed .date-updated-time {
+.page-community-bulletin-board .views-field-changed .date-updated-time {
   font-weight: normal;
 }
 @media (min-width: 60em) {
-  .page-flea-market .views-field-changed .date-updated-time {
+  .page-community-bulletin-board .views-field-changed .date-updated-time {
     display: block;
   }
 }
-.page-flea-market thead tr > .views-field-changed {
+.page-community-bulletin-board thead tr > .views-field-changed {
   padding-left: 0;
 }
-.page-flea-market .views-field-field-flea-market-item-type {
+.page-community-bulletin-board .views-field-field-flea-market-item-type {
   min-width: 100px;
   font-weight: bold;
 }
-.page-flea-market .views-field-edit-node {
+.page-community-bulletin-board .views-field-edit-node {
   min-width: 90px;
 }
-.page-flea-market .view-flea-market-listing {
+.page-community-bulletin-board .view-flea-market-listing {
   margin-bottom: 2rem;
 }
-.page-flea-market .view-flea-market-listing p {
+.page-community-bulletin-board .view-flea-market-listing p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
-.page-flea-market table {
+.page-community-bulletin-board table {
   margin-bottom: 4rem;
 }
-.page-flea-market table td p {
+.page-community-bulletin-board table td p {
   margin: 0;
 }
 @media all and (max-width: 60em) {
-  .page-flea-market table,
-  .page-flea-market tbody {
+  .page-community-bulletin-board table,
+  .page-community-bulletin-board tbody {
     display: block;
     width: 100%;
   }
-  .page-flea-market thead {
+  .page-community-bulletin-board thead {
     display: none;
   }
-  .page-flea-market table tr,
-  .page-flea-market table th,
-  .page-flea-market table td {
+  .page-community-bulletin-board table tr,
+  .page-community-bulletin-board table th,
+  .page-community-bulletin-board table td {
     display: block;
     padding: 0;
     text-align: left;
