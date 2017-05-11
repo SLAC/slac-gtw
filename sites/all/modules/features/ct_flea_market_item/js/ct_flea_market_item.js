@@ -60,7 +60,7 @@
     var html = '';
 
     html += '<div id="flea_market_flag_confirm" class="report-as-inappropriate" style="display:none;">';
-    html += '  <h4 class="report-inappropriate-title">Report Community Bulletin Board item as Inappropriate</h4>';
+    html += '  <h4 class="report-inappropriate-title">Report Community Bulletin Board Post as Inappropriate</h4>';
     html += '  <button class="close top-close">X</button>';
     html += '  <p class="report-message">Flagged ad content will be reviewed by the Office of Communications to determine whether SLAC\'s <a href="https://intranet.slac.stanford.edu/about-community-bulletin-board">Bulletin Board guidelines</a> have been violated.</p>';
     html += '  <p class="flag-wrapper flag-flea-market-inappropriate flag-flea-market-inappropriate-' + nid + '">';

@@ -38,7 +38,7 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<a href="/community-bulletin-board">Visit Community Bulletin Board</a>
-<a href="/node/add/flea-market-post">Submit Bulletin Board Item</a>';
+<a href="/node/add/flea-market-post">Submit Bulletin Board Post</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -257,7 +257,7 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = 'Welcome to My Community Bulletin Board, a list of all bulletin board items you have saved or published. For more information, please see the <a href="https://intranet.slac.stanford.edu/about-slac-community-bulletin-board">About SLAC Community Bulletin Board</a> page.';
+  $handler->display->display_options['header']['area']['content'] = 'Welcome to My Community Bulletin Board, a list of all bulletin board posts you have saved or published. For more information, please see the <a href="https://intranet.slac.stanford.edu/about-slac-community-bulletin-board">About SLAC Community Bulletin Board</a> page.';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Text area */
@@ -265,7 +265,7 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'You don\'t have any Bulletin Board items posted at this time. <a href="/node/add/flea-market-post">Click here if you would like to post one now.</a>';
+  $handler->display->display_options['empty']['area']['content'] = 'You don\'t have any Bulletin Board posts posted at this time. <a href="/node/add/flea-market-post">Click here if you would like to post one now.</a>';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Updated date */

@@ -376,7 +376,7 @@ Event|Event',
   t('Contact Name');
   t('Contact Phone');
   t('Image');
-  t('My Item Is');
+  t('My Post Is');
 
   return $field_instances;
 }
