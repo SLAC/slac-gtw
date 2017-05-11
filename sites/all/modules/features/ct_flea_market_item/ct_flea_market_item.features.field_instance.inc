@@ -198,7 +198,7 @@ function ct_flea_market_item_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_flea_market_item_type',
-    'label' => 'My Item Is',
+    'label' => 'My Post Is',
     'required' => 1,
     'settings' => array(
       'text_processing' => 0,
@@ -209,10 +209,11 @@ function ct_flea_market_item_field_default_field_instances() {
       'module' => 'select_or_other',
       'settings' => array(
         'available_options' => 'For Sale|For Sale
-For Rent|For Rent
-Wanted|Wanted
-Rideshare|Rideshare
-Event|Event',
+        Community News|Community News
+        For Rent|For Rent
+        Wanted|Wanted
+        Rideshare|Rideshare
+           Event|Event',
         'available_options_php' => '',
         'markup_available_options_php' => '&lt;none&gt;',
         'other' => 'Other',
