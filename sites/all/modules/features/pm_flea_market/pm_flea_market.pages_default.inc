@@ -50,7 +50,7 @@ function pm_flea_market_default_page_manager_pages() {
           'name' => 'path_visibility',
           'settings' => array(
             'visibility_setting' => '1',
-            'paths' => 'bulletin-board',
+            'paths' => 'community-bulletin-board',
           ),
           'context' => 'empty',
           'not' => FALSE,
@@ -86,7 +86,7 @@ function pm_flea_market_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<ul><li><a href="/community-bulletin-board/my-items">My Community Bulletin Board Items <span>&gt;</span></a></li><li><a href="/node/add/flea-market-post">Submit Bulletin Board Item <span>&gt;</span></a></li></ul>',
+      'body' => '<ul><li><a href="/community-bulletin-board/my-items">My Community Bulletin Board Posts <span>&gt;</span></a></li><li><a href="/node/add/flea-market-post">Submit Bulletin Board Post <span>&gt;</span></a></li></ul>',
       'format' => 'full_html',
       'substitute' => TRUE,
     );
