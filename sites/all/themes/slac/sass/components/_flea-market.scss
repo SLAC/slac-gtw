@@ -1,10 +1,14 @@
 .page-breadcrumb {
-  @include font-size(24px);
+  @include font-size(14px);
   float: left;
   margin-right: 6px;
+  p {
+    margin: 0;
+  }
 
   @include breakpoint($tablet-large) {
     font-size: initial;
+    line-height: initial;
   }
 
   a {
@@ -33,6 +37,7 @@
 
     @include breakpoint($tablet-large) {
       font-size: initial;
+      line-height: initial;
     }
   }
 
@@ -227,7 +232,7 @@
   }
 }
 
-.page-flea-market {
+.page-community-bulletin-board {
   .my-flea-market-nav {
     @include breakpoint($tablet-large) {
       width: 200px;

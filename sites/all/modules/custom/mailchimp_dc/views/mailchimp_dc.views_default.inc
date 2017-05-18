@@ -34,7 +34,7 @@ function mailchimp_dc_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<div class="messages warning">There is no campaigns created yet, please add a new campaign first.</div>';
+  $handler->display->display_options['empty']['area']['content'] = '<div class="messages warning">There are no campaigns created yet, please add a new campaign first.</div>';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
   /* Field: Mailchimp Recurring Campaigns: Mailchimp Campaign ID */
   $handler->display->display_options['fields']['mc_campaign_id']['id'] = 'mc_campaign_id';

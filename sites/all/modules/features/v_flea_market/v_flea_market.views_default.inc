@@ -22,7 +22,7 @@ function v_flea_market_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Flea Market';
+  $handler->display->display_options['title'] = 'Community Bulletin Board';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -37,8 +37,8 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="/flea-market">Visit Flea Market</a>
-<a href="/node/add/flea-market-post">Submit Flea Market Ad</a>';
+  $handler->display->display_options['footer']['area']['content'] = '<a href="/community-bulletin-board">Visit Community Bulletin Board</a>
+<a href="/node/add/flea-market-post">Submit Bulletin Board Post</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -68,11 +68,11 @@ function v_flea_market_views_default_views() {
     'flea_market_post' => 'flea_market_post',
   );
 
-  /* Display: Flea Market - Front */
-  $handler = $view->new_display('block', 'Flea Market - Front', 'block');
+  /* Display: Bulletin Board - Front */
+  $handler = $view->new_display('block', 'Bulletin Board - Front', 'block');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Flea Market';
-  $handler->display->display_options['display_description'] = 'Front page Flea Market list.';
+  $handler->display->display_options['title'] = 'Community Bulletin Board';
+  $handler->display->display_options['display_description'] = 'Front page Bulletin Board list.';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
@@ -84,7 +84,7 @@ function v_flea_market_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Flea Market Listing';
+  $view->human_name = 'Bulletin Board Listing';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -147,7 +147,7 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = 'Welcome to the SLAC Flea Market, a place for SLAC staff to post personal items for sale or for rent, wanted items or to advertise non-SLAC events. For more information, please see the <a href="https://intranet.slac.stanford.edu/about-flea-market">About SLAC Flea Market</a> page.';
+  $handler->display->display_options['header']['area']['content'] = 'Welcome to the SLAC Community Bulletin Board, a place for SLAC staff to post personal items for sale or for rent, wanted items or to advertise non-SLAC events. For more information, please see the <a href="https://intranet.slac.stanford.edu/about-slac-community-bulletin-board">About SLAC Community Bulletin Board</a> page.';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
@@ -238,14 +238,14 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['filters']['published']['field'] = 'published';
   $handler->display->display_options['filters']['published']['value'] = '1';
 
-  /* Display: Main Flea Market List pane */
-  $handler = $view->new_display('panel_pane', 'Main Flea Market List pane', 'panel_pane_1');
+  /* Display: Main Bulletin Board List pane */
+  $handler = $view->new_display('panel_pane', 'Main Bulletin Board List pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'main-flea-market-list';
   $handler->display->display_options['inherit_panels_path'] = '1';
 
-  /* Display: My Flea Market List pane */
-  $handler = $view->new_display('panel_pane', 'My Flea Market List pane', 'panel_pane_2');
+  /* Display: My Bulletin Board List pane */
+  $handler = $view->new_display('panel_pane', 'My Bulletin Board List pane', 'panel_pane_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'my-flea-market-list';
@@ -257,7 +257,7 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = 'Welcome to My Flea Market, a list of all flea market ads you have saved or published. For more information, please see the <a href="https://intranet.slac.stanford.edu/about-flea-market">About SLAC Flea Market</a> page.';
+  $handler->display->display_options['header']['area']['content'] = 'Welcome to My Community Bulletin Board, a list of all bulletin board posts you have saved or published. For more information, please see the <a href="https://intranet.slac.stanford.edu/about-slac-community-bulletin-board">About SLAC Community Bulletin Board</a> page.';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Text area */
@@ -265,7 +265,7 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'You don\'t have any Flea Market items posted at this time. <a href="/node/add/flea-market-post">Click here if you would like to post one now.</a>';
+  $handler->display->display_options['empty']['area']['content'] = 'You don\'t have any Bulletin Board posts posted at this time. <a href="/node/add/flea-market-post">Click here if you would like to post one now.</a>';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Updated date */

@@ -94,24 +94,26 @@ function slac_igp_config_default_fe_block_settings() {
     'delta' => 'wunderground_weather_current_1',
     'module' => 'wunderground_weather',
     'node_types' => array(),
-    'pages' => '',
-    'roles' => array(),
+    'pages' => '<front>',
+    'roles' => array(
+      'authenticated user' => 2,
+    ),
     'themes' => array(
       'bartik' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'content',
+        'status' => 1,
         'theme' => 'bartik',
         'weight' => 0,
       ),
       'garland' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'content',
+        'status' => 1,
         'theme' => 'garland',
         'weight' => 0,
       ),
       'seven' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'content',
+        'status' => 1,
         'theme' => 'seven',
         'weight' => 0,
       ),
@@ -122,8 +124,8 @@ function slac_igp_config_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => 'Current Conditions',
-    'visibility' => 0,
+    'title' => 'Current Weather',
+    'visibility' => 1,
   );
 
   $export['wunderground_weather-wunderground_weather_forecast_1'] = array(
@@ -132,8 +134,10 @@ function slac_igp_config_default_fe_block_settings() {
     'delta' => 'wunderground_weather_forecast_1',
     'module' => 'wunderground_weather',
     'node_types' => array(),
-    'pages' => '',
-    'roles' => array(),
+    'pages' => '<front>',
+    'roles' => array(
+      'authenticated user' => 2,
+    ),
     'themes' => array(
       'bartik' => array(
         'region' => '',
@@ -160,8 +164,8 @@ function slac_igp_config_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
+    'title' => 'Test Block Title',
+    'visibility' => 1,
   );
 
   return $export;

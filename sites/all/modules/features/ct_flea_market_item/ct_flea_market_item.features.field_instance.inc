@@ -10,7 +10,7 @@
 function ct_flea_market_item_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-flea_market_post-body'
+  // Exported field_instance: 'node-flea_market_post-body'.
   $field_instances['node-flea_market_post-body'] = array(
     'bundle' => 'flea_market_post',
     'default_value' => NULL,
@@ -87,7 +87,7 @@ function ct_flea_market_item_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-flea_market_post-field_flea_market_image'
+  // Exported field_instance: 'node-flea_market_post-field_flea_market_image'.
   $field_instances['node-flea_market_post-field_flea_market_image'] = array(
     'bundle' => 'flea_market_post',
     'deleted' => 0,
@@ -164,7 +164,8 @@ function ct_flea_market_item_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-flea_market_post-field_flea_market_item_type'
+  // Exported field_instance:
+  // 'node-flea_market_post-field_flea_market_item_type'.
   $field_instances['node-flea_market_post-field_flea_market_item_type'] = array(
     'bundle' => 'flea_market_post',
     'default_value' => array(
@@ -197,7 +198,7 @@ function ct_flea_market_item_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_flea_market_item_type',
-    'label' => 'My Item Is',
+    'label' => 'My Post Is',
     'required' => 1,
     'settings' => array(
       'text_processing' => 0,
@@ -208,10 +209,11 @@ function ct_flea_market_item_field_default_field_instances() {
       'module' => 'select_or_other',
       'settings' => array(
         'available_options' => 'For Sale|For Sale
-For Rent|For Rent
-Wanted|Wanted
-Rideshare|Rideshare
-Event|Event',
+        Community News|Community News
+        For Rent|For Rent
+        Wanted|Wanted
+        Rideshare|Rideshare
+           Event|Event',
         'available_options_php' => '',
         'markup_available_options_php' => '&lt;none&gt;',
         'other' => 'Other',
@@ -225,7 +227,8 @@ Event|Event',
     ),
   );
 
-  // Exported field_instance: 'node-flea_market_post-field_shared_contact_email'
+  // Exported field_instance:
+  // 'node-flea_market_post-field_shared_contact_email'.
   $field_instances['node-flea_market_post-field_shared_contact_email'] = array(
     'bundle' => 'flea_market_post',
     'default_value' => NULL,
@@ -270,7 +273,7 @@ Event|Event',
     ),
   );
 
-  // Exported field_instance: 'node-flea_market_post-field_shared_contact_name'
+  // Exported field_instance: 'node-flea_market_post-field_shared_contact_name'.
   $field_instances['node-flea_market_post-field_shared_contact_name'] = array(
     'bundle' => 'flea_market_post',
     'default_value' => NULL,
@@ -321,7 +324,8 @@ Event|Event',
     ),
   );
 
-  // Exported field_instance: 'node-flea_market_post-field_shared_contact_phone'
+  // Exported field_instance:
+  // 'node-flea_market_post-field_shared_contact_phone'.
   $field_instances['node-flea_market_post-field_shared_contact_phone'] = array(
     'bundle' => 'flea_market_post',
     'default_value' => NULL,
@@ -373,7 +377,7 @@ Event|Event',
   t('Contact Name');
   t('Contact Phone');
   t('Image');
-  t('My Item Is');
+  t('My Post Is');
 
   return $field_instances;
 }

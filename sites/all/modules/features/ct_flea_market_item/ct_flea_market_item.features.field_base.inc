@@ -10,7 +10,7 @@
 function ct_flea_market_item_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_flea_market_image'
+  // Exported field_base: 'field_flea_market_image'.
   $field_bases['field_flea_market_image'] = array(
     'active' => 1,
     'cardinality' => 6,
@@ -32,7 +32,7 @@ function ct_flea_market_item_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_flea_market_item_type'
+  // Exported field_base: 'field_flea_market_item_type'.
   $field_bases['field_flea_market_item_type'] = array(
     'active' => 1,
     'cardinality' => 1,
