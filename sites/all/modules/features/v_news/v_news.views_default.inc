@@ -128,7 +128,7 @@ function v_news_views_default_views() {
   $handler->display->display_options['style_options']['wrap'] = 'both';
   $handler->display->display_options['style_options']['skin'] = '';
   $handler->display->display_options['style_options']['visible'] = '1';
-  $handler->display->display_options['style_options']['auto'] = '5';
+  $handler->display->display_options['style_options']['auto'] = '9';
   $handler->display->display_options['style_options']['autoPause'] = 1;
   $handler->display->display_options['style_options']['easing'] = '';
   $handler->display->display_options['style_options']['vertical'] = 0;

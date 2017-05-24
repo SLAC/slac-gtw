@@ -85,15 +85,6 @@ function ct_flea_market_item_user_default_permissions() {
     'module' => 'flag',
   );
 
-  // Exported permission: 'moderate flea_market_post state from draft to published'.
-  $permissions['moderate flea_market_post state from draft to published'] = array(
-    'name' => 'moderate flea_market_post state from draft to published',
-    'roles' => array(
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'workbench_moderation',
-  );
-
   // Exported permission: 'unflag flea_market_inappropriate'.
   $permissions['unflag flea_market_inappropriate'] = array(
     'name' => 'unflag flea_market_inappropriate',

@@ -371,28 +371,6 @@ function slac_igp_config_default_page_manager_pages() {
   $display->content['new-9672c131-3e48-4e4f-9e94-af57b159ff3b'] = $pane;
   $display->panels['colthreerowsix'][2] = 'new-9672c131-3e48-4e4f-9e94-af57b159ff3b';
   $pane = new stdClass();
-  $pane->pid = 'new-c37fd806-67c5-44c8-ad1f-2f7228756227';
-  $pane->panel = 'colthreerowthree';
-  $pane->type = 'views_panes';
-  $pane->subtype = 'ledger_front_list-panel_pane_1';
-  $pane->shown = FALSE;
-  $pane->access = array();
-  $pane->configuration = array();
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array(
-    'css_id' => '',
-    'css_class' => 'brown-bodered-white blue-dashed-list',
-  );
-  $pane->extras = array();
-  $pane->position = 0;
-  $pane->locks = array();
-  $pane->uuid = 'c37fd806-67c5-44c8-ad1f-2f7228756227';
-  $display->content['new-c37fd806-67c5-44c8-ad1f-2f7228756227'] = $pane;
-  $display->panels['colthreerowthree'][0] = 'new-c37fd806-67c5-44c8-ad1f-2f7228756227';
-  $pane = new stdClass();
   $pane->pid = 'new-7f02be89-f2e3-4237-b4c9-0e64ee05d381';
   $pane->panel = 'colthreerowtwo';
   $pane->type = 'views';
@@ -431,7 +409,7 @@ function slac_igp_config_default_page_manager_pages() {
   $display->content['new-7f02be89-f2e3-4237-b4c9-0e64ee05d381'] = $pane;
   $display->panels['colthreerowtwo'][0] = 'new-7f02be89-f2e3-4237-b4c9-0e64ee05d381';
   $pane = new stdClass();
-  $pane->pid = 'new-25a9ceb8-b2d3-4be7-b4c8-cc3b59731a2b';
+  $pane->pid = 'new-a2248a55-b799-471f-80fb-500d8c2b96cf';
   $pane->panel = 'coltworowfive';
   $pane->type = 'panels_mini';
   $pane->subtype = 'new_weather_traffic';
@@ -450,9 +428,9 @@ function slac_igp_config_default_page_manager_pages() {
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = '25a9ceb8-b2d3-4be7-b4c8-cc3b59731a2b';
-  $display->content['new-25a9ceb8-b2d3-4be7-b4c8-cc3b59731a2b'] = $pane;
-  $display->panels['coltworowfive'][0] = 'new-25a9ceb8-b2d3-4be7-b4c8-cc3b59731a2b';
+  $pane->uuid = 'a2248a55-b799-471f-80fb-500d8c2b96cf';
+  $display->content['new-a2248a55-b799-471f-80fb-500d8c2b96cf'] = $pane;
+  $display->panels['coltworowfive'][0] = 'new-a2248a55-b799-471f-80fb-500d8c2b96cf';
   $pane = new stdClass();
   $pane->pid = 'new-b3a7a5ca-2d77-4982-bd20-2b73650db455';
   $pane->panel = 'coltworowfour';
@@ -533,7 +511,7 @@ function slac_igp_config_default_page_manager_pages() {
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
-  $pages['front_page'] = $page;
+  $pages[''] = $page;
 
   return $pages;
 
