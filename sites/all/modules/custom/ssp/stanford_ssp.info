@@ -1,0 +1,9 @@
+name = SLAC SimpleSAML PHP
+description = Configures SimpleSAML PHP auth to work in SLAC web environment
+core = 7.x
+version = 7.x-2.1-dev
+package = Stanford
+project status url = https://github.com/SU-SWS/stanford_ssp
+dependencies[] = slac_simplesamlphp_auth
+dependencies[] = switch
+configure = admin/config/slac/stanford_ssp

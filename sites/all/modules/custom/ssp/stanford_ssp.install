@@ -1,0 +1,165 @@
+<?php
+/**
+ * @file
+ * Schema definitions. Install/update/uninstall hooks.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function slac_ssp_install() {
+  variable_set('slac_simplesamlphp_auth_activate', TRUE);
+  variable_set('slac_simplesamlphp_auth_allowdefaultlogin', TRUE);
+  variable_set('slac_ssp_automagic_login', TRUE);
+  variable_set('slac_ssp_force_https', FALSE);
+  variable_set('slac_ssp_redirect_on_login', FALSE);
+  variable_set('slac_simplesamlphp_auth_registerusers', TRUE);
+  variable_set('slac_simplesamlphp_auth_autoenablesaml', TRUE);
+  variable_set('slac_ssp_prevent_cache', FALSE);
+  variable_set('slac_simplesamlphp_auth_allowsetdrupalpwd', FALSE);
+  variable_set('slac_simplesamlphp_auth_installdir', '/opt/simplesamlphp');
+  variable_set('slac_simplesamlphp_auth_authsource', 'default-sp');
+  variable_set('slac_simplesamlphp_auth_user_name', 'displayName');
+  variable_set('slac_simplesamlphp_auth_unique_id', 'uid');
+  variable_set('slac_simplesamlphp_auth_mailattr', 'mail');
+  variable_set('slac_ssp_auth_restrictions', 'any');
+  variable_set('slac_ssp_auth_restriction_sunet', '');
+  variable_set('slac_ssp_auth_restriction_group', '');
+  variable_set('slac_ssp_auth_role_map', 'grant');
+  variable_set('slac_ssp_show_local_login', TRUE);
+  variable_set('slac_ssp_show_sso_login', TRUE);
+
+  // Add default roles.
+  $roles = array(
+    'SSO User',
+    'slac Student',
+    'slac Staff',
+    'slac Faculty',
+  );
+
+  foreach ($roles as $role) {
+    $role_exists = (bool) db_query("SELECT COUNT(*) FROM {role} WHERE name = :name", array(':name' => $role))->fetchField();
+    if (!$role_exists) {
+      db_insert('role')
+        ->fields(array(
+          'name' => $role,
+        ))
+        ->execute();
+      drupal_set_message(st('Added Role @role', array('@role' => $role)));
+    }
+  }
+
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function slac_ssp_uninstall() {
+  variable_del('slac_simplesamlphp_auth_activate');
+  variable_del('slac_simplesamlphp_auth_allowdefaultlogin');
+  variable_del('slac_ssp_automagic_login');
+  variable_del('slac_ssp_force_https');
+  variable_del('slac_ssp_redirect_on_login');
+  variable_del('slac_simplesamlphp_auth_registerusers');
+  variable_del('slac_simplesamlphp_auth_autoenablesaml');
+  variable_del('slac_ssp_prevent_cache');
+  variable_del('slac_simplesamlphp_auth_allowsetdrupalpwd');
+  variable_del('slac_simplesamlphp_auth_installdir');
+  variable_del('slac_simplesamlphp_auth_authsource');
+  variable_del('slac_simplesamlphp_auth_user_name');
+  variable_del('slac_simplesamlphp_auth_unique_id');
+  variable_del('slac_simplesamlphp_auth_mailattr');
+  variable_del('slac_ssp_auth_restrictions');
+  variable_del('slac_ssp_auth_restriction_sunet', '');
+  variable_del('slac_ssp_auth_restriction_group');
+  variable_del('slac_simplesamlphp_auth_allowdefaultloginroles');
+  variable_del('slac_simplesamlphp_auth_allowdefaultloginusers');
+  variable_del('slac_ssp_auth_role_map');
+  variable_del('slac_ssp_show_local_login');
+  variable_del('slac_ssp_show_sso_login');
+  variable_del('slac_ssp_sso_link_text');
+  variable_del('slac_ssp_debug');
+}
+
+/**
+ * Implements hook_schema().
+ */
+function slac_ssp_schema() {
+  $schema['slac_ssp_sunetid'] = array(
+    'description' => 'mapping sunet to user',
+    'fields' => array(
+      'sunet' => array(
+        'description' => 'the users sunetid',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'uid' => array(
+        'description' => 'The user id on this website.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0
+      ),
+    ),
+    'indexes' => array(
+      'suuid' => array('sunet', 'uid'),
+    ),
+    'unique keys' => array(
+      'uid' => array('uid')
+    ),
+    'foreign keys' => array(
+      'uid' => array(
+        'table' => 'user',
+        'columns' => array('uid' => 'uid'),
+      ),
+    ),
+    'primary key' => array('sunet'),
+  );
+  return $schema;
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function slac_ssp_update_7200(&$sandbox) {
+  drupal_install_schema("slac_ssp");
+}
+
+/**
+ * Update any existing authmaps from left over systems.
+ */
+function slac_ssp_update_7201(&$sandbox) {
+  db_update("authmap")
+    ->fields(array("module" => "slac_simplesamlphp_auth"))
+    ->condition("module", "simplesamlphp_auth")
+    ->execute();
+}
+
+/**
+ * Enable two new dependencies: switch and slac_simplesamlphp_auth
+ */
+function slac_ssp_update_7202(&$sandbox) {
+
+  if (!module_exists('slac_simplesamlphp_auth')) {
+    if (!module_enable(array('slac_simplesamlphp_auth'))) {
+      watchdog('slac_ssp', 'Could not enable slac_simplesamlphp_auth module');
+      throw new DrupalUpdateException("Could not enable slac_simplesamlphp_auth module. Please check that the module exists.");
+    }
+    else {
+      watchdog('slac_ssp', 'Enabled slac_simplesamlphp_auth module.');
+    }
+  }
+
+  if (!module_exists('switch')) {
+    if (!module_enable(array('switch'))) {
+      watchdog('slac_ssp', 'Could not enable switch module');
+      throw new DrupalUpdateException("Could not enable switch module. Please check that the module exists.");
+    }
+    else {
+      watchdog('slac_ssp', 'Enabled switch module.');
+    }
+  }
+
+}
