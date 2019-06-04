@@ -363,6 +363,16 @@ function mailchimp_dc_campaign_create($config) {
     'template_id' => (int)$config['template'],
     'created' => REQUEST_TIME,
   );
+
+  $settings = new stdClass();
+  $settings->title = $title;
+  $settings->subject_line = $subject;
+  $settings->list_id = $config['list'];
+  $settings->from_email = (empty($config['from_email'])) ? variable_get('site_mail', '') : $config['from_email'];
+  $settings->reply_to = (empty($config['from_email'])) ? variable_get('site_mail', '') : $config['from_email'];
+  $settings->from_name = $from_name;
+  $settings->template_id = (int)$config['template'];
+  $settings->created = REQUEST_TIME;
     
   // getting the template information
   $mc_template = '';
@@ -402,7 +412,7 @@ function mailchimp_dc_campaign_create($config) {
     }
   }
   
-  $campaign_id = mailchimp_campaign_save_campaign($content, $options, $options, $template_id);
+  $campaign_id = mailchimp_campaign_save_campaign($content, $options, $settings, $template_id);
   module_load_include('inc', 'mailchimp_dc', 'mailchimp.database');
   if (isset($campaign_id)) {
     // send the campaign if it is set

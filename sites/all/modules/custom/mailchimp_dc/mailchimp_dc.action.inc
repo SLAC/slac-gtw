@@ -51,7 +51,15 @@ function mailchimp_dc_action_add_content($entity, $context) {
     'template_id' => $campaign->mc_data->settings->template_id,
   );
 
-  mailchimp_campaign_save_campaign($campaign->template, $options, $options, $campaign->mc_data->settings->template_id, $campaign->mc_campaign_id);
+  $settings = new stdClass();
+  $settings->title = $title;
+  $settings->subject_line = $campaign->mc_data->settings->subject_line;
+  $settings->list_id = $campaign->list->id;
+  $settings->reply_to = $campaign->mc_data->settings->reply_to;
+  $settings->from_name = $campaign->mc_data->settings->from_name;
+  $settings->template_id = $campaign->mc_data->settings->template_id;
+
+  mailchimp_campaign_save_campaign($campaign->template, $options, $settings, $campaign->mc_data->settings->template_id, $campaign->mc_campaign_id);
   cache_clear_all('mailchimp_campaign_campaigns', 'cache');
 }
 
