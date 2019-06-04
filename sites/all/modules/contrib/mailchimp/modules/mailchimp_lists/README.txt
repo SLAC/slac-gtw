@@ -1,107 +1,88 @@
-Synchronize Drupal users with MailChimp lists and allow users to subscribe, 
-unsubscribe, and update member information. This module requires the
+Synchronize Drupal entities with MailChimp lists and allow anyone with access to
+edit entities (such as Users editing their own data) to subscribe, unsubscribe,
+and update membership information. This module requires the
 [Entity module](http://www.drupal.org/project/entity).
 
 ## Installation
 
-1. Enable the MailChimp Lists module and the Entity Module
+1. Enable the MailChimp Lists module, the Field UI module, and the Entity Module
 
 2. To use MailChimp Lists module, you will need to install and enable the Entity
 API module [http://drupal.org/project/entity]([http://drupal.org/project/entity)
 
 3. If you haven't done so already, add a list in your MailChimp account. Follow 
 these directions provided by MailChimp on how to 
-[add or import a list](http://kb.mailchimp.com/article/how-do-i-create-and-import-my-list)
-or [watch this video](http://bcove.me/n9bh6ek9) created by MailChimp
-
-4. Direct your browser to: http://example.com/admin/config/services/mailchimp 
-You will now see a "Lists and Users" tab. http://example.com/admin/config/services/mailchimp/lists
-
+[add or import a list](http://kb.mailchimp.com/article/how-do-i-create-and-import-my-list).
 
 ## Usage
+* Subscription Field
+Create an entity type with an email address field, or pick an entity that has an
+email address property (like Users). Add a field to the entity type of the type
+"Mailchimp Subscription" and use the field UI to configure your Subcription
+field.
 
-Adding a list - click "Add a List". List settings vary depending on the type of 
-list being created. Lists are now exportable and have a machine name, so play
-nice with features or your own codified configurations.
+* Merge Fields
+You will see Merge Field options based on the configuration of your list through
+MailChimp. You can match these fields up to fields on your entity to push your
+entity field values back to Mailchimp during subscriptions. 
 
-### Required lists
-
-Required lists are automatically synchronized with the sites users. You can 
-choose the following settings for the required lists:
-
-* Sync List During Cron
-If this is set, users will be subscribed to the required list during cron runs. 
-If you do not select this option, subscription will take place when a user is 
-added/edited.
-
-* Enable MailChimp webhooks for this list
-When a user unsubscribes from a list or updates their profile outside of Drupal, 
-MailChimp will trigger an event to update the user's cached MailChimp member 
-information. This will not update any of their Drupal user information. Web 
-hooks are the only way to maintain a two-way sync with your lists. Any 
-information updated outside of the Drupal environment, e.g., email footer, 
-another website, MailChimp site directly, etc. will be trigger an update of the 
-cached member information within Drupal. This cached data means Drupal doesn't 
-have to contact MailChimp every time it wants to determine a user's status, get 
-their other info, etc. Generally this should be enabled if possible. Otherwise, 
-lists could get out of sync. Cron runs have no impact on cached member data. 
-Member info is loaded and cached the first time it's needed and is cleared when 
-an user updates their info via Drupal, via a hook_user event, or when a web hook 
-event updates it. Also important to note that the web hook doesn't just clear 
-it, it actually updates the cached data. *Note: You cannot test webhooks if 
-developing locally, the system can't access your local computer.*
-
-
-### Optional lists
-
-Optional lists provide a checkbox allowing users to subscribe during 
-registration or when updating their account. They have the following settings:
+## Field-level Settings
 
 * Require subscribers to Double Opt-in
 New subscribers will be sent a link with an email from MailChimp that they must 
-follow to confirm their subscription. 
+follow to confirm their subscription, rather than being immediately subscribed
+and send a confirmation message from MailChimp. 
 
-* Show subscription options on the user registration form.
-This will only apply for lists granted to an authenticated role. 
+## Rules (and Roles)
+There is a single Rules action to subscribe or unsubscribe Entities with a
+configured Mailchimp Subscription field. This can be used to simply re-create
+the Roles-based auto-subscription functionality in earlier versions of Mailchimp
+Lists. Simply create a Mailchimp Subscription field on Users and hide the field
+from them in the UI, then create a rule that subscribes users to this list when
+they are saved, based on their role.
 
-* Show Subscription Options on User Edit Screen
-If set, a tab will be presented for managing newsletter subscriptions when 
-editing an account. Here the user can subscribe and unsubscribe from the 
-MailChimp lists to which they belong.
+A sample Rules configuration export is provided here. This assigns based on Role
+"3" and targets a field called field_members:
 
-* Include interest groups on subscription form
-If set, users will be able to select applicable interest groups when registering 
-or editing their accounts. Interest Groups are set up in MailChimp. Read more 
-about [MailChimp Groups](http://mailchimp.com/features/groups/). If your groups 
-are not showing up on your subscribe form in Drupal, you may need to clear your 
-cache.
+{ "rules_member_subscriptions" : {
+    "LABEL" : "Member Subscriptions",
+    "PLUGIN" : "reaction rule",
+    "OWNER" : "rules",
+    "REQUIRES" : [ "rules", "mailchimp_lists" ],
+    "ON" : { "user_presave" : [] },
+    "IF" : [
+      { "user_has_role" : { "account" : [ "account" ], "roles" : { "value" : { "3" : "3" } } } }
+    ],
+    "DO" : [
+      { "mailchimp_lists_user_subscribe" : {
+          "entity" : [ "account" ],
+          "field" : [ "account:field-subscribers" ],
+          "subscribe" : 1
+        }
+      }
+    ]
+  }
+}
 
-* Webhooks, see above.
+## Webhooks
 
-Creating an Optional list will provide you with a block called Mailchimp 
-Subscription Form: [list title].
+Direct your browser to: admin/config/services/mailchimp 
+You will now see a "Lists" tab. (admin/config/services/mailchimp/lists)
+This should show you your lists, and allow you to control Webhook settings for
+each list.
 
-### Free form lists 
+What does this mean?
+When a user unsubscribes from a list or updates their profile through MailChimp
+rather than Drupal, MailChimp will trigger an event to update the user's cached
+MailChimp member information. This will not update any of their merge field
+data, or any other Entity data: it just changes the cached information. This
+cached data means Drupal doesn't have to contact MailChimp every time it wants
+to gather subscription data.
 
-This is the only type of list allowed for the Anonymous role and has the 
-following options.
+In other words, this should be enabled if possible. Otherwise, you may be using
+innaccurate information in Drupal. It is also important to note that the webhook
+doesn't just clear cached data, but actually updates the cached data.
 
-* Require subscribers to Double Opt-in
-New subscribers will be sent a link with an email from MailChimp that they must 
-follow to confirm their subscription.
-
-* Include interest groups on subscription form.
-If set, users will be able to select applicable interest groups when registering 
-or editing their accounts. Interest Groups are set up in MailChimp. Read more 
-about [MailChimp Groups](http://mailchimp.com/features/groups/).
-
-If your groups are not showing up on your subscribe form in Drupal, you may need 
-to clear your cache.
-
-Creating an Free From list will provide you with a block called Mailchimp 
-Subscription Form: [list title]. This block contains a signup form with all 
-MailChimp merge fields displayed. 
-
-Default values are allowed for authenticated users based on token mappings. 
-There for if you map First Name to username, the module will fill in that 
-information from the database.
+*Note: You cannot test webhooks if developing locally, as the MailChimp system
+can't reach your local computer unless you enable a tunneling service like
+ngrok.*

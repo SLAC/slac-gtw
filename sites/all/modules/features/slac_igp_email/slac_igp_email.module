@@ -118,14 +118,15 @@ function slac_igp_email_cron() {
     return;
   }
   $mcapi = mailchimp_get_api_object();
-  $ret = $mcapi->listMembers($listid, 'unsubscribed');   
-  if (empty($ret['data'])) {
+  $ret = mailchimp_get_members($listid, 'unsubscribed');   
+  if (empty($ret->data)) {
     return;
   }
   // re-subscribe to user
   // declare an rules event
-  foreach ($ret['data'] as $item) {
-    $ret = $mcapi->listSubscribe($listid, $item['email'], array(), 'html', FALSE, FALSE, FALSE, FALSE);
+  foreach ($ret->data as $item) {
+    //$ret = $mcapi->listSubscribe($listid, $item['email'], array(), 'html', FALSE, FALSE, FALSE, FALSE);
+    $ret = $mcapi->lists->subscribe($listid, $item['email'], array(), 'html', FALSE, FALSE, FALSE, FALSE);
     if (!$ret) {
       watchdog('slac_igp_email', 'MCAPI Error when calling listSubscribe on %email, Error code: %errcode, Error message: %errmsg', array('%email' => $item['email'], '%errcode' => $mcapi->errorCode,'%errmsg' => $mcapi->errorMessage), WATCHDOG_ERROR);
       return;
@@ -238,11 +239,11 @@ function theme_slac_igp_email_title($vars) {
 function _slac_igp_email_mailchimp_weekly_content($config, $template_sections) {
   //@todo: iterate through the template_sections
   return array(
-    'html_lead_news' => array(
+    'lead_news' => array(
       'value' => theme('slac_igp_director_column'),
       'format' => 'mailchimp_campaign',
     ),
-    'html_std_header_title' => array(
+    'std_header_title' => array(
       'value' => theme('slac_igp_email_title', array('type' => 'Weekly')),
       'format' => 'mailchimp_campaign',
     ),
@@ -255,15 +256,15 @@ function _slac_igp_email_mailchimp_weekly_content($config, $template_sections) {
 function _slac_igp_email_mailchimp_dc_content($config, $template_sections) {
   //@todo: iterate through the template_sections
   return array(
-    'html_sidebar' => array(
+    'sidebar' => array(
       'value' => theme('slac_igp_email_sidebar'),
       'format' => 'mailchimp_campaign',
     ),
-    'html_news' => array(
+    'news' => array(
       'value' => theme('slac_igp_email', array('config' => $config)),
       'format' => 'mailchimp_campaign',
     ),
-    'html_std_header_title' => array(
+    'std_header_title' => array(
       'value' => theme('slac_igp_email_title', array('type' => 'Daily')),
       'format' => 'mailchimp_campaign',
     ),

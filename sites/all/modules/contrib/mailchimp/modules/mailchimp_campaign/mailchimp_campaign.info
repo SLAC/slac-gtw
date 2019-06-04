@@ -6,14 +6,15 @@ core = 7.x
 dependencies[] = mailchimp_lists
 dependencies[] = entity
 
-files[] = mailchimp_campaign.admin.inc
-files[] = mailchimp_campaign.entity.inc
+files[] = includes/mailchimp_campaign.admin.inc
+files[] = includes/mailchimp_campaign.entity.inc
+files[] = includes/mailchimp_campaign.controller.inc
+files[] = tests/mailchimp_campaigns.test
 
 configure = admin/config/services/mailchimp/campaigns
 
-; Information added by drupal.org packaging script on 2013-01-29
-version = "7.x-2.10"
+; Information added by Drupal.org packaging script on 2019-01-02
+version = "7.x-5.4"
 core = "7.x"
 project = "mailchimp"
-datestamp = "1359482747"
-
+datestamp = "1546454906"

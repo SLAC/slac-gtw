@@ -84,7 +84,7 @@ function mailchimp_dc_schema() {
         'not null' => FALSE,
         'description' => "content hook that allows automated content population.",
       ),
-      'from_mail' => array(
+      'from_email' => array(
         'type' => 'varchar',
         'length' => 255,
         'not null' => FALSE,

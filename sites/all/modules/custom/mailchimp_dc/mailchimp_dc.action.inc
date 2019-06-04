@@ -28,28 +28,30 @@ function mailchimp_dc_action_add_content($entity, $context) {
   // 2. get the content from the specific section
   // 3. append the content as standard entity|teaser
   $campaign = mailchimp_campaign_load($context['mc_campaign']);
+
   if (empty($campaign)) {
     return;
   }
-  if (array_key_exists('html_' . $context['mc_template'], $campaign->template)) {
-    $content = "\n";
-    $content .= '<div class="item">';
-    $content .= '[mailchimp_campaign|entity_type=node|entity_id=' . $entity->nid . '|view_mode=' . $context['mc_view_mode'] . ']';
-    $content .= '</div>';
+
+  $content = "\n";
+  $content .= '<div class="item">';
+  $content .= '[mailchimp_campaign|entity_type=node|entity_id=' . $entity->nid . '|view_mode=' . $context['mc_view_mode'] . ']';
+  $content .= '</div>';
     
-    // Allow other modules to add things to the end of the context
-    $content .= implode("\n", module_invoke_all('mailchimp_dc_vbo_content', $context));
-    $campaign->template['html_' . $context['mc_template']]['value'] .= $content;
-  }
+  // Allow other modules to add things to the end of the context
+  $content .= implode("\n", module_invoke_all('mailchimp_dc_vbo_content', $context));
+  $campaign->template[$context['mc_template']]['value'] .= $content;
+
   $options = array(
-    'title' => $campaign->mc_data['title'],
-    'subject' => $campaign->mc_data['subject'],
-    'list_id' => $campaign->list['id'],
-    'from_email' => $campaign->mc_data['from_email'],
-    'from_name' => $campaign->mc_data['from_name'],
-    'template_id' => $campaign->mc_template['id'],
+    'title' => $campaign->mc_data->settings->title,
+    'subject_line' => $campaign->mc_data->settings->subject_line,
+    'list_id' => $campaign->list->id,
+    'reply_to' => $campaign->mc_data->settings->reply_to,
+    'from_name' => $campaign->mc_data->settings->from_name,
+    'template_id' => $campaign->mc_data->settings->template_id,
   );
-  mailchimp_campaign_save_campaign($campaign->template, $options, $campaign->mc_campaign_id);
+
+  mailchimp_campaign_save_campaign($campaign->template, $options, $options, $campaign->mc_data->settings->template_id, $campaign->mc_campaign_id);
   cache_clear_all('mailchimp_campaign_campaigns', 'cache');
 }
 
@@ -67,7 +69,8 @@ function mailchimp_dc_action_add_content_form($context, &$form_state) {
   $options = array(); //array('' => t('--Please select--'));
   if (!empty($campaigns)) {
     foreach($campaigns as $campaign_id => $campaign) {
-      if ($campaign->mc_data['status'] === 'save') {
+      //print_r($campaign->mc_data);
+      if ($campaign->mc_data->status === 'save') {
         $local_record = mailchimp_dc_record_load('mc_campaign_id', $campaign_id, 'mailchimp_dc_campaign');
         $row = array(
           array('data' => l($local_record['subject'], 'admin/config/services/mailchimp/campaigns/' . $campaign_id, array('attributes' => array('target' => '_blank'))), 'width' => '30%'),
@@ -93,22 +96,24 @@ function mailchimp_dc_action_add_content_form($context, &$form_state) {
   );
   
   $template_regions = array();
+  $template_regions_keys = array();
   if (!empty($form_state['values']['mc_campaign'])) {
-    $template_regions = $campaigns[$form_state['values']['mc_campaign']]->mc_template['info']['sections'];
-    $template_regions = array_combine($template_regions, $template_regions); 
+    $template_regions = $campaigns[$form_state['values']['mc_campaign']]->mc_template->info->sections;
+
     // exclude some standard sections
     foreach ($template_regions as $key => $value) {
-      if (substr($value, 0, 4) === 'std_') {
-        unset($template_regions[$key]);
+      if (substr($key, 0, 4) !== 'std_') {
+        $template_regions_keys[$key] = $key;
       }
     }
   }
+
   
   // template region in which the story should be added to
   $form['mc_template'] = array(
     '#type' => 'select',
     '#title' => t('Template Region'),
-    '#options' => $template_regions,
+    '#options' => $template_regions_keys,
     '#description' => t('Please select the template region this news article should go into'),
     '#prefix' => '<div id="mc_template">',
     '#suffix' => '</div>',

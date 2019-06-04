@@ -73,26 +73,13 @@ function mailchimp_list_sync_list_run($path) {
   // call mailchimp API to sync the list
   // assuming one column email address
   $_contents = file_get_contents($path);
-  $contents = nl2br($_contents);
-  $email_list = explode('<br />', $contents);
+  $email_list = explode(PHP_EOL, $_contents);
   if (empty($email_list)) {
     return;
   }
-  // @todo: email type should be part of the list file data
-  $batch = array();
-  for($i = 0; $i < count($email_list); $i++) {
-    $batch[] = array(
-      'EMAIL' => $email_list[$i],
-      'EMAIL_TYPE' => 'HTML',
-    );
-  }
-  $mcapi = mailchimp_get_api_object();
-  $ret = $mcapi->listBatchSubscribe($list_id, $batch, FALSE, FALSE, FALSE);
-  if ($ret['error_count'] > 0) {
-    foreach ((array) $ret['errors'] as $error) {
-      if ($error['code'] != ALREADY_SUBSCRIBED) {
-        watchdog('mailchimp_list_sync', 'MCAPI Error: %errmsg', array('%errmsg' => $error['message']), WATCHDOG_ERROR);
-      }
+  foreach ($email_list as $e) {
+    if (!mailchimp_is_subscribed($list_id, $e)) {
+      $ret = mailchimp_subscribe($list_id, $e);
     }
   }
   
@@ -117,7 +104,7 @@ function mailchimp_list_sync_config_form() {
   $lists = mailchimp_get_lists();
   $options = array('' => t('-- Select --'));
   foreach ($lists as $mc_list) {
-    $options[$mc_list['id']] = $mc_list['name'];
+    $options[$mc_list->id] = $mc_list->name;
   }
   $form['mailchimp_list_sync_list'] = array(
     '#type' => 'select',

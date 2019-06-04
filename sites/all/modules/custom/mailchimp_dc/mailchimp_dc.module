@@ -91,18 +91,20 @@ function mailchimp_dc_entity_insert($entity, $type) {
       return;
     }
     $c = $campaign[$entity->mc_campaign_id];
+
     $record = array(
-      'mc_campaign_id' => $c['id'],
-      'list_id' => $c['list_id'],
-      'title' => $c['title'],
-      'archive_url' => (array_key_exists('archive_url_long', $c)) ? $c['archive_url_long'] : '',
-      'from_name' => (array_key_exists('from_name', $c)) ? $c['from_name'] : '',
-      'from_email' => (array_key_exists('from_email', $c)) ? $c['from_email'] : '',
-      'subject' => $c['subject'],
-      'status' => $c['status'],
-      'created' => (array_key_exists('create_time', $c)) ? strtotime($c['create_time']) : 0,
-      'updated' => (array_key_exists('content_updated_time', $c)) ? strtotime($c['content_updated_time']) : 0,
-      'sent' => (array_key_exists('send_time', $c)) ? strtotime($c['send_time']) : 0,
+      'mc_campaign_id' => $c->id,
+      'list_id' => $c->recipients->list_id,
+      'title' => $c->settings->title,
+      'archive_url' => $c->long_archive_url,
+      'from_name' => $c->settings->from_name,
+      'from_email' => $c->settings->reply_to,
+      'reply_to' => $c->settings->reply_to,
+      'subject' => $c->settings->subject_line,
+      'status' => $c->status,
+      'created' => $c->create_time,
+      //'updated' => $c->content_updated_time,
+      'sent' => $c->send_time,
     );
     module_load_include('inc', 'mailchimp_dc', 'mailchimp_dc.database');
     mailchimp_dc_record_save($record, 'mc_campaign_id', 'mailchimp_dc_campaign');
@@ -156,7 +158,7 @@ function mailchimp_dc_main() {
   module_load_include('inc', 'mailchimp_dc', 'mailchimp_dc.database');
   
   $records = mailchimp_dc_config_load_all();
-  
+
   $rows = array();
   foreach ($records as $record) {
     $action_links = array(
@@ -326,7 +328,7 @@ function _mailchimp_dc_date_suppress($config) {
  *
  * @params
  * (array) $config      Loaded configuration array for the recurring campaign configuration
- *                      key: daily_email_1, label, schedule_type, schedule_type_setting, list, template, content, from_mail, from_name, created
+ *                      key: daily_email_1, label, schedule_type, schedule_type_setting, list, template, content, from_email, from_name, created
  */
 function mailchimp_dc_campaign_create($config) {
   if ((bool) $config['status'] === FALSE) {
@@ -353,24 +355,28 @@ function mailchimp_dc_campaign_create($config) {
   
   $options = array(
     'title' => $title,
-    'subject' => $subject,
+    'subject_line' => $subject,
     'list_id' => $config['list'],
-    'from_email' => (empty($config['from_mail'])) ? variable_get('site_mail', '') : $config['from_mail'],
+    'from_email' => (empty($config['from_email'])) ? variable_get('site_mail', '') : $config['from_email'],
+    'reply_to' => (empty($config['from_email'])) ? variable_get('site_mail', '') : $config['from_email'],
     'from_name' => $from_name,
-    'template_id' => $config['template'],
+    'template_id' => (int)$config['template'],
+    'created' => REQUEST_TIME,
   );
     
   // getting the template information
-  $template_id = $config['template'];
+  $mc_template = '';
+  $template_id = (int)$config['template'];
   if (!empty($template_id)) {
-    $mc_template = mailchimp_campaign_get_templates($template_id);
+    $mc_template = mailchimp_campaign_get_template($template_id);
   }
-  
+
   $template_sections = array();
+
   // if we have a template set, let's pass in the region information
   if ($mc_template) {
-    foreach ($mc_template['info']['default_content'] as $section => $item) {
-      $template_sections['html_' . $section] = array(
+    foreach ($mc_template->info->sections as $section => $item) {
+      $template_sections[$section] = array(
         'value' => $item,
         'format' => 'mailchimp_campaign',
       );
@@ -382,7 +388,7 @@ function mailchimp_dc_campaign_create($config) {
       'format' => 'mailchimp_campaign',
     );  
   }
-    
+
   // default contents in case no one implements the hook
   $content = $template_sections;
   $contents = array_merge(module_invoke_all('mailchimp_dc_content', $config, $template_sections), array());
@@ -395,9 +401,8 @@ function mailchimp_dc_campaign_create($config) {
       }
     }
   }
-
   
-  $campaign_id = mailchimp_campaign_save_campaign($content, $options);
+  $campaign_id = mailchimp_campaign_save_campaign($content, $options, $options, $template_id);
   module_load_include('inc', 'mailchimp_dc', 'mailchimp.database');
   if (isset($campaign_id)) {
     // send the campaign if it is set
