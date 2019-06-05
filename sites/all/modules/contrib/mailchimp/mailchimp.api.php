@@ -6,71 +6,108 @@
  */
 
 /**
- * Respond to an email being added to a list.
+ * Alter mergevars before they are sent to MailChimp.
  *
- * @param $list
- *   MailChimp list object.
- * @param $email
- * @param $merge_vars
+ * @param array $mergevars
+ *   Array of MailChimp mergevars.
+ * @param object $entity
+ *   The entity used as a source for mergevar values.
+ * @param string $entity_type
+ *   The type of entity used as a source for mergevar values.
+ * @param string $list_id
+ *   The ID of the MailChimp list containing the mergevars.
  */
-function hook_mailchimp_subscribe_user($list, $email, $merge_vars) {
+function hook_mailchimp_lists_mergevars_alter(&$mergevars, $entity, $entity_type, $list_id) {
+}
+
+/**
+ * Perform an action during the firing of a MailChimp webhook.
+ *
+ * Refer to http://apidocs.mailchimp.com/webhooks for more details.
+ *
+ * @string $type
+ *   The type of webhook firing.
+ * @array $data
+ *   The data contained in the webhook.
+ */
+function hook_mailchimp_process_webhook($type, $data) {
 
 }
 
 /**
- * Respond to an email being removed from a list.
+ * Perform an action after a subscriber has been subscribed.
  *
- * @param $list
- *   MailChimp list object.
- * @param $email
+ * @string $list_id
+ *   MailChimp list id.
+ * @string $email
+ *   Subscriber email address.
+ * @array $merge_vars
+ *   Submitted user values.
  */
-function hook_mailchimp_unsubscribe_user($list, $email) {
+function hook_mailchimp_subscribe_user($list_id, $email, $merge_vars) {
 
 }
 
 /**
- * Return an array of additional merge tokens.
+ * Perform an action after a subscriber has been unsubscribed.
  *
- * @return array
+ * @string $list_id
+ *   MailChimp list id.
+ * @string $email
+ *   Subscriber email address.
  */
-function hook_mailchimp_lists_merge_tokens() {
-  $out = array('' => t('-- Select --'));
+function hook_mailchimp_unsubscribe_user($list_id, $email) {
 
-  // invoke hook to get all merge tokens
-  $tokens = module_invoke_all('mailchimp_lists_merge_tokens');
-
-  foreach ($tokens as $key => $token) {
-    $out[$key] = t('!field', array('!field' => $token['name']));
-  }
-
-  return $out;
 }
 
 /**
- * Return an array of matching merge values.
+ * Alter the key for a given api request.
  *
- * @param $mergevars
- * @param $account
- * @param $list
- *
- * @return array
+ * @string &$api_key
+ *   The MailChimp API key.
+ * @array $context
+ *   The MailChimp API classname of the API object.
  */
-function hook_mailchimp_lists_merge_values($mergevars, $account, $list) {
-  $values = array();
+function hook_mailchimp_api_key_alter(&$api_key, $context) {
 
-  // grab the saved list merge vars and filter out unset values
-  if (!empty($list->settings['mergefields'])) {
-    $mergevars = array_filter($list->settings['mergefields']);
-    $mergevars = array_flip($mergevars);
+}
 
-    // match with token values
-    $values = module_invoke_all('mailchimp_lists_merge_values', $mergevars, $account, $list);
+/**
+ * Alter the entity options list on the automations entity form.
+ *
+ * @param array $entity_type_options
+ *   The full list of Drupal entities.
+ * @param string $automation_entity_label
+ *   The label for the automation entity, if it exists.
+ */
+function hook_mailchimp_automations_entity_options(&$entity_type_options, $automation_entity_label) {
 
-    // always add email
-    $values += array(
-      'EMAIL' => $account->mail
-    );
-  }
+}
 
-  return $values;
+/**
+ * Alter mergevars before a workflow automation is triggered.
+ *
+ * @param array $merge_vars
+ *   The merge vars that will be passed to MailChimp.
+ * @param object $automation_entity
+ *   The MailchimpAutomationEntity object.
+ * @param object $wrapped_entity
+ *   The EntityMetadataWrapper for the triggering entity.
+ */
+function hook_mailchimp_automations_mergevars_alter(&$merge_vars, $automation_entity, $wrapped_entity) {
+
+}
+
+/**
+ * Perform an action after a successful MailChimp workflow automation.
+ *
+ * @param object $automation_entity
+ *   The MailchimpAutomationEntity object.
+ * @param string $email
+ *   The email_property value from the MailchimpAutomationEntity.
+ * @param object $wrapped_entity
+ *   The EntityMetadataWrapper for the triggering entity.
+ */
+function hook_mailchimp_automations_workflow_email_triggered($automation_entity, $email, $wrapped_entity) {
+
 }

@@ -13,6 +13,8 @@
  * (string) $table    table name
  */
 function mailchimp_dc_record_save($record, $pk, $table) {
+  if(!empty($record['created'])) $record['created'] = strtotime($record['created']);
+  else $record_created = REQUEST_TIME;
   $existing = mailchimp_dc_record_load($pk, $record[$pk], $table);
   if (!empty($existing)) {
     drupal_write_record($table, $record, $pk);
