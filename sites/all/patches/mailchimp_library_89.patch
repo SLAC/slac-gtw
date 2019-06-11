@@ -1,0 +1,23 @@
+From 0c087cfd170b376b2a1f519a5d6f9a303a4b3036 Mon Sep 17 00:00:00 2001
+From: Senem Hartung <senem@xenomedia.com>
+Date: Tue, 11 Jun 2019 09:57:37 -0500
+Subject: [PATCH] changing http_build_query to drupal_http_build_query to make
+ it work fine with php 5.4
+
+---
+ src/http/MailchimpCurlHttpClient.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/http/MailchimpCurlHttpClient.php b/src/http/MailchimpCurlHttpClient.php
+index 983fe7b..d86af44 100644
+--- a/src/http/MailchimpCurlHttpClient.php
++++ b/src/http/MailchimpCurlHttpClient.php
+@@ -46,7 +46,7 @@ public function handleRequest($method, $uri = '', $options = [], $parameters = [
+         break;
+ 
+       case 'GET':
+-        $uri .= '?' . http_build_query($parameters);
++        $uri .= '?' . drupal_http_build_query($parameters);
+         break;
+ 
+       case 'PUT':
