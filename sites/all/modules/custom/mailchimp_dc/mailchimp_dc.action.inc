@@ -52,7 +52,7 @@ function mailchimp_dc_action_add_content($entity, $context) {
   );
 
   $settings = new stdClass();
-  $settings->title = $title;
+  $settings->title = $campaign->mc_data->settings->title;
   $settings->subject_line = $campaign->mc_data->settings->subject_line;
   $settings->list_id = $campaign->list->id;
   $settings->reply_to = $campaign->mc_data->settings->reply_to;
