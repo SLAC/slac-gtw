@@ -37,12 +37,13 @@ function slac_ip_core_strongarm() {
   $strongarm->name = 'clone_omitted';
   $strongarm->value = array(
     'page' => 'page',
-    'calendar_feed' => 'calendar_feed',
     'flea_market_post' => 'flea_market_post',
+    'calendar_feed' => 'calendar_feed',
     'news' => 'news',
     'news_article' => 'news_article',
     'news_feed' => 'news_feed',
     'panel' => 'panel',
+    'poll' => 'poll',
     'webform' => 'webform',
     'access_information' => 0,
     'event' => 0,

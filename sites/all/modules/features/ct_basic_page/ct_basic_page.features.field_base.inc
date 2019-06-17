@@ -10,7 +10,7 @@
 function ct_basic_page_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_page_subtitle'
+  // Exported field_base: 'field_page_subtitle'.
   $field_bases['field_page_subtitle'] = array(
     'active' => 1,
     'cardinality' => 1,

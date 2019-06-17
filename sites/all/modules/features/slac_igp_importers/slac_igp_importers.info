@@ -40,3 +40,5 @@ features[variable][] = node_preview_calendar_feed
 features[variable][] = node_preview_news_feed
 features[variable][] = node_submitted_calendar_feed
 features[variable][] = node_submitted_news_feed
+features[variable][] = pathauto_node_calendar_feed_pattern
+features[variable][] = pathauto_node_news_feed_pattern

@@ -37,6 +37,7 @@ features[variable][] = menu_parent_page
 features[variable][] = node_options_page
 features[variable][] = node_preview_page
 features[variable][] = node_submitted_page
+features[variable][] = pathauto_node_page_pattern
 features[variable][] = scheduler_publish_moderation_state_page
 features[variable][] = scheduler_publish_past_date_page
 features[variable][] = scheduler_publish_required_page

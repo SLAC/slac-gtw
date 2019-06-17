@@ -330,7 +330,7 @@ function slac_ip_content_admin_views_default_views() {
     3 => 0,
   );
   $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
-  $handler->display->display_options['filters']['date_filter']['year_range'] = '-0:+1';
+  $handler->display->display_options['filters']['date_filter']['year_range'] = '-10:+1';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
     'publication_date.published_at' => 'publication_date.published_at',
   );
@@ -425,10 +425,22 @@ function slac_ip_content_admin_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['hide_admin_links'] = TRUE;
   $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['path'] = 'admin/content';
 
   /* Display: News */
   $handler = $view->new_display('page', 'News', 'page_1');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -730,7 +742,7 @@ function slac_ip_content_admin_views_default_views() {
     3 => 0,
   );
   $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
-  $handler->display->display_options['filters']['date_filter']['year_range'] = '-0:+1';
+  $handler->display->display_options['filters']['date_filter']['year_range'] = '-10:+1';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
     'publication_date.published_at' => 'publication_date.published_at',
   );
@@ -825,6 +837,12 @@ function slac_ip_content_admin_views_default_views() {
 
   /* Display: Events */
   $handler = $view->new_display('page', 'Events', 'page_2');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -1126,7 +1144,7 @@ function slac_ip_content_admin_views_default_views() {
     3 => 0,
   );
   $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
-  $handler->display->display_options['filters']['date_filter']['year_range'] = '-0:+1';
+  $handler->display->display_options['filters']['date_filter']['year_range'] = '-10:+1';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
     'publication_date.published_at' => 'publication_date.published_at',
   );
@@ -1426,7 +1444,7 @@ function slac_ip_content_admin_views_default_views() {
     3 => 0,
   );
   $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
-  $handler->display->display_options['filters']['date_filter']['year_range'] = '-0:+1';
+  $handler->display->display_options['filters']['date_filter']['year_range'] = '-10:+1';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
     'publication_date.published_at' => 'publication_date.published_at',
   );
@@ -1812,7 +1830,7 @@ function slac_ip_content_admin_views_default_views() {
     3 => 0,
   );
   $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
-  $handler->display->display_options['filters']['date_filter']['year_range'] = '-0:+1';
+  $handler->display->display_options['filters']['date_filter']['year_range'] = '-10:+1';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
     'publication_date.published_at' => 'publication_date.published_at',
   );

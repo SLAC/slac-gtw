@@ -257,7 +257,7 @@ function ct_flea_market_item_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_flea_market_post';
   $strongarm->value = array(
-    0 => 'moderation',
+    0 => 'status',
     1 => 'revision',
   );
   $export['node_options_flea_market_post'] = $strongarm;

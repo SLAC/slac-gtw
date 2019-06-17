@@ -64,7 +64,11 @@ Building 50 <br />
   $box->description = 'Footer';
   $box->options = array(
     'body' => array(
-      'value' => '<p><a href="http://slac.stanford.edu">SLAC NATIONAL ACCELERATOR LABORATORY</a> <br /> 2575 Sand Hill Road, Menlo Park, CA 94025<br>Operated by <a href="http://www.stanford.edu">Stanford University</a> for the <a href="http://science.energy.gov/">U.S. Department of Energy Office of Science</a></p>',
+      'value' => '<p style="margin-bottom:15px;font-weight:bold;font-size:1.3em; letter-spacing: .08em;">BOLD PEOPLE.&nbsp; VISIONARY SCIENCE.&nbsp; REAL IMPACT.</p>
+<p><a href="http://slac.stanford.edu">SLAC NATIONAL ACCELERATOR LABORATORY</a><br />
+	2575 Sand Hill Road, Menlo Park, CA 94025<br />
+	Operated by <a href="http://www.stanford.edu">Stanford University</a> for the <a href="http://science.energy.gov/">U.S. Department of Energy Office of Science</a></p>
+',
       'format' => 'full_html',
     ),
     'additional_classes' => 'footer-info',
@@ -80,7 +84,12 @@ Building 50 <br />
   $box->description = 'IT Help Desk';
   $box->options = array(
     'body' => array(
-      'value' => '<p>7am - 5pm, Monday - Friday</p><p><a href="https://www6.slac.stanford.edu/visiting-slac/maps-directions-visitormap.aspx">Building 50, First Floor Lobby</a></p><p>xHELP (650-926-4357)</p><p><a href="mailto:ithelp@slac.stanford.edu">ithelp@slac.stanford.edu</a></p><div class="view-footer"><a href="https://slacprod.service-now.com/ess/order_services.do">Submit IT Help Request</a></div>',
+      'value' => '<p>7am - 5pm, Monday - Friday</p>
+<p><a href="https://vue.slac.stanford.edu/slac-visitor-map">Building 50, First Floor Lobby</a></p>
+<p>xHELP (650-926-4357)</p>
+<p><a href="mailto:ithelp@slac.stanford.edu">ithelp@slac.stanford.edu</a></p>
+<div class="view-footer"><a href="https://slacprod.service-now.com/ess/order_services.do">Submit IT Help Request</a></div>
+',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -112,7 +121,9 @@ Building 50 <br />
   $box->description = 'Search (People)';
   $box->options = array(
     'body' => array(
-      'value' => '<form action="https://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><label for="searchbox_people">People Finder</label><input class="searchbox" id="searchbox_people" maxlength="2047" name="name" placeholder="People Finder" size="18" type="text"> <input name="gone" type="hidden" value="active"> <input name="lf" type="hidden" value="1"><input name="url" type="hidden" value=""><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27"> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>',
+      'value' => '<span class="fa fa-user">&nbsp;</span>
+<form action="https://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><label for="searchbox_people">People Finder</label><input class="searchbox" id="searchbox_people" maxlength="2047" name="name" placeholder="People Finder" size="18" type="text" /> <input name="gone" type="hidden" value="active" /> <input name="lf" type="hidden" value="1" /><input name="url" type="hidden" value="" /><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27" /> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>
+',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -128,7 +139,12 @@ Building 50 <br />
   $box->description = 'Site Security';
   $box->options = array(
     'body' => array(
-      'value' => '<p><a href="https://portal.slac.stanford.edu/info/esh/security">Site Entry Authorization Form</a></p><p><a href="https://www-internal.slac.stanford.edu/esh/security/gatehours.htm">Gate Hours &amp; Access Information</a></p><p>x5555 - Emergency</p><p>x2551 - Non-emergency</p>',
+      'value' => '<p><a href="https://portal.slac.stanford.edu/info/esh/security">Site Entry Authorization Form</a></p>
+<p><a href="https://internal.slac.stanford.edu/communications/resources/slac-tours" target="_blank">Tours</a></p>
+<p><a href="https://www-internal.slac.stanford.edu/esh/security/gatehours.htm">Gate Hours &amp; Access Information</a></p>
+<p>x5555 - Emergency</p>
+<p>x2551 - Non-emergency</p>
+',
       'format' => 'full_html',
     ),
     'additional_classes' => '',
@@ -144,13 +160,13 @@ Building 50 <br />
   $box->description = 'SLAC Projects';
   $box->options = array(
     'body' => array(
-      'value' => '<div class="img"><img alt="" src="/sites/all/themes/slac/images/linac-thumb.png"></div>
+      'value' => '<div class="img"><img alt="" src="/sites/all/themes/slac/images/linac-thumb.png" /></div>
 <ul>
-	<li>&nbsp;</li>
-	<li><a href="https://slacspace.slac.stanford.edu/sites/lcls/lcls-2/Pages/default.aspx">LCLS-II</a></li>
-	<li><a href="https://portal.slac.stanford.edu/sites/ard_public/facet/Pages/default.aspx">FACET Upgrade</a></li>
-	<li><a href="http://lsst.org/lsst/about/team"><span style="font-family: Arial, sans-serif; line-height: normal;">LSST</span></a></li>
-	<li><a href="http://cdms.berkeley.edu/"><span style="font-family: Arial, sans-serif; line-height: normal;">SuperCDMS SNOLAB</span></a></li>
+	<li><a href="https://lcls.slac.stanford.edu/lcls-ii">LCLS-II</a></li>
+	<li><a href="https://slacspace.slac.stanford.edu/sites/lcls/lcls-2-he/" target="_blank">LCLS-II HE</a></li>
+	<li><a href="https://facet.slac.stanford.edu">FACET-II</a></li>
+	<li><a href="https://lsst.slac.stanford.edu"><span style="font-family: Arial, sans-serif; line-height: normal;">LSST</span></a></li>
+	<li><a href="https://supercdms.slac.stanford.edu"><span style="font-family: Arial, sans-serif; line-height: normal;">SuperCDMS SNOLAB</span></a></li>
 </ul>
 ',
       'format' => 'full_html',

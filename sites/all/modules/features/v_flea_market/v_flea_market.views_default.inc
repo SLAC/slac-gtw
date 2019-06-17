@@ -77,6 +77,22 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<a href="/community-bulletin-board">All Posts</a>
+<a href="/node/add/flea-market-post">Submit Post</a>
+<a href="https://internal.slac.stanford.edu/salvage-catalog/">Visit Salvage Catalog</a>
+';
+  $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $export['flea_market'] = $view;
 
   $view = new view();
@@ -163,7 +179,7 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
   $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/d/Y g:i a';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'slac_ip_access_date';
-  /* Field: Content: My Item Is */
+  /* Field: Content: My Post Is */
   $handler->display->display_options['fields']['field_flea_market_item_type']['id'] = 'field_flea_market_item_type';
   $handler->display->display_options['fields']['field_flea_market_item_type']['table'] = 'field_data_field_flea_market_item_type';
   $handler->display->display_options['fields']['field_flea_market_item_type']['field'] = 'field_flea_market_item_type';
@@ -227,16 +243,6 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'flea_market_post' => 'flea_market_post',
   );
-  /* Filter criterion: Workbench Moderation: Current */
-  $handler->display->display_options['filters']['is_current']['id'] = 'is_current';
-  $handler->display->display_options['filters']['is_current']['table'] = 'workbench_moderation_node_history';
-  $handler->display->display_options['filters']['is_current']['field'] = 'is_current';
-  $handler->display->display_options['filters']['is_current']['value'] = '1';
-  /* Filter criterion: Workbench Moderation: Published */
-  $handler->display->display_options['filters']['published']['id'] = 'published';
-  $handler->display->display_options['filters']['published']['table'] = 'workbench_moderation_node_history';
-  $handler->display->display_options['filters']['published']['field'] = 'published';
-  $handler->display->display_options['filters']['published']['value'] = '1';
 
   /* Display: Main Bulletin Board List pane */
   $handler = $view->new_display('panel_pane', 'Main Bulletin Board List pane', 'panel_pane_1');
@@ -277,7 +283,7 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
   $handler->display->display_options['fields']['changed']['custom_date_format'] = 'n/d/Y g:i a';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'slac_ip_access_date';
-  /* Field: Content: My Item Is */
+  /* Field: Content: My Post Is */
   $handler->display->display_options['fields']['field_flea_market_item_type']['id'] = 'field_flea_market_item_type';
   $handler->display->display_options['fields']['field_flea_market_item_type']['table'] = 'field_data_field_flea_market_item_type';
   $handler->display->display_options['fields']['field_flea_market_item_type']['field'] = 'field_flea_market_item_type';
@@ -341,11 +347,6 @@ function v_flea_market_views_default_views() {
   $handler->display->display_options['filters']['uid_current']['field'] = 'uid_current';
   $handler->display->display_options['filters']['uid_current']['relationship'] = 'uid';
   $handler->display->display_options['filters']['uid_current']['value'] = '1';
-  /* Filter criterion: Workbench Moderation: Current */
-  $handler->display->display_options['filters']['is_current']['id'] = 'is_current';
-  $handler->display->display_options['filters']['is_current']['table'] = 'workbench_moderation_node_history';
-  $handler->display->display_options['filters']['is_current']['field'] = 'is_current';
-  $handler->display->display_options['filters']['is_current']['value'] = '1';
   $handler->display->display_options['inherit_panels_path'] = '1';
   $export['flea_market_listing'] = $view;
 

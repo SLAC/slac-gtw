@@ -200,7 +200,7 @@ function v_my_content_views_default_views() {
     3 => 0,
   );
   $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
-  $handler->display->display_options['filters']['date_filter']['year_range'] = '-0:+1';
+  $handler->display->display_options['filters']['date_filter']['year_range'] = '-10:+1';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
     'node.created' => 'node.created',
   );
@@ -824,7 +824,7 @@ function v_my_content_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  /* Field: Content: My Item Is */
+  /* Field: Content: My Post Is */
   $handler->display->display_options['fields']['field_flea_market_item_type']['id'] = 'field_flea_market_item_type';
   $handler->display->display_options['fields']['field_flea_market_item_type']['table'] = 'field_data_field_flea_market_item_type';
   $handler->display->display_options['fields']['field_flea_market_item_type']['field'] = 'field_flea_market_item_type';
@@ -913,7 +913,7 @@ function v_my_content_views_default_views() {
     7 => 0,
     3 => 0,
   );
-  /* Filter criterion: Content: My Item Is (field_flea_market_item_type) */
+  /* Filter criterion: Content: My Post Is (field_flea_market_item_type) */
   $handler->display->display_options['filters']['field_flea_market_item_type_value']['id'] = 'field_flea_market_item_type_value';
   $handler->display->display_options['filters']['field_flea_market_item_type_value']['table'] = 'field_data_field_flea_market_item_type';
   $handler->display->display_options['filters']['field_flea_market_item_type_value']['field'] = 'field_flea_market_item_type_value';

@@ -188,7 +188,7 @@ function slac_igp_config_default_page_manager_pages() {
   $pane->panel = 'colthreerowfive';
   $pane->type = 'block';
   $pane->subtype = 'boxes-it_help_desk';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
     'override_title' => 0,
@@ -209,8 +209,212 @@ function slac_igp_config_default_page_manager_pages() {
   $display->content['new-ec1dc49a-827e-4685-821b-c6e760af2ca9'] = $pane;
   $display->panels['colthreerowfive'][0] = 'new-ec1dc49a-827e-4685-821b-c6e760af2ca9';
   $pane = new stdClass();
-  $pane->pid = 'new-4125565c-b09f-46bd-b838-79903549f878';
+  $pane->pid = 'new-c0566837-ec4a-41dd-afae-060a6b4a249d';
   $pane->panel = 'colthreerowfour';
+  $pane->type = 'block';
+  $pane->subtype = 'boxes-slac_projects';
+  $pane->shown = FALSE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'brown-bodered-white',
+  );
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = 'c0566837-ec4a-41dd-afae-060a6b4a249d';
+  $display->content['new-c0566837-ec4a-41dd-afae-060a6b4a249d'] = $pane;
+  $display->panels['colthreerowfour'][0] = 'new-c0566837-ec4a-41dd-afae-060a6b4a249d';
+  $pane = new stdClass();
+  $pane->pid = 'new-5087db46-c398-4cae-9da6-3c3905a0c2f0';
+  $pane->panel = 'colthreerowfour';
+  $pane->type = 'block';
+  $pane->subtype = 'block-1';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => 'Useful Contacts',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'brown-bodered-white normal',
+  );
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '5087db46-c398-4cae-9da6-3c3905a0c2f0';
+  $display->content['new-5087db46-c398-4cae-9da6-3c3905a0c2f0'] = $pane;
+  $display->panels['colthreerowfour'][1] = 'new-5087db46-c398-4cae-9da6-3c3905a0c2f0';
+  $pane = new stdClass();
+  $pane->pid = 'new-7558faaf-bb28-4a50-a2b5-e1a218275698';
+  $pane->panel = 'colthreerowfour';
+  $pane->type = 'block';
+  $pane->subtype = 'block-2';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => 'Social Media',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'brown-bodered-white',
+  );
+  $pane->extras = array();
+  $pane->position = 2;
+  $pane->locks = array();
+  $pane->uuid = '7558faaf-bb28-4a50-a2b5-e1a218275698';
+  $display->content['new-7558faaf-bb28-4a50-a2b5-e1a218275698'] = $pane;
+  $display->panels['colthreerowfour'][2] = 'new-7558faaf-bb28-4a50-a2b5-e1a218275698';
+  $pane = new stdClass();
+  $pane->pid = 'new-1d664cee-330b-4c79-8af8-561819c075a0';
+  $pane->panel = 'colthreerowone';
+  $pane->type = 'block';
+  $pane->subtype = 'block-3';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => 'Spotlight',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'spotlight',
+  );
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '1d664cee-330b-4c79-8af8-561819c075a0';
+  $display->content['new-1d664cee-330b-4c79-8af8-561819c075a0'] = $pane;
+  $display->panels['colthreerowone'][0] = 'new-1d664cee-330b-4c79-8af8-561819c075a0';
+  $pane = new stdClass();
+  $pane->pid = 'new-c0a99c52-d91c-4daf-9852-c1e905e113ff';
+  $pane->panel = 'colthreerowone';
+  $pane->type = 'block';
+  $pane->subtype = 'boxes-search_people';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 1,
+    'override_title_text' => 'People Finder',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'brown-bodered-white no-bg',
+  );
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = 'c0a99c52-d91c-4daf-9852-c1e905e113ff';
+  $display->content['new-c0a99c52-d91c-4daf-9852-c1e905e113ff'] = $pane;
+  $display->panels['colthreerowone'][1] = 'new-c0a99c52-d91c-4daf-9852-c1e905e113ff';
+  $pane = new stdClass();
+  $pane->pid = 'new-4ab9910a-8622-4702-a755-b8026a1a09c6';
+  $pane->panel = 'colthreerowsix';
+  $pane->type = 'block';
+  $pane->subtype = 'boxes-site_security';
+  $pane->shown = FALSE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'brown-bodered-white',
+  );
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '4ab9910a-8622-4702-a755-b8026a1a09c6';
+  $display->content['new-4ab9910a-8622-4702-a755-b8026a1a09c6'] = $pane;
+  $display->panels['colthreerowsix'][0] = 'new-4ab9910a-8622-4702-a755-b8026a1a09c6';
+  $pane = new stdClass();
+  $pane->pid = 'new-0f83568f-2f80-4619-94f4-00493a7ca0f6';
+  $pane->panel = 'colthreerowsix';
+  $pane->type = 'block';
+  $pane->subtype = 'boxes-stanford_compliance';
+  $pane->shown = FALSE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'brown-bodered-white',
+  );
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '0f83568f-2f80-4619-94f4-00493a7ca0f6';
+  $display->content['new-0f83568f-2f80-4619-94f4-00493a7ca0f6'] = $pane;
+  $display->panels['colthreerowsix'][1] = 'new-0f83568f-2f80-4619-94f4-00493a7ca0f6';
+  $pane = new stdClass();
+  $pane->pid = 'new-9672c131-3e48-4e4f-9e94-af57b159ff3b';
+  $pane->panel = 'colthreerowsix';
+  $pane->type = 'block';
+  $pane->subtype = 'boxes-connect';
+  $pane->shown = FALSE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'brown-bodered-white',
+  );
+  $pane->extras = array();
+  $pane->position = 2;
+  $pane->locks = array();
+  $pane->uuid = '9672c131-3e48-4e4f-9e94-af57b159ff3b';
+  $display->content['new-9672c131-3e48-4e4f-9e94-af57b159ff3b'] = $pane;
+  $display->panels['colthreerowsix'][2] = 'new-9672c131-3e48-4e4f-9e94-af57b159ff3b';
+  $pane = new stdClass();
+  $pane->pid = 'new-4125565c-b09f-46bd-b838-79903549f878';
+  $pane->panel = 'colthreerowthree';
   $pane->type = 'views';
   $pane->subtype = 'organization';
   $pane->shown = TRUE;
@@ -237,172 +441,25 @@ function slac_igp_config_default_page_manager_pages() {
   );
   $pane->css = array(
     'css_id' => '',
-    'css_class' => 'brown-bodered-white blue-dashed-list',
+    'css_class' => '',
   );
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
   $pane->uuid = '4125565c-b09f-46bd-b838-79903549f878';
   $display->content['new-4125565c-b09f-46bd-b838-79903549f878'] = $pane;
-  $display->panels['colthreerowfour'][0] = 'new-4125565c-b09f-46bd-b838-79903549f878';
+  $display->panels['colthreerowthree'][0] = 'new-4125565c-b09f-46bd-b838-79903549f878';
   $pane = new stdClass();
-  $pane->pid = 'new-c0566837-ec4a-41dd-afae-060a6b4a249d';
-  $pane->panel = 'colthreerowfour';
-  $pane->type = 'block';
-  $pane->subtype = 'boxes-slac_projects';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'override_title' => 0,
-    'override_title_text' => '',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array(
-    'css_id' => '',
-    'css_class' => 'brown-bodered-white',
-  );
-  $pane->extras = array();
-  $pane->position = 1;
-  $pane->locks = array();
-  $pane->uuid = 'c0566837-ec4a-41dd-afae-060a6b4a249d';
-  $display->content['new-c0566837-ec4a-41dd-afae-060a6b4a249d'] = $pane;
-  $display->panels['colthreerowfour'][1] = 'new-c0566837-ec4a-41dd-afae-060a6b4a249d';
-  $pane = new stdClass();
-  $pane->pid = 'new-c0a99c52-d91c-4daf-9852-c1e905e113ff';
-  $pane->panel = 'colthreerowone';
-  $pane->type = 'block';
-  $pane->subtype = 'boxes-search_people';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'override_title' => 0,
-    'override_title_text' => '',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array(
-    'css_id' => '',
-    'css_class' => 'brown-bodered-white no-bg',
-  );
-  $pane->extras = array();
-  $pane->position = 0;
-  $pane->locks = array();
-  $pane->uuid = 'c0a99c52-d91c-4daf-9852-c1e905e113ff';
-  $display->content['new-c0a99c52-d91c-4daf-9852-c1e905e113ff'] = $pane;
-  $display->panels['colthreerowone'][0] = 'new-c0a99c52-d91c-4daf-9852-c1e905e113ff';
-  $pane = new stdClass();
-  $pane->pid = 'new-4ab9910a-8622-4702-a755-b8026a1a09c6';
-  $pane->panel = 'colthreerowsix';
-  $pane->type = 'block';
-  $pane->subtype = 'boxes-site_security';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'override_title' => 0,
-    'override_title_text' => '',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array(
-    'css_id' => '',
-    'css_class' => 'brown-bodered-white',
-  );
-  $pane->extras = array();
-  $pane->position = 0;
-  $pane->locks = array();
-  $pane->uuid = '4ab9910a-8622-4702-a755-b8026a1a09c6';
-  $display->content['new-4ab9910a-8622-4702-a755-b8026a1a09c6'] = $pane;
-  $display->panels['colthreerowsix'][0] = 'new-4ab9910a-8622-4702-a755-b8026a1a09c6';
-  $pane = new stdClass();
-  $pane->pid = 'new-0f83568f-2f80-4619-94f4-00493a7ca0f6';
-  $pane->panel = 'colthreerowsix';
-  $pane->type = 'block';
-  $pane->subtype = 'boxes-stanford_compliance';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'override_title' => 0,
-    'override_title_text' => '',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array(
-    'css_id' => '',
-    'css_class' => 'brown-bodered-white',
-  );
-  $pane->extras = array();
-  $pane->position = 1;
-  $pane->locks = array();
-  $pane->uuid = '0f83568f-2f80-4619-94f4-00493a7ca0f6';
-  $display->content['new-0f83568f-2f80-4619-94f4-00493a7ca0f6'] = $pane;
-  $display->panels['colthreerowsix'][1] = 'new-0f83568f-2f80-4619-94f4-00493a7ca0f6';
-  $pane = new stdClass();
-  $pane->pid = 'new-9672c131-3e48-4e4f-9e94-af57b159ff3b';
-  $pane->panel = 'colthreerowsix';
-  $pane->type = 'block';
-  $pane->subtype = 'boxes-connect';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'override_title' => 0,
-    'override_title_text' => '',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array(
-    'css_id' => '',
-    'css_class' => 'brown-bodered-white',
-  );
-  $pane->extras = array();
-  $pane->position = 2;
-  $pane->locks = array();
-  $pane->uuid = '9672c131-3e48-4e4f-9e94-af57b159ff3b';
-  $display->content['new-9672c131-3e48-4e4f-9e94-af57b159ff3b'] = $pane;
-  $display->panels['colthreerowsix'][2] = 'new-9672c131-3e48-4e4f-9e94-af57b159ff3b';
-  $pane = new stdClass();
-  $pane->pid = 'new-c37fd806-67c5-44c8-ad1f-2f7228756227';
+  $pane->pid = 'new-2f08cf4b-548c-42b1-a287-6fc77b893c3b';
   $pane->panel = 'colthreerowthree';
-  $pane->type = 'views_panes';
-  $pane->subtype = 'ledger_front_list-panel_pane_1';
-  $pane->shown = FALSE;
-  $pane->access = array();
-  $pane->configuration = array();
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array(
-    'css_id' => '',
-    'css_class' => 'brown-bodered-white blue-dashed-list',
-  );
-  $pane->extras = array();
-  $pane->position = 0;
-  $pane->locks = array();
-  $pane->uuid = 'c37fd806-67c5-44c8-ad1f-2f7228756227';
-  $display->content['new-c37fd806-67c5-44c8-ad1f-2f7228756227'] = $pane;
-  $display->panels['colthreerowthree'][0] = 'new-c37fd806-67c5-44c8-ad1f-2f7228756227';
-  $pane = new stdClass();
-  $pane->pid = 'new-7f02be89-f2e3-4237-b4c9-0e64ee05d381';
-  $pane->panel = 'colthreerowtwo';
   $pane->type = 'views';
-  $pane->subtype = 'top_links';
+  $pane->subtype = 'facilities_major_projects';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
     'override_pager_settings' => 0,
     'use_pager' => 0,
-    'nodes_per_page' => '0',
+    'nodes_per_page' => '',
     'pager_id' => '0',
     'offset' => '0',
     'more_link' => 0,
@@ -420,22 +477,91 @@ function slac_igp_config_default_page_manager_pages() {
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array(
-    'css_id' => '',
-    'css_class' => 'brown-bodered-white blue-striped-list mobile',
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '2f08cf4b-548c-42b1-a287-6fc77b893c3b';
+  $display->content['new-2f08cf4b-548c-42b1-a287-6fc77b893c3b'] = $pane;
+  $display->panels['colthreerowthree'][1] = 'new-2f08cf4b-548c-42b1-a287-6fc77b893c3b';
+  $pane = new stdClass();
+  $pane->pid = 'new-c4079fd8-8f09-4243-9e7c-5e028052ece1';
+  $pane->panel = 'colthreerowtwo';
+  $pane->type = 'panels_mini';
+  $pane->subtype = 'poll_mini_panel';
+  $pane->shown = TRUE;
+  $pane->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'role',
+        'settings' => array(
+          'rids' => array(
+            0 => 2,
+          ),
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+    ),
   );
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = '7f02be89-f2e3-4237-b4c9-0e64ee05d381';
-  $display->content['new-7f02be89-f2e3-4237-b4c9-0e64ee05d381'] = $pane;
-  $display->panels['colthreerowtwo'][0] = 'new-7f02be89-f2e3-4237-b4c9-0e64ee05d381';
+  $pane->uuid = 'c4079fd8-8f09-4243-9e7c-5e028052ece1';
+  $display->content['new-c4079fd8-8f09-4243-9e7c-5e028052ece1'] = $pane;
+  $display->panels['colthreerowtwo'][0] = 'new-c4079fd8-8f09-4243-9e7c-5e028052ece1';
   $pane = new stdClass();
-  $pane->pid = 'new-25a9ceb8-b2d3-4be7-b4c8-cc3b59731a2b';
+  $pane->pid = 'new-3187a961-7620-4ead-8534-2fdb62d7380c';
+  $pane->panel = 'colthreerowtwo';
+  $pane->type = 'panels_mini';
+  $pane->subtype = 'quick_poll_block_for_anonymous_u';
+  $pane->shown = TRUE;
+  $pane->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'role',
+        'settings' => array(
+          'rids' => array(
+            0 => 1,
+          ),
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+    ),
+  );
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '3187a961-7620-4ead-8534-2fdb62d7380c';
+  $display->content['new-3187a961-7620-4ead-8534-2fdb62d7380c'] = $pane;
+  $display->panels['colthreerowtwo'][1] = 'new-3187a961-7620-4ead-8534-2fdb62d7380c';
+  $pane = new stdClass();
+  $pane->pid = 'new-a2248a55-b799-471f-80fb-500d8c2b96cf';
   $pane->panel = 'coltworowfive';
   $pane->type = 'panels_mini';
   $pane->subtype = 'new_weather_traffic';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
     'override_title' => 0,
@@ -450,9 +576,9 @@ function slac_igp_config_default_page_manager_pages() {
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = '25a9ceb8-b2d3-4be7-b4c8-cc3b59731a2b';
-  $display->content['new-25a9ceb8-b2d3-4be7-b4c8-cc3b59731a2b'] = $pane;
-  $display->panels['coltworowfive'][0] = 'new-25a9ceb8-b2d3-4be7-b4c8-cc3b59731a2b';
+  $pane->uuid = 'a2248a55-b799-471f-80fb-500d8c2b96cf';
+  $display->content['new-a2248a55-b799-471f-80fb-500d8c2b96cf'] = $pane;
+  $display->panels['coltworowfive'][0] = 'new-a2248a55-b799-471f-80fb-500d8c2b96cf';
   $pane = new stdClass();
   $pane->pid = 'new-b3a7a5ca-2d77-4982-bd20-2b73650db455';
   $pane->panel = 'coltworowfour';
@@ -504,6 +630,44 @@ function slac_igp_config_default_page_manager_pages() {
   $display->content['new-9c49d626-a6ea-4be3-8b60-a610bf499c72'] = $pane;
   $display->panels['coltworowfour'][1] = 'new-9c49d626-a6ea-4be3-8b60-a610bf499c72';
   $pane = new stdClass();
+  $pane->pid = 'new-7f02be89-f2e3-4237-b4c9-0e64ee05d381';
+  $pane->panel = 'coltworowthree';
+  $pane->type = 'views';
+  $pane->subtype = 'top_links';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_pager_settings' => 0,
+    'use_pager' => 0,
+    'nodes_per_page' => '0',
+    'pager_id' => '0',
+    'offset' => '0',
+    'more_link' => 0,
+    'feed_icons' => 0,
+    'panel_args' => 0,
+    'link_to_view' => 0,
+    'args' => '',
+    'url' => '',
+    'display' => 'block',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => '',
+  );
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '7f02be89-f2e3-4237-b4c9-0e64ee05d381';
+  $display->content['new-7f02be89-f2e3-4237-b4c9-0e64ee05d381'] = $pane;
+  $display->panels['coltworowthree'][0] = 'new-7f02be89-f2e3-4237-b4c9-0e64ee05d381';
+  $pane = new stdClass();
   $pane->pid = 'new-9315ddc3-e834-470c-8a89-dc366f3c01b7';
   $pane->panel = 'coltworowthree';
   $pane->type = 'slac_ip_panes_events';
@@ -524,11 +688,11 @@ function slac_igp_config_default_page_manager_pages() {
     'css_class' => 'brown-bodered-white',
   );
   $pane->extras = array();
-  $pane->position = 0;
+  $pane->position = 1;
   $pane->locks = array();
   $pane->uuid = '9315ddc3-e834-470c-8a89-dc366f3c01b7';
   $display->content['new-9315ddc3-e834-470c-8a89-dc366f3c01b7'] = $pane;
-  $display->panels['coltworowthree'][0] = 'new-9315ddc3-e834-470c-8a89-dc366f3c01b7';
+  $display->panels['coltworowthree'][1] = 'new-9315ddc3-e834-470c-8a89-dc366f3c01b7';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

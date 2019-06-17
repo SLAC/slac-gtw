@@ -81,6 +81,7 @@ features[variable][] = node_preview_event
 features[variable][] = node_submitted_event
 features[variable][] = pathauto_node_event_pattern
 features[variable][] = pathauto_taxonomy_term_event_series_pattern
+features[variable][] = pathauto_taxonomy_term_event_type_pattern
 features[variable][] = scheduler_expand_fieldset_event
 features[variable][] = scheduler_publish_enable_event
 features[variable][] = scheduler_publish_past_date_event

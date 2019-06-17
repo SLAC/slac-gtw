@@ -38,7 +38,6 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'access all views',
     'roles' => array(
       'administrator' => 'administrator',
-      'manager' => 'manager',
     ),
     'module' => 'views',
   );
@@ -57,7 +56,6 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'access backup files',
     'roles' => array(
       'administrator' => 'administrator',
-      'manager' => 'manager',
     ),
     'module' => 'backup_migrate',
   );
@@ -122,7 +120,6 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'access site in maintenance mode',
     'roles' => array(
       'administrator' => 'administrator',
-      'manager' => 'manager',
     ),
     'module' => 'system',
   );
@@ -132,7 +129,6 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'access site reports',
     'roles' => array(
       'administrator' => 'administrator',
-      'manager' => 'manager',
     ),
     'module' => 'system',
   );
@@ -142,7 +138,6 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'access user profiles',
     'roles' => array(
       'administrator' => 'administrator',
-      'manager' => 'manager',
     ),
     'module' => 'user',
   );
@@ -180,7 +175,6 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'administer boxes',
     'roles' => array(
       'administrator' => 'administrator',
-      'manager' => 'manager',
     ),
     'module' => 'boxes',
   );
@@ -217,7 +211,6 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'administer filters',
     'roles' => array(
       'administrator' => 'administrator',
-      'manager' => 'manager',
     ),
     'module' => 'filter',
   );
@@ -227,6 +220,7 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'administer image styles',
     'roles' => array(
       'administrator' => 'administrator',
+      'editor' => 'editor',
       'manager' => 'manager',
     ),
     'module' => 'image',
@@ -237,7 +231,6 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'administer menu',
     'roles' => array(
       'administrator' => 'administrator',
-      'manager' => 'manager',
     ),
     'module' => 'menu',
   );
@@ -247,7 +240,6 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'administer menu attributes',
     'roles' => array(
       'administrator' => 'administrator',
-      'manager' => 'manager',
     ),
     'module' => 'menu_attributes',
   );
@@ -275,7 +267,6 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'administer nodequeue',
     'roles' => array(
       'administrator' => 'administrator',
-      'manager' => 'manager',
     ),
     'module' => 'nodequeue',
   );
@@ -315,6 +306,7 @@ function slac_ip_core_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'editor' => 'editor',
+      'manager' => 'manager',
     ),
     'module' => 'redirect',
   );
@@ -369,7 +361,6 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'administer url aliases',
     'roles' => array(
       'administrator' => 'administrator',
-      'manager' => 'manager',
     ),
     'module' => 'path',
   );
@@ -388,7 +379,6 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'administer views',
     'roles' => array(
       'administrator' => 'administrator',
-      'manager' => 'manager',
     ),
     'module' => 'views',
   );
@@ -585,7 +575,6 @@ function slac_ip_core_user_default_permissions() {
     'name' => 'perform backup',
     'roles' => array(
       'administrator' => 'administrator',
-      'manager' => 'manager',
     ),
     'module' => 'backup_migrate',
   );

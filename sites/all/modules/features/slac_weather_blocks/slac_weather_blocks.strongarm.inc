@@ -14,7 +14,7 @@ function slac_weather_blocks_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'wunderground_weather_api_key';
-  $strongarm->value = '3d7d9cc54495a5da';
+  $strongarm->value = 'c9428c01ee51192a';
   $export['wunderground_weather_api_key'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -42,7 +42,7 @@ function slac_weather_blocks_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'wunderground_weather_cache_expire';
-  $strongarm->value = '86400';
+  $strongarm->value = '10800';
   $export['wunderground_weather_cache_expire'] = $strongarm;
 
   $strongarm = new stdClass();
