@@ -10,7 +10,7 @@
 function slac_ip_media_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'file-image-field_file_image_alt_text'
+  // Exported field_instance: 'file-image-field_file_image_alt_text'.
   $field_instances['file-image-field_file_image_alt_text'] = array(
     'bundle' => 'image',
     'default_value' => NULL,
@@ -67,7 +67,7 @@ function slac_ip_media_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'file-image-field_file_image_title_text'
+  // Exported field_instance: 'file-image-field_file_image_title_text'.
   $field_instances['file-image-field_file_image_title_text'] = array(
     'bundle' => 'image',
     'default_value' => NULL,
@@ -124,7 +124,7 @@ function slac_ip_media_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'file-image-field_file_shared_caption'
+  // Exported field_instance: 'file-image-field_file_shared_caption'.
   $field_instances['file-image-field_file_shared_caption'] = array(
     'bundle' => 'image',
     'default_value' => NULL,
@@ -182,7 +182,7 @@ function slac_ip_media_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'file-video-field_file_shared_caption'
+  // Exported field_instance: 'file-video-field_file_shared_caption'.
   $field_instances['file-video-field_file_shared_caption'] = array(
     'bundle' => 'video',
     'default_value' => NULL,

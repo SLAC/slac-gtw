@@ -35,7 +35,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['relationships']['parent']['id'] = 'parent';
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
-  /* Field: Taxonomy term: Link */
+  /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
@@ -72,7 +72,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['filters']['name']['field'] = 'name';
   $handler->display->display_options['filters']['name']['relationship'] = 'parent';
   $handler->display->display_options['filters']['name']['operator'] = 'empty';
-  /* Filter criterion: Taxonomy term: Link (field_link:url) */
+  /* Filter criterion: Field: Link (field_link:url) */
   $handler->display->display_options['filters']['field_link_url']['id'] = 'field_link_url';
   $handler->display->display_options['filters']['field_link_url']['table'] = 'field_data_field_link';
   $handler->display->display_options['filters']['field_link_url']['field'] = 'field_link_url';
@@ -81,11 +81,9 @@ function slac_igp_resources_views_default_views() {
   /* Display: Directorate links */
   $handler = $view->new_display('block', 'Directorate links', 'block');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'list';
-  $handler->display->display_options['style_options']['row_class'] = 'list-link-item';
-  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
-  $handler->display->display_options['style_options']['class'] = 'organization-index-list';
-  $handler->display->display_options['style_options']['wrapper_class'] = '';
+  $handler->display->display_options['style_plugin'] = 'jump_menu';
+  $handler->display->display_options['style_options']['hide'] = TRUE;
+  $handler->display->display_options['style_options']['path'] = 'field_link';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -121,7 +119,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['field_resource_authenticated']['label'] = '';
   $handler->display->display_options['fields']['field_resource_authenticated']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_resource_authenticated']['element_label_colon'] = FALSE;
-  /* Field: Taxonomy term: Link */
+  /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
@@ -141,7 +139,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Field: Taxonomy term: Link */
+  /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link_1']['id'] = 'field_link_1';
   $handler->display->display_options['fields']['field_link_1']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link_1']['field'] = 'field_link';
@@ -212,7 +210,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['relationships']['parent']['id'] = 'parent';
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
-  /* Field: Taxonomy term: Link */
+  /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
@@ -272,7 +270,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['header']['view']['field'] = 'view';
   $handler->display->display_options['header']['view']['view_to_insert'] = 'research_resource:block_1';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Taxonomy term: Link */
+  /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
@@ -390,7 +388,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['relationships']['parent']['id'] = 'parent';
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
-  /* Field: Taxonomy term: Link */
+  /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
@@ -585,7 +583,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['header']['view']['field'] = 'view';
   $handler->display->display_options['header']['view']['view_to_insert'] = 'alphapager:block';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Taxonomy term: Link */
+  /* Field: Field: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
@@ -636,7 +634,7 @@ function slac_igp_resources_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'staff_resource' => 'staff_resource',
   );
-  /* Filter criterion: Taxonomy term: Link (field_link:url) */
+  /* Filter criterion: Field: Link (field_link:url) */
   $handler->display->display_options['filters']['field_link_url']['id'] = 'field_link_url';
   $handler->display->display_options['filters']['field_link_url']['table'] = 'field_data_field_link';
   $handler->display->display_options['filters']['field_link_url']['field'] = 'field_link_url';

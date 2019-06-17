@@ -10,7 +10,7 @@
 function ct_basic_page_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-page-body'
+  // Exported field_instance: 'node-page-body'.
   $field_instances['node-page-body'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -73,7 +73,7 @@ function ct_basic_page_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_page_subtitle'
+  // Exported field_instance: 'node-page-field_page_subtitle'.
   $field_instances['node-page-field_page_subtitle'] = array(
     'bundle' => 'page',
     'default_value' => NULL,

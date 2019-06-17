@@ -51,6 +51,7 @@ function slac_ip_media_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'editor' => 'editor',
+      'manager' => 'manager',
     ),
     'module' => 'file_entity',
   );

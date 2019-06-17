@@ -74,55 +74,57 @@ function pm_flea_market_default_page_manager_pages() {
   $display->cache = array();
   $display->title = 'Bulletin Board';
   $display->uuid = '10cc569a-39b8-4ddb-9c82-65476b2563de';
+  $display->storage_type = 'page_manager';
+  $display->storage_id = 'page_flea_market__panel_context_ce8be9f4-d138-465a-97e3-8b1331ba2ebe';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-3958e3f2-ac0a-40df-adc1-ec477355cb51';
-    $pane->panel = 'main_content_column';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '<ul><li><a href="/community-bulletin-board/my-items">My Community Bulletin Board Posts <span>&gt;</span></a></li><li><a href="/node/add/flea-market-post">Submit Bulletin Board Post <span>&gt;</span></a></li></ul>',
-      'format' => 'full_html',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => 'flea_market_nav',
-      'css_class' => 'my-flea-market-nav',
-    );
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '3958e3f2-ac0a-40df-adc1-ec477355cb51';
-    $display->content['new-3958e3f2-ac0a-40df-adc1-ec477355cb51'] = $pane;
-    $display->panels['main_content_column'][0] = 'new-3958e3f2-ac0a-40df-adc1-ec477355cb51';
-    $pane = new stdClass();
-    $pane->pid = 'new-38783314-328b-494f-9fab-18a60b3b0acb';
-    $pane->panel = 'main_content_column';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'flea_market_listing-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '38783314-328b-494f-9fab-18a60b3b0acb';
-    $display->content['new-38783314-328b-494f-9fab-18a60b3b0acb'] = $pane;
-    $display->panels['main_content_column'][1] = 'new-38783314-328b-494f-9fab-18a60b3b0acb';
+  $pane = new stdClass();
+  $pane->pid = 'new-3958e3f2-ac0a-40df-adc1-ec477355cb51';
+  $pane->panel = 'main_content_column';
+  $pane->type = 'custom';
+  $pane->subtype = 'custom';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'admin_title' => '',
+    'title' => '',
+    'body' => '<ul><li><a href="/community-bulletin-board/my-items">My Community Bulletin Board Posts <span>&gt;</span></a></li><li><a href="/node/add/flea-market-post">Submit Bulletin Board Post <span>&gt;</span></a></li></ul>',
+    'format' => 'full_html',
+    'substitute' => TRUE,
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => 'flea_market_nav',
+    'css_class' => 'my-flea-market-nav',
+  );
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '3958e3f2-ac0a-40df-adc1-ec477355cb51';
+  $display->content['new-3958e3f2-ac0a-40df-adc1-ec477355cb51'] = $pane;
+  $display->panels['main_content_column'][0] = 'new-3958e3f2-ac0a-40df-adc1-ec477355cb51';
+  $pane = new stdClass();
+  $pane->pid = 'new-38783314-328b-494f-9fab-18a60b3b0acb';
+  $pane->panel = 'main_content_column';
+  $pane->type = 'views_panes';
+  $pane->subtype = 'flea_market_listing-panel_pane_1';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array();
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '38783314-328b-494f-9fab-18a60b3b0acb';
+  $display->content['new-38783314-328b-494f-9fab-18a60b3b0acb'] = $pane;
+  $display->panels['main_content_column'][1] = 'new-38783314-328b-494f-9fab-18a60b3b0acb';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-38783314-328b-494f-9fab-18a60b3b0acb';
   $handler->conf['display'] = $display;
@@ -174,55 +176,57 @@ function pm_flea_market_default_page_manager_pages() {
   $display->cache = array();
   $display->title = 'My Bulletin Board Items';
   $display->uuid = '10cc569a-39b8-4ddb-9c82-65476b2563de';
+  $display->storage_type = 'page_manager';
+  $display->storage_id = 'page_flea_market__panel_context_3212e455-0fc3-465f-9767-2428196bda9c';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-3958e3f2-ac0a-40df-adc1-ec477355cb51';
-    $pane->panel = 'main_content_column';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '<ul><li><a href="/community-bulletin-board">Bulletin Board Listings &gt;</a></li><li><a href="/node/add/flea-market-post">Submit Bulletin Board Items &gt;</a></li></ul>',
-      'format' => 'full_html',
-      'substitute' => TRUE,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => 'flea_market_nav',
-      'css_class' => 'my-flea-market-nav',
-    );
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '3958e3f2-ac0a-40df-adc1-ec477355cb51';
-    $display->content['new-3958e3f2-ac0a-40df-adc1-ec477355cb51'] = $pane;
-    $display->panels['main_content_column'][0] = 'new-3958e3f2-ac0a-40df-adc1-ec477355cb51';
-    $pane = new stdClass();
-    $pane->pid = 'new-c1f29952-ce7a-405e-a9ef-9bfe76a86306';
-    $pane->panel = 'main_content_column';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'flea_market_listing-panel_pane_2';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = 'c1f29952-ce7a-405e-a9ef-9bfe76a86306';
-    $display->content['new-c1f29952-ce7a-405e-a9ef-9bfe76a86306'] = $pane;
-    $display->panels['main_content_column'][1] = 'new-c1f29952-ce7a-405e-a9ef-9bfe76a86306';
+  $pane = new stdClass();
+  $pane->pid = 'new-3958e3f2-ac0a-40df-adc1-ec477355cb51';
+  $pane->panel = 'main_content_column';
+  $pane->type = 'custom';
+  $pane->subtype = 'custom';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'admin_title' => '',
+    'title' => '',
+    'body' => '<ul><li><a href="/community-bulletin-board">Bulletin Board Listings &gt;</a></li><li><a href="/node/add/flea-market-post">Submit Bulletin Board Items &gt;</a></li></ul>',
+    'format' => 'full_html',
+    'substitute' => TRUE,
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => 'flea_market_nav',
+    'css_class' => 'my-flea-market-nav',
+  );
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '3958e3f2-ac0a-40df-adc1-ec477355cb51';
+  $display->content['new-3958e3f2-ac0a-40df-adc1-ec477355cb51'] = $pane;
+  $display->panels['main_content_column'][0] = 'new-3958e3f2-ac0a-40df-adc1-ec477355cb51';
+  $pane = new stdClass();
+  $pane->pid = 'new-c1f29952-ce7a-405e-a9ef-9bfe76a86306';
+  $pane->panel = 'main_content_column';
+  $pane->type = 'views_panes';
+  $pane->subtype = 'flea_market_listing-panel_pane_2';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array();
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = 'c1f29952-ce7a-405e-a9ef-9bfe76a86306';
+  $display->content['new-c1f29952-ce7a-405e-a9ef-9bfe76a86306'] = $pane;
+  $display->panels['main_content_column'][1] = 'new-c1f29952-ce7a-405e-a9ef-9bfe76a86306';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

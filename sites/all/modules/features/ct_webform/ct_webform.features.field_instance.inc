@@ -10,7 +10,7 @@
 function ct_webform_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-webform-body'
+  // Exported field_instance: 'node-webform-body'.
   $field_instances['node-webform-body'] = array(
     'bundle' => 'webform',
     'default_value' => NULL,

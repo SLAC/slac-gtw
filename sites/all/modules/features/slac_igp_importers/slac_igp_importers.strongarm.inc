@@ -302,5 +302,19 @@ function slac_igp_importers_strongarm() {
   $strongarm->value = 0;
   $export['node_submitted_news_feed'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_calendar_feed_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_calendar_feed_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_news_feed_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_news_feed_pattern'] = $strongarm;
+
   return $export;
 }

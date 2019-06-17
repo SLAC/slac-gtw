@@ -1,5 +1,7 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the Event Type feature.
  */
+
+include_once 't_event_type.features.inc';
