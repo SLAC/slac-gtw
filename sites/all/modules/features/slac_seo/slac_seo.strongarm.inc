@@ -148,5 +148,32 @@ nonGoogleScripts
 nonGoogleIframes';
   $export['google_tag_whitelist_classes'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hotjar_settings';
+  $strongarm->value = array(
+    'hotjar_account' => '1423725',
+    'hotjar_snippet_version' => '6',
+    'hotjar_visibility_pages' => '0',
+    'hotjar_pages' => 'admin
+admin/*
+batch
+node/add*
+node/*/*
+user/*/*',
+    'hotjar_visibility_roles' => '0',
+    'hotjar_roles' => array(
+      1 => 0,
+      2 => 0,
+      5 => 0,
+      4 => 0,
+      6 => 0,
+      7 => 0,
+      3 => 0,
+    ),
+  );
+  $export['hotjar_settings'] = $strongarm;
+
   return $export;
 }
