@@ -3,6 +3,7 @@ description = SEO related features
 core = 7.x
 package = SLAC
 dependencies[] = ctools
+dependencies[] = google_tag
 dependencies[] = strongarm
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
