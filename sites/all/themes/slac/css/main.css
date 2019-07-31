@@ -8430,3 +8430,20 @@ h1.title {
     margin-bottom: 2rem;
   }
 }
+.slac-alert {
+  color: #fff;
+  background-color: #890025;
+  padding: 10px 20px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.slac-alert p {
+  margin: 0px;
+}
+.slac-alert a {
+  color: #fff;
+}
+.slac-alert a:hover, .slac-alert a:active {
+  text-decoration: none;
+}
