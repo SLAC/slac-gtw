@@ -1,0 +1,10 @@
+name = SLAC Rules
+description = Features related to Rules
+core = 7.x
+package = Rules
+dependencies[] = comment
+dependencies[] = entity
+dependencies[] = rules
+features[features_api][] = api:2
+features[rules_config][] = rules_notification_when_comment_has_been_added
+project path = sites/all/modules/features
