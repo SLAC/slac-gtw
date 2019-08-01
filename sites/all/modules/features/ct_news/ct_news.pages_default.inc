@@ -468,6 +468,57 @@ function ct_news_default_page_manager_handlers() {
   $display->content['new-592e9086-14cc-482b-a038-11d432b8c3d5'] = $pane;
   $display->panels['left'][13] = 'new-592e9086-14cc-482b-a038-11d432b8c3d5';
   $pane = new stdClass();
+  $pane->pid = 'new-ef24e872-4315-40c2-8802-86e0521f90fc';
+  $pane->panel = 'left';
+  $pane->type = 'node_comments';
+  $pane->subtype = 'node_comments';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'mode' => '1',
+    'comments_per_page' => '50',
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 14;
+  $pane->locks = array();
+  $pane->uuid = 'ef24e872-4315-40c2-8802-86e0521f90fc';
+  $display->content['new-ef24e872-4315-40c2-8802-86e0521f90fc'] = $pane;
+  $display->panels['left'][14] = 'new-ef24e872-4315-40c2-8802-86e0521f90fc';
+  $pane = new stdClass();
+  $pane->pid = 'new-b494fe95-6d91-417f-8928-4a5bd4b6a71b';
+  $pane->panel = 'left';
+  $pane->type = 'node_comment_form';
+  $pane->subtype = 'node_comment_form';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'anon_links' => 0,
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 15;
+  $pane->locks = array();
+  $pane->uuid = 'b494fe95-6d91-417f-8928-4a5bd4b6a71b';
+  $display->content['new-b494fe95-6d91-417f-8928-4a5bd4b6a71b'] = $pane;
+  $display->panels['left'][15] = 'new-b494fe95-6d91-417f-8928-4a5bd4b6a71b';
+  $pane = new stdClass();
   $pane->pid = 'new-50321a9c-df30-4e63-b49d-9ff062f162d7';
   $pane->panel = 'right';
   $pane->type = 'entity_field';
