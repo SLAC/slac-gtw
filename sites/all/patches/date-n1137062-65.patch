@@ -1,0 +1,40 @@
+From f5430603f71a2de5fe12660c5f7a7eedaa9df707 Mon Sep 17 00:00:00 2001
+From: damienmckenna <damienmckenna@108450.no-reply.drupal.org>
+Date: Tue, 21 Aug 2018 10:53:23 -0400
+Subject: [PATCH] =?UTF-8?q?Issue=20#1137062=20by=20El=20Alema=C3=B1o,=20Sy?=
+ =?UTF-8?q?lvain=20Lecoy,=20schifazl,=20DamienMcKenna,=20hughworm:=20date?=
+ =?UTF-8?q?=5Fweek=5Frange=20and=20date=5Fiso=5Fweek=5Frange=20both=20retu?=
+ =?UTF-8?q?rns=201=20day=20too=20much?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ date_api/date_api.module | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/date_api/date_api.module b/date_api/date_api.module
+index 2149db1e..61d87c87 100644
+--- a/date_api/date_api.module
++++ b/date_api/date_api.module
+@@ -2061,7 +2061,7 @@ function date_week_range($week, $year) {
+ 
+   // Move forwards to the last day of the week.
+   $max_date = clone $min_date;
+-  date_modify($max_date, '+6 days');
++  date_modify($max_date, '+6 days +23 hours +59 minutes +59 seconds');
+ 
+   if (date_format($min_date, 'Y') != $year) {
+     $min_date = new DateObject($year . '-01-01 00:00:00');
+@@ -2098,7 +2098,7 @@ function date_iso_week_range($week, $year) {
+ 
+   // Move forwards to the last day of the week.
+   $max_date = clone $min_date;
+-  date_modify($max_date, '+6 days');
++  date_modify($max_date, '+6 days +23 hours +59 minutes +59 seconds');
+   return array($min_date, $max_date);
+ }
+ 
+-- 
+2.17.0
+
