@@ -323,7 +323,6 @@ function slac_date_nav_title($params) {
       $y1 = $date_info->min_date->format('Y');
       $m1 = $date_info->min_date->format('M');
       $end_date = new DateTime($date_info->max_date);
-      $end_date->sub(new DateInterval('P1D'));
       $y2 = $end_date->format('Y');
       $m2 = $end_date->format('M');
 
