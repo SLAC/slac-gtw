@@ -132,19 +132,19 @@ function ct_event_strongarm() {
           'weight' => '0',
         ),
         'metatags' => array(
-          'weight' => '22',
+          'weight' => '23',
         ),
         'path' => array(
-          'weight' => '21',
+          'weight' => '22',
         ),
         'redirect' => array(
-          'weight' => '20',
+          'weight' => '21',
         ),
       ),
       'display' => array(
         'created' => array(
           'default' => array(
-            'weight' => '-5',
+            'weight' => '9',
             'visible' => FALSE,
           ),
           'news_archive' => array(
@@ -174,7 +174,7 @@ function ct_event_strongarm() {
         ),
         'author' => array(
           'default' => array(
-            'weight' => '-3',
+            'weight' => '12',
             'visible' => FALSE,
           ),
           'news_archive' => array(
@@ -204,7 +204,7 @@ function ct_event_strongarm() {
         ),
         'title' => array(
           'default' => array(
-            'weight' => '-4',
+            'weight' => '0',
             'visible' => TRUE,
           ),
           'news_archive' => array(
@@ -238,7 +238,7 @@ function ct_event_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
-            'weight' => '-5',
+            'weight' => '10',
             'visible' => FALSE,
           ),
           'teaser' => array(
@@ -264,7 +264,7 @@ function ct_event_strongarm() {
         ),
         'published_at' => array(
           'default' => array(
-            'weight' => '-3',
+            'weight' => '11',
             'visible' => FALSE,
           ),
           'headline' => array(
@@ -348,13 +348,6 @@ function ct_event_strongarm() {
   $strongarm->name = 'pathauto_taxonomy_term_event_series_pattern';
   $strongarm->value = 'events/[term:name]';
   $export['pathauto_taxonomy_term_event_series_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_event_type_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_event_type_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

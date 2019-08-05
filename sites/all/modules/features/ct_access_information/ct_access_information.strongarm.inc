@@ -153,19 +153,19 @@ function ct_access_information_strongarm() {
           'weight' => '0',
         ),
         'metatags' => array(
-          'weight' => '21',
+          'weight' => '22',
         ),
         'path' => array(
-          'weight' => '19',
+          'weight' => '20',
         ),
         'redirect' => array(
-          'weight' => '20',
+          'weight' => '21',
         ),
       ),
       'display' => array(
         'created' => array(
           'default' => array(
-            'weight' => '-5',
+            'weight' => '6',
             'visible' => FALSE,
           ),
           'news_archive' => array(
@@ -181,7 +181,7 @@ function ct_access_information_strongarm() {
             'visible' => FALSE,
           ),
           'access_listing' => array(
-            'weight' => '1',
+            'weight' => '7',
             'visible' => FALSE,
           ),
           'slac_term_listing' => array(
@@ -199,7 +199,7 @@ function ct_access_information_strongarm() {
         ),
         'author' => array(
           'default' => array(
-            'weight' => '-3',
+            'weight' => '9',
             'visible' => FALSE,
           ),
           'news_archive' => array(
@@ -215,7 +215,7 @@ function ct_access_information_strongarm() {
             'visible' => FALSE,
           ),
           'access_listing' => array(
-            'weight' => '8',
+            'weight' => '11',
             'visible' => FALSE,
           ),
           'slac_term_listing' => array(
@@ -233,7 +233,7 @@ function ct_access_information_strongarm() {
         ),
         'title' => array(
           'default' => array(
-            'weight' => '-4',
+            'weight' => '0',
             'visible' => TRUE,
           ),
           'news_archive' => array(
@@ -249,7 +249,7 @@ function ct_access_information_strongarm() {
             'visible' => FALSE,
           ),
           'access_listing' => array(
-            'weight' => '2',
+            'weight' => '1',
             'visible' => TRUE,
           ),
           'slac_term_listing' => array(
@@ -271,7 +271,7 @@ function ct_access_information_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
-            'weight' => '-5',
+            'weight' => '7',
             'visible' => FALSE,
           ),
           'teaser' => array(
@@ -283,7 +283,7 @@ function ct_access_information_strongarm() {
             'visible' => FALSE,
           ),
           'access_listing' => array(
-            'weight' => '7',
+            'weight' => '10',
             'visible' => FALSE,
           ),
           'slac_term_listing' => array(
@@ -309,11 +309,11 @@ function ct_access_information_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
-            'weight' => '-3',
+            'weight' => '8',
             'visible' => FALSE,
           ),
           'access_listing' => array(
-            'weight' => '-3',
+            'weight' => '5',
             'visible' => FALSE,
           ),
           'slac_term_listing' => array(

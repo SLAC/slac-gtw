@@ -101,33 +101,36 @@ function v_event_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Date */
-  $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['label'] = '';
-  $handler->display->display_options['fields']['field_event_date']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_date']['settings'] = array(
-    'format_type' => 'calendar_item',
-    'fromto' => 'value',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-  );
-  /* Field: Content: Event Time */
-  $handler->display->display_options['fields']['field_event_date_1']['id'] = 'field_event_date_1';
-  $handler->display->display_options['fields']['field_event_date_1']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['fields']['field_event_date_1']['field'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date_1']['ui_name'] = 'Content: Event Time';
-  $handler->display->display_options['fields']['field_event_date_1']['label'] = '';
-  $handler->display->display_options['fields']['field_event_date_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_event_date_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_date_1']['settings'] = array(
-    'format_type' => 'calendar_item_time',
+  $handler->display->display_options['fields']['field_e_date']['id'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['field'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['label'] = '';
+  $handler->display->display_options['fields']['field_e_date']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_e_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_e_date']['settings'] = array(
+    'format_type' => 'medium',
+    'custom_date_format' => '',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: Content: Date */
+  $handler->display->display_options['fields']['field_e_date_1']['id'] = 'field_e_date_1';
+  $handler->display->display_options['fields']['field_e_date_1']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['fields']['field_e_date_1']['field'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date_1']['label'] = '';
+  $handler->display->display_options['fields']['field_e_date_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_e_date_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_e_date_1']['settings'] = array(
+    'format_type' => 'calendar_item_time',
+    'custom_date_format' => '',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
   );
   /* Field: Content: Location */
   $handler->display->display_options['fields']['field_shared_location']['id'] = 'field_shared_location';
@@ -142,7 +145,7 @@ function v_event_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['ui_name'] = 'Time and Location';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_event_date_1], [field_shared_location]';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_e_date_1], [field_shared_location]';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Field: ical Link (Global: Custom text) */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
@@ -161,8 +164,7 @@ function v_event_views_default_views() {
   $handler->display->display_options['fields']['nothing_2']['label'] = '';
   $handler->display->display_options['fields']['nothing_2']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nothing_2']['alter']['text'] = 'Announcement title: [title] \\n
-Date: [field_event_date] \\n
-Time: [field_event_date_1] \\n
+Date: [field_e_date] \\n
 URL: [nothing_3] \\n';
   $handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;
   /* Field: Content: Existing / New */
@@ -208,7 +210,7 @@ URL: [nothing_3] \\n';
   $handler->display->display_options['style_options']['cal_name'] = 'SLAC Events';
   $handler->display->display_options['style_options']['no_calname'] = TRUE;
   $handler->display->display_options['row_plugin'] = 'date_ical_fields';
-  $handler->display->display_options['row_options']['date_field'] = 'field_event_date';
+  $handler->display->display_options['row_options']['date_field'] = 'field_e_date';
   $handler->display->display_options['row_options']['title_field'] = 'title';
   $handler->display->display_options['row_options']['description_field'] = 'nothing_2';
   $handler->display->display_options['row_options']['location_field'] = 'field_shared_location';
