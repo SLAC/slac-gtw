@@ -11,7 +11,7 @@
 function slac_alert_block_info() {
   $blocks = array();
   $blocks['slac_alert'] = array(
-    'info' => t('SlAC Alert'),
+    'info' => t('SLAC Alert'),
   );
 
   return $blocks;
