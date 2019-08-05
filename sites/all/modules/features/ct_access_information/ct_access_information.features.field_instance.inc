@@ -120,7 +120,7 @@ function ct_access_information_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 10,
+      'weight' => 9,
     ),
   );
 
@@ -201,7 +201,7 @@ function ct_access_information_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 6,
+      'weight' => 5,
     ),
   );
 
@@ -294,7 +294,7 @@ function ct_access_information_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 5,
+      'weight' => 4,
     ),
   );
 
@@ -302,7 +302,7 @@ function ct_access_information_field_default_field_instances() {
   $field_instances['node-access_information-field_event_date'] = array(
     'bundle' => 'access_information',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Legacy field - Please do not use.',
     'display' => array(
       'access_listing' => array(
         'label' => 'hidden',
@@ -356,7 +356,7 @@ function ct_access_information_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_event_date',
     'label' => 'Access Restrictions Dates',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'default_value' => 'blank',
       'default_value2' => 'blank',
@@ -373,11 +373,12 @@ function ct_access_information_field_default_field_instances() {
         'input_format' => 'm/d/Y - g:i:sa',
         'input_format_custom' => '',
         'label_position' => 'above',
+        'no_fieldset' => 0,
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 4,
+      'weight' => 22,
     ),
   );
 
@@ -455,7 +456,7 @@ function ct_access_information_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 12,
+      'weight' => 11,
     ),
   );
 
@@ -602,7 +603,7 @@ function ct_access_information_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'email_textfield',
-      'weight' => 16,
+      'weight' => 15,
     ),
   );
 
@@ -683,7 +684,7 @@ function ct_access_information_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 15,
+      'weight' => 14,
     ),
   );
 
@@ -758,7 +759,7 @@ function ct_access_information_field_default_field_instances() {
         'placeholder' => '',
       ),
       'type' => 'telephone_default',
-      'weight' => 17,
+      'weight' => 16,
     ),
   );
 
@@ -842,7 +843,7 @@ function ct_access_information_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 9,
+      'weight' => 8,
     ),
   );
 
@@ -957,7 +958,7 @@ function ct_access_information_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 11,
+      'weight' => 10,
     ),
   );
 
@@ -1038,7 +1039,7 @@ function ct_access_information_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 7,
+      'weight' => 6,
     ),
   );
 
@@ -1115,7 +1116,7 @@ function ct_access_information_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -1277,7 +1278,7 @@ function ct_access_information_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 19,
+      'weight' => 18,
     ),
   );
 
@@ -1452,7 +1453,7 @@ function ct_access_information_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 13,
+      'weight' => 12,
     ),
   );
 
@@ -1550,7 +1551,7 @@ function ct_access_information_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 14,
+      'weight' => 13,
     ),
   );
 
@@ -1625,7 +1626,7 @@ function ct_access_information_field_default_field_instances() {
         'type' => 60,
       ),
       'type' => 'fieldset_tags',
-      'weight' => 18,
+      'weight' => 17,
     ),
   );
 
@@ -1644,6 +1645,7 @@ function ct_access_information_field_default_field_instances() {
   t('If this Item is being promoted as news, this is the title that will display when it appears in News listings.');
   t('If this option is checked, this item will appear along with other News in news listings.');
   t('Image');
+  t('Legacy field - Please do not use.');
   t('Location');
   t('News Title');
   t('News Type');
