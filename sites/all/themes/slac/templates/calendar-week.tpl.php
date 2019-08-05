@@ -63,7 +63,7 @@ foreach ($day_names as $key => $value) {
 
         $week_day->add($one_day);
       ?>
-      <td class="<?php print $cell_class ?>"><?php print $date_day; ?></td>
+      <td><?php print $date_day; ?></td>
       <?php endfor; ?>
     </tr>
 
