@@ -2,12 +2,12 @@
 /**
  * @file
  * Template to display a view as a calendar week.
- *
+ * 
  * @see template_preprocess_calendar_week.
  *
  * $day_names: An array of the day of week names for the table header.
  * $rows: The rendered data for this week.
- *
+ * 
  * For each day of the week, you have:
  * $rows['date'] - the date for this day, formatted as YYYY-MM-DD.
  * $rows['datebox'] - the formatted datebox for this day.
@@ -17,31 +17,29 @@
  * $rows['items'][$time_period]['hour'] - the formatted hour for a time period.
  * $rows['items'][$time_period]['ampm'] - the formatted ampm value, if any for a time period.
  * $rows['items'][$time_period]['values'] - An array of formatted items for a time period.
- *
+ * 
  * $view: The view.
  * $min_date_formatted: The minimum date for this calendar in the format YYYY-MM-DD HH:MM:SS.
  * $max_date_formatted: The maximum date for this calendar in the format YYYY-MM-DD HH:MM:SS.
- *
+ * 
  */
-
+//dsm('Display: '. $display_type .': '. $min_date_formatted .' to '. $max_date_formatted);
+//dsm($rows);
+//dsm($items);
 $index = 0;
 $header_ids = array();
 foreach ($day_names as $key => $value) {
   $header_ids[$key] = $value['header_id'];
 }
-$today = new DateTime(date('Y-m-d'));
-$today_day_col = $today->format('w');
 ?>
 <div class="calendar-calendar"><div class="week-view">
 <table class="full">
   <thead>
     <tr>
+      <?php if($by_hour_count > 0 || !empty($start_times)) :?>
+      <th class="calendar-agenda-hour"><?php print t('Time')?></th>
+      <?php endif;?>
       <?php foreach ($day_names as $cell): ?>
-        <?php
-        if ($cell['header_id'] == 'Saturday' || $cell['header_id'] == 'Sunday') {
-          $cell['class'] .= ' weekend';
-        }
-        ?>
         <th class="<?php print $cell['class']; ?>" id="<?php print $cell['header_id']; ?>">
           <span class="mobile"><?php print $cell['data']; ?></span>
           <span class="desktop"><?php print $cell['header_id']; ?></span>
@@ -50,23 +48,18 @@ $today_day_col = $today->format('w');
     </tr>
   </thead>
   <tbody>
+
     <tr class="date-day">
       <?php
         $cell_titles = array();
         $week_day = new DateTime($view->date_info->min_date);
         $week_last_day = new DateTime($view->date_info->max_date);
         $one_day = new DateInterval('P1D');
-        $is_current_week = ($week_day <= $today && $today <= $week_last_day);
       ?>
       <?php for ($i = 0; $i < 7; $i++): ?>
       <?php
         $date_day = $week_day->format('j');
         $cell_titles[$i] = strtoupper($week_day->format('D')) . $week_day->format(' M j');
-
-        $cell_class = '';
-        if ($is_current_week && $i == $today_day_col) {
-          $cell_class = 'today';
-        }
 
         $week_day->add($one_day);
       ?>
@@ -74,45 +67,79 @@ $today_day_col = $today->format('w');
       <?php endfor; ?>
     </tr>
 
-    <tr class="first last">
-    <?php
-    // Custom rewrite for the Calendar module Week view.
-    // Combines multi-day & single-day events into one row so they stack the way
-    // our use case calls for.
-    $day_containers = array();
-    foreach ($rows['multiday_buckets'] as $k => $multiday_row) {
-      $day_containers[$k] = $multiday_row + $rows['singleday_buckets'][$k];
-    }
-    ?>
-    <?php foreach ($day_containers as $index => $day_container): ?>
-      <?php
-      $cell_class = ($index == 0 || $index == 6) ? ' weekend' : '';
-      if ($is_current_week) {
-        $cell_class .= ($today_day_col == $index) ? ' today' : '';
+    <?php for ($i = 0; $i < $multiday_rows; $i++): ?>
+    <?php 
+      $colpos = 0; 
+      $rowclass = "all-day";
+      if( $i == 0) {
+        $rowclass .= " first";
       }
-      ?>
-      <td class="calendar-agenda-items single-day<?php print $cell_class; ?> " data-title="<?php print $cell_titles[$index]; ?>" headers="<?php print $header_ids[$index] ?>">
-        <div class="calendar">
-
-          <?php if (!empty($day_container)): ?>
+      if( $i == $multiday_rows - 1) {
+        $rowclass .= " last";
+      }
+    ?>
+    <tr class="<?php print $rowclass?>">
+      <?php if($i == 0 && ($by_hour_count > 0 || !empty($start_times))) :?>
+      <td class="<?php print $agenda_hour_class ?>" rowspan="<?php print $multiday_rows?>">
+        <span class="calendar-hour"><?php print t('All day', array(), array('context' => 'datetime'))?></span>
+      </td>
+      <?php endif; ?>
+      <?php for($j = 0; $j < 6; $j++): ?>
+        <?php $cell = (empty($all_day[$j][$i])) ? NULL : $all_day[$j][$i]; ?>
+        <?php if($cell != NULL && $cell['filled'] && $cell['wday'] == $j): ?>
+          <?php for($k = $colpos; $k < $cell['wday']; $k++) : ?>
+          <td class="multi-day no-entry"><div class="inner">&nbsp;</div></td>
+          <?php endfor;?>
+          <td colspan="<?php print $cell['colspan']?>" class="multi-day">
             <div class="inner">
-            <?php foreach ($day_container as $time_str => $items): ?>
-              <?php foreach($items as $item): ?>
+            <?php print $cell['entry']?>
+            </div>
+          </td>
+          <?php $colpos = $cell['wday'] + $cell['colspan']; ?>
+        <?php endif; ?>
+      <?php endfor; ?>  
+      <?php for($j = $colpos; $j < 7; $j++) : ?>
+      <td class="multi-day no-entry"><div class="inner">&nbsp;</div></td>
+      <?php endfor;?>
+    </tr>
+    <?php endfor; ?>  
+    <?php foreach ($items as $time): ?>
+    <tr class="not-all-day">
+      <td class="calendar-agenda-hour">
+        <span class="calendar-hour"><?php print $time['hour']; ?></span><span class="calendar-ampm"><?php print $time['ampm']; ?></span>
+      </td>
+      <?php $curpos = 0; ?>
+      <?php foreach ($columns as $index => $column): ?>
+        <?php $colpos = (isset($time['values'][$column][0])) ? $time['values'][$column][0]['wday'] : $index; ?>
+        <?php for ($i = $curpos; $i < $colpos; $i++): ?>
+        <td class="calendar-agenda-items single-day">
+          <div class="calendar">
+            <div class="inner">&nbsp</div>
+          </div>
+        </td>
+        <?php endfor; ?>   
+        <?php $curpos = $colpos + 1;?>
+        <td class="calendar-agenda-items single-day" headers="<?php print $header_ids[$index] ?>">
+          <div class="calendar">
+          <div class="inner">
+            <?php if(!empty($time['values'][$column])) :?>
+              <?php foreach($time['values'][$column] as $item) :?>
                 <?php print $item['entry'] ?>
               <?php endforeach; ?>
-            <?php endforeach; ?>
-            </div>
-          <?php else: ?>
-            <div class="inner no-events">
-              <p class="mobile">No Events Scheduled for Today</p>
-            </div>
-          <?php endif; ?>
-        </div>
-
-      </td>
-    <?php endforeach; ?>
+            <?php endif; ?>
+          </div>
+          </div>
+        </td>
+      <?php endforeach; ?>   
+      <?php for ($i = $curpos; $i < 7; $i++): ?>
+        <td class="calendar-agenda-items single-day">
+          <div class="calendar">
+            <div class="inner">&nbsp</div>
+          </div>
+        </td>
+      <?php endfor; ?>   
     </tr>
-
+   <?php endforeach; ?>   
   </tbody>
 </table>
 </div></div>

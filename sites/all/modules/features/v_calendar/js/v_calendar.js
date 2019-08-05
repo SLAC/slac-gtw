@@ -368,14 +368,14 @@
 
         if (isChecked) {
           // Show Access Notice items.
-          $accessItems.show();
+          $accessItems.parent().parent().show();
 
           // Set the cookie value.
           document.cookie = 'accesschecked=true;path=/';
         }
         else {
           // Hide Access Notice items.
-          $accessItems.hide();
+          $accessItems.parent().parent().hide();
           document.cookie = 'accesschecked=false;path=/';
         }
       });

@@ -2161,22 +2161,26 @@ table.calendar-legend tr.even .stripe {
 }
 
 @media (min-width: 20em) {
-  .calendar-calendar .single-day .mobile {
+  .calendar-calendar .single-day .mobile,
+  .calendar-calendar .multi-day .mobile {
     display: inline;
   }
 }
 @media (min-width: 60em) {
-  .calendar-calendar .single-day .mobile {
+  .calendar-calendar .single-day .mobile,
+  .calendar-calendar .multi-day .mobile {
     display: none;
   }
 }
 @media (min-width: 20em) {
-  .calendar-calendar .single-day .desktop {
+  .calendar-calendar .single-day .desktop,
+  .calendar-calendar .multi-day .desktop {
     display: none;
   }
 }
 @media (min-width: 60em) {
-  .calendar-calendar .single-day .desktop {
+  .calendar-calendar .single-day .desktop,
+  .calendar-calendar .multi-day .desktop {
     display: inline;
   }
 }
@@ -2309,7 +2313,8 @@ ul.calendar-links,
   top: 10px;
 }
 
-.day-view .multi-day.last .date-display-single {
+.day-view .multi-day.last .date-display-single,
+.weekview .contents .date-display-single {
   display: none;
 }
 
@@ -3964,6 +3969,7 @@ div.date-views-pager div.next-year {
   margin-bottom: 1rem;
 }
 .node-type-access-information .general-left .pane-node-field-event-date,
+.node-type-access-information .general-left .pane-node-field-e-date,
 .node-type-access-information .general-left .pane-node-field-shared-location {
   box-sizing: border-box;
   width: 100%;
@@ -3972,11 +3978,13 @@ div.date-views-pager div.next-year {
 }
 @media (min-width: 60em) {
   .node-type-access-information .general-left .pane-node-field-event-date,
+  .node-type-access-information .general-left .pane-node-field-e-date,
   .node-type-access-information .general-left .pane-node-field-shared-location {
     width: 78.6%;
   }
 }
 .node-type-access-information .general-left .pane-node-field-event-date .pane-title,
+.node-type-access-information .general-left .pane-node-field-e-date .pane-title,
 .node-type-access-information .general-left .pane-node-field-shared-location .pane-title {
   font-size: 12px;
   font-size: 0.75rem;
@@ -3991,6 +3999,7 @@ div.date-views-pager div.next-year {
 }
 @media (min-width: 60em) {
   .node-type-access-information .general-left .pane-node-field-event-date .pane-title,
+  .node-type-access-information .general-left .pane-node-field-e-date .pane-title,
   .node-type-access-information .general-left .pane-node-field-shared-location .pane-title {
     width: 5rem;
     margin: 0;
@@ -4000,11 +4009,13 @@ div.date-views-pager div.next-year {
   }
 }
 .node-type-access-information .general-left .pane-node-field-event-date .field,
+.node-type-access-information .general-left .pane-node-field-e-date .field,
 .node-type-access-information .general-left .pane-node-field-shared-location .field {
   padding: 0.3rem 0.625rem 0.625rem;
 }
 @media (min-width: 60em) {
   .node-type-access-information .general-left .pane-node-field-event-date .field,
+  .node-type-access-information .general-left .pane-node-field-e-date .field,
   .node-type-access-information .general-left .pane-node-field-shared-location .field {
     margin-left: 5.625rem;
     padding: 0.625rem;
@@ -4013,6 +4024,7 @@ div.date-views-pager div.next-year {
 }
 .node-type-access-information .general-left .pane-node-field-event-date .field span,
 .node-type-access-information .general-left .pane-node-field-event-date .field div.field-item,
+.node-type-access-information .general-left .pane-node-field-e-date .field div.field-item,
 .node-type-access-information .general-left .pane-node-field-shared-location .field span,
 .node-type-access-information .general-left .pane-node-field-shared-location .field div.field-item {
   padding: 0;
@@ -4040,12 +4052,12 @@ div.date-views-pager div.next-year {
 .node-type-access-information .general-left .pane-node-field-shared-location {
   margin-top: 0.1875rem;
 }
-.node-type-access-information .general-left .panel-pane.pane-node-field-shared-location, .node-type-access-information .general-left .panel-pane.field-name-field-event-date, .node-type-access-information .general-left .panel-pane.pane-node-field-event-date {
+.node-type-access-information .general-left .panel-pane.pane-node-field-shared-location, .node-type-access-information .general-left .panel-pane.field-name-field-event-date, .node-type-access-information .general-left .panel-pane.pane-node-field-event-date, .node-type-access-information .general-left .panel-pane.pane-node-field-e-date {
   border-left: 5px solid #7ca9da;
   margin-bottom: 0.385rem;
 }
 @media (min-width: 60em) {
-  .node-type-access-information .general-left .panel-pane.pane-node-field-shared-location, .node-type-access-information .general-left .panel-pane.field-name-field-event-date, .node-type-access-information .general-left .panel-pane.pane-node-field-event-date {
+  .node-type-access-information .general-left .panel-pane.pane-node-field-shared-location, .node-type-access-information .general-left .panel-pane.field-name-field-event-date, .node-type-access-information .general-left .panel-pane.pane-node-field-event-date, .node-type-access-information .general-left .panel-pane.pane-node-field-e-date {
     margin-bottom: 0.1875rem;
   }
 }
@@ -4072,7 +4084,8 @@ div.date-views-pager div.next-year {
 .node-type-event .pane-node-body .field-name-body {
   padding-top: 1rem;
 }
-.node-type-event .pane-node-field-event-date {
+.node-type-event .pane-node-field-event-date,
+.node-type-event .pane-node-field-e-date {
   margin-bottom: 0.5rem;
   color: #424242;
   font-weight: bold;
