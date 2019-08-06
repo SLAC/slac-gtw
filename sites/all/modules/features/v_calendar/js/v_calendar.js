@@ -362,12 +362,18 @@
           .find('.view-header')
           .before($showAccessElements);
 
+      if (cookieValue == 'false') {
+        $accessItems.parent().parent().hide();
+      }
+
+
       // Update the filter when the checkbox is toggled.
       $showAccessInput.change(function () {
         var isChecked = $(this).prop('checked');
 
         if (isChecked) {
           // Show Access Notice items.
+          $accessItems.show();
           $accessItems.parent().parent().show();
 
           // Set the cookie value.
@@ -375,6 +381,7 @@
         }
         else {
           // Hide Access Notice items.
+          $accessItems.hide();
           $accessItems.parent().parent().hide();
           document.cookie = 'accesschecked=false;path=/';
         }
