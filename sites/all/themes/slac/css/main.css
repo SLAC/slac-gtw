@@ -5734,6 +5734,21 @@ body {
   padding-left: 0.9375rem;
 }
 
+.homepage-custom-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+
+.homepage-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .frontpage-access-info .views-row {
   font-size: 11px;
   font-size: 0.6875rem;
