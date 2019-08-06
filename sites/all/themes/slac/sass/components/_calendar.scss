@@ -978,6 +978,22 @@ table.calendar-legend tr.even .stripe {
       display: inline;
     }
   }
+  .multi-day .mobile {
+    @include breakpoint($mobile) {
+      display: inline;
+    }
+    @include breakpoint($tablet-large) {
+      display: none;
+    }
+  }
+  .multi-day .desktop {
+    @include breakpoint($mobile) {
+      display: none;
+    }
+    @include breakpoint($tablet-large) {
+      display: inline;
+    }
+  }
 }
 
 .date-nav-wrapper .date-next {
@@ -1117,7 +1133,8 @@ ul.calendar-links,
   top: 10px;
 }
 
-.day-view .multi-day.last .date-display-single {
+.day-view .multi-day.last .date-display-single,
+.weekview .contents .date-display-single {
   display: none;
 }
 
