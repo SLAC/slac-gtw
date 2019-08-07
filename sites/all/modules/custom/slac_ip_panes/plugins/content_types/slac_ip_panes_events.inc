@@ -49,8 +49,8 @@ function slac_ip_upcoming_events_render($subtype, $conf, $args, $context) {
   $query->entityCondition('entity_type', 'node')
     ->entityCondition('bundle', 'event')
     ->propertyCondition('status', NODE_PUBLISHED)
-    ->fieldCondition('field_event_date', 'value2', $end_time, '>=')
-    ->fieldOrderBy('field_event_date', 'value', 'ASC');
+    ->fieldCondition('field_e_date', 'value2', $end_time, '>=')
+    ->fieldOrderBy('field_e_date', 'value', 'ASC');
   $result = $query->execute();
 
   // If there are no nodes, return early.
@@ -90,7 +90,7 @@ function _slac_ip_upcoming_events_render_events_content($result) {
 
   foreach ($result['node'] as $nid => $node) {
     $node = node_load($nid);
-    $date_field = field_get_items('node', $node, 'field_event_date');
+    $date_field = field_get_items('node', $node, 'field_e_date');
 
     // Create a DateTime object using the date field TZ values.
     $date = _slac_ip_panes_events_create_datetime($date_field[0], 'value');
@@ -105,7 +105,7 @@ function _slac_ip_upcoming_events_render_events_content($result) {
     // If the start date is on a past day, display for today instead.
     if ($diff->invert && $diff->d != 0) {
       $date->add(new DateInterval('P' . $diff->d . 'D'));
-      $field = &$node->field_event_date[$node->language][0];
+      $field = &$node->field_e_date[$node->language][0];
       $field['value'] = $date->format('Y-m-d H:i:s');
     }
 
@@ -171,7 +171,7 @@ function _list_days_to_render($node, $start_date) {
 
   $days_to_render = array(clone $start_date,);
 
-  $date_field = field_get_items('node', $node, 'field_event_date');
+  $date_field = field_get_items('node', $node, 'field_e_date');
 
   // If the Event occurs on future days as wall, add rows for them.
   $date2 = _slac_ip_panes_events_create_datetime($date_field[0], 'value2');
