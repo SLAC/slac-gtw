@@ -307,4 +307,41 @@
       $($ledgerItem).addClass("in-progress");
     }
   };
+
+//Event tracking
+  Drupal.behaviors.slacEventTracking = {
+    attach : function (context) {
+      // make sure that the google analytics event tracking object or the universal analytics tracking function exists
+      // if not then exit and don't track
+      if(typeof _gaq == "undefined" && typeof ga == "undefined"){
+        return;
+      }
+
+      $ ( ".pane-slac-ip-panes-events a" ).click(function() {
+        trackEvent($(this), 'Events Pane');
+      });
+      $ ( ".pane-views-access-information-block a" ).click(function() {
+        trackEvent($(this), 'Access Information Pane');
+      });
+      $ ( ".pane-views-flea-market-block a" ).click(function() {
+        trackEvent($(this), 'Access Information Pane');
+      });
+      $ ( ".jcarousel-container a" ).click(function() {
+        trackEvent($(this), 'Slideshow');
+      });
+      
+
+      function trackEvent(thisLink, $category) {
+        alert(thisLink.text());
+        ga('send', {
+          'hitType': 'event',
+          'eventCategory': $category,
+          'eventAction': 'click',
+          'eventLabel': thisLink.text(),
+        });
+      };
+
+      //ga('send', event',  PDF Downloads', Click', SEO For Beginners');
+    }
+  };
 }(jQuery, Drupal, window));
