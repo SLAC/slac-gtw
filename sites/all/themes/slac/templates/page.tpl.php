@@ -98,15 +98,14 @@
     <?php print render($page['header']); ?>
 
     </div>
-  </header>
-
-  <?php if($page['navigation']): ?>
+    <?php if($page['navigation']): ?>
     <nav class="main-navigation">
       <div class="inner-wrapper">
         <?php print render($page['navigation']); ?>
       </div>
     </nav>
   <?php endif; ?>
+  </header>
 
   <div id="main" class="l-main">
   <div class="main-wrapper">

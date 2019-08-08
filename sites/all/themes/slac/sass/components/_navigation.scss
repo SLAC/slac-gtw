@@ -223,6 +223,83 @@
   }
 }
 
+.main-navigation {
+  float: left;
+  width: 100%;
+}
+@media (max-width: 960px) {
+
+  nav.main-navigation {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+  }
+
+  .tb-megamenu.style-blue {
+    background: transparent;
+  }
+
+  .fa.fa-reorder {
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .tb-megamenu .nav-collapse {
+    background: #fff;
+    top: 75px;
+
+    li {
+      color: #316dae;
+
+      a {
+        font-size: 14px;
+        font-size: 0.875rem;
+        line-height: 1;
+        display: block;
+        padding: .6rem;
+        text-indent: 2rem;
+        text-transform: uppercase;
+        color: #316dae;
+        background: #e9f2f9 url(../images/right-arrow.png) 1rem 0.5rem no-repeat;
+        text-decoration: none;
+        font-weight: bold;
+        width: 100%;
+        border: 0;
+        margin-bottom: 10px;
+
+        &:hover,&:focus {
+          color: #316dae;
+        }
+      }
+    }
+  }
+
+  .tb-megamenu .nav-collapse .nav > li {
+    margin-bottom: 8px;
+
+    > a {
+      border-bottom: 0;
+      border-top: 0;
+      color: #316dae;
+    }
+  }
+
+  .btn.btn-navbar.tb-megamenu-button {
+    float: right;
+    margin-right: 10px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin-top: 5px;
+  }
+
+  .btn.btn-navbar.tb-megamenu-button::after {
+    content: "MENU";
+    font-size: 18px;
+  }
+}
+
 // Hide the menu by default when the toggle is available.
 #block-system-main-menu {
   .menu {
