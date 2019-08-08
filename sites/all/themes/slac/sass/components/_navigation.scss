@@ -227,13 +227,23 @@
   float: left;
   width: 100%;
 }
-@media (max-width: 960px) {
+
+@media (max-width: 979px) {
+
+  .main-navigation .region-navigation {
+    background: #3475bf url(../images/menu-search-toggle-bg.png) 100% 0 repeat-y;
+  }
 
   nav.main-navigation {
     position: absolute;
     top: 0;
     right: 0;
     background: transparent;
+    z-index: 1
+  }
+
+  .search-link {
+    z-index: 2;
   }
 
   .tb-megamenu.style-blue {
