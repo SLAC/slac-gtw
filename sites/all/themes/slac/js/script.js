@@ -58,7 +58,8 @@
    */
   Drupal.behaviors.mobileDropdowns = {
     attach: function (context, settings) {
-      var $mobileMenu, $menuToggle;
+      var $mobileMenu = $('.tb-megamenu .nav-collapse', context);
+      var $menuToggle;
       var $menuWrapper;
       var $searchContainer, $searchToggle;
       var $body = $('body');
@@ -66,33 +67,19 @@
       var mobileSearchClass = 'mobile-search-open';
 
       function closeMobileMenu() {
-        $menuToggle.add($mobileMenu).removeClass('active');
-        $body.removeClass(mobileMenuClass);
+        $mobileMenu.attr('style','height: 0px overflow: hidden');
       }
       function closeMobileSearch() {
         $searchToggle.add($searchContainer).removeClass('active');
         $body.removeClass(mobileSearchClass);
       }
 
-      // Set up the mobile menu toggle.
-      $mobileMenu = $('#block-system-main-menu ul.menu', context);
-      $menuWrapper = $mobileMenu.wrap('<div class="menu-containter" />').parent();
-
       // Add a menu toggle link for the expandable mobile menu layout.
-      $menuToggle = $('<a href="#menu" class="mobile-menu-toggle"><span class="hamburger-icon"><span class="icon-menu"></span><span class="icon-menu"></span><span class="icon-menu"></span></span>Menu</a>');
-      $menuWrapper.before($menuToggle);
+      $menuToggle = $('.tb-megamenu-button', context);
 
-      // On click, toggle the mobile menu dropdown and hide the search dropdown.
+      // On click, hide the search dropdown.
       $menuToggle.click(function (e) {
-        e.preventDefault();
         closeMobileSearch();
-        if ($mobileMenu.is(':visible')) {
-          closeMobileMenu();
-        }
-        else {
-          $menuToggle.add($mobileMenu).addClass('active');
-          $body.addClass(mobileMenuClass);
-        }
       });
 
       // Set up the Search dropdown toggle.
