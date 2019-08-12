@@ -6465,7 +6465,7 @@ body {
   height: 70px;
   display: block;
   overflow: hidden;
-  z-index: 99;
+  z-index: 3;
   border-radius: 10px;
   display: block;
 }
