@@ -6810,7 +6810,7 @@ body {
   background-size: 90px auto;
   float: right;
   position: relative;
-  z-index: 5;
+  z-index: 1200;
 }
 @media (min-width: 40em) {
   #header .logo a {
@@ -7629,6 +7629,14 @@ body {
     padding: 0;
     vertical-align: top;
   }
+}
+
+nav.main-navigation {
+  z-index: 1000 !important;
+}
+
+.nav-collapse.always-show.collapse {
+  overflow: hidden !important;
 }
 
 @media (min-width: 60em) {

@@ -158,6 +158,14 @@
   }
 }
 
+nav.main-navigation {
+  z-index: 1000 !important;
+}
+
+.nav-collapse.always-show.collapse {
+  overflow: hidden !important;
+}
+
 @include breakpoint($tablet-large) {
   .mobile-menu-toggle {
     display: none;

@@ -67,7 +67,7 @@ $zen-column-count: 12;
     background-size: 90px auto;
     float: right;
     position: relative;
-    z-index: 5;
+    z-index: 1200;
 
     @include breakpoint($tablet-small) {
       float: left;
