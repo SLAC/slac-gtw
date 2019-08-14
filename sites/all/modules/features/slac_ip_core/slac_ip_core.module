@@ -370,12 +370,15 @@ function theme_slac_ip_core_content_type($variables) {
   $node = $variables['node'];
   $types = node_type_get_types();
   $human_name = $types[$node->type]->name;
+  $output = '';
 
-  $output = '<div class="node-content-type">'
-    . $human_name
-    . '</div>';
+  if ($node->type != 'advpoll') {
+    $output = '<div class="node-content-type">'
+      . $human_name
+      . '</div>';
+  }
 
-  return $output;
+    return $output;
 }
 
 /**
@@ -386,9 +389,12 @@ function theme_slac_ip_core_content_type($variables) {
  */
 function theme_slac_ip_core_created($variables) {
   $node = $variables['node'];
-  $output = '<div class="node-date node-created">'
-    . date('F j, Y', $node->created)
-    . '</div>';
+  $output = '';
+  if ($node->type != 'advpoll') {
+    $output = '<div class="node-date node-created">'
+      . date('F j, Y', $node->created)
+      . '</div>';
+    }
 
   return $output;
 }
@@ -406,9 +412,12 @@ function theme_slac_ip_core_published_at($variables) {
   if (!empty($node->published_at)) {
     $date = $node->published_at;
   }
-  $output = '<div class="node-date node-published-at">'
-    . date('F j, Y', $date)
-    . '</div>';
+  $output = '';
+  if ($node->type != 'advpoll') {
+    $output = '<div class="node-date node-published-at">'
+      . date('F j, Y', $date)
+      . '</div>';
+  }
 
   return $output;
 }
