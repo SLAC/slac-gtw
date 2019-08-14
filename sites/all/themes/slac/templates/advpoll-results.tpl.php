@@ -17,7 +17,7 @@
 <div class="poll" id="advpoll-<?php print $nid; ?>">
 
     <?php print $bars; ?>
-    <div class="poll-bar<?php print $voted_class; ?>">
+    <div class="poll-bar">
   		<div class="text"><?php print 'Other'; ?></div>
   		<div class="bar">
     		<div style="width: <?php print $writein_percentage; ?>%;" class="foreground"></div>
