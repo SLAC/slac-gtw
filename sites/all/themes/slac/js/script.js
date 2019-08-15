@@ -59,7 +59,7 @@
   Drupal.behaviors.mobileDropdowns = {
     attach: function (context, settings) {
       var isMobile = window.matchMedia("only screen and (max-width: 991px)").matches;
-      if (isMobile) {
+      //if (isMobile) {
         var $mobileMenu, $menuToggle;
         var $menuWrapper;
         var $searchContainer, $searchToggle;
@@ -116,7 +116,7 @@
             $body.addClass(mobileSearchClass);
           }
         });
-      }
+      //}
     }
   };
 
