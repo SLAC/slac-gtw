@@ -7485,7 +7485,6 @@ body {
   header[role="banner"] .logo {
     display: block;
     position: relative;
-    z-index: 2;
     padding: 0;
     padding-left: .6rem;
     margin: 0;
