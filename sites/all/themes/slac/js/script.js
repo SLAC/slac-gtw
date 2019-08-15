@@ -58,62 +58,65 @@
    */
   Drupal.behaviors.mobileDropdowns = {
     attach: function (context, settings) {
-      var $mobileMenu, $menuToggle;
-      var $menuWrapper;
-      var $searchContainer, $searchToggle;
-      var $body = $('body');
-      var mobileMenuClass = 'mobile-menu-open';
-      var mobileSearchClass = 'mobile-search-open';
+      var isMobile = window.matchMedia("only screen and (max-width: 991px)").matches;
+      if (isMobile) {
+        var $mobileMenu, $menuToggle;
+        var $menuWrapper;
+        var $searchContainer, $searchToggle;
+        var $body = $('body');
+        var mobileMenuClass = 'mobile-menu-open';
+        var mobileSearchClass = 'mobile-search-open';
 
-      function closeMobileMenu() {
-        $menuToggle.add($mobileMenu).removeClass('active');
-        $body.removeClass(mobileMenuClass);
-      }
-      function closeMobileSearch() {
-        $searchToggle.add($searchContainer).removeClass('active');
-        $body.removeClass(mobileSearchClass);
-      }
-
-      // Set up the mobile menu toggle.
-      $mobileMenu = $('#block-system-main-menu ul.menu', context);
-      $menuWrapper = $mobileMenu.wrap('<div class="menu-containter" />').parent();
-
-      // Add a menu toggle link for the expandable mobile menu layout.
-      $menuToggle = $('<a href="#menu" class="mobile-menu-toggle"><span class="hamburger-icon"><span class="icon-menu"></span><span class="icon-menu"></span><span class="icon-menu"></span></span>Menu</a>');
-      $menuWrapper.before($menuToggle);
-
-      // On click, toggle the mobile menu dropdown and hide the search dropdown.
-      $menuToggle.click(function (e) {
-        e.preventDefault();
-        closeMobileSearch();
-        if ($mobileMenu.is(':visible')) {
-          closeMobileMenu();
+        function closeMobileMenu() {
+          $menuToggle.add($mobileMenu).removeClass('active');
+          $body.removeClass(mobileMenuClass);
         }
-        else {
-          $menuToggle.add($mobileMenu).addClass('active');
-          $body.addClass(mobileMenuClass);
+        function closeMobileSearch() {
+          $searchToggle.add($searchContainer).removeClass('active');
+          $body.removeClass(mobileSearchClass);
         }
-      });
 
-      // Set up the Search dropdown toggle.
-      $searchContainer = $('#block-slac-search-form', context);
+        // Set up the mobile menu toggle.
+        $mobileMenu = $('#block-system-main-menu ul.menu', context);
+        $menuWrapper = $mobileMenu.wrap('<div class="menu-containter" />').parent();
 
-      // Add a toggle link for the expandable mobile search layout.
-      $searchToggle = $('<a href="#search" class="search-link">Search</a>');
-      $searchContainer.before($searchToggle);
+        // Add a menu toggle link for the expandable mobile menu layout.
+        $menuToggle = $('<a href="#menu" class="mobile-menu-toggle"><span class="hamburger-icon"><span class="icon-menu"></span><span class="icon-menu"></span><span class="icon-menu"></span></span>Menu</a>');
+        $menuWrapper.before($menuToggle);
 
-      // On click, toggle the search dropdown and hide the mobile menu dropdown .
-      $searchToggle.click(function (e) {
-        e.preventDefault();
-        closeMobileMenu();
-        if ($searchContainer.is(':visible')) {
+        // On click, toggle the mobile menu dropdown and hide the search dropdown.
+        $menuToggle.click(function (e) {
+          e.preventDefault();
           closeMobileSearch();
-        }
-        else {
-          $searchToggle.add($searchContainer).addClass('active');
-          $body.addClass(mobileSearchClass);
-        }
-      });
+          if ($mobileMenu.is(':visible')) {
+            closeMobileMenu();
+          }
+          else {
+            $menuToggle.add($mobileMenu).addClass('active');
+            $body.addClass(mobileMenuClass);
+          }
+        });
+
+        // Set up the Search dropdown toggle.
+        $searchContainer = $('#block-slac-search-form', context);
+
+        // Add a toggle link for the expandable mobile search layout.
+        $searchToggle = $('<a href="#search" class="search-link">Search</a>');
+        $searchContainer.before($searchToggle);
+
+        // On click, toggle the search dropdown and hide the mobile menu dropdown .
+        $searchToggle.click(function (e) {
+          e.preventDefault();
+          closeMobileMenu();
+          if ($searchContainer.is(':visible')) {
+            closeMobileSearch();
+          }
+          else {
+            $searchToggle.add($searchContainer).addClass('active');
+            $body.addClass(mobileSearchClass);
+          }
+        });
+      }
     }
   };
 
