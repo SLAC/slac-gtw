@@ -7710,6 +7710,11 @@ nav.main-navigation {
 }
 
 @media (max-width: 979px) {
+  .tb-megamenu .mega-nav > li a, .tb-megamenu .dropdown-menu .mega-nav > li a {
+    font-weight: bold;
+    color: #316dae;
+  }
+
   .main-navigation .region-navigation {
     background: #3475bf url(../images/menu-search-toggle-bg.png) 100% 0 repeat-y;
   }
@@ -7764,7 +7769,7 @@ nav.main-navigation {
     background: #fff;
   }
 
-  .tb-megamenu .nav-collapse li a.dropdown-toggle {
+  li.tb-megamenu-item.level-1.mega {
     background: #e9f2f9 url(../images/right-arrow.png) 1rem 0.5rem no-repeat;
   }
 
