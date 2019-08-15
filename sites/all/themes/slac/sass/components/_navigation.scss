@@ -279,7 +279,6 @@ nav.main-navigation {
         text-indent: 2rem;
         text-transform: uppercase;
         color: #316dae;
-        background: #e9f2f9 url(../images/right-arrow.png) 1rem 0.5rem no-repeat;
         text-decoration: none;
         font-weight: bold;
         width: 100%;
@@ -295,6 +294,10 @@ nav.main-navigation {
     .dropdown-menu {
       background: #fff;
     }
+  }
+
+  .tb-megamenu .nav-collapse li a.dropdown-toggle {
+    background: #e9f2f9 url(../images/right-arrow.png) 1rem 0.5rem no-repeat;
   }
 
   .tb-megamenu .nav-collapse .nav > li {
