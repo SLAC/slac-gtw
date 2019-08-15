@@ -7761,6 +7761,9 @@ nav.main-navigation {
   .tb-megamenu .nav-collapse li a:hover, .tb-megamenu .nav-collapse li a:focus {
     color: #316dae;
   }
+  .tb-megamenu .nav-collapse .dropdown-menu {
+    background: #fff;
+  }
 
   .tb-megamenu .nav-collapse .nav > li {
     margin-bottom: 8px;
