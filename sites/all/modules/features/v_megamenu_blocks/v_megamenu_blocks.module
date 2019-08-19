@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Megamenu Blocks feature.
+ */
+
+include_once 'v_megamenu_blocks.features.inc';

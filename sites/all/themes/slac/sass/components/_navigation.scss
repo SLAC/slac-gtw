@@ -6,7 +6,6 @@
     .logo {
       display: block;
       position: relative;
-      z-index: 2;
       padding: 0;
       padding-left: .6rem;
       margin: 0;
@@ -158,6 +157,14 @@
   }
 }
 
+nav.main-navigation {
+  z-index: 6 !important;
+}
+
+.nav-collapse.always-show.collapse {
+  overflow: hidden !important;
+}
+
 @include breakpoint($tablet-large) {
   .mobile-menu-toggle {
     display: none;
@@ -220,6 +227,105 @@
         color: $blue;
       }
     }
+  }
+}
+
+.main-navigation {
+  float: left;
+  width: 100%;
+}
+
+@media (max-width: 979px) {
+
+  .tb-megamenu .mega-nav > li a, .tb-megamenu .dropdown-menu .mega-nav > li a {
+    font-weight: bold;
+    color: #316dae;
+  }
+
+  .main-navigation .region-navigation {
+    background: #3475bf url(../images/menu-search-toggle-bg.png) 100% 0 repeat-y;
+  }
+
+  nav.main-navigation {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    z-index: 1
+  }
+
+  .search-link {
+    z-index: 1200;
+  }
+
+  .tb-megamenu.style-blue {
+    background: transparent;
+  }
+
+  .fa.fa-reorder {
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .tb-megamenu .nav-collapse {
+    background: #fff;
+    top: 75px;
+
+    li {
+      color: #316dae;
+
+      a {
+        font-size: 14px;
+        font-size: 0.875rem;
+        line-height: 1;
+        display: block;
+        padding: .6rem;
+        text-indent: 2rem;
+        text-transform: uppercase;
+        color: #316dae;
+        text-decoration: none;
+        font-weight: bold;
+        width: 100%;
+        border: 0;
+        margin-bottom: 10px;
+
+        &:hover,&:focus {
+          color: #316dae;
+        }
+      }
+    }
+
+    .dropdown-menu {
+      background: #fff;
+    }
+  }
+
+  li.tb-megamenu-item.level-1.mega {
+    background: #e9f2f9 url(../images/right-arrow.png) 1rem 0.5rem no-repeat;
+  }
+
+  .tb-megamenu .nav-collapse .nav > li {
+    margin-bottom: 8px;
+
+    > a {
+      border-bottom: 0;
+      border-top: 0;
+      color: #316dae;
+    }
+  }
+
+  .btn.btn-navbar.tb-megamenu-button {
+    float: right;
+    margin-right: 10px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin-top: 5px;
+  }
+
+  .btn.btn-navbar.tb-megamenu-button::after {
+    content: "MENU";
+    font-size: 18px;
   }
 }
 
