@@ -5277,6 +5277,10 @@ fieldset.collapsed {
   }
 }
 
+.advpoll-write-in .form-item {
+  top: 0;
+}
+
 .l-main {
   background: #ffffff;
 }
