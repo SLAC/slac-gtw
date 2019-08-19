@@ -5281,6 +5281,10 @@ fieldset.collapsed {
   top: 0 !important;
 }
 
+.panel-pane.pane-panels-mini.pane-poll-mini-panel {
+  margin-top: -20px;
+}
+
 .l-main {
   background: #ffffff;
 }
@@ -6814,7 +6818,7 @@ body {
   background-size: 90px auto;
   float: right;
   position: relative;
-  z-index: 1200;
+  z-index: 7;
 }
 @media (min-width: 40em) {
   #header .logo a {
