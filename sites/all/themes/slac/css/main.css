@@ -5278,7 +5278,7 @@ fieldset.collapsed {
 }
 
 .advpoll-write-in .form-item {
-  top: 0;
+  top: 0 !important;
 }
 
 .l-main {
