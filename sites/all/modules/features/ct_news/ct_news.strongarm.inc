@@ -14,7 +14,7 @@ function ct_news_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_news';
-  $strongarm->value = 'edit-diff';
+  $strongarm->value = 'edit-comment';
   $export['additional_settings__active_tab_news'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -49,7 +49,7 @@ function ct_news_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_news';
-  $strongarm->value = '1';
+  $strongarm->value = '2';
   $export['comment_news'] = $strongarm;
 
   $strongarm = new stdClass();
