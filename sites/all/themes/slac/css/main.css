@@ -5441,6 +5441,7 @@ body {
 
 .main-wrapper {
   background: #ffffff;
+  margin-top: 20px;
 }
 .front .main-wrapper {
   background: #e8e8e8;
@@ -8625,7 +8626,6 @@ h1.title {
   color: #fff;
   background-color: #890025;
   padding: 10px 20px;
-  margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
 }
