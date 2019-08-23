@@ -16,6 +16,10 @@
     }
   }
 
+  .tb-megamenu .dropdown-menu .active > a {
+    background: none !important;
+  }
+
   .mobile-menu-toggle {
     @include font-size(13px);
     text-transform: uppercase;

@@ -5281,10 +5281,6 @@ fieldset.collapsed {
   top: 0 !important;
 }
 
-.panel-pane.pane-panels-mini.pane-poll-mini-panel {
-  margin-top: -20px;
-}
-
 .l-main {
   background: #ffffff;
 }
@@ -7500,6 +7496,10 @@ body {
     float: none;
   }
 
+  .tb-megamenu .dropdown-menu .active > a {
+    background: none !important;
+  }
+
   .mobile-menu-toggle {
     font-size: 13px;
     font-size: 0.8125rem;
@@ -8625,7 +8625,7 @@ h1.title {
   color: #fff;
   background-color: #890025;
   padding: 10px 20px;
-  margin-top: -10px;
+  margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
 }
