@@ -5983,6 +5983,10 @@ body {
   }
 }
 
+.front-main-column .title a {
+  line-height: 1.1em;
+}
+
 .frontpage-news-list .pane-title a {
   font-size: 13px;
   font-size: 0.8125rem;
