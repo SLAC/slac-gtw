@@ -22,7 +22,7 @@ function ct_event_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 3,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -140,10 +140,10 @@ function ct_event_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
-          'show_remaining_days' => FALSE,
+          'show_remaining_days' => 0,
         ),
         'type' => 'date_default',
-        'weight' => 2,
+        'weight' => 1,
       ),
       'headline' => array(
         'label' => 'above',
@@ -187,7 +187,7 @@ function ct_event_field_default_field_instances() {
     'label' => 'Date',
     'required' => 1,
     'settings' => array(
-      'default_value' => 'blank',
+      'default_value' => 'now',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
@@ -198,7 +198,7 @@ function ct_event_field_default_field_instances() {
       'module' => 'date',
       'settings' => array(
         'display_all_day' => 1,
-        'increment' => 1,
+        'increment' => 15,
         'input_format' => 'Y/m/d - g:i:sa',
         'input_format_custom' => '',
         'label_position' => 'above',
@@ -221,7 +221,7 @@ function ct_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 8,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -457,7 +457,7 @@ function ct_event_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 8,
+        'weight' => 7,
       ),
       'headline' => array(
         'label' => 'above',
@@ -590,7 +590,7 @@ function ct_event_field_default_field_instances() {
         'module' => 'email',
         'settings' => array(),
         'type' => 'email_default',
-        'weight' => 6,
+        'weight' => 5,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -666,7 +666,7 @@ function ct_event_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 4,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -748,7 +748,7 @@ function ct_event_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_plain',
-        'weight' => 7,
+        'weight' => 6,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -1019,7 +1019,7 @@ function ct_event_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 2,
       ),
       'full' => array(
         'label' => 'hidden',

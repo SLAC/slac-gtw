@@ -212,11 +212,10 @@ function ct_access_information_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'access_listing' => array(
-        'label' => 'hidden',
-        'module' => 'slac_ip_event_date',
+        'label' => 'above',
         'settings' => array(),
-        'type' => 'slac_event_access_date_formatter',
-        'weight' => 3,
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -272,7 +271,7 @@ function ct_access_information_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_e_date',
     'label' => 'Date',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'default_value' => 'now',
       'default_value2' => 'same',
