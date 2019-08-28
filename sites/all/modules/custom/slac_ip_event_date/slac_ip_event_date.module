@@ -34,14 +34,14 @@ function slac_ip_event_date_node_form_validate($form, &$form_state) {
   $lang = $form_state['values']['language'];
   $date_values = $form_state['values']['field_event_date'][$lang][0];
 
-  if ($date_values['all_day'] == 0) {
+  /*if ($date_values['all_day'] == 0) {
     // Do not allow the end time to occur before the start time or allow them
     // to be equal, they should be at least a minute apart.
     if ($date_values['value2'] <= $date_values['value']) {
       $message = t('The end time must occur after the start time.');
       form_set_error('field_event_date', $message);
     }
-  }
+  }*/
 }
 
 /**

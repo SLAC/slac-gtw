@@ -17,7 +17,7 @@
         });
       }
 
-      var $form = $('.node-form', context);
+      /*var $form = $('.node-form', context);
       var $singleDay = $form.find('input.form-checkbox[id^="edit-field-event-date"]');
       // These behaviors are only concerned with the dates, not the times,
       // so $value, $value2 are only the first input in each field.
@@ -95,7 +95,7 @@
       // After running on-attach, if "Single Day", show the appropriate message immediately.
       if (!$singleDay.prop('checked')) {
         messages.all_day.show();
-      }
+      }*/
 
     }
   };
