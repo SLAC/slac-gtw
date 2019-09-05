@@ -1925,7 +1925,7 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .month-view .full td.multi-day div.monthview,
 .calendar-calendar .week-view .full td.multi-day div.weekview {
   background: #e4e4e4;
-  height: 1.9em;
+  height: 4em;
   overflow: hidden;
   margin: 0px auto;
   color: #ffffff;
@@ -5955,6 +5955,7 @@ body {
   display: block;
   color: #316dae;
   text-decoration: none;
+  margin-bottom: 5px;
 }
 .front-main-column .title a:hover {
   text-decoration: underline;
