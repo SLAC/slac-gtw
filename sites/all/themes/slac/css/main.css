@@ -1925,7 +1925,7 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .month-view .full td.multi-day div.monthview,
 .calendar-calendar .week-view .full td.multi-day div.weekview {
   background: #e4e4e4;
-  height: 1.9em;
+  height: 4em;
   overflow: hidden;
   margin: 0px auto;
   color: #ffffff;
@@ -2357,6 +2357,10 @@ ul.calendar-links,
   position: relative;
   left: 0;
   color: #636363;
+}
+
+.events-calendar .month-view .full td {
+  padding: 0 !important;
 }
 
 .calendar-calendar tr.holder {
@@ -5955,6 +5959,7 @@ body {
   display: block;
   color: #316dae;
   text-decoration: none;
+  margin-bottom: 5px;
 }
 .front-main-column .title a:hover {
   text-decoration: underline;
@@ -7836,6 +7841,30 @@ nav.main-navigation {
   .page-my-content .tabs-mobile {
     display: none;
   }
+}
+
+ul.tb-megamenu-subnav {
+  font-size: 14px;
+}
+
+.tb-megamenu.style-blue .nav > li > a {
+  padding: 0.55rem 1.9375rem;
+}
+
+.tb-megamenu.style-blue .nav li.dropdown.active > .dropdown-toggle, .tb-megamenu.style-blue .nav li.dropdown.open.active > .dropdown-toggle {
+  background-color: #fff;
+  border-right-color: #4dc6f3;
+  color: #316dae;
+}
+
+.tb-megamenu .dropdown-menu {
+  min-width: 153px !important;
+}
+
+.tb-megamenu .dropdown-menu .active > a, .tb-megamenu .dropdown-menu .active > a:hover {
+  background-image: none;
+  color: #316dae;
+  background: none;
 }
 
 .page-news #page-title {
