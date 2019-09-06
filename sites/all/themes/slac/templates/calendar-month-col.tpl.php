@@ -9,7 +9,7 @@ $id = (isset($item['id'])) ? 'id="' . $item['id'] . '" ' : '';
 $date = (isset($item['date'])) ? ' data-date="' . $item['date'] . '" ' : '';
 $day = (isset($item['day_of_month'])) ? ' data-day-of-month="' . $item['day_of_month'] . '" ' : '';
 $headers = (isset($item['header_id'])) ? ' headers="'. $item['header_id'] .'" ' : '';
-if ($item['header_id'] == 'Saturday' || $item['header_id'] == 'Sunday') {
+if (isset($item['header_id']) && ($item['header_id'] == 'Saturday' || $item['header_id'] == 'Sunday')) {
   $item['class'] .= ' weekend';
 }
 
