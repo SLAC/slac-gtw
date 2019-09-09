@@ -97,23 +97,24 @@
 
         // Unbind the Flag click handler from the flag link and show the confirm
         // form instead.
+        var random_id = Math.floor((Math.random() * 100000) + 1);
         $(this)
           .unbind('click')
           .bind('click', function (e) {
             e.preventDefault();
             confirmDialog.toggle();
           })
-          .after(Drupal.theme('commentConfirm', href, nid));
+          .after(Drupal.theme('commentConfirm', href, nid, random_id));
 
         // Close the confirm dialog if either close button is clicked.
-        confirmDialog = $('#comment_confirm', context);
+        confirmDialog = $('#comment_confirm' + random_id, context);
         confirmDialog.find('.close').bind('click', function (e) {
           e.preventDefault();
           confirmDialog.toggle();
         });
 
         // Attach the flag toggle to the custom submit link.
-        confirmDialog.find('.submit').addClass('flag flag-action flag-link-toggle');
+        confirmDialog.find('#comment_confirm' + random_id + ' .submit').addClass('flag flag-action flag-link-toggle');
         Drupal.attachBehaviors(confirmDialog, settings);
       });
 
@@ -129,10 +130,10 @@
   /**
    * Provides the HTML to create the modal dialog.
    */
-  Drupal.theme.commentConfirm = function (href, nid) {
+  Drupal.theme.commentConfirm = function (href, nid, random_id) {
     var html = '';
 
-    html += '<div id="comment_confirm" class="report-as-inappropriate" style="display:none;">';
+    html += '<div id="comment_confirm' + random_id + '" class="report-as-inappropriate" style="display:none;">';
     html += '  <h4 class="report-inappropriate-title">Report Comment as Inappropriate</h4>';
     html += '  <button class="close top-close">X</button>';
     html += '  <p class="report-message">Flagged comment will be reviewed by the Office of Communications to determine whether SLAC\'s guidelines have been violated.</p>';
