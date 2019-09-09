@@ -26,11 +26,7 @@ if (array_key_exists('SUBDIRECTORY', $_SERVER)) {
   $base_url = 'https://'.$_SERVER['HTTP_HOST'] . '/' . $_SERVER['SUBDIRECTORY'];
 } else {
   // assume provisioned sites will be
-  if (isset($_GET['destination'])) {
-    $base_url = 'https://'.$_SERVER['HTTP_HOST'] . '/' . $_GET['destination']; // THIS IS IMPORTANT
-  } else {
-    $base_url = 'https://'.$_SERVER['HTTP_HOST'];
-  }
+  $base_url = 'https://'.$_SERVER['HTTP_HOST'];
 }
 
 $base_url = rtrim($base_url, "/\//");
