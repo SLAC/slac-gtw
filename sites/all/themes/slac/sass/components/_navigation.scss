@@ -372,3 +372,32 @@ nav.main-navigation {
     }
   }
 }
+
+ul.tb-megamenu-subnav {
+   font-size: 14px;
+}
+
+.tb-megamenu.style-blue .nav > li > a {
+   padding: 0.55rem 1.9375rem;
+}
+
+.tb-megamenu.style-blue .nav li.dropdown.active > .dropdown-toggle, .tb-megamenu.style-blue .nav li.dropdown.open.active > .dropdown-toggle {
+  background-color: #fff;
+  border-right-color: #4dc6f3;
+  color: #316dae;
+}
+
+.tb-megamenu .dropdown-menu {
+  min-width: 153px !important;
+}
+
+.tb-megamenu .dropdown-menu .active > a, .tb-megamenu .dropdown-menu .active > a:hover {
+  background-image: none;
+  color: #316dae;
+  background: none;
+}
+
+.tb-megamenu.style-blue .dropdown-menu {
+  width: 100% !important;
+}
+
