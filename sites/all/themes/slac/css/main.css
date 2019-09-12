@@ -8493,6 +8493,7 @@ h1.title {
 .node-type-news .pane-node-field-shared-tags,
 .node-type-access-information .pane-node-field-shared-tags {
   margin-top: 0;
+  clear: both;
 }
 .node-type-event .pane-node-field-shared-tags div.field-item,
 .node-type-news .pane-node-field-shared-tags div.field-item,
@@ -8591,6 +8592,16 @@ h1.title {
 }
 .node-type-access-information .general-left .panel-pane.pane-node-field-shared-contact-phone {
   margin-top: 0 !important;
+}
+
+.pane-node-links {
+  clear: both;
+}
+.pane-node-links ul {
+  padding-left: 0 !important;
+}
+.pane-node-links ul li {
+  list-style: none;
 }
 
 .page-taxonomy-term .title {
