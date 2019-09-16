@@ -126,3 +126,37 @@
     }
   }
 }
+
+.field-name-field-main-pid {
+  display:none;
+}
+
+.view-comments-votes 
+  .views-row {
+    padding:0;
+    background:none;
+    .depth-1 {
+      margin-left:20px;
+    }
+    .depth-2 {
+      margin-left: 40px;
+    }
+    .depth-3 {
+      margin-left:60px;
+    }
+    .depth-1 .rate-widget, 
+    .depth-2 .rate-widget,
+    .depth-3 .rate-widget {
+      display:none;
+    }
+  } 
+  .rate-widget ul {
+    padding:0;
+    margin-top:10px;
+  }
+  .rate-widget-thumbs_up_down ul li {
+    width:auto !important;
+  }
+  .rate-widget-thumbs_up_down .vote-count {
+    padding-left: 5px;
+  }

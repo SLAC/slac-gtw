@@ -11,6 +11,245 @@ function slac_comments_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'comments_votes';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'comment';
+  $view->human_name = 'Comments Votes';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Comments Votes';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'access comments';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Comment: Content */
+  $handler->display->display_options['relationships']['nid']['id'] = 'nid';
+  $handler->display->display_options['relationships']['nid']['table'] = 'comment';
+  $handler->display->display_options['relationships']['nid']['field'] = 'nid';
+  $handler->display->display_options['relationships']['nid']['required'] = TRUE;
+  /* Relationship: Comment: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache']['table'] = 'comment';
+  $handler->display->display_options['relationships']['votingapi_cache']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache']['votingapi'] = array(
+    'value_type' => 'points',
+    'tag' => 'vote',
+    'function' => 'sum',
+  );
+  /* Field: Comment: Rendered Comment */
+  $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
+  $handler->display->display_options['fields']['rendered_entity']['table'] = 'views_entity_comment';
+  $handler->display->display_options['fields']['rendered_entity']['field'] = 'rendered_entity';
+  $handler->display->display_options['fields']['rendered_entity']['label'] = '';
+  $handler->display->display_options['fields']['rendered_entity']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
+  $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['rendered_entity']['bypass_access'] = 0;
+  /* Field: Comment: ID */
+  $handler->display->display_options['fields']['cid']['id'] = 'cid';
+  $handler->display->display_options['fields']['cid']['table'] = 'comment';
+  $handler->display->display_options['fields']['cid']['field'] = 'cid';
+  $handler->display->display_options['fields']['cid']['label'] = '';
+  $handler->display->display_options['fields']['cid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['cid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['cid']['link_to_comment'] = FALSE;
+  /* Field: Comment: Depth */
+  $handler->display->display_options['fields']['thread']['id'] = 'thread';
+  $handler->display->display_options['fields']['thread']['table'] = 'comment';
+  $handler->display->display_options['fields']['thread']['field'] = 'thread';
+  /* Sort criterion: Vote results: Value */
+  $handler->display->display_options['sorts']['value']['id'] = 'value';
+  $handler->display->display_options['sorts']['value']['table'] = 'votingapi_cache';
+  $handler->display->display_options['sorts']['value']['field'] = 'value';
+  $handler->display->display_options['sorts']['value']['relationship'] = 'votingapi_cache';
+  $handler->display->display_options['sorts']['value']['order'] = 'DESC';
+  $handler->display->display_options['sorts']['value']['coalesce'] = 0;
+  /* Sort criterion: Comment: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'comment';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Comment: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'comment';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Comment: Approved */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'comment';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status_node']['id'] = 'status_node';
+  $handler->display->display_options['filters']['status_node']['table'] = 'node';
+  $handler->display->display_options['filters']['status_node']['field'] = 'status';
+  $handler->display->display_options['filters']['status_node']['relationship'] = 'nid';
+  $handler->display->display_options['filters']['status_node']['value'] = 1;
+  $handler->display->display_options['filters']['status_node']['group'] = 1;
+  $handler->display->display_options['filters']['status_node']['expose']['operator'] = FALSE;
+  /* Filter criterion: Comment: Main Pid (field_main_pid) */
+  $handler->display->display_options['filters']['field_main_pid_value']['id'] = 'field_main_pid_value';
+  $handler->display->display_options['filters']['field_main_pid_value']['table'] = 'field_data_field_main_pid';
+  $handler->display->display_options['filters']['field_main_pid_value']['field'] = 'field_main_pid_value';
+  $handler->display->display_options['filters']['field_main_pid_value']['value'] = '0';
+
+  /* Display: Child Comments */
+  $handler = $view->new_display('block', 'Child Comments', 'block_1');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Comment: Content */
+  $handler->display->display_options['relationships']['nid']['id'] = 'nid';
+  $handler->display->display_options['relationships']['nid']['table'] = 'comment';
+  $handler->display->display_options['relationships']['nid']['field'] = 'nid';
+  $handler->display->display_options['relationships']['nid']['required'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Comment: Depth */
+  $handler->display->display_options['fields']['thread']['id'] = 'thread';
+  $handler->display->display_options['fields']['thread']['table'] = 'comment';
+  $handler->display->display_options['fields']['thread']['field'] = 'thread';
+  $handler->display->display_options['fields']['thread']['label'] = '';
+  $handler->display->display_options['fields']['thread']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['thread']['element_label_colon'] = FALSE;
+  /* Field: Comment: Rendered Comment */
+  $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
+  $handler->display->display_options['fields']['rendered_entity']['table'] = 'views_entity_comment';
+  $handler->display->display_options['fields']['rendered_entity']['field'] = 'rendered_entity';
+  $handler->display->display_options['fields']['rendered_entity']['label'] = '';
+  $handler->display->display_options['fields']['rendered_entity']['element_type'] = 'div';
+  $handler->display->display_options['fields']['rendered_entity']['element_class'] = 'depth-[thread]';
+  $handler->display->display_options['fields']['rendered_entity']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
+  $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['rendered_entity']['bypass_access'] = 0;
+  /* Field: Comment: ID */
+  $handler->display->display_options['fields']['cid']['id'] = 'cid';
+  $handler->display->display_options['fields']['cid']['table'] = 'comment';
+  $handler->display->display_options['fields']['cid']['field'] = 'cid';
+  $handler->display->display_options['fields']['cid']['label'] = '';
+  $handler->display->display_options['fields']['cid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['cid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['cid']['link_to_comment'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Comment: Thread */
+  $handler->display->display_options['sorts']['thread']['id'] = 'thread';
+  $handler->display->display_options['sorts']['thread']['table'] = 'comment';
+  $handler->display->display_options['sorts']['thread']['field'] = 'thread';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Comment: Main Pid (field_main_pid) */
+  $handler->display->display_options['arguments']['field_main_pid_value']['id'] = 'field_main_pid_value';
+  $handler->display->display_options['arguments']['field_main_pid_value']['table'] = 'field_data_field_main_pid';
+  $handler->display->display_options['arguments']['field_main_pid_value']['field'] = 'field_main_pid_value';
+  $handler->display->display_options['arguments']['field_main_pid_value']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_main_pid_value']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_main_pid_value']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_main_pid_value']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_main_pid_value']['limit'] = '0';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Comment: Approved */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'comment';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status_node']['id'] = 'status_node';
+  $handler->display->display_options['filters']['status_node']['table'] = 'node';
+  $handler->display->display_options['filters']['status_node']['field'] = 'status';
+  $handler->display->display_options['filters']['status_node']['relationship'] = 'nid';
+  $handler->display->display_options['filters']['status_node']['value'] = 1;
+  $handler->display->display_options['filters']['status_node']['group'] = 1;
+  $handler->display->display_options['filters']['status_node']['expose']['operator'] = FALSE;
+  /* Filter criterion: Comment: Main Pid (field_main_pid) */
+  $handler->display->display_options['filters']['field_main_pid_value']['id'] = 'field_main_pid_value';
+  $handler->display->display_options['filters']['field_main_pid_value']['table'] = 'field_data_field_main_pid';
+  $handler->display->display_options['filters']['field_main_pid_value']['field'] = 'field_main_pid_value';
+  $handler->display->display_options['filters']['field_main_pid_value']['operator'] = '!=';
+  $handler->display->display_options['filters']['field_main_pid_value']['value'] = '0';
+
+  /* Display: Parent comments */
+  $handler = $view->new_display('block', 'Parent comments', 'block_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Comments';
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Comment: Content */
+  $handler->display->display_options['relationships']['nid']['id'] = 'nid';
+  $handler->display->display_options['relationships']['nid']['table'] = 'comment';
+  $handler->display->display_options['relationships']['nid']['field'] = 'nid';
+  $handler->display->display_options['relationships']['nid']['required'] = TRUE;
+  /* Relationship: Comment: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache']['table'] = 'comment';
+  $handler->display->display_options['relationships']['votingapi_cache']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache']['votingapi'] = array(
+    'value_type' => 'points',
+    'tag' => 'vote',
+    'function' => 'sum',
+  );
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Comment: Rendered Comment */
+  $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
+  $handler->display->display_options['fields']['rendered_entity']['table'] = 'views_entity_comment';
+  $handler->display->display_options['fields']['rendered_entity']['field'] = 'rendered_entity';
+  $handler->display->display_options['fields']['rendered_entity']['label'] = '';
+  $handler->display->display_options['fields']['rendered_entity']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
+  $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['rendered_entity']['bypass_access'] = 0;
+  /* Field: Comment: ID */
+  $handler->display->display_options['fields']['cid']['id'] = 'cid';
+  $handler->display->display_options['fields']['cid']['table'] = 'comment';
+  $handler->display->display_options['fields']['cid']['field'] = 'cid';
+  $handler->display->display_options['fields']['cid']['label'] = '';
+  $handler->display->display_options['fields']['cid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['cid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['cid']['link_to_comment'] = FALSE;
+  /* Field: Global: View */
+  $handler->display->display_options['fields']['view']['id'] = 'view';
+  $handler->display->display_options['fields']['view']['table'] = 'views';
+  $handler->display->display_options['fields']['view']['field'] = 'view';
+  $handler->display->display_options['fields']['view']['label'] = '';
+  $handler->display->display_options['fields']['view']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view']['view'] = 'comments_votes';
+  $handler->display->display_options['fields']['view']['display'] = 'block_1';
+  $handler->display->display_options['fields']['view']['arguments'] = '[!cid]';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Vote results: Value */
+  $handler->display->display_options['sorts']['value']['id'] = 'value';
+  $handler->display->display_options['sorts']['value']['table'] = 'votingapi_cache';
+  $handler->display->display_options['sorts']['value']['field'] = 'value';
+  $handler->display->display_options['sorts']['value']['relationship'] = 'votingapi_cache';
+  $handler->display->display_options['sorts']['value']['order'] = 'DESC';
+  $handler->display->display_options['sorts']['value']['coalesce'] = 1;
+  /* Sort criterion: Comment: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'comment';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  $export['comments_votes'] = $view;
+
+  $view = new view();
   $view->name = 'slac_comments';
   $view->description = 'List and edit site comments and the comment moderation queue.';
   $view->tag = 'admin';
