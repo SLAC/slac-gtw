@@ -404,3 +404,7 @@ ul.tb-megamenu-subnav {
 .tb-megamenu .dropdown-menu li > a {
   font-size: 12px;
 }
+
+.tb-megamenu .dropdown-menu {
+  background-clip: border-box !important;
+}

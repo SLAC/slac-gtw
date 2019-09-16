@@ -7875,6 +7875,10 @@ ul.tb-megamenu-subnav {
   font-size: 12px;
 }
 
+.tb-megamenu .dropdown-menu {
+  background-clip: border-box !important;
+}
+
 .page-news #page-title {
   display: none;
 }
