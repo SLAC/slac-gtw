@@ -7871,6 +7871,10 @@ ul.tb-megamenu-subnav {
   width: 100% !important;
 }
 
+.tb-megamenu .dropdown-menu li > a {
+  font-size: 12px;
+}
+
 .page-news #page-title {
   display: none;
 }
@@ -8676,12 +8680,24 @@ h1.title {
   padding: 10px 20px;
   margin-bottom: 20px;
   text-align: center;
+  padding-top: 0;
 }
 .slac-alert p {
   margin: 0px;
 }
+.slac-alert p:before {
+  content: url(../images/announcement.png);
+  background-repeat: no-repeat;
+  padding-right: 10px;
+  display: inline-block;
+  top: 8px;
+  /* padding-top: 20px; */
+  position: relative;
+  left: 0px;
+}
 .slac-alert a {
   color: #fff;
+  text-decoration: underline;
 }
 .slac-alert a:hover, .slac-alert a:active {
   text-decoration: none;

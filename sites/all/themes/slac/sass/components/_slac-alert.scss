@@ -4,12 +4,25 @@
   padding: 10px 20px;
   margin-bottom: 20px;
   text-align: center;
+  padding-top: 0;
 
   p {
     margin: 0px;
+
+    &:before {
+      content: url(../images/announcement.png);
+      background-repeat: no-repeat;
+      padding-right: 10px;
+      display: inline-block;
+      top: 8px;
+      /* padding-top: 20px; */
+      position: relative;
+      left: 0px;
+    }
   }
   a {
     color: #fff;
+    text-decoration: underline;
 
     &:hover,
     &:active {
