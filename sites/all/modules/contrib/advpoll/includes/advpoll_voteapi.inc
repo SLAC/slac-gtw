@@ -394,7 +394,6 @@ function advpoll_checkbox_selected($choices, $votes) {
  *   The unique ID of the choice selected by the user.
  */
 function advpoll_radio_selected($choices, $vote) {
-
   $selected = array();
   $count = count($choices);
 
@@ -405,8 +404,7 @@ function advpoll_radio_selected($choices, $vote) {
       $selected[] = $choices[$i]['choice_id'];
     }
   }
-
-  return $selected;
+  return array_unique($selected);
 }
 
 /**

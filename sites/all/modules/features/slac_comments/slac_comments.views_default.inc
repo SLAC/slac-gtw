@@ -105,7 +105,7 @@ function slac_comments_views_default_views() {
   $handler->display->display_options['filters']['status_node']['value'] = 1;
   $handler->display->display_options['filters']['status_node']['group'] = 1;
   $handler->display->display_options['filters']['status_node']['expose']['operator'] = FALSE;
-  /* Filter criterion: Comment: Main Pid (field_main_pid) */
+  /* Filter criterion: Comment: Main PID (field_main_pid) */
   $handler->display->display_options['filters']['field_main_pid_value']['id'] = 'field_main_pid_value';
   $handler->display->display_options['filters']['field_main_pid_value']['table'] = 'field_data_field_main_pid';
   $handler->display->display_options['filters']['field_main_pid_value']['field'] = 'field_main_pid_value';
@@ -153,7 +153,7 @@ function slac_comments_views_default_views() {
   $handler->display->display_options['sorts']['thread']['table'] = 'comment';
   $handler->display->display_options['sorts']['thread']['field'] = 'thread';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Comment: Main Pid (field_main_pid) */
+  /* Contextual filter: Comment: Main PID (field_main_pid) */
   $handler->display->display_options['arguments']['field_main_pid_value']['id'] = 'field_main_pid_value';
   $handler->display->display_options['arguments']['field_main_pid_value']['table'] = 'field_data_field_main_pid';
   $handler->display->display_options['arguments']['field_main_pid_value']['field'] = 'field_main_pid_value';
@@ -179,7 +179,7 @@ function slac_comments_views_default_views() {
   $handler->display->display_options['filters']['status_node']['value'] = 1;
   $handler->display->display_options['filters']['status_node']['group'] = 1;
   $handler->display->display_options['filters']['status_node']['expose']['operator'] = FALSE;
-  /* Filter criterion: Comment: Main Pid (field_main_pid) */
+  /* Filter criterion: Comment: Main PID (field_main_pid) */
   $handler->display->display_options['filters']['field_main_pid_value']['id'] = 'field_main_pid_value';
   $handler->display->display_options['filters']['field_main_pid_value']['table'] = 'field_data_field_main_pid';
   $handler->display->display_options['filters']['field_main_pid_value']['field'] = 'field_main_pid_value';
