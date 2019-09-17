@@ -160,3 +160,7 @@
   .rate-widget-thumbs_up_down .vote-count {
     padding-left: 5px;
   }
+
+.not-logged-in .rate-widget {
+  display:none;
+}
