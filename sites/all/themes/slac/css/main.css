@@ -5800,6 +5800,7 @@ body {
 
 .node-avpoll p {
   margin-bottom: 1.5em;
+  margin-top: 0;
 }
 
 .frontpage-access-info .views-row {
