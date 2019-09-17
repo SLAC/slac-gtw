@@ -5798,6 +5798,10 @@ body {
   color: #316dae;
 }
 
+.node-avpoll p {
+  margin-bottom: 1.5em;
+}
+
 .frontpage-access-info .views-row {
   font-size: 11px;
   font-size: 0.6875rem;
