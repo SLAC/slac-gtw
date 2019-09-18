@@ -495,48 +495,25 @@ function advpoll_display_results($nid, $data, $page = 0) {
         $show_bar = _advpoll_show_writeins_access();
       }
 
-       // Get the total votes for all write in
-       $count = 1;
-       $where_statement = '';
-       $writein_percentage = '';
-       $writein_total = '';
-       foreach ($data->choices as $choice) {
-         if ($choice['write_in'] == 1) {
-           if ($count == 1) {
-             $where_statement .= 'tag=\''. $choice['choice_id'] . '\'';
-           } else {
-             $where_statement .= ' OR tag=\'' . $choice['choice_id'] . '\'';
-           }
-           $count++;
-         }
-       }
-       $result = db_query('SELECT SUM(value) as count FROM votingapi_cache WHERE (' . $where_statement . ') AND function=\'count\'');
-       foreach ($result as $record) {
-         $writein_percentage = ceil((($record->count)*100)/$results['total']);
-         $writein_total = $record->count;
-       }
- 
-       if ($show_bar) {
-         $bars .= theme('advpoll_bar', array(
-           'title' => $title,
-           'percentage' => $item['percentage'],
-           'votes' => $item['votes'],
-           'voted' => $voted,
-           )
-         );
-       }
-     }
- 
-     $output .= theme('advpoll_results', array(
-       'bars' => $bars,
-       'total' => $results['total'],
-       'voted' => $votes,
-       'nid' => $nid,
-       'cancel_form' => $rendered_form,
-       'writein_percentage' => $writein_percentage,
-       'writein_total' => $writein_total,
-       )
-     );
+      if ($show_bar) {
+        $bars .= theme('advpoll_bar', array(
+          'title' => $title,
+          'percentage' => $item['percentage'],
+          'votes' => $item['votes'],
+          'voted' => $voted,
+          )
+        );
+      }
+    }
+
+    $output .= theme('advpoll_results', array(
+      'bars' => $bars,
+      'total' => $results['total'],
+      'voted' => $votes,
+      'nid' => $nid,
+      'cancel_form' => $rendered_form,
+      )
+    );
   }
 
   return $output;
@@ -873,43 +850,10 @@ function advpoll_cancel_vote_submit($form, &$form_state) {
   if (!$user->uid) {
     $criteria['vote_source'] = ip_address();
   }
-  $selected_vote = votingapi_select_votes($criteria);
-  
-  //Check if this was a write-in
-  $result = db_select('field_data_advpoll_choice', 'f')
-    ->fields('f')
-    ->condition('advpoll_choice_choice_id', $selected_vote[0]['tag'],'=')
-    ->execute()
-    ->fetch(); 
-  $writein = $result->advpoll_choice_write_in;
 
-  //If this is writein and there are no other votes, delete choice
-  if ($writein == 1) {
-    $result = db_select('votingapi_vote', 'v')
-      ->fields('v')
-      ->condition('tag', $selected_vote[0]['tag'],'=')
-      ->execute()
-      ->fetchAll();
-    if (count($result) == 1) {
-      $del = db_delete('field_data_advpoll_choice')
-        ->condition('advpoll_choice_choice_id', $selected_vote[0]['tag'], '=')
-        ->execute();
-    }
-  }
-
-  votingapi_delete_votes($selected_vote);
+  votingapi_delete_votes(votingapi_select_votes($criteria));
 
   $node = node_load($nid);
-
-  //Remove the deleted option from node as well
-  $new_node_choices = array();
-  foreach ($node->advpoll_choice['und'] as $c) {
-    if($c['choice_id'] !== $selected_vote[0]['tag']) {
-      $new_node_choices[] = $c;
-    }
-  }
-  $node->advpoll_choice['und'] = $new_node_choices;
-  node_save($node);
 
   if (advpoll_user_eligibility($node)) {
 // print out voting form
@@ -949,27 +893,17 @@ function advpoll_process_writein($nid, $writein, $data) {
   if ($node) {
     $lang = entity_language('node', $node);
     $node_choices = $node->advpoll_choice[$lang];
-
     $writein_choice = array(
       'choice' => $writein,
       'write_in' => 1,
       'choice_id' => $id,
     );
 
-    $choice_exists = false;
-    foreach ($node_choices as $c) {
-      if (strtolower($writein === strtolower($c['choice']))){
-        $writein_choice = $c;
-        $choice_exists = true;
-      }
-    }
-
-    if (!$choice_exists) {
-      $node_choices[] = $writein_choice;
-      $node->advpoll_choice[$lang] = $node_choices;
-      node_save($node);
-    }
+    $node_choices[] = $writein_choice;
+    $node->advpoll_choice[$lang] = $node_choices;
+    node_save($node);
   }
+
   return $writein_choice;
 }
 
