@@ -871,6 +871,7 @@ function advpoll_cancel_vote_submit($form, &$form_state) {
   global $user;
 
   $nid = $form['#nid'];
+  $node = node_load($nid);
 
   $criteria = array();
   $criteria['entity_id'] = $nid;
@@ -900,22 +901,20 @@ function advpoll_cancel_vote_submit($form, &$form_state) {
       $del = db_delete('field_data_advpoll_choice')
         ->condition('advpoll_choice_choice_id', $selected_vote[0]['tag'], '=')
         ->execute();
+
+      //Remove the deleted option from node as well
+      $new_node_choices = array();
+      foreach ($node->advpoll_choice['und'] as $c) {
+        if($c['choice_id'] !== $selected_vote[0]['tag']) {
+          $new_node_choices[] = $c;
+        }
+      }
+      $node->advpoll_choice['und'] = $new_node_choices;
+      node_save($node);
     }
   }
 
   votingapi_delete_votes($selected_vote);
-
-  $node = node_load($nid);
-
-  //Remove the deleted option from node as well
-  $new_node_choices = array();
-  foreach ($node->advpoll_choice['und'] as $c) {
-    if($c['choice_id'] !== $selected_vote[0]['tag']) {
-      $new_node_choices[] = $c;
-    }
-  }
-  $node->advpoll_choice['und'] = $new_node_choices;
-  node_save($node);
 
   if (advpoll_user_eligibility($node)) {
 // print out voting form
