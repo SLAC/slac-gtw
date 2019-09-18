@@ -1,79 +1,62 @@
 diff --git a/.DS_Store b/.DS_Store
-index 9d1b3f0..372ef7f 100644
+index 8cc19a9..e2b6bc6 100644
 Binary files a/.DS_Store and b/.DS_Store differ
 diff --git a/advpoll.module b/advpoll.module
-index b43fee1..d51f00f 100644
+index b43fee1..a2cf1cc 100644
 --- a/advpoll.module
 +++ b/advpoll.module
-@@ -495,25 +495,48 @@ function advpoll_display_results($nid, $data, $page = 0) {
+@@ -495,6 +495,33 @@ function advpoll_display_results($nid, $data, $page = 0) {
          $show_bar = _advpoll_show_writeins_access();
        }
  
--      if ($show_bar) {
--        $bars .= theme('advpoll_bar', array(
--          'title' => $title,
--          'percentage' => $item['percentage'],
--          'votes' => $item['votes'],
--          'voted' => $voted,
--          )
--        );
--      }
--    }
++      // Get the total votes for all write in
++      $count = 1;
++      $where_statement = '';
++      $writein_percentage = '';
++      $writein_total = '';
++      foreach ($data->choices as $choice) {
++        if ($choice['write_in'] == 1) {
++          if ($count == 1) {
++            $where_statement .= 'tag=\''. $choice['choice_id'] . '\'';
++          } else {
++            $where_statement .= ' OR tag=\'' . $choice['choice_id'] . '\'';
++          }
++          $count++;
++        }
++      }
++
++      if (!empty($where_statement)) {
++        $result = db_query('SELECT SUM(value) as count FROM votingapi_cache WHERE (' . $where_statement . ') AND function=\'count\'');
++        foreach ($result as $record) {
++          $writein_percentage = ceil((($record->count)*100)/$results['total']);
++          $writein_total = $record->count;
++        }
++      } else {
++        $writein_total = 0;
++        $writein_percentage = 0;
++      }
++ 
+       if ($show_bar) {
+         $bars .= theme('advpoll_bar', array(
+           'title' => $title,
+@@ -505,13 +532,15 @@ function advpoll_display_results($nid, $data, $page = 0) {
+         );
+       }
+     }
 -
--    $output .= theme('advpoll_results', array(
--      'bars' => $bars,
--      'total' => $results['total'],
--      'voted' => $votes,
--      'nid' => $nid,
--      'cancel_form' => $rendered_form,
--      )
--    );
-+       // Get the total votes for all write in
-+       $count = 1;
-+       $where_statement = '';
-+       $writein_percentage = '';
-+       $writein_total = '';
-+       foreach ($data->choices as $choice) {
-+         if ($choice['write_in'] == 1) {
-+           if ($count == 1) {
-+             $where_statement .= 'tag=\''. $choice['choice_id'] . '\'';
-+           } else {
-+             $where_statement .= ' OR tag=\'' . $choice['choice_id'] . '\'';
-+           }
-+           $count++;
-+         }
-+       }
-+       $result = db_query('SELECT SUM(value) as count FROM votingapi_cache WHERE (' . $where_statement . ') AND function=\'count\'');
-+       foreach ($result as $record) {
-+         $writein_percentage = ceil((($record->count)*100)/$results['total']);
-+         $writein_total = $record->count;
-+       }
 + 
-+       if ($show_bar) {
-+         $bars .= theme('advpoll_bar', array(
-+           'title' => $title,
-+           'percentage' => $item['percentage'],
-+           'votes' => $item['votes'],
-+           'voted' => $voted,
-+           )
-+         );
-+       }
-+     }
-+ 
-+     $output .= theme('advpoll_results', array(
-+       'bars' => $bars,
-+       'total' => $results['total'],
-+       'voted' => $votes,
-+       'nid' => $nid,
-+       'cancel_form' => $rendered_form,
-+       'writein_percentage' => $writein_percentage,
-+       'writein_total' => $writein_total,
-+       )
-+     );
+     $output .= theme('advpoll_results', array(
+       'bars' => $bars,
+       'total' => $results['total'],
+       'voted' => $votes,
+       'nid' => $nid,
+       'cancel_form' => $rendered_form,
++      'writein_percentage' => $writein_percentage,
++      'writein_total' => $writein_total,
+       )
+     );
    }
- 
-   return $output;
-@@ -850,11 +873,44 @@ function advpoll_cancel_vote_submit($form, &$form_state) {
+@@ -850,11 +879,44 @@ function advpoll_cancel_vote_submit($form, &$form_state) {
    if (!$user->uid) {
      $criteria['vote_source'] = ip_address();
    }
@@ -119,7 +102,7 @@ index b43fee1..d51f00f 100644
    if (advpoll_user_eligibility($node)) {
  // print out voting form
      $update_form = drupal_get_form('advpoll_choice_form', $node);
-@@ -893,17 +949,27 @@ function advpoll_process_writein($nid, $writein, $data) {
+@@ -893,17 +955,27 @@ function advpoll_process_writein($nid, $writein, $data) {
    if ($node) {
      $lang = entity_language('node', $node);
      $node_choices = $node->advpoll_choice[$lang];
