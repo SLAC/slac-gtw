@@ -330,6 +330,16 @@
 }
 
 .node-advpoll p {
-  margin-bottom: 1.5em;
+  margin-bottom: 0;
   margin-top: 0;
+  line-height: normal;
+  padding-bottom: 10px;
+}
+
+.node-advpoll .form-item {
+  margin-top: 0;
+}
+
+.pane-panels-mini.pane-poll-mini-panel {
+  width: -webkit-fill-available;
 }
