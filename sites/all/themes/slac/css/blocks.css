@@ -282,7 +282,3 @@ a.submit-feedback {
   overflow: hidden;
   border-bottom: 1px dashed transparent;
 }
-
-.pane-panels-mini.pane-poll-mini-panel {
-  display: inline-block;
-}
