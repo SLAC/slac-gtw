@@ -7872,7 +7872,7 @@ nav.main-navigation {
   min-width: 153px !important;
 }
 .tb-megamenu .dropdown-menu .mega-nav > li a {
-  padding: 9px 0;
+  padding-top: 10px;
 }
 
 .tb-megamenu .dropdown-menu .active > a, .tb-megamenu .dropdown-menu .active > a:hover {
@@ -7895,7 +7895,11 @@ nav.main-navigation {
 
 .tb-megamenu.style-blue .dropdown-menu li > a:hover, .tb-megamenu.style-blue .dropdown-menu li > a:focus, .tb-megamenu.style-blue .dropdown-submenu:hover > a {
   text-decoration: underline;
-  color: #333;
+  color: #316dae;
+}
+
+.tb-megamenu .dropdown-menu li > a {
+  border-top: none !important;
 }
 
 .page-news #page-title {

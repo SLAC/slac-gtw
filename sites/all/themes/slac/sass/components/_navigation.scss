@@ -391,7 +391,7 @@ nav.main-navigation {
   min-width: 153px !important;
 
   .mega-nav > li a {
-    padding: 9px 0;
+    padding-top: 10px;
   }
 }
 
@@ -415,5 +415,9 @@ nav.main-navigation {
 
 .tb-megamenu.style-blue .dropdown-menu li > a:hover, .tb-megamenu.style-blue .dropdown-menu li > a:focus, .tb-megamenu.style-blue .dropdown-submenu:hover > a {
   text-decoration: underline;
-  color: #333;
+  color: #316dae;
+}
+
+.tb-megamenu .dropdown-menu li > a {
+  border-top: none !important;
 }
