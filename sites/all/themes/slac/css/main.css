@@ -7855,7 +7855,11 @@ nav.main-navigation {
 }
 
 .tb-megamenu.style-blue .nav > li > a {
-  padding: 0.58rem 1.9375rem 0.58rem 0.62rem !important;
+  padding: 0.58rem 1.9375rem 0.58rem 1.9375rem !important;
+}
+
+.tb-megamenu .dropdown-menu .mega-nav > li {
+  padding-left: 1.275rem;
 }
 
 .tb-megamenu.style-blue .nav li.dropdown.active > .dropdown-toggle, .tb-megamenu.style-blue .nav li.dropdown.open.active > .dropdown-toggle {
