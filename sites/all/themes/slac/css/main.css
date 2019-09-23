@@ -7893,7 +7893,7 @@ nav.main-navigation {
   background-clip: border-box !important;
 }
 
-.tb-megamenu.style-blue .dropdown-menu li > a, .tb-megamenu.style-blue .dropdown-menu li > a, .tb-megamenu.style-blue .dropdown-submenu > a {
+.tb-megamenu.style-blue .dropdown-menu li > a, .tb-megamenu.style-blue .dropdown-menu li > a, .tb-megamenu.style-blue .dropdown-submenu > a, .tb-megamenu.style-blue .nav li.dropdown.open > .dropdown-toggle {
   color: #316dae !important;
 }
 
