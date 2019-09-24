@@ -25,7 +25,6 @@
  */
 //dsm('Display: '. $display_type .': '. $min_date_formatted .' to '. $max_date_formatted);
 //dsm($rows);
-//dsm($items);
 $index = 0;
 $header_ids = array();
 foreach ($day_names as $key => $value) {
@@ -67,7 +66,7 @@ foreach ($day_names as $key => $value) {
       <?php endfor; ?>
     </tr>
 
-    <?php for ($i = 0; $i < $multiday_rows; $i++): ?>
+    <?php for ($i = 0; $i <= $multiday_rows; $i++): ?>
     <?php 
       $colpos = 0; 
       $rowclass = "all-day";
