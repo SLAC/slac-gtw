@@ -406,9 +406,12 @@ nav.main-navigation {
 }
 
 .tb-megamenu .mega-nav > li a, .tb-megamenu .dropdown-menu .mega-nav > li a {
-  padding: 1px 0 !important;
+  padding: 0 0 5px 0;
 }
 
+.tb-megamenu .mega-inner {
+  padding: 10px 10px 5px 10px !important;
+}
 .tb-megamenu .dropdown-menu li > a {
   font-weight: normal;
 }
