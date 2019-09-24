@@ -566,7 +566,6 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .month-view .full tr.date-box td,
 .calendar-calendar .month-view .full tr.multi-day,
 .calendar-calendar .month-view .full tr.multi-day td {
-  height: 19px;
   max-height: 19px;
 }
 
@@ -1134,7 +1133,8 @@ ul.calendar-links,
 }
 
 .day-view .multi-day.last .date-display-single,
-.weekview .contents .date-display-single {
+.weekview .contents .date-display-single,
+.monthview .contents .date-display-single {
   display: none;
 }
 
