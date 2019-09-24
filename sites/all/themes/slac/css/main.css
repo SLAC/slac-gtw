@@ -7885,6 +7885,10 @@ nav.main-navigation {
   width: 100% !important;
 }
 
+.tb-megamenu .mega-nav > li a, .tb-megamenu .dropdown-menu .mega-nav > li a {
+  padding: 1px 0 !important;
+}
+
 .tb-megamenu .dropdown-menu li > a {
   font-weight: normal;
 }
@@ -7895,11 +7899,16 @@ nav.main-navigation {
 
 .tb-megamenu.style-blue .dropdown-menu li > a, .tb-megamenu.style-blue .dropdown-menu li > a, .tb-megamenu.style-blue .dropdown-submenu > a, .tb-megamenu.style-blue .nav li.dropdown.open > .dropdown-toggle {
   color: #316dae !important;
+  font-size: 0.875rem;
 }
 
 .tb-megamenu.style-blue .dropdown-menu li > a:hover, .tb-megamenu.style-blue .dropdown-menu li > a:focus, .tb-megamenu.style-blue .dropdown-submenu:hover > a {
   text-decoration: underline;
   color: #316dae !important;
+}
+
+.tb-megamenu.style-blue .dropdown-menu {
+  border-bottom-color: #316dae !important;
 }
 
 .tb-megamenu .dropdown-menu li > a {
