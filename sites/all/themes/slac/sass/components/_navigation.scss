@@ -387,7 +387,7 @@ nav.main-navigation {
   color: #316dae;
 }
 
-.tb-megamenu.style-blue .nav > .active > a {
+.tb-megamenu.style-blue .nav > .active > a, .tb-megamenu.style-blue .nav > .active > a:focus,, .tb-megamenu.style-blue .nav > .active > a:hover {
   background-color: #fff;
   color: #316dae;
 }
