@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Implements hook_comment_presave()
+ */ 
+function main_pid_comment_presave($comment) {
+
+  $pid = $comment->pid;
+
+  if ($pid > 0){
+
+    while ($pid > 0) {
+      // Implements comment_load()
+      $load_comment = comment_load($pid);
+
+      $pid = $load_comment->pid;
+      $cid = $load_comment->cid;
+
+    }
+
+    $comment->field_main_pid[LANGUAGE_NONE][0]['value'] = $cid;
+
+  }
+
+  elseif ($pid == 0) {
+
+    $comment->field_main_pid[LANGUAGE_NONE][0]['value'] = 0;
+
+  }
+
+}

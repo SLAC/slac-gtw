@@ -20,7 +20,7 @@ function ct_flea_market_item_ctools_plugin_directory($owner, $plugin) {
  */
 function ct_flea_market_item_ctools_render_alter(&$info, &$page, &$context) {
   $handler = $context['handler'];
-  if ($handler->task == 'node_view' && $handler->export_module == 'ct_flea_market_item') {
+  if ($handler->task == 'node_view') {
     $path = drupal_get_path('module', 'ct_flea_market_item');
     drupal_add_js($path . '/js/ct_flea_market_item.js');
   }

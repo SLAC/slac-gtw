@@ -1,0 +1,4 @@
+name = SLAC Alert
+description = Provides custom alert block.
+core = 7.x
+package = SLAC

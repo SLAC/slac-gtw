@@ -364,6 +364,7 @@ function _slac_event_time_formatter($items) {
   $element = array();
 
   foreach ($items as $delta => $item) {
+    //exit(print_r($items));
     $date_values = _slac_ip_event_date_create_datetimes($item);
     $value1 = $date_values['value'];
     $value2 = $date_values['value2'];
@@ -371,6 +372,11 @@ function _slac_event_time_formatter($items) {
     // Format datetime strings for use with date_is_all_day().
     $v1str = $value1->format('Y-m-d H:i:s');
     $v2str = $value2->format('Y-m-d H:i:s');
+
+
+    $date1 = new DateTime($v1str);
+    $date2 = new DateTime($v2str);
+    $interval = $date1->diff($date2);
 
     // Single day event.
     if (date_is_all_day($v1str, $v2str)) {
@@ -393,6 +399,10 @@ function _slac_event_time_formatter($items) {
         ));
     }
 
+    // Handle the multi day event times
+    if ($interval->days > 0) {
+      $markup = $value1->format('M. d, g:i a') . ' - ' . $value2->format('M. d, g:i a');
+    }
     $element[$delta] = array('#markup' => $markup);
   }
 

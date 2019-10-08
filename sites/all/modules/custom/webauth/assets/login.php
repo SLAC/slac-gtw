@@ -7,7 +7,6 @@
  * This login script is passed after webauth is passed
  */
 
-
 //We collect some information about the user once logged in
 global $base_url, $cookie_domain, $conf;
 
@@ -27,7 +26,7 @@ if (array_key_exists('SUBDIRECTORY', $_SERVER)) {
   $base_url = 'https://'.$_SERVER['HTTP_HOST'] . '/' . $_SERVER['SUBDIRECTORY'];
 } else {
   // assume provisioned sites will be
-  $base_url = 'https://'.$_SERVER['HTTP_HOST']; // THIS IS IMPORTANT
+  $base_url = 'https://'.$_SERVER['HTTP_HOST'];
 }
 
 $base_url = rtrim($base_url, "/\//");
@@ -71,4 +70,8 @@ $_SESSION['wa_data'] = $wa_data;
 //And they set cookies - again should we?  Probably.
 // $host  = $_SERVER['HTTP_HOST'];
 // $http = $_SERVER['HTTPS'] ? 'https' : 'http';
-header('Location: ' . $base_url . '/webauth/authenticate');
+if (isset($_GET['destination'])) {
+  header('Location: ' . $base_url . '/webauth/authenticate?destination=' . $_GET['destination']);
+} else {
+  header('Location: ' . $base_url . '/webauth/authenticate');
+}

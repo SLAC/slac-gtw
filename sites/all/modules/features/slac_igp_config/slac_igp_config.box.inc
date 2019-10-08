@@ -65,7 +65,7 @@ Building 50 <br />
   $box->options = array(
     'body' => array(
       'value' => '<p style="margin-bottom:15px;font-weight:bold;font-size:1.3em; letter-spacing: .08em;">BOLD PEOPLE.&nbsp; VISIONARY SCIENCE.&nbsp; REAL IMPACT.</p>
-<p><a href="http://slac.stanford.edu">SLAC NATIONAL ACCELERATOR LABORATORY</a><br />
+<p><a href="https://www6.slac.stanford.edu">SLAC NATIONAL ACCELERATOR LABORATORY</a><br />
 	2575 Sand Hill Road, Menlo Park, CA 94025<br />
 	Operated by <a href="http://www.stanford.edu">Stanford University</a> for the <a href="http://science.energy.gov/">U.S. Department of Energy Office of Science</a></p>
 ',
@@ -122,7 +122,7 @@ Building 50 <br />
   $box->options = array(
     'body' => array(
       'value' => '<span class="fa fa-user">&nbsp;</span>
-<form action="https://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><label for="searchbox_people">People Finder</label><input class="searchbox" id="searchbox_people" maxlength="2047" name="name" placeholder="People Finder" size="18" type="text" /> <input name="gone" type="hidden" value="active" /> <input name="lf" type="hidden" value="1" /><input name="url" type="hidden" value="" /><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27" /> <a class="advanced-search" href="http://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>
+<form action="https://www-public.slac.stanford.edu/phonebook/dirsearch.aspx" id="people_search" method="get" name="people_search"><label for="searchbox_people">People Finder</label><input class="searchbox" id="searchbox_people" maxlength="2047" name="name" placeholder="People Finder" size="18" type="text" /> <input name="gone" type="hidden" value="active" /> <input name="lf" type="hidden" value="1" /><input name="url" type="hidden" value="" /><input alt="go" class="searchbutton" height="22" id="search-button" name="submit" src="https://news.slac.stanford.edu/sites/default/files/search-submit.jpg" type="submit" value="go" width="27" /> <a class="advanced-search" href="https://www-public.slac.stanford.edu/phonebook/search.aspx">Advanced People Search</a></form>
 ',
       'format' => 'full_html',
     ),

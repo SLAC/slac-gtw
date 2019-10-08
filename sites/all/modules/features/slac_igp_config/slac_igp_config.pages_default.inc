@@ -312,6 +312,29 @@ function slac_igp_config_default_page_manager_pages() {
   $display->content['new-1d664cee-330b-4c79-8af8-561819c075a0'] = $pane;
   $display->panels['colthreerowone'][0] = 'new-1d664cee-330b-4c79-8af8-561819c075a0';
   $pane = new stdClass();
+  $pane->pid = 'new-b29cd9e5-d4ef-48f0-b03a-d5db90c1a10e';
+  $pane->panel = 'colthreerowone';
+  $pane->type = 'block';
+  $pane->subtype = 'block-4';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = 'b29cd9e5-d4ef-48f0-b03a-d5db90c1a10e';
+  $display->content['new-b29cd9e5-d4ef-48f0-b03a-d5db90c1a10e'] = $pane;
+  $display->panels['colthreerowone'][1] = 'new-b29cd9e5-d4ef-48f0-b03a-d5db90c1a10e';
+  $pane = new stdClass();
   $pane->pid = 'new-c0a99c52-d91c-4daf-9852-c1e905e113ff';
   $pane->panel = 'colthreerowone';
   $pane->type = 'block';
@@ -332,11 +355,11 @@ function slac_igp_config_default_page_manager_pages() {
     'css_class' => 'brown-bodered-white no-bg',
   );
   $pane->extras = array();
-  $pane->position = 1;
+  $pane->position = 2;
   $pane->locks = array();
   $pane->uuid = 'c0a99c52-d91c-4daf-9852-c1e905e113ff';
   $display->content['new-c0a99c52-d91c-4daf-9852-c1e905e113ff'] = $pane;
-  $display->panels['colthreerowone'][1] = 'new-c0a99c52-d91c-4daf-9852-c1e905e113ff';
+  $display->panels['colthreerowone'][2] = 'new-c0a99c52-d91c-4daf-9852-c1e905e113ff';
   $pane = new stdClass();
   $pane->pid = 'new-4ab9910a-8622-4702-a755-b8026a1a09c6';
   $pane->panel = 'colthreerowsix';

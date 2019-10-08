@@ -22,7 +22,7 @@ function ct_event_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 3,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -125,8 +125,8 @@ function ct_event_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-event-field_event_date'.
-  $field_instances['node-event-field_event_date'] = array(
+  // Exported field_instance: 'node-event-field_e_date'.
+  $field_instances['node-event-field_e_date'] = array(
     'bundle' => 'event',
     'deleted' => 0,
     'description' => '',
@@ -140,10 +140,88 @@ function ct_event_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
-          'show_remaining_days' => FALSE,
+          'show_remaining_days' => 0,
         ),
         'type' => 'date_default',
         'weight' => 1,
+      ),
+      'headline' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'link' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'news_archive' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_e_date',
+    'label' => 'Date',
+    'required' => 1,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'display_all_day' => 1,
+        'increment' => 15,
+        'input_format' => 'Y/m/d - g:i:sa',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-event-field_event_date'.
+  $field_instances['node-event-field_event_date'] = array(
+    'bundle' => 'event',
+    'deleted' => 0,
+    'description' => 'Legacy field - Please do not use',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -199,7 +277,7 @@ function ct_event_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_event_date',
     'label' => 'Date',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'default_value' => 'blank',
       'default_value2' => 'blank',
@@ -216,11 +294,12 @@ function ct_event_field_default_field_instances() {
         'input_format' => 'm/d/Y - g:i:sa',
         'input_format_custom' => '',
         'label_position' => 'above',
+        'no_fieldset' => 0,
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 4,
+      'weight' => 23,
     ),
   );
 
@@ -235,7 +314,7 @@ function ct_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 13,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -307,7 +386,7 @@ function ct_event_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 22,
       ),
       'headline' => array(
         'label' => 'above',
@@ -378,7 +457,7 @@ function ct_event_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 20,
+        'weight' => 7,
       ),
       'headline' => array(
         'label' => 'above',
@@ -444,7 +523,7 @@ function ct_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 23,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -511,7 +590,7 @@ function ct_event_field_default_field_instances() {
         'module' => 'email',
         'settings' => array(),
         'type' => 'email_default',
-        'weight' => 6,
+        'weight' => 5,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -587,7 +666,7 @@ function ct_event_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 4,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -669,7 +748,7 @@ function ct_event_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_plain',
-        'weight' => 7,
+        'weight' => 6,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -744,7 +823,7 @@ function ct_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 14,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -826,7 +905,7 @@ function ct_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 16,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -1025,7 +1104,7 @@ function ct_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 19,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -1097,7 +1176,7 @@ function ct_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 24,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -1172,7 +1251,7 @@ function ct_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 20,
       ),
       'full' => array(
         'label' => 'above',
@@ -1256,7 +1335,7 @@ function ct_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 21,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -1323,7 +1402,7 @@ function ct_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 18,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -1419,7 +1498,7 @@ function ct_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 17,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -1516,7 +1595,7 @@ function ct_event_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 15,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -1595,6 +1674,7 @@ function ct_event_field_default_field_instances() {
   t('If this Item is being promoted as news, this is the title that will display when it appears in News listings.');
   t('If this option is checked, this item will appear along with other News in news listings.');
   t('Image');
+  t('Legacy field - Please do not use');
   t('Location');
   t('News Title');
   t('News Type');

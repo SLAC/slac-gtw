@@ -20,6 +20,7 @@ stylesheets[all][] = css/feedback-page.css
 stylesheets[all][] = css/media-600.css
 stylesheets[all][] = css/media-900.css
 stylesheets[all][] = css/main.css
+stylesheets[all][] = css/comments.css
 stylesheets[all][] = slac_colorbox/colorbox_slac_colorbox.css
 
 ;------Unset System Stylesheets ----------

@@ -29,7 +29,7 @@ $zen-column-count: 12;
 .main-navigation {
 
   .region-navigation {
-    @include zen-grid-item(10, 3);
+    @include zen-grid-item(10, 4);
   }
 }
 

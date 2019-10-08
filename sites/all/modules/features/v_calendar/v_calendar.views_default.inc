@@ -196,24 +196,22 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['fields']['field_event_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_type']['type'] = 'slac_classname_formatter';
   /* Field: Content: Date */
-  $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['label'] = '';
-  $handler->display->display_options['fields']['field_event_date']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_date']['element_wrapper_class'] = 'type-[type]';
-  $handler->display->display_options['fields']['field_event_date']['hide_alter_empty'] = FALSE;
-  $handler->display->display_options['fields']['field_event_date']['type'] = 'slac_event_time_formatter';
-  $handler->display->display_options['fields']['field_event_date']['settings'] = array(
-    'format_type' => 'calendar_item_time',
+  $handler->display->display_options['fields']['field_e_date']['id'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['field'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['label'] = '';
+  $handler->display->display_options['fields']['field_e_date']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_e_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_e_date']['type'] = 'slac_event_time_formatter';
+  $handler->display->display_options['fields']['field_e_date']['settings'] = array(
+    'format_type' => 'calendar_item',
+    'custom_date_format' => '',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
+    'show_remaining_days' => 0,
   );
-  $handler->display->display_options['fields']['field_event_date']['group_rows'] = FALSE;
-  $handler->display->display_options['fields']['field_event_date']['delta_offset'] = '0';
   /* Field: Content: Date (start only) */
   $handler->display->display_options['fields']['field_event_date_1']['id'] = 'field_event_date_1';
   $handler->display->display_options['fields']['field_event_date_1']['table'] = 'field_data_field_event_date';
@@ -265,7 +263,7 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['label'] = '';
   $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<div class="type-[type] event-[field_event_type]">
 <span class="time">
-  <span class="desktop">[field_event_date]</span>
+  <span class="desktop">[field_e_date]</span>
   <span class="mobile">[field_event_date_1]</span>
 </span>
 <span class="link-ical">[nothing]</span>
@@ -380,25 +378,131 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['style_options']['name_size'] = '3';
   $handler->display->display_options['style_options']['mini'] = '0';
   $handler->display->display_options['style_options']['with_weekno'] = '0';
-  $handler->display->display_options['style_options']['multiday_theme'] = '0';
-  $handler->display->display_options['style_options']['theme_style'] = '1';
+  $handler->display->display_options['style_options']['multiday_theme'] = '1';
+  $handler->display->display_options['style_options']['theme_style'] = '0';
   $handler->display->display_options['style_options']['max_items'] = '0';
+  $handler->display->display_options['style_options']['groupby_times'] = '';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'calendar_entity';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nid']['element_default_classes'] = FALSE;
+  /* Field: Content: Type */
+  $handler->display->display_options['fields']['type']['id'] = 'type';
+  $handler->display->display_options['fields']['type']['table'] = 'node';
+  $handler->display->display_options['fields']['type']['field'] = 'type';
+  $handler->display->display_options['fields']['type']['label'] = '';
+  $handler->display->display_options['fields']['type']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['type']['machine_name'] = TRUE;
+  /* Field: Content: Event Type (excluded, formatted for CSS Classname) */
+  $handler->display->display_options['fields']['field_event_type']['id'] = 'field_event_type';
+  $handler->display->display_options['fields']['field_event_type']['table'] = 'field_data_field_event_type';
+  $handler->display->display_options['fields']['field_event_type']['field'] = 'field_event_type';
+  $handler->display->display_options['fields']['field_event_type']['ui_name'] = 'Content: Event Type (excluded, formatted for CSS Classname)';
+  $handler->display->display_options['fields']['field_event_type']['label'] = '';
+  $handler->display->display_options['fields']['field_event_type']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_event_type']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['field_event_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_type']['type'] = 'slac_classname_formatter';
+  /* Field: Content: Date */
+  $handler->display->display_options['fields']['field_e_date']['id'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['field'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['label'] = '';
+  $handler->display->display_options['fields']['field_e_date']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_e_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_e_date']['type'] = 'slac_event_time_formatter';
+  $handler->display->display_options['fields']['field_e_date']['settings'] = array(
+    'format_type' => 'calendar_item_time',
+    'custom_date_format' => '',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: Content: Date */
+  $handler->display->display_options['fields']['field_e_date_1']['id'] = 'field_e_date_1';
+  $handler->display->display_options['fields']['field_e_date_1']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['fields']['field_e_date_1']['field'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date_1']['label'] = '';
+  $handler->display->display_options['fields']['field_e_date_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_e_date_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_e_date_1']['settings'] = array(
+    'format_type' => 'calendar_item_time',
+    'custom_date_format' => '',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: ical link (Global: Custom text) */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['ui_name'] = 'ical link (Global: Custom text)';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<img src="/sites/all/themes/slac/images/calendar-icon-gray.png" />';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]/ical.ics';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Existing / New (Excluded, rendering as path) */
+  $handler->display->display_options['fields']['field_shared_new_existing']['id'] = 'field_shared_new_existing';
+  $handler->display->display_options['fields']['field_shared_new_existing']['table'] = 'field_data_field_shared_new_existing';
+  $handler->display->display_options['fields']['field_shared_new_existing']['field'] = 'field_shared_new_existing';
+  $handler->display->display_options['fields']['field_shared_new_existing']['ui_name'] = 'Content: Existing / New (Excluded, rendering as path)';
+  $handler->display->display_options['fields']['field_shared_new_existing']['label'] = '';
+  $handler->display->display_options['fields']['field_shared_new_existing']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_shared_new_existing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_shared_new_existing']['type'] = 'slac_existing_node_url_formatter';
+  /* Field: Item Output (Global: Custom text) */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['ui_name'] = 'Item Output (Global: Custom text)';
+  $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<div class="type-[type] event-[field_event_type]">
+<span class="time">
+  <span class="desktop">[field_e_date]</span>
+  <span class="mobile">[field_e_date_1]</span>
+</span>
+<span class="link-ical">[nothing]</span>
+<span class="title"><a href="[field_shared_new_existing]" title="[title]">[title]</a></span>
+</div>';
+  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Date: Date (node) */
-  $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
-  $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
-  $handler->display->display_options['arguments']['date_argument']['field'] = 'date_argument';
-  $handler->display->display_options['arguments']['date_argument']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['date_argument']['default_argument_type'] = 'date';
-  $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['date_argument']['granularity'] = 'week';
-  $handler->display->display_options['arguments']['date_argument']['add_delta'] = 'yes';
-  $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
-    'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
+  $handler->display->display_options['arguments']['date_argument_1']['id'] = 'date_argument_1';
+  $handler->display->display_options['arguments']['date_argument_1']['table'] = 'node';
+  $handler->display->display_options['arguments']['date_argument_1']['field'] = 'date_argument';
+  $handler->display->display_options['arguments']['date_argument_1']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['date_argument_1']['default_argument_type'] = 'date';
+  $handler->display->display_options['arguments']['date_argument_1']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['date_argument_1']['granularity'] = 'week';
+  $handler->display->display_options['arguments']['date_argument_1']['granularity_reset'] = 0;
+  $handler->display->display_options['arguments']['date_argument_1']['add_delta'] = 'yes';
+  $handler->display->display_options['arguments']['date_argument_1']['date_fields'] = array(
+    'field_data_field_e_date.field_e_date_value' => 'field_data_field_e_date.field_e_date_value',
+    'field_data_field_e_date.field_e_date_value2' => 'field_data_field_e_date.field_e_date_value2',
   );
   $handler->display->display_options['path'] = 'calendar';
   $handler->display->display_options['menu']['type'] = 'normal';
@@ -431,6 +535,109 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'calendar_entity';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nid']['element_default_classes'] = FALSE;
+  /* Field: Content: Type */
+  $handler->display->display_options['fields']['type']['id'] = 'type';
+  $handler->display->display_options['fields']['type']['table'] = 'node';
+  $handler->display->display_options['fields']['type']['field'] = 'type';
+  $handler->display->display_options['fields']['type']['label'] = '';
+  $handler->display->display_options['fields']['type']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['type']['machine_name'] = TRUE;
+  /* Field: Content: Event Type (excluded, formatted for CSS Classname) */
+  $handler->display->display_options['fields']['field_event_type']['id'] = 'field_event_type';
+  $handler->display->display_options['fields']['field_event_type']['table'] = 'field_data_field_event_type';
+  $handler->display->display_options['fields']['field_event_type']['field'] = 'field_event_type';
+  $handler->display->display_options['fields']['field_event_type']['ui_name'] = 'Content: Event Type (excluded, formatted for CSS Classname)';
+  $handler->display->display_options['fields']['field_event_type']['label'] = '';
+  $handler->display->display_options['fields']['field_event_type']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_event_type']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['field_event_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_type']['type'] = 'slac_classname_formatter';
+  /* Field: Content: Date */
+  $handler->display->display_options['fields']['field_e_date']['id'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['field'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['label'] = '';
+  $handler->display->display_options['fields']['field_e_date']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_e_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_e_date']['type'] = 'slac_event_time_formatter';
+  $handler->display->display_options['fields']['field_e_date']['settings'] = array(
+    'format_type' => 'calendar_item',
+    'custom_date_format' => '',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: Content: Date */
+  $handler->display->display_options['fields']['field_e_date_1']['id'] = 'field_e_date_1';
+  $handler->display->display_options['fields']['field_e_date_1']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['fields']['field_e_date_1']['field'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date_1']['label'] = '';
+  $handler->display->display_options['fields']['field_e_date_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_e_date_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_e_date_1']['settings'] = array(
+    'format_type' => 'calendar_item',
+    'custom_date_format' => '',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: ical link (Global: Custom text) */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['ui_name'] = 'ical link (Global: Custom text)';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<img src="/sites/all/themes/slac/images/calendar-icon-gray.png" />';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]/ical.ics';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Existing / New (Excluded, rendering as path) */
+  $handler->display->display_options['fields']['field_shared_new_existing']['id'] = 'field_shared_new_existing';
+  $handler->display->display_options['fields']['field_shared_new_existing']['table'] = 'field_data_field_shared_new_existing';
+  $handler->display->display_options['fields']['field_shared_new_existing']['field'] = 'field_shared_new_existing';
+  $handler->display->display_options['fields']['field_shared_new_existing']['ui_name'] = 'Content: Existing / New (Excluded, rendering as path)';
+  $handler->display->display_options['fields']['field_shared_new_existing']['label'] = '';
+  $handler->display->display_options['fields']['field_shared_new_existing']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_shared_new_existing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_shared_new_existing']['type'] = 'slac_existing_node_url_formatter';
+  /* Field: Item Output (Global: Custom text) */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['ui_name'] = 'Item Output (Global: Custom text)';
+  $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<div class="type-[type] event-[field_event_type]">
+<span class="time">
+  <span class="desktop">[field_e_date]</span>
+  <span class="mobile">[field_e_date_1]</span>
+</span>
+<span class="link-ical">[nothing]</span>
+<span class="title"><a href="[field_shared_new_existing]" title="[title]">[title]</a></span>
+</div>';
+  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Date: Date (node) */
   $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
@@ -440,8 +647,10 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['default_argument_type'] = 'date';
   $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['date_argument']['granularity'] = 'day';
+  $handler->display->display_options['arguments']['date_argument']['granularity_reset'] = 0;
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
-    'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
+    'field_data_field_e_date.field_e_date_value' => 'field_data_field_e_date.field_e_date_value',
+    'field_data_field_e_date.field_e_date_value2' => 'field_data_field_e_date.field_e_date_value2',
   );
   $handler->display->display_options['path'] = 'calendar/day';
   $handler->display->display_options['menu']['type'] = 'tab';
@@ -465,7 +674,7 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['style_options']['name_size'] = '3';
   $handler->display->display_options['style_options']['mini'] = '0';
   $handler->display->display_options['style_options']['with_weekno'] = '0';
-  $handler->display->display_options['style_options']['multiday_theme'] = '0';
+  $handler->display->display_options['style_options']['multiday_theme'] = '1';
   $handler->display->display_options['style_options']['theme_style'] = '1';
   $handler->display->display_options['style_options']['max_items'] = '0';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -481,9 +690,11 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['default_argument_type'] = 'date';
   $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['date_argument']['granularity'] = 'week';
+  $handler->display->display_options['arguments']['date_argument']['granularity_reset'] = 0;
   $handler->display->display_options['arguments']['date_argument']['add_delta'] = 'yes';
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
-    'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
+    'field_data_field_e_date.field_e_date_value' => 'field_data_field_e_date.field_e_date_value',
+    'field_data_field_e_date.field_e_date_value2' => 'field_data_field_e_date.field_e_date_value2',
   );
   $handler->display->display_options['path'] = 'calendar/week';
   $handler->display->display_options['menu']['type'] = 'default tab';
@@ -506,9 +717,12 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['style_options']['name_size'] = '3';
   $handler->display->display_options['style_options']['mini'] = '0';
   $handler->display->display_options['style_options']['with_weekno'] = '0';
-  $handler->display->display_options['style_options']['multiday_theme'] = '0';
+  $handler->display->display_options['style_options']['multiday_theme'] = '1';
   $handler->display->display_options['style_options']['theme_style'] = '1';
   $handler->display->display_options['style_options']['max_items'] = '0';
+  $handler->display->display_options['style_options']['multiday_hidden'] = array(
+    'field_e_date' => 'field_e_date',
+  );
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'calendar_entity';
@@ -522,9 +736,9 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['default_action'] = 'default';
   $handler->display->display_options['arguments']['date_argument']['default_argument_type'] = 'date';
   $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['date_argument']['add_delta'] = 'yes';
+  $handler->display->display_options['arguments']['date_argument']['granularity_reset'] = 0;
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
-    'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
+    'field_data_field_e_date.field_e_date_value' => 'field_data_field_e_date.field_e_date_value',
   );
   $handler->display->display_options['path'] = 'calendar/month';
   $handler->display->display_options['menu']['type'] = 'tab';

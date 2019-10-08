@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SLAC Rules feature.
+ */
+
+include_once 'slac_rules.features.inc';

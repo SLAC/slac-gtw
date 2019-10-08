@@ -31,7 +31,7 @@ function template_preprocess_slac_ip_upcoming_events_event(&$variables) {
       'fromto' => 'both',
     ),
   ));
-  $times = field_view_field('node', $node, 'field_event_date', $display_settings);
+  $times = field_view_field('node', $node, 'field_e_date', $display_settings);
   $variables['times'] = drupal_render($times);
 
   $display_settings = array_merge($base_settings, array(

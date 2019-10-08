@@ -36,6 +36,7 @@ features[features_api][] = api:2
 features[field_base][] = field_access_start_publishing
 features[field_instance][] = node-access_information-body
 features[field_instance][] = node-access_information-field_access_start_publishing
+features[field_instance][] = node-access_information-field_e_date
 features[field_instance][] = node-access_information-field_event_date
 features[field_instance][] = node-access_information-field_news_image_display
 features[field_instance][] = node-access_information-field_news_news_type

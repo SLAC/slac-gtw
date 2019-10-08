@@ -21,14 +21,14 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 9,
       ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -140,13 +140,13 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 16,
       ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 16,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -205,18 +205,17 @@ function ct_access_information_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-access_information-field_event_date'.
-  $field_instances['node-access_information-field_event_date'] = array(
+  // Exported field_instance: 'node-access_information-field_e_date'.
+  $field_instances['node-access_information-field_e_date'] = array(
     'bundle' => 'access_information',
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'access_listing' => array(
-        'label' => 'hidden',
-        'module' => 'slac_ip_event_date',
+        'label' => 'above',
         'settings' => array(),
-        'type' => 'slac_event_access_date_formatter',
-        'weight' => 3,
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -230,7 +229,91 @@ function ct_access_information_field_default_field_instances() {
           'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
+        'weight' => 1,
+      ),
+      'headline' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
+      ),
+      'link' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'news_archive' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'slac_term_listing' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_e_date',
+    'label' => 'Date',
+    'required' => 1,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'display_all_day' => 0,
+        'increment' => 15,
+        'input_format' => 'Y/m/d - g:i:sa',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-access_information-field_event_date'.
+  $field_instances['node-access_information-field_event_date'] = array(
+    'bundle' => 'access_information',
+    'deleted' => 0,
+    'description' => 'Legacy field - Please do not use.',
+    'display' => array(
+      'access_listing' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -272,7 +355,7 @@ function ct_access_information_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_event_date',
     'label' => 'Access Restrictions Dates',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'default_value' => 'blank',
       'default_value2' => 'blank',
@@ -289,11 +372,12 @@ function ct_access_information_field_default_field_instances() {
         'input_format' => 'm/d/Y - g:i:sa',
         'input_format_custom' => '',
         'label_position' => 'above',
+        'no_fieldset' => 0,
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 4,
+      'weight' => 22,
     ),
   );
 
@@ -313,14 +397,14 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 6,
       ),
       'default' => array(
         'label' => 'above',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 18,
+        'weight' => 5,
       ),
       'headline' => array(
         'label' => 'above',
@@ -386,13 +470,13 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 23,
       ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 23,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -459,13 +543,13 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 21,
       ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 21,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -534,13 +618,13 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 19,
       ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 19,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -615,13 +699,13 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 20,
       ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 20,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -690,14 +774,14 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 8,
       ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -781,7 +865,7 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 14,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -889,13 +973,13 @@ function ct_access_information_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 6,
+        'weight' => 4,
       ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 13,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -974,13 +1058,13 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 15,
       ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 15,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -1046,13 +1130,13 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 22,
       ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 22,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -1128,13 +1212,13 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 17,
       ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 17,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -1213,13 +1297,13 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 18,
       ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 18,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -1287,13 +1371,13 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 13,
       ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 12,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -1384,13 +1468,13 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 12,
       ),
       'default' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 11,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -1481,14 +1565,14 @@ function ct_access_information_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 14,
       ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 5,
+        'weight' => 4,
       ),
       'headline' => array(
         'label' => 'hidden',
@@ -1552,6 +1636,7 @@ function ct_access_information_field_default_field_instances() {
   t('Contact Email');
   t('Contact Name');
   t('Contact Phone');
+  t('Date');
   t('Enter the number of days before the Access Restrictions start that you want to start publishing this notice (it automatically stops publishing on the Access Restriction end date).');
   t('Existing / New');
   t('Existing URL');
@@ -1559,6 +1644,7 @@ function ct_access_information_field_default_field_instances() {
   t('If this Item is being promoted as news, this is the title that will display when it appears in News listings.');
   t('If this option is checked, this item will appear along with other News in news listings.');
   t('Image');
+  t('Legacy field - Please do not use.');
   t('Location');
   t('News Title');
   t('News Type');

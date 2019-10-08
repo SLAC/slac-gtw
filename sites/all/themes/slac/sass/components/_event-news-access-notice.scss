@@ -208,6 +208,7 @@
     }
 
     .pane-node-field-event-date,
+    .pane-node-field-e-date,
     .pane-node-field-shared-location {
       box-sizing: border-box;
       width: 100%;
@@ -283,7 +284,8 @@
     .panel-pane {
       &.pane-node-field-shared-location,
       &.field-name-field-event-date,
-      &.pane-node-field-event-date {
+      &.pane-node-field-event-date,
+      &.pane-node-field-e-date {
         border-left: 5px solid $access-notice-table-border;
         margin-bottom: 0.385rem;
 
@@ -327,7 +329,8 @@
     padding-top: 1rem;
   }
 
-  .pane-node-field-event-date {
+  .pane-node-field-event-date,
+  .pane-node-field-e-date {
     margin-bottom: 0.5rem;
     color: $color-gray-tundora;
     font-weight: bold;

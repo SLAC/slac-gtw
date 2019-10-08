@@ -293,10 +293,17 @@ function _webauth_get_login_link($redirect = FALSE) {
   // build a link to wa_login.
   $link_text = variable_get('webauth_link_text','Webauth Login');
   $path = conf_path() . '/files/webauth/login.php';
+
   if ($redirect) {
     drupal_goto($path);
   } else {
-    return l($link_text, $path);
+    if (isset($_GET['destination'])) {
+      return l($link_text, $path, array('query' => array('destination' => $_GET['destination'])));
+    } else if (isset($_SERVER['REQUEST_URI'])) {
+      return l($link_text, $path, array('query' => array('destination' => substr($_SERVER['REQUEST_URI'], 1))));
+    } else {
+      return l($link_text, $path);
+    }
   }
 }
 

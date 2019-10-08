@@ -566,7 +566,6 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .month-view .full tr.date-box td,
 .calendar-calendar .month-view .full tr.multi-day,
 .calendar-calendar .month-view .full tr.multi-day td {
-  height: 19px;
   max-height: 19px;
 }
 
@@ -726,7 +725,7 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar .month-view .full td.multi-day div.monthview,
 .calendar-calendar .week-view .full td.multi-day div.weekview {
   background: color(event-item-grey);
-  height: 1.9em;
+  height: 4em;
   overflow: hidden;
   margin: 0px auto;
   color: #ffffff;
@@ -978,6 +977,22 @@ table.calendar-legend tr.even .stripe {
       display: inline;
     }
   }
+  .multi-day .mobile {
+    @include breakpoint($mobile) {
+      display: inline;
+    }
+    @include breakpoint($tablet-large) {
+      display: none;
+    }
+  }
+  .multi-day .desktop {
+    @include breakpoint($mobile) {
+      display: none;
+    }
+    @include breakpoint($tablet-large) {
+      display: inline;
+    }
+  }
 }
 
 .date-nav-wrapper .date-next {
@@ -1117,7 +1132,9 @@ ul.calendar-links,
   top: 10px;
 }
 
-.day-view .multi-day.last .date-display-single {
+.day-view .multi-day.last .date-display-single,
+.weekview .contents .date-display-single,
+.monthview .contents .date-display-single {
   display: none;
 }
 
@@ -1150,4 +1167,8 @@ ul.calendar-links,
       color: $color-gray-dove;
     }
   }
+}
+
+.events-calendar .month-view .full td {
+  padding: 0 !important;
 }

@@ -7,3 +7,4 @@ sites/*/private
 
 web.config
 .DS_Store
+.sass-cache

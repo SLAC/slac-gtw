@@ -1,0 +1,4 @@
+name = Main PID
+description = Links all children and grandchildren comments to the main parent by saving main parent cid into main_parent_pid field when comment is saved.
+package = custom
+core = 7.x

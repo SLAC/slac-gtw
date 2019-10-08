@@ -78,17 +78,19 @@ function v_access_notices_views_default_views() {
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['empty'] = '[path]';
   /* Field: Content: Date */
-  $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['label'] = '';
-  $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_date']['settings'] = array(
+  $handler->display->display_options['fields']['field_e_date']['id'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['field'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['label'] = '';
+  $handler->display->display_options['fields']['field_e_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_e_date']['settings'] = array(
     'format_type' => 'access_information',
+    'custom_date_format' => '',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
+    'show_remaining_days' => 0,
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -102,10 +104,10 @@ function v_access_notices_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Sort criterion: Content: Date -  start date (field_event_date) */
-  $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
-  $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
+  /* Sort criterion: Content: Date -  start date (field_e_date) */
+  $handler->display->display_options['sorts']['field_e_date_value']['id'] = 'field_e_date_value';
+  $handler->display->display_options['sorts']['field_e_date_value']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['sorts']['field_e_date_value']['field'] = 'field_e_date_value';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -120,14 +122,13 @@ function v_access_notices_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'access_information' => 'access_information',
   );
-  /* Filter criterion: Content: Date - end date (field_event_date:value2) */
-  $handler->display->display_options['filters']['field_event_date_value2']['id'] = 'field_event_date_value2';
-  $handler->display->display_options['filters']['field_event_date_value2']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['filters']['field_event_date_value2']['field'] = 'field_event_date_value2';
-  $handler->display->display_options['filters']['field_event_date_value2']['operator'] = '>';
-  $handler->display->display_options['filters']['field_event_date_value2']['granularity'] = 'second';
-  $handler->display->display_options['filters']['field_event_date_value2']['form_type'] = 'date_popup';
-  $handler->display->display_options['filters']['field_event_date_value2']['default_date'] = 'now';
+  /* Filter criterion: Content: Date - end date (field_e_date:value2) */
+  $handler->display->display_options['filters']['field_e_date_value2']['id'] = 'field_e_date_value2';
+  $handler->display->display_options['filters']['field_e_date_value2']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['filters']['field_e_date_value2']['field'] = 'field_e_date_value2';
+  $handler->display->display_options['filters']['field_e_date_value2']['operator'] = '>';
+  $handler->display->display_options['filters']['field_e_date_value2']['granularity'] = 'second';
+  $handler->display->display_options['filters']['field_e_date_value2']['default_date'] = 'now';
 
   /* Display: Access Information */
   $handler = $view->new_display('block', 'Access Information', 'block');

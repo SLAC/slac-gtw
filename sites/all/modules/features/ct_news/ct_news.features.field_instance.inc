@@ -10,6 +10,48 @@
 function ct_news_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'comment-comment_node_news-field_main_pid'.
+  $field_instances['comment-comment_node_news-field_main_pid'] = array(
+    'bundle' => 'comment_node_news',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'comment',
+    'field_name' => 'field_main_pid',
+    'label' => 'Main Pid',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance: 'node-news-body'.
   $field_instances['node-news-body'] = array(
     'bundle' => 'news',
@@ -1500,6 +1542,7 @@ It is set to \'On\' and hidden in the node creation form.',
   t('Featured Image Display');
   t('Image');
   t('Location');
+  t('Main Pid');
   t('News Type');
   t('Note to the Editors');
   t('Please choose how the news article image would be displayed in the featured sections on the site.');

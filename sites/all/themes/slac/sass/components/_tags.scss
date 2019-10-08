@@ -3,6 +3,7 @@
 .node-type-access-information {
   .pane-node-field-shared-tags {
     margin-top: 0;
+    clear:both;
     div.field-item {
       display: inline-block;
       padding: 0;
@@ -75,6 +76,16 @@
     }
     .panel-pane.pane-node-field-shared-contact-phone {
         margin-top: 0 !important;
+    }
+  }
+}
+
+.pane-node-links {
+  clear:both;
+  ul {
+    padding-left: 0 !important;
+    li {
+      list-style:none;
     }
   }
 }

@@ -155,12 +155,12 @@ function slac_file_entity_download_link($variables) {
       $icon_url = '/' . $icon_directory . '/' . 'icon-gif.gif';
       $icon = '<img class="file-icon" alt="" title="' . $mime . '" src="' . $icon_url . '" />';
       break;
-  
+
     case 'image/png':
       $icon_url = '/' . $icon_directory . '/' . 'icon-png.gif';
       $icon = '<img class="file-icon" alt="" title="' . $mime . '" src="' . $icon_url . '" />';
       break;
-    
+
     case 'image/jpg':
       $icon_url = '/' . $icon_directory . '/' . 'icon-jpg.gif';
       $icon = '<img class="file-icon" alt="" title="' . $mime . '" src="' . $icon_url . '" />';
@@ -323,7 +323,6 @@ function slac_date_nav_title($params) {
       $y1 = $date_info->min_date->format('Y');
       $m1 = $date_info->min_date->format('M');
       $end_date = new DateTime($date_info->max_date);
-      $end_date->sub(new DateInterval('P1D'));
       $y2 = $end_date->format('Y');
       $m2 = $end_date->format('M');
 
@@ -369,4 +368,15 @@ function slac_preprocess_views_view_table(&$vars) {
   foreach ($view->field as $key => $field) {
     $vars['header_raw'][$key] = $field->options['label'];
   }
+}
+
+/**
+ * Override or insert variables into the comment templates.
+ */
+function slac_preprocess_comment(&$variables, $hook) {
+  // Convert comment to be only title.
+  $variables['title'] = strip_tags($variables['title']);
+
+  // Remove permalink.
+  $variables['permalink'] = '';
 }

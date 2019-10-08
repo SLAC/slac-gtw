@@ -18,6 +18,9 @@
 
 .comment { /* Wrapper for a single comment */
 
+  padding: 20px 0;
+  border-bottom: 1px solid #b1c0c7;
+
   &.comment-preview { /* Preview of the comment before submitting new or updated comment */
     background-color: #ffffea; /* Drupal core will use a #ffffea background. See #1110842 */
   }
@@ -68,6 +71,16 @@
   }
 
   ul.links { /* Comment links. See also the ul.links declaration in the pages.css. */
+    padding: 5px 0;
+
+    li {
+      font-size: 0.75rem;
+      display: block;
+      float: left;
+      background: #dee4e7;
+      padding: 8px 12px;
+      margin-right: 1em;
+    }
   }
 }
 
@@ -81,4 +94,73 @@
   p.unpublished { /* The word "Unpublished" displayed underneath the content. */
     @include unpublished-div;
   }
+}
+
+.pane-node-comments {
+  clear: both;
+  padding-top: 5px;
+
+  .pane-title {
+    border-top: 3px solid #b1c0c7;
+    padding-top: 30px;
+    text-transform: uppercase;
+  }
+}
+
+.pane-node-links .comment-add {
+  display: none;
+}
+
+.pane-node-comment-form {
+  clear: both;
+
+  .pane-title {
+    border-top: 3px solid #b1c0c7;
+    padding-top: 30px;
+    text-transform: uppercase;
+  }
+
+  .comment-form {
+    .form-submit[value=Preview] {
+      display: none;
+    }
+  }
+}
+
+.field-name-field-main-pid {
+  display:none;
+}
+
+.view-comments-votes 
+  .views-row {
+    padding:0;
+    background:none;
+    .depth-1 {
+      margin-left:20px;
+    }
+    .depth-2 {
+      margin-left: 40px;
+    }
+    .depth-3 {
+      margin-left:60px;
+    }
+    .depth-1 .rate-widget, 
+    .depth-2 .rate-widget,
+    .depth-3 .rate-widget {
+      display:none;
+    }
+  } 
+  .rate-widget ul {
+    padding:0;
+    margin-top:10px;
+  }
+  .rate-widget-thumbs_up_down ul li {
+    width:auto !important;
+  }
+  .rate-widget-thumbs_up_down .vote-count {
+    padding-left: 5px;
+  }
+
+.not-logged-in .rate-widget {
+  display:none;
 }

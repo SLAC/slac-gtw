@@ -4,6 +4,7 @@
 
 .main-wrapper {
   background: $white;
+  margin-top: 20px;
 
   .front & {
     background: $color-gray-mercury;
@@ -273,4 +274,69 @@
     line-height: 1.5;
     padding-left: 0.9375rem;
   }
+
+//Custom block
+.embed-container,
+.pane-block-4 img {
+    width: 100% !important;
+    height: auto !important;
+}
+
+//Megamenu blocks
+.tb-megamenu .views-field-title a {
+  padding: 0;
+  font-weight: bold;
+  color: #20659A;
+}
+
+.tb-megamenu .views-field-title a,
+.tb-megamenu .views-field-field-shared-image a {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  display: inline;
+}
+
+.tb-megamenu a {
+  padding: 0;
+}
+
+.tb-megamenu .views-field-field-shared-image a {
+  padding: 0px 20px 0px 0px;
+}
+
+.tb-megamenu .views-field-field-shared-image {
+  float:left;
+}
+
+.tb-megamenu .views-row {
+  margin-bottom: 20px;
+}
+.tb-megamenu.style-blue {
+  background: #316dae;
+  height: 32px;
+}
+.tb-megamenu.style-blue .nav > li > a {
+  border-right: none;
+  padding: 0.58rem 1.9375rem;
+  font-size: 0.875rem;
+  line-height: 1;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.tb-megamenu.style-blue .nav > li > a:focus,
+.tb-megamenu.style-blue .nav > li > a:hover {
+  color: #316dae;
+}
+
+.node-advpoll p {
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: normal;
+  padding-bottom: 10px;
+}
+
+.node-advpoll .form-item {
+  margin-top: 0;
+}
 
