@@ -171,7 +171,7 @@ URL: [nothing_3] \\n';
   $handler->display->display_options['fields']['field_shared_new_existing']['id'] = 'field_shared_new_existing';
   $handler->display->display_options['fields']['field_shared_new_existing']['table'] = 'field_data_field_shared_new_existing';
   $handler->display->display_options['fields']['field_shared_new_existing']['field'] = 'field_shared_new_existing';
-  /* Sort criterion: Content: Date -  start date (field_event_date) */
+  /* Sort criterion: Broken/missing handler */
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
   $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
@@ -189,7 +189,7 @@ URL: [nothing_3] \\n';
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
-  /* Filter criterion: Content: Date - end date (field_event_date:value2) */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['field_event_date_value2']['id'] = 'field_event_date_value2';
   $handler->display->display_options['filters']['field_event_date_value2']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['filters']['field_event_date_value2']['field'] = 'field_event_date_value2';
@@ -198,8 +198,6 @@ URL: [nothing_3] \\n';
   $handler->display->display_options['filters']['field_event_date_value2']['expose']['label'] = 'Date - end date (field_event_date:value2)';
   $handler->display->display_options['filters']['field_event_date_value2']['expose']['operator'] = 'field_event_date_value2_op';
   $handler->display->display_options['filters']['field_event_date_value2']['expose']['identifier'] = 'field_event_date_value2';
-  $handler->display->display_options['filters']['field_event_date_value2']['granularity'] = 'minute';
-  $handler->display->display_options['filters']['field_event_date_value2']['default_date'] = 'now';
 
   /* Display: iCal Feed */
   $handler = $view->new_display('feed', 'iCal Feed', 'feed_1');

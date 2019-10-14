@@ -62,6 +62,7 @@ function ct_advanced_poll_user_default_permissions() {
     'name' => 'show write-ins',
     'roles' => array(
       'administrator' => 'administrator',
+      'manager' => 'manager',
     ),
     'module' => 'advpoll',
   );

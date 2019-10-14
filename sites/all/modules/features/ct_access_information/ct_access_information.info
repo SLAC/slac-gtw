@@ -37,7 +37,6 @@ features[field_base][] = field_access_start_publishing
 features[field_instance][] = node-access_information-body
 features[field_instance][] = node-access_information-field_access_start_publishing
 features[field_instance][] = node-access_information-field_e_date
-features[field_instance][] = node-access_information-field_event_date
 features[field_instance][] = node-access_information-field_news_image_display
 features[field_instance][] = node-access_information-field_news_news_type
 features[field_instance][] = node-access_information-field_shared_contact_email
