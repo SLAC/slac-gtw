@@ -6811,12 +6811,6 @@ body {
   margin: 0 auto;
   padding: 0;
 }
-@media (min-width: 60em) {
-  #header {
-    width: 98%;
-    padding: 0 1%;
-  }
-}
 #header .block-slac-search .contextual-links-wrapper {
   display: none;
 }
@@ -6889,6 +6883,7 @@ body {
     padding-left: 0;
     padding-right: 0;
     padding-top: 12px;
+    padding-right: 1%;
   }
 }
 #header .header__region #block-system-main-menu {
@@ -7924,6 +7919,15 @@ nav.main-navigation {
   border-top: none !important;
 }
 
+@media (min-width: 60em) {
+  .nav-collapse.always-show {
+    text-align: center;
+  }
+
+  ul.tb-megamenu-nav.nav.level-0 {
+    display: inline-block;
+  }
+}
 .page-news #page-title {
   display: none;
 }

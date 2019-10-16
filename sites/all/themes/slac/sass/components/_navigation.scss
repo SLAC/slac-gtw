@@ -442,3 +442,14 @@ nav.main-navigation {
 .tb-megamenu .dropdown-menu li > a {
   border-top: none !important;
 }
+
+
+@include breakpoint($tablet-large) {
+  .nav-collapse.always-show {
+    text-align: center;
+  }
+
+  ul.tb-megamenu-nav.nav.level-0 {
+      display: inline-block;
+  }
+}
