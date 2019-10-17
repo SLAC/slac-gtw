@@ -122,6 +122,8 @@ $zen-column-count: 12;
 }
 
 .header__region {
+  overflow: hidden;
+
   input[type="text"] {
     @include font-size(14px);
     display: block;
