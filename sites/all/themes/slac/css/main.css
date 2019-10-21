@@ -8736,10 +8736,9 @@ h1.title {
 .slac-alert {
   color: #fff;
   background-color: #890025;
-  padding: 10px 10px;
   margin-bottom: 20px;
   text-align: center;
-  padding-top: 0;
+  padding: 0 10px 10px 10px;
 }
 .slac-alert p {
   margin: 0px;
