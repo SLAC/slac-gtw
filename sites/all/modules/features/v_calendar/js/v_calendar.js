@@ -362,7 +362,7 @@
           .find('.view-header')
           .before($showAccessElements);
 
-      if (cookieValue == 'false') {
+      if (cookieValue == 'false' || cookieValue == null || cookieValue == '') {
         $accessItems.parent().parent().hide();
       }
 
