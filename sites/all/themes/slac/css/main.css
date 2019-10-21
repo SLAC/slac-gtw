@@ -2363,6 +2363,11 @@ ul.calendar-links,
   padding: 0 !important;
 }
 
+.week-view th.calendar-agenda-hour,
+.week-view td.calendar-agenda-hour {
+  display: none;
+}
+
 .calendar-calendar tr.holder {
   height: 0px;
   display: table-row !important;

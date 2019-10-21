@@ -1172,3 +1172,10 @@ ul.calendar-links,
 .events-calendar .month-view .full td {
   padding: 0 !important;
 }
+
+.week-view {
+  th.calendar-agenda-hour, 
+  td.calendar-agenda-hour {
+    display:none;
+  }
+}
