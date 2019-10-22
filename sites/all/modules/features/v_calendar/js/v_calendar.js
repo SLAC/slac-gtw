@@ -362,8 +362,8 @@
           .find('.view-header')
           .before($showAccessElements);
 
-      if (cookieValue == 'false') {
-        $accessItems.parent().parent().hide();
+      if (cookieValue == 'false' || cookieValue == null || cookieValue == '') {
+        $accessItems.closest('tr').hide();
       }
 
 
@@ -374,7 +374,7 @@
         if (isChecked) {
           // Show Access Notice items.
           $accessItems.show();
-          $accessItems.parent().parent().show();
+          $accessItems.closest('tr').show();
 
           // Set the cookie value.
           document.cookie = 'accesschecked=true;path=/';
@@ -382,7 +382,7 @@
         else {
           // Hide Access Notice items.
           $accessItems.hide();
-          $accessItems.parent().parent().hide();
+          $accessItems.closest('tr').hide();
           document.cookie = 'accesschecked=false;path=/';
         }
       });

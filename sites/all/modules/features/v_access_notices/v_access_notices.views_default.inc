@@ -167,11 +167,6 @@ function v_access_notices_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Date -  start date (field_event_date) */
-  $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
-  $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
-  $handler->display->display_options['sorts']['field_event_date_value']['order'] = 'DESC';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -196,6 +191,12 @@ function v_access_notices_views_default_views() {
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = 'Notices of closures and outages.';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Date -  start date (field_e_date) */
+  $handler->display->display_options['sorts']['field_e_date_value']['id'] = 'field_e_date_value';
+  $handler->display->display_options['sorts']['field_e_date_value']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['sorts']['field_e_date_value']['field'] = 'field_e_date_value';
+  $handler->display->display_options['sorts']['field_e_date_value']['order'] = 'DESC';
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed_1');

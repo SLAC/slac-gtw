@@ -263,10 +263,6 @@ function v_calendar_views_default_views() {
 <span class="title"><a href="[field_shared_new_existing]" title="[title]">[title]</a></span>
 </div>';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
-  /* Sort criterion: Broken/missing handler */
-  $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
-  $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
   $handler->display->display_options['filter_groups']['operator'] = 'OR';
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
@@ -374,7 +370,8 @@ function v_calendar_views_default_views() {
   $handler->display->display_options['style_options']['multiday_theme'] = '1';
   $handler->display->display_options['style_options']['theme_style'] = '0';
   $handler->display->display_options['style_options']['max_items'] = '0';
-  $handler->display->display_options['style_options']['groupby_times'] = '';
+  $handler->display->display_options['style_options']['groupby_times'] = 'custom';
+  $handler->display->display_options['style_options']['groupby_times_custom'] = '00:00:00';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'calendar_entity';
