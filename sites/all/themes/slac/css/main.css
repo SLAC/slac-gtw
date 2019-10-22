@@ -6895,9 +6895,6 @@ body {
   margin-top: 8px;
 }
 
-.header__region {
-  overflow: hidden;
-}
 .header__region input[type="text"] {
   font-size: 14px;
   font-size: 0.875rem;
