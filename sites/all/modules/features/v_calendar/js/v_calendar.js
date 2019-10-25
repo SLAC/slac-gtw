@@ -363,7 +363,11 @@
           .before($showAccessElements);
 
       if (cookieValue == 'false' || cookieValue == null || cookieValue == '') {
-        $accessItems.parent().parent().hide();
+        if ($ ('.calendar-week-view').length ){
+          $accessItems.closest('tr').hide();
+        } else {
+          $accessItems.parent().parent().hide();
+        }
       }
 
 
@@ -374,7 +378,11 @@
         if (isChecked) {
           // Show Access Notice items.
           $accessItems.show();
-          $accessItems.parent().parent().show();
+          if ($ ('.calendar-week-view').length ){
+            $accessItems.closest('tr').show();
+          } else {
+            $accessItems.parent().parent().show();
+          }
 
           // Set the cookie value.
           document.cookie = 'accesschecked=true;path=/';
@@ -382,7 +390,11 @@
         else {
           // Hide Access Notice items.
           $accessItems.hide();
-          $accessItems.parent().parent().hide();
+          if ($ ('.calendar-week-view').length ){
+            $accessItems.closest('tr').hide();
+          } else {
+            $accessItems.parent().parent().hide();
+          }
           document.cookie = 'accesschecked=false;path=/';
         }
       });
