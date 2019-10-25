@@ -6895,9 +6895,6 @@ body {
   margin-top: 8px;
 }
 
-.header__region {
-  overflow: hidden;
-}
 .header__region input[type="text"] {
   font-size: 14px;
   font-size: 0.875rem;
@@ -8744,6 +8741,7 @@ h1.title {
   margin-bottom: 20px;
   text-align: center;
   padding: 0 10px 10px 10px;
+  overflow: hidden;
 }
 .slac-alert p {
   margin: 0px;
