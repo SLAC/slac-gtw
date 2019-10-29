@@ -525,9 +525,6 @@ blockquote p {
   .l-main {
     padding-top: 47px;
   }
-  .page-calendar .l-main {
-    padding-top: 0;
-  }
 }
 
 .main-navigation .region-navigation {
@@ -1028,6 +1025,10 @@ blockquote p {
     padding-right: 0;
   }
 }
+.content-container.notification {
+  padding-bottom: 0;
+}
+
 .calendar-button,
 .email-button,
 .js-print-button {
@@ -1236,6 +1237,9 @@ input[type="submit"]:hover, input[type="submit"]:focus,
     width: 8%;
   }
 }
+.page-calendar .content-container {
+  padding-bottom: 0;
+}
 
 .date-nav-wrapper .date-prev {
   right: inherit;
@@ -1254,9 +1258,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
    * styles for primary tabs used by calendar
    * as navigation for day, week and month views
    */
-}
-.page-calendar #main {
-  margin-top: 0;
 }
 .page-calendar h1.title {
   display: none;
@@ -2361,6 +2362,11 @@ ul.calendar-links,
 
 .events-calendar .month-view .full td {
   padding: 0 !important;
+}
+
+.week-view th.calendar-agenda-hour,
+.week-view td.calendar-agenda-hour {
+  display: none;
 }
 
 .calendar-calendar tr.holder {
@@ -6811,12 +6817,6 @@ body {
   margin: 0 auto;
   padding: 0;
 }
-@media (min-width: 60em) {
-  #header {
-    width: 98%;
-    padding: 0 1%;
-  }
-}
 #header .block-slac-search .contextual-links-wrapper {
   display: none;
 }
@@ -6889,6 +6889,7 @@ body {
     padding-left: 0;
     padding-right: 0;
     padding-top: 12px;
+    padding-right: 1%;
   }
 }
 #header .header__region #block-system-main-menu {
@@ -7694,6 +7695,9 @@ nav.main-navigation {
   }
   .main-navigation .inner-wrapper .region-navigation {
     padding-left: 0;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   #block-system-main-menu {
@@ -7924,6 +7928,15 @@ nav.main-navigation {
   border-top: none !important;
 }
 
+@media (min-width: 60em) {
+  .nav-collapse.always-show {
+    text-align: center;
+  }
+
+  ul.tb-megamenu-nav.nav.level-0 {
+    display: inline-block;
+  }
+}
 .page-news #page-title {
   display: none;
 }
@@ -8726,10 +8739,10 @@ h1.title {
 .slac-alert {
   color: #fff;
   background-color: #890025;
-  padding: 10px 20px;
   margin-bottom: 20px;
   text-align: center;
-  padding-top: 0;
+  padding: 0 10px 10px 10px;
+  overflow: hidden;
 }
 .slac-alert p {
   margin: 0px;

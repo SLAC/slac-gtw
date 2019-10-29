@@ -9,6 +9,10 @@
       width: 8%;
     }
   }
+
+  .content-container {
+    padding-bottom: 0;
+  }
 }
 
 .date-nav-wrapper .date-prev {
@@ -27,9 +31,9 @@
 
 .page-calendar {
 
-  #main {
-    margin-top: 0;
-  }
+  // #main {
+  //   margin-top: 0;
+  // }
 
   h1.title {
     display: none;
@@ -1171,4 +1175,11 @@ ul.calendar-links,
 
 .events-calendar .month-view .full td {
   padding: 0 !important;
+}
+
+.week-view {
+  th.calendar-agenda-hour,
+  td.calendar-agenda-hour {
+    display:none;
+  }
 }

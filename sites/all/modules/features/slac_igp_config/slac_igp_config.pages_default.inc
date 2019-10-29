@@ -316,7 +316,7 @@ function slac_igp_config_default_page_manager_pages() {
   $pane->panel = 'colthreerowone';
   $pane->type = 'block';
   $pane->subtype = 'block-4';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
     'override_title' => 0,

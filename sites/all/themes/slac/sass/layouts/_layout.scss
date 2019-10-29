@@ -20,9 +20,9 @@ $zen-column-count: 12;
   @include breakpoint($tablet-large) {
     padding-top: 47px;
 
-    .page-calendar & {
-      padding-top: 0;
-    }
+    // .page-calendar & {
+    //   padding-top: 0;
+    // }
   }
 }
 
@@ -238,4 +238,8 @@ $zen-column-count: 12;
     @include zen-grid-item(3, 10);
     padding-right: 0;
   }
+}
+
+.content-container.notification {
+  padding-bottom: 0;
 }

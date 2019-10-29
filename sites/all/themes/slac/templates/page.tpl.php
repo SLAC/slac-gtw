@@ -111,6 +111,9 @@
   <div class="main-wrapper">
 
     <div class="content-wrapper column" role="main">
+      <div class="column content-container notification">
+        <?php print render($page['notification']); ?>
+      </div>
 
       <div id="content" class="column content-container" role="main">
         <?php print render($page['highlighted']); ?>

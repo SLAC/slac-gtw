@@ -29,14 +29,6 @@ function slac_comments_strongarm() {
           0 => 1,
           1 => 'up',
         ),
-        1 => array(
-          0 => '1',
-          1 => 'up',
-        ),
-        2 => array(
-          0 => '-1',
-          1 => 'down',
-        ),
       ),
       'template' => 'thumbs_up',
       'node_display' => '2',
@@ -60,12 +52,12 @@ function slac_comments_strongarm() {
       'displayed_just_voted' => '1',
       'description' => '',
       'description_in_compact' => TRUE,
-      'delete_vote_on_second_click' => '0',
+      'delete_vote_on_second_click' => '1',
       'use_source_translation' => TRUE,
       'value_type' => 'points',
       'theme' => 'rate_template_thumbs_up',
       'css' => 'sites/all/modules/contrib/rate/templates/thumbs-up/thumbs-up.css',
-      'translate' => FALSE,
+      'translate' => TRUE,
     ),
   );
   $export['rate_widgets'] = $strongarm;
