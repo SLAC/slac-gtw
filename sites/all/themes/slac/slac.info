@@ -54,6 +54,7 @@ stylesheets[all][] = css/print.css
 
 regions[header]         = Header
 regions[navigation]     = Navigation bar
+regions[notification]   = Notification
 regions[highlighted]    = Highlighted
 regions[help]           = Help
 regions[content]        = Content

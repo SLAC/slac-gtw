@@ -525,9 +525,6 @@ blockquote p {
   .l-main {
     padding-top: 47px;
   }
-  .page-calendar .l-main {
-    padding-top: 0;
-  }
 }
 
 .main-navigation .region-navigation {
@@ -1236,6 +1233,9 @@ input[type="submit"]:hover, input[type="submit"]:focus,
     width: 8%;
   }
 }
+.page-calendar .content-container {
+  padding-bottom: 0;
+}
 
 .date-nav-wrapper .date-prev {
   right: inherit;
@@ -1254,9 +1254,6 @@ input[type="submit"]:hover, input[type="submit"]:focus,
    * styles for primary tabs used by calendar
    * as navigation for day, week and month views
    */
-}
-.page-calendar #main {
-  margin-top: 0;
 }
 .page-calendar h1.title {
   display: none;
