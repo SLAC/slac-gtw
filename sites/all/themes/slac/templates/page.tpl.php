@@ -111,7 +111,7 @@
   <div class="main-wrapper">
 
     <div class="content-wrapper column" role="main">
-      <div class="column content-container">
+      <div class="column content-container notification">
         <?php print render($page['notification']); ?>
       </div>
 

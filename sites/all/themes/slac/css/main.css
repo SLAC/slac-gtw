@@ -1025,6 +1025,10 @@ blockquote p {
     padding-right: 0;
   }
 }
+.content-container.notification {
+  padding-bottom: 0;
+}
+
 .calendar-button,
 .email-button,
 .js-print-button {
