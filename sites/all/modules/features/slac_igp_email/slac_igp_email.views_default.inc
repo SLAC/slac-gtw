@@ -70,12 +70,21 @@ function slac_igp_email_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['empty'] = '[path]';
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['label'] = '';
-  $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
+  /* Field: Content: Date */
+  $handler->display->display_options['fields']['field_e_date']['id'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['field'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['label'] = '';
+  $handler->display->display_options['fields']['field_e_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_e_date']['settings'] = array(
+    'format_type' => 'access_information',
+    'custom_date_format' => '',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -107,20 +116,12 @@ function slac_igp_email_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'access_information' => 'access_information',
   );
-  /* Filter criterion: Broken/missing handler */
-  $handler->display->display_options['filters']['field_event_date_value2']['id'] = 'field_event_date_value2';
-  $handler->display->display_options['filters']['field_event_date_value2']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['filters']['field_event_date_value2']['field'] = 'field_event_date_value2';
-  $handler->display->display_options['filters']['field_event_date_value2']['operator'] = '>';
-  $handler->display->display_options['filters']['field_event_date_value2']['expose']['operator_id'] = 'field_event_date_value2_op';
-  $handler->display->display_options['filters']['field_event_date_value2']['expose']['label'] = 'Date - end date (field_event_date:value2)';
-  $handler->display->display_options['filters']['field_event_date_value2']['expose']['operator'] = 'field_event_date_value2_op';
-  $handler->display->display_options['filters']['field_event_date_value2']['expose']['identifier'] = 'field_event_date_value2';
-  $handler->display->display_options['filters']['field_event_date_value2']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-  );
+  /* Filter criterion: Content: Date - end date (field_e_date:value2) */
+  $handler->display->display_options['filters']['field_e_date_value2']['id'] = 'field_e_date_value2';
+  $handler->display->display_options['filters']['field_e_date_value2']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['filters']['field_e_date_value2']['field'] = 'field_e_date_value2';
+  $handler->display->display_options['filters']['field_e_date_value2']['operator'] = '>';
+  $handler->display->display_options['filters']['field_e_date_value2']['default_date'] = 'now';
 
   /* Display: Access information */
   $handler = $view->new_display('block', 'Access information', 'block');
@@ -190,12 +191,21 @@ function slac_igp_email_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['empty'] = '[path]';
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date']['label'] = '';
-  $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
+  /* Field: Content: Date */
+  $handler->display->display_options['fields']['field_e_date']['id'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['field'] = 'field_e_date';
+  $handler->display->display_options['fields']['field_e_date']['label'] = '';
+  $handler->display->display_options['fields']['field_e_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_e_date']['settings'] = array(
+    'format_type' => 'calendar_item_time',
+    'custom_date_format' => '',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -208,10 +218,10 @@ function slac_igp_email_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Sort criterion: Broken/missing handler */
-  $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
-  $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
+  /* Sort criterion: Content: Date -  start date (field_e_date) */
+  $handler->display->display_options['sorts']['field_e_date_value']['id'] = 'field_e_date_value';
+  $handler->display->display_options['sorts']['field_e_date_value']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['sorts']['field_e_date_value']['field'] = 'field_e_date_value';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -226,10 +236,11 @@ function slac_igp_email_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
-  /* Filter criterion: Broken/missing handler */
-  $handler->display->display_options['filters']['field_event_date_value']['id'] = 'field_event_date_value';
-  $handler->display->display_options['filters']['field_event_date_value']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['filters']['field_event_date_value']['field'] = 'field_event_date_value';
+  /* Filter criterion: Content: Date -  start date (field_e_date) */
+  $handler->display->display_options['filters']['field_e_date_value']['id'] = 'field_e_date_value';
+  $handler->display->display_options['filters']['field_e_date_value']['table'] = 'field_data_field_e_date';
+  $handler->display->display_options['filters']['field_e_date_value']['field'] = 'field_e_date_value';
+  $handler->display->display_options['filters']['field_e_date_value']['default_date'] = 'now';
 
   /* Display: Events today */
   $handler = $view->new_display('block', 'Events today', 'block');
