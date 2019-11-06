@@ -350,7 +350,7 @@
 
       // Select the view form elements to add the checkbox to.
       var $viewForm = $('.views-exposed-form', context);
-      var $accessItems = $('.view-content .type-access_information', context);
+      var $accessItems = $('.view-content .all-day .type-access_information', context);
 
       // Create a new checkbox to control the 'Show Access Notices' filter.
       var $showAccessElements = $('<p><label><input type="checkbox" /> Show Access Notices</label></p>');
