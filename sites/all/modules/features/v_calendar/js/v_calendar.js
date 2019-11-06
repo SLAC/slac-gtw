@@ -351,7 +351,6 @@
       // Select the view form elements to add the checkbox to.
       var $viewForm = $('.views-exposed-form', context);
       var $accessItems = $('.all-day .view-content .type-access_information', context);
-      var $accessItems2 = $('.not-all-day .view-content .type-access_information', context);
 
       // Create a new checkbox to control the 'Show Access Notices' filter.
       var $showAccessElements = $('<p><label><input type="checkbox" /> Show Access Notices</label></p>');
@@ -366,10 +365,8 @@
       if (cookieValue == 'false' || cookieValue == null || cookieValue == '') {
         if ($ ('.calendar-week-view').length ){
           $accessItems.closest('tr').hide();
-          $accessItems2.parent().parent().hide();
         } else {
           $accessItems.parent().parent().hide();
-          $accessItems2.parent().parent().hide();
         }
       }
 
@@ -381,13 +378,10 @@
         if (isChecked) {
           // Show Access Notice items.
           $accessItems.show();
-          $accessItems2.show();
           if ($ ('.calendar-week-view').length ){
             $accessItems.closest('tr').show();
-            $accessItems2.parent().parent().show();
           } else {
             $accessItems.parent().parent().show();
-            $accessItems2.parent().parent().show();
           }
 
           // Set the cookie value.
@@ -396,13 +390,10 @@
         else {
           // Hide Access Notice items.
           $accessItems.hide();
-          $accessItems2.hide();
           if ($ ('.calendar-week-view').length ){
             $accessItems.closest('tr').hide();
-            $accessItems2.parent().parent().hide();
           } else {
             $accessItems.parent().parent().hide();
-            $accessItems2.parent().parent().hide();
           }
           document.cookie = 'accesschecked=false;path=/';
         }
@@ -418,7 +409,6 @@
           $showAccessInput.prop('checked', false);
           // Hide Access Notice items.
           $accessItems.hide();
-          $accessItems2.hide();
         }
       }
 
