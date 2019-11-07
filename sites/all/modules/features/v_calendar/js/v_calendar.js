@@ -350,8 +350,10 @@
 
       // Select the view form elements to add the checkbox to.
       var $viewForm = $('.views-exposed-form', context);
-      var $accessItems = $('.view-content .all-day .type-access_information', context);
-      var $accessItems2 = $('.view-content .not-all-day .type-access_information', context);
+      var $accessItems = $('.calendar-week-view .view-content .all-day .type-access_information', context);
+      var $accessItems2 = $('.calendar-week-view .view-content .not-all-day .type-access_information', context);
+      var $accessItemsMonthly = $('.view-display-id-calendar_month_view .view-content .type-access_information');
+      var $accessItemsDayly = $('.calendar-day-view .view-content .type-access_information');
 
       // Create a new checkbox to control the 'Show Access Notices' filter.
       var $showAccessElements = $('<p><label><input type="checkbox" /> Show Access Notices</label></p>');
@@ -364,13 +366,10 @@
           .before($showAccessElements);
 
       if (cookieValue == 'false' || cookieValue == null || cookieValue == '') {
-        if ($ ('.calendar-week-view').length ){
-          $accessItems.closest('tr').hide();
-          $accessItems2.parent().parent().hide();
-        } else {
-          $accessItems.parent().parent().hide();
-          $accessItems2.parent().parent().hide();
-        }
+        $accessItems.closest('tr').hide();
+        $accessItems2.parent().parent().hide();
+        $accessItemsMonthly.parent().parent().hide();
+        $accessItemsDayly.parent().parent().hide();
       }
 
 
@@ -382,13 +381,12 @@
           // Show Access Notice items.
           $accessItems.show();
           $accessItems2.show();
-          if ($ ('.calendar-week-view').length ){
-            $accessItems.closest('tr').show();
-            $accessItems2.parent().parent().show();
-          } else {
-            $accessItems.parent().parent().show();
-            $accessItems2.parent().parent().show();
-          }
+          $accessItemsMonthly.show();
+          $accessItemsDayly.show();
+          $accessItems.closest('tr').show();
+          $accessItems2.parent().parent().show();
+          $accessItemsMonthly.parent().parent().show();
+          $accessItemsDayly.parent().parent().show();
 
           // Set the cookie value.
           document.cookie = 'accesschecked=true;path=/';
@@ -397,13 +395,12 @@
           // Hide Access Notice items.
           $accessItems.hide();
           $accessItems2.hide();
-          if ($ ('.calendar-week-view').length ){
-            $accessItems.closest('tr').hide();
-            $accessItems2.parent().parent().hide();
-          } else {
-            $accessItems.parent().parent().hide();
-            $accessItems2.parent().parent().hide();
-          }
+          $accessItemsMonthly.hide();
+          $accessItemsDayly.hide();
+          $accessItems.closest('tr').hide();
+          $accessItems2.parent().parent().hide();
+          $accessItemsMonthly.parent().parent().hide();
+          $accessItemsDayly.parent().parent().hide();
           document.cookie = 'accesschecked=false;path=/';
         }
       });
@@ -419,6 +416,8 @@
           // Hide Access Notice items.
           $accessItems.hide();
           $accessItems2.hide();
+          $accessItemsMonthly.hide();
+          $accessItemsDayly.hide();
         }
       }
 
