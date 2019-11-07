@@ -353,6 +353,7 @@
       var $accessItems = $('.calendar-week-view .view-content .all-day .type-access_information', context);
       var $accessItems2 = $('.calendar-week-view .view-content .not-all-day .type-access_information', context);
       var $accessItemsMonthly = $('.view-display-id-calendar_month_view .view-content .type-access_information');
+      var $accessItemsDayly = $('.calendar-day-view .view-content .type-access_information');
 
       // Create a new checkbox to control the 'Show Access Notices' filter.
       var $showAccessElements = $('<p><label><input type="checkbox" /> Show Access Notices</label></p>');
@@ -368,6 +369,7 @@
         $accessItems.closest('tr').hide();
         $accessItems2.parent().parent().hide();
         $accessItemsMonthly.parent().parent().hide();
+        $accessItemsDayly.parent().parent().hide();
       }
 
 
@@ -380,9 +382,11 @@
           $accessItems.show();
           $accessItems2.show();
           $accessItemsMonthly.show();
+          $accessItemsDayly.show();
           $accessItems.closest('tr').show();
           $accessItems2.parent().parent().show();
           $accessItemsMonthly.parent().parent().show();
+          $accessItemsDayly.parent().parent().show();
 
           // Set the cookie value.
           document.cookie = 'accesschecked=true;path=/';
@@ -392,9 +396,11 @@
           $accessItems.hide();
           $accessItems2.hide();
           $accessItemsMonthly.hide();
+          $accessItemsDayly.hide();
           $accessItems.closest('tr').hide();
           $accessItems2.parent().parent().hide();
           $accessItemsMonthly.parent().parent().hide();
+          $accessItemsDayly.parent().parent().hide();
           document.cookie = 'accesschecked=false;path=/';
         }
       });
@@ -411,6 +417,7 @@
           $accessItems.hide();
           $accessItems2.hide();
           $accessItemsMonthly.hide();
+          $accessItemsDayly.hide();
         }
       }
 
